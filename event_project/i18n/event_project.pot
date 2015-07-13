@@ -18,125 +18,125 @@ msgstr ""
 #. module: event_project
 #: view:project.template.wizard:event_project.view_project_template_wizard
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr ""
 
 #. module: event_project
 #: view:project.template.wizard:event_project.view_project_template_wizard
 msgid "Create Project"
-msgstr "Crear proyecto"
+msgstr ""
 
 #. module: event_project
 #: field:project.template.wizard,create_uid:0
 msgid "Created by"
-msgstr "Creado por"
+msgstr ""
 
 #. module: event_project
 #: field:project.template.wizard,create_date:0
 msgid "Created on"
-msgstr "Creado en"
+msgstr ""
 
 #. module: event_project
 #: model:ir.model,name:event_project.model_event_event
 #: view:project.task:event_project.view_task_search_form
 msgid "Event"
-msgstr "Evento"
+msgstr ""
 
 #. module: event_project
 #: view:event.event:event_project.view_event_form
 msgid "Event Details"
-msgstr "Detalles del evento"
+msgstr ""
 
 #. module: event_project
 #: field:project.template.wizard,event_id:0
 msgid "Event id"
-msgstr "ID del evento"
+msgstr ""
 
 #. module: event_project
 #: field:project.template.wizard,id:0
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: event_project
 #: field:project.template.wizard,write_uid:0
 msgid "Last Updated by"
-msgstr "Última actualización por"
+msgstr ""
 
 #. module: event_project
 #: field:project.template.wizard,write_date:0
 msgid "Last Updated on"
-msgstr "Última actualización en"
+msgstr ""
 
 #. module: event_project
 #: model:ir.model,name:event_project.model_project_project
 msgid "Project"
-msgstr "Proyecto"
+msgstr ""
 
 #. module: event_project
 #: model:ir.model,name:event_project.model_project_task_work
 msgid "Project Task Work"
-msgstr "Trabajo de la tarea"
+msgstr ""
 
 #. module: event_project
 #: model:ir.actions.act_window,name:event_project.action_project_template_wizard
 msgid "Project Template Wizard"
-msgstr "Wizard de plantilla de proyecto"
+msgstr ""
 
 #. module: event_project
 #: help:event.event,project_id:0
 msgid "Project end date will be updated with event start date."
-msgstr "La fecha fin del proyecto se actualizará con la fecha inicio del evento"
+msgstr ""
 
 #. module: event_project
 #: field:project.project,event_id:0
 #: field:project.task,event_id:0
 #: field:project.task.work,event_id:0
 msgid "Related event"
-msgstr "Evento relacionado"
+msgstr ""
 
 #. module: event_project
 #: field:event.event,project_id:0
 msgid "Related project"
-msgstr "Proyecto relacionado"
+msgstr ""
 
 #. module: event_project
 #: view:project.template.wizard:event_project.view_project_template_wizard
 msgid "Select a project template"
-msgstr "Seleccionar una plantilla de proyecto"
+msgstr ""
 
 #. module: event_project
 #: view:event.event:event_project.view_event_form
 msgid "Set Project Template"
-msgstr "Asignar plantilla de proyecto"
+msgstr ""
 
 #. module: event_project
 #: model:ir.model,name:event_project.model_project_task
 msgid "Task"
-msgstr "Tarea"
+msgstr ""
 
 #. module: event_project
 #: view:event.event:event_project.view_event_form
 #: model:ir.actions.act_window,name:event_project.act_event_task_list
 msgid "Tasks"
-msgstr "Tareas"
+msgstr ""
 
 #. module: event_project
 #: field:project.template.wizard,project_id:0
 msgid "Template project"
-msgstr "Proyecto plantilla"
+msgstr ""
 
 #. module: event_project
 #: code:addons/event_project/wizard/project_template_wizard.py:24
 #, python-format
 msgid "Template project is required."
-msgstr "El proyecto plantilla es obligatorio."
+msgstr ""
 
 #. module: event_project
 #: view:event.event:event_project.view_event_form
 #: field:event.event,work_ids:0
 msgid "Works"
-msgstr "Trabajos"
+msgstr ""
 
 #. module: event_project
 #: view:project.template.wizard:event_project.view_project_template_wizard
 msgid "or"
-msgstr "o"
+msgstr ""

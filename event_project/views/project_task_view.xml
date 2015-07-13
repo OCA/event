@@ -1,17 +1,35 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <openerp>
-  <data>
-    <record id="view_project_task_form" model="ir.ui.view">
-      <field name="name">view_project_task_form</field>
-      <field name="model">project.task</field>
-      <field name="inherit_id" ref="project.view_task_form2"/>
-      <field name="arch" type="xml">
+<data>
 
-        <field name="planned_hours" position="after">
-            <field name="anticipation_days"/>
+<!-- Allows to search by event and group by event -->
+<record id="view_task_search_form" model="ir.ui.view">
+    <field name="name">Filter and group tasks by event</field>
+    <field name="model">project.task</field>
+    <field name="inherit_id" ref="project.view_task_search_form"/>
+    <field name="arch" type="xml">
+        <field name="partner_id" position="after">
+            <field name="event_id"/>
         </field>
+        <filter name="Stage" position="after">
+            <filter string="Event" name="Event"
+                    context="{'group_by': 'event_id'}"/>
+        </filter>
+    </field>
+</record>
 
-      </field>
-    </record>
-  </data>
+<!-- Add related event to task form view -->
+<record id="view_task_form2" model="ir.ui.view">
+    <field name="name">Add related event to task</field>
+    <field name="model">project.task</field>
+    <field name="inherit_id" ref="project.view_task_form2"/>
+    <field name="arch" type="xml">
+        <field name="categ_ids" position="after">
+            <field name="event_id"
+                   attrs="{'invisible': [('event_id', '=', False)]}"/>
+        </field>
+    </field>
+</record>
+
+</data>
 </openerp>
