@@ -1,18 +1,56 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <openerp>
-  <data>
-    <record id="view_event_event_form" model="ir.ui.view">
-      <field name="name">view_event_event_form</field>
-      <field name="model">event.event</field>
-      <field name="inherit_id" ref="event.view_event_form"/>
-      <field name="arch" type="xml">
+<data>
 
+<!-- Action for smartbutton in event form view -->
+<record id="act_event_task_list" model="ir.actions.act_window">
+    <field name="res_model">project.task</field>
+    <field name="view_type">form</field>
+    <field name="name">Tasks</field>
+    <field name="view_mode">tree,gantt,kanban,form,calendar,graph</field>
+    <field name="context">{'default_event_id': active_id}</field>
+    <field name="domain">[('event_id', '=', active_id)]</field>
+</record>
+
+<!-- Add project fields and smartbutton in event form view -->
+<record id="view_event_form" model="ir.ui.view">
+    <field name="name">Add project to event</field>
+    <field name="model">event.event</field>
+    <field name="inherit_id" ref="event.view_event_form"/>
+    <field name="arch" type="xml">
+        <button name="button_cancel" position="after">
+            <button string="Set Project Template" states="draft,confirm"
+                    name="%(action_project_template_wizard)d" type="action"/>
+        </button>
         <field name="date_tz" position="after">
-            <field name="project" attrs="{'invisible':[('project_template','=',False)]}"/>
-            <field name="project_template" attrs="{'readonly':[('project','!=',False)]}"/>
+            <field name="project_id"
+                   domain="[('event_id', '=', False), ('state', 'not in', ('template', 'cancelled', 'close'))]"/>
         </field>
+        <div class="oe_right oe_button_box" position="inside">
+            <button name="%(act_event_task_list)d"
+                type="action"
+                class="oe_stat_button oe_inline"
+                icon="fa-tasks">
+                <field name="count_tasks" widget="statinfo" string="Tasks"/>
+            </button>
+        </div>
+        <page string="Event Details" position="after">
+            <page string="Works" attrs="{'invisible': [('project_id', '=', False)]}">
+                <field name="work_ids">
+                    <tree string="Works" editable="bottom"
+                          domain="[('task_id.project_id', '=', parent.project_id)]">
+                        <field name="date"/>
+                        <field name="task_id"
+                               domain="[('project_id', '=', parent.project_id)]"/>
+                        <field name="name"/>
+                        <field name="hours" widget="float_time"/>
+                        <field name="user_id"/>
+                    </tree>
+                </field>
+            </page>
+        </page>
+    </field>
+</record>
 
-      </field>
-    </record>
-  </data>
+</data>
 </openerp>
