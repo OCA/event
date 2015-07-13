@@ -4,8 +4,8 @@
 from openerp import models, fields
 
 
-class ProjectTask(models.Model):
-    _inherit = 'project.task'
+class ProjectTaskWork(models.Model):
+    _inherit = 'project.task.work'
 
     event_id = fields.Many2one(string="Related event", store=True,
-                               related='project_id.event_id')
+                               related='task_id.event_id')
