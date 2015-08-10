@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+     © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis -->
+
+<openerp>
+<data>
+
+<!-- Modify event form -->
+<record id="event_form" model="ir.ui.view">
+    <field name="name">Edit training groups</field>
+    <field name="model">event.event</field>
+    <field name="inherit_id" ref="event.view_event_form"/>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//notebook">
+                <page string="Training">
+                    <group>
+                        <field name="training_mode" invisible="True"/>
+                        <field
+                            name="course_id"
+                            attrs="{'required': [('training_mode', '=',
+                                                  True)]}"/>
+                        <field name="material_ids"
+                               widget="many2many_tags"
+                               attrs="{'invisible': [('course_id',
+                                                      '=', False)]}"/>
+                    </group>
+                </page>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<!-- Quick search of training groups -->
+<record id="event_search" model="ir.ui.view">
+    <field name="name">Search training groups</field>
+    <field name="model">event.event</field>
+    <field name="inherit_id" ref="event.view_event_search"/>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//group[@string='Group By']" position="before">
+                <separator/>
+                <!-- Search by course -->
+                <field name="course_id"/>
+
+                <!-- Show only training groups -->
+                <filter name="training_groups"
+                        string="Training groups"
+                        help="Show only events considered training groups"
+                        domain="[('course_id', '!=', False)]"/>
+            </xpath>
+            <xpath expr="//group[@string='Group By']">
+                <!-- Goup by course -->
+                <filter string="Course"
+                        help="Group event by course"
+                        context="{'group_by': 'course_id'}"/>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<!-- Action to open a filtered view of training group events only -->
+<record id="open_training_groups_view" model="ir.actions.act_window">
+    <field name="name">Training groups</field>
+    <field name="res_model">event.event</field>
+    <field name="view_mode">kanban,calendar,tree,form</field>
+    <field name="context">{
+        "search_default_training_groups": True,
+        "training_mode": True,
+    }</field>
+    <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+            Click to add a new training group.
+        </p>
+        <p>
+            Training groups are in really events, when you set a
+            course for them. You can do everything as with an event.
+        </p>
+    </field>
+</record>
+
+<menuitem id="training_groups_menu"
+          parent="catalog_menu"
+          groups="user_group"
+          name="Groups"
+          action="open_training_groups_view"/>
+
+</data>
+</openerp>

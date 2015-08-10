@@ -1,0 +1,4 @@
+id,name,type_id:id
+course_open_days,Odoo open days,course_type_mixed
+course_user_training,Odoo user training,course_type_online
+course_developer_training,Odoo developer training,course_type_on_site
