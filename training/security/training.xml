@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+     © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. -->
+
+<openerp>
+<data>
+
+<record id="category" model="ir.module.category">
+    <field name="name">Training</field>
+</record>
+
+<record id="user_group" model="res.groups">
+    <field name="name">User</field>
+    <field name="category_id" ref="category"/>
+    <field name="implied_ids" eval="[(4, ref('event.group_event_user'))]"/>
+    <field name="comment">
+        The user will be able to use the training module.
+    </field>
+</record>
+
+<record id="manager_group" model="res.groups">
+    <field name="name">Manager</field>
+    <field name="category_id" ref="category"/>
+    <field name="implied_ids" eval="[(4, ref('user_group'))]"/>
+    <field name="comment">
+        The user will be able to manage advanced settings for the training
+        module.
+    </field>
+    <field name="users" eval="[(4, ref('base.user_root'))]"/>
+</record>
+
+</data>
+</openerp>
