@@ -1,0 +1,5 @@
+id,duration,action_id:id,type_id:id
+duration_1,20,action_open_days,duration_type_on_site
+duration_2,40,action_open_days,duration_type_online
+duration_3,80,action_user_training,duration_type_online
+duration_4,20,action_developer_training,duration_type_on_site

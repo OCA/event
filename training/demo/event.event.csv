@@ -1,0 +1,4 @@
+id,training_action_id:id
+event.event_0,action_open_days
+event.event_1,action_user_training
+event.event_3,action_developer_training

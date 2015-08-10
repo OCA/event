@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+read_duration_type,Read training duration type,model_training_duration_type,user_group,1,0,0,0
+edit_duration_type,Edit training duration type,model_training_duration_type,manager_group,1,1,1,1
+edit_duration,Edit training duration,model_training_duration,user_group,1,1,1,1
+read_action_type,Read training action type,model_training_action_type,user_group,1,0,0,0
+edit_action_type,Edit training action type,model_training_action_type,manager_group,1,1,1,1
+edit_action,Edit training action,model_training_action,user_group,1,1,1,1

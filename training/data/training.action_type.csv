@@ -1,0 +1,8 @@
+id,name,expected_duration_type_ids:id
+action_type_on_site,On site,duration_type_on_site
+action_type_online,Online,duration_type_online
+action_type_remote,Remote,duration_type_remote
+action_type_mixed,Mixed,"duration_type_on_site,duration_type_online,duration_type_remote"
+action_type_on_site_remote,On site and remote,"duration_type_on_site,duration_type_remote"
+action_type_on_site_online,On site and online,"duration_type_on_site,duration_type_online"
+action_type_remote_online,Remote and online,"duration_type_remote,duration_type_online"
