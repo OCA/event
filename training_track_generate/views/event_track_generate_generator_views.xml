@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+     © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. -->
+<openerp>
+<data>
+
+<record id="generator_view_form" model="ir.ui.view">
+    <field name="name">Spanish training track generator</field>
+    <field name="model">event_track_generate.generator</field>
+    <field name="inherit_id" ref="event_track_generate.generator_view_form"/>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//group[@name='main']">
+                <group attrs="{
+                        'invisible': [('event_is_training', '=', False)]}"
+                       string="Training">
+                    <field name="available_duration_type_ids"
+                           invisible="True"/>
+                    <field name="event_is_training" invisible="True"/>
+                    <field name="duration_type_id"/>
+                </group>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+</data>
+</openerp>
