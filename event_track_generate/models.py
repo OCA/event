@@ -73,7 +73,10 @@ class Generator(models.TransientModel):
 
     @api.one
     def action_generate(self):
-        """Generate event tracks according to received data."""
+        """Generate event tracks according to received data.
+
+        This is the main method of this class, triggered by the UI.
+        """
         # You need at least one weekday
         weekdays = self.weekdays()[0]
         if True not in weekdays:
