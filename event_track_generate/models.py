@@ -105,7 +105,7 @@ class Generator(models.TransientModel):
             if self.adjust_end_time:
                 self.event_id.date_end = fields.Datetime.to_string(
                     fields.Datetime.from_string(sorted_[-1].date) +
-                    timedelta(seconds=sorted_[-1].duration * 60 * 60))
+                    timedelta(hours=sorted_[-1].duration))
 
     @api.one
     def create_track(self, **values):
@@ -128,10 +128,10 @@ class Generator(models.TransientModel):
         result = {
             "event_start": fields.Datetime.from_string(self.event_date_begin),
             "event_end": fields.Datetime.from_string(self.event_date_end),
-            "duration_delta": timedelta(seconds=self.duration * 60 * 60),
+            "duration_delta": timedelta(hours=self.duration),
             "day_delta": timedelta(days=1),
             "start_time":
-                datetime.min + timedelta(seconds=self.start_time * 60 * 60),
+                datetime.min + timedelta(hours=self.start_time),
         }
 
         # Needed to manually fix timezone offset, for start_time
