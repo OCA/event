@@ -1,8 +1,9 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License: AGPL-3
 
-Seats per registration in events
-================================
+====================================
+Seats limits in events registrations
+====================================
 
 This module was written to extend the functionality of events to support
 setting a maximum and a minimum of seats per registration.
@@ -17,6 +18,10 @@ To use this module, you need to:
 
 * Enter an event form.
 * Use the new fields in the *Registrations* tab.
+
+.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
+   :alt: Try me on Runbot
+   :target: https://runbot.odoo-community.org/runbot/199/8.0
 
 For further information, please visit:
 
@@ -38,8 +43,13 @@ Credits
 Contributors
 ------------
 
-* `Grupo ESOC <http://grupoesoc.es>`_:
-    * `Jairo Llopis <mailto:j.llopis@grupoesoc.es>`_.
+* `Jairo Llopis <mailto:j.llopis@grupoesoc.es>`_.
+
+Icon
+----
+
+* Original icon from Odoo event module
+* https://openclipart.org/detail/19350/classroom-seat-layouts
 
 Maintainer
 ----------
