@@ -26,7 +26,7 @@ class ResPartner(models.Model):
         self.registration_count = len(self.registrations)
 
     @api.one
-    @api.depends('attended_registrations')
+    @api.depends('registrations')
     def _count_attended_registration(self):
         self.attended_registration_count = len(self.registrations.filtered(
             lambda x: x.state == 'done'))
