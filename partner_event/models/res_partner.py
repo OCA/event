@@ -4,7 +4,6 @@
 ##############################################################################
 
 from openerp import models, fields, api
-from openerp.osv.expression import NEGATIVE_TERM_OPERATORS
 
 
 class ResPartner(models.Model):
