@@ -17,15 +17,11 @@ class ResPartner(models.Model):
         store=True)
     attended_registration_count = fields.Integer(
         string='Event attended registrations number',
-        compute='_count_attended_registration', store=True)
+        compute='_count_registration', store=True)
 
     @api.one
     @api.depends('registrations')
     def _count_registration(self):
         self.registration_count = len(self.registrations)
-
-    @api.one
-    @api.depends('registrations')
-    def _count_attended_registration(self):
         self.attended_registration_count = len(self.registrations.filtered(
             lambda x: x.state == 'done'))
