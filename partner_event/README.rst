@@ -1,28 +1,21 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License: AGPL-3
 
+=======================
 Link partner and events
 =======================
 
-This module links partner with the events they are registered through a
+This module links partners with the events they are registered through a
 smart button.
 
-It also includes a field for view and search only attended events.
+It also includes:
 
-And finally, partner column is visible on registration one2many list inside
-the event.
-
-
-Installation
-============
-
-Nothing special needed
-
-
-Configuration
-=============
-
-Nothing special needed
+* Search partners by their event registrations.
+* Search partners by number of events registered.
+* Search partners by number of events attended.
+* Partner column is visible on registration one2many list inside the event.
+* Action in partner tree view 'More' button, to register several partners
+  to an event
 
 
 Usage
@@ -31,12 +24,6 @@ Usage
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
    :target: https://runbot.odoo-community.org/runbot/199/8.0
-
-
-Known issues / Roadmap
-======================
-
-Nothing yet
 
 
 Bug Tracker
