@@ -34,24 +34,24 @@ msgid "Event Registration"
 msgstr "Registros al evento"
 
 #. module: event_registration_seat_limit
-#: field:event.event,seats_per_registration_max:0
+#: field:event.event,registration_seats_max:0
 msgid "Maximum of participants per registration"
 msgstr "Máximo de participantes por registro"
 
 #. module: event_registration_seat_limit
-#: field:event.event,seats_per_registration_min:0
+#: field:event.event,registration_seats_min:0
 msgid "Minimum of participants per registration"
 msgstr "Mínimo de participantes por registro"
 
 #. module: event_registration_seat_limit
-#: help:event.event,seats_per_registration_min:0
+#: help:event.event,registration_seats_min:0
 msgid ""
 "Registrations with less than this number of participants will be forbidden."
 msgstr ""
 "Los registros con menos de este número de participantes estarán prohibidos."
 
 #. module: event_registration_seat_limit
-#: help:event.event,seats_per_registration_max:0
+#: help:event.event,registration_seats_max:0
 msgid ""
 "Registrations with more than this number of participants will be forbidden. "
 "Set 0 to ignore this setting."

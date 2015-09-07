@@ -13,15 +13,15 @@
         <data>
             <xpath expr="//page[@string='Registrations']/group">
                 <group>
-                    <field name="seats_per_registration_min"/>
-                    <field name="seats_per_registration_max"/>
+                    <field name="registration_seats_min"/>
+                    <field name="registration_seats_max"/>
                 </group>
             </xpath>
             <xpath expr="//field[@name='registration_ids']"
                    position="attributes">
                 <attribute name="context">
                     {"event_id": active_id,
-                     "default_nb_register": seats_per_registration_min}
+                     "default_nb_register": registration_seats_min}
                 </attribute>
             </xpath>
         </data>

@@ -4,7 +4,7 @@
 
 {
     "name": "Seats per registration in events",
-    "version": "8.0.3.1.0",
+    "version": "8.0.4.0.0",
     "category": "Tools",
     "author": "Grupo ESOC, Odoo Community Association (OCA)",
     "license": "AGPL-3",
