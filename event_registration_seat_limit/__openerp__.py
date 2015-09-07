@@ -6,7 +6,7 @@
     "name": "Seats per registration in events",
     "version": "8.0.3.1.0",
     "category": "Tools",
-    "author": "Odoo Community Association (OCA)",
+    "author": "Grupo ESOC, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "website": "http://www.grupoesoc.es",
     "installable": True,
