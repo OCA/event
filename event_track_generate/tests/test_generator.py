@@ -64,7 +64,7 @@ class GeneratorCase(TransactionCase):
             self.generator.start_time + self.generator.duration)
 
     def test_with_weekdays_and_delete_existing_tracks(self):
-        """Test generating for all possible weekdays combination.
+        """Test generating all possible weekdays combination.
 
         Test also if the deletion of existing tracks work.
         """
