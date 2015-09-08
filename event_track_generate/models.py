@@ -84,7 +84,7 @@ class Generator(models.TransientModel):
 
         # Delete existing
         if self.delete_existing_tracks:
-            self.event_id.track_ids.exists().unlink()
+            self.event_id.track_ids.unlink()
 
         # Create new
         self.generate_tracks()
