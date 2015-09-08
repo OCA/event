@@ -79,7 +79,7 @@ class Generator(models.TransientModel):
         """
         # You need at least one weekday
         weekdays = self.weekdays()[0]
-        if True not in weekdays:
+        if not any(weekdays):
             raise exceptions.NoWeekdaysError()
 
         # Delete existing
