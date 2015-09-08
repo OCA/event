@@ -9,7 +9,7 @@
     "author": "Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "website": "http://www.grupoesoc.es",
-    "summary": "Insert automatically event tracks",
+    "summary": "Generate a bunch of event tracks at once",
     "depends": [
         "website_event_track",
     ],
