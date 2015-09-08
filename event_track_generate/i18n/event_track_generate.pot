@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 8.0-20150514\n"
+"Project-Id-Version: Odoo Server 8.0-20150814\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-01 10:29+0000\n"
-"PO-Revision-Date: 2015-07-01 10:29+0000\n"
+"POT-Creation-Date: 2015-09-08 09:26+0000\n"
+"PO-Revision-Date: 2015-09-08 09:26+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -101,7 +101,7 @@ msgid "Each track will start at this time (in the event's timezone)."
 msgstr ""
 
 #. module: event_track_generate
-#: code:addons/event_track_generate/exceptions.py:24
+#: code:addons/event_track_generate/exceptions.py:10
 #, python-format
 msgid "Error(s) with the event track generator."
 msgstr ""

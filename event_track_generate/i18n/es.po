@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0-20150514\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-01 12:29+0100\n"
-"PO-Revision-Date: 2015-07-01 12:30+0100\n"
+"POT-Creation-Date: 2015-09-08 11:27+0200\n"
+"PO-Revision-Date: 2015-09-08 11:27+0200\n"
 "Last-Translator: Jairo Llopis <j.llopis@grupoesoc.es>\n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.1\n"
+"X-Generator: Poedit 1.8.4\n"
 
 #. module: event_track_generate
 #: field:event_track_generate.generator,adjust_end_time:0
@@ -103,7 +103,7 @@ msgid "Each track will start at this time (in the event's timezone)."
 msgstr "Cada sesión empezará a esta hora (en el huso horario del evento)."
 
 #. module: event_track_generate
-#: code:addons/event_track_generate/exceptions.py:24
+#: code:addons/event_track_generate/exceptions.py:10
 #, python-format
 msgid "Error(s) with the event track generator."
 msgstr "Error(es) con el generador de sesiones de eventos."
