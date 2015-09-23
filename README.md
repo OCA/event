@@ -13,6 +13,16 @@ current functionality in Odoo:
 * Allow nested events
 * ...
 
+[//]: # (addons)
+Available addons
+----------------
+addon | version | summary
+--- | --- | ---
+[event_project](event_project/) | 1.0 | Event project
+[partner_event](partner_event/) | 8.0.1.1.0 | Link partner to events
+
+[//]: # (end addons)
+
 Translation Status
 ------------------
 [![Transifex Status](https://www.transifex.com/projects/p/OCA-event-8-0/chart/image_png)](https://www.transifex.com/projects/p/event-8-0)
