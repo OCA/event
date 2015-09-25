@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+<function model="event.registration" name="_origin_inverse_all"/>
+
+</data>
+</openerp>

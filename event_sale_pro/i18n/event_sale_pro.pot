@@ -1,0 +1,146 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* event_sale_pro
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-29 11:17+0000\n"
+"PO-Revision-Date: 2015-09-29 11:17+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: event_sale_pro
+#: code:addons/event_sale_pro/models/quotation_generator.py:101
+#, python-format
+msgid "%(product)s in event \"%(event)s\" for %(partner)s."
+msgstr ""
+
+#. module: event_sale_pro
+#: code:addons/event_sale_pro/models/quotation_generator.py:98
+#, python-format
+msgid "%(product)s in event \"%(event)s\" of type \"%(type)s\" for %(partner)s."
+msgstr ""
+
+#. module: event_sale_pro
+#: view:event_sale_pro.quotation_generator:event_sale_pro.generator_view_form
+msgid "Cancel"
+msgstr ""
+
+#. module: event_sale_pro
+#: help:event_sale_pro.quotation_generator,group_by_commercial_entity:0
+msgid "Check this box if you want to generate one quotation per commercial entity. Leave it unchecked to generate one per registration."
+msgstr ""
+
+#. module: event_sale_pro
+#: field:event_sale_pro.quotation_generator,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: event_sale_pro
+#: field:event_sale_pro.quotation_generator,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: event_sale_pro
+#: field:event_sale_pro.quotation_generator,event_id:0
+msgid "Event"
+msgstr ""
+
+#. module: event_sale_pro
+#: model:ir.model,name:event_sale_pro.model_event_registration
+msgid "Event Registration"
+msgstr ""
+
+#. module: event_sale_pro
+#: help:event_sale_pro.quotation_generator,product_id:0
+msgid "Event subscription product that will be sold."
+msgstr ""
+
+#. module: event_sale_pro
+#: model:ir.actions.act_window,name:event_sale_pro.generator_action
+msgid "Generate quotations"
+msgstr ""
+
+#. module: event_sale_pro
+#: view:event_sale_pro.quotation_generator:event_sale_pro.generator_view_form
+msgid "Generate sale orders"
+msgstr ""
+
+#. module: event_sale_pro
+#: field:event_sale_pro.quotation_generator,group_by_commercial_entity:0
+msgid "Group by commercial entity"
+msgstr ""
+
+#. module: event_sale_pro
+#: field:event_sale_pro.quotation_generator,id:0
+msgid "ID"
+msgstr ""
+
+#. module: event_sale_pro
+#: field:event.registration,invoiced_partner_id:0
+msgid "Invoiced partner"
+msgstr ""
+
+#. module: event_sale_pro
+#: field:event_sale_pro.quotation_generator,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: event_sale_pro
+#: field:event_sale_pro.quotation_generator,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: event_sale_pro
+#: help:event.registration,origin_id:0
+msgid "Object linked to the registration."
+msgstr ""
+
+#. module: event_sale_pro
+#: field:event.registration,origin_id:0
+msgid "Origin"
+msgstr ""
+
+#. module: event_sale_pro
+#: field:event_sale_pro.quotation_generator,product_id:0
+msgid "Product"
+msgstr ""
+
+#. module: event_sale_pro
+#: field:event_sale_pro.quotation_generator,registration_ids:0
+msgid "Registrations"
+msgstr ""
+
+#. module: event_sale_pro
+#: code:addons/event_sale_pro/models/event.py:21
+#, python-format
+msgid "Sale order line"
+msgstr ""
+
+#. module: event_sale_pro
+#: model:ir.model,name:event_sale_pro.model_sale_order_line
+msgid "Sales Order Line"
+msgstr ""
+
+#. module: event_sale_pro
+#: help:event.registration,invoiced_partner_id:0
+msgid "This is the partner that will recieve the invoice. It can be different from the participant's company when one company pays for registration of others' employees, or when your company organizes the event in the name of a different company. Do not fill this if it is not different from the partner."
+msgstr ""
+
+#. module: event_sale_pro
+#: code:addons/event_sale_pro/models/quotation_generator.py:49
+#, python-format
+msgid "You cannot generate quotations for multiple events."
+msgstr ""
+
+#. module: event_sale_pro
+#: view:event_sale_pro.quotation_generator:event_sale_pro.generator_view_form
+msgid "or"
+msgstr ""
+
