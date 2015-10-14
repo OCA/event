@@ -39,5 +39,5 @@
         'views/event_event_view.xml',
         'wizard/res_partner_register_event_view.xml',
     ],
-    "installable": True,
+    'installable': False,
 }
