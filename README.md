@@ -14,6 +14,13 @@ current functionality in Odoo:
 * ...
 
 [//]: # (addons)
+Unported addons
+---------------
+addon | version | summary
+--- | --- | ---
+[event_project](event_project/) | 8.0.1.0.0 (unported) | Event project
+[partner_event](partner_event/) | 8.0.1.1.0 (unported) | Link partner to events
+
 [//]: # (end addons)
 
 Translation Status
