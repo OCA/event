@@ -112,6 +112,8 @@ class Action(models.Model):
         _D % "action_type",
         "Training type",
         required=True)
+    contents = fields.Html(
+        help="Contents of the course, shown in the rear side of the diploma.")
     duration_ids = fields.One2many(
         _D % "duration",
         "action_id",
