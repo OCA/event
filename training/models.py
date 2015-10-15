@@ -49,7 +49,7 @@ class Duration(models.Model):
         "Training action",
         required=True)
 
-    @api.one
+    @api.multi
     @api.constrains("type_id", "action_id")
     def _check_right_duration_types(self):
         """Check that the hour types are the right ones."""
