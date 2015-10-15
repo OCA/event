@@ -14,6 +14,7 @@
     "summary": "Extend events with training capabilities",
     "depends": [
         "event",
+        "report",
     ],
     "data": [
         "data/training.duration_type.csv",
@@ -23,6 +24,7 @@
         "views/menus.xml",
         "views/event.xml",
         "views/action_type.xml",
+        "views/diploma.xml",
         "views/action.xml",
         "views/duration_type.xml",
     ],
