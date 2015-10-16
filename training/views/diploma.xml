@@ -34,28 +34,32 @@
 
 <template id="diploma_report_translatable">
     <t t-call="report.external_layout">
-        <div class="page">
-            <div class="row">
-                <h1 class="col-md-12 text-center">Diploma</h1>
-                <p class="col-md-12 text-center" t-esc="res_company.name"/>
-                <h4 class="col-md-12 text-center">Certifies that</h4>
-                <h2 class="col-md-12 text-center" t-esc="o.name"/>
-                <p class="col-md-12">
-                    Has successfully completed the course
-                    <t t-esc="o.event_id.training_action_id.name"/>, in
-                    <t t-esc="o.with_context(show_address=True).event_id
-                              .address_id.name_get()[0][1]"/>,
-                    imparted from <t t-esc="o.event_id.date_begin"/>
-                    to <t t-esc="o.event_id.date_end"/>.
-                </p>
-                <p class="col-md-12">
-                    <t t-if="o.event_id.address_id and
-                             o.event_id.address_id.city">
-                        <t t-esc="o.event_id.address_id.city"/>, at
-                    </t>
-                    <t t-esc="o.event_id.date_end"/>.
-                </p>
-            </div>
+        <div class="page row">
+            <h1 class="text-center">Diploma</h1>
+            <p class="text-center" t-esc="res_company.name"/>
+            <h4 class="text-center">Certifies that</h4>
+            <h2 class="text-center" t-esc="o.name"/>
+            <p>
+                Has successfully completed the course
+                <t t-esc="o.event_id.training_action_id.name"/>, in
+                <t t-esc="o.with_context(show_address=True).event_id
+                          .address_id.name_get()[0][1]"/>,
+                imparted from <t t-esc="o.event_id.date_begin"/>
+                to <t t-esc="o.event_id.date_end"/>.
+            </p>
+            <p>
+                <t t-if="o.event_id.address_id and
+                         o.event_id.address_id.city">
+                    <t t-esc="o.event_id.address_id.city"/>, at
+                </t>
+                <t t-esc="o.event_id.date_end"/>.
+            </p>
+            <t t-if="o.event_id.training_action_id.contents">
+                <h2 class="text-center"
+                    style="page-break-before: always">Course Contents</h2>
+                <div class="row"
+                     t-raw="o.event_id.training_action_id.contents"/>
+            </t>
         </div>
     </t>
 </template>
