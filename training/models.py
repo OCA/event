@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 # © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U.
 
-from openerp import api, fields, models
+from openerp import _, api, fields, models
 from . import exceptions
 
 
@@ -113,7 +113,12 @@ class Action(models.Model):
         "Training type",
         required=True)
     contents = fields.Html(
+        translatable=True,
         help="Contents of the course, shown in the rear side of the diploma.")
+    append_template = fields.Selection(
+        ((2, "2 columns"), (3, "3 columns"), (4, "4 columns")),
+        help="Append one of these templates to the diploma contents. "
+             "They will help you to achieve some complex layouts.")
     duration_ids = fields.One2many(
         _D % "duration",
         "action_id",
@@ -142,6 +147,17 @@ class Action(models.Model):
                 self.duration_ids |= self.duration_ids.new(
                     {"action_id": self,
                      "type_id": duration_type})
+
+    @api.onchange("append_template")
+    def _onchange_append_template(self):
+        """Append the template to the contents and void that dummy field."""
+        if self.append_template:
+            single = '<div class="col-xs-{}">{}</div>'.format(
+                12 / self.append_template,
+                _("Column %d"))
+            columns = range(1, self.append_template + 1)
+            self.contents += (single * self.append_template) % tuple(columns)
+            self.append_template = False
 
 
 class Event(models.Model):
