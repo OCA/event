@@ -22,7 +22,7 @@
     <field name="model">training.action</field>
     <field name="arch" type="xml">
         <form>
-            <group>
+            <group string="Information">
                 <field name="name"/>
                 <field name="type_id"/>
                 <field name="duration_ids">
@@ -31,7 +31,10 @@
                         <field name="duration" widget="float_time"/>
                     </tree>
                 </field>
-                <field name="contents"/>
+            </group>
+            <group string="Contents">
+                <field name="append_template"/>
+                <field name="contents" nolabel="True"/>
             </group>
         </form>
     </field>
