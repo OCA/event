@@ -20,13 +20,11 @@ class PermissionsCase(BaseCase):
 
     Base class for permissions tests.
     """
-
     def setUp(self, *args, **kwargs):
         """Change user to test permissions.
 
         Also prepare the variables needed to run the tests.
         """
-
         # Create standard records
         super(PermissionsCase, self).setUp(*args, **kwargs)
 
@@ -44,7 +42,6 @@ class PermissionsCase(BaseCase):
 
     def tearDown(self, *args, **kwargs):
         """Check expected exception (if there is one)."""
-
         # Test that the method raises the right exception, if any
         method = (self.assertRaises
                   if self.expected_exception
@@ -58,12 +55,10 @@ class PermissionsCase(BaseCase):
 
     def _sudo(self):
         """Use the given model with the given user."""
-
         return self.env[self.tested_record._name].sudo(self.tested_user)
 
     def test_select(self):
         "Test permissions when reading a record."
-
         self.expected_exception = self.ex_select
         self.subtest = lambda: getattr(
             self._sudo().browse(self.tested_record.id),
@@ -71,21 +66,18 @@ class PermissionsCase(BaseCase):
 
     def test_update(self):
         "Test permissions when updating a record."
-
         self.expected_exception = self.ex_update
         self.subtest = lambda: (self._sudo().browse(self.tested_record.id)
                                 .write(self.insert_data))
 
     def test_insert(self):
         "Test permissions when inserting a record."
-
         self.expected_exception = self.ex_insert
         self.tested_user.email = "example@example.com"
         self.subtest = lambda: self._sudo().create(self.insert_data)
 
     def test_delete(self):
         "Test permissions when deleting a record."
-
         self.expected_exception = self.ex_delete
         self.subtest = lambda: (self._sudo()
                                 .browse(self.tested_record.id).unlink())
