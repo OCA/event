@@ -11,7 +11,6 @@ class ActionOnChangeTypeFulfillExpectedDurationTypesCase(BaseCase):
     That method of training actions gets triggered when changing the action
     type, and is supposed to update the duration_ids field.
     """
-
     create_method = "new"
 
     def tearDown(self, *args, **kwargs):
@@ -32,12 +31,10 @@ class ActionOnChangeTypeFulfillExpectedDurationTypesCase(BaseCase):
 
     def test_when_empty(self):
         """When training action has no duration records at all."""
-
         pass
 
     def test_when_full_good(self):
         """Create good duration records for the action."""
-
         for duration_type in self.duration_types_good:
             self.action.duration_ids |= self.create(
                 "duration",
@@ -46,7 +43,6 @@ class ActionOnChangeTypeFulfillExpectedDurationTypesCase(BaseCase):
 
     def test_when_half_good(self):
         """Create only one good duration record for the action."""
-
         self.action.duration_ids |= self.create(
             "duration",
             {"type_id": self.duration_types_good[0].id,
@@ -54,7 +50,6 @@ class ActionOnChangeTypeFulfillExpectedDurationTypesCase(BaseCase):
 
     def test_when_full_bad(self):
         """Create bad duration records for the action."""
-
         for duration_type in self.duration_types_bad:
             self.action.duration_ids |= self.create(
                 "duration",
@@ -63,7 +58,6 @@ class ActionOnChangeTypeFulfillExpectedDurationTypesCase(BaseCase):
 
     def test_when_half_bad(self):
         """Create only one bad duration record for the action."""
-
         self.action.duration_ids |= self.create(
             "duration",
             {"type_id": self.duration_types_bad[0].id,
@@ -71,7 +65,6 @@ class ActionOnChangeTypeFulfillExpectedDurationTypesCase(BaseCase):
 
     def test_when_half_good_half_bad(self):
         """Create only one good and one bad duration record for the action."""
-
         self.action.duration_ids |= self.create(
             "duration",
             {"type_id": self.duration_types_good[0].id,
