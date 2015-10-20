@@ -15,12 +15,12 @@ class ActionOnChangeTypeFulfillExpectedDurationTypesCase(BaseCase):
 
     def tearDown(self, *args, **kwargs):
         """All tests end checking that the fulfill was right."""
+        with self.env.do_in_onchange():
+            # Set the action's type
+            self.action.type_id = self.action_type_good
 
-        # Set the action's type
-        self.action.type_id = self.action_type
-
-        # This should be run automatically when on UI
-        self.action._onchange_type_id_fulfill_expected_duration_types()
+            # This should be run automatically when on UI
+            self.action._onchange_type_id_fulfill_expected_duration_types()
 
         # Check that it was fulfilled right
         self.assertEqual(set(self.action.mapped("duration_ids.type_id.name")),

@@ -31,14 +31,14 @@ class BaseCase(TransactionCase):
              "date_begin": datetime.now(),
              "date_end": datetime.now()})
 
-        self.action_type = self.create(
+        self.action_type_good = self.create(
             "action_type",
-            {"name": "Dummy training action type"})
+            {"name": "Dummy good training action type"})
 
         self.action = self.create(
             "action",
             {"name": "Dummy training action",
-             "type_id": self.action_type.id})
+             "type_id": self.action_type_good.id})
 
         duration_type_1 = self.create(
             "duration_type",
@@ -59,7 +59,8 @@ class BaseCase(TransactionCase):
         self.duration_types_good = duration_type_1 | duration_type_2
         self.duration_types_bad = duration_type_3 | duration_type_4
 
-        self.action_type.expected_duration_type_ids = self.duration_types_good
+        self.action_type_good.expected_duration_type_ids = (
+            self.duration_types_good)
 
         tutor_1 = self.create(
             "res.partner",
