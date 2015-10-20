@@ -105,7 +105,7 @@ class ActionTypePermissionsCase(PermissionsCase):
     def setUp(self, *args, **kwargs):
         super(ActionTypePermissionsCase, self).setUp(*args, **kwargs)
 
-        self.tested_record = self.action_type
+        self.tested_record = self.action_type_good
 
 
 class ActionPermissionsCase(PermissionsCase):
@@ -113,7 +113,7 @@ class ActionPermissionsCase(PermissionsCase):
         super(ActionPermissionsCase, self).setUp(*args, **kwargs)
 
         self.tested_record = self.action
-        self.insert_data["type_id"] = self.action_type.id
+        self.insert_data["type_id"] = self.action_type_good.id
 
 
 class EventPermissionsCase(PermissionsCase):
