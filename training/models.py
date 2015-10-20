@@ -137,7 +137,7 @@ class Action(models.Model):
         # Remove invalid hour expectations
         valid_duration_types = self.type_id.expected_duration_type_ids
         for duration in self.duration_ids:
-            if duration.duration_type_id not in valid_duration_types:
+            if duration.type_id not in valid_duration_types:
                 self.duration_ids -= duration
 
         # Add new hour expectations

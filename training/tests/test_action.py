@@ -39,7 +39,7 @@ class ActionOnChangeTypeFulfillExpectedDurationTypesCase(BaseCase):
         """Create good duration records for the action."""
 
         for duration_type in self.duration_types_good:
-            self.create(
+            self.action.duration_ids |= self.create(
                 "duration",
                 {"type_id": duration_type.id,
                  "action_id": self.action.id})
@@ -47,7 +47,7 @@ class ActionOnChangeTypeFulfillExpectedDurationTypesCase(BaseCase):
     def test_when_half_good(self):
         """Create only one good duration record for the action."""
 
-        self.create(
+        self.action.duration_ids |= self.create(
             "duration",
             {"type_id": self.duration_types_good[0].id,
              "action_id": self.action.id})
@@ -56,7 +56,7 @@ class ActionOnChangeTypeFulfillExpectedDurationTypesCase(BaseCase):
         """Create bad duration records for the action."""
 
         for duration_type in self.duration_types_bad:
-            self.create(
+            self.action.duration_ids |= self.create(
                 "duration",
                 {"type_id": duration_type.id,
                  "action_id": self.action.id})
@@ -64,7 +64,7 @@ class ActionOnChangeTypeFulfillExpectedDurationTypesCase(BaseCase):
     def test_when_half_bad(self):
         """Create only one bad duration record for the action."""
 
-        self.create(
+        self.action.duration_ids |= self.create(
             "duration",
             {"type_id": self.duration_types_bad[0].id,
              "action_id": self.action.id})
@@ -72,11 +72,11 @@ class ActionOnChangeTypeFulfillExpectedDurationTypesCase(BaseCase):
     def test_when_half_good_half_bad(self):
         """Create only one good and one bad duration record for the action."""
 
-        self.create(
+        self.action.duration_ids |= self.create(
             "duration",
             {"type_id": self.duration_types_good[0].id,
              "action_id": self.action.id})
-        self.create(
+        self.action.duration_ids |= self.create(
             "duration",
             {"type_id": self.duration_types_bad[0].id,
              "action_id": self.action.id})
