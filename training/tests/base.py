@@ -9,7 +9,6 @@ from ..models import _D
 
 class BaseCase(TransactionCase):
     """Common setup methods."""
-
     create_method = "create"
 
     def create(self, model, values):
@@ -34,6 +33,10 @@ class BaseCase(TransactionCase):
         self.action_type_good = self.create(
             "action_type",
             {"name": "Dummy good training action type"})
+
+        self.action_type_bad = self.create(
+            "action_type",
+            {"name": "Dummy bad training action type"})
 
         self.action = self.create(
             "action",
@@ -61,6 +64,8 @@ class BaseCase(TransactionCase):
 
         self.action_type_good.expected_duration_type_ids = (
             self.duration_types_good)
+        self.action_type_bad.expected_duration_type_ids = (
+            self.duration_types_bad)
 
         tutor_1 = self.create(
             "res.partner",
