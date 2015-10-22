@@ -3,64 +3,6 @@
 # © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U.
 
 from openerp import _, api, fields, models
-from . import exceptions
-
-
-# Current module domain
-_D = "training.%s"
-
-
-class DurationType(models.Model):
-    """Types of the training actions' durations.
-
-    See docs for :class:`~.ActionType`.
-    """
-
-    _name = _D % "duration_type"
-    _sql_constraints = [("unique_name",
-                         "UNIQUE(name)",
-                         "Name must be unique.")]
-
-    name = fields.Char(required=True, index=True, translate=True)
-    duration_ids = fields.One2many(
-        _D % "duration",
-        "type_id",
-        "Expected hours of this type",
-        help="Expected hours of this type defined in training actions.")
-    action_type_ids = fields.Many2many(
-        _D % "action_type",
-        string="Training action types",
-        help="Training action types that expect this hour type.")
-
-
-class Duration(models.Model):
-    _name = _D % "duration"
-    _sql_constraints = [("training_vs_hours_unique",
-                         "UNIQUE(type_id, action_id)",
-                         "Cannot repeat the hour type in a training action.")]
-
-    duration = fields.Float(default=0, required=True)
-    type_id = fields.Many2one(
-        _D % "duration_type",
-        "Type of hours",
-        required=True)
-    action_id = fields.Many2one(
-        _D % "action",
-        "Training action",
-        required=True)
-
-    @api.multi
-    @api.constrains("type_id", "action_id")
-    def _check_right_duration_types(self):
-        """Check that the hour types are the right ones."""
-
-        expected_types = (self.action_id.type_id
-                          .expected_duration_type_ids)
-
-        if expected_types and self.type_id not in expected_types:
-            raise exceptions.WrongDurationType(
-                self.type_id,
-                expected_types)
 
 
 class ActionType(models.Model):
@@ -76,19 +18,19 @@ class ActionType(models.Model):
     You can configure it as you wish.
     """
 
-    _name = _D % "action_type"
+    _name = "training.action_type"
     _sql_constraints = [("unique_name",
                          "UNIQUE(name)",
                          "Name must be unique.")]
 
     name = fields.Char(required=True, index=True, translate=True)
     action_ids = fields.One2many(
-        _D % "action",
+        "training.action",
         "type_id",
         "Training actions",
         help="Training actions of this type.")
     expected_duration_type_ids = fields.Many2many(
-        _D % "duration_type",
+        "training.duration_type",
         string="Expected hour types",
         help="These types of hours are expected in this type of training "
              "action. For example, a training of type 'mixed' may expect "
@@ -105,11 +47,11 @@ class Action(models.Model):
     fulfill. Events linked to training actions are considered training groups.
     """
 
-    _name = _D % "action"
+    _name = "training.action"
 
     name = fields.Char(required=True, index=True, translate=True)
     type_id = fields.Many2one(
-        _D % "action_type",
+        "training.action_type",
         "Training type",
         required=True)
     contents = fields.Html(
@@ -120,7 +62,7 @@ class Action(models.Model):
         help="Append one of these templates to the diploma contents. "
              "They will help you to achieve some complex layouts.")
     duration_ids = fields.One2many(
-        _D % "duration",
+        "training.duration",
         "action_id",
         "Expected hours",
         help="Expected duration of each type of hours for these training "
@@ -149,7 +91,7 @@ class Action(models.Model):
                 # Try to restore it from DB
                 if (self.env.context.get("active_model") == self._name and
                         self.env.context.get("active_id")):
-                    new_duration = self.env[_D % "duration"].search((
+                    new_duration = self.env["training.duration"].search((
                         ("type_id", "=", duration_type.id),
                         ("action_id", "=", self.env.context["active_id"]),
                     ))
@@ -173,18 +115,3 @@ class Action(models.Model):
             columns = range(1, self.append_template + 1)
             self.contents += (single * self.append_template) % tuple(columns)
             self.append_template = False
-
-
-class Event(models.Model):
-    """Expand events with training actions.
-
-    Events with a training type and a training action are considered training
-    groups.
-    """
-
-    _inherit = "event.event"
-
-    training_action_id = fields.Many2one(
-        _D % "action",
-        "Training action",
-        help="Training action of this event, if it is a training group.")
