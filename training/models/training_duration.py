@@ -54,6 +54,6 @@ class Duration(models.Model):
                           .expected_duration_type_ids)
 
         if expected_types and self.type_id not in expected_types:
-            raise exceptions.WrongDurationType(
+            raise exceptions.WrongDurationTypeError(
                 self.type_id,
                 expected_types)

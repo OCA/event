@@ -11,7 +11,7 @@ class TrainingValidationError(exceptions.ValidationError):
         self.name = _("Error(s) with the training data.")
 
 
-class WrongDurationType(TrainingValidationError):
+class WrongDurationTypeError(TrainingValidationError):
     def __init__(self,
                  invalid_hour_type,
                  valid_hour_types,
@@ -23,4 +23,4 @@ class WrongDurationType(TrainingValidationError):
         value = value % {"hour_type": invalid_hour_type.name,
                          "training_type": ", ".join(valid_hour_types
                                                     .mapped("name"))}
-        super(WrongDurationType, self).__init__(value)
+        super(WrongDurationTypeError, self).__init__(value)
