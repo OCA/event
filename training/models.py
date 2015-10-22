@@ -144,9 +144,24 @@ class Action(models.Model):
         current_duration_types = self.mapped("duration_ids.type_id")
         for duration_type in self.type_id.expected_duration_type_ids:
             if duration_type not in current_duration_types:
-                self.duration_ids |= self.duration_ids.new(
-                    {"action_id": self,
-                     "type_id": duration_type})
+                new_duration = False
+
+                # Try to restore it from DB
+                if (self.env.context.get("active_model") == self._name and
+                        self.env.context.get("active_id")):
+                    new_duration = self.env[_D % "duration"].search((
+                        ("type_id", "=", duration_type.id),
+                        ("action_id", "=", self.env.context["active_id"]),
+                    ))
+
+                # Create a new one otherwise
+                if not new_duration:
+                    new_duration = self.duration_ids.new({
+                        "action_id": self,
+                        "type_id": duration_type,
+                    })
+
+                self.duration_ids |= new_duration
 
     @api.onchange("append_template")
     def _onchange_append_template(self):
