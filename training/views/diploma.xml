@@ -38,7 +38,12 @@
             <h1 class="text-center">Diploma</h1>
             <p class="text-center" t-esc="res_company.name"/>
             <h4 class="text-center">Certifies that</h4>
-            <h2 class="text-center" t-esc="o.name"/>
+            <h2 class="text-center">
+                <small t-if="o.partner_id and o.partner_id.title"
+                       t-esc="o.partner_id.title.shortcut or
+                              o.partner_id.title.name"/>
+                <t t-esc="o.name"/>
+            </h2>
             <p>
                 Has successfully completed the course
                 <t t-esc="o.event_id.training_action_id.name"/>, in
