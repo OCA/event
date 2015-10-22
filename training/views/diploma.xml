@@ -32,34 +32,50 @@
     </t>
 </template>
 
+<template id="diploma_report_styles" inherit_id="report.style">
+    <xpath expr=".">
+        <t>
+            .diploma .front {
+                text-align: center;
+            }
+            .diploma .back {
+                page-break-before: always;
+            }
+        </t>
+    </xpath>
+</template>
+
 <template id="diploma_report_translatable">
     <t t-call="report.external_layout">
-        <div class="page row text-center">
-            <h1 t-if="o.event_id.state == 'done' and o.state == 'done'"
-                class="text-center mb32">
-                Diploma
-            </h1>
-            <h3 t-esc="res_company.name"/>
-            <h4 class="mb32">Certifies that</h4>
-            <h2 class="mb32">
-                <small t-if="o.partner_id and o.partner_id.title"
-                       t-esc="o.partner_id.title.shortcut or
-                              o.partner_id.title.name"/>
-                <t t-esc="o.name"/>
-            </h2>
-            <p>
-                Has successfully completed the course
-                <b t-esc="o.event_id.training_action_id.name"/>, in
-                <t t-esc="o.with_context(show_address=True).event_id
-                          .address_id.name_get()[0][1]"/>,
-                imparted from <t t-esc="o.event_id.date_begin"/>
-                to <t t-esc="o.event_id.date_end"/>.
-            </p>
-            <t t-if="o.event_id.training_action_id.contents">
-                <h2 style="page-break-before: always">Course Contents</h2>
-                <div class="col-xs-12 text-justify"
+        <div class="page diploma">
+            <div class="front row">
+                <h1 t-if="o.event_id.state == 'done' and o.state == 'done'"
+                    class="text-center mb32">
+                    Diploma
+                </h1>
+                <h3 t-esc="res_company.name"/>
+                <h4 class="mb32">Certifies that</h4>
+                <h2 class="mb32">
+                    <small t-if="o.partner_id and o.partner_id.title"
+                           t-esc="o.partner_id.title.shortcut or
+                                  o.partner_id.title.name"/>
+                    <t t-esc="o.name"/>
+                </h2>
+                <p>
+                    Has successfully completed the course
+                    <b t-esc="o.event_id.training_action_id.name"/>, in
+                    <t t-esc="o.with_context(show_address=True).event_id
+                              .address_id.name_get()[0][1]"/>,
+                    imparted from <t t-esc="o.event_id.date_begin"/>
+                    to <t t-esc="o.event_id.date_end"/>.
+                </p>
+            </div>
+            <div class="back row"
+                 t-if="o.event_id.training_action_id.contents">
+                <h2 class="text-center">Course Contents</h2>
+                <div class="col-xs-12"
                      t-raw="o.event_id.training_action_id.contents"/>
-            </t>
+            </div>
         </div>
     </t>
 </template>
