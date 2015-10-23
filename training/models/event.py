@@ -19,3 +19,8 @@ class Event(models.Model):
         M % "action",
         "Training action",
         help="Training action of this event, if it is a training group.")
+
+    @api.constrains("training_action_id")
+    def _check_grade_limits(self):
+        """Ensure no conflicts between limits and actual student grades."""
+        self.registration_ids._check_grade_limits()

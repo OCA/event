@@ -32,6 +32,11 @@
                     </tree>
                 </field>
             </group>
+            <group string="Grade Limits">
+                <field name="grade_min"/>
+                <field name="grade_pass"/>
+                <field name="grade_max"/>
+            </group>
             <group string="Contents">
                 <field name="append_template"/>
                 <field name="contents" nolabel="True"/>
