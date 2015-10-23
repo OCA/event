@@ -5,5 +5,6 @@
 from . import (
     test_action,
     test_appending_template,
+    test_grades,
     test_permissions
 )

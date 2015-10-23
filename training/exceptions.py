@@ -11,6 +11,25 @@ class TrainingValidationError(exceptions.ValidationError):
         self.name = _("Error(s) with the training data.")
 
 
+class GradeLimitError(TrainingValidationError):
+    def __init__(self,
+                 registration,
+                 value=_("Grade %(grade)f for %(student)s does not fit "
+                         "between %(min)f and %(max)f.")):
+        value = value % {
+            "grade": registration.grade,
+            "student": registration.name,
+            "min": registration.event_id.training_action_id.grade_min,
+            "max": registration.event_id.training_action_id.grade_max,
+        }
+        self.registration = registration
+        super(GradeLimitError, self).__init__(value)
+
+
+class GradeLimitIncoherentError(TrainingValidationError):
+    pass
+
+
 class WrongDurationTypeError(TrainingValidationError):
     def __init__(self,
                  invalid_hour_type,

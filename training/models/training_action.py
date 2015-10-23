@@ -4,6 +4,7 @@
 
 from openerp import _, api, fields, models
 from .common import M
+from .. import exceptions as ex
 
 
 class ActionType(models.Model):
@@ -69,6 +70,36 @@ class Action(models.Model):
         help="Expected duration of each type of hours for these training "
              "groups.")
     event_ids = fields.One2many("event.event", "training_action_id", "Events")
+    grade_min = fields.Float(
+        "Minimal grade",
+        default=0,
+        required=True,
+        help="Students cannot get less than this grade.")
+    grade_pass = fields.Float(
+        "Passing grade",
+        default=5,
+        required=True,
+        help="Students above than this grade will pass the training.")
+    grade_max = fields.Float(
+        "Maximum grade",
+        default=10,
+        required=True,
+        help="Students cannot get more than this grade.")
+
+    @api.constrains("grade_min", "grade_pass", "grade_max")
+    def _check_grade_limits(self):
+        """Ensure no conflicts with grade limits."""
+        for s in self:
+            # Grade limits must be coherent
+            if not s.grade_min <= s.grade_pass <= s.grade_max:
+                msg = (_("Minimum grade cannot be bigger than maximum.")
+                       if s.grade_min > s.grade_max
+                       else _("Passing grade must be between minimum and "
+                              "maximum grades."))
+                raise ex.GradeLimitIncoherentError(msg)
+
+            # Cannot conflict with existing student grades
+            s.event_ids._check_grade_limits()
 
     @api.onchange("type_id")
     def _onchange_type_id_fulfill_expected_duration_types(self):
