@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 # © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U.
 
-from .base import BaseCase
+from .base import BaseCase, M
 
 
 class ActionOnChangeBaseCase(object):
@@ -100,7 +100,7 @@ class ActionMixOnChangeCase(ActionOnChangeBaseCase, BaseCase):
              "duration": 20})
 
         self.create_method = "new"
-        self.action = self.action.with_context(active_model="training.action",
+        self.action = self.action.with_context(active_model=M % "action",
                                                active_id=self.action.id)
         with self.env.do_in_onchange():
             # The user changes the action type

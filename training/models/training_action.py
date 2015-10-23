@@ -3,6 +3,7 @@
 # © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U.
 
 from openerp import _, api, fields, models
+from .common import M
 
 
 class ActionType(models.Model):
@@ -18,19 +19,19 @@ class ActionType(models.Model):
     You can configure it as you wish.
     """
 
-    _name = "training.action_type"
+    _name = M % "action_type"
     _sql_constraints = [("unique_name",
                          "UNIQUE(name)",
                          "Name must be unique.")]
 
     name = fields.Char(required=True, index=True, translate=True)
     action_ids = fields.One2many(
-        "training.action",
+        M % "action",
         "type_id",
         "Training actions",
         help="Training actions of this type.")
     expected_duration_type_ids = fields.Many2many(
-        "training.duration_type",
+        M % "duration_type",
         string="Expected hour types",
         help="These types of hours are expected in this type of training "
              "action. For example, a training of type 'mixed' may expect "
@@ -47,11 +48,11 @@ class Action(models.Model):
     fulfill. Events linked to training actions are considered training groups.
     """
 
-    _name = "training.action"
+    _name = M % "action"
 
     name = fields.Char(required=True, index=True, translate=True)
     type_id = fields.Many2one(
-        "training.action_type",
+        M % "action_type",
         "Training type",
         required=True)
     contents = fields.Html(
@@ -62,7 +63,7 @@ class Action(models.Model):
         help="Append one of these templates to the diploma contents. "
              "They will help you to achieve some complex layouts.")
     duration_ids = fields.One2many(
-        "training.duration",
+        M % "duration",
         "action_id",
         "Expected hours",
         help="Expected duration of each type of hours for these training "
@@ -91,7 +92,7 @@ class Action(models.Model):
                 # Try to restore it from DB
                 if (self.env.context.get("active_model") == self._name and
                         self.env.context.get("active_id")):
-                    new_duration = self.env["training.duration"].search((
+                    new_duration = self.env[M % "duration"].search((
                         ("type_id", "=", duration_type.id),
                         ("action_id", "=", self.env.context["active_id"]),
                     ))
