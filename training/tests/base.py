@@ -4,7 +4,7 @@
 
 from datetime import datetime
 from openerp.tests.common import TransactionCase
-from ..models import _D
+from ..models.common import M
 
 
 class BaseCase(TransactionCase):
@@ -15,7 +15,7 @@ class BaseCase(TransactionCase):
         """Create a new record in the given model with the given values."""
 
         if "." not in model:
-            model = _D % model
+            model = M % model
 
         return getattr(self.env[model], self.create_method)(values)
 
@@ -81,13 +81,13 @@ class BaseCase(TransactionCase):
             "res.users",
             {"name": "Manager user",
              "login": "manager_user"})
-        self.manager.groups_id |= self.env.ref("training.manager_group")
+        self.manager.groups_id |= self.env.ref(M % "manager_group")
 
         self.user = self.create(
             "res.users",
             {"name": "Training user",
              "login": "training_user"})
-        self.user.groups_id |= self.env.ref("training.user_group")
+        self.user.groups_id |= self.env.ref(M % "user_group")
 
         self.unprivileged = self.create(
             "res.users",

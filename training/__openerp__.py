@@ -21,12 +21,12 @@
         "data/training.action_type.csv",
         "security/training.xml",
         "security/ir.model.access.csv",
-        "views/menus.xml",
-        "views/event.xml",
+        "views/menus.xml",  # Must be loaded first
+        "views/action.xml",
         "views/action_type.xml",
         "views/diploma.xml",
-        "views/action.xml",
         "views/duration_type.xml",
+        "views/event.xml",
     ],
     "demo": [
         "demo/training.action.csv",
