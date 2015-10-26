@@ -7,8 +7,8 @@ from .base import BaseCase, M
 
 class ActionOperationsCase(BaseCase):
     """Test some record operations."""
-    def test_copy_duration_ids(self):
-        """Copy training action with durations."""
+    def setUp(self):
+        super(ActionOperationsCase, self).setUp()
         # Add good duration types
         self.action.duration_ids |= self.create(
             "duration",
@@ -21,6 +21,8 @@ class ActionOperationsCase(BaseCase):
              "action_id": self.action.id,
              "duration": 0.1})
 
+    def test_copy_duration_ids(self):
+        """Copy training action with durations."""
         # Copy the training action
         new = self.action.copy()
 
@@ -31,6 +33,10 @@ class ActionOperationsCase(BaseCase):
                 self.action.mapped(field),
                 new.mapped(field),
                 "Field %s differs." % field)
+
+    def test_unlink(self):
+        """Unlink training action with durations."""
+        self.action.unlink()
 
 
 class ActionOnChangeBaseCase(object):
