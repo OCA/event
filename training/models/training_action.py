@@ -67,6 +67,7 @@ class Action(models.Model):
         M % "duration",
         "action_id",
         "Expected hours",
+        copy=True,
         help="Expected duration of each type of hours for these training "
              "groups.")
     event_ids = fields.One2many("event.event", "training_action_id", "Events")

@@ -50,11 +50,11 @@ class Duration(models.Model):
     @api.constrains("type_id", "action_id")
     def _check_right_duration_types(self):
         """Check that the hour types are the right ones."""
+        for rec in self:
+            expected_types = (rec.action_id.type_id
+                              .expected_duration_type_ids)
 
-        expected_types = (self.action_id.type_id
-                          .expected_duration_type_ids)
-
-        if expected_types and self.type_id not in expected_types:
-            raise exceptions.WrongDurationTypeError(
-                self.type_id,
-                expected_types)
+            if expected_types and rec.type_id not in expected_types:
+                raise exceptions.WrongDurationTypeError(
+                    rec.type_id,
+                    expected_types)
