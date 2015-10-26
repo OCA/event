@@ -44,6 +44,7 @@ class Duration(models.Model):
     action_id = fields.Many2one(
         M % "action",
         "Training action",
+        ondelete="cascade",
         required=True)
 
     @api.multi
