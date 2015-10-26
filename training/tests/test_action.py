@@ -5,6 +5,34 @@
 from .base import BaseCase, M
 
 
+class ActionOperationsCase(BaseCase):
+    """Test some record operations."""
+    def test_copy_duration_ids(self):
+        """Copy training action with durations."""
+        # Add good duration types
+        self.action.duration_ids |= self.create(
+            "duration",
+            {"type_id": self.duration_types_good[0].id,
+             "action_id": self.action.id,
+             "duration": 20.5})
+        self.action.duration_ids |= self.create(
+            "duration",
+            {"type_id": self.duration_types_good[1].id,
+             "action_id": self.action.id,
+             "duration": 0.1})
+
+        # Copy the training action
+        new = self.action.copy()
+
+        # Check if durations were copied
+        for field in ("duration", "type_id"):
+            field = "duration_ids.%s" % field
+            self.assertEqual(
+                self.action.mapped(field),
+                new.mapped(field),
+                "Field %s differs." % field)
+
+
 class ActionOnChangeBaseCase(object):
     """Common methods for this module."""
     def tearDown(self, *args, **kwargs):
