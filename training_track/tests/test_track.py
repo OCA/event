@@ -7,7 +7,6 @@ from openerp.tests.common import TransactionCase
 
 class TrainingTrackCase(TransactionCase):
     """Test behavior of training tracks."""
-
     def test_duration_type_set(self):
         """Set a duration type in a track that has no one."""
 
