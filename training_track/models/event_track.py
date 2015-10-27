@@ -10,7 +10,6 @@ class EventTrack(models.Model):
 
     This is used to calculate how many hours of each type have been fulfilled.
     """
-
     _inherit = "event.track"
 
     duration_type_id = fields.Many2one(
