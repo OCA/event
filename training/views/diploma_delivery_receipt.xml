@@ -91,7 +91,6 @@
     string="Diploma / Certificate Delivery Receipt"
     report_type="qweb-pdf"
     groups="user_group"
-    attachment="object.state == 'done' and 'diploma-delivery-receipt.pdf'"
     multi="False"/>
 
 </data>
