@@ -50,7 +50,7 @@
         <div class="page diploma">
             <div class="front row">
                 <h1 t-if="o.training_action_id and o.passing and
-                          o.event_id.state == 'done' and o.state == 'done'"
+                          o.state == 'done'"
                     class="text-center mb32">
                     Diploma
                 </h1>
@@ -72,7 +72,7 @@
                     <t t-if="o.state == 'open'">
                         Has confirmed attendance for the
                     </t>
-                    <t t-if="o.state == 'done' and o.event_id.state == 'done'">
+                    <t t-if="o.state == 'done'">
                         Has attended the
                     </t>
                     <t t-if="o.training_action_id">training</t>
