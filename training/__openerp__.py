@@ -25,6 +25,7 @@
         "views/action.xml",
         "views/action_type.xml",
         "views/diploma.xml",
+        "views/diploma_delivery_receipt.xml",
         "views/duration_type.xml",
         "views/event.xml",
         "views/event_registration.xml",
