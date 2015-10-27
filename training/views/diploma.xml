@@ -105,7 +105,7 @@
 <report
     id="diploma_action"
     model="event.registration"
-    name="Diploma / Certificate"
+    name="training.diploma_report"
     string="Diploma / Certificate"
     report_type="qweb-pdf"
     groups="user_group"
@@ -113,7 +113,6 @@
     multi="False"/>
 
 <record id="diploma_action" model="ir.actions.report.xml">
-    <field name="report_name">training.diploma_report</field>
     <field name="paperformat_id" ref="diploma_paperformat"/>
 </record>
 
