@@ -5,6 +5,6 @@
 from . import (
     training_duration,
     training_action,
-    event,
+    event_event,
     event_registration,
 )
