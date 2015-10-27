@@ -13,7 +13,7 @@
     "application": True,
     "summary": "Extend events with training capabilities",
     "depends": [
-        "event",
+        "partner_event",
         "report",
     ],
     "data": [
@@ -29,6 +29,7 @@
         "views/duration_type.xml",
         "views/event.xml",
         "views/event_registration.xml",
+        "views/training_attendance_certificate.xml",
     ],
     "demo": [
         "demo/training.action.csv",
