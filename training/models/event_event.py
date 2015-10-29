@@ -18,6 +18,7 @@ class Event(models.Model):
     training_action_id = fields.Many2one(
         M % "action",
         "Training action",
+        states={"done": [("readonly", True)]},
         help="Training action of this event, if it is a training group.")
 
     @api.constrains("training_action_id")
