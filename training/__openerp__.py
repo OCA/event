@@ -24,12 +24,12 @@
         "views/menus.xml",  # Must be loaded first
         "views/action.xml",
         "views/action_type.xml",
-        "views/diploma.xml",
-        "views/diploma_delivery_receipt.xml",
         "views/duration_type.xml",
         "views/event.xml",
         "views/event_registration.xml",
-        "views/training_attendance_certificate.xml",
+        "report/diploma.xml",
+        "report/diploma_delivery_receipt.xml",
+        "report/training_attendance_certificate.xml",
     ],
     "demo": [
         "demo/training.action.csv",
