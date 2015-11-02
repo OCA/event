@@ -13,6 +13,7 @@
         <data>
             <xpath expr="//field[@name='tag_ids']" position="before">
                 <field name="duration_type_id"/>
+                <field name="monitor_attendance"/>
             </xpath>
         </data>
     </field>
@@ -26,6 +27,8 @@
         <data>
             <xpath expr="//group" position="before">
                 <field name="duration_type_id"/>
+                <filter string="Using attendance monitoring"
+                        domain="[('monitor_attendance', '=', True)]"/>
             </xpath>
 
             <xpath expr="//group">
