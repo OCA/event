@@ -6,16 +6,64 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0-20150225\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-24 10:33+0000\n"
-"PO-Revision-Date: 2015-03-24 11:39+0100\n"
+"POT-Creation-Date: 2015-11-02 12:13+0100\n"
+"PO-Revision-Date: 2015-11-02 12:13+0100\n"
 "Last-Translator: Jairo Llopis <j.llopis@grupoesoc.es>\n"
 "Language-Team: \n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.7.5\n"
-"Language: es_ES\n"
+"X-Generator: Poedit 1.8.5\n"
+
+#. module: training_track
+#: model:ir.actions.report.xml,name:training_track.event_attendance_monitoring_action
+#: model:ir.actions.report.xml,name:training_track.track_attendance_monitoring_action
+#: view:website:training_track.attendance_monitoring_single_report
+msgid "Attendance Monitoring"
+msgstr "Control de asistencia"
+
+#. module: training_track
+#: field:event.registration,attended_track_ids:0
+msgid "Attended tracks"
+msgstr "Sesiones asistidas"
+
+#. module: training_track
+#: view:website:training_track.attendance_monitoring_single_report
+msgid "Attendee list"
+msgstr "Lista de asistentes"
+
+#. module: training_track
+#: field:event.track,attendee_ids:0
+msgid "Attendees"
+msgstr "Asistentes"
+
+#. module: training_track
+#: help:training.duration_type,monitor_attendance:0
+msgid "Does this duration type use attendance monitoring?"
+msgstr "¿Este tipo de duración usa control de asistencia?"
+
+#. module: training_track
+#: code:addons/training_track/exceptions.py:11
+#, python-format
+msgid "Error(s) with the training track data."
+msgstr "Error(es) con los datos de sesión formativa."
+
+#. module: training_track
+#: view:website:training_track.attendance_monitoring_single_report
+msgid "Event Name"
+msgstr "Nombre del evento"
+
+#. module: training_track
+#: view:website:training_track.attendance_monitoring_single_report
+msgid "Event Organizer"
+msgstr "Organizador del evento"
+
+#. module: training_track
+#: model:ir.model,name:training_track.model_event_registration
+msgid "Event Registration"
+msgstr "Registro del evento"
 
 #. module: training_track
 #: model:ir.model,name:training_track.model_event_track
@@ -23,11 +71,92 @@ msgid "Event Tracks"
 msgstr "Sesiones del evento"
 
 #. module: training_track
-#: field:event.track,duration_type_id:0
+#: view:website:training_track.attendance_monitoring_single_report
+msgid "Location"
+msgstr "Localización"
+
+#. module: training_track
+#: field:event.track,monitor_attendance:0
+#: field:training.duration_type,monitor_attendance:0
+msgid "Monitor attendance"
+msgstr "Controlar asistencia"
+
+#. module: training_track
+#: view:website:training_track.attendance_monitoring_single_report
+msgid "Name"
+msgstr "Nombre"
+
+#. module: training_track
+#: help:event.track,attendee_ids:0
+msgid "People that attended this track."
+msgstr "Gente que ha asistido a esta sesión."
+
+#. module: training_track
+#: code:addons/training_track/exceptions.py:18
+#, python-format
+msgid ""
+"Registration %(registration)s and track %(track)s belong to different events."
+msgstr ""
+"El registro %(registration)s y la sesión %(track)s pertenecen a eventos "
+"diferentes."
+
+#. module: training_track
+#: help:event.track,monitor_attendance:0
+msgid "Should this track use attendance monitoring?"
+msgstr "¿Esta sesión debería usar control de asistencia?"
+
+#. module: training_track
+#: view:website:training_track.attendance_monitoring_single_report
+msgid "Signature"
+msgstr "Firma"
+
+#. module: training_track
+#: view:website:training_track.attendance_monitoring_single_report
+msgid "Speakers"
+msgstr "Ponentes"
+
+#. module: training_track
+#: view:website:training_track.attendance_monitoring_single_report
+msgid "Track Date"
+msgstr "Fecha de la sesión"
+
+#. module: training_track
+#: view:website:training_track.attendance_monitoring_single_report
+msgid "Track Duration"
+msgstr "Duración de la sesión"
+
+#. module: training_track
+#: view:website:training_track.attendance_monitoring_single_report
+msgid "Track Name"
+msgstr "Nombre de la sesión"
+
+#. module: training_track
+#: help:event.registration,attended_track_ids:0
+msgid "Tracks of this event that this person attended."
+msgstr "Sesiones de este evento a los que esta persona ha asistido."
+
+#. module: training_track
+#: view:website:training_track.attendance_monitoring_single_report
+msgid "Training Action"
+msgstr "Acción formativa"
+
+#. module: training_track
+#: view:event.track:training_track.search field:event.track,duration_type_id:0
 msgid "Training hour type"
 msgstr "Tipo de horas formativas"
 
 #. module: training_track
 #: help:event.track,duration_type_id:0
 msgid "Training hour type of this track, if it belongs to a training group."
-msgstr "Tipo de horas formativas de esta sesión, si pertenece a un grupo formativo."
+msgstr ""
+"Tipo de horas formativas de esta sesión, si pertenece a un grupo formativo."
+
+#. module: training_track
+#: view:event.track:training_track.search
+msgid "Using attendance monitoring"
+msgstr "Usan control de asistencia"
+
+#. module: training_track
+#: view:website:training_track.attendance_monitoring_single_report
+msgid "hour(s)"
+msgstr "hora/s"
