@@ -18,7 +18,7 @@
         "website_event_track",
     ],
     "data": [
-        "views/event_track.xml",
+        "views/event_track_view.xml",
     ],
     "demo": [
         "demo/event.track.csv",
