@@ -19,6 +19,7 @@
     ],
     "data": [
         "views/event_track_view.xml",
+        "views/attendance_monitoring_report.xml",
     ],
     "demo": [
         "demo/event.track.csv",

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+     © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. -->
+
+<openerp>
+<data>
+
+<!-- Templates -->
+<template id="track_attendance_monitoring_report">
+    <t t-call="report.html_container">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="training_track.attendance_monitoring_single_report"/>
+        </t>
+    </t>
+</template>
+
+<template id="event_attendance_monitoring_report">
+    <t t-call="report.html_container">
+        <t t-foreach="docs.mapped('track_ids')" t-as="o">
+            <t t-if="o.monitor_attendance">
+                <t t-call="training_track.attendance_monitoring_single_report"/>
+            </t>
+        </t>
+    </t>
+</template>
+
+<template id="attendance_monitoring_single_report">
+    <t t-call="report.external_layout">
+        <div class="page container">
+            <!-- Format columns according to number of present fields -->
+            <t t-set="calc_cols"
+               t-value="lambda *a: int(
+                    12 / (sum(int(bool(f)) for f in a) or 24))"/>
+
+            <h1>Attendance Monitoring</h1>
+
+            <t t-set="span"
+               t-value="calc_cols(1, 1, o.event_id.training_action_id)"/>
+            <div class="row">
+                <div t-attf-class="col-xs-#{span}">
+                    <label>Event Name</label>
+                    <p t-esc="o.event_id.name_get()[0][1]"/>
+                </div>
+                <div t-attf-class="col-xs-#{span}"
+                     t-if="o.event_id.training_action_id">
+                    <label>Training Action</label>
+                    <p t-esc="o.event_id.training_action_id.name_get()[0][1]"/>
+                </div>
+                <div t-attf-class="col-xs-#{span}">
+                    <label>Track Name</label>
+                    <p t-esc="o.name_get()[0][1]"/>
+                </div>
+            </div>
+
+            <t t-set="span"
+               t-value="calc_cols(o.event_id.organizer_id,
+                                  o.date,
+                                  o.duration)"/>
+            <div class="row">
+                <div t-attf-class="col-xs-#{span}"
+                     t-if="o.event_id.organizer_id">
+                    <label>Event Organizer</label>
+                    <p t-esc="o.event_id.organizer_id.name_get()[0][1]"/>
+                </div>
+                <div t-attf-class="col-xs-#{span}" t-if="o.date">
+                    <label>Track Date</label>
+                    <p t-esc="o.date"/>
+                </div>
+                <div t-attf-class="col-xs-#{span}" t-if="o.duration">
+                    <label>Track Duration</label>
+                    <p><t t-esc="o.duration"/> hour(s)</p>
+                </div>
+            </div>
+
+            <t t-set="span"
+               t-value="calc_cols(o.speaker_ids,
+                                  o.location_id)"/>
+            <div class="row" t-if="span">
+                <div t-attf-class="col-xs-#{span}" t-if="o.speaker_ids">
+                    <label>Speakers</label>
+                    <p>
+                        <t t-foreach="o.speaker_ids" t-as="speaker">
+                            <t t-esc="speaker.name_get()[0][1] +
+                                ('.' if speaker_last else ',')"/>
+                        </t>
+                    </p>
+                </div>
+                <div t-attf-class="col-xs-#{span}" t-if="o.location_id">
+                    <label>Location</label>
+                    <p t-esc="o.location_id.name_get()[0][1]"/>
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="attendees" class="col-xs-12">
+                    <h3>Attendee list</h3>
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Signature</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="o.event_id.registration_ids"
+                                t-as="registration">
+                                <td t-esc="registration.name_get()[0][1]"/>
+                                <td/>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </t>
+</template>
+
+<!-- Report actions -->
+<report
+    id="track_attendance_monitoring_action"
+    model="event.track"
+    name="training_track.track_attendance_monitoring_report"
+    string="Attendance Monitoring"
+    report_type="qweb-pdf"
+    groups="training.user_group"
+    multi="False"/>
+
+<report
+    id="event_attendance_monitoring_action"
+    model="event.event"
+    name="training_track.event_attendance_monitoring_report"
+    string="Attendance Monitoring"
+    report_type="qweb-pdf"
+    groups="training.user_group"
+    multi="False"/>
+
+</data>
+</openerp>
