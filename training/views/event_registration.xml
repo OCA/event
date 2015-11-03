@@ -14,6 +14,7 @@
             <group string="Training"
                    attrs="{'invisible': [('training_action_id', '=', False)]}">
                 <field name="training_action_id"/>
+                <field name="materials_delivered"/>
                 <field name="grade"/>
                 <field name="passing"/>
             </group>
