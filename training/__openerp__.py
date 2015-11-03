@@ -32,6 +32,7 @@
         "views/event.xml",
         "views/event_registration.xml",
         "views/material.xml",
+        "views/material_delivery_receipt_report.xml",
         "views/material_type.xml",
         "views/training_attendance_certificate_report.xml",
     ],
