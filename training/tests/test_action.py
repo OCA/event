@@ -30,8 +30,8 @@ class ActionOperationsCase(BaseCase):
         for field in ("duration", "type_id"):
             field = "duration_ids.%s" % field
             self.assertEqual(
-                self.action.mapped(field),
-                new.mapped(field),
+                set(self.action.mapped(field)),
+                set(new.mapped(field)),
                 "Field %s differs." % field)
 
     def test_unlink(self):
