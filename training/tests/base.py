@@ -67,16 +67,6 @@ class BaseCase(TransactionCase):
         self.action_type_bad.expected_duration_type_ids = (
             self.duration_types_bad)
 
-        self.tutor_1 = self.create(
-            "res.partner",
-            {"name": "Dummy tutor 1"})
-
-        self.tutor_2 = self.create(
-            "res.partner",
-            {"name": "Dummy tutor 2"})
-
-        self.tutors = self.tutor_1 | self.tutor_2
-
         self.student_1 = self.create(
             "res.partner",
             {"name": "Dummy student 1"})
