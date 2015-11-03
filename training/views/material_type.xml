@@ -10,7 +10,7 @@
     <field name="name">Training material type tree</field>
     <field name="model">training.material_type</field>
     <field name="arch" type="xml">
-        <tree>
+        <tree editable="top">
             <field name="name"/>
         </tree>
     </field>
