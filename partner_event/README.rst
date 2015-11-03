@@ -17,6 +17,15 @@ It also includes:
 * Action in partner tree view 'More' button, to register several partners
   to an event
 
+Configuration
+=============
+
+There is a new option in event form view, "Create Partners in registration". If
+this option is checked, when you add registrations to this event, partners will
+be created automatically with name, email and phone fields.
+
+If partner already exists and user only fills email, name and phone fields will
+be filled with partner's data.
 
 Usage
 =====
