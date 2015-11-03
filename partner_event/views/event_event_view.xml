@@ -11,6 +11,9 @@
             <field name="partner_id"
                    attrs="{'readonly': [('state','!=', 'draft')]}"/>
         </xpath>
+        <field name="seats_used" position="after">
+            <field name="create_partner"/>
+        </field>
     </field>
 </record>
 
