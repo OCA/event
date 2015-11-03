@@ -4,6 +4,7 @@
 
 from openerp import api, fields, models
 from .common import M
+from .. import exceptions
 
 
 class Event(models.Model):
@@ -32,6 +33,12 @@ class Event(models.Model):
     def _check_grade_limits(self):
         """Ensure no conflicts between limits and actual student grades."""
         self.registration_ids._check_grade_limits()
+
+    @api.onchange("material_ids")
+    def _onchange_material_ids_check_delivered(self):
+        """Warn if any materials have been already delivered."""
+        if any(self.mapped("registration_ids.materials_delivered")):
+            raise exceptions.ChangeDeliveredMaterialsWarning()
 
     @api.depends("name")
     def _compute_training_mode(self):

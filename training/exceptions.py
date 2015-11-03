@@ -11,6 +11,12 @@ class TrainingValidationError(exceptions.ValidationError):
         self.name = _("Error(s) with the training data.")
 
 
+class TrainingValidationWarning(exceptions.Warning):
+    def __init__(self, value):
+        super(TrainingValidationWarning, self).__init__(value)
+        self.name = _("Error(s) with the training data.")
+
+
 class GradeLimitError(TrainingValidationError):
     def __init__(self,
                  registration,
@@ -28,6 +34,18 @@ class GradeLimitError(TrainingValidationError):
 
 class GradeLimitIncoherentError(TrainingValidationError):
     pass
+
+
+class NoMaterialsToDeliverError(TrainingValidationError):
+    def __init__(self, value=_("No materials are set in the event.")):
+        super(NoMaterialsToDeliverError, self).__init__(value)
+
+
+class ChangeDeliveredMaterialsWarning(TrainingValidationWarning):
+    def __init__(self,
+                 value=_("Yoy are changing materials that have been delivered "
+                         "already.")):
+        super(ChangeDeliveredMaterialsWarning, self).__init__(value)
 
 
 class WrongDurationTypeError(TrainingValidationError):
