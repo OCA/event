@@ -12,7 +12,6 @@ class Event(models.Model):
     Events with a training type and a training action are considered training
     groups.
     """
-
     _inherit = "event.event"
 
     training_action_id = fields.Many2one(

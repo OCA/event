@@ -19,7 +19,6 @@ class ActionType(models.Model):
 
     You can configure it as you wish.
     """
-
     _name = M % "action_type"
     _sql_constraints = [("unique_name",
                          "UNIQUE(name)",
@@ -48,7 +47,6 @@ class Action(models.Model):
     They define some requirements that the corresponding event is expected to
     fulfill. Events linked to training actions are considered training groups.
     """
-
     _name = M % "action"
 
     name = fields.Char(required=True, index=True, translate=True)
@@ -108,7 +106,6 @@ class Action(models.Model):
 
         There will be 0 hours of each type by default.
         """
-
         # Remove invalid hour expectations
         valid_duration_types = self.type_id.expected_duration_type_ids
         for duration in self.duration_ids:
