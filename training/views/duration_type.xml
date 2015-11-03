@@ -42,6 +42,9 @@
     <field name="name">Hour types</field>
     <field name="res_model">training.duration_type</field>
     <field name="view_mode">tree,form</field>
+    <field name="context">{
+        "training_mode": True,
+    }</field>
     <field name="help" type="html">
         <p class="oe_view_nocontent_create">
             Click to add a new hour type.
