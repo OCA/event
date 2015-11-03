@@ -30,6 +30,7 @@ class DurationType(models.Model):
 
 
 class Duration(models.Model):
+    """Durations expected for each training action."""
     _name = M % "duration"
     _sql_constraints = [("training_vs_hours_unique",
                          "UNIQUE(type_id, action_id)",

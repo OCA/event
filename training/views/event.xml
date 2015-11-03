@@ -15,7 +15,11 @@
             <xpath expr="//notebook">
                 <page string="Training">
                     <group>
-                        <field name="training_action_id"/>
+                        <field name="training_mode" invisible="True"/>
+                        <field
+                            name="training_action_id"
+                            attrs="{'required': [('training_mode', '=',
+                                                  True)]}"/>
                     </group>
                 </page>
             </xpath>
@@ -56,7 +60,10 @@
     <field name="name">Training groups</field>
     <field name="res_model">event.event</field>
     <field name="view_mode">kanban,calendar,tree,form</field>
-    <field name="context">{"search_default_training_groups": True}</field>
+    <field name="context">{
+        "search_default_training_groups": True,
+        "training_mode": True,
+    }</field>
     <field name="help" type="html">
         <p class="oe_view_nocontent_create">
             Click to add a new training group.

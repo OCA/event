@@ -19,8 +19,25 @@ class Event(models.Model):
         "Training action",
         states={"done": [("readonly", True)]},
         help="Training action of this event, if it is a training group.")
+    training_mode = fields.Boolean(
+        compute="_compute_training_mode",
+        help="Is the user using events in training mode?")
 
     @api.constrains("training_action_id")
     def _check_grade_limits(self):
         """Ensure no conflicts between limits and actual student grades."""
         self.registration_ids._check_grade_limits()
+
+    @api.depends("name")
+    def _compute_training_mode(self):
+        """Know if the user is in the training menu.
+
+        Field :attr:`~.training_mode` is used to know if the training action
+        field should be required. It should if you use the *Training* menu, but
+        not if you use the *Event* one.
+
+        This does not really depend on :attr:`~.name`, but it needs to depend
+        on something to make the UI trigger the calculation, and name is a
+        required field that appears in every form, so it is a good candidate.
+        """
+        self.training_mode = bool(self.env.context.get("training_mode"))
