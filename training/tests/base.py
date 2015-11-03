@@ -103,3 +103,13 @@ class BaseCase(TransactionCase):
             "res.users",
             {"name": "Mr. Nobody",
              "login": "unprivileged"})
+
+        self.material_1 = self.create(
+            "material",
+            {"name": "Material 1",
+             "type_id": self.env.ref("training.material_type_physical").id})
+        self.material_2 = self.create(
+            "material",
+            {"name": "Material 2",
+             "type_id": self.env.ref("training.material_type_electronic").id})
+        self.materials = self.material_1 | self.material_2

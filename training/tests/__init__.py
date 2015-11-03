@@ -7,5 +7,6 @@ from . import (
     test_appending_template,
     test_event,
     test_grades,
-    test_permissions
+    test_materials,
+    test_permissions,
 )

@@ -84,6 +84,10 @@ class Action(models.Model):
         default=10,
         required=True,
         help="Students cannot get more than this grade.")
+    material_ids = fields.Many2many(
+        M % "material",
+        string="Materials",
+        help="These should be delivered to every student in this training.")
 
     @api.constrains("grade_min", "grade_pass", "grade_max")
     def _check_grade_limits(self):

@@ -35,6 +35,18 @@ class UnprivilegedActionPermissionsCase(b.UnprivilegedPermissionsCase,
 
 
 @at_install(True)
+class UnprivilegedMaterialTypePermissionsCase(b.UnprivilegedPermissionsCase,
+                                              b.MaterialTypePermissionsCase):
+    pass
+
+
+@at_install(True)
+class UnprivilegedMaterialPermissionsCase(b.UnprivilegedPermissionsCase,
+                                          b.MaterialPermissionsCase):
+    pass
+
+
+@at_install(True)
 class UnprivilegedEventPermissionsCase(b.UnprivilegedPermissionsCase,
                                        b.EventPermissionsCase):
     pass
@@ -78,6 +90,20 @@ class UserActionPermissionsCase(b.UserPermissionsCase,
 
 
 @at_install(True)
+class UserMaterialTypePermissionsCase(b.UserPermissionsCase,
+                                      b.MaterialTypePermissionsCase):
+    def setUp(self, *args, **kwargs):
+        super(UserMaterialTypePermissionsCase, self).setUp(*args, **kwargs)
+
+
+@at_install(True)
+class UserMaterialPermissionsCase(b.UserPermissionsCase,
+                                  b.MaterialPermissionsCase):
+    def setUp(self, *args, **kwargs):
+        super(UserMaterialPermissionsCase, self).setUp(*args, **kwargs)
+
+
+@at_install(True)
 class UserEventPermissionsCase(b.UserPermissionsCase,
                                b.EventPermissionsCase):
     def setUp(self, *args, **kwargs):
@@ -115,6 +141,21 @@ class ManagerActionTypePermissionsCase(b.ManagerPermissionsCase,
 @at_install(True)
 class ManagerActionPermissionsCase(b.ManagerPermissionsCase,
                                    b.ActionPermissionsCase):
+    pass
+
+
+@at_install(True)
+class ManagerMaterialTypePermissionsCase(b.ManagerPermissionsCase,
+                                         b.MaterialTypePermissionsCase):
+    def setUp(self, *args, **kwargs):
+        super(ManagerMaterialTypePermissionsCase, self).setUp(*args, **kwargs)
+
+        self.ex_delete = IntegrityError
+
+
+@at_install(True)
+class ManagerMaterialPermissionsCase(b.ManagerPermissionsCase,
+                                     b.MaterialPermissionsCase):
     pass
 
 

@@ -20,6 +20,10 @@
                             name="training_action_id"
                             attrs="{'required': [('training_mode', '=',
                                                   True)]}"/>
+                        <field name="material_ids"
+                               widget="many2many_tags"
+                               attrs="{'invisible': [('training_action_id',
+                                                      '=', False)]}"/>
                     </group>
                 </page>
             </xpath>
