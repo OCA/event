@@ -19,6 +19,8 @@
     "data": [
         "data/training.duration_type.csv",
         "data/training.action_type.csv",
+        "data/training.material_type.csv",
+        "data/training.material.csv",
         "security/training.xml",
         "security/ir.model.access.csv",
         "views/menus.xml",  # Must be loaded first
@@ -27,6 +29,8 @@
         "views/duration_type.xml",
         "views/event.xml",
         "views/event_registration.xml",
+        "views/material.xml",
+        "views/material_type.xml",
         "report/diploma.xml",
         "report/diploma_delivery_receipt.xml",
         "report/training_attendance_certificate.xml",

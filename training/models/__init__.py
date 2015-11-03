@@ -3,6 +3,7 @@
 # © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U.
 
 from . import (
+    training_material,
     training_duration,
     training_action,
     event_event,

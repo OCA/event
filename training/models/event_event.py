@@ -14,6 +14,11 @@ class Event(models.Model):
     """
     _inherit = "event.event"
 
+    material_ids = fields.Many2many(
+        M % "material",
+        string="Materials",
+        states={"done": [("readonly", True)]},
+        help="These should be delivered to every student in this training.")
     training_action_id = fields.Many2one(
         M % "action",
         "Training action",
@@ -41,3 +46,10 @@ class Event(models.Model):
         required field that appears in every form, so it is a good candidate.
         """
         self.training_mode = bool(self.env.context.get("training_mode"))
+
+    @api.onchange("training_action_id")
+    def _fill_material_ids(self):
+        """Autofill materials for this event."""
+        for rec in self:
+            if rec.training_action_id and not rec.material_ids:
+                rec.material_ids = rec.training_action_id.material_ids
