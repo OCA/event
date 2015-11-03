@@ -12,7 +12,6 @@ class DurationType(models.Model):
 
     See docs for :class:`~.ActionType`.
     """
-
     _name = M % "duration_type"
     _sql_constraints = [("unique_name",
                          "UNIQUE(name)",
