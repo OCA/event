@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2015 Antiun Ingeniería, S.L. - Jairo Llopis
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+
+<openerp>
+<data>
+
+<record id="event_main_view" model="ir.ui.view">
+    <field name="name">Add legal terms to event</field>
+    <field name="model">event.event</field>
+    <field name="inherit_id" ref="event.view_event_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//page[@string='Event Details']/group">
+            <field name="legal_term_ids"/>
+        </xpath>
+    </field>
+</record>
+
+<record id="event_sub_tickets_view" model="ir.ui.view">
+    <field name="name">Add legal terms to event tickets</field>
+    <field name="model">event.event</field>
+    <field name="inherit_id" ref="event_sale.view_event_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='price']" position="after">
+            <field name="legal_term_ids" widget="many2many_tags"/>
+        </xpath>
+    </field>
+</record>
+
+</data>
+</openerp>
