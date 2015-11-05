@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-# © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U.
+# © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis
 
 {
     "name": "Training",
     "version": "8.0.3.0.0",
     "category": "Project",
-    "author": "Grupo ESOC",
+    "author": "Grupo ESOC Ingeniería de Servicios, S.L.U., "
+              "Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "website": "http://www.grupoesoc.es",
     "installable": True,
