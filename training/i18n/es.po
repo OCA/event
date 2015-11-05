@@ -1,0 +1,975 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* training
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0-20150225\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-05 10:24+0100\n"
+"PO-Revision-Date: 2015-11-05 10:43+0100\n"
+"Last-Translator: Jairo Llopis <j.llopis@grupoesoc.es>\n"
+"Language-Team: \n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.5\n"
+
+#. module: training
+#: model:res.groups,comment:training.manager_group
+msgid ""
+"\n"
+"        The user will be able to manage advanced settings for the training\n"
+"        module.\n"
+"    "
+msgstr ""
+"El usuario podrá gestionar la configuración avanzada del módulo de formación."
+
+#. module: training
+#: model:res.groups,comment:training.user_group
+msgid ""
+"\n"
+"        The user will be able to use the training module.\n"
+"    "
+msgstr "El usuario podrá usar el módulo de formación."
+
+#. module: training
+#: view:website:training.diploma_report_translatable
+msgid ", imparted from"
+msgstr ", impartido desde"
+
+#. module: training
+#: view:website:training.diploma_report_translatable
+msgid ", in"
+msgstr ", en"
+
+#. module: training
+#: view:website:report.style
+msgid ""
+".diploma .front {\n"
+"                text-align: center;\n"
+"            }\n"
+"            .diploma .back {\n"
+"                page-break-before: always;\n"
+"            }"
+msgstr ""
+
+#. module: training
+#: selection:training.action,append_template:0
+msgid "2 columns"
+msgstr "2 columnas"
+
+#. module: training
+#: selection:training.action,append_template:0
+msgid "3 columns"
+msgstr "3 columnas"
+
+#. module: training
+#: selection:training.action,append_template:0
+msgid "4 columns"
+msgstr "4 columnas"
+
+#. module: training
+#: model:ir.actions.act_window,help:training.open_duration_type_view
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"            Click to add a new hour type.\n"
+"        </p>\n"
+"        <p>\n"
+"            Hour types are used when creating training types. A training "
+"type\n"
+"            \"online\" may require \"online\" hours, but a training type "
+"\"mixed\"\n"
+"            may require both \"online\" and \"on-site\" hours.\n"
+"        </p>\n"
+"    "
+msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"Pulsa para añadir un nuevo tipo de horas.\n"
+"</p>\n"
+"<p>\n"
+"Los tipos de horas se usan al crear ciertos tipos de formación. Un tipo "
+"formativo \"en línea\" podría requerir horas \"en línea\", pero un tipo "
+"formativo \"mixto\" podría requerir tanto horas \"en línea\" como horas "
+"\"presenciales\".\n"
+"</p>"
+
+#. module: training
+#: model:ir.actions.act_window,help:training.open_action_types_view
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"            Click to add a new training action type.\n"
+"        </p>\n"
+"        <p>\n"
+"            A training type defines what is to be expected for training\n"
+"            actions of that type.\n"
+"        </p>\n"
+"        <p>\n"
+"            For example, they define what type of hours that training "
+"action\n"
+"            should have.\n"
+"        </p>\n"
+"    "
+msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"Pulsa para añadir un nuevo tipo formativo.\n"
+"</p>\n"
+"<p>\n"
+"Un tipo formativo define lo que se espera de las acciones formativas de "
+"dicho tipo.\n"
+"</p>\n"
+"<p>\n"
+"Por ejemplo, definen el tipo de horas que esas acciones formativas deberían "
+"tener.\n"
+"</p>"
+
+#. module: training
+#: model:ir.actions.act_window,help:training.open_actions_view
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"            Click to add a new training action.\n"
+"        </p>\n"
+"        <p>\n"
+"            A training action is one course that your company teaches and "
+"has\n"
+"            in its catalog of courses.\n"
+"        </p>\n"
+"        <p>\n"
+"            They define some requirements that the corresponding event is\n"
+"            expected to fulfill. Events linked to training actions are\n"
+"            considered training groups.\n"
+"        </p>\n"
+"    "
+msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"Pulsa para añadir una nueva acción formativa.\n"
+"</p>\n"
+"<p>\n"
+"Una acción formativa es un curso que su compañía imparte y que tiene en su "
+"catálogo de cursos.\n"
+"</p>\n"
+"<p>\n"
+"Definen algunos requisitos que los eventos correspondientes deben cumplir. "
+"Los eventos vinculados a una acción formativa se consideran grupos "
+"formativos.\n"
+"</p>"
+
+#. module: training
+#: model:ir.actions.act_window,help:training.open_training_groups_view
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"            Click to add a new training group.\n"
+"        </p>\n"
+"        <p>\n"
+"            Training groups are in really events, when you set a training\n"
+"            action for them. You can do everything as with an event.\n"
+"        </p>\n"
+"    "
+msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"Pulsa para añadir un nuevo grupo formativo.\n"
+"</p>\n"
+"<p>\n"
+"Los grupos formativos son en realidad eventos, cuando los vincula a una "
+"acción formativa. Puede hacer todo igual que con un evento.\n"
+"</p>"
+
+#. module: training
+#: model:ir.actions.act_window,help:training.open_material_types_view
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"            Click to add a new training material type.\n"
+"        </p>\n"
+"        <p>\n"
+"            A training material type is a classification of the training\n"
+"            materials used in training groups and actions.\n"
+"        </p>\n"
+"        <p>\n"
+"            Examples: Physical, electronic, etc.\n"
+"        </p>\n"
+"    "
+msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"Pulsa para añadir un nuevo tipo de material formativo.\n"
+"</p>\n"
+"<p>\n"
+"Un tipo de material formativo es una clasificación de los materiales "
+"formativos usados en los grupos y acciones formativas.\n"
+"</p>\n"
+"<p>\n"
+"Ejemplos: físico, electrónico, etc.\n"
+"</p>"
+
+#. module: training
+#: model:ir.actions.act_window,help:training.open_materials_view
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"            Click to add a new training material.\n"
+"        </p>\n"
+"        <p>\n"
+"            A training material is any resource used in the training groups\n"
+"            given to all students.\n"
+"        </p>\n"
+"        <p>\n"
+"            Examples: Book, pen, notebook, etc.\n"
+"        </p>\n"
+"    "
+msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"Pulsa para añadir un nuevo material formativo.\n"
+"</p>\n"
+"<p>\n"
+"Un material formativo es cualquier recurso usado en los grupos formativos y "
+"entregado a todos los estudiantes.\n"
+"</p>\n"
+"<p>\n"
+"Ejemplos: libro, bolígrafo, bloc de notas, etc.\n"
+"</p>"
+
+#. module: training
+#: model:ir.ui.menu,name:training.action_types_menu
+msgid "Action types"
+msgstr "Tipos de acción"
+
+#. module: training
+#: model:ir.ui.menu,name:training.actions_menu
+msgid "Actions"
+msgstr "Acciones"
+
+#. module: training
+#: view:website:training.diploma_delivery_receipt_report_translatable
+msgid "Address:"
+msgstr "Dirección:"
+
+#. module: training
+#: help:training.action,append_template:0
+msgid ""
+"Append one of these templates to the diploma contents. They will help you to "
+"achieve some complex layouts."
+msgstr ""
+"Añadir una de estas plantillas a los contenidos del diploma. Le ayudarán a "
+"formar algunas disposiciones complejas."
+
+#. module: training
+#: field:training.action,append_template:0
+msgid "Append template"
+msgstr "Añadir plantilla"
+
+#. module: training
+#: view:website:training.diploma_delivery_receipt_report_translatable
+msgid "Attendee:"
+msgstr "Asistente:"
+
+#. module: training
+#: help:training.material_type,material_ids:0
+msgid "Available materials of this type."
+msgstr "Materiales de este tipo disponibles."
+
+#. module: training
+#: view:website:training.diploma_delivery_receipt_report_translatable
+msgid "Begin date:"
+msgstr "Fecha de cominezo:"
+
+#. module: training
+#: sql_constraint:training.duration:0
+msgid "Cannot repeat the hour type in a training action."
+msgstr "No se puede repetir el tipo de hora en una acción formativa."
+
+#. module: training
+#: model:ir.ui.menu,name:training.catalog_menu
+msgid "Catalog"
+msgstr "Catálogo"
+
+#. module: training
+#: view:website:training.diploma_report_translatable
+msgid "Certifies that"
+msgstr "Certifica que"
+
+#. module: training
+#: code:addons/training/models/training_action.py:148
+#, python-format
+msgid "Column %d"
+msgstr "Columna %d"
+
+#. module: training
+#: model:ir.ui.menu,name:training.configuration_menu
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: training
+#: view:training.action:training.action_form field:training.action,contents:0
+msgid "Contents"
+msgstr "Contenidos"
+
+#. module: training
+#: help:training.action,contents:0
+msgid "Contents of the course, shown in the rear side of the diploma."
+msgstr "Contenidos del curso, mostrados en el reverso del diploma."
+
+#. module: training
+#: view:website:training.diploma_report_translatable
+msgid "Course Contents"
+msgstr "Contenidos del curso"
+
+#. module: training
+#: field:training.action,create_uid:0 field:training.action_type,create_uid:0
+#: field:training.duration,create_uid:0
+#: field:training.duration_type,create_uid:0
+#: field:training.material,create_uid:0
+#: field:training.material_type,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: training
+#: field:training.action,create_date:0
+#: field:training.action_type,create_date:0
+#: field:training.duration,create_date:0
+#: field:training.duration_type,create_date:0
+#: field:training.material,create_date:0
+#: field:training.material_type,create_date:0
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: training
+#: view:website:training.attendance_certificate_table
+msgid "Dates"
+msgstr "Fechas"
+
+#. module: training
+#: view:website:training.diploma_delivery_receipt_report_translatable
+msgid "Delivery Receipt of Certificate"
+msgstr "Recibo del certificado"
+
+#. module: training
+#: view:website:training.diploma_report_translatable
+msgid "Diploma"
+msgstr "Diploma"
+
+#. module: training
+#: model:ir.actions.report.xml,name:training.diploma_action
+msgid "Diploma / Certificate"
+msgstr "Diploma / Certificado"
+
+#. module: training
+#: model:ir.actions.report.xml,name:training.diploma_delivery_receipt_action
+msgid "Diploma / Certificate Delivery Receipt"
+msgstr "Recibo del diploma / certificado"
+
+#. module: training
+#: field:training.duration,duration:0
+msgid "Duration"
+msgstr "Duración"
+
+#. module: training
+#: model:training.material_type,name:training.material_type_electronic
+msgid "Electronic"
+msgstr "Electrónico"
+
+#. module: training
+#: view:website:training.diploma_delivery_receipt_report_translatable
+msgid "End date:"
+msgstr "Fecha de finalización:"
+
+#. module: training
+#: code:addons/training/exceptions.py:11 code:addons/training/exceptions.py:17
+#, python-format
+msgid "Error(s) with the training data."
+msgstr "Error(es) con los datos formativos."
+
+#. module: training
+#: model:ir.model,name:training.model_event_event
+msgid "Event"
+msgstr "Evento"
+
+#. module: training
+#: model:ir.model,name:training.model_event_registration
+msgid "Event Registration"
+msgstr "Registro del evento"
+
+#. module: training
+#: view:website:training.diploma_delivery_receipt_report_translatable
+msgid "Event:"
+msgstr "Evento:"
+
+#. module: training
+#: field:training.action,event_ids:0 field:training.material,event_ids:0
+msgid "Events"
+msgstr "Eventos"
+
+#. module: training
+#: help:training.action,duration_ids:0
+msgid "Expected duration of each type of hours for these training groups."
+msgstr ""
+"Duración que se espera de cada tipo de horas para estos grupos formativos."
+
+#. module: training
+#: field:training.action_type,expected_duration_type_ids:0
+msgid "Expected hour types"
+msgstr "Tipos de horas esperados"
+
+#. module: training
+#: field:training.action,duration_ids:0
+msgid "Expected hours"
+msgstr "Horas esperadas"
+
+#. module: training
+#: field:training.duration_type,duration_ids:0
+msgid "Expected hours of this type"
+msgstr "Horas de este tipo que se esperan"
+
+#. module: training
+#: help:training.duration_type,duration_ids:0
+msgid "Expected hours of this type defined in training actions."
+msgstr "Horas esperadas de este tipo definidas en las acciones formativas."
+
+#. module: training
+#: view:website:training.attendance_certificate_table
+msgid "Failed"
+msgstr "Suspendido"
+
+#. module: training
+#: view:website:training.diploma_delivery_receipt_report_translatable
+#: view:website:training.diploma_report_translatable
+msgid "Failed."
+msgstr "Suspendido."
+
+#. module: training
+#: view:website:training.attendance_certificate_table
+msgid "From"
+msgstr "De"
+
+#. module: training
+#: field:event.registration,grade:0
+#: view:website:training.attendance_certificate_table
+msgid "Grade"
+msgstr "Nota"
+
+#. module: training
+#: code:addons/training/exceptions.py:23
+#, python-format
+msgid ""
+"Grade %(grade)f for %(student)s does not fit between %(min)f and %(max)f."
+msgstr "La nota %(grade)f para %(student)s no encaja entre %(min)f y %(max)f."
+
+#. module: training
+#: view:training.action:training.action_form
+msgid "Grade Limits"
+msgstr "Límites de nota"
+
+#. module: training
+#: view:website:training.diploma_delivery_receipt_report_translatable
+msgid "Grade:"
+msgstr "Nota:"
+
+#. module: training
+#: view:training.action:training.action_search
+#: view:training.material:training.material_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: training
+#: view:event.event:training.event_search
+msgid "Group event by training action"
+msgstr "Agrupar eventos por acción formativa"
+
+#. module: training
+#: view:training.material:training.material_search
+msgid "Group materials by type"
+msgstr "Agrupar materiales por tipo"
+
+#. module: training
+#: view:training.action:training.action_search
+msgid "Group training actions by training type"
+msgstr "Agrupar acciones formativas por tipo formativo"
+
+#. module: training
+#: model:ir.ui.menu,name:training.training_groups_menu
+msgid "Groups"
+msgstr "Grupos"
+
+#. module: training
+#: view:website:training.diploma_report_translatable
+msgid "Has attended the"
+msgstr "Ha asistido al"
+
+#. module: training
+#: view:website:training.diploma_report_translatable
+msgid "Has cancelled attendance for the"
+msgstr "Ha cancelado su asistencia al"
+
+#. module: training
+#: view:website:training.diploma_report_translatable
+msgid "Has confirmed attendance for the"
+msgstr "Ha confirmado su asistencia al"
+
+#. module: training
+#: view:website:training.diploma_report_translatable
+msgid "Has not confirmed yet attendance for the"
+msgstr "Todavía no ha confirmado su asistencia al"
+
+#. module: training
+#: code:addons/training/exceptions.py:55
+#, python-format
+msgid ""
+"Hour type '%(hour_type)s' is not among the valid ones defined in the "
+"training type (%(training_type)s)."
+msgstr ""
+"El tipo de hora '%(hour_type)s' no está entre los tipos de hora válidos "
+"definidos en el tipo formativo (%(training_type)s)."
+
+#. module: training
+#: model:ir.actions.act_window,name:training.open_duration_type_view
+#: model:ir.ui.menu,name:training.duration_type_menu
+msgid "Hour types"
+msgstr "Tipos de hora"
+
+#. module: training
+#: field:training.action,id:0 field:training.action_type,id:0
+#: field:training.duration,id:0 field:training.duration_type,id:0
+#: field:training.material,id:0 field:training.material_type,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: training
+#: view:website:training.diploma_report_translatable
+msgid "In such training, the student got the following grade:"
+msgstr "En dicho curso, el estudiante obtuvo esta nota:"
+
+#. module: training
+#: view:training.action:training.action_form
+msgid "Information"
+msgstr "Información"
+
+#. module: training
+#: field:training.action,write_uid:0 field:training.action_type,write_uid:0
+#: field:training.duration,write_uid:0
+#: field:training.duration_type,write_uid:0
+#: field:training.material,write_uid:0
+#: field:training.material_type,write_uid:0
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: training
+#: field:training.action,write_date:0 field:training.action_type,write_date:0
+#: field:training.duration,write_date:0
+#: field:training.duration_type,write_date:0
+#: field:training.material,write_date:0
+#: field:training.material_type,write_date:0
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: training
+#: model:res.groups,name:training.manager_group
+msgid "Manager"
+msgstr "Gestor"
+
+#. module: training
+#: model:ir.ui.menu,name:training.material_type_menu
+msgid "Material types"
+msgstr "Tipos de material"
+
+#. module: training
+#: field:event.event,material_ids:0
+#: model:ir.ui.menu,name:training.material_menu
+#: field:training.action,material_ids:0
+#: field:training.material_type,material_ids:0
+msgid "Materials"
+msgstr "Materiales"
+
+#. module: training
+#: field:event.registration,materials_delivered:0
+msgid "Materials delivered"
+msgstr "Materiales entregados"
+
+#. module: training
+#: field:training.action,grade_max:0
+msgid "Maximum grade"
+msgstr "Nota máxima"
+
+#. module: training
+#: field:training.action,grade_min:0
+msgid "Minimal grade"
+msgstr "Nota mínima"
+
+#. module: training
+#: code:addons/training/models/training_action.py:98
+#, python-format
+msgid "Minimum grade cannot be bigger than maximum."
+msgstr "La nota mínima no puede ser mayor que la máxima."
+
+#. module: training
+#: model:training.action_type,name:training.action_type_mixed
+msgid "Mixed"
+msgstr "Mixta"
+
+#. module: training
+#: field:training.action,name:0 field:training.action_type,name:0
+#: field:training.duration_type,name:0 field:training.material,name:0
+#: field:training.material_type,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: training
+#: sql_constraint:training.action_type:0
+#: sql_constraint:training.duration_type:0 sql_constraint:training.material:0
+#: sql_constraint:training.material_type:0
+msgid "Name must be unique."
+msgstr "El nombre debe ser único."
+
+#. module: training
+#: code:addons/training/exceptions.py:40
+#, python-format
+msgid "No materials are set in the event."
+msgstr "No se ha establecido ningún material en el evento."
+
+#. module: training
+#: model:training.material,name:training.material_notebook
+msgid "Notebook"
+msgstr "Bloc de notas"
+
+#. module: training
+#: model:training.action,name:training.action_developer_training
+msgid "Odoo developer training"
+msgstr "Formación en desarrollo de Odoo"
+
+#. module: training
+#: model:training.action,name:training.action_open_days
+msgid "Odoo open days"
+msgstr "Jornadas abiertas de Odoo"
+
+#. module: training
+#: model:training.action,name:training.action_user_training
+msgid "Odoo user training"
+msgstr "Formación en uso de Odoo"
+
+#. module: training
+#: model:training.action_type,name:training.action_type_on_site
+#: model:training.duration_type,name:training.duration_type_on_site
+msgid "On site"
+msgstr "Presencial"
+
+#. module: training
+#: model:training.action_type,name:training.action_type_on_site_online
+msgid "On site and online"
+msgstr "Presencial y en línea"
+
+#. module: training
+#: model:training.action_type,name:training.action_type_on_site_remote
+msgid "On site and remote"
+msgstr "Presencial y a distancia"
+
+#. module: training
+#: model:training.action_type,name:training.action_type_online
+#: model:training.duration_type,name:training.duration_type_online
+msgid "Online"
+msgstr "En línea"
+
+#. module: training
+#: view:website:training.attendance_certificate_table
+msgid "Passed"
+msgstr "Aprobado"
+
+#. module: training
+#: view:website:training.diploma_delivery_receipt_report_translatable
+#: view:website:training.diploma_report_translatable
+msgid "Passed."
+msgstr "Aprobado."
+
+#. module: training
+#: field:training.action,grade_pass:0
+msgid "Passing grade"
+msgstr "Nota para aprobar"
+
+#. module: training
+#: code:addons/training/models/training_action.py:100
+#, python-format
+msgid "Passing grade must be between minimum and maximum grades."
+msgstr "La nota para aprobar debe estar entre la mínima y la máxima."
+
+#. module: training
+#: model:training.material,name:training.material_password
+msgid "Password"
+msgstr "Contraseña"
+
+#. module: training
+#: model:training.material,name:training.material_pen
+msgid "Pen"
+msgstr "Bolígrafo"
+
+#. module: training
+#: model:training.material_type,name:training.material_type_physical
+msgid "Physical"
+msgstr "Físico"
+
+#. module: training
+#: model:training.action_type,name:training.action_type_remote
+#: model:training.duration_type,name:training.duration_type_remote
+msgid "Remote"
+msgstr "A distancia"
+
+#. module: training
+#: model:training.action_type,name:training.action_type_remote_online
+msgid "Remote and online"
+msgstr "A distancia y en línea"
+
+#. module: training
+#: view:event.event:training.event_search
+msgid "Show only events considered training groups"
+msgstr "Mostrar sólo los eventos considerados como grupos formativos"
+
+#. module: training
+#: view:website:training.diploma_delivery_receipt_report_translatable
+#: view:website:training.material_delivery_receipt_report_translatable
+msgid "Signed"
+msgstr "Firmado"
+
+#. module: training
+#: view:website:training.attendance_certificate_table
+msgid "Status"
+msgstr "Estado"
+
+#. module: training
+#: view:website:training.diploma_delivery_receipt_report_translatable
+msgid "Status:"
+msgstr "Estado:"
+
+#. module: training
+#: help:training.action,grade_pass:0
+msgid "Students above than this grade will pass the training."
+msgstr "Los estudiantes que superen esta nota aprobarán el curso."
+
+#. module: training
+#: help:training.action,grade_min:0
+msgid "Students cannot get less than this grade."
+msgstr "Los estudiantes no pueden sacar menos que esta nota."
+
+#. module: training
+#: help:training.action,grade_max:0
+msgid "Students cannot get more than this grade."
+msgstr "Los estudiantes no pueden sacar más que esta nota."
+
+#. module: training
+#: model:training.material,name:training.material_study_book
+msgid "Study book"
+msgstr "Libro de estudio"
+
+#. module: training
+#: view:website:training.material_delivery_receipt_report_translatable
+msgid "These materials have been delivered to make the course"
+msgstr "Estos materiales se han entregado para realizar el curso"
+
+#. module: training
+#: help:event.event,material_ids:0 help:training.action,material_ids:0
+msgid "These should be delivered to every student in this training."
+msgstr "Estos se deberían entregar a cada estudiante en este curso."
+
+#. module: training
+#: help:training.action_type,expected_duration_type_ids:0
+msgid ""
+"These types of hours are expected in this type of training action. For "
+"example, a training of type 'mixed' may expect hours of types 'on-site' and "
+"'online'."
+msgstr ""
+"Estos tipos de horas se esperan en este tipo de acción formativa. Por "
+"ejemplo, un tipo formativo 'mixto' puede esperar horas del tipo 'presencial' "
+"y 'en línea'."
+
+#. module: training
+#: view:website:training.attendance_certificate_company
+#: view:website:training.attendance_certificate_contact
+msgid "This document certifies that"
+msgstr "Este documento certifica que"
+
+#. module: training
+#: help:training.material,training_action_ids:0
+msgid "This material should be delivered in these training actions."
+msgstr "Este material debería entregarse en estas acciones formativas."
+
+#. module: training
+#: help:training.material,event_ids:0
+msgid "This material should be delivered in these training groups."
+msgstr "Este material debería entregarse en estos grupos formativos."
+
+#. module: training
+#: view:event.event:training.event_form
+#: view:event.registration:training.event_registration_form
+#: model:ir.module.category,name:training.category
+#: model:ir.ui.menu,name:training.training_menu
+#: view:website:training.attendance_certificate_table
+msgid "Training"
+msgstr "Formación"
+
+#. module: training
+#: model:ir.actions.report.xml,name:training.attendance_certificate_action
+#: view:website:training.attendance_certificate_report_translatable
+msgid "Training Attendance Certificate"
+msgstr "Certificado de asistencia al curso"
+
+#. module: training
+#: model:ir.actions.report.xml,name:training.material_delivery_receipt_action
+#: view:website:training.material_delivery_receipt_report_translatable
+msgid "Training Materials Delivery Receipt"
+msgstr "Recibo de entrega de material formativo"
+
+#. module: training
+#: view:event.event:training.event_search
+#: field:event.event,training_action_id:0 field:training.duration,action_id:0
+msgid "Training action"
+msgstr "Acción formativa"
+
+#. module: training
+#: help:event.event,training_action_id:0
+msgid "Training action of this event, if it is a training group."
+msgstr "Acción formativa de este evento, si es un grupo formativo."
+
+#. module: training
+#: model:ir.actions.act_window,name:training.open_action_types_view
+#: field:training.duration_type,action_type_ids:0
+msgid "Training action types"
+msgstr "Tipos de acción formativa"
+
+#. module: training
+#: help:training.duration_type,action_type_ids:0
+msgid "Training action types that expect this hour type."
+msgstr "Tipos de acción formativa que esperan este tipo de horas."
+
+#. module: training
+#: model:ir.actions.act_window,name:training.open_actions_view
+#: field:training.action_type,action_ids:0
+#: field:training.material,training_action_ids:0
+msgid "Training actions"
+msgstr "Acciones formativas"
+
+#. module: training
+#: help:training.action_type,action_ids:0
+msgid "Training actions of this type."
+msgstr "Acciones formativas de este tipo."
+
+#. module: training
+#: view:event.event:training.event_search
+#: model:ir.actions.act_window,name:training.open_training_groups_view
+msgid "Training groups"
+msgstr "Grupos formativos"
+
+#. module: training
+#: model:ir.actions.act_window,name:training.open_material_types_view
+msgid "Training material types"
+msgstr "Tipos de material"
+
+#. module: training
+#: model:ir.actions.act_window,name:training.open_materials_view
+msgid "Training materials"
+msgstr "Materiales formativos"
+
+#. module: training
+#: help:event.registration,materials_delivered:0
+msgid "Training materials have been delivered to this student?"
+msgstr "¿Los materiales formativos se han entregado a este estudiante?"
+
+#. module: training
+#: field:training.action,type_id:0
+msgid "Training type"
+msgstr "Tipo formativo"
+
+#. module: training
+#: view:website:training.diploma_delivery_receipt_report_translatable
+msgid "Training:"
+msgstr "Formación:"
+
+#. module: training
+#: view:training.action:training.action_search
+#: view:training.material:training.material_search
+#: field:training.material,type_id:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: training
+#: field:training.duration,type_id:0
+msgid "Type of hours"
+msgstr "Tipo de horas"
+
+#. module: training
+#: help:training.material,type_id:0
+msgid "Type of this training material"
+msgstr "Tipo de este material formativo"
+
+#. module: training
+#: model:res.groups,name:training.user_group
+msgid "User"
+msgstr "Usuario"
+
+#. module: training
+#: model:training.material,name:training.material_username
+msgid "User name"
+msgstr "Usuario"
+
+#. module: training
+#: code:addons/training/exceptions.py:46
+#, python-format
+msgid "Yoy are changing materials that have been delivered already."
+msgstr "Está cambiando materiales que ya han sido entregados."
+
+#. module: training
+#: view:website:training.material_delivery_receipt_report_translatable
+msgid "certifies having recieved the following training materials:"
+msgstr "certifica haber recibido los siguientes materiales formativos:"
+
+#. module: training
+#: view:website:training.diploma_delivery_receipt_report_translatable
+msgid ""
+"confirms having recieved a document certificating the\n"
+"                    following information:"
+msgstr ""
+"confirma haber recibido un documento que certifica la siguiente información:"
+
+#. module: training
+#: view:website:training.diploma_report_translatable
+msgid "event"
+msgstr "evento"
+
+#. module: training
+#: view:website:training.attendance_certificate_company
+msgid ""
+"in some of our training groups,\n"
+"            and according to the following information:"
+msgstr ""
+"en alguno de nuestros grupos formativos, y de acuerdo a la siguiente "
+"información:"
+
+#. module: training
+#: view:website:training.attendance_certificate_company
+msgid "nobody participated in any of our training groups in the name of"
+msgstr ""
+"nadie ha participado en ninguno de nuestros grupos formativos en el nombre de"
+
+#. module: training
+#: view:website:training.attendance_certificate_contact
+msgid "participated in none of our training groups."
+msgstr "no ha participado en ninguno de nuestros grupos formativos."
+
+#. module: training
+#: view:website:training.attendance_certificate_contact
+msgid ""
+"participated in some of our training groups according to the\n"
+"            following information:"
+msgstr ""
+"ha participado en alguno de nuestros grupos formativos de acuerdo a la "
+"siguiente información:"
+
+#. module: training
+#: view:website:training.attendance_certificate_company
+msgid "the following people participated in the name of"
+msgstr "las siguientes personas han participado en el nombre de"
+
+#. module: training
+#: view:website:training.attendance_certificate_table
+#: view:website:training.diploma_report_translatable
+msgid "to"
+msgstr "a"
+
+#. module: training
+#: view:website:training.diploma_report_translatable
+msgid "training"
+msgstr "formación"

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+     © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis -->
+
+<openerp>
+<data>
+
+<record id="form" model="ir.ui.view">
+    <field name="name">Training hour type</field>
+    <field name="model">event.track</field>
+    <field name="inherit_id" ref="website_event_track.view_event_track_form"/>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='tag_ids']" position="before">
+                <field name="duration_type_id"/>
+                <field name="monitor_attendance"/>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="search" model="ir.ui.view">
+    <field name="name">Training hour type</field>
+    <field name="model">event.track</field>
+    <field name="inherit_id" ref="website_event_track.view_event_track_search"/>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//group" position="before">
+                <field name="duration_type_id"/>
+                <filter string="Using attendance monitoring"
+                        domain="[('monitor_attendance', '=', True)]"/>
+            </xpath>
+
+            <xpath expr="//group">
+                <filter string="Training hour type"
+                        context="{'group_by': 'duration_type_id'}"/>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+</data>
+</openerp>

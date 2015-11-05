@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+     © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis -->
+
+<openerp>
+<data>
+
+<!-- Templates -->
+<template id="attendance_certificate_report">
+    <t t-call="report.html_container">
+        <t t-foreach="doc_ids" t-as="doc_id">
+            <t t-raw="translate_doc(
+                doc_id, doc_model, 'lang',
+                'training.attendance_certificate_report_translatable')"/>
+        </t>
+    </t>
+</template>
+
+<template id="attendance_certificate_report_translatable">
+    <t t-call="report.external_layout">
+        <div class="page">
+            <h1>Training Attendance Certificate</h1>
+            <t t-set="training_actions"
+               t-value="(o | o.child_ids)
+                        .mapped('registrations.training_action_id')"/>
+            <t t-if="o.is_company and o.child_ids">
+               <t t-call="training.attendance_certificate_company"/>
+            </t>
+            <t t-if="not (o.is_company and o.child_ids)">
+               <t t-call="training.attendance_certificate_contact"/>
+            </t>
+        </div>
+    </t>
+</template>
+
+<template id="attendance_certificate_contact">
+    <p>
+        This document certifies that
+        <strong>
+            <t t-if="o and o.title"
+               t-esc="o.title.shortcut or
+                      o.title.name"/>
+            <t t-esc="o.name"/>
+        </strong>
+        <t t-if="training_actions">
+            participated in some of our training groups according to the
+            following information:
+        </t>
+        <t t-if="not training_actions">
+            participated in none of our training groups.
+        </t>
+    </p>
+
+    <t t-if="training_actions">
+        <t t-set="contact" t-value="o"/>
+        <t t-call="training.attendance_certificate_table"/>
+    </t>
+</template>
+
+<template id="attendance_certificate_company">
+    <p>
+        This document certifies that
+        <t t-if="training_actions">
+            the following people participated in the name of
+            <strong t-esc="o.name_get()[0][1]"/>
+            in some of our training groups,
+            and according to the following information:
+        </t>
+        <t t-if="not training_actions">
+            nobody participated in any of our training groups in the name of
+            <strong t-esc="o.name_get()[0][1]"/>.
+        </t>
+    </p>
+
+    <div t-if="training_actions" t-foreach="o | o.child_ids" t-as="contact">
+        <t t-if="contact.mapped('registrations.training_action_id')">
+            <h3>
+                <small t-if="contact and contact.title"
+                       t-esc="contact.title.shortcut or
+                              contact.title.name"/>
+                <t t-esc="contact.name"/>
+            </h3>
+            <t t-call="training.attendance_certificate_table"/>
+        </t>
+    </div>
+</template>
+
+<template id="attendance_certificate_table">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Training</th>
+                <th>Dates</th>
+                <th>Status</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <t t-foreach="contact.registrations" t-as="r">
+                <tr t-if="r.training_action_id">
+                    <td t-esc="r.training_action_id.name"/>
+                    <td>
+                        From <t t-esc="r.event_id.date_begin"/><br/>
+                        to <t t-esc="r.event_id.date_end"/>
+                    </td>
+                    <td t-esc="dict(r.fields_get()['state']['selection'])
+                              .get(r.state)"/>
+                    <td>
+                        <t t-if="r.passing">Passed</t>
+                        <t t-if="not r.passing">Failed</t>
+                    </td>
+                </tr>
+            </t>
+        </tbody>
+    </table>
+</template>
+
+<!-- Report action -->
+<report
+    id="attendance_certificate_action"
+    model="res.partner"
+    name="training.attendance_certificate_report"
+    string="Training Attendance Certificate"
+    report_type="qweb-pdf"
+    groups="user_group"
+    multi="False"/>
+
+</data>
+</openerp>
