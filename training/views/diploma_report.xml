@@ -80,9 +80,10 @@
                     <b t-esc="o.training_action_id.name or
                               o.event_id.name"/>, in
                     <t t-esc="o.with_context(show_address=True).event_id
-                              .address_id.name_get()[0][1]"/>,
-                    imparted from <t t-esc="o.event_id.date_begin"/>
-                    to <t t-esc="o.event_id.date_end"/>.
+                              .address_id.name_get()[0][1]"/>, imparted from
+                    <t t-esc="o.event_id.date_begin"/>
+                    to
+                    <t t-esc="o.event_id.date_end"/>.
                 </p>
                 <p t-if="o.training_action_id and o.state == 'done'">
                     In such training, the student got the following grade:
