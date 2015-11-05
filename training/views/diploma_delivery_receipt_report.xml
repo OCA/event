@@ -22,13 +22,13 @@
             <div class="front row">
                 <h1>Delivery Receipt of Certificate</h1>
                 <p>
-                    I,
                     <strong>
                         <t t-if="o.partner_id and o.partner_id.title"
                            t-esc="o.partner_id.title.shortcut or
                                   o.partner_id.title.name"/>
-                        <t t-esc="o.name"/></strong>,
-                    certify that I recieved a document certificating the
+                        <t t-esc="o.name"/>
+                    </strong>
+                    confirms having recieved a document certificating the
                     following information:
                 </p>
                 <ul>

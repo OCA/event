@@ -10,6 +10,7 @@ class Generator(models.TransientModel):
 
     available_duration_type_ids = fields.Many2many(
         "training.duration_type",
+        string="Available duration types",
         compute="_compute_available_duration_type_ids",
         store=True)
     duration_type_id = fields.Many2one(

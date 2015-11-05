@@ -22,13 +22,13 @@
             <div class="col-xs-12">
                 <h1>Training Materials Delivery Receipt</h1>
                 <p>
-                    I,
                     <strong>
                         <t t-if="o.partner_id and o.partner_id.title"
                            t-esc="o.partner_id.title.shortcut or
                                   o.partner_id.title.name"/>
-                        <t t-esc="o.name"/></strong>,
-                    certify that I recieved the following training materials:
+                        <t t-esc="o.name"/>
+                    </strong>
+                    certifies having recieved the following training materials:
                 </p>
             </div>
             <div class="col-xs-12 col-xs-offset-1">
@@ -41,8 +41,7 @@
             </div>
             <div class="col-xs-12">
                 <p>
-                    These materials have been delivered to me to make the
-                    course
+                    These materials have been delivered to make the course
                     <strong t-esc="(o.training_action_id or
                                     o).name_get()[0][1]"/>.
                 </p>

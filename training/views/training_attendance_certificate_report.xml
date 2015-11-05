@@ -61,13 +61,14 @@
     <p>
         This document certifies that
         <t t-if="training_actions">
-            the following people participated in some of our training groups,
-            in the name of <strong t-esc="o.name"/>, and according to the
-            following information:
+            the following people participated in the name of
+            <strong t-esc="o.name_get()[0][1]"/>
+            in some of our training groups,
+            and according to the following information:
         </t>
         <t t-if="not training_actions">
             nobody participated in any of our training groups in the name of
-            <strong t-esc="o.name"/>.
+            <strong t-esc="o.name_get()[0][1]"/>.
         </t>
     </p>
 
