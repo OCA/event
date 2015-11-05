@@ -38,8 +38,7 @@ Credits
 Contributors
 ------------
 
-* `Grupo ESOC <http://grupoesoc.es>`_:
-    * `Jairo Llopis <mailto:j.llopis@grupoesoc.es>`_.
+* Jairo Llopis <j.llopis@grupoesoc.es>.
 
 Maintainer
 ----------
