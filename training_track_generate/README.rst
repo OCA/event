@@ -14,6 +14,10 @@ Usage
 See usage instructions for ``event_track_generate``. This module just adds some
 special fields required to use it in combination with ``training``.
 
+.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
+   :alt: Try me on Runbot
+   :target: https://runbot.odoo-community.org/runbot/199/8.0
+
 Bug Tracker
 ===========
 
