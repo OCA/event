@@ -19,6 +19,7 @@ Available addons
 addon | version | summary
 --- | --- | ---
 [event_project](event_project/) | 8.0.1.1.0 | Event project
+[event_registration_mass_mailing](event_registration_mass_mailing/) | 8.0.1.0.0 | Mass mailing from events
 [partner_event](partner_event/) | 8.0.1.1.0 | Link partner to events
 
 [//]: # (end addons)
