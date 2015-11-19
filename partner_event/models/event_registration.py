@@ -26,7 +26,7 @@ class EventRegistration(models.Model):
             email = vals.get('email').replace('%', '').replace('_', '\\_')
             partners = partner_model.search(
                 [('email', '=ilike', email)])
-            event = event_model.browse(vals['event_id'])
+            event = event_model.browse(int(vals['event_id']))
             if partners:
                 partner_id = partners[0].id
                 vals['name'] = vals.get('name') or partners[0].name
