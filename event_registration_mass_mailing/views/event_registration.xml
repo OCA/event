@@ -64,9 +64,9 @@
     <field name="model">event.registration</field>
     <field name="inherit_id" ref="event.view_event_registration_form"/>
     <field name="arch" type="xml">
-        <label for="email" position="before">
+        <field name="email" position="before">
             <field name="opt_out"/>
-        </label>
+        </field>
     </field>
 </record>
 
