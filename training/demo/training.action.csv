@@ -1,0 +1,4 @@
+id,name,type_id:id
+action_open_days,Odoo open days,action_type_mixed
+action_user_training,Odoo user training,action_type_online
+action_developer_training,Odoo developer training,action_type_on_site
