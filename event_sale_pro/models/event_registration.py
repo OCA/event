@@ -40,19 +40,21 @@ class EventRegistration(models.Model):
         string="Origin",
         help="Object linked to the registration.")
 
-    @api.one
+    @api.multi
     @api.depends("origin_id")
     def _origin_compute(self):
         """Change :attr:`origin` according to what gets linked."""
-        self.origin = (self.origin_id.name_get()[0][1]
-                       if self.origin_id else False)
+        for s in self:
+            s.origin = (s.origin_id.name_get()[0][1]
+                        if s.origin_id else False)
 
-    @api.one
+    @api.multi
     def _origin_inverse(self):
         """Link :attr:`origin_id` to the sale order."""
-        self.origin_id = self.env["sale.order"].search(
-            [("name", "=", self.origin)],
-            limit=1) or False
+        for s in self:
+            s.origin_id = s.env["sale.order"].search(
+                [("name", "=", s.origin)],
+                limit=1) or False
 
     @api.model
     def _origin_inverse_all(self):
@@ -60,7 +62,7 @@ class EventRegistration(models.Model):
         return self.search([("origin", "!=", False),
                             ("origin_id", "=", False)])._origin_inverse()
 
-    @api.one
+    @api.multi
     @api.returns("res.partner")
     def invoiced_partner(self):
         """Compute automatically the partner to be invoiced."""

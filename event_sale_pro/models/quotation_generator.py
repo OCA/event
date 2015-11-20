@@ -39,7 +39,6 @@ class EventQuotationGenerator(models.TransientModel):
              "registration.")
 
     @api.multi
-    @api.returns("sale.order")
     def action_generate(self):
         """Generate sale orders for selected event registrations."""
         self.ensure_one()
@@ -67,7 +66,7 @@ class EventQuotationGenerator(models.TransientModel):
             line = self.create_quotation_line({
                 "event_id": registration.event_id.id,
                 "event_ticket_id": registration.event_ticket_id.id,
-                "name": self.compute_description(registration)[0],
+                "name": self.compute_description(registration),
                 "order_id": orders[client.id].id,
                 "product_id": self.product_id.id,
             })
@@ -82,21 +81,23 @@ class EventQuotationGenerator(models.TransientModel):
 
         return orders.values()
 
-    @api.one
+    @api.model
     @api.returns("sale.order")
     def create_quotation(self, data):
         """Create a sale order with the needed data."""
         return self.env["sale.order"].create(data)
 
-    @api.one
+    @api.model
     @api.returns("sale.order.line")
     def create_quotation_line(self, data):
         """Create a sale order line with the needed data."""
         return self.env["sale.order.line"].create(data)
 
-    @api.one
+    @api.multi
     def compute_description(self, registration):
         """Compute the product description for the sale order."""
+        self.ensure_one()
+
         if registration.event_ticket_id:
             name = _('%(product)s in event "%(event)s" of type "%(type)s" '
                      'for %(partner)s.')

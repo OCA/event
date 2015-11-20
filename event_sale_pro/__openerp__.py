@@ -16,7 +16,7 @@
     ],
     "data": [
         "data/install.xml",
-        "views/event.xml",
+        "views/event_registration.xml",
         "views/quotation_generator.xml",
     ],
 }

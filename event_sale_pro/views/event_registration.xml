@@ -9,6 +9,7 @@
     <field name="arch" type="xml">
         <xpath expr="//sheet/group">
             <group>
+                <field name="invoiced_partner_id"/>
                 <field name="origin_id"/>
             </group>
         </xpath>
