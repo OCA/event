@@ -8,7 +8,6 @@ from . import exceptions
 
 class Event(models.Model):
     """Events enhaced with participants per registration limits."""
-
     _inherit = "event.event"
 
     registration_seats_max = fields.Integer(
@@ -29,16 +28,15 @@ class Event(models.Model):
                     "seats_max")
     def _check_seats_per_registration_limits(self):
         """Ensure you are not setting an invalid maximum."""
-
         if self.registration_seats_min < 1:
             raise exceptions.NeedAtLeastOneParticipant()
 
-        if self.registration_seats_max != 0:
+        if self.registration_seats_max:
             if (self.registration_seats_max <
                     self.registration_seats_min):
                 raise exceptions.MaxSmallerThanMin()
 
-        if self.seats_max != 0:
+        if self.seats_max:
             if self.registration_seats_max > self.seats_max:
                 raise exceptions.MaxPerRegisterBiggerThanMaxPerEvent()
 
@@ -50,15 +48,13 @@ class Event(models.Model):
 
 class EventRegistration(models.Model):
     """Event registrations must force the limits imposed in the event."""
-
     _inherit = "event.registration"
 
     @api.one
     @api.constrains("event_id", "nb_register")
     def _check_seats_per_registration_limits(self):
         """Ensure the number of reserved seats fits in the limits."""
-
-        if self.event_id.registration_seats_max != 0:
+        if self.event_id.registration_seats_max:
             if self.nb_register > self.event_id.registration_seats_max:
                 raise exceptions.TooManyParticipants(
                     self.event_id.registration_seats_max)
@@ -69,12 +65,11 @@ class EventRegistration(models.Model):
 
     def _default_seats(self):
         """Set the default number of participants per registration."""
-
         # Normalize cases when there's no record
-        event_id = self.event_id.id or self.env.context.get("active_id", False)
+        event = self.event_id or self.event_id.browse(
+            self.env.context.get("active_id", False))
 
-        return (self.env["event.event"].browse(event_id)
-                .registration_seats_min) or 1
+        return event.registration_seats_min or 1
 
     # Default seats to the minimum
     nb_register = fields.Integer(
