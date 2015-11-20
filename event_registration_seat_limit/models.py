@@ -22,46 +22,48 @@ class Event(models.Model):
         help="Registrations with less than this number of participants will "
              "be forbidden.")
 
-    @api.one
+    @api.multi
     @api.constrains("registration_seats_max",
                     "registration_seats_min",
                     "seats_max")
     def _check_seats_per_registration_limits(self):
         """Ensure you are not setting an invalid maximum."""
-        if self.registration_seats_min < 1:
-            raise exceptions.NeedAtLeastOneParticipant()
+        for s in self:
+            if s.registration_seats_min < 1:
+                raise exceptions.NeedAtLeastOneParticipant()
 
-        if self.registration_seats_max:
-            if (self.registration_seats_max <
-                    self.registration_seats_min):
-                raise exceptions.MaxSmallerThanMin()
+            if s.registration_seats_max:
+                if (s.registration_seats_max <
+                        s.registration_seats_min):
+                    raise exceptions.MaxSmallerThanMin()
 
-        if self.seats_max:
-            if self.registration_seats_max > self.seats_max:
-                raise exceptions.MaxPerRegisterBiggerThanMaxPerEvent()
+            if s.seats_max:
+                if s.registration_seats_max > s.seats_max:
+                    raise exceptions.MaxPerRegisterBiggerThanMaxPerEvent()
 
-        try:
-            self.registration_ids._check_seats_per_registration_limits()
-        except exceptions.SeatsPerRegistrationError as error:
-            raise exceptions.PreviousRegistrationsFail(error)
+            try:
+                s.registration_ids._check_seats_per_registration_limits()
+            except exceptions.SeatsPerRegistrationError as error:
+                raise exceptions.PreviousRegistrationsFail(error)
 
 
 class EventRegistration(models.Model):
     """Event registrations must force the limits imposed in the event."""
     _inherit = "event.registration"
 
-    @api.one
+    @api.multi
     @api.constrains("event_id", "nb_register")
     def _check_seats_per_registration_limits(self):
         """Ensure the number of reserved seats fits in the limits."""
-        if self.event_id.registration_seats_max:
-            if self.nb_register > self.event_id.registration_seats_max:
-                raise exceptions.TooManyParticipants(
-                    self.event_id.registration_seats_max)
+        for s in self:
+            if s.event_id.registration_seats_max:
+                if s.nb_register > s.event_id.registration_seats_max:
+                    raise exceptions.TooManyParticipants(
+                        s.event_id.registration_seats_max)
 
-        if self.nb_register < self.event_id.registration_seats_min:
-            raise exceptions.TooFewParticipants(
-                self.event_id.registration_seats_min)
+            if s.nb_register < s.event_id.registration_seats_min:
+                raise exceptions.TooFewParticipants(
+                    s.event_id.registration_seats_min)
 
     def _default_seats(self):
         """Set the default number of participants per registration."""
