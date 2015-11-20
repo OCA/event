@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 # © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis
 
-from .base import BaseCase, M
+from .base import BaseCase
 
 
 class CourseOperationsCase(BaseCase):
@@ -134,7 +134,7 @@ class CourseMixOnChangeCase(CourseOnChangeBaseCase, BaseCase):
              "duration": 20})
 
         self.create_method = "new"
-        self.course = self.course.with_context(active_model=M % "course",
+        self.course = self.course.with_context(active_model="training.course",
                                                active_id=self.course.id)
         with self.env.do_in_onchange():
             # The user changes the course type

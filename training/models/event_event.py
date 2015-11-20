@@ -3,7 +3,6 @@
 # © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis
 
 from openerp import api, fields, models
-from .common import M
 from .. import exceptions
 
 
@@ -21,7 +20,7 @@ class Event(models.Model):
         states={"done": [("readonly", True)]},
         help="These should be delivered to every student in this training.")
     course_id = fields.Many2one(
-        M % "course",
+        "training.course",
         "Course",
         states={"done": [("readonly", True)]},
         help="Course of this event, if it is a training group.")

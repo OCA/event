@@ -8,7 +8,7 @@ There is one base class per model and another per user profile.
 Combine them to make the tests.
 """
 
-from .base import BaseCase, M
+from .base import BaseCase
 from openerp import exceptions as e
 from openerp.tests.common import at_install
 
@@ -97,7 +97,7 @@ class DurationPermissionsCase(PermissionsCase):
 
         self.insert_data = {"type_id": self.duration_types_good[0].id,
                             "course_id": self.course.id}
-        self.tested_record = self.create(M % "duration", self.insert_data)
+        self.tested_record = self.create("training.duration", self.insert_data)
         self.insert_data["type_id"] = self.duration_types_good[1].id
 
 

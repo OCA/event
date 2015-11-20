@@ -3,7 +3,6 @@
 # © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis
 
 from openerp import api, fields, models
-from .common import M
 from .. import exceptions
 
 
@@ -12,37 +11,37 @@ class DurationType(models.Model):
 
     See docs for :class:`~.CourseType`.
     """
-    _name = M % "duration_type"
+    _name = "training.duration_type"
     _sql_constraints = [("unique_name",
                          "UNIQUE(name)",
                          "Name must be unique.")]
 
     name = fields.Char(required=True, index=True, translate=True)
     duration_ids = fields.One2many(
-        M % "duration",
+        "training.duration",
         "type_id",
         "Expected hours of this type",
         help="Expected hours of this type defined in courses.")
     course_type_ids = fields.Many2many(
-        M % "course_type",
+        "training.course_type",
         string="Course types",
         help="Course types that expect this hour type.")
 
 
 class Duration(models.Model):
     """Durations expected for each course."""
-    _name = M % "duration"
+    _name = "training.duration"
     _sql_constraints = [("training_vs_hours_unique",
                          "UNIQUE(type_id, course_id)",
                          "Cannot repeat the hour type in a course.")]
 
     duration = fields.Float(default=0, required=True)
     type_id = fields.Many2one(
-        M % "duration_type",
+        "training.duration_type",
         "Type of hours",
         required=True)
     course_id = fields.Many2one(
-        M % "course",
+        "training.course",
         "Course",
         ondelete="cascade",
         required=True)

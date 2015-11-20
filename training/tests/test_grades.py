@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 # © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis
 
-from .base import BaseCase, M
+from .base import BaseCase
 from .. import exceptions as ex
 
 
@@ -21,7 +21,7 @@ class GradeCase(BaseCase):
             "grade": 5,
         })
         self.course_2 = self.create(
-            M % "course",
+            "training.course",
             {"name": "Course 2",
              "type_id": self.course_type_good.id})
         self.reg = self.event.registration_ids[0]

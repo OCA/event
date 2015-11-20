@@ -3,7 +3,6 @@
 # © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis
 
 from openerp import _, api, fields, models
-from .common import M
 from .. import exceptions as ex
 
 
@@ -17,19 +16,19 @@ class CourseType(models.Model):
     - If its type is "online", it expects online hours.
     - If its type is "mixed", it expects both on-site and online hours.
     """
-    _name = M % "course_type"
+    _name = "training.course_type"
     _sql_constraints = [("unique_name",
                          "UNIQUE(name)",
                          "Name must be unique.")]
 
     name = fields.Char(required=True, index=True, translate=True)
     course_ids = fields.One2many(
-        M % "course",
+        "training.course",
         "type_id",
         "Courses",
         help="Courses of this type.")
     expected_duration_type_ids = fields.Many2many(
-        M % "duration_type",
+        "training.duration_type",
         string="Expected hour types",
         help="These types of hours are expected in this type of training "
              "course. For example, a training of type 'mixed' may expect "
@@ -45,11 +44,11 @@ class Course(models.Model):
     They define some requirements that the corresponding event is expected to
     fulfill. Events linked to courses are considered training groups.
     """
-    _name = M % "course"
+    _name = "training.course"
 
     name = fields.Char(required=True, index=True, translate=True)
     type_id = fields.Many2one(
-        M % "course_type",
+        "training.course_type",
         "Training type",
         required=True)
     contents = fields.Html(
@@ -61,7 +60,7 @@ class Course(models.Model):
         help="Append one of these templates to the certificate contents. "
              "They will help you to achieve some complex layouts.")
     duration_ids = fields.One2many(
-        M % "duration",
+        "training.duration",
         "course_id",
         "Expected hours",
         copy=True,
@@ -124,7 +123,7 @@ class Course(models.Model):
                 # Try to restore it from DB
                 if (self.env.context.get("active_model") == self._name and
                         self.env.context.get("active_id")):
-                    new_duration = self.env[M % "duration"].search((
+                    new_duration = self.env["training.duration"].search((
                         ("type_id", "=", duration_type.id),
                         ("course_id", "=", self.env.context["active_id"]),
                     ))
