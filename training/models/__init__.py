@@ -3,7 +3,6 @@
 # © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis
 
 from . import (
-    training_material,
     training_duration,
     training_course,
     event_event,

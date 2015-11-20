@@ -83,9 +83,9 @@ class Course(models.Model):
         default=10,
         required=True,
         help="Students cannot get more than this grade.")
-    material_ids = fields.Many2many(
-        M % "material",
-        string="Materials",
+    product_ids = fields.Many2many(
+        "product.product",
+        string="Products",
         help="These should be delivered to every student in this training.")
 
     @api.constrains("grade_min", "grade_pass", "grade_max")

@@ -5,7 +5,3 @@ edit_duration,Edit training duration,model_training_duration,user_group,1,1,1,1
 read_course_type,Read course type,model_training_course_type,user_group,1,0,0,0
 edit_course_type,Edit course type,model_training_course_type,manager_group,1,1,1,1
 edit_course,Edit course,model_training_course,user_group,1,1,1,1
-read_material,Read training material,model_training_material,user_group,1,0,0,0
-edit_material,Edit training material,model_training_material,manager_group,1,1,1,1
-read_material_type,Read training material type,model_training_material_type,user_group,1,0,0,0
-edit_material_type,Edit training material type,model_training_material_type,manager_group,1,1,1,1

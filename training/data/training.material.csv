@@ -1,6 +1,0 @@
-id,name,type_id:id
-material_pen,Pen,material_type_physical
-material_study_book,Study book,material_type_physical
-material_notebook,Notebook,material_type_physical
-material_username,User name,material_type_electronic
-material_password,Password,material_type_electronic

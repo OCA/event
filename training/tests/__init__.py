@@ -7,6 +7,6 @@ from . import (
     test_course_contents_layout,
     test_event,
     test_grades,
-    test_materials,
+    test_products,
     test_permissions,
 )

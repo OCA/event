@@ -129,22 +129,6 @@ class EventPermissionsCase(PermissionsCase):
         self.ex_select = None
 
 
-class MaterialTypePermissionsCase(PermissionsCase):
-    def setUp(self, *args, **kwargs):
-        super(MaterialTypePermissionsCase, self).setUp(*args, **kwargs)
-
-        self.tested_record = self.env.ref("training.material_type_physical")
-
-
-class MaterialPermissionsCase(PermissionsCase):
-    def setUp(self, *args, **kwargs):
-        super(MaterialPermissionsCase, self).setUp(*args, **kwargs)
-
-        self.tested_record = self.material_1
-        self.insert_data["type_id"] = (
-            self.env.ref("training.material_type_physical").id)
-
-
 # Base classes per user
 class UnprivilegedPermissionsCase(PermissionsCase):
     def setUp(self, *args, **kwargs):

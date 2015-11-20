@@ -15,13 +15,12 @@
     "summary": "Extend events with training capabilities",
     "depends": [
         "partner_event",
+        "product",
         "report",
     ],
     "data": [
         "data/training.duration_type.csv",
         "data/training.course_type.csv",
-        "data/training.material_type.csv",
-        "data/training.material.csv",
         "security/training.xml",
         "security/ir.model.access.csv",
         "views/menus.xml",  # Must be loaded first
@@ -32,9 +31,7 @@
         "views/duration_type.xml",
         "views/event.xml",
         "views/event_registration.xml",
-        "views/material.xml",
-        "views/material_delivery_receipt_report.xml",
-        "views/material_type.xml",
+        "views/product_delivery_receipt_report.xml",
         "views/training_attendance_certificate_report.xml",
     ],
     "demo": [

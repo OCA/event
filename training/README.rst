@@ -7,7 +7,7 @@ Training
 
 This module extends the functionality of events to support training sessions
 and allow you to manage courses, training groups, training hour types, training
-materials, etc.
+products, etc.
 
 Usage
 =====
@@ -33,7 +33,7 @@ software, Odoo user basic training*, etc.
 They are classified with course types. Depending on it, they define how many
 hours of each type are expected to be teached.
 
-You can define the training materials that should be delivered to students to
+You can define the training products that should be delivered to students to
 accomplish the course.
 
 You can specify the grade settings: which is the minimal and maximum grade
@@ -65,29 +65,13 @@ site, Online, Remote* and anything you decide.
 
 For instance, a course of *online* type cannot have *on-site* hours.
 
-Materials
-~~~~~~~~~
-
-A material is a resource used for training. These resources are expected to be
-delivered to every student when starting the training process.
-
-Example materials are: study book, notebook, pen, etc.
-
-Material types
-~~~~~~~~~~~~~~
-
-Materials are not always physical. For example, for online courses a *material*
-could be a username and password for your training website.
-
-In this menu you can set up all the types of your materials.
-
 Groups
 ~~~~~~
 
 A training group is a course that belongs to a course. Most of the
 time you will likely use this menu.
 
-They have all details about it: students, start and end dates, materials
+They have all details about it: students, start and end dates, products
 delivered, etc.
 
 Technically speaking, groups are just events that are assigned to a training
@@ -103,7 +87,7 @@ These are similar to event registrations too, but with some additions:
 - Set a grade for the student and see if it is passing the course
   automatically (it compares with the passing grade in the course).
 - Quick access to the course.
-- Check if materials were delivered to the registrant.
+- Check if products were delivered to the registrant.
 
 There are also these reports here:
 
@@ -112,10 +96,10 @@ There are also these reports here:
   be delivered
 - *Diploma / Certificate Delivery Receipt*, to prove the diploma or
   certificate was delivered to the attendee.
-- *Training Materials Delivery Receipt*, to prove the materials were
+- *Training Products Delivery Receipt*, to prove the products were
   delivered to the attendee.
 
-  You might want to check the box *Materials delivered* in the registration
+  You might want to check the box *Products delivered* in the registration
   form when any attendee signs this report.
 
 Partner views

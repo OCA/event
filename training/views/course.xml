@@ -25,7 +25,7 @@
             <group string="Information">
                 <field name="name"/>
                 <field name="type_id"/>
-                <field name="material_ids" widget="many2many_tags"/>
+                <field name="product_ids" widget="many2many_tags"/>
                 <field name="duration_ids">
                     <tree editable="bottom">
                         <field name="type_id"/>

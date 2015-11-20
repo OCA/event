@@ -36,16 +36,16 @@ class GradeLimitIncoherentError(TrainingValidationError):
     pass
 
 
-class NoMaterialsToDeliverError(TrainingValidationError):
-    def __init__(self, value=_("No materials are set in the event.")):
-        super(NoMaterialsToDeliverError, self).__init__(value)
+class NoProductsToDeliverError(TrainingValidationError):
+    def __init__(self, value=_("No products are set in the event.")):
+        super(NoProductsToDeliverError, self).__init__(value)
 
 
-class ChangeDeliveredMaterialsWarning(TrainingValidationWarning):
+class ChangeDeliveredProductsWarning(TrainingValidationWarning):
     def __init__(self,
-                 value=_("Yoy are changing materials that have been delivered "
+                 value=_("Yoy are changing products that have been delivered "
                          "already.")):
-        super(ChangeDeliveredMaterialsWarning, self).__init__(value)
+        super(ChangeDeliveredProductsWarning, self).__init__(value)
 
 
 class WrongDurationTypeError(TrainingValidationError):

@@ -15,9 +15,9 @@ class Event(models.Model):
     """
     _inherit = "event.event"
 
-    material_ids = fields.Many2many(
-        M % "material",
-        string="Materials",
+    product_ids = fields.Many2many(
+        "product.product",
+        string="Products",
         states={"done": [("readonly", True)]},
         help="These should be delivered to every student in this training.")
     course_id = fields.Many2one(
@@ -34,11 +34,11 @@ class Event(models.Model):
         """Ensure no conflicts between limits and actual student grades."""
         self.registration_ids._check_grade_limits()
 
-    @api.onchange("material_ids")
-    def _onchange_material_ids_check_delivered(self):
-        """Warn if any materials have already been delivered."""
-        if any(self.mapped("registration_ids.materials_delivered")):
-            raise exceptions.ChangeDeliveredMaterialsWarning()
+    @api.onchange("product_ids")
+    def _onchange_product_ids_check_delivered(self):
+        """Warn if any products have already been delivered."""
+        if any(self.mapped("registration_ids.products_delivered")):
+            raise exceptions.ChangeDeliveredProductsWarning()
 
     @api.depends("name")
     def _compute_training_mode(self):
@@ -55,8 +55,8 @@ class Event(models.Model):
         self.training_mode = bool(self.env.context.get("training_mode"))
 
     @api.onchange("course_id")
-    def _fill_material_ids(self):
-        """Autofill materials for this event."""
+    def _fill_product_ids(self):
+        """Autofill products for this event."""
         for rec in self:
-            if rec.course_id and not rec.material_ids:
-                rec.material_ids = rec.course_id.material_ids
+            if rec.course_id and not rec.product_ids:
+                rec.product_ids = rec.course_id.product_ids

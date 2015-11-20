@@ -13,8 +13,8 @@ class Registration(models.Model):
     grade = fields.Float(
         readonly=True,
         states={"done": [("readonly", False)]})
-    materials_delivered = fields.Boolean(
-        help="Training materials have been delivered to this student?")
+    products_delivered = fields.Boolean(
+        help="Training products have been delivered to this student?")
     passing = fields.Boolean(
         compute="_compute_passing",
         help="Did the student pass the training?")
@@ -40,9 +40,9 @@ class Registration(models.Model):
                     record.course_id.grade_max):
                 raise exceptions.GradeLimitError(record)
 
-    @api.constrains("materials_delivered")
-    def _check_materials_delivered(self):
-        """Cannot deliver materials if no materials are set."""
+    @api.constrains("products_delivered")
+    def _check_products_delivered(self):
+        """Cannot deliver products if no products are set."""
         for record in self:
-            if self.materials_delivered and not record.event_id.material_ids:
-                raise exceptions.NoMaterialsToDeliverError()
+            if self.products_delivered and not record.event_id.product_ids:
+                raise exceptions.NoProductsToDeliverError()

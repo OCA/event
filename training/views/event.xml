@@ -20,7 +20,7 @@
                             name="course_id"
                             attrs="{'required': [('training_mode', '=',
                                                   True)]}"/>
-                        <field name="material_ids"
+                        <field name="product_ids"
                                widget="many2many_tags"
                                attrs="{'invisible': [('course_id',
                                                       '=', False)]}"/>

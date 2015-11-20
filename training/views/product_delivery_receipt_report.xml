@@ -6,21 +6,21 @@
 <data>
 
 <!-- Templates -->
-<template id="material_delivery_receipt_report">
+<template id="product_delivery_receipt_report">
     <t t-call="report.html_container">
         <t t-foreach="doc_ids" t-as="doc_id">
             <t t-raw="translate_doc(
                 doc_id, doc_model, 'partner_id.lang',
-                'training.material_delivery_receipt_report_translatable')"/>
+                'training.product_delivery_receipt_report_translatable')"/>
         </t>
     </t>
 </template>
 
-<template id="material_delivery_receipt_report_translatable">
+<template id="product_delivery_receipt_report_translatable">
     <t t-call="report.external_layout">
         <div class="page row">
             <div class="col-xs-12">
-                <h1>Training Materials Delivery Receipt</h1>
+                <h1>Training Products Delivery Receipt</h1>
                 <p>
                     <strong>
                         <t t-if="o.partner_id and o.partner_id.title"
@@ -28,20 +28,20 @@
                                   o.partner_id.title.name"/>
                         <t t-esc="o.name"/>
                     </strong>
-                    certifies having recieved the following training materials:
+                    certifies having recieved the following training products:
                 </p>
             </div>
             <div class="col-xs-12 col-xs-offset-1">
                 <ul>
-                    <li t-foreach="o.event_id.material_ids"
-                        t-as="material">
-                        <t t-esc="material.name_get()[0][1]"/>
+                    <li t-foreach="o.event_id.product_ids"
+                        t-as="product">
+                        <t t-esc="product.name_get()[0][1]"/>
                     </li>
                 </ul>
             </div>
             <div class="col-xs-12">
                 <p>
-                    These materials have been delivered for the course
+                    These products have been delivered for the course
                     <strong t-esc="(o.course_id or
                                     o).name_get()[0][1]"/>.
                 </p>
@@ -57,10 +57,10 @@
 
 <!-- Report action -->
 <report
-    id="material_delivery_receipt_action"
+    id="product_delivery_receipt_action"
     model="event.registration"
-    name="training.material_delivery_receipt_report"
-    string="Training Materials Delivery Receipt"
+    name="training.product_delivery_receipt_report"
+    string="Training Products Delivery Receipt"
     report_type="qweb-pdf"
     groups="user_group"
     multi="False"/>
