@@ -5,7 +5,7 @@
 {
     "name": "Training",
     "version": "8.0.3.0.0",
-    "category": "Project",
+    "category": "Events",
     "author": "Grupo ESOC Ingeniería de Servicios, S.L.U., "
               "Odoo Community Association (OCA)",
     "license": "AGPL-3",
