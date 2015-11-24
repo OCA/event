@@ -2,4 +2,4 @@
 # License AGPL-3: Antiun Ingenieria S.L. - Javier Iniesta
 # See README.rst file on addon root folder for more details
 
-from . import test_event_registration_mail_list_wizard
+from . import test_email_template, test_event_registration_mail_list_wizard
