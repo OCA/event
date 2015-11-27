@@ -1,0 +1,91 @@
+# -*- coding: utf-8 -*-
+# © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+
+from openerp.tests.common import TransactionCase
+from .base import BaseCase
+from .. import exceptions as ex
+
+
+class ProductTemplateCase(BaseCase, TransactionCase):
+    model = "product.template"
+
+    def setUp(self, *args, **kwargs):
+        result = super(ProductTemplateCase, self).setUp(*args, **kwargs)
+
+        self.product_new = self.env[self.model].new({
+            "name": "Test product 1",
+        })
+
+        return result
+
+    def test_is_event_disables_event_ok(self):
+        """Setting ``is_event`` disables ``event_ok``."""
+        self.product_new.event_ok = True
+        self.product_new.update(
+            self.product_new.onchange_event_ok(
+                self.product_new.event_type_id,
+                self.product_new.event_ok).get("value", dict()))
+        self.product_new.is_event = True
+        self.product_new._onchange_is_event()
+
+        self.assertTrue(self.product_new.is_event)
+        self.assertFalse(self.product_new.event_ok)
+        self.assertEqual(self.product_new.type, "service")
+
+    def test_event_ok_disables_is_event(self):
+        """Setting ``event_ok`` disables ``is_event``."""
+        self.product_new.is_event = True
+        self.product_new._onchange_is_event()
+        self.product_new.event_ok = True
+        self.product_new.update(
+            self.product_new.onchange_event_ok(
+                self.product_new.event_type_id,
+                self.product_new.event_ok).get("value", dict()))
+
+        self.assertFalse(self.product_new.is_event)
+        self.assertTrue(self.product_new.event_ok)
+        self.assertEqual(self.product_new.type, "service")
+
+
+class ProductProductCase(ProductTemplateCase):
+    model = "product.product"
+
+    def _assign_type_and_event(self):
+        """Assign type to event and product, and link them."""
+        self.product.event_type_id = self.event_type_1
+        self.event.type = self.event_type_1
+        self.event.product_id = self.product
+
+    def test_is_event_and_event_ok_forbidden(self):
+        """Cannot write if ``is_event`` and ``event_ok`` are ``True``."""
+        with self.assertRaises(ex.EventAndTicketError):
+            self.product.write({
+                "is_event": True,
+                "event_ok": True,
+            })
+
+    def test_change_used_event_product(self):
+        """Block changing a used event product."""
+        self.product.is_event = True
+        self.event.product_id = self.product
+        with self.assertRaises(ex.ProductIsNotEventError):
+            self.product.is_event = False
+
+    def test_link_normal_product_to_event(self):
+        """Block linking normal product to an event."""
+        with self.assertRaises(ex.ProductIsNotEventError):
+            self.product.event_ids |= self.event
+
+    def test_change_event_type(self):
+        """Block changing event type in case of conflict."""
+        self.product.is_event = True
+        self._assign_type_and_event()
+        with self.assertRaises(ex.TypeMismatchError):
+            self.product.event_type_id = self.event_type_2
+
+    def test_remove_event_type(self):
+        """Block changing event type in case of conflict."""
+        self.product.is_event = True
+        self._assign_type_and_event()
+        self.product.event_type_id = False
