@@ -18,6 +18,7 @@
     ],
     "data": [
         "views/event_event_view.xml",
+        "views/legal_term_view.xml",
         "views/templates.xml",
     ],
 }

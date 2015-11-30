@@ -39,15 +39,15 @@ Also, to use this module, you need to:
 * You will see links to legal terms for ticket types, and legal advices to make
   you accept those implicitly to buy.
 
+To set a legal term for many events at once, you need to:
+
+* Go to *Marketing > Configuration > Events > Legal terms*.
+* Create or edit a legal term.
+* Choose the events it applies to in the *Events* table.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
    :target: https://runbot.odoo-community.org/runbot/199/8.0
-
-Known issues / Roadmap
-======================
-
-* ...
 
 Bug Tracker
 ===========
