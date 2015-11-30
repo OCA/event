@@ -18,7 +18,7 @@ class EventProductValidationError(exceptions.ValidationError):
 
 
 class EventAndTicketError(EventProductValidationError):
-    __doc__ = _("It cannot be a whole event and a ticket at the same time.")
+    __doc__ = _("It cannot be an event and a ticket at the same time.")
 
 
 class ProductIsNotEventError(EventProductValidationError):
@@ -26,4 +26,5 @@ class ProductIsNotEventError(EventProductValidationError):
 
 
 class TypeMismatchError(EventProductValidationError):
-    __doc__ = _("Product has type {product_type}, but event has {event_type}.")
+    __doc__ = _("Product has type {product_type}, whereas event has "
+                "{event_type}.")

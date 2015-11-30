@@ -36,7 +36,7 @@ class ProductTemplate(models.Model):
 
     is_event = fields.Boolean(
         "Is an event",
-        help="This product defines a whole event (NOT an event ticket).")
+        help="This product defines an event (NOT an event ticket).")
 
     @api.multi
     def onchange_event_ok(self, type, event_ok):

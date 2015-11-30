@@ -6,8 +6,8 @@
 Event Products
 ==============
 
-This module extends the functionality of events and products to support
-combining them and allow you to have a *catalog* of events that you organize.
+This module extends the functionality of events and products allowing their
+combination and the organization of a catalog of events.
 
 Those events in your catalog can have variants, and any event can be linked to
 any product as long as:
@@ -67,10 +67,10 @@ To link an event to any of those variants, you need to:
 Known issues / Roadmap
 ======================
 
-* If you install this module, you will install *sale* too. If you do not want
-  to sale events, but just to handle internal ones, this can be disturbing
-  because you will be asked to configure accounting and you will install a lot
-  of dependencies.
+* Installing this module will install sale too. If you do not intend to sell
+  events, but just handle internal ones, this can be annoying since the sale
+  module requires complex configuration with accounting and external
+  dependencies.
 
   However, this happens because this module needs the ``event_type_id`` field
   in products, which is added by the *event_sale* module, which installs
@@ -116,4 +116,4 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-To contribute to this module, please visit http://odoo-community.org.
+To contribute to this module, please visit https://odoo-community.org.
