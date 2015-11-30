@@ -25,9 +25,5 @@ class ProductIsNotEventError(EventProductValidationError):
     __doc__ = _("Product {} is not for events.")
 
 
-class ProductEventTypeError(EventProductValidationError):
-    __doc__ = _("Product is already used in some event with a different type.")
-
-
 class TypeMismatchError(EventProductValidationError):
     __doc__ = _("Product has type {product_type}, but event has {event_type}.")
