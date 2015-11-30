@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+
+<openerp>
+<data>
+
+<record model="ir.ui.view" id="event_event_form">
+    <field name="name">Event products to deliver</field>
+    <field name="model">event.event</field>
+    <field name="inherit_id" ref="event.view_event_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//notebook">
+            <page name="deliverable_products" string="Products to Deliver">
+                <group col="1">
+                    <button name="action_load_deliverable_products"
+                            string="Load from linked product"
+                            type="object"
+                            attrs="{
+                                'invisible': [('product_id', '=', False)],
+                            }"/>
+                    <field name="deliverable_product_ids"
+                           nolabel="1"/>
+                </group>
+            </page>
+        </xpath>
+    </field>
+</record>
+
+</data>
+</openerp>

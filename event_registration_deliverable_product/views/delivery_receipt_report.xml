@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+     © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis -->
+
+<openerp>
+<data>
+
+<!-- Templates -->
+<template id="delivery_receipt_report">
+    <t t-call="report.html_container">
+        <t t-foreach="doc_ids" t-as="doc_id">
+            <t t-raw="translate_doc(
+                doc_id, doc_model, 'partner_id.lang',
+                'event_registration_deliverable_product.'
+                'delivery_receipt_report_translatable')"/>
+        </t>
+    </t>
+</template>
+
+<template id="delivery_receipt_report_translatable">
+    <t t-call="report.external_layout">
+        <div class="page container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1>Products Delivery Receipt</h1>
+                    <p>
+                        <strong>
+                            <t t-if="o.partner_id and o.partner_id.title"
+                               t-esc="o.partner_id.title.shortcut or
+                                      o.partner_id.title.name"/>
+                            <t t-esc="o.name"/>
+                        </strong>
+                        certifies having recieved the following products:
+                    </p>
+                </div>
+                <div class="col-xs-12 col-xs-offset-1">
+                    <ul>
+                        <li t-foreach="o.event_id.deliverable_product_ids"
+                            t-as="product">
+                            <t t-esc="product.name_get()[0][1]"/>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-xs-12">
+                    <p>
+                        These products have been delivered for the event
+                        <strong t-esc="(o.event_id).name_get()[0][1]"/>.
+                    </p>
+                </div>
+                <div style="border: thin solid"
+                     class="col-xs-4 mt32 col-xs-offset-1">
+                    <h3>Signed</h3>
+                    <p class="mt128" t-esc="o.name"/>
+                </div>
+            </div>
+        </div>
+    </t>
+</template>
+
+<!-- Report action -->
+<report
+    id="product_delivery_receipt_action"
+    model="event.registration"
+    name="event_registration_deliverable_product.delivery_receipt_report"
+    string="Products Delivery Receipt"
+    report_type="qweb-pdf"
+    groups="event.group_event_user"
+    multi="False"/>
+
+</data>
+</openerp>
