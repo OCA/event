@@ -1,0 +1,80 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_event_sale_legal
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-04 17:49+0100\n"
+"PO-Revision-Date: 2015-11-04 17:53+0100\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.5\n"
+"Last-Translator: \n"
+"Language: es\n"
+
+#. module: website_event_sale_legal
+#: view:website:website_event.event_description_full
+msgid "Accept Legal Terms and Order Now"
+msgstr "Aceptar condiciones legales y comprar ahora"
+
+#. module: website_event_sale_legal
+#: view:website:website_event.event_description_full
+msgid "By buying any tickets, you are accepting their legal terms."
+msgstr ""
+"Al comprar cualquier ticket, usted está aceptando sus avisos legales."
+
+#. module: website_event_sale_legal
+#: model:ir.model,name:website_event_sale_legal.model_event_event
+msgid "Event"
+msgstr "Evento"
+
+#. module: website_event_sale_legal
+#: field:event.event,legal_term_ids:0
+#: field:event.event.ticket,legal_term_ids:0
+#: view:website:website_event.event_description_full
+msgid "Legal terms"
+msgstr "Avisos legales"
+
+#. module: website_event_sale_legal
+#: code:addons/website_event_sale_legal/controllers/main.py:25
+#, python-format
+msgid "Legal terms to buy %(ticket)s ticket for event %(event)s"
+msgstr ""
+"Avisos legales para comprar tickets %(ticket)s para el evento %(event)s"
+
+#. module: website_event_sale_legal
+#: help:event.event,legal_term_ids:0
+msgid ""
+"Online customers will be informed of these legal terms before buying any "
+"ticket for this event, in addition to those specified in the chosen ticket "
+"type and product."
+msgstr ""
+"Los clientes en línea serán informados de estos avisos legales antes de "
+"comprar cualquier ticket para este evento, además de los que se "
+"especifiquen en el tipo de ticket y producto elegidos."
+
+#. module: website_event_sale_legal
+#: help:event.event.ticket,legal_term_ids:0
+msgid ""
+"Online customers will be informed of these legal terms before buying this "
+"ticket, in addition to those specified in the event and in the chosen "
+"product."
+msgstr ""
+"Los clientes en línea serán informados de estos avisos legales antes de "
+"comprar este ticket, además de aquellos especificados en el evento y "
+"producto elegidos."
+
+#. module: website_event_sale_legal
+#: view:website:website_event.event_description_full
+msgid "Order Now"
+msgstr "Comprar ahora"
+
+#. module: website_event_sale_legal
+#: view:website:website_event.event_description_full
+msgid "Ticket's legal terms"
+msgstr "Avisos legales del ticket"

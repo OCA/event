@@ -11,6 +11,7 @@ addons:
     packages:
       - expect-dev  # provides unbuffer utility
       - python-lxml # because pip installation is slow
+      - wkhtmltopdf
 
 env:
   global:
@@ -24,6 +25,10 @@ env:
 
 virtualenv:
   system_site_packages: true
+
+before_install:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
 
 install:
   - git clone https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools --depth=1

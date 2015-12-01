@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2015 Antiun Ingeniería, S.L. - Jairo Llopis
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+
+<openerp>
+<data>
+
+<template id="event_description_full"
+          inherit_id="website_event_sale.event_description_full">
+    <xpath expr="//thead/tr/th[last()]" position="after">
+        <th t-if="event.mapped('event_ticket_ids.mixed_legal_term_ids')">
+            Legal terms
+        </th>
+    </xpath>
+
+    <xpath expr="//tbody/t/tr/td[last()]" position="after">
+        <td t-if="event.mapped('event_ticket_ids.mixed_legal_term_ids')">
+            <t t-if="ticket.mixed_legal_term_ids">
+                <t t-set="legal_terms_id"
+                   t-value="'product-legal-terms-%d' % ticket_index"/>
+                <t t-set="href"
+                   t-value="'/website_event_sale_legal/' + slug(ticket)"/>
+                <t t-set="print_modal"
+                   t-value="True"/>
+
+                <t t-call="website_sale_product_legal.legal_terms_launcher">
+                    <small>Ticket's legal terms</small>
+                </t>
+            </t>
+      </td>
+    </xpath>
+
+    <xpath expr="//button" position="replace">
+        <t t-if="event.mapped('event_ticket_ids.mixed_legal_term_ids')">
+            <button type="submit"
+                    class="btn btn-primary btn-lg pull-right"
+                    t-if="event.seats_available or not event.seats_max">
+                Accept Legal Terms and Order Now
+            </button>
+
+            <small class="text-muted">
+                By buying any tickets, you are accepting their legal terms.
+            </small>
+        </t>
+
+        <t t-if="not event.mapped('event_ticket_ids.mixed_legal_term_ids')">
+            <button type="submit"
+                    class="btn btn-primary btn-lg pull-right"
+                    t-if="event.seats_available or not event.seats_max">
+                Order Now
+            </button>
+        </t>
+    </xpath>
+</template>
+
+</data>
+</openerp>
