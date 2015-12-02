@@ -23,7 +23,8 @@
                     name="%(action_project_template_wizard)d" type="action"/>
         </button>
         <field name="date_tz" position="after">
-            <field name="project_id"/>
+            <field name="project_id"
+                   domain="[('event_id', '=', False), ('state', 'not in', ('template', 'cancelled', 'close'))]"/>
         </field>
         <div class="oe_right oe_button_box" position="inside">
             <button name="%(act_event_task_list)d"
