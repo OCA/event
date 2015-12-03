@@ -25,9 +25,9 @@ class EventEvent(models.Model):
         self.count_tasks = len(self.task_ids)
 
     def project_data_update(self, vals):
+        recalculate = False
         if self.project_id:
             project_vals = {}
-            recalculate = False
             if vals.get('name'):
                 project_vals['name'] = self.name
             if vals.get('date_begin'):
@@ -38,9 +38,12 @@ class EventEvent(models.Model):
                 recalculate = True
             if project_vals:
                 self.project_id.write(project_vals)
-                if recalculate:
-                    self.project_id.project_recalculate()
-        return True
+                return recalculate
+        return False
+
+    def project_free(self, vals):
+        if self.project_id and vals.get('project_id') is False:
+            self.project_id.write({'event_id': False})
 
     @api.model
     def create(self, vals):
@@ -50,8 +53,9 @@ class EventEvent(models.Model):
 
     @api.one
     def write(self, vals):
+        self.project_free(vals)
         super(EventEvent, self).write(vals)
-        if self.env.context.get('no_recalculate'):
-            return True
-        self.project_data_update(vals)
+        recalculate = self.project_data_update(vals)
+        if recalculate and not self.env.context.get('no_recalculate'):
+            self.project_id.project_recalculate()
         return True
