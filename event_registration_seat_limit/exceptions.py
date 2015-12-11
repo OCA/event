@@ -5,57 +5,43 @@
 from openerp import _, exceptions
 
 
-class SeatsPerRegistrationError(exceptions.ValidationError):
-    def __init__(self, value):
-        super(SeatsPerRegistrationError, self).__init__(value)
-        self.name = _("Error in the limits of participants per registration.")
+class SeatsPerRegistrationValidationError(exceptions.ValidationError):
+    """Base class for this module's validation errors."""
+    def __init__(self, *args, **kwargs):
+        self._args, self._kwargs = args, kwargs
+        value = self._message()
+        super(SeatsPerRegistrationValidationError, self).__init__(value)
+
+    def _message(self):
+        """Format the message."""
+        return self.__doc__.format(*self._args, **self._kwargs)
 
 
-class NeedAtLeastOneParticipant(SeatsPerRegistrationError):
-    def __init__(self,
-                 value=_("You need at least one participant "
-                         "per registration.")):
-        super(NeedAtLeastOneParticipant, self).__init__(value)
+class NeedAtLeastOneParticipant(SeatsPerRegistrationValidationError):
+    __doc__ = _("You need at least one participant per registration.")
 
 
-class MaxSmallerThanMin(SeatsPerRegistrationError):
-    def __init__(self,
-                 value=_("The maximum of participants per registration cannot "
-                         "be smaller than the minimum.")):
-        super(MaxSmallerThanMin, self).__init__(value)
+class MaxSmallerThanMin(SeatsPerRegistrationValidationError):
+    __doc__ = _("The maximum of participants per registration cannot "
+                "be smaller than the minimum.")
 
 
-class MaxPerRegisterBiggerThanMaxPerEvent(SeatsPerRegistrationError):
-    def __init__(self,
-                 value=_("The maximum of participants per registration "
-                         "cannot be bigger than the maximum of participants "
-                         "for this event.")):
-        super(MaxPerRegisterBiggerThanMaxPerEvent, self).__init__(value)
+class MaxPerRegisterBiggerThanMaxPerEvent(SeatsPerRegistrationValidationError):
+    __doc__ = _("The maximum of participants per registration "
+                "cannot be bigger than the maximum of participants "
+                "for this event.")
 
 
-class PreviousRegistrationsFail(SeatsPerRegistrationError):
-    def __init__(self,
-                 previous_exception,
-                 value=_("There are already registrations that don't fit in "
-                         "the new limits of participants per registration. "
-                         "Change them before setting the limits. "
-                         "The error was: '%s'")):
-        self.previous_exception = previous_exception
-        super(PreviousRegistrationsFail, self).__init__(
-            value % previous_exception.value)
+class PreviousRegistrationsFail(SeatsPerRegistrationValidationError):
+    __doc__ = _("There are already registrations that don't fit in "
+                "the new limits of participants per registration. "
+                "Change them before setting the limits. "
+                "The error was: {.value}")
 
 
-class TooFewParticipants(SeatsPerRegistrationError):
-    def __init__(self,
-                 min,
-                 value=_("You cannot register less than %d participants.")):
-        self.min = min
-        super(TooFewParticipants, self).__init__(value % min)
+class TooFewParticipants(SeatsPerRegistrationValidationError):
+    __doc__ = _("You cannot register less than %d participants.")
 
 
-class TooManyParticipants(SeatsPerRegistrationError):
-    def __init__(self,
-                 max,
-                 value=_("You cannot register more than %d participants.")):
-        self.max = max
-        super(TooManyParticipants, self).__init__(value % max)
+class TooManyParticipants(SeatsPerRegistrationValidationError):
+    __doc__ = _("You cannot register more than %d participants.")
