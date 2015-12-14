@@ -32,14 +32,12 @@ class Event(models.Model):
             if s.registration_seats_min < 1:
                 raise exceptions.NeedAtLeastOneParticipant()
 
-            if s.registration_seats_max:
-                if (s.registration_seats_max <
-                        s.registration_seats_min):
-                    raise exceptions.MaxSmallerThanMin()
+            if s.registration_seats_max and (s.registration_seats_max <
+                                             s.registration_seats_min):
+                raise exceptions.MaxSmallerThanMin()
 
-            if s.seats_max:
-                if s.registration_seats_max > s.seats_max:
-                    raise exceptions.MaxPerRegisterBiggerThanMaxPerEvent()
+            if s.seats_max and s.registration_seats_max > s.seats_max:
+                raise exceptions.MaxPerRegisterBiggerThanMaxPerEvent()
 
             try:
                 s.registration_ids._check_seats_per_registration_limits()
