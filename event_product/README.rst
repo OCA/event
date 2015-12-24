@@ -77,6 +77,8 @@ Known issues / Roadmap
   *sale*; so unless Odoo divides that module in smaller parts with smaller
   dependencies, the only workaround is to give permissions to use *sale* to
   nobody.
+* Support creating a sales order from the event.
+* Support creating an event when confirming an event product sales order.
 
 Bug Tracker
 ===========
