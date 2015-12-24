@@ -37,6 +37,16 @@ class ProductTemplate(models.Model):
     is_event = fields.Boolean(
         "Is an event",
         help="This product defines an event (NOT an event ticket).")
+    event_count = fields.Integer(
+        "Events",
+        compute="_compute_event_count")
+
+    @api.multi
+    @api.depends("product_variant_ids.event_ids")
+    def _compute_event_count(self):
+        """Count events related with template's variants."""
+        for s in self:
+            s.event_count = len(s.mapped("product_variant_ids.event_ids"))
 
     @api.multi
     @api.constrains("is_event", "event_type_id")
@@ -57,6 +67,14 @@ class ProductTemplate(models.Model):
             result["value"]["is_event"] = False
         return result
 
+    @api.multi
+    def action_view_events(self):
+        """Open events related to template's variants."""
+        self.ensure_one()
+        action = self.env.ref("event.action_event_view").read()[0]
+        action["domain"] = [("product_id", "in", self.product_variant_ids.ids)]
+        return action
+
 
 class ProductProduct(models.Model):
     _name = "product.product"
@@ -66,6 +84,16 @@ class ProductProduct(models.Model):
         "event.event",
         "product_id",
         "Events")
+    event_count = fields.Integer(
+        "Events",
+        compute="_compute_event_count")
+
+    @api.multi
+    @api.depends("event_ids")
+    def _compute_event_count(self):
+        """Count related events."""
+        for s in self:
+            s.event_count = len(s.event_ids)
 
     @api.multi
     @api.constrains("is_event", "event_type_id", "event_ids")
@@ -85,3 +113,11 @@ class ProductProduct(models.Model):
             result.setdefault("value", dict())
             result["value"]["is_event"] = False
         return result
+
+    @api.multi
+    def action_view_events(self):
+        """Open events related to product."""
+        self.ensure_one()
+        action = self.env.ref("event.action_event_view").read()[0]
+        action["domain"] = [("product_id", "=", self.id)]
+        return action

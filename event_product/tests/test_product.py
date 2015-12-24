@@ -97,3 +97,31 @@ class ProductProductCase(ProductTemplateCase):
     def prod(self):
         """Choose created ``product.product``."""
         return self.product
+
+    def test_event_count(self):
+        """Event count is right in template and product."""
+        # We have 2 event products
+        self.product.is_event = True
+        products = [self.product, self.product.copy()]
+        templates = [p.product_tmpl_id for p in products]
+
+        # Both are variants of the same template
+        products[1].product_tmpl_id = products[0].product_tmpl_id
+
+        # We have 5 events
+        events = [self.event.copy() for n in range(5)]
+
+        # 3 events for first product, 2 for the second
+        counts = [3, 2]
+        for event in events[:3]:
+            event.product_id = products[0]
+        for event in events[3:]:
+            event.product_id = products[1]
+
+        # Check event count per product
+        for n in range(2):
+            self.assertEqual(products[n].event_count, counts[n])
+
+        # Check event count per template
+        self.assertEqual(templates[0].event_count, 5)
+        self.assertEqual(templates[1].event_count, 0)
