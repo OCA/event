@@ -2,6 +2,7 @@
 # © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
+from __future__ import unicode_literals
 from openerp import _, exceptions
 
 
@@ -22,9 +23,8 @@ class EventAndTicketError(EventProductValidationError):
 
 
 class ProductIsNotEventError(EventProductValidationError):
-    __doc__ = _("Product {} is not for events.")
+    __doc__ = _("An event is using product {}, but it is not for events.")
 
 
 class TypeMismatchError(EventProductValidationError):
-    __doc__ = _("Product has type {product_type}, whereas event has "
-                "{event_type}.")
+    __doc__ = _("Product has type {product_type}, but event has {event_type}.")

@@ -39,6 +39,12 @@ class ProductTemplate(models.Model):
         help="This product defines an event (NOT an event ticket).")
 
     @api.multi
+    @api.constrains("is_event", "event_type_id")
+    def _check_event_type_consistent(self):
+        """Avoid changing type if it creates an inconsistency."""
+        self.product_variant_ids._check_event_type_consistent()
+
+    @api.multi
     def onchange_event_ok(self, type, event_ok):
         """Inverse of :meth:`~._onchange_is_event`.
 

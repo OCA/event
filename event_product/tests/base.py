@@ -8,16 +8,16 @@ class BaseCase(object):
         result = super(BaseCase, self).setUp(*args, **kwargs)
 
         self.event_type_1 = self.env["event.type"].create({
-            "name": "Test event type 1",
+            "name": u"Test êvent type 1",
         })
         self.event_type_2 = self.env["event.type"].create({
-            "name": "Test event type 2",
+            "name": u"Test €vent type 2",
         })
         self.product = self.env["product.product"].create({
-            "name": "Test product 1",
+            "name": u"Test ṕroduct 1",
         })
         self.event = self.env["event.event"].create({
-            "name": "Test event 1",
+            "name": u"Test ëvent 1",
             "date_begin": "2015-11-26",
             "date_end": "2015-11-30",
         })

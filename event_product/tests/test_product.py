@@ -14,10 +14,20 @@ class ProductTemplateCase(BaseCase, TransactionCase):
         result = super(ProductTemplateCase, self).setUp(*args, **kwargs)
 
         self.product_new = self.env[self.model].new({
-            "name": "Test product 1",
+            "name": u"Test pròduct 1",
         })
 
         return result
+
+    def _assign_type_and_event(self):
+        """Assign type to event and product, and link them."""
+        self.product.event_type_id = self.event_type_1
+        self.event.type = self.event_type_1
+        self.event.product_id = self.product
+
+    def prod(self):
+        """Choose created ``product.template``."""
+        return self.product.product_tmpl_id
 
     def test_is_event_disables_event_ok(self):
         """Setting ``is_event`` disables ``event_ok``."""
@@ -47,45 +57,43 @@ class ProductTemplateCase(BaseCase, TransactionCase):
         self.assertTrue(self.product_new.event_ok)
         self.assertEqual(self.product_new.type, "service")
 
-
-class ProductProductCase(ProductTemplateCase):
-    model = "product.product"
-
-    def _assign_type_and_event(self):
-        """Assign type to event and product, and link them."""
-        self.product.event_type_id = self.event_type_1
-        self.event.type = self.event_type_1
-        self.event.product_id = self.product
-
     def test_is_event_and_event_ok_forbidden(self):
         """Cannot write if ``is_event`` and ``event_ok`` are ``True``."""
         with self.assertRaises(ex.EventAndTicketError):
-            self.product.write({
+            self.prod().write({
                 "is_event": True,
                 "event_ok": True,
             })
 
     def test_change_used_event_product(self):
         """Block changing a used event product."""
-        self.product.is_event = True
+        self.prod().is_event = True
         self.event.product_id = self.product
         with self.assertRaises(ex.ProductIsNotEventError):
-            self.product.is_event = False
+            self.prod().is_event = False
+
+    def test_change_event_type(self):
+        """Block changing event type in case of conflict."""
+        self.prod().is_event = True
+        self._assign_type_and_event()
+        with self.assertRaises(ex.TypeMismatchError):
+            self.prod().event_type_id = self.event_type_2
+
+    def test_remove_event_type(self):
+        """Block changing event type in case of conflict."""
+        self.prod().is_event = True
+        self._assign_type_and_event()
+        self.prod().event_type_id = False
 
     def test_link_normal_product_to_event(self):
         """Block linking normal product to an event."""
         with self.assertRaises(ex.ProductIsNotEventError):
             self.product.event_ids |= self.event
 
-    def test_change_event_type(self):
-        """Block changing event type in case of conflict."""
-        self.product.is_event = True
-        self._assign_type_and_event()
-        with self.assertRaises(ex.TypeMismatchError):
-            self.product.event_type_id = self.event_type_2
 
-    def test_remove_event_type(self):
-        """Block changing event type in case of conflict."""
-        self.product.is_event = True
-        self._assign_type_and_event()
-        self.product.event_type_id = False
+class ProductProductCase(ProductTemplateCase):
+    model = "product.product"
+
+    def prod(self):
+        """Choose created ``product.product``."""
+        return self.product
