@@ -37,6 +37,9 @@
                     attrs="{
                         'invisible': [('is_event', '=', False)],
                     }"
+                    context="{
+                        'default_type': event_type_id,
+                    }"
                     type="object"
                     icon="fa-calendar">
                 <field name="event_count" widget="statinfo" />
@@ -56,6 +59,10 @@
                     name="action_view_events"
                     attrs="{
                         'invisible': [('is_event', '=', False)],
+                    }"
+                    context="{
+                        'default_product_id': id,
+                        'default_type': event_type_id,
                     }"
                     type="object"
                     icon="fa-calendar">
