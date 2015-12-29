@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-30 09:03+0000\n"
-"PO-Revision-Date: 2015-11-30 10:04+0100\n"
+"POT-Creation-Date: 2015-12-29 13:50+0100\n"
+"PO-Revision-Date: 2015-12-29 13:50+0100\n"
 "Last-Translator: Jairo Llopis <j.llopis@grupoesoc.es>\n"
 "Language-Team: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"Language: es\n"
 "X-Generator: Poedit 1.8.5\n"
 
 #. module: event_product_logistics
@@ -29,7 +29,7 @@ msgid "Event Registration"
 msgstr "Registro del evento"
 
 #. module: event_product_logistics
-#: code:addons/event_product_logistics/exceptions.py:23
+#: code:addons/event_product_logistics/models/event.py:43
 #, python-format
 msgid "Event has no products set to deliver."
 msgstr "El evento no tiene ningún producto a entregar."
@@ -43,6 +43,11 @@ msgstr "¿Se han entregado los productos a este asistente?"
 #: view:event.event:event_product_logistics.event_event_form
 msgid "Load from linked product"
 msgstr "Cargar del producto vinculado"
+
+#. module: event_product_logistics
+#: view:event.event:event_product_logistics.event_event_form
+msgid "Mark as delivered to all attendees"
+msgstr "Marcar como entregado a todos los asistentes"
 
 #. module: event_product_logistics
 #: model:ir.model,name:event_product_logistics.model_product_template
@@ -62,8 +67,12 @@ msgstr "Productos entregados"
 
 #. module: event_product_logistics
 #: view:event.event:event_product_logistics.event_event_form
-#: field:event.event,deliverable_product_ids:0
 #: view:product.template:event_product_logistics.product_template_form
+msgid "Products to Deliver"
+msgstr "Productos a entregar"
+
+#. module: event_product_logistics
+#: field:event.event,deliverable_product_ids:0
 msgid "Products to deliver"
 msgstr "Productos a entregar"
 
@@ -84,8 +93,12 @@ msgstr "Estos productos se han entregado para el evento"
 
 #. module: event_product_logistics
 #: help:product.template,event_deliverable_product_ids:0
-msgid "These should be delivered to every attendee in any event related to this product."
-msgstr "Estos deberían entregarse a cada asistente a cualquier evento relacionado con este producto."
+msgid ""
+"These should be delivered to every attendee in any event related to this "
+"product."
+msgstr ""
+"Estos deberían entregarse a cada asistente a cualquier evento relacionado "
+"con este producto."
 
 #. module: event_product_logistics
 #: help:event.event,deliverable_product_ids:0
