@@ -77,6 +77,7 @@ Known issues / Roadmap
 
 * Please read known issues section of ``event_product``'s README about
   installation of the ``sale`` addon.
+* Product deliveries should create the corresponding inventory movements.
 
 Bug Tracker
 ===========
