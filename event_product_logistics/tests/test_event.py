@@ -4,7 +4,7 @@
 
 from openerp.tests.common import TransactionCase
 from .base import BaseCase
-from .. import exceptions
+from openerp import exceptions
 
 
 class EventEventCase(BaseCase, TransactionCase):
@@ -36,5 +36,5 @@ class EventRegistrationCase(BaseCase, TransactionCase):
 
     def test_cannot_deliver_products(self):
         """Unable to deliver products to registrations."""
-        with self.assertRaises(exceptions.NoProductsToDeliverError):
+        with self.assertRaises(exceptions.ValidationError):
             self.event_registration.products_delivered = True
