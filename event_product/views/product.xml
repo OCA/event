@@ -34,6 +34,9 @@
         <xpath expr="//div[@name='buttons']" position="inside">
             <button class="oe_inline oe_stat_button"
                     name="action_view_events"
+                    attrs="{
+                        'invisible': [('is_event', '=', False)],
+                    }"
                     type="object"
                     icon="fa-calendar">
                 <field name="event_count" widget="statinfo" />
@@ -51,6 +54,9 @@
         <xpath expr="//div[@name='buttons']" position="inside">
             <button class="oe_inline oe_stat_button"
                     name="action_view_events"
+                    attrs="{
+                        'invisible': [('is_event', '=', False)],
+                    }"
                     type="object"
                     icon="fa-calendar">
                 <field name="event_count" widget="statinfo" />
