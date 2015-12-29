@@ -18,5 +18,21 @@
     </field>
 </record>
 
+<record model="ir.ui.view" id="event_event_search">
+    <field name="name">Event products</field>
+    <field name="model">event.event</field>
+    <field name="inherit_id" ref="event.view_event_search"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='user_id']" position="after">
+            <field name="product_id"/>
+        </xpath>
+
+        <xpath expr="//group[@string='Group By']">
+            <filter string="Product"
+                    context="{'group_by': 'product_id'}"/>
+        </xpath>
+    </field>
+</record>
+
 </data>
 </openerp>
