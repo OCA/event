@@ -10,6 +10,7 @@
     <field name="model">product.template</field>
     <field name="inherit_id"
            ref="event_sale.event_sale_product_template_form"/>
+    <field name="groups_id" eval="[(4, ref('event.group_event_user'))]"/>
     <field name="arch" type="xml">
         <xpath expr="//field[@name='event_type_id']" position="attributes">
             <attribute name="attrs">{
