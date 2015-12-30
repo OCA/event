@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+     © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis -->
+
+<openerp>
+<data>
+
+<record id="event_search" model="ir.ui.view">
+    <field name="name">Search training groups</field>
+    <field name="model">event.event</field>
+    <field name="inherit_id" ref="event.view_event_search"/>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//group[@string='Group By']" position="before">
+                <separator/>
+                <filter name="is_training"
+                        string="Courses"
+                        domain="[('is_training', '=', True)]"/>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+</data>
+</openerp>

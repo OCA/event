@@ -1,0 +1,79 @@
+# -*- coding: utf-8 -*-
+# © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+
+# Training types
+- !record {id: training_type_mixed, model: event.type}:
+    name: Mixed training
+    is_training: True
+
+- !record {id: training_type_online, model: event.type}:
+    name: Online training
+    is_training: True
+
+- !record {id: training_type_onsite, model: event.type}:
+    name: On-site training
+    is_training: True
+
+# Training products (courses)
+- !record {id: course_odoo_mixed, model: product.product}:
+    name: Odoo mixed course
+    is_event: True
+    type: service
+    event_type_id: training_type_mixed
+
+- !record {id: course_odoo_online, model: product.product}:
+    name: Odoo online course
+    is_event: True
+    type: service
+    event_type_id: training_type_online
+
+- !record {id: course_odoo_onsite, model: product.product}:
+    name: Odoo on-site course
+    is_event: True
+    type: service
+    event_type_id: training_type_onsite
+
+# Training events
+- !record {id: event_odoo_mixed, model: event.event}:
+    name: Odoo mixed course event
+    date_begin: !eval
+        (datetime.now() + timedelta(days=10)).strftime("%Y-%m-%d 8:00:00")
+    date_end: !eval
+        (datetime.now() + timedelta(days=15)).strftime("%Y-%m-%d 18:00:00")
+    type: training_type_mixed
+    product_id: course_odoo_mixed
+
+- !record {id: event_odoo_online, model: event.event}:
+    name: Odoo online course event
+    date_begin: !eval
+        (datetime.now() + timedelta(days=20)).strftime("%Y-%m-%d 8:00:00")
+    date_end: !eval
+        (datetime.now() + timedelta(days=25)).strftime("%Y-%m-%d 18:00:00")
+    type: training_type_online
+    product_id: course_odoo_online
+
+- !record {id: event_odoo_onsite, model: event.event}:
+    name: Odoo onsite course event
+    date_begin: !eval
+        (datetime.now() + timedelta(days=30)).strftime("%Y-%m-%d 8:00:00")
+    date_end: !eval
+        (datetime.now() + timedelta(days=35)).strftime("%Y-%m-%d 18:00:00")
+    type: training_type_onsite
+    product_id: course_odoo_onsite
+
+# Training registrations (students)
+- !record {id: student_michel_fletcher, model: event.registration}:
+    partner_id: base.res_partner_address_4
+    event_id: event_odoo_mixed
+    grade: 3
+
+- !record {id: student_thomas_passot, model: event.registration}:
+    partner_id: base.res_partner_address_3
+    event_id: event_odoo_mixed
+    grade: 5
+
+- !record {id: student_laith_jubair, model: event.registration}:
+    partner_id: base.res_partner_address_22
+    event_id: event_odoo_mixed
+    grade: 8

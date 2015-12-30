@@ -1,0 +1,17 @@
+# -*- coding: utf-8 -*-
+# © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+
+# User for training events
+- !record {id: group_user, model: res.groups}:
+    name: Training User
+    category_id: event.module_category_event_management
+    comment: The user will be able to use training events
+    implied_ids:
+        - event.group_event_user
+
+# Event manager is training manager too
+- !record {id: event.group_event_manager, model: res.groups}:
+    implied_ids:
+        - event.group_event_user
+        - group_user

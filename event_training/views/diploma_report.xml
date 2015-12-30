@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+     © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis -->
+
+<openerp>
+<data>
+
+<!-- Paper format for diplomas; landscape A4 with HiDIP -->
+<record id="diploma_paperformat" model="report.paperformat">
+    <field name="name">European Landscape A4 for Diplomas</field>
+    <field name="default" eval="True"/>
+    <field name="format">A4</field>
+    <field name="page_height">0</field>
+    <field name="page_width">0</field>
+    <field name="orientation">Landscape</field>
+    <field name="margin_top">40</field>
+    <field name="margin_bottom">23</field>
+    <field name="margin_left">7</field>
+    <field name="margin_right">7</field>
+    <field name="header_line" eval="False"/>
+    <field name="header_spacing">35</field>
+    <field name="dpi">300</field>
+</record>
+
+<!-- Templates -->
+<template id="diploma">
+    <t t-call="report.html_container">
+        <t t-foreach="doc_ids" t-as="doc_id">
+            <t t-raw="translate_doc(doc_id, doc_model, 'partner_id.lang',
+                                    'event_training.diploma_translatable')"/>
+        </t>
+    </t>
+</template>
+
+<template id="diploma_styles" inherit_id="report.style">
+    <xpath expr=".">
+        <t>
+            .diploma .front {
+                text-align: center;
+            }
+            .diploma .back {
+                page-break-before: always;
+            }
+        </t>
+    </xpath>
+</template>
+
+<template id="diploma_translatable">
+    <t t-call="report.external_layout">
+        <div class="page diploma">
+            <div class="front row">
+                <h1 t-if="o.is_training and o.passing and o.state == 'done'"
+                    class="text-center mb32">
+                    Diploma
+                </h1>
+                <h3 t-esc="res_company.display_name"/>
+                <h4 class="mb32">Certifies That</h4>
+                <h2 class="mb32">
+                    <small t-if="o.partner_id and o.partner_id.title"
+                           t-esc="o.partner_id.title.shortcut or
+                                  o.partner_id.title.name"/>
+                    <t t-esc="o.name"/>
+                </h2>
+                <p>
+                    <t t-if="o.state == 'unconfirmed'">
+                        Has not confirmed yet attendance for the
+                    </t>
+                    <t t-if="o.state == 'cancelled'">
+                        Has cancelled attendance for the
+                    </t>
+                    <t t-if="o.state == 'open'">
+                        Has confirmed attendance for the
+                    </t>
+                    <t t-if="o.state == 'done'">
+                        Has attended the
+                    </t>
+                    <t t-if="o.is_training">training</t>
+                    <t t-if="not o.is_training">event</t>
+                    <b t-esc="o.event_id.product_id.name or
+                              o.event_id.name"/>, in
+                    <t t-esc="o.with_context(show_address=True).event_id
+                              .address_id.display_name"/>, imparted from
+                    <t t-esc="o.event_id.date_begin"/>
+                    to
+                    <t t-esc="o.event_id.date_end"/>.
+                </p>
+                <p t-if="o.is_training and o.state == 'done'">
+                    In such training, the student obtained the following grade:
+                    <b t-if="o.passing">Passed.</b>
+                    <b t-if="not o.passing">Failed.</b>
+                </p>
+            </div>
+            <div class="back row"
+                 t-if="o.is_training and
+                       o.event_id.product_id.contents">
+                <h2 class="text-center">Course Contents</h2>
+                <div class="col-xs-12"
+                     t-raw="o.event_id.product_id.contents"/>
+            </div>
+        </div>
+    </t>
+</template>
+
+<!-- Report action -->
+<report
+    id="diploma_action"
+    model="event.registration"
+    name="event_training.diploma"
+    string="Diploma / Certificate"
+    report_type="qweb-pdf"
+    groups="group_user"
+    attachment="object.state == 'done' and 'diploma.pdf'"
+    multi="False"/>
+
+<record id="diploma_action" model="ir.actions.report.xml">
+    <field name="paperformat_id" ref="diploma_paperformat"/>
+</record>
+
+</data>
+</openerp>

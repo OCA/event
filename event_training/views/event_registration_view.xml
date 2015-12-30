@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+     © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis -->
+
+<openerp>
+<data>
+
+<record id="event_registration_form" model="ir.ui.view">
+    <field name="name">Grades</field>
+    <field name="model">event.registration</field>
+    <field name="inherit_id" ref="event.view_event_registration_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//sheet[@string='Registration']">
+            <group string="Training"
+                   attrs="{'invisible': [('is_training', '=', False)]}">
+                <field name="is_training" invisible="True"/>
+                <field name="grade"/>
+                <field name="passing"/>
+            </group>
+        </xpath>
+    </field>
+</record>
+
+</data>
+</openerp>

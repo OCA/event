@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+     © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis -->
+
+<openerp>
+<data>
+
+<record id="product_template_form_view" model="ir.ui.view">
+    <field name="name">Course products</field>
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="event_product.product_template_form_view"/>
+    <field name="arch" type="xml">
+        <xpath expr="//page[@name='event']">
+            <group
+                name="training"
+                string="Training"
+                attrs="{
+                    'invisible': [('is_training', '=', False)],
+                }">
+                <field name="is_training" invisible="True"/>
+                <group name="grade">
+                    <field name="grade_min"/>
+                    <field name="grade_pass"/>
+                    <field name="grade_max"/>
+                </group>
+                <group name="content" colspan="2">
+                    <field name="contents_layout"/>
+                    <field name="contents" nolabel="True"/>
+                </group>
+            </group>
+        </xpath>
+    </field>
+</record>
+
+<record id="product_template_search_view" model="ir.ui.view">
+    <field name="name">Course search</field>
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="event_product.product_template_search_view"/>
+    <field name="arch" type="xml">
+        <xpath expr="//filter[@name='is_event']" position="after">
+            <filter
+                domain="[('is_event', '=', True), ('is_training', '=', True)]"
+                string="Courses"
+                name="is_training"/>
+        </xpath>
+    </field>
+</record>
+
+</data>
+</openerp>

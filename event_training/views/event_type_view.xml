@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+     © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis -->
+
+<openerp>
+<data>
+
+<record id="course_type_tree" model="ir.ui.view">
+    <field name="name">Training event type tree</field>
+    <field name="model">event.type</field>
+    <field name="inherit_id" ref="event.view_event_type_tree"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='name']" position="after">
+            <field name="is_training"/>
+        </xpath>
+    </field>
+</record>
+
+<record id="course_type_form" model="ir.ui.view">
+    <field name="name">Training event type form</field>
+    <field name="model">event.type</field>
+    <field name="inherit_id" ref="event.view_event_type_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="/form">
+            <group name="training" string="Training">
+                <field name="is_training"/>
+            </group>
+        </xpath>
+    </field>
+</record>
+
+</data>
+</openerp>

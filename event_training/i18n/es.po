@@ -1,0 +1,465 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* training
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0-20150225\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-01-04 13:20+0100\n"
+"PO-Revision-Date: 2016-01-04 13:23+0100\n"
+"Last-Translator: Jairo Llopis <j.llopis@grupoesoc.es>\n"
+"Language-Team: \n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.5\n"
+
+#. module: event_training
+#: view:website:event_training.diploma_translatable
+msgid ", imparted from"
+msgstr ", impartido desde"
+
+#. module: event_training
+#: view:website:event_training.diploma_translatable
+msgid ", in"
+msgstr ", en"
+
+#. module: event_training
+#: view:website:report.style
+msgid ""
+".diploma .front {\n"
+"                text-align: center;\n"
+"            }\n"
+"            .diploma .back {\n"
+"                page-break-before: always;\n"
+"            }"
+msgstr ""
+".diploma .front {\n"
+"                text-align: center;\n"
+"            }\n"
+"            .diploma .back {\n"
+"                page-break-before: always;\n"
+"            }"
+
+#. module: event_training
+#: selection:product.template,contents_layout:0
+msgid "2 columns"
+msgstr "2 columnas"
+
+#. module: event_training
+#: selection:product.template,contents_layout:0
+msgid "3 columns"
+msgstr "3 columnas"
+
+#. module: event_training
+#: selection:product.template,contents_layout:0
+msgid "4 columns"
+msgstr "4 columnas"
+
+#. module: event_training
+#: view:website:event_training.diploma_receipt_translatable
+msgid "Address:"
+msgstr "Dirección:"
+
+#. module: event_training
+#: help:product.template,contents_layout:0
+msgid ""
+"Append one of these templates to the certificate contents. They will help "
+"you to achieve some complex layouts."
+msgstr ""
+"Añadir una de estas plantillas a los contenidos del certificado. Le ayudarán "
+"a formar algunas disposiciones complejas."
+
+#. module: event_training
+#: view:website:event_training.diploma_receipt_translatable
+msgid "Attendee:"
+msgstr "Asistente:"
+
+#. module: event_training
+#: view:website:event_training.diploma_receipt_translatable
+msgid "Begin date:"
+msgstr "Fecha de cominezo:"
+
+#. module: event_training
+#: view:website:event_training.diploma_translatable
+msgid "Certifies That"
+msgstr "Certifica que"
+
+#. module: event_training
+#: code:addons/event_training/models/product.py:36
+#, python-format
+msgid "Column %d"
+msgstr "Columna %d"
+
+#. module: event_training
+#: field:product.template,contents:0
+msgid "Contents"
+msgstr "Contenidos"
+
+#. module: event_training
+#: field:product.template,contents_layout:0
+msgid "Contents layout"
+msgstr "Disposición de los contenidos"
+
+#. module: event_training
+#: help:product.template,contents:0
+msgid "Contents of the course, shown in the back side of the certificate."
+msgstr "Contenidos del curso, mostrados en el reverso del certificado."
+
+#. module: event_training
+#: view:website:event_training.diploma_translatable
+msgid "Course Contents"
+msgstr "Contenidos del curso"
+
+#. module: event_training
+#: view:event.event:event_training.event_search
+#: view:product.template:event_training.product_template_search_view
+msgid "Courses"
+msgstr "Cursos"
+
+#. module: event_training
+#: field:event_training.base,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: event_training
+#: field:event_training.base,create_date:0
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: event_training
+#: view:website:event_training.attendance_certificate_table
+msgid "Dates"
+msgstr "Fechas"
+
+#. module: event_training
+#: view:website:event_training.diploma_receipt_translatable
+msgid "Delivery Receipt of Certificate"
+msgstr "Recibo del certificado"
+
+#. module: event_training
+#: view:website:event_training.diploma_translatable
+msgid "Diploma"
+msgstr "Diploma"
+
+#. module: event_training
+#: model:ir.actions.report.xml,name:event_training.diploma_action
+msgid "Diploma / Certificate"
+msgstr "Diploma / Certificado"
+
+#. module: event_training
+#: model:ir.actions.report.xml,name:event_training.diploma_receipt_action
+msgid "Diploma / Certificate Delivery Receipt"
+msgstr "Recibo del diploma / certificado"
+
+#. module: event_training
+#: view:website:event_training.diploma_receipt_translatable
+msgid "End date:"
+msgstr "Fecha de finalización:"
+
+#. module: event_training
+#: model:ir.model,name:event_training.model_event_event
+msgid "Event"
+msgstr "Evento"
+
+#. module: event_training
+#: model:ir.model,name:event_training.model_event_registration
+msgid "Event Registration"
+msgstr "Registro del evento"
+
+#. module: event_training
+#: model:ir.model,name:event_training.model_event_type
+msgid "Event Type"
+msgstr "Tipo de evento"
+
+#. module: event_training
+#: view:website:event_training.diploma_receipt_translatable
+msgid "Event:"
+msgstr "Evento:"
+
+#. module: event_training
+#: help:event.type,is_training:0
+msgid "Events and products of this type are courses."
+msgstr "Los eventos y productos de este tipo son cursos."
+
+#. module: event_training
+#: view:website:event_training.attendance_certificate_table
+msgid "Failed"
+msgstr "Suspendido"
+
+#. module: event_training
+#: view:website:event_training.diploma_receipt_translatable
+#: view:website:event_training.diploma_translatable
+msgid "Failed."
+msgstr "Suspendido."
+
+#. module: event_training
+#: view:website:event_training.attendance_certificate_table
+msgid "From"
+msgstr "De"
+
+#. module: event_training
+#: field:event.registration,grade:0
+#: view:website:event_training.attendance_certificate_table
+msgid "Grade"
+msgstr "Nota"
+
+#. module: event_training
+#: code:addons/event_training/exceptions.py:30
+#, python-format
+msgid "Grade {grade} for {student} does not fit between {min} and {max}."
+msgstr "La nota {grade} para {student} no encaja entre {min} y {max}."
+
+#. module: event_training
+#: view:website:event_training.diploma_receipt_translatable
+msgid "Grade:"
+msgstr "Nota:"
+
+#. module: event_training
+#: view:website:event_training.diploma_translatable
+msgid "Has attended the"
+msgstr "Ha asistido al"
+
+#. module: event_training
+#: view:website:event_training.diploma_translatable
+msgid "Has cancelled attendance for the"
+msgstr "Ha cancelado su asistencia al"
+
+#. module: event_training
+#: view:website:event_training.diploma_translatable
+msgid "Has confirmed attendance for the"
+msgstr "Ha confirmado su asistencia al"
+
+#. module: event_training
+#: view:website:event_training.diploma_translatable
+msgid "Has not confirmed yet attendance for the"
+msgstr "Todavía no ha confirmado su asistencia al"
+
+#. module: event_training
+#: field:event_training.base,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: event_training
+#: view:website:event_training.diploma_translatable
+msgid "In such training, the student obtained the following grade:"
+msgstr "En dicho curso, el estudiante obtuvo esta nota:"
+
+#. module: event_training
+#: field:event.type,is_training:0
+msgid "Is training"
+msgstr "Es formación"
+
+#. module: event_training
+#: field:event_training.base,write_uid:0
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: event_training
+#: field:event_training.base,write_date:0
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: event_training
+#: field:product.template,grade_max:0
+msgid "Maximum grade"
+msgstr "Nota máxima"
+
+#. module: event_training
+#: field:product.template,grade_min:0
+msgid "Minimum grade"
+msgstr "Nota máxima"
+
+#. module: event_training
+#: code:addons/event_training/exceptions.py:22
+#, python-format
+msgid "Minimum grade cannot be higher than maximum."
+msgstr "La nota mínima no puede ser mayor que la máxima."
+
+#. module: event_training
+#: model:product.template,name:event_training.course_odoo_mixed_product_template
+msgid "Odoo mixed course"
+msgstr "Curso mixto de Odoo"
+
+#. module: event_training
+#: model:event.event,name:event_training.event_odoo_mixed
+msgid "Odoo mixed course event"
+msgstr "Evento de curso mixto de Odoo"
+
+#. module: event_training
+#: model:product.template,name:event_training.course_odoo_onsite_product_template
+msgid "Odoo on-site course"
+msgstr "Curso presencial de Odoo"
+
+#. module: event_training
+#: model:product.template,name:event_training.course_odoo_online_product_template
+msgid "Odoo online course"
+msgstr "Curso en línea de Odoo"
+
+#. module: event_training
+#: model:event.event,name:event_training.event_odoo_online
+msgid "Odoo online course event"
+msgstr "Evento de curso en línea de Odoo"
+
+#. module: event_training
+#: model:event.event,name:event_training.event_odoo_onsite
+msgid "Odoo onsite course event"
+msgstr "Evento de curso presencial de Odoo"
+
+#. module: event_training
+#: view:website:event_training.attendance_certificate_table
+msgid "Passed"
+msgstr "Aprobado"
+
+#. module: event_training
+#: view:website:event_training.diploma_receipt_translatable
+#: view:website:event_training.diploma_translatable
+msgid "Passed."
+msgstr "Aprobado."
+
+#. module: event_training
+#: field:product.template,grade_pass:0
+msgid "Passing grade"
+msgstr "Nota para aprobar"
+
+#. module: event_training
+#: code:addons/event_training/exceptions.py:26
+#, python-format
+msgid "Passing grade must be between minimum and maximum grades."
+msgstr "La nota para aprobar debe estar entre la mínima y la máxima."
+
+#. module: event_training
+#: model:ir.model,name:event_training.model_product_product
+msgid "Product"
+msgstr "Producto"
+
+#. module: event_training
+#: model:ir.model,name:event_training.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: event_training
+#: view:website:event_training.diploma_receipt_translatable
+msgid "Signed"
+msgstr "Firmado"
+
+#. module: event_training
+#: view:website:event_training.attendance_certificate_table
+msgid "Status"
+msgstr "Estado"
+
+#. module: event_training
+#: view:website:event_training.diploma_receipt_translatable
+msgid "Status:"
+msgstr "Estado:"
+
+#. module: event_training
+#: help:product.template,grade_pass:0
+msgid "Students above this grade will pass the training."
+msgstr "Los estudiantes que superen esta nota aprobarán el curso."
+
+#. module: event_training
+#: help:product.template,grade_min:0
+msgid "Students cannot get less than this grade."
+msgstr "Los estudiantes no pueden sacar menos que esta nota."
+
+#. module: event_training
+#: help:product.template,grade_max:0
+msgid "Students cannot get more than this grade."
+msgstr "Los estudiantes no pueden sacar más que esta nota."
+
+#. module: event_training
+#: model:res.groups,comment:event_training.group_user
+msgid "The user will be able to use training events"
+msgstr "El usuario podrá usar el módulo de formación."
+
+#. module: event_training
+#: view:website:event_training.attendance_certificate_company
+#: view:website:event_training.attendance_certificate_contact
+msgid "This document certifies that"
+msgstr "Este documento certifica que"
+
+#. module: event_training
+#: view:event.registration:event_training.event_registration_form
+#: view:event.type:event_training.course_type_form
+#: view:product.template:event_training.product_template_form_view
+#: view:website:event_training.attendance_certificate_table
+msgid "Training"
+msgstr "Formación"
+
+#. module: event_training
+#: model:ir.actions.report.xml,name:event_training.attendance_certificate_action
+#: view:website:event_training.attendance_certificate_report_translatable
+msgid "Training Attendance Certificate"
+msgstr "Certificado de asistencia al curso"
+
+#. module: event_training
+#: model:res.groups,name:event_training.group_user
+msgid "Training User"
+msgstr "Usuario de formación"
+
+#. module: event_training
+#: view:website:event_training.diploma_receipt_translatable
+msgid "Training:"
+msgstr "Formación:"
+
+#. module: event_training
+#: view:website:event_training.diploma_receipt_translatable
+msgid ""
+"confirms having recieved a document certificating the\n"
+"                    following information:"
+msgstr ""
+"confirma haber recibido un documento que certifica la siguiente información:"
+
+#. module: event_training
+#: view:website:event_training.diploma_translatable
+msgid "event"
+msgstr "evento"
+
+#. module: event_training
+#: view:website:event_training.attendance_certificate_company
+msgid ""
+"in some of our training groups,\n"
+"            and according to the following information:"
+msgstr ""
+"en alguno de nuestros grupos formativos, y de acuerdo a la siguiente "
+"información:"
+
+#. module: event_training
+#: view:website:event_training.attendance_certificate_company
+msgid "nobody participated in any of our training groups in the name of"
+msgstr ""
+"nadie ha participado en ninguno de nuestros grupos formativos en el nombre de"
+
+#. module: event_training
+#: view:website:event_training.attendance_certificate_contact
+msgid "participated in none of our training groups."
+msgstr "no ha participado en ninguno de nuestros grupos formativos."
+
+#. module: event_training
+#: view:website:event_training.attendance_certificate_contact
+msgid ""
+"participated in some of our training groups according to the\n"
+"            following information:"
+msgstr ""
+"ha participado en alguno de nuestros grupos formativos de acuerdo a la "
+"siguiente información:"
+
+#. module: event_training
+#: view:website:event_training.attendance_certificate_company
+msgid "the following people participated in the name of"
+msgstr "las siguientes personas han participado en el nombre de"
+
+#. module: event_training
+#: view:website:event_training.attendance_certificate_table
+#: view:website:event_training.diploma_translatable
+msgid "to"
+msgstr "a"
+
+#. module: event_training
+#: view:website:event_training.diploma_translatable
+msgid "training"
+msgstr "formación"
