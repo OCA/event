@@ -6,8 +6,8 @@ from openerp import api, fields, models
 from .. import exceptions as ex
 
 
-class ProductBase(models.AbstractModel):
-    _name = "event_product.product"
+class EventProductBase(models.AbstractModel):
+    _name = "event_product.base"
 
     @api.multi
     @api.constrains("event_ok", "is_event")
@@ -32,7 +32,7 @@ class ProductBase(models.AbstractModel):
 
 class ProductTemplate(models.Model):
     _name = "product.template"
-    _inherit = ["product.template", ProductBase._name]
+    _inherit = ["product.template", "event_product.base"]
 
     is_event = fields.Boolean(
         "Is an event",
@@ -78,7 +78,7 @@ class ProductTemplate(models.Model):
 
 class ProductProduct(models.Model):
     _name = "product.product"
-    _inherit = ["product.product", ProductBase._name]
+    _inherit = ["product.product", "event_product.base"]
 
     event_ids = fields.One2many(
         "event.event",
