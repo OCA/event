@@ -27,6 +27,15 @@ class EventEventCase(BaseCase, TransactionCase):
             self.event.mapped("registration_ids.products_delivered"),
             [True] * 5)
 
+    def test_changing_delivered_products(self):
+        """Odoo warns you if you change already delivered products."""
+        self.event.deliverable_product_ids = self.deliverable_products
+        self.event.registration_ids.write({"products_delivered": True})
+        with self.env.do_in_onchange():
+            self.event.deliverable_product_ids = self.deliverable_products[0]
+            with self.assertRaises(exceptions.Warning):
+                self.event._onchange_deliverable_product_ids()
+
 
 class EventRegistrationCase(BaseCase, TransactionCase):
     def test_can_deliver_products(self):

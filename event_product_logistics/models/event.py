@@ -2,8 +2,7 @@
 # © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import _, api, fields, models
-from openerp.exceptions import ValidationError
+from openerp import _, api, exceptions, fields, models
 
 
 class EventEvent(models.Model):
@@ -27,6 +26,14 @@ class EventEvent(models.Model):
         """Mark all products delivered to all attendees."""
         self.mapped("registration_ids").write({"products_delivered": True})
 
+    @api.multi
+    @api.onchange("deliverable_product_ids")
+    def _onchange_deliverable_product_ids(self):
+        """Warn if products were already delivered."""
+        if True in self.mapped("registration_ids.products_delivered"):
+            raise exceptions.Warning(
+                _("Some products were already delivered."))
+
 
 class EventRegistration(models.Model):
     _inherit = "event.registration"
@@ -39,5 +46,5 @@ class EventRegistration(models.Model):
         """Cannot deliver products if no products are set."""
         for s in self:
             if s.products_delivered and not s.event_id.deliverable_product_ids:
-                raise ValidationError(
+                raise exceptions.ValidationError(
                     _("Event has no products set to deliver."))
