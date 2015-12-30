@@ -19,14 +19,14 @@ Examples:
 
 * Wedding.
     * Variants:
-        * Until 50 attendees.
-        * Until 100 attendees.
+        * Up to 50 attendees.
+        * Up to 100 attendees.
         * In beach.
         * In countryfield.
 * Congress.
     * Variants:
-        * Until 50 attendees.
-        * Until 100 attendees.
+        * Up to 50 attendees.
+        * Up to 100 attendees.
 * Opening.
     * Variants:
         * 1 day.
@@ -38,27 +38,27 @@ Usage
 
 To create your *event products*, you need to:
 
-* Go to *Sales > Products > Products > Create*.
-* Give it a name, such as *Wedding*.
-* Enable *Is an event*.
-* Choose event type in *Information > Type of Event* (or leave blank for
-  generic events).
-* Press *Save*.
+#. Go to *Sales > Products > Products > Create*.
+#. Give it a name, such as *Wedding*.
+#. Enable *Is an event*.
+#. Choose event type in *Information > Type of Event* (or leave blank for
+   generic events).
+#. Press *Save*.
 
 To create variants for that, you need to:
 
-* Edit previous product.
-* Go to *Variants* tab.
-* Press *Add an Item*.
-* Add your attribute and values as usual.
+#. Edit previous product.
+#. Go to *Variants* tab.
+#. Press *Add an Item*.
+#. Add your attribute and values as usual.
 
 To link an event to any of those variants, you need to:
 
-* Go to *Marketing > Events > Events > Create*.
-* Set name, start and end dates.
-* Choose the same *Type of Event* as when creating the product (unless you
-  left it blank, in which case you do not need this).
-* Choose one of your variants in *Product*.
+#. Go to *Marketing > Events > Events > Create*.
+#. Set name, start and end dates.
+#. Choose the same *Type of Event* as when creating the product (unless you
+   left it blank, in which case you do not need this).
+#. Choose one of your variants in *Product*.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
