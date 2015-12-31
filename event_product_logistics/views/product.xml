@@ -5,23 +5,21 @@
 <openerp>
 <data>
 
-<record model="ir.ui.view" id="product_template_form">
+<record model="ir.ui.view" id="product_template_form_view">
     <field name="name">Event products to deliver</field>
     <field name="model">product.template</field>
     <field name="inherit_id"
-           ref="event_sale.event_sale_product_template_form"/>
+           ref="event_product.product_template_form_view"/>
     <field name="arch" type="xml">
-        <xpath expr="//notebook">
-            <page name="deliverable_products"
-                  string="Event"
-                  attrs="{
+        <xpath expr="//page[@name='event']">
+            <group
+                name="deliverable_products"
+                string="Products to Deliver"
+                attrs="{
                     'invisible': [('is_event', '=', False)],
-                  }">
-                <group string="Products to Deliver">
-                    <field name="event_deliverable_product_ids"
-                           nolabel="1"/>
-                </group>
-            </page>
+                }">
+                <field name="event_deliverable_product_ids" nolabel="True"/>
+            </group>
         </xpath>
     </field>
 </record>
