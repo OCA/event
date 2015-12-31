@@ -21,15 +21,14 @@ class EventEvent(models.Model):
     @api.constrains("type", "product_id")
     def _check_product_type(self):
         """Ensure product and event types match."""
-        for s in self:
-            if s.product_id:
-                if not s.product_id.is_event:
-                    raise ex.ProductIsNotEventError(s.product_id.name)
-                if s.product_id.event_type_id not in (s.type,
-                                                      self.env["event.type"]):
-                    raise ex.TypeMismatchError(
-                        product_type=s.product_id.event_type_id.name,
-                        event_type=s.type.name)
+        for s in self.filtered("product_id"):
+            if not s.product_id.is_event:
+                raise ex.ProductIsNotEventError(s.product_id.display_name)
+            elif (s.product_id.event_type_id and
+                  s.product_id.event_type_id != s.type):
+                raise ex.TypeMismatchError(
+                    product_type=s.product_id.event_type_id.display_name,
+                    event_type=s.type.display_name)
 
     @api.multi
     @api.onchange("type")
