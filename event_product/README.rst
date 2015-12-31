@@ -41,8 +41,8 @@ To create your *event products*, you need to:
 #. Go to *Sales > Products > Products > Create*.
 #. Give it a name, such as *Wedding*.
 #. Enable *Is an event*.
-#. Choose event type in *Information > Type of Event* (or leave blank for
-   generic events).
+#. Choose event type in *Event > Type of Event* (or leave blank for
+   events of any type).
 #. Press *Save*.
 
 To create variants for that, you need to:
