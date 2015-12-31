@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+     © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis -->
+
+<openerp>
+<data>
+
+<record id="view_event_track_form" model="ir.ui.view">
+    <field name="name">Training tracks</field>
+    <field name="model">event.track</field>
+    <field name="inherit_id" ref="website_event_track.view_event_track_form"/>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//sheet/group" position="after">
+                <group name="training" string="Training">
+                    <group>
+                        <field
+                            name="expected_duration_type_ids"
+                            invisible="True"/>
+                        <field
+                            name="duration_type_id"
+                            options="{
+                                'no_create': True,
+                            }"/>
+                    </group>
+                    <group>
+                        <field
+                            name="monitor_attendance"
+                            invisible="True"/>
+                        <field
+                            name="registration_ids"
+                            context="{
+                                'default_event_id': event_id,
+                            }"
+                            attrs="{
+                                'invisible': [
+                                    ('monitor_attendance', '=', False),
+                                ],
+                            }"
+                            widget="many2many_tags"/>
+                    </group>
+                </group>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="view_event_track_search" model="ir.ui.view">
+    <field name="name">Training tracks</field>
+    <field name="model">event.track</field>
+    <field name="inherit_id" ref="website_event_track.view_event_track_search"/>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//group" position="before">
+                <field name="duration_type_id"/>
+                <filter string="Using attendance monitoring"
+                        domain="[('monitor_attendance', '=', True)]"/>
+            </xpath>
+
+            <xpath expr="//group">
+                <filter string="Training hour type"
+                        context="{'group_by': 'duration_type_id'}"/>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+</data>
+</openerp>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+
+<openerp>
+<data>
+
+<record id="wizard_summary_view" model="ir.ui.view">
+    <field name="name">Durations summary</field>
+    <field name="model">event.training.duration.summary</field>
+    <field name="arch" type="xml">
+        <form string="Training Hours Summary">
+            <sheet>
+                <h1>
+                    <field name="event_id"/>
+                </h1>
+                <p>
+                    Compare the training hours that were expected for this kind
+                    of training with the actual amount of them found in this
+                    event's tracks.
+                </p>
+                <p>
+                    You should care about fixing red lines.
+                </p>
+                <group>
+                    <field name="line_ids" nolabel="1">
+                        <tree colors="red: (remaining_hours and
+                                            monitor_attendance)">
+                            <field name="summary_id" invisible="True"/>
+                            <field name="duration_type_id"/>
+                            <field name="monitor_attendance"/>
+                            <field name="expected_hours"/>
+                            <field name="real_hours"/>
+                            <field name="remaining_hours"/>
+                        </tree>
+                    </field>
+                </group>
+            </sheet>
+            <footer>
+                <button special="cancel"
+                        string="Cancel"/>
+            </footer>
+        </form>
+    </field>
+</record>
+
+<record id="wizard_summary_action" model="ir.actions.act_window">
+    <field name="name">Training Hours Summary</field>
+    <field name="res_model">event.training.duration.summary</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+</record>
+
+</data>
+</openerp>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+     © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis -->
+
+<openerp>
+<data>
+
+<record id="view_event_form" model="ir.ui.view">
+    <field name="name">Tracks summary</field>
+    <field name="model">event.event</field>
+    <field name="inherit_id" ref="website_event_track.view_event_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='track_ids']" position="after">
+            <group>
+                <field name="is_training" invisible="True"/>
+                <button
+                    string="Compare tracks with expected hours"
+                    attrs="{
+                    'invisible': [('is_training', '=', False)],
+                    }"
+                    type="action"
+                    name="%(wizard_summary_action)d"/>
+            </group>
+        </xpath>
+    </field>
+</record>
+
+</data>
+</openerp>

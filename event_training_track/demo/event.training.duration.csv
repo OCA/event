@@ -1,0 +1,6 @@
+id,duration,product_tmpl_id:id,type_id:id
+duration_1,20,event_training.course_tmpl_odoo_mixed,duration_type_onsite
+duration_2,40,event_training.course_tmpl_odoo_mixed,duration_type_online
+duration_3,10,event_training.course_tmpl_odoo_mixed,duration_type_remote
+duration_4,80,event_training.course_tmpl_odoo_online,duration_type_online
+duration_5,25,event_training.course_tmpl_odoo_onsite,duration_type_onsite

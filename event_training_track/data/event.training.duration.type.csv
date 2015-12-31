@@ -1,0 +1,4 @@
+id,name,monitor_attendance
+duration_type_onsite,On site,True
+duration_type_online,Online,False
+duration_type_remote,Remote,False

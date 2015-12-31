@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+     © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis -->
+
+<openerp>
+<data>
+
+<!-- Views -->
+<record id="duration_type_tree" model="ir.ui.view">
+    <field name="name">Training duration type tree</field>
+    <field name="model">event.training.duration.type</field>
+    <field name="groups" ref="event.group_event_manager"/>
+    <field name="arch" type="xml">
+        <tree editable="top">
+            <field name="name"/>
+            <field name="monitor_attendance"/>
+        </tree>
+    </field>
+</record>
+
+<record id="duration_type_form" model="ir.ui.view">
+    <field name="name">Training duration type form</field>
+    <field name="model">event.training.duration.type</field>
+    <field name="groups" ref="event.group_event_manager"/>
+    <field name="arch" type="xml">
+        <form>
+            <header/>
+            <sheet>
+                <group>
+                    <field name="name"/>
+                    <field name="monitor_attendance"/>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+<!-- Actions -->
+<record id="duration_type_action" model="ir.actions.act_window">
+    <field name="name">Duration types</field>
+    <field name="res_model">event.training.duration.type</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+            Click to add a new duration type.
+        </p>
+        <p>
+            Duration types are used when creating training event types. An
+            "online" training type may expect "online" hours, but a "mixed"
+            training type may expect both "online" and "on-site" hours.
+        </p>
+    </field>
+</record>
+
+<!-- Menus -->
+<menuitem id="duration_type_menu"
+          parent="event.event_configuration"
+          groups="event.group_event_manager"
+          action="duration_type_action"/>
+
+</data>
+</openerp>

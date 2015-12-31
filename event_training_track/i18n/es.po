@@ -1,0 +1,402 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* training_track
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0-20150225\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-01-13 11:22+0100\n"
+"PO-Revision-Date: 2016-01-13 11:22+0100\n"
+"Last-Translator: Jairo Llopis <j.llopis@grupoesoc.es>\n"
+"Language-Team: \n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.5\n"
+
+#. module: event_training_track
+#: code:addons/event_training_track/models/duration.py:26
+#, python-format
+msgid "%s (copy)"
+msgstr "%s (copia)"
+
+#. module: event_training_track
+#: model:ir.actions.act_window,help:event_training_track.duration_type_action
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"            Click to add a new duration type.\n"
+"        </p>\n"
+"        <p>\n"
+"            Duration types are used when creating training event types. An\n"
+"            \"online\" training type may expect \"online\" hours, but a "
+"\"mixed\"\n"
+"            training type may expect both \"online\" and \"on-site\" hours.\n"
+"        </p>\n"
+"    "
+msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"            Pulsa para añadir un nuevo tipo de duración.\n"
+"        </p>\n"
+"        <p>\n"
+"            Los tipos de duración se usan al crear tipos de evento "
+"formativos. Una formación \"online\" esperaría tener horas \"online\", pero "
+"una formación \"mixta\" podría esperar tanto horas de tipo \"online\" como "
+"\"presencial\".\n"
+"        </p>"
+
+#. module: event_training_track
+#: model:ir.actions.report.xml,name:event_training_track.event_attendance_monitoring_action
+#: model:ir.actions.report.xml,name:event_training_track.track_attendance_monitoring_action
+#: view:website:event_training_track.attendance_monitoring_report
+msgid "Attendance Monitoring"
+msgstr "Control de asistencia"
+
+#. module: event_training_track
+#: field:event.registration,attended_track_ids:0
+msgid "Attended tracks"
+msgstr "Sesiones asistidas"
+
+#. module: event_training_track
+#: view:website:event_training_track.attendance_monitoring_report
+msgid "Attendee list"
+msgstr "Lista de asistentes"
+
+#. module: event_training_track
+#: field:event.track,registration_ids:0
+msgid "Attendees"
+msgstr "Asistentes"
+
+#. module: event_training_track
+#: view:event.training.duration.summary:event_training_track.wizard_summary_view
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: event_training_track
+#: sql_constraint:event.training.duration:0
+msgid "Cannot repeat the hour type in a product."
+msgstr "No se puede repetir el tipo de hora en un producto."
+
+#. module: event_training_track
+#: model:ir.model,name:event_training_track.model_event_training_duration_summary
+msgid "Compare all the expected durations with the real ones"
+msgstr "Comparar todos los tipos de duración esperados con los reales."
+
+#. module: event_training_track
+#: model:ir.model,name:event_training_track.model_event_training_duration_summary_line
+msgid "Compare one expected duration with the real ones"
+msgstr "Comparar una duración esperada con las reales."
+
+#. module: event_training_track
+#: view:event.training.duration.summary:event_training_track.wizard_summary_view
+msgid ""
+"Compare the training hours that were expected for this kind\n"
+"                    of training with the actual amount of them found in "
+"this\n"
+"                    event's tracks."
+msgstr ""
+"Comparar las horas formativas que se esperaban para este tipo de formación "
+"con la cantidad real que se encuentra actualmente en las sesiones de este "
+"evento."
+
+#. module: event_training_track
+#: view:event.event:event_training_track.view_event_form
+msgid "Compare tracks with expected hours"
+msgstr "Comparar sesiones con horas esperadas"
+
+#. module: event_training_track
+#: field:event.training.duration,create_uid:0
+#: field:event.training.duration.summary,create_uid:0
+#: field:event.training.duration.summary.line,create_uid:0
+#: field:event.training.duration.type,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: event_training_track
+#: field:event.training.duration,create_date:0
+#: field:event.training.duration.summary,create_date:0
+#: field:event.training.duration.summary.line,create_date:0
+#: field:event.training.duration.type,create_date:0
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: event_training_track
+#: help:event.training.duration.type,monitor_attendance:0
+msgid "Does this hour type use attendance monitoring?"
+msgstr "¿Este tipo de hora usa control de asistencia?"
+
+#. module: event_training_track
+#: field:event.training.duration,duration:0
+msgid "Duration"
+msgstr "Duración"
+
+#. module: event_training_track
+#: model:ir.actions.act_window,name:event_training_track.duration_type_action
+#: model:ir.ui.menu,name:event_training_track.duration_type_menu
+msgid "Duration types"
+msgstr "Tipos de duración"
+
+#. module: event_training_track
+#: field:event.training.duration.summary,event_id:0
+msgid "Event"
+msgstr "Evento"
+
+#. module: event_training_track
+#: view:website:event_training_track.attendance_monitoring_report
+msgid "Event Name"
+msgstr "Nombre del evento"
+
+#. module: event_training_track
+#: view:website:event_training_track.attendance_monitoring_report
+msgid "Event Organizer"
+msgstr "Organizador del evento"
+
+#. module: event_training_track
+#: model:ir.model,name:event_training_track.model_event_registration
+msgid "Event Registration"
+msgstr "Registro del evento"
+
+#. module: event_training_track
+#: model:ir.model,name:event_training_track.model_event_track
+msgid "Event Tracks"
+msgstr "Sesiones del evento"
+
+#. module: event_training_track
+#: model:ir.model,name:event_training_track.model_event_type
+msgid "Event Type"
+msgstr "Tipo de evento"
+
+#. module: event_training_track
+#: help:product.template,duration_ids:0
+msgid "Expected duration per hour type for these events."
+msgstr "Duración por tipo de hora esperada para estos eventos."
+
+#. module: event_training_track
+#: field:event.type,expected_duration_type_ids:0
+msgid "Expected duration types"
+msgstr "Tipos de duración esperados"
+
+#. module: event_training_track
+#: field:product.template,duration_ids:0
+msgid "Expected durations"
+msgstr "Duraciones esperadas"
+
+#. module: event_training_track
+#: help:event.training.duration,type_id:0
+msgid "Hour type."
+msgstr "Tipo de hora."
+
+#. module: event_training_track
+#: help:event.type,expected_duration_type_ids:0
+msgid ""
+"Hour types expected in this type of course. For example, a training of type "
+"'mixed' may expect durations of types 'on-site' and 'online'."
+msgstr ""
+"Tipos de hora esperados en este tipo de curso. Por ejemplo, un curso de tipo "
+"'mixto' podría esperar duraciones de tipo 'presencial' y 'online'."
+
+#. module: event_training_track
+#: field:event.training.duration,id:0
+#: field:event.training.duration.summary,id:0
+#: field:event.training.duration.summary.line,id:0
+#: field:event.training.duration.type,id:0
+#: field:event_training_track.product_abc,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: event_training_track
+#: field:event.training.duration,write_uid:0
+#: field:event.training.duration.summary,write_uid:0
+#: field:event.training.duration.summary.line,write_uid:0
+#: field:event.training.duration.type,write_uid:0
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: event_training_track
+#: field:event.training.duration,write_date:0
+#: field:event.training.duration.summary,write_date:0
+#: field:event.training.duration.summary.line,write_date:0
+#: field:event.training.duration.type,write_date:0
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: event_training_track
+#: field:event.training.duration.summary,line_ids:0
+msgid "Lines"
+msgstr "Líneas"
+
+#. module: event_training_track
+#: view:product.template:event_training_track.product_template_form_view
+msgid "Load from event type"
+msgstr "Cargar del tipo de evento"
+
+#. module: event_training_track
+#: view:website:event_training_track.attendance_monitoring_report
+msgid "Location"
+msgstr "Localización"
+
+#. module: event_training_track
+#: field:event.training.duration.type,monitor_attendance:0
+msgid "Monitor attendance"
+msgstr "Controlar asistencia"
+
+#. module: event_training_track
+#: field:event.training.duration.type,name:0
+#: view:website:event_training_track.attendance_monitoring_report
+msgid "Name"
+msgstr "Nombre"
+
+#. module: event_training_track
+#: sql_constraint:event.training.duration.type:0
+msgid "Name must be unique."
+msgstr "El nombre debe ser único."
+
+#. module: event_training_track
+#: model:event.training.duration.type,name:event_training_track.duration_type_onsite
+msgid "On site"
+msgstr "Presencial"
+
+#. module: event_training_track
+#: model:event.training.duration.type,name:event_training_track.duration_type_online
+msgid "Online"
+msgstr "En línea"
+
+#. module: event_training_track
+#: help:event.track,registration_ids:0
+msgid "People that attended this track."
+msgstr "Gente que ha asistido a esta sesión."
+
+#. module: event_training_track
+#: field:event.training.duration,product_tmpl_id:0
+#: model:ir.model,name:event_training_track.model_product_product
+msgid "Product"
+msgstr "Producto"
+
+#. module: event_training_track
+#: model:ir.model,name:event_training_track.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: event_training_track
+#: code:addons/event_training_track/models/event.py:31
+#, python-format
+msgid ""
+"Registration %(registration)s and track %(track)s belong to different events."
+msgstr ""
+"El registro %(registration)s y la sesión %(track)s pertenecen a eventos "
+"diferentes."
+
+#. module: event_training_track
+#: model:event.training.duration.type,name:event_training_track.duration_type_remote
+msgid "Remote"
+msgstr "A distancia"
+
+#. module: event_training_track
+#: view:product.template:event_training_track.product_template_form_view
+msgid "Remove current durations and load the expected ones"
+msgstr "Reemplazar las duraciones actuales por las esperadas."
+
+#. module: event_training_track
+#: view:website:event_training_track.attendance_monitoring_report
+msgid "Signature"
+msgstr "Firma"
+
+#. module: event_training_track
+#: view:website:event_training_track.attendance_monitoring_report
+msgid "Speakers"
+msgstr "Ponentes"
+
+#. module: event_training_track
+#: field:event.training.duration.summary.line,summary_id:0
+msgid "Summary"
+msgstr "Resumen"
+
+#. module: event_training_track
+#: view:website:event_training_track.attendance_monitoring_report
+msgid "Track Date"
+msgstr "Fecha de la sesión"
+
+#. module: event_training_track
+#: view:website:event_training_track.attendance_monitoring_report
+msgid "Track Duration"
+msgstr "Duración de la sesión"
+
+#. module: event_training_track
+#: view:website:event_training_track.attendance_monitoring_report
+msgid "Track Name"
+msgstr "Nombre de la sesión"
+
+#. module: event_training_track
+#: help:event.registration,attended_track_ids:0
+msgid "Tracks of this event that this person attended."
+msgstr "Sesiones de este evento a los que esta persona ha asistido."
+
+#. module: event_training_track
+#: view:event.track:event_training_track.view_event_track_form
+msgid "Training"
+msgstr "Formación"
+
+#. module: event_training_track
+#: view:website:event_training_track.attendance_monitoring_report
+msgid "Training Action"
+msgstr "Acción formativa"
+
+#. module: event_training_track
+#: view:event.training.duration.summary:event_training_track.wizard_summary_view
+#: model:ir.actions.act_window,name:event_training_track.wizard_summary_action
+msgid "Training Hours Summary"
+msgstr "Resumen de horas formativas"
+
+#. module: event_training_track
+#: help:event.training.duration,product_tmpl_id:0
+msgid "Training event product that expects this duration."
+msgstr "Producto de evento formativo que espera esta duración."
+
+#. module: event_training_track
+#: view:event.track:event_training_track.view_event_track_search
+msgid "Training hour type"
+msgstr "Tipo de horas formativas"
+
+#. module: event_training_track
+#: field:event.track,duration_type_id:0
+msgid "Training hours type"
+msgstr "Tipo de horas formativas"
+
+#. module: event_training_track
+#: help:event.track,duration_type_id:0
+msgid "Training hours type of this track."
+msgstr "Tipo de horas formativas de esta sesión."
+
+#. module: event_training_track
+#: field:event.training.duration,type_id:0
+#: field:event.training.duration.summary.line,duration_type_id:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: event_training_track
+#: view:event.track:event_training_track.view_event_track_search
+msgid "Using attendance monitoring"
+msgstr "Usan control de asistencia"
+
+#. module: event_training_track
+#: view:event.training.duration.summary:event_training_track.wizard_summary_view
+msgid "You should care about fixing red lines."
+msgstr "Deberías preocuparte de corregir las líneas rojas."
+
+#. module: event_training_track
+#: view:website:event_training_track.attendance_monitoring_report
+msgid "hour(s)"
+msgstr "hora/s"
+
+#~ msgid "Error(s) with the training track data."
+#~ msgstr "Error(es) con los datos de sesión formativa."
+
+#~ msgid "Should this track use attendance monitoring?"
+#~ msgstr "¿Esta sesión debería usar control de asistencia?"
+
+#~ msgid "Training hour type of this track, if it belongs to a training group."
+#~ msgstr ""
+#~ "Tipo de horas formativas de esta sesión, si pertenece a un grupo "
+#~ "formativo."

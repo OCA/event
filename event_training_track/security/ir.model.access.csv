@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+read_duration_type,Read training duration type,model_event_training_duration_type,event_training.group_user,1,0,0,0
+edit_duration_type,Edit training duration type,model_event_training_duration_type,event.group_event_manager,1,1,1,1
+edit_duration,Edit training duration,model_event_training_duration,event_training.group_user,1,1,1,1

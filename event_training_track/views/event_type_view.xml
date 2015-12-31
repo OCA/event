@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+     © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis -->
+
+<openerp>
+<data>
+
+<record id="view_event_type_form" model="ir.ui.view">
+    <field name="name">Expected durations</field>
+    <field name="model">event.type</field>
+    <field name="inherit_id" ref="event_training.view_event_type_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='is_training']" position="after">
+            <field
+                name="expected_duration_type_ids"
+                attrs="{
+                    'invisible': [('is_training', '=', False)],
+                }"/>
+        </xpath>
+    </field>
+</record>
+
+</data>
+</openerp>

@@ -1,0 +1,4 @@
+id,expected_duration_type_ids:id
+event_training.training_type_onsite,duration_type_onsite
+event_training.training_type_online,duration_type_online
+event_training.training_type_mixed,"duration_type_onsite,duration_type_online,duration_type_remote"

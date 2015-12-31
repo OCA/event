@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+     © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis -->
+
+<openerp>
+<data>
+
+<record id="product_template_form_view" model="ir.ui.view">
+    <field name="name">Course products</field>
+    <field name="model">product.template</field>
+    <field name="inherit_id"
+           ref="event_training.product_template_form_view"/>
+    <field name="arch" type="xml">
+        <xpath expr="//group[@name='grade']" position="after">
+            <group name="duration">
+                <field name="duration_ids">
+                    <tree editable="bottom">
+                        <field name="type_id"/>
+                        <field name="duration" widget="float_time"/>
+                    </tree>
+                </field>
+                <button
+                    name="action_fill_duration_ids"
+                    string="Load from event type"
+                    help="Remove current durations and load the expected ones"
+                    type="object"/>
+            </group>
+        </xpath>
+    </field>
+</record>
+
+</data>
+</openerp>
