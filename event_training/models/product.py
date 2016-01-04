@@ -18,9 +18,9 @@ class EventTrainingBase(models.Model):
             # Grade limits must be coherent
             if not s.grade_min <= s.grade_pass <= s.grade_max:
                 if s.grade_min > s.grade_max:
-                    raise ex.GradePassingOverflowError(s)
-                else:
                     raise ex.GradeLimitOverflowError(s)
+                else:
+                    raise ex.GradePassingOverflowError(s)
 
             # Cannot conflict with existing student grades
             s.mapped("product_variant_ids.event_ids")._check_grade_limits()
