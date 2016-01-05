@@ -6,9 +6,9 @@ from openerp import _, api, fields, models
 from .. import exceptions as ex
 
 
-class EventTrainingBase(models.Model):
-    """Shared logic between template and product."""
-    _name = "event_training.base"
+class EventTrainingProductABC(models.AbstractModel):
+    _name = "event_training.product_abc"
+    _description = "Shared logic between template and product, for training."
 
     @api.multi
     @api.constrains("grade_min", "grade_pass", "grade_max")
@@ -48,7 +48,7 @@ class ProductTemplate(models.Model):
     fulfill. Events linked to courses are considered training events.
     """
     _name = "product.template"
-    _inherit = ["product.template", "event_training.base"]
+    _inherit = ["product.template", "event_training.product_abc"]
 
     is_training = fields.Boolean(
         "Is a course",
@@ -82,4 +82,4 @@ class ProductTemplate(models.Model):
 
 class ProductProduct(models.Model):
     _name = "product.product"
-    _inherit = ["product.product", "event_training.base"]
+    _inherit = ["product.product", "event_training.product_abc"]
