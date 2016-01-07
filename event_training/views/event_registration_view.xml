@@ -12,10 +12,13 @@
     <field name="arch" type="xml">
         <xpath expr="//sheet[@string='Registration']">
             <group string="Training"
+                   name="training"
                    attrs="{'invisible': [('is_training', '=', False)]}">
-                <field name="is_training" invisible="True"/>
-                <field name="grade"/>
-                <field name="passing"/>
+                <group>
+                    <field name="is_training" invisible="True"/>
+                    <field name="grade"/>
+                    <field name="passing"/>
+                </group>
             </group>
         </xpath>
     </field>
