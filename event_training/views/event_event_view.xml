@@ -5,7 +5,7 @@
 <openerp>
 <data>
 
-<record id="event_search" model="ir.ui.view">
+<record id="view_event_search" model="ir.ui.view">
     <field name="name">Search training groups</field>
     <field name="model">event.event</field>
     <field name="inherit_id" ref="event.view_event_search"/>
