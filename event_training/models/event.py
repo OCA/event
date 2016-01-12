@@ -49,10 +49,7 @@ class EventRegistration(models.Model):
             s.passing = s.grade >= s.event_id.product_id.grade_pass
 
     @api.multi
-    @api.constrains("grade",
-                    "is_training",
-                    "event_id.product_id.grade_min",
-                    "event_id.product_id.grade_max")
+    @api.constrains("grade", "is_training", "event_id")
     def _check_grade_limits(self):
         """Ensure no conflicts between limits and actual student grades."""
         for s in self.filtered("is_training"):
