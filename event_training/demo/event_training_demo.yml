@@ -15,24 +15,34 @@
     name: On-site training
     is_training: True
 
-# Training products (courses)
-- !record {id: course_odoo_mixed, model: product.product}:
+# Training product templates (course templates)
+- !record {id: course_tmpl_odoo_mixed, model: product.template}:
     name: Odoo mixed course
     is_event: True
     type: service
     event_type_id: training_type_mixed
 
-- !record {id: course_odoo_online, model: product.product}:
+- !record {id: course_tmpl_odoo_online, model: product.template}:
     name: Odoo online course
     is_event: True
     type: service
     event_type_id: training_type_online
 
-- !record {id: course_odoo_onsite, model: product.product}:
+- !record {id: course_tmpl_odoo_onsite, model: product.template}:
     name: Odoo on-site course
     is_event: True
     type: service
     event_type_id: training_type_onsite
+
+# Training products (courses)
+- !record {id: course_odoo_mixed, model: product.product}:
+    product_tmpl_id: course_tmpl_odoo_mixed
+
+- !record {id: course_odoo_online, model: product.product}:
+    product_tmpl_id: course_tmpl_odoo_online
+
+- !record {id: course_odoo_onsite, model: product.product}:
+    product_tmpl_id: course_tmpl_odoo_onsite
 
 # Training events
 - !record {id: event_odoo_mixed, model: event.event}:
