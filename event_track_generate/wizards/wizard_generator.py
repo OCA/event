@@ -65,19 +65,19 @@ class Generator(models.TransientModel):
         default=True,
         help="Make event's end time match the end of the last track.")
 
-    @api.one
+    @api.multi
     @api.depends("start_time", "duration")
     def _compute_end_time(self):
         self.end_time = self.start_time + self.duration
 
-    @api.one
+    @api.multi
     def action_generate(self):
         """Generate event tracks according to received data.
 
         This is the main method of this class, triggered by the UI.
         """
         # You need at least one weekday
-        weekdays = self.weekdays()[0]
+        weekdays = self.weekdays()
         if not any(weekdays):
             raise ValidationError(_("You must select at least one weekday."))
 
@@ -91,7 +91,7 @@ class Generator(models.TransientModel):
         # Adjust event's dates
         self.adjust_dates()
 
-    @api.one
+    @api.multi
     def adjust_dates(self):
         """Adjust event dates if asked to do so."""
         # Cheek if the user wanted to adjust dates
@@ -109,7 +109,7 @@ class Generator(models.TransientModel):
                     fields.Datetime.from_string(sorted_[-1].date) +
                     timedelta(hours=sorted_[-1].duration))
 
-    @api.one
+    @api.multi
     def create_track(self, **values):
         """Create a new track record with the provided values."""
         data = {
@@ -124,7 +124,7 @@ class Generator(models.TransientModel):
         data.update(values)
         return self.env["event.track"].create(data)
 
-    @api.one
+    @api.multi
     def datetime_fields(self):
         """Fields converted to Python's Datetime-based objects."""
         result = {
@@ -144,7 +144,7 @@ class Generator(models.TransientModel):
                             .utcoffset(result["event_start"]))
         return result
 
-    @api.one
+    @api.multi
     def existing_tracks(self, date):
         """Return existing tracks that match some criteria."""
         return self.env["event.track"].search(
@@ -152,12 +152,12 @@ class Generator(models.TransientModel):
              ("date", "=", date),
              ("duration", "=", self.duration)))
 
-    @api.one
+    @api.multi
     def generate_tracks(self):
         """Know which tracks must be generated and do it."""
         counter = 0
-        dt = self.datetime_fields()[0]
-        weekdays = self.weekdays()[0]
+        dt = self.datetime_fields()
+        weekdays = self.weekdays()
 
         # Check that tracks fit between event start and end dates
         current = dt["event_start"]
@@ -174,14 +174,14 @@ class Generator(models.TransientModel):
                     current_start = fields.Datetime.to_string(current_start)
 
                     # Check that no track exists with this data
-                    if not self.existing_tracks(current_start)[0]:
+                    if not self.existing_tracks(current_start):
                         self.create_track(date=current_start)
                         counter += 1
 
             # Next day
             current += dt["day_delta"]
 
-    @api.one
+    @api.multi
     def weekdays(self):
         """Sorted weekdays user selection."""
         return (self.mondays,
