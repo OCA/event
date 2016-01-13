@@ -9,7 +9,7 @@ from openerp.exceptions import ValidationError
 
 
 class Generator(models.TransientModel):
-    _name = "event_track_generate.generator"
+    _name = "event.track.generator"
 
     event_id = fields.Many2one(
         "event.event",

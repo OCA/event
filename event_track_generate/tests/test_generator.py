@@ -31,7 +31,7 @@ class GeneratorCase(TransactionCase):
                 "duration": 2.75})
 
         # Create a generator
-        self.generator = self.env["event_track_generate.generator"].create({
+        self.generator = self.env["event.track.generator"].create({
             "event_id": self.event.id,
             "name": u"Some trâck name",
             "start_time": 10.25,
