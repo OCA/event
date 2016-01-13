@@ -4,8 +4,8 @@
 
 from datetime import datetime, timedelta
 from pytz import timezone
-from openerp import api, fields, models
-from . import exceptions
+from openerp import _, api, fields, models
+from openerp.exceptions import ValidationError
 
 
 class Generator(models.TransientModel):
@@ -80,7 +80,7 @@ class Generator(models.TransientModel):
         # You need at least one weekday
         weekdays = self.weekdays()[0]
         if not any(weekdays):
-            raise exceptions.NoWeekdaysError()
+            raise ValidationError(_("You must select at least one weekday."))
 
         # Delete existing
         if self.delete_existing_tracks:

@@ -7,7 +7,7 @@ from itertools import product
 from pytz import timezone
 from openerp import fields
 from openerp.tests.common import TransactionCase
-from .. import exceptions as ex
+from openerp.exceptions import ValidationError
 
 
 class GeneratorCase(TransactionCase):
@@ -125,5 +125,5 @@ class GeneratorCase(TransactionCase):
 
     def test_without_weekdays(self):
         """Test trying to generate tracks without setting weekdays."""
-        with self.assertRaises(ex.NoWeekdaysError):
+        with self.assertRaises(ValidationError):
             self.generator.action_generate()

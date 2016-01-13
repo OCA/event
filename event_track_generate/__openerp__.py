@@ -5,7 +5,7 @@
 {
     "name": "Generate Event Tracks",
     "version": "8.0.2.0.0",
-    "category": "Project",
+    "category": "Events",
     "author": "Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "website": "http://www.grupoesoc.es",
@@ -14,6 +14,6 @@
         "website_event_track",
     ],
     "data": [
-        "views/event.xml",
+        "wizards/wizard_generator_view.xml",
     ],
 }
