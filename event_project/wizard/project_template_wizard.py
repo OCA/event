@@ -13,8 +13,9 @@ class ProjectTemplateWizard(models.TransientModel):
         domain="[('state', '=', 'template')]")
     event_id = fields.Many2one(comodel_name='event.event')
 
-    @api.one
+    @api.multi
     def project_template_duplicate(self):
+        self.ensure_one()
         if not self.project_id:
             raise exceptions.ValidationError(
                 _('Template project is required.'))
@@ -30,3 +31,4 @@ class ProjectTemplateWizard(models.TransientModel):
             'calculation_type': 'date_end',
         })
         self.event_id.project_id.project_recalculate()
+        return {'type': 'ir.actions.act_window_close'}

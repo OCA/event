@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 # See README.rst file on addon root folder for license details
-
 {
     "name": "Event project",
     "version": "8.0.1.1.0",
@@ -8,6 +7,7 @@
               "Serv. Tecnol. Avanzados - Pedro M. Baeza, "
               "Odoo Community Association (OCA)",
     "website": "http://www.antiun.com",
+    "images": [],
     "license": "AGPL-3",
     "category": "Event Management",
     "depends": [
