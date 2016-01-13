@@ -14,8 +14,7 @@ class Generator(models.TransientModel):
     event_id = fields.Many2one(
         "event.event",
         string="Event",
-        default=lambda self:
-            self.env["event.event"].browse(self.env.context["active_id"]),
+        default=lambda self: self.env.context["active_id"],
         required=True)
     event_date_begin = fields.Datetime(
         related="event_id.date_begin",
