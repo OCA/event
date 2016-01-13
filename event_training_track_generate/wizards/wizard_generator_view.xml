@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+     © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis -->
+<openerp>
+<data>
+
+<record id="generator_view_form" model="ir.ui.view">
+    <field name="name">Adapt to training tracks</field>
+    <field name="model">event.track.generator</field>
+    <field name="inherit_id" ref="event_track_generate.generator_view_form"/>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//group[@name='main']">
+                <group
+                    attrs="{
+                        'invisible': [('is_training', '=', False)],
+                    }"
+                    string="Training">
+                    <field name="is_training" invisible="True"/>
+                    <field name="duration_type_id"/>
+                    <field
+                        name="stop_when_reaching_expected_durations"
+                        attrs="{
+                            'invisible': [('duration_type_id', '=', False)],
+                        }"/>
+                </group>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+</data>
+</openerp>
