@@ -15,12 +15,13 @@ class GeneratorCase(TransactionCase):
         super(GeneratorCase, self).setUp()
 
         # Create an event
+        begin = datetime(2015, 8, 10, 7)
         self.event = self.env["event.event"].create({
             "name": "Test event %s" % __name__,
-            "date_begin": datetime(2015, 8, 10, 7),  # Monday
+            "date_begin": begin,  # Monday
             "date_end": datetime(2015, 8, 23, 22),  # Sunday
             "date_tz": "Europe/Madrid"})
-        self.tzdiff = timezone(self.event.date_tz).utcoffset(datetime.now())
+        self.tzdiff = timezone(self.event.date_tz).utcoffset(begin)
 
         # Add some tracks to the event
         for day in range(10, 14):
