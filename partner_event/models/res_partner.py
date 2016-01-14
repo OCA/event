@@ -1,13 +1,23 @@
-# -*- encoding: utf-8 -*-
-##############################################################################
-# For copyright and license notices, see __openerp__.py file in root directory
-##############################################################################
-
+# -*- coding: utf-8 -*-
+# License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 from openerp import models, fields, api
 
 
 class ResPartner(models.Model):
     _inherit = 'res.partner'
+
+    @api.multi
+    @api.depends('registrations')
+    def _count_registration(self):
+        for partner in self:
+            partner.registration_count = len(partner.registrations)
+
+    @api.multi
+    @api.depends('registrations.state')
+    def _count_attended_registration(self):
+        for partner in self:
+            partner.attended_registration_count = len(
+                partner.registrations.filtered(lambda x: x.state == 'done'))
 
     registrations = fields.One2many(
         string="Event registrations",
@@ -18,14 +28,3 @@ class ResPartner(models.Model):
     attended_registration_count = fields.Integer(
         string='Event attended registrations number',
         compute='_count_attended_registration', store=True)
-
-    @api.one
-    @api.depends('registrations')
-    def _count_registration(self):
-        self.registration_count = len(self.registrations)
-
-    @api.one
-    @api.depends('registrations.state')
-    def _count_attended_registration(self):
-        self.attended_registration_count = len(self.registrations.filtered(
-            lambda x: x.state == 'done'))

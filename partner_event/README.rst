@@ -16,6 +16,7 @@ It also includes:
 * Partner column is visible on registration one2many list inside the event.
 * Action in partner tree view 'More' button, to register several partners
   to an event
+* Get as followers of the event, people registered for the event.
 
 Configuration
 =============
