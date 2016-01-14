@@ -8,10 +8,13 @@ Plan events through projects
 
 This module allows you to assign a project template to an event, creating the
 corresponding project for the event that ends on the event start date, and
-plan the project tasks backwards according a new field "Event anticipation days".
+plan the project tasks backwards according a new field "Event anticipation
+days".
 
 If the event date is changed, then all the pending tasks are retro-planned
 again according the new date.
+
+As followers of the event, followers and users will get from project.
 
 
 Usage
@@ -67,6 +70,7 @@ Contributors
 * Rafael Blasco <rafabn@antiun.com>
 * Antonio Espinosa <antonioea@antiun.com>
 * Javier Iniesta <javieria@antiun.com>
+* Alfredo de la fuente <alfredodelafuente@avanzosc.es>
 
 Maintainer
 ----------

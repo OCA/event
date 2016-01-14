@@ -9,6 +9,7 @@ class TestEventRegistration(TransactionCase):
 
     def setUp(self):
         super(TestEventRegistration, self).setUp()
+        self.event_model = self.env['event.event']
         self.event_0 = self.env.ref('event.event_0')
         self.event_0.create_partner = True
         registration_model = self.env['event.registration']
@@ -46,3 +47,18 @@ class TestEventRegistration(TransactionCase):
             'event': event_1.id})
         active_ids = [self.partner_01.id, self.registration_02.partner_id.id]
         wizard.with_context({'active_ids': active_ids}).button_register()
+
+    def test_event_followers(self):
+        registration_vals = {'partner_id': self.ref('base.res_partner_1'),
+                             'nb_register': 1}
+        event_vals = {'name': 'Registration partner test',
+                      'date_begin': '2016-01-20',
+                      'date_end': '2016-01-20',
+                      'registration_ids': [(0, 0, registration_vals)]}
+        event = self.event_model.create(event_vals)
+        self.assertEqual(
+            len(event.registration_ids), 1, 'Event  without registrations')
+        self.assertIn(
+            self.ref('base.res_partner_1'),
+            event.message_follower_ids.ids,
+            'Partner not found in followerw')
