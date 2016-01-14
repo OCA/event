@@ -52,7 +52,7 @@ class EventRegistration(models.Model):
     @api.constrains("grade", "is_training", "event_id")
     def _check_grade_limits(self):
         """Ensure no conflicts between limits and actual student grades."""
-        for s in self.filtered("is_training"):
+        for s in self.filtered("event_id.product_id.is_training"):
             product = s.event_id.product_id
             if not product.grade_min <= s.grade <= product.grade_max:
                 raise exceptions.StudentGradeOutsideLimitsError(
