@@ -19,8 +19,6 @@
         "website_event_track",
     ],
     "data": [
-        "data/event.training.duration.type.csv",
-        "data/event.type.csv",
         "security/ir.model.access.csv",
         "views/attendance_monitoring_report.xml",
         "views/duration_type_view.xml",
@@ -32,6 +30,8 @@
         "views/event_event_view.xml",
     ],
     "demo": [
+        "data/event.training.duration.type.csv",
         "demo/event.training.duration.csv",
+        "data/event.type.csv",
     ],
 }
