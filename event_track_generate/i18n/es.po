@@ -1,0 +1,246 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_track_generate
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0-20150514\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-01-13 12:06+0100\n"
+"PO-Revision-Date: 2016-01-13 12:06+0100\n"
+"Last-Translator: Jairo Llopis <j.llopis@grupoesoc.es>\n"
+"Language-Team: \n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.5\n"
+
+#. module: event_track_generate
+#: field:event.track.generator,adjust_end_time:0
+msgid "Adjust end time"
+msgstr "Ajustar hora de finalización"
+
+#. module: event_track_generate
+#: field:event.track.generator,adjust_start_time:0
+msgid "Adjust start time"
+msgstr "Ajustar hora de comienzo"
+
+#. module: event_track_generate
+#: view:event.track.generator:event_track_generate.generator_view_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: event_track_generate
+#: help:event.track.generator,fridays:0
+msgid "Create tracks on Fridays."
+msgstr "Crear sesiones los viernes."
+
+#. module: event_track_generate
+#: help:event.track.generator,mondays:0
+msgid "Create tracks on Mondays."
+msgstr "Crear sesiones los lunes."
+
+#. module: event_track_generate
+#: help:event.track.generator,saturdays:0
+msgid "Create tracks on Saturdays."
+msgstr "Crear sesiones los sábados."
+
+#. module: event_track_generate
+#: help:event.track.generator,sundays:0
+msgid "Create tracks on Sundays."
+msgstr "Crear sesiones los domingos."
+
+#. module: event_track_generate
+#: help:event.track.generator,thursdays:0
+msgid "Create tracks on Thursdays."
+msgstr "Crear sesiones los jueves."
+
+#. module: event_track_generate
+#: help:event.track.generator,tuesdays:0
+msgid "Create tracks on Tuesdays."
+msgstr "Crear sesiones los martes."
+
+#. module: event_track_generate
+#: help:event.track.generator,wednesdays:0
+msgid "Create tracks on Wednesdays."
+msgstr "Crear sesiones los miércoles."
+
+#. module: event_track_generate
+#: field:event.track.generator,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: event_track_generate
+#: field:event.track.generator,create_date:0
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: event_track_generate
+#: view:event.track.generator:event_track_generate.generator_view_form
+msgid "Dates and event data"
+msgstr "Fechas y datos del evento"
+
+#. module: event_track_generate
+#: field:event.track.generator,delete_existing_tracks:0
+msgid "Delete existing tracks"
+msgstr "Borrar sesiones existentes"
+
+#. module: event_track_generate
+#: field:event.track.generator,duration:0
+msgid "Duration"
+msgstr "Duración"
+
+#. module: event_track_generate
+#: help:event.track.generator,duration:0
+msgid "Each track will have this duration."
+msgstr "Cada sesión tendrá esta duración."
+
+#. module: event_track_generate
+#: help:event.track.generator,start_time:0
+msgid "Each track will start at this time (in the event's timezone)."
+msgstr "Cada sesión empezará a esta hora (en el huso horario del evento)."
+
+#. module: event_track_generate
+#: field:event.track.generator,event_id:0
+msgid "Event"
+msgstr "Evento"
+
+#. module: event_track_generate
+#: field:event.track.generator,fridays:0
+msgid "Fridays"
+msgstr "Viernes"
+
+#. module: event_track_generate
+#: model:ir.actions.act_window,name:event_track_generate.generator_action
+msgid "Generate event tracks"
+msgstr "Generar sesiones de eventos"
+
+#. module: event_track_generate
+#: view:event.track.generator:event_track_generate.generator_view_form
+msgid "Generate tracks"
+msgstr "Generar sesiones"
+
+#. module: event_track_generate
+#: field:event.track.generator,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: event_track_generate
+#: field:event.track.generator,write_uid:0
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: event_track_generate
+#: field:event.track.generator,write_date:0
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: event_track_generate
+#: field:event.track.generator,location_id:0
+msgid "Location"
+msgstr "Localización"
+
+#. module: event_track_generate
+#: help:event.track.generator,adjust_end_time:0
+msgid "Make event's end time match the end of the last track."
+msgstr ""
+"Hacer que la hora de finalización del evento coincida con la de la última "
+"sesión."
+
+#. module: event_track_generate
+#: help:event.track.generator,adjust_start_time:0
+msgid "Make event's start time match the start of the first track."
+msgstr ""
+"Hacer que la hora de comienzo del evento coincida con la de la primera "
+"sesión."
+
+#. module: event_track_generate
+#: field:event.track.generator,mondays:0
+msgid "Mondays"
+msgstr "Lunes"
+
+#. module: event_track_generate
+#: view:event.track.generator:event_track_generate.generator_view_form
+msgid "Other options"
+msgstr "Otras opciones"
+
+#. module: event_track_generate
+#: field:event.track.generator,publish_tracks_in_website:0
+msgid "Publish tracks in website"
+msgstr "Publicar sesiones en el sitio web"
+
+#. module: event_track_generate
+#: field:event.track.generator,saturdays:0
+msgid "Saturdays"
+msgstr "Sábados"
+
+#. module: event_track_generate
+#: view:event.track.generator:event_track_generate.generator_view_form
+msgid "Schedule"
+msgstr "Horario"
+
+#. module: event_track_generate
+#: field:event.track.generator,speaker_ids:0
+msgid "Speakers"
+msgstr "Ponentes"
+
+#. module: event_track_generate
+#: field:event.track.generator,start_time:0
+msgid "Start time"
+msgstr "Hora de comienzo"
+
+#. module: event_track_generate
+#: field:event.track.generator,sundays:0
+msgid "Sundays"
+msgstr "Domingos"
+
+#. module: event_track_generate
+#: field:event.track.generator,tag_ids:0
+msgid "Tags"
+msgstr "Etiquetas"
+
+#. module: event_track_generate
+#: field:event.track.generator,thursdays:0
+msgid "Thursdays"
+msgstr "Jueves"
+
+#. module: event_track_generate
+#: help:event.track.generator,name:0
+msgid "Title that will be assigned to all created tracks."
+msgstr "Título que se asignará a todas las sesiones creadas."
+
+#. module: event_track_generate
+#: field:event.track.generator,name:0
+msgid "Track title"
+msgstr "Título de la sesión"
+
+#. module: event_track_generate
+#: field:event.track.generator,tuesdays:0
+msgid "Tuesdays"
+msgstr "Martes"
+
+#. module: event_track_generate
+#: field:event.track.generator,wednesdays:0
+msgid "Wednesdays"
+msgstr "Miércoles"
+
+#. module: event_track_generate
+#: view:event.track.generator:event_track_generate.generator_view_form
+msgid "Weekdays"
+msgstr "Días de la semana"
+
+#. module: event_track_generate
+#: code:addons/event_track_generate/wizards/wizard_generator.py:83
+#, python-format
+msgid "You must select at least one weekday."
+msgstr "Debe seleccionar al menos un día de la semana."
+
+#. module: event_track_generate
+#: view:event.track.generator:event_track_generate.generator_view_form
+msgid "or"
+msgstr "o"
+
+#~ msgid "Error(s) with the event track generator."
+#~ msgstr "Error(es) con el generador de sesiones de eventos."
