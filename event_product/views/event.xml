@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+
+<openerp>
+<data>
+
+<record model="ir.ui.view" id="event_event_form">
+    <field name="name">Event products</field>
+    <field name="model">event.event</field>
+    <field name="inherit_id" ref="event.view_event_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='type']" position="after">
+            <field name="product_id"
+                   context="{'default_is_event': True,
+                             'default_event_type_id': type}"/>
+        </xpath>
+    </field>
+</record>
+
+<record model="ir.ui.view" id="event_event_search">
+    <field name="name">Event products</field>
+    <field name="model">event.event</field>
+    <field name="inherit_id" ref="event.view_event_search"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='user_id']" position="after">
+            <field name="product_id"/>
+        </xpath>
+
+        <xpath expr="//group[@string='Group By']">
+            <filter string="Product"
+                    context="{'group_by': 'product_id'}"/>
+        </xpath>
+    </field>
+</record>
+
+</data>
+</openerp>

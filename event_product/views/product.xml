@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+
+<openerp>
+<data>
+
+<record model="ir.ui.view" id="product_template_form_view">
+    <field name="name">Events for this product template</field>
+    <field name="model">product.template</field>
+    <field name="groups_id" eval="[(4, ref('event.group_event_user'))]"/>
+    <field name="inherit_id"
+        ref="event_sale.event_sale_product_template_form"/>
+    <field name="arch" type="xml">
+        <!-- Add is_event field -->
+        <xpath expr="//div[@name='options']">
+            <field name="is_event"/>
+            <label for="is_event"/>
+        </xpath>
+
+        <!-- Move event type chooser to new event tab -->
+        <xpath expr="//field[@name='event_type_id']" position="replace"/>
+
+        <xpath expr="//notebook">
+            <page
+                name="event"
+                string="Event"
+                attrs="{
+                    'invisible': [
+                        ('event_ok', '=', False),
+                        ('is_event', '=', False),
+                    ],
+                }">
+                <group>
+                    <field name="event_type_id"/>
+                </group>
+            </page>
+        </xpath>
+
+        <!-- Event count button -->
+        <xpath expr="//div[@name='buttons']" position="inside">
+            <button class="oe_inline oe_stat_button"
+                    name="action_view_events"
+                    attrs="{
+                        'invisible': [('is_event', '=', False)],
+                    }"
+                    context="{
+                        'default_product_id': is_product_variant and id,
+                        'default_type': event_type_id,
+                    }"
+                    type="object"
+                    icon="fa-calendar">
+                <field name="event_count" widget="statinfo" />
+            </button>
+        </xpath>
+    </field>
+</record>
+
+<record model="ir.ui.view" id="product_template_search_view">
+    <field name="name">Search by event</field>
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="product.product_template_search_view"/>
+    <field name="groups_id" eval="[(4, ref('event.group_event_user'))]"/>
+    <field name="arch" type="xml">
+        <xpath expr="//filter[@name='consumable']" position="after">
+            <filter
+                domain="[('is_event', '=', True)]"
+                string="Events"
+                name="is_event"/>
+        </xpath>
+
+        <xpath expr="//group[@string='Group by...']">
+            <filter string="Event type"
+                    context="{'group_by': 'event_type_id'}"/>
+        </xpath>
+    </field>
+</record>
+
+</data>
+</openerp>

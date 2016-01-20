@@ -1,0 +1,100 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_product
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-12-29 13:47+0100\n"
+"PO-Revision-Date: 2015-12-29 13:48+0100\n"
+"Last-Translator: Jairo Llopis <j.llopis@grupoesoc.es>\n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 1.8.5\n"
+
+#. module: event_product
+#: code:addons/event_product/exceptions.py:26
+#, python-format
+msgid "An event is using product {}, but it is not for events."
+msgstr ""
+"Un evento está usando el producto {}, pero no es para eventos."
+
+#. module: event_product
+#: model:ir.model,name:event_product.model_event_event
+msgid "Event"
+msgstr "Evento"
+
+#. module: event_product
+#: view:product.template:event_product.product_template_search
+msgid "Event type"
+msgstr "Tipo de evento"
+
+#. module: event_product
+#: field:product.product,event_ids:0
+#: view:product.template:event_product.product_template_search
+msgid "Events"
+msgstr "Eventos"
+
+#. module: event_product
+#: field:event_product.product,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: event_product
+#: field:product.template,is_event:0
+msgid "Is an event"
+msgstr "Es un evento"
+
+#. module: event_product
+#: code:addons/event_product/exceptions.py:22
+#, python-format
+msgid "It cannot be an event and a ticket at the same time."
+msgstr "No puede ser un evento y un ticket para eventos a la vez."
+
+#. module: event_product
+#: view:event.event:event_product.event_event_search
+#: field:event.event,product_id:0
+#: model:ir.model,name:event_product.model_product_product
+msgid "Product"
+msgstr "Producto"
+
+#. module: event_product
+#: model:ir.model,name:event_product.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: event_product
+#: code:addons/event_product/exceptions.py:30
+#, python-format
+msgid "Product has type {product_type}, but event has {event_type}."
+msgstr ""
+"El producto es de tipo {product_type}, pero el evento de typo "
+"{event_type}."
+
+#. module: event_product
+#: help:event.event,product_id:0
+msgid "Product of this event, if available."
+msgstr "Producto de este evento, si está disponible."
+
+#. module: event_product
+#: help:product.template,is_event:0
+msgid "This product defines an event (NOT an event ticket)."
+msgstr "Este producto define un evento (NO un ticket para eventos)."
+
+#. module: event_product
+#: view:product.template:event_product.product_template_form_fields
+msgid ""
+"{\n"
+"                \"invisible\": [(\"event_ok\", \"=\", False),\n"
+"                              (\"is_event\", \"=\", False)],\n"
+"            }"
+msgstr ""
+"{\n"
+"                \"invisible\": [(\"event_ok\", \"=\", False),\n"
+"                              (\"is_event\", \"=\", False)],\n"
+"            }"
