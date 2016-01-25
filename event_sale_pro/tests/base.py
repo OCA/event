@@ -62,8 +62,10 @@ class BaseCase(TransactionCase):
             "product_id": self.product.id,
         })
 
-    def create_line(self, data=dict()):
+    def create_line(self, data=None):
         """Create a sale order line."""
+        data = data or dict()
+
         # New line in sale order
         data.setdefault("event_id", self.event.id)
         data.setdefault("event_ticket_id", self.ticket.id)

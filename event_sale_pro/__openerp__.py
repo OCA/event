@@ -11,6 +11,10 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
+    "images": [
+        "images/form-new-fields.png",
+        "images/wizard-generate-quotations.png",
+    ],
     "depends": [
         "event_sale",
     ],

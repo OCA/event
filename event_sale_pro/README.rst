@@ -41,10 +41,9 @@ New fields
   will be used as client in the quotation if set. If you do not set it, the
   *Partner* field will be used. It is useful when:
 
-    * A registration belongs to a partner but is paid by another one.
-
-    * No database partner is associated with the event assistant and you do not
-      want to create it.
+  * A registration belongs to a partner but is paid by another one.
+  * No database partner is associated with the event assistant and you do not
+    want to create it.
 
 * In the registrations form and list views, you have another new field:
   *Origin*. When the registration is automatically linked to any sale order or
