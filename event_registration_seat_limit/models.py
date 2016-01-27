@@ -41,7 +41,7 @@ class Event(models.Model):
 
             try:
                 s.registration_ids._check_seats_per_registration_limits()
-            except exceptions.SeatsPerRegistrationError as error:
+            except exceptions.SeatsPerRegistrationValidationError as error:
                 raise exceptions.PreviousRegistrationsFail(error)
 
 
