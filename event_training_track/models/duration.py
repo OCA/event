@@ -18,6 +18,11 @@ class EventTrainingDurationType(models.Model):
         translate=True)
     monitor_attendance = fields.Boolean(
         help="Does this hour type use attendance monitoring?")
+    duration_ids = fields.One2many(
+        "event.training.duration",
+        "type_id",
+        "Durations",
+        help="Durations found of this type.")
 
     @api.multi
     def copy(self, default=None):

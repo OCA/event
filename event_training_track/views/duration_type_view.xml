@@ -30,6 +30,9 @@
                     <field name="name"/>
                     <field name="monitor_attendance"/>
                 </group>
+                <group>
+                    <field name="duration_ids"/>
+                </group>
             </sheet>
         </form>
     </field>
