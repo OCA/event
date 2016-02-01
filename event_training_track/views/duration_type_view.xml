@@ -31,7 +31,10 @@
                     <field name="monitor_attendance"/>
                 </group>
                 <group>
-                    <field name="duration_ids"/>
+                    <field name="duration_ids">
+                        <field name="product_tmpl_id"/>
+                        <field name="duration"/>
+                    </field>
                 </group>
             </sheet>
         </form>
