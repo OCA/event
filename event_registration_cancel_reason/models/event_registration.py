@@ -31,7 +31,7 @@ class EventRegistrationCancelReason(models.Model):
     _name = 'event.registration.cancel.reason'
 
     name = fields.Char('Reason', required=True, translate=True)
-    event_ids = fields.Many2many(
-        comodel_name="event.event", string="Affected events",
-        help="Select the events where you want to use this cancellation "
+    event_type_ids = fields.Many2many(
+        comodel_name="event.type", string="Event types",
+        help="Select the event types where you want to use this cancellation "
              "reason. Leave it empty for using in all")

@@ -9,12 +9,13 @@ from openerp import api, fields, models
 class EventRegistrationCancelLogReason(models.TransientModel):
     _name = 'event.registration.cancel.log.reason'
 
-    event_id = fields.Many2one(comodel_name="event.event", string="Event")
+    event_type_id = fields.Many2one(
+        comodel_name="event.type", string="Event type")
     reason_id = fields.Many2one(
         comodel_name="event.registration.cancel.reason", required=True,
         domain="['|', "
-               " ('event_ids', '=', False), "
-               " ('event_ids', '=', event_id)]")
+               " ('event_type_ids', '=', False), "
+               " ('event_type_ids', '=', event_type_id)]")
 
     @api.model
     def default_get(self, var_fields):
@@ -22,7 +23,7 @@ class EventRegistrationCancelLogReason(models.TransientModel):
             var_fields)
         registration = self.env['event.registration'].browse(
             self.env.context['active_id'])
-        res['event_id'] = registration.event_id.id
+        res['event_type_id'] = registration.event_id.type.id
         return res
 
     @api.multi

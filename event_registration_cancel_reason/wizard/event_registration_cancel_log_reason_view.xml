@@ -7,7 +7,7 @@
         <field name="model">event.registration.cancel.log.reason</field>
         <field name="arch" type="xml">
             <form name="">
-                <field name="event_id" invisible="1"/>
+                <field name="event_type_id" invisible="1"/>
                 <label string="Select the reason for cancelling the registration:"/>
                 <field name="reason_id"/>
                 <footer>

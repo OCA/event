@@ -14,12 +14,13 @@ Configuration
 
 Go to *Marketing > Configuration > Events > Registrations cancel reasons* for
 setting the possible reasons you want to handle. You can also set if a reason
-is only available for certain events or, if you leave it empty, for all.
+is only available for certain types of events or, if you leave it empty, for
+all.
 
 Usage
 =====
 
-Go to *Marketing > Events > Events*, enter into the details or any of the
+Go to *Marketing > Events > Events*, enter into the details of any of the
 events, and press the red circle button in the right part of any of the
 registrations. A new screen will appear asking you to enter the reason why the
 registration is cancelled.

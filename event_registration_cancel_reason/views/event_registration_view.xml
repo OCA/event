@@ -30,7 +30,7 @@
         <field name="arch" type="xml">
             <tree name="Registrations cancel reasons" editable="top">
                 <field name="name"/>
-                <field name="event_ids" widget="many2many_tags"/>
+                <field name="event_type_ids" widget="many2many_tags"/>
             </tree>
         </field>
     </record>

@@ -21,9 +21,9 @@ msgid "Abort"
 msgstr "Abortar"
 
 #. module: event_registration_cancel_reason
-#: field:event.registration.cancel.reason,event_ids:0
-msgid "Affected events"
-msgstr "Eventos afectados"
+#: field:event.registration.cancel.reason,event__type_ids:0
+msgid "Event type"
+msgstr "Tipos de evento"
 
 #. module: event_registration_cancel_reason
 #: view:event.registration:event_registration_cancel_reason.view_registration_search
@@ -48,9 +48,9 @@ msgid "Created on"
 msgstr "Creado en"
 
 #. module: event_registration_cancel_reason
-#: field:event.registration.cancel.log.reason,event_id:0
-msgid "Event"
-msgstr "Evento"
+#: field:event.registration.cancel.log.reason,event_type_id:0
+msgid "Event type"
+msgstr "Tipo de evento"
 
 #. module: event_registration_cancel_reason
 #: model:ir.model,name:event_registration_cancel_reason.model_event_registration
@@ -97,9 +97,9 @@ msgid "Registrations cancel reasons"
 msgstr "Razones de cancelación de registros"
 
 #. module: event_registration_cancel_reason
-#: help:event.registration.cancel.reason,event_ids:0
-msgid "Select the events where you want to use this cancellation reason. Leave it empty for using in all"
-msgstr "Seleccione los eventos en los que quiere usar esta razón de cancelación. Déjelo en blanco para usarla en todos."
+#: help:event.registration.cancel.reason,event_type_ids:0
+msgid "Select the event types where you want to use this cancellation reason. Leave it empty for using in all"
+msgstr "Seleccione los tipos de evento en los que quiere usar esta razón de cancelación. Déjelo en blanco para usarla en todos."
 
 #. module: event_registration_cancel_reason
 #: view:event.registration.cancel.log.reason:event_registration_cancel_reason.event_registration_cancel_log_reason_view
