@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2016 Antiun Ingeniería S.L. - Jairo Llopis
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+
+<openerp>
+<data>
+
+<template id="index"
+          inherit_id="website_event.index"
+          name="Event thumbnail in list"
+          customize_show="True"
+          active="True">
+    <xpath expr="//div[@class='media-body']" position="before">
+        <div t-if="event.image_main_medium" class="pull-right">
+            <a t-attf-href="/event/#{slug(event)}">
+                <img
+                    t-att-src="website.image_url(event, 'image_main_medium')"
+                    t-att-alt="event.display_name"
+                    class="media-object"/>
+            </a>
+        </div>
+    </xpath>
+</template>
+
+<template id="event_description_full"
+          inherit_id="website_event.event_description_full"
+          name="Carousel gallery at bottom"
+          customize_show="True"
+          active="True">
+    <xpath expr="//div[@t-field='event.description']" position="after">
+        <h2>Image Gallery</h2>
+        <t t-call="multi_image_base.carousel">
+            <t t-set="multi_image_owner" t-value="event"/>
+        </t>
+    </xpath>
+</template>
+
+</data>
+</openerp>
