@@ -1,0 +1,111 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_seats_per_regsitration
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0-20150225\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-12-11 12:31+0100\n"
+"PO-Revision-Date: 2015-12-11 12:31+0100\n"
+"Last-Translator: Jairo Llopis <j.llopis@grupoesoc.es>\n"
+"Language-Team: \n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.5\n"
+
+#. module: event_registration_seat_limit
+#: model:ir.model,name:event_registration_seat_limit.model_event_event
+msgid "Event"
+msgstr "Evento"
+
+#. module: event_registration_seat_limit
+#: model:ir.model,name:event_registration_seat_limit.model_event_registration
+msgid "Event Registration"
+msgstr "Registros al evento"
+
+#. module: event_registration_seat_limit
+#: field:event.event,registration_seats_max:0
+msgid "Maximum of participants per registration"
+msgstr "Máximo de participantes por registro"
+
+#. module: event_registration_seat_limit
+#: field:event.event,registration_seats_min:0
+msgid "Minimum of participants per registration"
+msgstr "Mínimo de participantes por registro"
+
+#. module: event_registration_seat_limit
+#: help:event.event,registration_seats_min:0
+msgid ""
+"Registrations with less than this number of participants will be forbidden."
+msgstr ""
+"Los registros con menos de este número de participantes estarán prohibidos."
+
+#. module: event_registration_seat_limit
+#: help:event.event,registration_seats_max:0
+msgid ""
+"Registrations with more than this number of participants will be forbidden. "
+"Set 0 to ignore this setting."
+msgstr ""
+"Los registros con más de este número de participantes estarán prohibidos. Si "
+"se pone 0, se ignora esta opción."
+
+#. module: event_registration_seat_limit
+#: code:addons/event_registration_seat_limit/exceptions.py:30
+#, python-format
+msgid ""
+"The maximum of participants per registration cannot be bigger than the "
+"maximum of participants for this event."
+msgstr ""
+"El máximo de participantes por registro no puede ser superior al máximo de "
+"participantes para el evento."
+
+#. module: event_registration_seat_limit
+#: code:addons/event_registration_seat_limit/exceptions.py:25
+#, python-format
+msgid ""
+"The maximum of participants per registration cannot be smaller than the "
+"minimum."
+msgstr ""
+"El máximo de participantes por registro no puede ser inferior al mínimo."
+
+#. module: event_registration_seat_limit
+#: code:addons/event_registration_seat_limit/exceptions.py:36
+#, python-format
+msgid ""
+"There are already registrations that don't fit in the new limits of "
+"participants per registration. Change them before setting the limits. The "
+"error was: {.value}"
+msgstr ""
+"Ya hay registros que no encajan en los nuevos límites de participantes por "
+"registro. Cámbielos antes de establecer estos límites. El error fue: {.value}"
+
+#. module: event_registration_seat_limit
+#: code:addons/event_registration_seat_limit/exceptions.py:43
+#, python-format
+msgid "You cannot register less than %d participants."
+msgstr "No puede registrar menos de %d participantes."
+
+#. module: event_registration_seat_limit
+#: code:addons/event_registration_seat_limit/exceptions.py:47
+#, python-format
+msgid "You cannot register more than %d participants."
+msgstr "No puede registrar más de %d participantes."
+
+#. module: event_registration_seat_limit
+#: code:addons/event_registration_seat_limit/exceptions.py:21
+#, python-format
+msgid "You need at least one participant per registration."
+msgstr "Necesita al menos un participante por registro."
+
+#. module: event_registration_seat_limit
+#: view:event.event:event_registration_seat_limit.event_form
+msgid ""
+"{\"event_id\": active_id,\n"
+"                     \"default_nb_register\": registration_seats_min}"
+msgstr ""
+"{\"event_id\": active_id,\n"
+"                     \"default_nb_register\": registration_seats_min}"
