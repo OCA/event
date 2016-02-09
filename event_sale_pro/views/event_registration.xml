@@ -7,7 +7,7 @@
     <field name="model">event.registration</field>
     <field name="inherit_id" ref="event.view_event_registration_form"/>
     <field name="arch" type="xml">
-        <xpath expr="//sheet/group">
+        <xpath expr="//sheet/group" position="inside">
             <group>
                 <field name="invoiced_partner_id"/>
                 <field name="origin_id"/>
