@@ -3,9 +3,9 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     "name": "Event Sale Pro",
-    "summary": "Extend event sales with more options",
+    "summary": "Better linking between an event and its sale process",
     "version": "8.0.1.0.0",
-    "category": "Uncategorized",
+    "category": "Events",
     "website": "https://odoo-community.org/",
     "author": "Grupo ESOC, Odoo Community Association (OCA)",
     "license": "AGPL-3",
