@@ -3,18 +3,23 @@
     <data>
 
     <record model="ir.ui.view" id="view_event_registration_form">
-        <field name="name">Event registration form (with cancel reason)</field>
+        <field name="name">Event registration form (with cancellation reason)</field>
         <field name="model">event.registration</field>
         <field name="inherit_id" ref="event.view_event_registration_form"/>
         <field name="arch" type="xml">
-            <field name="date_closed" position="after">
-                <field name="cancel_reason_id"/>
-            </field>
+            <data>
+                <xpath expr="//sheet/h1" position="after">
+                    <h2 attrs="{'invisible':[('cancel_reason_id','=',False)]}">
+                        <label for="cancel_reason_id" string="Cancellation Reason:"/>
+                        <field name="cancel_reason_id" class="oe_inline" options="{'no_open':True'}"/>
+                    </h2>
+                </xpath>
+            </data>
         </field>
     </record>
 
     <record model="ir.ui.view" id="view_registration_search">
-        <field name="name">Event registration search (with cancel reason)</field>
+        <field name="name">Event registration search (with cancellation reason)</field>
         <field name="model">event.registration</field>
         <field name="inherit_id" ref="event.view_registration_search"/>
         <field name="arch" type="xml">
