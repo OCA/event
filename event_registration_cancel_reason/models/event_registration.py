@@ -26,6 +26,11 @@ class EventRegistration(models.Model):
             'target': 'new',
         }
 
+    @api.one
+    def do_draft(self):
+        super(EventRegistration, self).do_draft()
+        self.cancel_reason_id = False
+
 
 class EventRegistrationCancelReason(models.Model):
     _name = 'event.registration.cancel.reason'
