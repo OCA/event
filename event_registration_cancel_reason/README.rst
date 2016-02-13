@@ -12,7 +12,7 @@ is cancelled.
 Configuration
 =============
 
-Go to *Marketing > Configuration > Events > Registrations cancel reasons* for
+Go to *Marketing > Configuration > Events > Registrations cancellation reasons* for
 setting the possible reasons you want to handle. You can also set if a reason
 is only available for certain types of events or, if you leave it empty, for
 all.
@@ -28,7 +28,7 @@ registration is cancelled.
 You will get also the same screen when pressing the button
 *Cancel registration* from the details view of a registration in
 *Marketing > Events > Registrations*. On this object, you can group by the
-cancel reason in the list, calendar or graph view.
+cancellation reason in the list, calendar or graph view.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
