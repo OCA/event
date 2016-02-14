@@ -27,7 +27,7 @@ msgstr "Tipos de evento"
 
 #. module: event_registration_cancel_reason
 #: view:event.registration:event_registration_cancel_reason.view_registration_search
-msgid "Cancel reason"
+msgid "Cancellation reason"
 msgstr "Razón de cancelación"
 
 #. module: event_registration_cancel_reason
@@ -82,7 +82,7 @@ msgstr "Razón"
 
 #. module: event_registration_cancel_reason
 #: field:event.registration,cancel_reason_id:0
-msgid "Reason for cancellation"
+msgid "Cancellation reason"
 msgstr "Razón para la cancelación"
 
 #. module: event_registration_cancel_reason
@@ -93,12 +93,12 @@ msgstr "Razón"
 #. module: event_registration_cancel_reason
 #: model:ir.actions.act_window,name:event_registration_cancel_reason.event_registration_cancel_reason_action
 #: model:ir.ui.menu,name:event_registration_cancel_reason.menu_event_registration_cancel_reason
-msgid "Registrations cancel reasons"
+msgid "Registration cancellation reasons"
 msgstr "Razones de cancelación de registros"
 
 #. module: event_registration_cancel_reason
 #: help:event.registration.cancel.reason,event_type_ids:0
-msgid "Select the event types where you want to use this cancellation reason. Leave it empty for using in all"
+msgid "Select the event types where you want to use this cancellation reason. Leave it empty for using in all."
 msgstr "Seleccione los tipos de evento en los que quiere usar esta razón de cancelación. Déjelo en blanco para usarla en todos."
 
 #. module: event_registration_cancel_reason
