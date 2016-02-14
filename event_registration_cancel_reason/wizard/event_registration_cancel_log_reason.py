@@ -29,7 +29,7 @@ class EventRegistrationCancelLogReason(models.TransientModel):
     @api.multi
     def button_log(self):
         self.ensure_one()
-        registration = self.env['event.registration'].browse(
-            self.env.context['active_id'])
-        registration.cancel_reason_id = self.reason_id.id
-        registration.with_context(bypass_reason=True).button_reg_cancel()
+        registrations = self.env['event.registration'].browse(
+            self.env.context['active_ids'])
+        registrations.write({'cancel_reason_id': self.reason_id.id})
+        registrations.with_context(bypass_reason=True).button_reg_cancel()

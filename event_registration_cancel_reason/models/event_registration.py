@@ -11,7 +11,7 @@ class EventRegistration(models.Model):
 
     cancel_reason_id = fields.Many2one(
         comodel_name='event.registration.cancel.reason', readonly=True,
-        string="Reason for cancellation", ondelete="restrict")
+        string="Cancellation reason", ondelete="restrict")
 
     @api.multi
     def button_reg_cancel(self):
@@ -26,10 +26,10 @@ class EventRegistration(models.Model):
             'target': 'new',
         }
 
-    @api.one
+    @api.multi
     def do_draft(self):
         super(EventRegistration, self).do_draft()
-        self.cancel_reason_id = False
+        self.write({'cancel_reason_id': False})
 
 
 class EventRegistrationCancelReason(models.Model):
@@ -39,4 +39,4 @@ class EventRegistrationCancelReason(models.Model):
     event_type_ids = fields.Many2many(
         comodel_name="event.type", string="Event types",
         help="Select the event types where you want to use this cancellation "
-             "reason. Leave it empty for using in all")
+             "reason. Leave it empty for using in all.")
