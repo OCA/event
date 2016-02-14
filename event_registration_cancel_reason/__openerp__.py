@@ -11,7 +11,7 @@
               "Serv. Tecnol. Avanzados - Pedro M. Baeza, "
               "Odoo Community Association (OCA)",
     "website": "https://www.antiun.com",
-    "category": "Customer Relationship Management",
+    "category": "Event Management",
     "depends": [
         'event',
     ],
