@@ -3,7 +3,7 @@
     <data>
 
     <record model="ir.ui.view" id="event_registration_cancel_log_reason_view">
-        <field name="name">Wizard for logging registrations cancellation</field>
+        <field name="name">Logging registration cancellation wizard</field>
         <field name="model">event.registration.cancel.log.reason</field>
         <field name="arch" type="xml">
             <form name="">

@@ -26,7 +26,7 @@ class TestEventRegistrationCancelReason(common.TransactionCase):
         self.assertEqual(action.get('type'), 'ir.actions.act_window')
         wizard_model = self.env['event.registration.cancel.log.reason']
         wizard = wizard_model.with_context(
-            active_id=self.registration.id).create(
+            active_ids=self.registration.ids).create(
             {'reason_id': self.cancel_reason.id})
         wizard.button_log()
         self.assertEqual(

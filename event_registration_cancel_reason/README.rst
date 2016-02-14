@@ -2,12 +2,12 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-=============================================
-Reasons for event registrations cancellations
-=============================================
+===========================================
+Reasons for event registration cancellation
+===========================================
 
-This module allows to add a predefined reason why a registration for an event
-is cancelled.
+This module allows to add predefined reasons for the attendees to report back
+why they cancel their registration to an event.
 
 Configuration
 =============
@@ -57,9 +57,9 @@ Contributors
 Maintainer
 ----------
 
-.. image:: http://odoo-community.org/logo.png
+.. image:: https://odoo-community.org/logo.png
    :alt: Odoo Community Association
-   :target: http://odoo-community.org
+   :target: https://odoo-community.org
 
 This module is maintained by the OCA.
 
@@ -67,4 +67,4 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-To contribute to this module, please visit http://odoo-community.org.
+To contribute to this module, please visit https://odoo-community.org.
