@@ -24,16 +24,16 @@
         <field name="inherit_id" ref="event.view_registration_search"/>
         <field name="arch" type="xml">
             <filter context="{'group_by':'state'}" position="after">
-                <filter string="Cancel reason" domain="[]" context="{'group_by': 'cancel_reason_id'}"/>
+                <filter string="Cancellation reason" domain="[]" context="{'group_by': 'cancel_reason_id'}"/>
             </filter>
         </field>
     </record>
 
     <record model="ir.ui.view" id="event_registration_cancel_reason_tree">
-        <field name="name">Registrations cancel reasons tree</field>
+        <field name="name">Registrations cancellation reasons tree</field>
         <field name="model">event.registration.cancel.reason</field>
         <field name="arch" type="xml">
-            <tree name="Registrations cancel reasons" editable="top">
+            <tree name="Registration cancellation reasons" editable="top">
                 <field name="name"/>
                 <field name="event_type_ids" widget="many2many_tags"/>
             </tree>
@@ -41,7 +41,7 @@
     </record>
 
     <record id="event_registration_cancel_reason_action" model="ir.actions.act_window">
-        <field name="name">Registrations cancel reasons</field>
+        <field name="name">Registration cancellation reasons</field>
         <field name="res_model">event.registration.cancel.reason</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree</field>
