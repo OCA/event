@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+    <record model="ir.ui.view" id="view_event_registration_form">
+        <field name="name">Event registration form (with cancellation reason)</field>
+        <field name="model">event.registration</field>
+        <field name="inherit_id" ref="event.view_event_registration_form"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//sheet/h1" position="after">
+                    <h2 attrs="{'invisible':[('cancel_reason_id','=',False)]}">
+                        <label for="cancel_reason_id" string="Cancellation Reason:"/>
+                        <field name="cancel_reason_id" class="oe_inline" options="{'no_open':True'}"/>
+                    </h2>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_registration_search">
+        <field name="name">Event registration search (with cancellation reason)</field>
+        <field name="model">event.registration</field>
+        <field name="inherit_id" ref="event.view_registration_search"/>
+        <field name="arch" type="xml">
+            <filter context="{'group_by':'state'}" position="after">
+                <filter string="Cancellation reason" domain="[]" context="{'group_by': 'cancel_reason_id'}"/>
+            </filter>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="event_registration_cancel_reason_tree">
+        <field name="name">Registrations cancellation reasons tree</field>
+        <field name="model">event.registration.cancel.reason</field>
+        <field name="arch" type="xml">
+            <tree name="Registration cancellation reasons" editable="top">
+                <field name="name"/>
+                <field name="event_type_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="event_registration_cancel_reason_action" model="ir.actions.act_window">
+        <field name="name">Registration cancellation reasons</field>
+        <field name="res_model">event.registration.cancel.reason</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem action="event_registration_cancel_reason_action"
+              id="menu_event_registration_cancel_reason"
+              parent="event.event_configuration"
+    />
+
+    </data>
+</openerp>
