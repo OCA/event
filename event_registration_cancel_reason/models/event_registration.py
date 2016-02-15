@@ -19,7 +19,7 @@ class EventRegistration(models.Model):
             return super(EventRegistration, self).button_reg_cancel()
         return {
             'type': 'ir.actions.act_window',
-            'name': 'Cancel reason',
+            'name': 'Cancellation reason',
             'res_model': 'event.registration.cancel.log.reason',
             'view_type': 'form',
             'view_mode': 'form',
