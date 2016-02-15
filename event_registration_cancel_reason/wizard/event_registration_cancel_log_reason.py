@@ -24,9 +24,7 @@ class EventRegistrationCancelLogReason(models.TransientModel):
         registrations = self.env['event.registration'].browse(
             self.env.context['active_ids'])
         event_type = registrations.mapped("event_id.type")
-        try:
-            event_type.ensure_one()
-        except exceptions.except_orm:
+        if len(event_type) != 1:
             raise exceptions.ValidationError(
                 _("You cannot cancel registrations from events of different "
                   "types at once."))
