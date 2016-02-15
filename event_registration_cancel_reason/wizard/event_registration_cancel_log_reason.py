@@ -3,7 +3,7 @@
 # © 2016 Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
-from openerp import api, fields, models
+from openerp import _, api, exceptions, fields, models
 
 
 class EventRegistrationCancelLogReason(models.TransientModel):
@@ -21,9 +21,15 @@ class EventRegistrationCancelLogReason(models.TransientModel):
     def default_get(self, var_fields):
         res = super(EventRegistrationCancelLogReason, self).default_get(
             var_fields)
-        registration = self.env['event.registration'].browse(
-            self.env.context['active_id'])
-        res['event_type_id'] = registration.event_id.type.id
+        registrations = self.env['event.registration'].browse(
+            self.env.context['active_ids'])
+        first_type = registrations[:1].event_id.type
+        for event in registrations.mapped("event_id"):
+            if event.type != first_type:
+                raise exceptions.ValidationError(
+                    _("You cannot cancel registrations from events of "
+                      "different types at once."))
+        res['event_type_id'] = first_type.id
         return res
 
     @api.multi
