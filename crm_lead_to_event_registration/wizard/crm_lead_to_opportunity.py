@@ -10,7 +10,7 @@ class CrmLead2OpportunityPartner(models.TransientModel):
     _inherit = 'crm.lead2opportunity.partner'
 
     event_id = fields.Many2one(
-        comodel_name="event.event", string="Event to be registered in")
+        comodel_name="event.event", string="Create registration in this event")
 
     @api.multi
     def action_apply(self):
@@ -18,14 +18,7 @@ class CrmLead2OpportunityPartner(models.TransientModel):
         self.ensure_one()
         if not self.event_id:
             return res
-        registration_model = self.env['event.registration']
         lead_ids = self.env.context.get('active_ids', [])
-        for lead in self.env['crm.lead'].browse(lead_ids):
-            if lead.partner_id:
-                registration_model.create(
-                    {
-                        'event_id': self.event_id.id,
-                        'partner_id': lead.partner_id.id,
-                        'nb_register': 1,
-                    })
+        (self.env['crm.lead'].browse(lead_ids)
+         .action_generate_event_registration(self.event_id))
         return res

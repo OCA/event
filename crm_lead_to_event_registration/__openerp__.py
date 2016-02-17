@@ -5,19 +5,28 @@
 
 {
     "name": "Register a lead directly in an event",
-    "version": "8.0.1.0.0",
+    "version": "8.0.1.1.0",
     "license": "AGPL-3",
     "author": "Antiun Ingeniería S.L., "
               "Serv. Tecnol. Avanzados - Pedro M. Baeza, "
               "Odoo Community Association (OCA)",
     "website": "https://www.antiun.com",
     "category": "Event Management",
+    "images": [
+        "images/converting.png",
+        "images/not_linked.png",
+        "images/linked.png",
+        "images/linking.png",
+    ],
     "depends": [
         'crm',
         'event',
+        'marketing_crm',
     ],
     "data": [
+        'wizard/crm_lead_event_pick_view.xml',
         'wizard/crm_lead_to_opportunity_view.xml',
+        'views/crm_lead_view.xml',
     ],
     "installable": True,
 }
