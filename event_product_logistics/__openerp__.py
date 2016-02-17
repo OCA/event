@@ -6,7 +6,7 @@
     "name": "Product Delivery in Events",
     "summary": "Deliver products to event attendees",
     "version": "8.0.1.0.0",
-    "category": "Events",
+    "category": "Event Management",
     "website": "https://grupoesoc.es/",
     "author": "Grupo ESOC Ingeniería de Servicios, "
               "Odoo Community Association (OCA)",
