@@ -20,7 +20,7 @@ delivered to them.
     * **Event products** are created in the ``event_product`` addon, and
       define an event as a product (wedding, fair, etc.), to have a catalog
       of them.
-    * **Products to deliver in events** are created in this addon, and define
+    * **Products Delivery in Events** are created in this addon, and define
       the products (goodies, leaflets, etc.) that you will deliver to event
       attendees.
 
