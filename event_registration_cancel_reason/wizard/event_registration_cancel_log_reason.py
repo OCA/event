@@ -23,12 +23,13 @@ class EventRegistrationCancelLogReason(models.TransientModel):
             var_fields)
         registrations = self.env['event.registration'].browse(
             self.env.context['active_ids'])
-        event_type = registrations.mapped("event_id.type")
-        if len(event_type) != 1:
-            raise exceptions.ValidationError(
-                _("You cannot cancel registrations from events of different "
-                  "types at once."))
-        res['event_type_id'] = event_type.id
+        first_type = registrations[0].event_id.type
+        for event in registrations.mapped("event_id"):
+            if event.type != first_type:
+                raise exceptions.ValidationError(
+                    _("You cannot cancel registrations from events of "
+                      "different types at once."))
+        res['event_type_id'] = first_type.id
         return res
 
     @api.multi
