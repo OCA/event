@@ -23,7 +23,7 @@ class EventRegistrationCancelLogReason(models.TransientModel):
             var_fields)
         registrations = self.env['event.registration'].browse(
             self.env.context['active_ids'])
-        first_type = registrations[0].event_id.type
+        first_type = registrations[:1].event_id.type
         for event in registrations.mapped("event_id"):
             if event.type != first_type:
                 raise exceptions.ValidationError(
