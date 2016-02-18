@@ -44,3 +44,11 @@ class TestEventRegistrationCancelReason(common.TransactionCase):
             self.wizard_model.with_context(
                 active_ids=self.registrations.ids).create(
                 {'reason_id': self.cancel_reason.id})
+
+    def test_cancel_one_event_without_type(self):
+        """Registration cancel from 2 events (1 typed, 1 not) are aborted."""
+        self.event2.type = False
+        with self.assertRaises(exceptions.ValidationError):
+            self.wizard_model.with_context(
+                active_ids=self.registrations.ids).create(
+                {'reason_id': self.cancel_reason.id})
