@@ -29,7 +29,7 @@
           active="True">
     <xpath expr="//div[@t-field='event.description']" position="after">
         <h2>Image Gallery</h2>
-        <t t-call="multi_image_base.carousel">
+        <t t-call="website_multi_image.carousel">
             <t t-set="multi_image_owner" t-value="event"/>
         </t>
     </xpath>

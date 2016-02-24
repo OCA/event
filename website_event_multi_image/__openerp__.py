@@ -14,6 +14,7 @@
     "depends": [
         "event_multi_image",
         "website_event",
+        "website_multi_image",
     ],
     "data": [
         "views/event_templates.xml",
