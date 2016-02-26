@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="event_contact_person_form_view">
+            <field name="name">Event Contact Person</field>
+            <field name="model">event.event</field>
+            <field name="inherit_id" ref="event.view_event_form"/>
+            <field name="arch" type="xml">
+                <field name="organizer_id" position="after">
+                    <field name="contact_person_ids" widget="many2many_tags"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>
