@@ -6,23 +6,18 @@
 Unique Partner per Event
 ========================
 
-This module extends the functionality of events to support forbidding to duplicate the same partner in an event.
-
-Installation
-============
-
-To install this module, you need to:
-
-* Remove all duplicated registrations from events.
+This module extends the functionality of events to support forbidding to
+duplicate the same partner in an event.
 
 Usage
 =====
 
 To use this module, you need to:
 
-* Go to *Marketing > Events > Registrations*.
-* Try to create 2 registrations for the same partner and event.
-* You cannot.
+#. Go to *Marketing > Events > Create*.
+#. Enable *Forbid duplicates*.
+#. Try to create 2 registrations for the same partner in this event.
+#. You cannot.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
