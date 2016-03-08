@@ -6,7 +6,6 @@ from openerp import fields, models
 
 
 class event_event(models.Model):
-    _name = 'event.event'
     _inherit = 'event.event'
 
     contact_person_ids = fields.Many2many(
