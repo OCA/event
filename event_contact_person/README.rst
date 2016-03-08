@@ -24,6 +24,13 @@ To install this module, you need to:
 
 Usage
 =====
+
+To set a contact persons to event, you need to:
+
+- Go to *Marketing -> Events -> Events*.
+- Edit or create one.
+- You will see a new field under field *Organizer* named *Contact Persons*
+
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
    :target: https://runbot.odoo-community.org/runbot/199/8.0
