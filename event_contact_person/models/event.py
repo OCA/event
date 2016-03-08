@@ -9,7 +9,7 @@ class event_event(models.Model):
     _inherit = 'event.event'
 
     contact_person_ids = fields.Many2many(
-        string='Contact Person',
+        string='Contact Persons',
         comodel_name='res.partner',
         relation='event_contact_person_rel',
         column1='event_id',
