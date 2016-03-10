@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- © 2016 Antiun Ingeniería S.L. - Jairo Llopis
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<openerp>
+<data>
+
+<record id="view_event_form" model="ir.ui.view">
+    <field name="name">Add multi images</field>
+    <field name="model">event.event</field>
+    <field name="inherit_id" ref="event.view_event_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//div[@class='oe_title']" position="replace">
+            <div class="oe_left" style="width:500px;">
+                <field
+                    name="image_main"
+                    widget='image'
+                    class='oe_avatar oe_left'
+                    options='{"preview_image": "image_main_medium"}'/>
+                <div class="oe_title" style="width: 390px;">
+                    <label for="name" class="oe_edit_only"/>
+                    <h1><field name="name" class="oe_inline"/></h1>
+                </div>
+            </div>
+        </xpath>
+
+        <xpath expr="//notebook">
+            <page string="Images" name="multi_image">
+                <field
+                    name="image_ids"
+                    nolabel="1"
+                    context="{
+                        'default_owner_model': 'event.event',
+                        'default_owner_id': id,
+                    }"
+                    mode="kanban"/>
+            </page>
+        </xpath>
+    </field>
+</record>
+
+</data>
+</openerp>
