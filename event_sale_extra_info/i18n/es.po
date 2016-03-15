@@ -1,0 +1,44 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_sale_extra_info
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-16 16:15+0100\n"
+"PO-Revision-Date: 2016-03-16 16:15+0100\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.6\n"
+"Last-Translator: \n"
+"Language: es\n"
+
+#. module: event_sale_extra_info
+#: view:event.registration:event_sale_extra_info.view_registration_search
+msgid "Commercial Partner"
+msgstr "Entidad comercial"
+
+#. module: event_sale_extra_info
+#: field:event.registration,commercial_partner_id:0
+#: field:report.event.registration,commercial_partner_id:0
+msgid "Commercial partner"
+msgstr "Entidad comercial"
+
+#. module: event_sale_extra_info
+#: help:event.registration,commercial_partner_id:0
+msgid "Commercial partner related to the chosen partner."
+msgstr "Entidad comercial relacionada con el contacto seleccionado."
+
+#. module: event_sale_extra_info
+#: model:ir.model,name:event_sale_extra_info.model_event_registration
+msgid "Event Registration"
+msgstr "Registro del evento"
+
+#. module: event_sale_extra_info
+#: field:report.event.registration,event_ticket_id:0
+msgid "Ticket type"
+msgstr "Tipo de ticket"
