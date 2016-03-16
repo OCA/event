@@ -6,7 +6,7 @@
 Event Contact Person
 ====================
 
-This module adds the possibility to define a contact persons for
+This module adds the possibility to define contact persons for
 the event. Contact person is needed due to inform the people 
 who should be contacted for the event
 
@@ -25,7 +25,7 @@ To install this module, you need to:
 Usage
 =====
 
-To set a contact persons to event, you need to:
+To set contact persons to event, you need to:
 
 - Go to *Marketing -> Events -> Events*.
 - Edit or create one.

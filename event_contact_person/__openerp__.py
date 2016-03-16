@@ -5,7 +5,7 @@
 {
     'name': 'Event Contact Person',
     'version': '8.0.1.0.0',
-    'summary': 'Add a contact persons to event',
+    'summary': 'Add contact persons to event',
     'author': 'OpenSynergy Indonesia,Odoo Community Association (OCA)',
     'website': 'https://opensynergy-indonesia.com',
     'category': 'Marketing',
