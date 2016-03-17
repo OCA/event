@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2016 Antiun Ingeniería S.L. - Jairo Llopis
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+
+<openerp>
+<data>
+
+<record id="view_event_registration_form" model="ir.ui.view">
+    <field name="name">Commercial partner field</field>
+    <field name="model">event.registration</field>
+    <field name="inherit_id" ref="event.view_event_registration_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='partner_id']" position="after">
+            <field name="commercial_partner_id"/>
+        </xpath>
+    </field>
+</record>
+
+<record id="view_registration_search" model="ir.ui.view">
+    <field name="name">Commercial partner field</field>
+    <field name="model">event.registration</field>
+    <field name="inherit_id" ref="event.view_registration_search"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='partner_id']" position="after">
+            <field name="commercial_partner_id"/>
+        </xpath>
+        <xpath expr="//filter[@string='Partner']" position="after">
+            <filter
+                string="Commercial Partner"
+                context="{'group_by': 'commercial_partner_id'}"/>
+        </xpath>
+    </field>
+</record>
+
+</data>
+</openerp>
