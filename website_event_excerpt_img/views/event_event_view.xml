@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 Tecnativa - Jairo Llopis
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+<data>
+
+<record id="view_event_form" model="ir.ui.view">
+    <field name="name">Show meta description</field>
+    <field name="model">event.event</field>
+    <field name="inherit_id" ref="event.view_event_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='description']" position="before">
+            <group>
+                <field
+                    name="priority"
+                    widget="priority"
+                    attrs="{
+                        'invisible': [
+                            ('website_published', '=', False),
+                        ],
+                    }"/>
+                <field
+                    name="website_meta_description"
+                    placeholder="Short description of about 155 characters..."/>
+            </group>
+        </xpath>
+    </field>
+</record>
+
+</data>
+</openerp>
