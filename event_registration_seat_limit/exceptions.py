@@ -40,8 +40,8 @@ class PreviousRegistrationsFail(SeatsPerRegistrationValidationError):
 
 
 class TooFewParticipants(SeatsPerRegistrationValidationError):
-    __doc__ = _("You cannot register less than %d participants.")
+    __doc__ = _("You cannot register less than {} participants.")
 
 
 class TooManyParticipants(SeatsPerRegistrationValidationError):
-    __doc__ = _("You cannot register more than %d participants.")
+    __doc__ = _("You cannot register more than {} participants.")
