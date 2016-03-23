@@ -79,7 +79,7 @@
           customize_show="True">
     <xpath expr="//div[@class='row mt8']" position="after">
         <div id="website_event_filter_selector" class="mt8">
-            <div class="oe_structure"/>
+            <t id="custom"/>
             <form class="row" action="/event" method="GET">
                 <t id="filter_type"/>
                 <t id="filter_country"/>
@@ -116,6 +116,17 @@
           customize_show="True">
     <xpath expr="//t[@id='filter_country']" position="attributes">
         <attribute name="t-call">website_event_filter_selector.country</attribute>
+    </xpath>
+</template>
+
+<!-- Avoid users saving customizations in main template -->
+<template id="user_custom"
+          inherit_id="filter_date"
+          name="Customizations by the User for Event Selection Filters"
+          customize_show="True">
+    <xpath expr="//div[@id='website_event_filter_selector']/t[@id='custom']"
+           position="inside">
+        <div class="oe_structure"/>
     </xpath>
 </template>
 
