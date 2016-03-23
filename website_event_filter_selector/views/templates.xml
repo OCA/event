@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2016 Antiun Ingeniería S.L. - Jairo Llopis
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+<data>
+
+<!-- Reusable callable templates -->
+<template id="element" name="Event Selection Filter Form Element">
+    <div t-att-id="element_id" t-attf-class="col-sm-#{element_span}">
+        <div class="form-group">
+            <t t-raw="0"/>
+        </div>
+    </div>
+</template>
+
+<template id="date" name="Event Date Selection Filter">
+    <t t-call="website_event_filter_selector.element">
+        <t t-set="element_id" t-value="filter_selector_date"/>
+        <t t-set="element_span" t-value="4"/>
+        <label for="date">When</label>
+        <select name="date" class="form-control">
+            <t t-foreach="dates" t-as="date">
+                <option
+                    t-att-value="date[0]"
+                    t-esc="'%s (%s)' % (date[1], date[3])"
+                    t-att-selected="date[0] == searches.get('date') and
+                                    'selected'"/>
+            </t>
+        </select>
+    </t>
+</template>
+
+<template id="country" name="Event Country Selection Filter">
+    <t t-call="website_event_filter_selector.element">
+        <t t-set="element_id" t-value="filter_selector_country"/>
+        <t t-set="element_span" t-value="4"/>
+        <label for="country">Where</label>
+        <select name="country" class="form-control">
+            <t t-foreach="countries" t-as="country">
+                <option
+                    t-att-value="country['country_id'][0]"
+                    t-esc="'%s (%s)' % (
+                        country['country_id'][1],
+                        country['country_id_count'])"
+                    t-att-selected=
+                        "country['country_id'][0] == (current_country and
+                                                      current_country.id) and
+                         'selected'"/>
+            </t>
+        </select>
+    </t>
+</template>
+
+<template id="type" name="Event Type Selection Filter">
+    <t t-call="website_event_filter_selector.element">
+        <t t-set="element_id" t-value="filter_selector_date"/>
+        <t t-set="element_span" t-value="4"/>
+        <label for="type">Event Type</label>
+        <select name="type" class="form-control">
+            <t t-foreach="types" t-as="type">
+                <option
+                    t-att-value="type['type'][0]"
+                    t-esc="'%s (%s)' % (
+                        type['type'][1],
+                        type['type_count'])"
+                    t-att-selected="type['type'][0] == (current_type and
+                                                        current_type.id) and
+                                    'selected'"/>
+            </t>
+        </select>
+    </t>
+</template>
+
+<!-- Partial templates to be displayed if enabled -->
+<template id="filter_date"
+          inherit_id="website_event.index"
+          name="Selection Filters"
+          customize_show="True">
+    <xpath expr="//div[@class='row mt8']" position="after">
+        <div id="website_event_filter_selector" class="mt8">
+            <t id="custom"/>
+            <form class="row" action="/event" method="GET">
+                <t id="filter_type"/>
+                <t id="filter_country"/>
+                <t id="filter_date"
+                   t-call="website_event_filter_selector.date"/>
+            </form>
+        </div>
+    </xpath>
+</template>
+
+<template id="filter_type"
+          inherit_id="filter_date"
+          name="Filter by Category"
+          customize_show="True">
+    <xpath expr="//t[@id='filter_type']" position="attributes">
+        <attribute name="t-call">website_event_filter_selector.type</attribute>
+    </xpath>
+</template>
+
+<template id="filter_country"
+          inherit_id="filter_date"
+          name="Filter by Country"
+          customize_show="True">
+    <xpath expr="//t[@id='filter_country']" position="attributes">
+        <attribute name="t-call">website_event_filter_selector.country</attribute>
+    </xpath>
+</template>
+
+<!-- Avoid users saving customizations in main template -->
+<template id="user_custom"
+          inherit_id="filter_date"
+          name="Customizations by the User for Event Selection Filters"
+          customize_show="True">
+    <xpath expr="//div[@id='website_event_filter_selector']/t[@id='custom']"
+           position="inside">
+        <div class="oe_structure"/>
+    </xpath>
+</template>
+
+</data>
+</openerp>
