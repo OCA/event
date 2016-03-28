@@ -3,9 +3,9 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 {
-    'name': 'Event Contact Person',
+    'name': 'Event Contacts',
     'version': '8.0.1.0.0',
-    'summary': 'Add contact persons to event',
+    'summary': 'Add contacts to event',
     'author': 'OpenSynergy Indonesia,Odoo Community Association (OCA)',
     'website': 'https://opensynergy-indonesia.com',
     'category': 'Marketing',
