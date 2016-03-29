@@ -24,7 +24,7 @@
                 <option
                     t-att-value="date[0]"
                     t-esc="'%s (%s)' % (date[1], date[3])"
-                    t-att-selected="date == searches.get('date') and
+                    t-att-selected="date[0] == searches.get('date') and
                                     'selected'"/>
             </t>
         </select>
