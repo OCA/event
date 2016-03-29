@@ -23,6 +23,11 @@ To configure this module, you need to:
    :alt: Try me on Runbot
    :target: https://runbot.odoo-community.org/runbot/199/8.0
 
+Known issues / Roadmap
+======================
+
+* You cannot hide the event date filter without hiding all others.
+
 Bug Tracker
 ===========
 
