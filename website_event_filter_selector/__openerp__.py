@@ -15,6 +15,7 @@
         "website_event",
     ],
     "data": [
+        "views/assets.xml",
         "views/templates.xml",
     ],
     "images": [

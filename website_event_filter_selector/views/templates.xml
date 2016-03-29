@@ -17,7 +17,7 @@
 <template id="date" name="Event Date Selection Filter">
     <t t-call="website_event_filter_selector.element">
         <t t-set="element_id" t-value="filter_selector_date"/>
-        <t t-set="element_span" t-value="3"/>
+        <t t-set="element_span" t-value="4"/>
         <label for="date">When</label>
         <select name="date" class="form-control">
             <t t-foreach="dates" t-as="date">
@@ -34,7 +34,7 @@
 <template id="country" name="Event Country Selection Filter">
     <t t-call="website_event_filter_selector.element">
         <t t-set="element_id" t-value="filter_selector_country"/>
-        <t t-set="element_span" t-value="3"/>
+        <t t-set="element_span" t-value="4"/>
         <label for="country">Where</label>
         <select name="country" class="form-control">
             <t t-foreach="countries" t-as="country">
@@ -85,17 +85,6 @@
                 <t id="filter_country"/>
                 <t id="filter_date"
                    t-call="website_event_filter_selector.date"/>
-                <div class="col-sm-2">
-                    <div class="form-group">
-                        <!-- XML-&nbsp; to align button with inputs -->
-                        <label>&#160;</label>
-                        <button
-                            type="submit"
-                            class="btn btn-primary form-control">
-                            Search
-                        </button>
-                    </div>
-                </div>
             </form>
         </div>
     </xpath>
