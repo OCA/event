@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+       
+        <template id="website_event_contact_template" inherit_id="website_event.event_description_full">
+            <xpath expr="//div[@class='col-md-4 css_noprint']" position="replace">
+                <div class="col-md-4 css_noprint">
+                    <div class="clearfix"/>
+
+                    <div class="panel panel-default" t-if="event.address_id">
+                        <div class="panel-heading">
+                            <h4>Where</h4>
+                        </div>
+                        <div class="panel-body">
+                            <a t-att-href="event.google_map_link()" target="_BLANK">
+                                <img t-att-src="event.google_map_img()" width="100%%"/>
+                            </a>
+                            <div itemprop="location" class="mt16 mb8" t-field="event.address_id" t-field-options='{
+                                "widget": "contact",
+                                "fields": ["address", "phone", "mobile", "fax", "email"]
+                                }'/>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4>When</h4>
+                        </div>
+                        <div class="panel-body">
+                            <i class="fa fa-clock-o"></i> From <span t-field="event.date_begin" t-field-options='{"hide_seconds":"True"}'> </span><br/>
+                            <i class="fa fa-clock-o"></i> To <span t-field="event.date_end" t-field-options='{"hide_seconds":"True"}'> </span>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default" t-if="event.organizer_id">
+                        <div class="panel-heading">
+                            <h4>Organizer</h4>
+                        </div>
+                        <div class="panel-body" t-field="event.organizer_id" t-field-options='{
+                            "widget": "contact",
+                            "fields": ["name", "phone", "mobile", "fax", "email"]
+                            }'/>
+                            
+                    </div>
+
+                    <div class="panel panel-default" t-if="event.contact_ids">
+                        <div class="panel-heading">
+                            <h4>Contacts</h4>
+                        </div>
+                        <t t-foreach="event.contact_ids" t-as="contact_id" class="media">
+                            <div class="panel-body" t-field="contact_id.self" t-field-options='{
+                                "widget": "contact",
+                                "fields": ["name", "phone", "mobile", "fax", "email"]
+                                }'/>
+                        </t>
+ 
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4>Social Stream</h4>
+                        </div>
+                        <div class="panel-body">
+                            <t t-call="website_mail.follow"><t t-set="object" t-value="event"/></t>
+                            <div t-if="event.twitter_hashtag" class="mt16">
+                                <p><strong>Participate on Twitter</strong></p>
+                                <p class="text-muted">
+                                    Find out what people see and say about this event,
+                                    and join the conversation.
+                                </p>
+                                <p><strong>Use this tag:
+                                    <a t-att-href="'http://twitter.com/search?q=%23'+event.twitter_hashtag" target="_blank" class="label label-primary">#<span t-field="event.twitter_hashtag"/></a>
+                                </strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+
+    </data>
+</openerp>
+
