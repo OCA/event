@@ -22,16 +22,48 @@
     </xpath>
 </template>
 
-<template id="event_description_full"
+<template id="gallery_top"
+          inherit_id="website_event.event_description_full"
+          name="Carousel gallery at top"
+          customize_show="True"
+          active="False">
+    <xpath expr="//div[@t-field='event.description']" position="before">
+        <h2>Image Gallery</h2>
+        <t t-call="website_multi_image.carousel">
+            <t t-set="multi_image_owner" t-value="event"/>
+        </t>
+    </xpath>
+</template>
+
+<template id="gallery_bottom"
           inherit_id="website_event.event_description_full"
           name="Carousel gallery at bottom"
           customize_show="True"
-          active="True">
+          active="False">
     <xpath expr="//div[@t-field='event.description']" position="after">
         <h2>Image Gallery</h2>
         <t t-call="website_multi_image.carousel">
             <t t-set="multi_image_owner" t-value="event"/>
         </t>
+    </xpath>
+</template>
+
+<template id="gallery_right"
+          inherit_id="website_event.event_description_full"
+          name="Carousel gallery at right column"
+          customize_show="True"
+          active="False">
+    <xpath expr="//div[@class='col-md-4 css_noprint']" position="inside">
+        <div class="panel panel-default" t-if="event.address_id">
+            <div class="panel-heading">
+                <h4>Image Gallery</h4>
+            </div>
+            <div class="panel-body">
+                <t t-call="website_multi_image.carousel">
+                    <t t-set="multi_image_owner" t-value="event"/>
+                </t>
+            </div>
+        </div>
     </xpath>
 </template>
 

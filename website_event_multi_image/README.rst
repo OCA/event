@@ -27,12 +27,15 @@ To disable the thumbnail in the events list, you need to:
 #. Go to `the events list </event>`_.
 #. Uncheck *Customize > Event thumbnail in list*.
 
-To disable the carousel gallery in events, you need to:
+To choose the placement of the carousel gallery in events, you need to:
 
 #. Log in.
 #. Go to `the events list </event>`_.
 #. Enter any event.
-#. Uncheck *Customize > Carousel gallery at bottom*.
+#. Check any of *Customize > ...*
+   - *Carousel gallery at top*.
+   - *Carousel gallery at bottom*.
+   - *Carousel gallery at right*.
 
 Usage
 =====
