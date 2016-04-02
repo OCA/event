@@ -27,6 +27,7 @@ addon | version | summary
 [event_registration_partner_unique](event_registration_partner_unique/) | 8.0.1.0.0 | Enforces 1 registration per partner and event
 [event_registration_seat_limit](event_registration_seat_limit/) | 8.0.4.0.0 | Limit seats per registration
 [event_sale_extra_info](event_sale_extra_info/) | 8.0.1.0.0 | Additional information for event registrations
+[event_sale_registration_partner_unique](event_sale_registration_partner_unique/) | 8.0.1.0.0 | Makes event sales not to duplicate registrations
 [event_track_generate](event_track_generate/) | 8.0.2.0.0 | Generate a bunch of event tracks at once
 [partner_event](partner_event/) | 8.0.1.1.0 | Link partner to events
 [website_event_filter_selector](website_event_filter_selector/) | 8.0.1.0.0 | Add a customizable top area to filter events with selectors
