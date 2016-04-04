@@ -38,15 +38,18 @@
         <label for="country">Where</label>
         <select name="country" class="form-control">
             <t t-foreach="countries" t-as="country">
-                <option
-                    t-att-value="country['country_id'][0]"
-                    t-esc="'%s (%s)' % (
-                        country['country_id'][1],
-                        country['country_id_count'])"
-                    t-att-selected=
-                        "country['country_id'][0] == (current_country and
-                                                      current_country.id) and
-                         'selected'"/>
+                <t t-if="country['country_id']">
+                    <option
+                        t-att-value="country['country_id'][0]"
+                        t-esc="'%s (%s)' % (
+                            country['country_id'][1],
+                            country['country_id_count'])"
+                        t-att-selected=
+                            "country['country_id'][0] == (
+                                current_country and
+                                current_country.id) and
+                             'selected'"/>
+                </t>
             </t>
         </select>
     </t>
@@ -59,14 +62,17 @@
         <label for="type">Event Type</label>
         <select name="type" class="form-control">
             <t t-foreach="types" t-as="type">
-                <option
-                    t-att-value="type['type'][0]"
-                    t-esc="'%s (%s)' % (
-                        type['type'][1],
-                        type['type_count'])"
-                    t-att-selected="type['type'][0] == (current_type and
-                                                        current_type.id) and
-                                    'selected'"/>
+                <t t-if="type['type']">
+                    <option
+                        t-att-value="type['type'][0]"
+                        t-esc="'%s (%s)' % (
+                            type['type'][1],
+                            type['type_count'])"
+                        t-att-selected="type['type'][0] == (
+                                            current_type and
+                                            current_type.id) and
+                                        'selected'"/>
+                </t>
             </t>
         </select>
     </t>
