@@ -16,14 +16,14 @@
             <t t-foreach="env['ir.fields.converter']
                             .imgs_from_html(event.description, 1)"
                t-as="image"/>
-            <div t-if="image" class="event-thumbnail col-xs-6">
+            <div t-if="image" class="event-thumbnail col-sm-6">
                 <a t-attf-href="/event/#{slug(event)}">
                     <img class="img img-thumbnail" t-att-src="image"/>
                 </a>
             </div>
 
-            <!-- Event basic info -->
-            <div t-attf-class="event-description col-xs-#{6 if image else 12}">
+            <!-- Event metadata -->
+            <div t-attf-class="event-data col-sm-#{6 if image else 12}">
                 <h4>
                     <a
                         itemprop="url"
@@ -43,28 +43,64 @@
                     </small>
                 </h4>
 
-                <!-- Description or excerpt -->
-                <t t-set="excerpt_words"
-                   t-value="60 if event.priority &gt; '0' else 20"/>
-                <p
-                    itemprop="description"
-                    class="text-muted"
-                    t-esc="event.website_meta_description or
-                        env['ir.fields.converter']
-                        .text_from_html(event.description, excerpt_words)"/>
-
-                <!-- Read more button -->
-                <p>
-                    <a
-                        class="btn btn-default"
-                        t-attf-href="/event/#{slug(event)}">
-                        Read more
-                    </a>
-                </p>
+                <div class="text-muted">
+                    <div>
+                        <t t-if="event.organizer_id">
+                            Organized by:
+                            <span t-field="event.organizer_id"/>
+                        </t>
+                    </div>
+                    <div>
+                        <i class="fa fa-clock-o"/>
+                        <span
+                            itemprop="startDate"
+                            t-field="event.date_begin"
+                            t-field-options='{"hide_seconds":"True"}'/>
+                        <i>to</i>
+                        <span
+                            itemprop="endDate"
+                            t-field="event.date_end"
+                            t-field-options='{"hide_seconds":"True"}'/>
+                    </div>
+                    <div
+                        itemprop="location"
+                        t-field="event.address_id"
+                        t-field-options='{
+                            "widget": "contact",
+                            "fields": ["city"]
+                        }'/>
+                    <div t-if="event.type">
+                        <i class="fa fa-tag"/>
+                        <span t-field="event.type"/>
+                    </div>
+                </div>
             </div>
 
+            <div t-attf-class="event-description mt8 col-sm-#{
+                    6 if event.priority &gt; '0' and image else 12}">
+                <t t-call="website_event_excerpt_img.description"/>
+            </div>
         </div>
     </div>
+</template>
+
+<template id="description">
+    <!-- Description or excerpt -->
+    <t t-set="excerpt_words" t-value="60"/>
+    <p
+        itemprop="description"
+        t-esc="event.website_meta_description or
+            env['ir.fields.converter']
+            .text_from_html(event.description, excerpt_words)"/>
+
+    <!-- Read more button -->
+    <p>
+        <a
+            class="btn btn-default"
+            t-attf-href="/event/#{slug(event)}">
+            Read more
+        </a>
+    </p>
 </template>
 
 <template id="index"
