@@ -13,7 +13,7 @@
     "installable": True,
     "depends": [
         "website_event",
-        "html_imgs",
+        "html_image_url_extractor",
         "html_text",
     ],
     "data": [
