@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2016 Antiun Ingeniería S.L. - Jairo Llopis
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+<data>
+
+<template id="index"
+          inherit_id="website_event.index">
+    <xpath expr="//div[@class='row mt32 mb32']" position="before">
+        <t t-if="current_type">
+            <div t-field="current_type.description"/>
+        </t>
+    </xpath>
+</template>
+
+</data>
+</openerp>
