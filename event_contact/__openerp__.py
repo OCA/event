@@ -5,12 +5,17 @@
 {
     'name': 'Event Contacts',
     'version': '8.0.1.0.0',
-    'summary': 'Add contacts to event',
-    'author': 'OpenSynergy Indonesia,Odoo Community Association (OCA)',
+    'summary': 'Add contacts to event and event type',
+    'author': 'OpenSynergy Indonesia, '
+              'Antiun Ingeniería S.L., '
+              'Odoo Community Association (OCA)',
     'website': 'https://opensynergy-indonesia.com',
     'category': 'Marketing',
     'depends': ['event'],
-    'data': ['views/event_view.xml'],
+    'data': [
+        'views/event_event_view.xml',
+        'views/event_type_view.xml',
+    ],
     'installable': True,
     'license': 'AGPL-3',
 }
