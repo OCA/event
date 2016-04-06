@@ -1,13 +1,13 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
-    
+
 ==============
 Event Contacts
 ==============
 
 This module adds the possibility to define contacts for
-the event. Contacts are needed due to inform the people 
+the event. Contacts are needed due to inform the people
 who should be contacted for the event
 
 Installation
@@ -27,9 +27,17 @@ Usage
 
 To set contacts to event, you need to:
 
-- Go to *Marketing -> Events -> Events*.
-- Edit or create one.
-- You will see a new field under field *Organizer* named *Contacts*
+#. Go to *Marketing -> Events -> Events*.
+#. Edit or create one.
+#. You will see a new field under field *Organizer* named *Contacts*.
+
+To set contacts for an event type, you need to:
+
+#. Go to *Marketing > Configuration > Events > Types of Events*.
+#. Edit or create one.
+#. You will see a new field under field *Organizer* named *Contacts*.
+#. After doing this, if you create an event and set it this type, the event
+   will get these contacts by default if it had none.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
