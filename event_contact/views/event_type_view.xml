@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2016 Antiun Ingeniería S.L. - Jairo Llopis
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+<data>
+
+<record id="view_event_type_form" model="ir.ui.view">
+    <field name="name">Add contacts</field>
+    <field name="model">event.type</field>
+    <field name="inherit_id" ref="event.view_event_type_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//group">
+            <field name="contact_ids" widget="many2many_tags"/>
+        </xpath>
+    </field>
+</record>
+
+</data>
+</openerp>
