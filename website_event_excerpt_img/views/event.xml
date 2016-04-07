@@ -115,7 +115,7 @@
                t-value="event_ids.filtered(
                     lambda r: r.priority &gt;= '1')"/>
             <div t-if="events_highlighted"
-                 t-attf-class="event-priority-highlighted">
+                 t-attf-class="event-priority-highlighted clearfix">
                 <t t-foreach="events_highlighted" t-as="event">
                     <t t-call="website_event_excerpt_img.event_item"/>
                 </t>
@@ -125,7 +125,7 @@
             <t t-set="events_normal"
                t-value="event_ids - events_highlighted"/>
             <div t-if="events_normal"
-                 t-attf-class="event-priority-normal">
+                 t-attf-class="event-priority-normal clearfix">
                 <t t-foreach="events_normal" t-as="event">
                     <t t-call="website_event_excerpt_img.event_item"/>
 
