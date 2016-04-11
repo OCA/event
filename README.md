@@ -18,7 +18,7 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
-[event_contact](event_contact/) | 8.0.1.0.0 | Add contacts to event
+[event_contact](event_contact/) | 8.0.1.0.0 | Add contacts to event and event type
 [event_multi_image](event_multi_image/) | 8.0.1.0.0 | Attach multiple images for each event
 [event_product](event_product/) | 8.0.1.0.0 | Combine products and events
 [event_project](event_project/) | 8.0.1.1.0 | Event project
@@ -32,6 +32,7 @@ addon | version | summary
 [partner_event](partner_event/) | 8.0.1.1.0 | Link partner to events
 [website_event_filter_selector](website_event_filter_selector/) | 8.0.1.0.0 | Add a customizable top area to filter events with selectors
 [website_event_sale_legal](website_event_sale_legal/) | 8.0.1.0.0 | Make attendees to accept legal terms per event
+[website_event_type_description](website_event_type_description/) | 8.0.1.0.0 | Display a specific description for each event type
 
 [//]: # (end addons)
 
