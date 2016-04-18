@@ -10,6 +10,7 @@ class ResPartnerRegisterEvent(models.TransientModel):
     _name = 'res.partner.register.event'
 
     event = fields.Many2one('event.event', required=True)
+    errors = fields.Text(readonly=True)
 
     def _prepare_registration(self, partner):
         return {
@@ -26,6 +27,25 @@ class ResPartnerRegisterEvent(models.TransientModel):
     def button_register(self):
         registration_obj = self.env['event.registration']
         partner_obj = self.env['res.partner']
+        errors = []
         for partner_id in self.env.context.get('active_ids', []):
             partner = partner_obj.browse(partner_id)
-            registration_obj.create(self._prepare_registration(partner))
+            try:
+                with self.env.cr.savepoint():
+                    reg_id = registration_obj.create(
+                        self._prepare_registration(partner))
+            except:
+                errors.append(partner.name)
+        if errors:
+            self.errors = '\n'.join(errors)
+            data_obj = self.env.ref('partner_event.'
+                                    'res_partner_register_event_view')
+            return {
+                'type': 'ir.actions.act_window',
+                'res_model': self._name,
+                'view_mode': 'form',
+                'view_type': 'form',
+                'view_id': [data_obj.id],
+                'res_id': self.id,
+                'target': 'new',
+            }

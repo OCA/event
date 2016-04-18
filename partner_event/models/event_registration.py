@@ -3,7 +3,7 @@
 # For copyright and license notices, see __openerp__.py file in root directory
 ##############################################################################
 
-from openerp import models, api
+from openerp import models, api, fields
 
 
 class EventRegistration(models.Model):
@@ -38,3 +38,13 @@ class EventRegistration(models.Model):
                 partner_id = partner.id
             vals['partner_id'] = partner_id
         return super(EventRegistration, self).create(vals)
+
+    @api.multi
+    def partner_data_update(self, data):
+        reg_fields = ['name', 'email', 'phone']
+        reg_data = dict((k, v) for k, v in data.iteritems() if k in reg_fields)
+        if reg_data:
+            for reg in self:
+                # Only update registration data if this event is not old
+                if reg.event_end_date >= fields.Datetime.now():
+                    reg.write(reg_data)

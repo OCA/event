@@ -7,19 +7,31 @@
     <field name="model">res.partner.register.event</field>
     <field name="arch" type="xml">
         <form string="Select event to register">
-            <group>
+            <group attrs="{'invisible': [('errors', '!=', False)]}">
                 <field name="event"/>
             </group>
+            <group attrs="{'invisible': [('errors', '=', False)]}">
+                <label nolabel="1" colspan="4"
+                       string="These partners haven't been registered because they're already registered or other error occurred"/>
+                <field nolabel="1" name="errors" colspan="4"/>
+            </group>
             <footer>
-                <button name="button_register"
-                        type="object"
-                        string="Create registrations"
-                        class="oe_highlight"
-                        />
-                or
-                <button special="cancel"
-                        string="Cancel"
-                        />
+                <div attrs="{'invisible': [('errors', '!=', False)]}">
+                    <button name="button_register"
+                            type="object"
+                            string="Create registrations"
+                            class="oe_highlight"
+                            />
+                    or
+                    <button special="cancel"
+                            string="Cancel"
+                            />
+                </div>
+                <div attrs="{'invisible': [('errors', '=', False)]}">
+                    <button special="cancel"
+                            string="OK"
+                            />
+                </div>
             </footer>
         </form>
     </field>
