@@ -33,7 +33,7 @@ class ResPartnerRegisterEvent(models.TransientModel):
             partner = partner_obj.browse(partner_id)
             try:
                 with self.env.cr.savepoint():
-                    reg_id = registration_obj.create(
+                    registration_obj.create(
                         self._prepare_registration(partner))
             except:
                 errors.append(partner.name)
