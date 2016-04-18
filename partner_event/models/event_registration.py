@@ -45,7 +45,7 @@ class EventRegistration(models.Model):
         reg_fields = ['name', 'email', 'phone']
         reg_data = dict((k, v) for k, v in data.iteritems() if k in reg_fields)
         if reg_data:
-            for reg in self:
-                # Only update registration data if this event is not old
-                if reg.event_end_date >= fields.Datetime.now():
-                    reg.write(reg_data)
+            # Only update registration data if this event is not old
+            registrations = self.filtered(
+                lambda x: x.event_end_date >= fields.Datetime.now())
+            registrations.write(reg_data)

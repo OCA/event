@@ -48,6 +48,5 @@ class ResPartner(models.Model):
     @api.multi
     def write(self, data):
         res = super(ResPartner, self).write(data)
-        for partner in self:
-            partner.registrations.partner_data_update(data)
+        self.mapped('registrations').partner_data_update(data)
         return res
