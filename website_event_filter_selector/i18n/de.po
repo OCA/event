@@ -19,33 +19,33 @@ msgstr ""
 #: code:addons/website_event_filter_selector/controllers/main.py:46
 #, python-format
 msgid "All Cities"
-msgstr "Todas las poblaciones"
+msgstr "Alle Städte"
 
 #. module: website_event_filter_selector
 #: field:event.event,city:0
 #: view:website:website_event_filter_selector.city
 msgid "City"
-msgstr "Población"
+msgstr "Stadt"
 
 #. module: website_event_filter_selector
 #: view:website:website_event_filter_selector.country
 msgid "Country"
-msgstr "País"
+msgstr "Land"
 
 #. module: website_event_filter_selector
 #: model:ir.model,name:website_event_filter_selector.model_event_event
 msgid "Event"
-msgstr "Evento"
+msgstr "Veranstaltung"
 
 #. module: website_event_filter_selector
 #: view:website:website_event_filter_selector.type
 msgid "Event Type"
-msgstr "Tipo de evento"
+msgstr "Veranstaltungsart"
 
 #. module: website_event_filter_selector
 #: view:website:website_event_filter_selector.date
 msgid "When"
-msgstr "Cuándo"
+msgstr "Wann"
 
 #. module: website_event_filter_selector
 #: view:website:website_event.index
