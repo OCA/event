@@ -19,11 +19,10 @@ class WebsiteEvent(website_event):
         domain = [("state", "in", ("draft", "confirm", "done"))]
 
         # Date domain
-        if values["current_date"]:
-            for date in values["dates"]:
-                if values["current_date"] == date[1]:
-                    domain += date[2]
-                    break
+        for date in values["dates"]:
+            if values['searches']['date'] == date[0]:
+                domain += date[2]
+                break
 
         # Type domain
         if values["current_type"]:
@@ -36,13 +35,15 @@ class WebsiteEvent(website_event):
             domain.append(("country_id", "=", False))
 
         # Handle city search
-        event_obj = http.request.env["event.event"]
+        event_obj = http.request.env["event.event"].with_context(
+            http.request.context
+        )
         cities = event_obj.read_group(
             domain,
             ["city"],
             groupby="city",
             orderby="city")
-        cities.insert(0, {"city_count": len(values["event_ids"]),
+        cities.insert(0, {"city_count": sum(x['city_count'] for x in cities),
                           "city": _("All Cities"),
                           "key": "all"})
         if searches["city"] != "all":

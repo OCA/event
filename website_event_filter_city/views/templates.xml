@@ -22,7 +22,7 @@
             <t t-foreach="dates" t-as="date">
                 <option
                     t-att-value="date[0]"
-                    t-esc="'%s (%s)' % (date[1], date[3])"
+                    t-esc="'%s (%s)' % (date[1], date[3]) if date[0] != 'old' else date[1]"
                     t-att-selected="date[0] == searches.get('date') and
                                     'selected'"/>
             </t>
