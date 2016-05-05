@@ -9,4 +9,4 @@ class EventType(models.Model):
     _inherit = "event.type"
 
     description = fields.Html(
-        help="Description for this event, as showin in the website.")
+        help="Description for this type of event, as showing in the website.")
