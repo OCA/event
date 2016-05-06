@@ -34,7 +34,7 @@ addon | version | summary
 [website_event_filter_selector](website_event_filter_selector/) | 8.0.1.0.0 | Add a customizable top area to filter events with selectors
 [website_event_sale_legal](website_event_sale_legal/) | 8.0.1.0.0 | Make attendees to accept legal terms per event
 [website_event_share](website_event_share/) | 8.0.1.0.0 | Add contacts to event
-[website_event_type_description](website_event_type_description/) | 8.0.1.0.0 | Display a specific description for each event type
+[website_event_type_description](website_event_type_description/) | 8.0.1.1.0 | Display a specific description for each event type
 
 [//]: # (end addons)
 
