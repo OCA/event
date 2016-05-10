@@ -41,8 +41,8 @@
     <field name="arch" type="xml">
         <filter string="New" position="before">
             <filter string="Available for mass mailing"
-                name='not_opt_out' domain="[('opt_out', '=', False)]"
-                help="Registrations that did not ask not to be included in mass mailing campaigns"/>
+                name='not_opt_out' domain="[('opt_out', '=', False), ('email', '!=', False)]"
+                help="Registrations that did not ask not to be included in mass mailing campaigns and has an e-mail set."/>
             <separator/>
         </filter>
     </field>
