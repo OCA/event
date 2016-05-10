@@ -5,7 +5,7 @@
 {
     'name': "Mass mailing from events",
     'category': 'Marketing',
-    'version': '8.0.1.0.0',
+    'version': '8.0.1.1.0',
     'depends': [
         'event',
         'mass_mailing'
