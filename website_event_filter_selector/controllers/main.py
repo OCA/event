@@ -19,11 +19,10 @@ class WebsiteEvent(website_event):
         domain = [("state", "in", ("draft", "confirm", "done"))]
 
         # Date domain
-        if values["current_date"]:
-            for date in values["dates"]:
-                if values["current_date"] == date[1]:
-                    domain += date[2]
-                    break
+        for date in values["dates"]:
+            if values['searches']['date'] == date[0]:
+                domain += date[2]
+                break
 
         # Type domain
         if values["current_type"]:
