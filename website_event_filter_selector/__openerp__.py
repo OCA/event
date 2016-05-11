@@ -4,7 +4,7 @@
 {
     "name": "Website Event Selection Filters",
     "summary": "Add a customizable top area to filter events with selectors",
-    "version": "8.0.1.0.0",
+    "version": "8.0.1.1.0",
     "category": "Website",
     "website": "http://www.antiun.com",
     "author": "Antiun Ingeniería S.L., "
