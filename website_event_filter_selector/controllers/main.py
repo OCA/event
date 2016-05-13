@@ -41,7 +41,7 @@ class WebsiteEvent(website_event):
             ["city"],
             groupby="city",
             orderby="city")
-        cities.insert(0, {"city_count": len(values["event_ids"]),
+        cities.insert(0, {"city_count": sum(x['city_count'] for x in cities),
                           "city": _("All Cities"),
                           "key": "all"})
         if searches["city"] != "all":
