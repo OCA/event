@@ -30,6 +30,12 @@ It will then create automatically a new project related with the event.
    :target: https://runbot.odoo-community.org/runbot/199/8.0
 
 
+Known issues / Roadmap
+======================
+
+* Develop tests for all use cases.
+
+
 Bug Tracker
 ===========
 

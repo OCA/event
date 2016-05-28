@@ -59,3 +59,9 @@ class EventEvent(models.Model):
         if recalculate and not self.env.context.get('no_recalculate'):
             self.project_id.project_recalculate()
         return True
+
+    @api.multi
+    def button_cancel(self):
+        """Cancel associated project when cancelling event."""
+        super(EventEvent, self).button_cancel()
+        self.mapped('project_id').set_cancel()
