@@ -3,8 +3,9 @@
 
 {
     "name": "Event project",
-    "version": "8.0.1.1.0",
+    "version": "8.0.1.1.1",
     "author": "Antiun Ingeniería S.L., "
+              "Tecnativa, "
               "Serv. Tecnol. Avanzados - Pedro M. Baeza, "
               "Odoo Community Association (OCA)",
     "website": "http://www.antiun.com",
