@@ -1,0 +1,10 @@
+# -*- coding: utf-8 -*-
+# © 2016 Jairo Llopis <jairo.llopis@tecnativa.com>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+
+- !record {model: ir.rule, id: public_image_rule}:
+    name: Public only sees images of published events
+    model_id: base_multi_image.model_base_multi_image_image
+    domain_force: [("event_published", "=", True)]
+    groups:
+        - base.group_public

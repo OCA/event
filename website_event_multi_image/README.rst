@@ -2,9 +2,9 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-=================================
+==================================
 Multi images for events in website
-=================================
+==================================
 
 This module extends the functionality of website events to support having a
 thumbnail in events list and an image gallery per event displayed as a carousel
@@ -16,7 +16,7 @@ Installation
 
 To install this module, you need to:
 
-* Install `OCA/product-attribute <https://github.com/OCA/product-attribute/>`_.
+* Install `OCA/server-tools <https://github.com/OCA/server-tools/>`_.
 
 Configuration
 =============
@@ -51,11 +51,6 @@ To use this module, you need to:
    :alt: Try me on Runbot
    :target: https://runbot.odoo-community.org/runbot/199/8.0
 
-Known issues / Roadmap
-======================
-
-* ...
-
 Bug Tracker
 ===========
 
@@ -74,8 +69,8 @@ Credits
 Contributors
 ------------
 
-* Rafael Blasco <rafabn@antiun.com>
-* Jairo Llopis <yajo.sk8@gmail.com>
+* Rafael Blasco <rafael.blasco@tecnativa.com>
+* Jairo Llopis <jairo.llopis@tecnativa.com>
 
 Maintainer
 ----------
