@@ -21,7 +21,7 @@ addon | version | summary
 [event_contact](event_contact/) | 8.0.1.0.0 | Add contacts to event and event type
 [event_multi_image](event_multi_image/) | 8.0.1.0.0 | Attach multiple images for each event
 [event_product](event_product/) | 8.0.1.0.0 | Combine products and events
-[event_project](event_project/) | 8.0.1.1.0 | Event project
+[event_project](event_project/) | 8.0.1.1.1 | Event project
 [event_registration_cancel_reason](event_registration_cancel_reason/) | 8.0.1.0.0 | Reasons for event registrations cancellations
 [event_registration_mass_mailing](event_registration_mass_mailing/) | 8.0.1.1.0 | Mass mailing from events
 [event_registration_partner_unique](event_registration_partner_unique/) | 8.0.1.0.0 | Enforces 1 registration per partner and event
