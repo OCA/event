@@ -3,7 +3,7 @@
 # For copyright and license notices, see __openerp__.py file in root directory
 ##############################################################################
 
-from openerp import models, fields, api
+from openerp import api, fields, models
 
 
 class ResPartner(models.Model):
@@ -12,20 +12,17 @@ class ResPartner(models.Model):
     registrations = fields.One2many(
         string="Event registrations",
         comodel_name='event.registration', inverse_name="partner_id")
-    registration_count = fields.Integer(
-        string='Event registrations number', compute='_count_registration',
-        store=True)
-    attended_registration_count = fields.Integer(
-        string='Event attended registrations number',
-        compute='_count_attended_registration', store=True)
-
-    @api.one
-    @api.depends('registrations')
-    def _count_registration(self):
-        self.registration_count = len(self.registrations)
+    event_count = fields.Integer(
+        string='Events',
+        compute='_compute_event_count',
+        help="Count of events with confirmed registrations.",
+    )
 
     @api.one
     @api.depends('registrations.state')
-    def _count_attended_registration(self):
-        self.attended_registration_count = len(self.registrations.filtered(
-            lambda x: x.state == 'done'))
+    def _compute_event_count(self):
+        self.event_count = len(
+            self.env["event.registration"].search([
+                ("partner_id", "child_of", self.id),
+                ("state", "not in", ("cancel", "draft")),
+            ]).mapped("event_id"))
