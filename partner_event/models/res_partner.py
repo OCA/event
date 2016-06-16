@@ -13,11 +13,10 @@ class ResPartner(models.Model):
         string="Event registrations",
         comodel_name='event.registration', inverse_name="partner_id")
     registration_count = fields.Integer(
-        string='Event registrations number', compute='_count_registration',
-        store=True)
+        string='Event registrations number', compute='_count_registration')
     attended_registration_count = fields.Integer(
         string='Event attended registrations number',
-        compute='_count_attended_registration', store=True)
+        compute='_count_attended_registration')
 
     @api.one
     @api.depends('registrations')
