@@ -30,15 +30,15 @@ class TestEventRegistration(TransactionCase):
         self.assertEqual(partner_02.email, self.registration_02.email)
         self.assertEqual(partner_02.phone, self.registration_02.phone)
 
-    def test_count_registrations(self):
-        event_1 = self.env.ref('event.event_1')
-        registration_model = self.env['event.registration']
-        registration_03 = registration_model.create({
-            'event_id': event_1.id, 'partner_id': self.partner_01.id})
-        self.assertEqual(self.partner_01.registration_count, 2)
-        self.assertEqual(self.partner_01.attended_registration_count, 0)
-        registration_03.state = 'done'
-        self.assertEqual(self.partner_01.attended_registration_count, 1)
+    def test_count_events(self):
+        event_1 = self.event_0.copy()
+        self.assertEqual(self.partner_01.event_count, 0)
+        self.registration_01.state = "open"
+        self.assertEqual(self.partner_01.event_count, 1)
+        self.registration_02.state = "done"
+        self.registration_02.partner_id = self.partner_01
+        self.registration_02.event_id = event_1
+        self.assertEqual(self.partner_01.event_count, 2)
 
     def test_button_register(self):
         event_1 = self.env.ref('event.event_1')
