@@ -7,7 +7,8 @@
     <field name="view_type">form</field>
     <field name="name">Registrations</field>
     <field name="view_mode">tree,form,calendar,graph</field>
-    <field name="context">{'search_default_partner_id': active_id, 'default_partner_id': active_id}</field>
+    <field name="domain">[("partner_id", "child_of", active_ids)]</field>
+    <field name="context">{'default_partner_id': active_id, 'search_default_done': 1, 'search_default_open': 1}</field>
 </record>
 
 <record model="ir.ui.view" id="view_partner_form_registrations">
@@ -19,10 +20,10 @@
             <button name="%(partner_event.act_partner_registration)d"
                     type="action"
                     class="oe_stat_button oe_inline"
+                    help="Count of events with confirmed registrations."
                     icon="fa-futbol-o">
-                <field name="registration_count"
-                       widget="statinfo"
-                       string="Events"/>
+                <field name="event_count"
+                       widget="statinfo"/>
             </button>
         </div>
     </field>
