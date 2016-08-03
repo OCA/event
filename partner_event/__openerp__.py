@@ -25,18 +25,20 @@
 
 {
     'name': 'Link partner to events',
-    'version': '8.0.2.0.0',
+    'version': '8.0.3.0.0',
     'category': 'Marketing',
     'author': 'Serv. Tecnol. Avanzados - Pedro M. Baeza, '
               'Antiun Ingeniería S.L., '
+              'Tecnativa,'
               'Odoo Community Association (OCA)',
-    'website': 'http://www.serviciosbaeza.com, http://www.antiun.com',
+    'website': 'http://www.tecnativa.com',
     'depends': [
         'event',
     ],
     'data': [
         'views/res_partner_view.xml',
         'views/event_event_view.xml',
+        'views/event_registration_view.xml',
         'wizard/res_partner_register_event_view.xml',
     ],
     "installable": True,
