@@ -15,7 +15,6 @@ class ResPartner(models.Model):
     event_count = fields.Integer(
         string='Events',
         compute='_compute_event_count',
-        oldname="registration_count",
         help="Count of events with confirmed registrations.",
     )
 
