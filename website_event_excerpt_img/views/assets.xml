@@ -10,8 +10,6 @@
     <xpath expr=".">
         <link rel="stylesheet"
               href="/website_event_excerpt_img/static/src/css/website_event_excerpt_img.css"/>
-        <script
-            src="/website_event_excerpt_img/static/src/js/patch_bad_inheritance.js"/>
     </xpath>
 </template>
 
