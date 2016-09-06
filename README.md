@@ -29,7 +29,7 @@ addon | version | summary
 [event_sale_extra_info](event_sale_extra_info/) | 8.0.1.0.0 | Additional information for event registrations
 [event_sale_registration_partner_unique](event_sale_registration_partner_unique/) | 8.0.1.0.0 | Makes event sales not to duplicate registrations
 [event_track_generate](event_track_generate/) | 8.0.2.0.0 | Generate a bunch of event tracks at once
-[partner_event](partner_event/) | 8.0.2.0.0 | Link partner to events
+[partner_event](partner_event/) | 8.0.3.0.0 | Link partner to events
 [website_event_contact](website_event_contact/) | 8.0.1.0.0 | Publish your event contacts
 [website_event_filter_selector](website_event_filter_selector/) | 8.0.1.1.0 | Add a customizable top area to filter events with selectors
 [website_event_sale_legal](website_event_sale_legal/) | 8.0.1.0.0 | Make attendees to accept legal terms per event
