@@ -31,6 +31,7 @@ addon | version | summary
 [event_track_generate](event_track_generate/) | 8.0.2.0.0 | Generate a bunch of event tracks at once
 [partner_event](partner_event/) | 8.0.3.0.0 | Link partner to events
 [website_event_contact](website_event_contact/) | 8.0.1.0.0 | Publish your event contacts
+[website_event_excerpt_img](website_event_excerpt_img/) | 8.0.1.0.0 | New layout for event summary, including an excerpt and image
 [website_event_filter_selector](website_event_filter_selector/) | 8.0.1.1.0 | Add a customizable top area to filter events with selectors
 [website_event_sale_legal](website_event_sale_legal/) | 8.0.1.0.0 | Make attendees to accept legal terms per event
 [website_event_share](website_event_share/) | 8.0.1.0.0 | Add contacts to event
