@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2016 Antiun Ingeniería S.L. - Jairo Llopis
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+
+<openerp>
+<data>
+
+<record id="event_pick_view" model="ir.ui.view">
+    <field name="name">Event picker</field>
+    <field name="model">crm.lead.event.pick</field>
+    <field name="arch" type="xml">
+        <form>
+            <group string="Select event to register">
+                <field name="event_id"/>
+            </group>
+            <footer>
+                <button name="action_accept"
+                        type="object"
+                        string="Accept"
+                        class="oe_highlight"/>
+                or
+                <button special="cancel"
+                        string="Cancel"/>
+            </footer>
+        </form>
+    </field>
+</record>
+
+<record id="event_pick_action" model="ir.actions.act_window">
+    <field name="name">Pick an event</field>
+    <field name="res_model">crm.lead.event.pick</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">form</field>
+    <field name="view_id" ref="event_pick_view"/>
+    <field name="target">new</field>
+</record>
+
+</data>
+</openerp>
