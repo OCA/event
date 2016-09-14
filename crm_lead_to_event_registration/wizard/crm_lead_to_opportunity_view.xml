@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+    <record id="view_crm_lead2opportunity_partner" model="ir.ui.view">
+        <field name="name">Lead to opportunity wizard (with event registration)</field>
+        <field name="model">crm.lead2opportunity.partner</field>
+        <field name="inherit_id" ref="crm.view_crm_lead2opportunity_partner"/>
+        <field name="arch" type="xml">
+            <group name="action" position="after">
+                <group string="Event registration"
+                       name="group_event_registration"
+                       attrs="{'invisible': ['|', ('action', '=', 'nothing'), ('name', '!=', 'convert')]}">
+                    <field name="event_id"/>
+                </group>
+            </group>
+        </field>
+    </record>
+
+    </data>
+</openerp>
