@@ -4,7 +4,7 @@
 {
     "name": "Excerpt + Image in Events",
     "summary": "New layout for event summary, including an excerpt and image",
-    "version": "8.0.1.0.0",
+    "version": "8.0.1.0.1",
     "category": "Website",
     "website": "https://www.tecnativa.com",
     "author": "Antiun Ingeniería S.L., Tecnativa, "

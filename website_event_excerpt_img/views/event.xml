@@ -54,12 +54,12 @@
                         <i class="fa fa-clock-o"/>
                         <span
                             itemprop="startDate"
-                            t-field="event.date_begin"
+                            t-field="event.with_context(tz=event.date_tz).date_begin"
                             t-field-options='{"hide_seconds":"True"}'/>
                         <i>to</i>
                         <span
                             itemprop="endDate"
-                            t-field="event.date_end"
+                            t-field="event.with_context(tz=event.date_tz).date_end"
                             t-field-options='{"hide_seconds":"True"}'/>
                     </div>
                     <div
