@@ -1,6 +1,6 @@
-[![Runbot Status](https://runbot.odoo-community.org/runbot/badge/flat/199/9.0.svg)](https://runbot.odoo-community.org/runbot/repo/github-com-oca-event-199)
-[![Build Status](https://travis-ci.org/OCA/event.svg?branch=9.0)](https://travis-ci.org/OCA/event)
-[![Coverage Status](https://coveralls.io/repos/OCA/event/badge.svg?branch=9.0)](https://coveralls.io/r/OCA/event?branch=9.0)
+[![Runbot Status](https://runbot.odoo-community.org/runbot/badge/flat/199/10.0.svg)](https://runbot.odoo-community.org/runbot/repo/github-com-oca-event-199)
+[![Build Status](https://travis-ci.org/OCA/event.svg?branch=10.0)](https://travis-ci.org/OCA/event)
+[![Coverage Status](https://coveralls.io/repos/OCA/event/badge.svg?branch=10.0)](https://coveralls.io/r/OCA/event?branch=10.0)
 
 Event management addons for Odoo
 ================================
@@ -14,18 +14,11 @@ current functionality in Odoo:
 * ...
 
 [//]: # (addons)
-Unported addons
----------------
-addon | version | summary
---- | --- | ---
-[event_project](event_project/) | 8.0.1.0.0 (unported) | Event project
-[partner_event](partner_event/) | 8.0.1.1.0 (unported) | Link partner to events
-
 [//]: # (end addons)
 
 Translation Status
 ------------------
-[![Transifex Status](https://www.transifex.com/projects/p/OCA-event-9-0/chart/image_png)](https://www.transifex.com/projects/p/event-9-0)
+[![Transifex Status](https://www.transifex.com/projects/p/OCA-event-10-0/chart/image_png)](https://www.transifex.com/projects/p/event-10-0)
 
 ----
 
