@@ -14,12 +14,12 @@ class EventEvent(models.Model):
     @api.model
     def run_event_email_reminder(
             self, days=7, near_events=False, template_id=None):
-        """
-        @param days: number of days to reminder when events star
-        @param near_events: If you want receive the events which start
-        between now and limit date
-        @param template_name: Name of a template or None
-        @return:
+        """Enqueue mail with a summary of events that begin on days parameter
+        :param int days: number of days to reminder when events star
+        :param bool near_events:
+            If you want receive the events which start between now and
+            limit date
+        :param str template_name: Name of a template or None
         """
         today = fields.Date.context_today(self)
         limit_date = datetime.strptime(
