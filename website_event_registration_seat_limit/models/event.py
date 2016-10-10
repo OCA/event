@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 # © 2016 Jamotion
 
-from openerp import models, api, fields, _
+from openerp import models, api
 
 
 class EventEventTicket(models.Model):
