@@ -13,19 +13,23 @@ class EventEvent(models.Model):
 
     @api.model
     def run_event_email_reminder(
-            self, days=7, near_events=False, template_id=None):
+            self, days=7, draft_events=False, near_events=False,
+            template_id=None):
         """Enqueue mail with a summary of events that begin on days parameter
         :param int days: number of days to reminder when events star
+        :param bool draft_events: filter by draft events too
         :param bool near_events:
             If you want receive the events which start between now and
             limit date
-        :param str template_name: Name of a template or None
+        :param str template_id: id of a template or None
         """
         today = fields.Date.context_today(self)
         limit_date = datetime.strptime(
             today, DEFAULT_SERVER_DATE_FORMAT) + timedelta(days=days)
-
-        domain = [('state', '=', 'confirm')]
+        if draft_events:
+            domain = [('state', 'in', ['draft', 'confirm'])]
+        else:
+            domain = [('state', '=', 'confirm')]
         if not near_events:
             domain.extend([
                 ('date_begin', '>=', '%s 00:00:00' % (

@@ -62,7 +62,7 @@ class TestEventEmailReminder(TransactionCase):
         self.assertEqual(self.user_1.email, address[0])
 
     def test_cron_run_custom_values(self):
-        self.env['event.event'].run_event_email_reminder(10, True)
+        self.env['event.event'].run_event_email_reminder(10, False, True)
         mails_to_send = self.mail.search([
             ('subject', '=', 'The events will be started soon'),
             ('email_to', 'like', 'test%@test.com'),
@@ -74,9 +74,21 @@ class TestEventEmailReminder(TransactionCase):
 
     def test_cron_run_template(self):
         self.env['event.event'].run_event_email_reminder(
-            8, False, self.template.id)
+            8, False, False, self.template.id)
         mails_to_send = self.mail.search([
             ('subject', '=', 'Hello test - copy'),
+            ('email_to', 'like', 'test%@test.com'),
+        ])
+        self.assertEqual(len(mails_to_send), 1)
+        address = mails_to_send.mapped('email_to')
+        self.assertEqual(self.user_2.email, address[0])
+
+    def test_cron_run_draft_events(self):
+        # Change the event to draft state
+        self.event_2.state = 'draft'
+        self.env['event.event'].run_event_email_reminder(8, True, False)
+        mails_to_send = self.mail.search([
+            ('subject', '=', 'The events will be started soon'),
             ('email_to', 'like', 'test%@test.com'),
         ])
         self.assertEqual(len(mails_to_send), 1)

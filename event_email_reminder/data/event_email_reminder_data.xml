@@ -22,13 +22,15 @@
             <td>Date Begin</td>
             <td>Event Name</td>
             <td>Date End</td>
+            <td>State</td>
         </tr>
     </thead>
     % for event in ctx["events"]:
     <tr>
         <td><span>${event.date_begin}</span></td>
         <td><span>${event.name}</span></td>
-        <td><span style="font-weight:bold;">${event.date_end}</td>
+        <td><span>${event.date_end}</td>
+        <td><span style="font-weight:bold;">${event.state}</td>
     </tr>
     % endfor
 </table>
@@ -45,7 +47,7 @@ ${object.company_id.name or ''}
     <field name="active" eval="True"/>
     <field name="model" eval="'event.event'"/>
     <field name="function" eval="'run_event_email_reminder'"/>
-    <field name="args" eval="'(5, False, None)'"/>
+    <field name="args" eval="'(5, False, False, None)'"/>
     <field name="doall" eval="False"/>
     <field name="interval_number">1</field>
     <field name="interval_type">days</field>
