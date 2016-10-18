@@ -6,22 +6,20 @@
 Event Email Reminder
 ====================
 
-This module extends the functionality of event module to allow send events
+This module extends the functionality of event module to allow to send events
 reminder emails before an event start.
 
-Usage
-=====
-
-To use this module, you need to do nothing but you can customize any options:
+Configuration
+=============
 
 You can use cron arguments to modify three options in this position
 (days, near_events, template_id):
 
-1. Change days to limit events search, 7 as default.
-2. Select an option to include events which begin date is between today and
-   limit days, False as default.
-3. You can select and id template to render as third parameter, None by
-   default, so email is rendered with the template installed by the module.
+* days: Change days to limit events search, 7 as default.
+* near_events: Select an option to include events which begin date is between 
+  today and limit days, False as default.
+* template_id: You can select and id template to render as third parameter, 
+  None by default, so email is rendered with the template installed by the module.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
