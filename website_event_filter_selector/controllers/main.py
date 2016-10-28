@@ -35,7 +35,9 @@ class WebsiteEvent(website_event):
             domain.append(("country_id", "=", False))
 
         # Handle city search
-        event_obj = http.request.env["event.event"]
+        event_obj = http.request.env["event.event"].with_context(
+            http.request.context
+        )
         cities = event_obj.read_group(
             domain,
             ["city"],
