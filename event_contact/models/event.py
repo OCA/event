@@ -14,10 +14,10 @@ class EventEvent(models.Model):
         help='Partners available to attend attendees requests for this event.')
 
     @api.multi
-    @api.onchange("type")
+    @api.onchange("event_type_id")
     def _onchange_type_set_contact_ids(self):
-        if self.type.contact_ids and not self.contact_ids:
-            self.contact_ids = self.type.contact_ids
+        if self.event_type_id.contact_ids and not self.contact_ids:
+            self.contact_ids = self.event_type_id.contact_ids
 
 
 class EventType(models.Model):

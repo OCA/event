@@ -4,7 +4,7 @@
 
 {
     'name': 'Event Contacts',
-    'version': '8.0.1.0.0',
+    'version': '9.0.1.0.0',
     'summary': 'Add contacts to event and event type',
     'author': 'OpenSynergy Indonesia, '
               'Antiun Ingeniería S.L., '
