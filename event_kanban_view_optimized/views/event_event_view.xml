@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 Antonio Espinosa <antonio.espinosa@tecnativa.com>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+<data>
+
+<record id="view_event_kanban" model="ir.ui.view">
+    <field name="name">Remove is_subscribed field to improve loading time</field>
+    <field name="model">event.event</field>
+    <field name="inherit_id" ref="event.view_event_kanban"/>
+    <field name="priority" eval="99999"/>
+    <field name="arch" type="xml">
+        <field name="is_subscribed" position="replace"/>
+        <div groups="base.group_user,base.group_portal" position="replace"/>
+    </field>
+</record>
+
+</data>
+</openerp>
