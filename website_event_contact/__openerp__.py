@@ -4,7 +4,7 @@
 
 {
     'name': 'Website Event Contacts',
-    'version': '8.0.1.0.0',
+    'version': '9.0.1.0.0',
     'summary': 'Publish your event contacts',
     'author': 'OpenSynergy Indonesia,Odoo Community Association (OCA)',
     'website': 'https://opensynergy-indonesia.com',
