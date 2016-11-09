@@ -21,6 +21,7 @@ addon | version | summary
 [crm_lead_to_event_registration](crm_lead_to_event_registration/) | 8.0.1.1.0 | Register a lead directly in an event
 [event_contact](event_contact/) | 8.0.1.0.0 | Add contacts to event and event type
 [event_email_reminder](event_email_reminder/) | 8.0.1.0.0 | Send an email before an event start
+[event_kanban_view_optimized](event_kanban_view_optimized/) | 8.0.1.0.0 | Optimize event kanban view load time
 [event_multi_image](event_multi_image/) | 8.0.1.0.0 | Attach multiple images for each event
 [event_product](event_product/) | 8.0.1.0.0 | Combine products and events
 [event_project](event_project/) | 8.0.1.1.1 | Event project
