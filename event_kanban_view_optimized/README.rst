@@ -6,7 +6,7 @@
 Event kanban view optimized
 ===========================
 
-Event kanban view computes ``is_subscribed`` field per each event and loading time
+Event kanban view computes ``is_subscribed`` field for each event and loading time
 is degraded when events have many registrations. This addon removes this field
 from kanban view in order to optimize loading time.
 
