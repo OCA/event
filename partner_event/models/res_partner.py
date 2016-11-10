@@ -31,12 +31,14 @@ class ResPartner(models.Model):
         for partner in self:
             partner.registration_count = len(partner.registrations)
 
+    @api.multi
     def _compute_event_count(self):
-        self.event_count = len(
-            self.env["event.registration"].search([
-                ("partner_id", "child_of", self.id),
-                ("state", "not in", ("cancel", "draft")),
-            ]).mapped("event_id"))
+        for partner in self:
+            partner.event_count = len(
+                self.env["event.registration"].search([
+                    ("partner_id", "child_of", partner.id),
+                    ("state", "not in", ("cancel", "draft")),
+                ]).mapped("event_id"))
 
     @api.multi
     @api.depends('registrations.state')
