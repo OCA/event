@@ -1,7 +1,8 @@
-# -*- encoding: utf-8 -*-
-##############################################################################
-# For copyright and license notices, see __openerp__.py file in root directory
-##############################################################################
+# -*- coding: utf-8 -*-
+# © 2014 Serv. Tecnol. Avanzados - Pedro M. Baeza
+# © 2015 Antiun Ingenieria S.L. - Javier Iniesta
+# © 2016 Antiun Ingenieria S.L. - Antonio Espinosa
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from openerp import models, fields
 
