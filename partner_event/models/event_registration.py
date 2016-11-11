@@ -1,9 +1,10 @@
-# -*- encoding: utf-8 -*-
-##############################################################################
-# For copyright and license notices, see __openerp__.py file in root directory
-##############################################################################
+# -*- coding: utf-8 -*-
+# © 2014 Serv. Tecnol. Avanzados - Pedro M. Baeza
+# © 2015 Antiun Ingenieria S.L. - Javier Iniesta
+# © 2016 Antiun Ingenieria S.L. - Antonio Espinosa
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import models, api
+from openerp import models, api, fields
 
 
 class EventRegistration(models.Model):
@@ -38,3 +39,13 @@ class EventRegistration(models.Model):
                 partner_id = partner.id
             vals['partner_id'] = partner_id
         return super(EventRegistration, self).create(vals)
+
+    @api.multi
+    def partner_data_update(self, data):
+        reg_fields = ['name', 'email', 'phone']
+        reg_data = dict((k, v) for k, v in data.iteritems() if k in reg_fields)
+        if reg_data:
+            # Only update registration data if this event is not old
+            registrations = self.filtered(
+                lambda x: x.event_end_date >= fields.Datetime.now())
+            registrations.write(reg_data)
