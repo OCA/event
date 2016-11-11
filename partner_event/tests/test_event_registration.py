@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
-# License AGPL-3: Antiun Ingenieria S.L. - Javier Iniesta
-# See README.rst file on addon root folder for more details
+# © 2014 Serv. Tecnol. Avanzados - Pedro M. Baeza
+# © 2015 Antiun Ingenieria S.L. - Javier Iniesta
+# © 2016 Antiun Ingenieria S.L. - Antonio Espinosa
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from openerp.tests.common import TransactionCase
 
@@ -34,10 +36,12 @@ class TestEventRegistration(TransactionCase):
         event_1 = self.event_0.copy()
         self.assertEqual(self.partner_01.event_count, 0)
         self.registration_01.state = "open"
+        self.partner_01.invalidate_cache()
         self.assertEqual(self.partner_01.event_count, 1)
         self.registration_02.state = "done"
         self.registration_02.partner_id = self.partner_01
         self.registration_02.event_id = event_1
+        self.partner_01.invalidate_cache()
         self.assertEqual(self.partner_01.event_count, 2)
 
     def test_button_register(self):
