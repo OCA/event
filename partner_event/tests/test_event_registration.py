@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
-# © 2014 Serv. Tecnol. Avanzados - Pedro M. Baeza
-# © 2015 Antiun Ingenieria S.L. - Javier Iniesta
-# © 2016 Antiun Ingenieria S.L. - Antonio Espinosa
+# © 2014 Tecnativa S.L. - Pedro M. Baeza
+# © 2015 Tecnativa S.L. - Javier Iniesta
+# © 2016 Tecnativa S.L. - Antonio Espinosa
+# © 2016 Tecnativa S.L. - Vicent Cubells
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from openerp.tests.common import TransactionCase
+from datetime import datetime, timedelta
 
 
 class TestEventRegistration(TransactionCase):
@@ -13,7 +15,8 @@ class TestEventRegistration(TransactionCase):
         super(TestEventRegistration, self).setUp()
         self.event_0 = self.env.ref('event.event_0')
         self.event_0.create_partner = True
-        registration_model = self.env['event.registration']
+        registration_model = self.env[
+            'event.registration'].with_context(registration_force_draft=True)
         partner_model = self.env['res.partner']
         self.partner_01 = partner_model.create({'name': 'Test Partner 01',
                                                 'email': 'email01@test.com'})
@@ -50,3 +53,23 @@ class TestEventRegistration(TransactionCase):
             'event': event_1.id})
         active_ids = [self.partner_01.id, self.registration_02.partner_id.id]
         wizard.with_context({'active_ids': active_ids}).button_register()
+
+    def test_data_update(self):
+        event_2 = self.event_0.copy()
+        self.yesterday = datetime.now() - timedelta(days=1)
+        self.tomorrow = datetime.now() + timedelta(days=1)
+        self.last_moth = datetime.now() - timedelta(days=30)
+        # Set an old event
+        event_2.write({'date_begin': self.last_moth})
+        event_2.write({'date_end': self.yesterday})
+        self.registration_02.event_id = event_2
+        self.registration_02.partner_id = self.partner_01
+        # Update partner for an old event
+        self.partner_01.write({'email': 'new@test.com'})
+        self.assertNotEqual(
+            event_2.registration_ids.email, 'new@test.com')
+        # Update partner for an current event
+        event_2.write({'date_end': self.tomorrow})
+        self.partner_01.write({'email': 'new@test.com'})
+        self.assertEqual(
+            event_2.registration_ids.email, 'new@test.com')

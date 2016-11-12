@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
-# © 2014 Serv. Tecnol. Avanzados - Pedro M. Baeza
-# © 2015 Antiun Ingenieria S.L. - Javier Iniesta
-# © 2016 Antiun Ingenieria S.L. - Antonio Espinosa
+# © 2014 Tecnativa S.L. - Pedro M. Baeza
+# © 2015 Tecnativa S.L. - Javier Iniesta
+# © 2016 Tecnativa S.L. - Antonio Espinosa
+# © 2016 Tecnativa S.L. - Vicent Cubells
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from openerp import models, api, fields
@@ -42,8 +43,8 @@ class EventRegistration(models.Model):
 
     @api.multi
     def partner_data_update(self, data):
-        reg_fields = ['name', 'email', 'phone']
-        reg_data = dict((k, v) for k, v in data.iteritems() if k in reg_fields)
+        reg_data = dict((k, v) for k, v in
+                        data.iteritems() if k in ['name', 'email', 'phone'])
         if reg_data:
             # Only update registration data if this event is not old
             registrations = self.filtered(
