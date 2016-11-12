@@ -1,23 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright 2016 Jairo Llopis <jairo.llopis@tecnativa.com>
+     Copyright 2016 Vicent Cubells <vicent.cubells@tecnativa.com>
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 
-<openerp>
-<data>
+<odoo>
 
 <record id="view_registration_search" model="ir.ui.view">
     <field name="name">Search attended registrations</field>
     <field name="model">event.registration</field>
     <field name="inherit_id" ref="event.view_registration_search"/>
     <field name="arch" type="xml">
-        <!-- TODO Remove if https://github.com/odoo/odoo/pull/12997 is merged -->
-        <xpath expr="//filter[@domain=&quot;[('state','=','open')]&quot;]"
-               position="attributes">
-            <attribute name="name">open</attribute>
-        </xpath>
-
         <!-- TODO Change expr if https://github.com/odoo/odoo/pull/12997 is merged -->
-        <xpath expr="//filter[@domain=&quot;[('state','=','open')]&quot;]"
+        <xpath expr="//filter[@domain=&quot;[('state', 'in', ['draft', 'open', 'done'])]&quot;]"
                position="after">
             <filter
                 name="done"
@@ -27,5 +21,4 @@
     </field>
 </record>
 
-</data>
-</openerp>
+</odoo>
