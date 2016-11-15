@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 # © 2016 Sergio Teruel <sergio.teruel@tecnativa.com>
+# © 2016 Vicent Cubells <vicent.cubells@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from datetime import datetime, timedelta
+from datetime import timedelta
 import time
 
 from openerp.tests.common import TransactionCase
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
+from openerp import fields
 
 
 class TestEventEmailReminder(TransactionCase):
@@ -14,8 +16,7 @@ class TestEventEmailReminder(TransactionCase):
     def setUp(self):
         super(TestEventEmailReminder, self).setUp()
         today = time.strftime(DEFAULT_SERVER_DATE_FORMAT)
-        date_event_1 = datetime.strptime(
-            today, DEFAULT_SERVER_DATE_FORMAT) + timedelta(days=7)
+        date_event_1 = fields.Date.from_string(today) + timedelta(days=7)
 
         self.user_1 = self.env['res.users'].sudo().create({
             'name': 'user - test 01',
@@ -34,8 +35,7 @@ class TestEventEmailReminder(TransactionCase):
             "user_id": self.user_1.id,
             "state": 'confirm',
         })
-        date_event_2 = datetime.strptime(
-            today, DEFAULT_SERVER_DATE_FORMAT) + timedelta(days=8)
+        date_event_2 = fields.Date.from_string(today) + timedelta(days=8)
         self.event_2 = self.env["event.event"].create({
             "name": "Test 01",
             "date_begin": date_event_2,

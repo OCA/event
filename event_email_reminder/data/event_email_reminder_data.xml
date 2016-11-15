@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- © 2016 Sergio Teruel <sergio.teruel@tecnativa.com>
+     © 2016 Vicent Cubells <vicent.cubells@tecnativa.com>
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
-<openerp>
-<data noupdate="1">
+<odoo noupdate="1">
 
-<record id="event_email_reminder_template" model="email.template">
+<record id="event_email_reminder_template" model="mail.template">
     <field name="name">Event Email Reminder</field>
     <field name="email_from">${object.company_id.name}&lt;${object.company_id.email}&gt;</field>
     <field name="subject">The events will be started soon</field>
@@ -47,13 +47,12 @@ ${object.company_id.name or ''}
     <field name="active" eval="True"/>
     <field name="model" eval="'event.event'"/>
     <field name="function" eval="'run_event_email_reminder'"/>
-    <field name="args" eval="'(5, False, False, None)'"/>
+    <field name="args" eval="'(7, False, False, None)'"/>
     <field name="doall" eval="False"/>
-    <field name="interval_number">1</field>
+    <field name="interval_number">7</field>
     <field name="interval_type">days</field>
     <field name="numbercall">-1</field>
 </record>
 
-</data>
-</openerp>
+</odoo>
 
