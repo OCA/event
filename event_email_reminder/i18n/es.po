@@ -17,7 +17,7 @@ msgstr ""
 "X-Generator: Poedit 1.8.7.1\n"
 
 #. module: event_email_reminder
-#: model:email.template,body_html:event_email_reminder.event_email_reminder_template
+#: model:mail.template,body_html:event_email_reminder.event_email_reminder_template
 msgid ""
 "\n"
 "        \n"
@@ -84,6 +84,6 @@ msgid "Event"
 msgstr "Evento"
 
 #. module: event_email_reminder
-#: model:email.template,subject:event_email_reminder.event_email_reminder_template
+#: model:mail.template,subject:event_email_reminder.event_email_reminder_template
 msgid "The events will be started soon"
 msgstr "Hay eventos que comenzarán en breve"
