@@ -23,7 +23,7 @@ You can use cron arguments to modify three options in this position
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/199/8.0
+   :target: https://runbot.odoo-community.org/runbot/199/9.0
 
 
 Bug Tracker
@@ -46,6 +46,7 @@ Contributors
 ------------
 
 * Sergio Teruel <sergio.teruel@tecnativa.com>
+* Vicent Cubells <vicent.cubells@tecnativa.com>
 
 
 Maintainer
