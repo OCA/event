@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 # © 2016 Sergio Teruel <sergio.teruel@tecnativa.com>
+# © 2016 Vicent Cubells <vicent.cubells@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from openerp import api, fields, models
-from datetime import datetime, timedelta
-
-from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
+from datetime import timedelta
 
 
 class EventEvent(models.Model):
@@ -16,7 +15,7 @@ class EventEvent(models.Model):
             self, days=7, draft_events=False, near_events=False,
             template_id=None):
         """Enqueue mail with a summary of events that begin on days parameter
-        :param int days: number of days to reminder when events star
+        :param int days: number of days to reminder when events start
         :param bool draft_events: filter by draft events too
         :param bool near_events:
             If you want receive the events which start between now and
@@ -24,8 +23,7 @@ class EventEvent(models.Model):
         :param str template_id: id of a template or None
         """
         today = fields.Date.context_today(self)
-        limit_date = datetime.strptime(
-            today, DEFAULT_SERVER_DATE_FORMAT) + timedelta(days=days)
+        limit_date = fields.Date.from_string(today) + timedelta(days=days)
         if draft_events:
             domain = [('state', 'in', ['draft', 'confirm'])]
         else:
@@ -49,7 +47,7 @@ class EventEvent(models.Model):
                 template = self.env.ref(
                     'event_email_reminder.event_email_reminder_template')
             else:
-                template = self.env['email.template'].browse(template_id)
+                template = self.env['mail.template'].browse(template_id)
             for user in events.mapped('user_id'):
                 ctx = self.env.context.copy()
                 event_by_user = events.filtered(lambda x: x.user_id == user)
