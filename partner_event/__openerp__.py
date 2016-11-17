@@ -6,7 +6,7 @@
 
 {
     'name': 'Link partner to events',
-    'version': '8.0.3.0.0',
+    'version': '8.0.3.1.0',
     'category': 'Marketing',
     'author': 'Serv. Tecnol. Avanzados - Pedro M. Baeza, '
               'Antiun Ingeniería S.L., '
