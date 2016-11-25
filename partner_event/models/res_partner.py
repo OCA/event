@@ -1,9 +1,11 @@
-# -*- encoding: utf-8 -*-
-##############################################################################
-# For copyright and license notices, see __openerp__.py file in root directory
-##############################################################################
+# -*- coding: utf-8 -*-
+# © 2014 Tecnativa S.L. - Pedro M. Baeza
+# © 2015 Tecnativa S.L. - Javier Iniesta
+# © 2016 Tecnativa S.L. - Antonio Espinosa
+# © 2016 Tecnativa S.L. - Vicent Cubells
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import models, fields, api
+from openerp import api, fields, models
 
 
 class ResPartner(models.Model):
@@ -12,6 +14,11 @@ class ResPartner(models.Model):
     registrations = fields.One2many(
         string="Event registrations",
         comodel_name='event.registration', inverse_name="partner_id")
+    event_count = fields.Integer(
+        string='Events',
+        compute='_compute_event_count',
+        help="Count of events with confirmed registrations.",
+    )
     registration_count = fields.Integer(
         string='Event registrations number', compute='_count_registration',
         store=True)
@@ -19,13 +26,30 @@ class ResPartner(models.Model):
         string='Event attended registrations number',
         compute='_count_attended_registration', store=True)
 
-    @api.one
+    @api.multi
     @api.depends('registrations')
     def _count_registration(self):
-        self.registration_count = len(self.registrations)
+        for partner in self:
+            partner.registration_count = len(partner.registrations)
 
-    @api.one
+    @api.multi
+    def _compute_event_count(self):
+        for partner in self:
+            partner.event_count = len(
+                self.env["event.registration"].search([
+                    ("partner_id", "child_of", partner.id),
+                    ("state", "not in", ("cancel", "draft")),
+                ]).mapped("event_id"))
+
+    @api.multi
     @api.depends('registrations.state')
     def _count_attended_registration(self):
-        self.attended_registration_count = len(self.registrations.filtered(
-            lambda x: x.state == 'done'))
+        for partner in self:
+            partner.attended_registration_count = len(
+                partner.registrations.filtered(lambda x: x.state == 'done'))
+
+    @api.multi
+    def write(self, data):
+        res = super(ResPartner, self).write(data)
+        self.mapped('registrations').partner_data_update(data)
+        return res

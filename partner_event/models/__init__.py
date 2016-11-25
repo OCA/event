@@ -1,6 +1,10 @@
-# -*- encoding: utf-8 -*-
-##############################################################################
-# For copyright and license notices, see __openerp__.py file in root directory
-##############################################################################
+# -*- coding: utf-8 -*-
+# © 2014 Tecnativa S.L. - Pedro M. Baeza
+# © 2015 Tecnativa S.L. - Javier Iniesta
+# © 2016 Tecnativa S.L. - Antonio Espinosa
+# © 2016 Tecnativa S.L. - Vicent Cubells
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
+from . import event_event
+from . import event_registration
 from . import res_partner
