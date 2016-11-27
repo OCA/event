@@ -18,6 +18,7 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
+[event_email_reminder](event_email_reminder/) | 9.0.1.0.0 | Send an email before an event start
 [partner_event](partner_event/) | 9.0.1.0.0 | Link partner to events
 
 Unported addons
