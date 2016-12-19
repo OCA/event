@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # © 2016 Jairo Llopis <jairo.llopis@tecnativa.com>
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 from openerp import _, http
 from openerp.addons.website_event.controllers.main import website_event
@@ -11,7 +11,8 @@ class WebsiteEvent(website_event):
     def events(self, page=1, **searches):
         # Get current render values
         searches.setdefault("city", "all")
-        values = super(WebsiteEvent, self).events(page, **searches).qcontext
+        result = super(WebsiteEvent, self).events(page, **searches)
+        values = result.qcontext
         searches = values["searches"]
 
         # Regenerate current domain. Ideally, upstream would make all this in a
@@ -26,7 +27,7 @@ class WebsiteEvent(website_event):
 
         # Type domain
         if values["current_type"]:
-            domain.append(("type", "=", values["current_type"].id))
+            domain.append(("event_type_id", "=", values["current_type"].id))
 
         # Country domain
         if values["current_country"]:
@@ -76,5 +77,6 @@ class WebsiteEvent(website_event):
             offset=values["pager"]["offset"],
             order=order)
 
-        # Render template again
-        return http.request.website.render("website_event.index", values)
+        # Return changed template
+        result.qcontext = values
+        return result
