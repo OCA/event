@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- © 2016 Antiun Ingeniería S.L. - Jairo Llopis
-     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
 
-<openerp>
-<data>
+<odoo>
 
 <!-- Reusable callable templates -->
 <template id="element" name="Event Selection Filter Form Element">
@@ -47,6 +46,14 @@
                                 current_country and
                                 current_country.id) and
                              'selected'"/>
+                </t>
+                <t t-if="not country['country_id']">
+                    <option
+                        t-att-selected="searches.get('country') == 'online' and 'selected'"
+                        value="online">
+                        Online Events
+                        <t t-esc="'(%s)' % country['country_id_count']"/>
+                    </option>
                 </t>
             </t>
         </select>
@@ -106,14 +113,14 @@
         <t t-set="element_id" t-value="filter_selector_date"/>
         <label for="type">Event Type</label>
         <select name="type" class="form-control">
-            <t t-foreach="types" t-as="type">
-                <t t-if="type['type']">
+            <t t-foreach="types" t-as="type_">
+                <t t-if="type_['event_type_id']">
                     <option
-                        t-att-value="type['type'][0]"
+                        t-att-value="type_['event_type_id'][0]"
                         t-esc="'%s (%s)' % (
-                            type['type'][1],
-                            type['type_count'])"
-                        t-att-selected="type['type'][0] == (
+                            type_['event_type_id'][1],
+                            type_['event_type_id_count'])"
+                        t-att-selected="type_['event_type_id'][0] == (
                                             current_type and
                                             current_type.id) and
                                         'selected'"/>
@@ -193,5 +200,4 @@
     </xpath>
 </template>
 
-</data>
-</openerp>
+</odoo>
