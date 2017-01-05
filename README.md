@@ -20,6 +20,7 @@ addon | version | summary
 --- | --- | ---
 [event_email_reminder](event_email_reminder/) | 9.0.1.0.0 | Send an email before an event start
 [partner_event](partner_event/) | 9.0.1.0.0 | Link partner to events
+[website_event_filter_selector](website_event_filter_selector/) | 9.0.1.0.0 | Add a customizable top area to filter events with selectors
 [website_event_share](website_event_share/) | 9.0.1.0.0 | Add contacts to event
 
 Unported addons
