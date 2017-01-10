@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# © 2016 Jairo Llopis <jairo.llopis@tecnativa.com>
+# Copyright 2016 Jairo Llopis <jairo.llopis@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from openerp import _, api, exceptions, fields, models
@@ -39,12 +39,10 @@ class CrmLead(models.Model):
     @api.multi
     def action_check_status_confirm_registration(self):
         """If the opportunity is won/lost, open/cancel registration."""
-        won = self._track["stage_id"]["crm.mt_lead_won"]
-        lost = self._track["stage_id"]["crm.mt_lead_lost"]
         for s in self:
-            if won(s, s.env.cr, s.env.uid, s, s.env.context):
-                s.event_registration_id.registration_open()
-            elif lost(s, s.env.cr, s.env.uid, s, s.env.context):
+            if self._track_subtype(['stage_id']) == "crm.mt_lead_won":
+                s.event_registration_id.confirm_registration()
+            elif self._track_subtype(['stage_id']) == "crm.mt_lead_lost":
                 s.event_registration_id.button_reg_cancel()
 
     @api.model

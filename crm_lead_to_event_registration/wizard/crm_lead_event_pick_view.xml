@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- © 2016 Antiun Ingeniería S.L. - Jairo Llopis
+<!-- Copyright 2016 Antiun Ingeniería S.L. - Jairo Llopis
+     Copyright 2017 Tecnativa - Vicent Cubells
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
 
-<openerp>
-<data>
+<odoo>
 
 <record id="event_pick_view" model="ir.ui.view">
     <field name="name">Event picker</field>
@@ -18,7 +18,6 @@
                         type="object"
                         string="Accept"
                         class="oe_highlight"/>
-                or
                 <button special="cancel"
                         string="Cancel"/>
             </footer>
@@ -35,5 +34,4 @@
     <field name="target">new</field>
 </record>
 
-</data>
-</openerp>
+</odoo>
