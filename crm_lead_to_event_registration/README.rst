@@ -12,6 +12,9 @@ this lead into a partner, so that you can save several steps.
 Usage
 =====
 
+Go to *Sales > Configuration > Settings* and check "Use leads if you need a
+qualification step before creating an opportunity or a customer" option.
+
 Go to any lead in *Sales > Sales > Leads*, and click on the button "Convert
 to Opportunity".
 
@@ -23,9 +26,13 @@ In that section, you can select an event, and when you click on
 "Create opportunity", the partner will be registered automatically in the
 event.
 
+In any moment, you can also set a registration for an event by clicking on
+button "Generate registration", located in tab "Extra info" in marketing
+section in any lead or opportunity.
+
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/199/8.0
+   :target: https://runbot.odoo-community.org/runbot/199/9.0
 
 Bug Tracker
 ===========
@@ -45,6 +52,7 @@ Contributors
 * Pedro M. Baeza <pedro.baeza@tecnativa.com>
 * Rafael Blasco <rafabn@tecnativa.com>
 * Jairo Llopis <jairo.llopis@tecnativa.com>
+* Vicent Cubells <vicent.cubells@tecnativa.com>
 
 Maintainer
 ----------
