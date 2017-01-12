@@ -116,8 +116,3 @@ msgstr "No acepta recibir emails"
 #: view:event.registration:event_registration_mass_mailing.view_registration_search
 msgid "Registrations that did not ask not to be included in mass mailing campaigns"
 msgstr "Registros que pidieron no ser incluidos en campañas de envío masivo de correos"
-
-#. module: event_registration_mass_mailing
-#: view:event.registration.mail.list.wizard:event_registration_mass_mailing.event_registration_mail_list_wizard_form
-msgid "or"
-msgstr "o"
