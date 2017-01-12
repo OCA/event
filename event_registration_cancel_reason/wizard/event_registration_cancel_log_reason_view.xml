@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<openerp>
-    <data>
+<odoo>
 
     <record model="ir.ui.view" id="event_registration_cancel_log_reason_view">
         <field name="name">Logging registration cancellation wizard</field>
@@ -16,15 +15,9 @@
                             class="oe_highlight"
                             type="object"
                     />
-                    or
-                    <button special="cancel"
-                            class="oe_link"
-                            string="Abort"
-                    />
                 </footer>
             </form>
         </field>
     </record>
 
-    </data>
-</openerp>
+</odoo>
