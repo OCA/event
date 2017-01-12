@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-<data>
+<odoo>
 
 <record model="ir.ui.view" id="event_registration_mail_list_wizard_form">
     <field name="name">event.registration.mail.list.form</field>
@@ -12,12 +11,9 @@
             </group>
             <footer>
                 <button string="Create contacts" name="add_to_mail_list" type="object" class="oe_highlight"/>
-                or
-                <button string="Cancel" class="oe_link" special="cancel" />
             </footer>
         </form>
     </field>
 </record>
 
-</data>
-</openerp>
+</odoo>
