@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<openerp>
-    <data>
+<odoo>
 
     <record model="ir.ui.view" id="view_event_registration_form">
         <field name="name">Event registration form (with cancellation reason)</field>
@@ -8,7 +7,7 @@
         <field name="inherit_id" ref="event.view_event_registration_form"/>
         <field name="arch" type="xml">
             <data>
-                <xpath expr="//sheet/h1" position="after">
+                <xpath expr="//group[@name='event']" position="after">
                     <h2 attrs="{'invisible':[('cancel_reason_id','=',False)]}">
                         <label for="cancel_reason_id" string="Cancellation Reason:"/>
                         <field name="cancel_reason_id" class="oe_inline" options="{'no_open':True'}"/>
@@ -49,8 +48,7 @@
 
     <menuitem action="event_registration_cancel_reason_action"
               id="menu_event_registration_cancel_reason"
-              parent="event.event_configuration"
+              parent="event.menu_event_configuration"
     />
 
-    </data>
-</openerp>
+</odoo>
