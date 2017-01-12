@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
-# License AGPL-3: Antiun Ingenieria S.L. - Javier Iniesta
-# See README.rst file on addon root folder for more details
+# Copyright 2016 Antiun Ingenieria S.L. - Javier Iniesta
+# Copyright 2017 Tecnativa - Vicent Cubells
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
     'name': "Mass mailing from events",
     'category': 'Marketing',
-    'version': '8.0.1.1.0',
+    'version': '9.0.1.0.0',
     'depends': [
         'event',
         'mass_mailing'
@@ -14,7 +15,8 @@
         'views/event_registration.xml',
         'wizard/event_registration_mail_list_wizard.xml',
     ],
-    'author': 'Antiun Ingeniería S.L.,Odoo Community Association (OCA)',
+    'author': 'Tecnativa, '
+              'Odoo Community Association (OCA)',
     'website': 'http://www.antiun.com',
     'license': 'AGPL-3',
     'installable': True,
