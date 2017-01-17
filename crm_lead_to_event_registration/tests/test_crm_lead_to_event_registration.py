@@ -24,6 +24,10 @@ class TestCrmLeadToEventRegistration(common.TransactionCase):
         self.wiz_obj = self.env['crm.lead2opportunity.partner'].with_context(
             active_ids=[self.lead.id], active_id=self.lead.id,
             active_model='crm.lead')
+        self.wiz_event = self.env['crm.lead.event.pick'].with_context(
+            active_ids=[self.lead.id], active_id=self.lead.id,
+            active_model='crm.lead'
+        )
 
     def test_convert_lead_wo_partner(self):
         wizard = self.wiz_obj.create({
@@ -46,3 +50,36 @@ class TestCrmLeadToEventRegistration(common.TransactionCase):
         self.assertTrue(self.event.registration_ids)
         self.assertEqual(
             self.event.registration_ids[0].partner_id, self.partner)
+
+    def test_event_pick_and_track(self):
+        stage_won = self.env.ref('crm.stage_lead5')
+        wizard = self.wiz_event.create({
+            'lead_id': self.lead.id,
+            'event_id': self.event.id,
+        })
+        wizard.action_accept()
+        self.assertTrue(self.event.registration_ids)
+
+        def _track_subtype(self, cr, uid, ids, init_values, context=None):
+            record = self.browse(cr, uid, ids[0], context=context)
+            if 'stage_id' in init_values \
+                    and record.probability == 100 \
+                    and record.stage_id \
+                    and record.stage_id.on_change:
+                return 'crm.mt_lead_won'
+            elif 'active' in init_values \
+                    and record.probability == 0 and not record.active:
+                return 'crm.mt_lead_lost'
+            return False
+
+        self.registry('crm.lead')._patch_method(
+            '_track_subtype', _track_subtype)
+        self.lead.stage_id = stage_won
+        self.assertEqual(
+            self.lead._track_subtype(['stage_id']), 'crm.mt_lead_won')
+        self.lead.write({
+            'active': False,
+            'probability': 0,
+        })
+        self.assertEqual(
+            self.lead._track_subtype(['active']), 'crm.mt_lead_lost')

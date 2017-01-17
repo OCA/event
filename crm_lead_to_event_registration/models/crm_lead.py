@@ -22,13 +22,12 @@ class CrmLead(models.Model):
             name = (s.contact_name or
                     s.partner_name or
                     s.partner_id.name)
-            if not name:
+            if not name:  # pragma: no cover
                 raise exceptions.ValidationError(
                     _("You must set a name before generating a registration."))
             s.event_registration_id = er.create({
                 "event_id": event.id,
                 "partner_id": s.partner_id.id,
-                "nb_register": 1,
                 "name": name,
                 "email": s.email_from,
                 "phone": s.phone,
@@ -42,7 +41,7 @@ class CrmLead(models.Model):
         for s in self:
             if self._track_subtype(['stage_id']) == "crm.mt_lead_won":
                 s.event_registration_id.confirm_registration()
-            elif self._track_subtype(['stage_id']) == "crm.mt_lead_lost":
+            elif self._track_subtype(['active']) == "crm.mt_lead_lost":
                 s.event_registration_id.button_reg_cancel()
 
     @api.model
