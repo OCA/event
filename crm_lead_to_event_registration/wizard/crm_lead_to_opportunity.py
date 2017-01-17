@@ -15,9 +15,8 @@ class CrmLead2OpportunityPartner(models.TransientModel):
     def action_apply(self):
         res = super(CrmLead2OpportunityPartner, self).action_apply()
         self.ensure_one()
-        if not self.event_id:
-            return res
-        lead_ids = self.env.context.get('active_ids', [])
-        (self.env['crm.lead'].browse(lead_ids)
-         .action_generate_event_registration(self.event_id))
+        if self.event_id:
+            lead_ids = self.env.context.get('active_ids', [])
+            (self.env['crm.lead'].browse(lead_ids)
+             .action_generate_event_registration(self.event_id))
         return res
