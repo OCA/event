@@ -14,10 +14,12 @@ current functionality in Odoo:
 * ...
 
 [//]: # (addons)
+
 Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
+[crm_lead_to_event_registration](crm_lead_to_event_registration/) | 9.0.1.0.0 | Register a lead directly in an event
 [event_email_reminder](event_email_reminder/) | 9.0.1.0.0 | Send an email before an event start
 [event_registration_cancel_reason](event_registration_cancel_reason/) | 9.0.1.0.0 | Reasons for event registrations cancellations
 [event_registration_partner_unique](event_registration_partner_unique/) | 9.0.1.0.0 | Enforces 1 registration per partner and event
