@@ -27,6 +27,7 @@ addon | version | summary
 [website_event_filter_selector](website_event_filter_selector/) | 9.0.1.0.0 | Add a customizable top area to filter events with selectors
 [website_event_share](website_event_share/) | 9.0.1.0.0 | Add contacts to event
 
+
 Unported addons
 ---------------
 addon | version | summary
