@@ -14,6 +14,7 @@ current functionality in Odoo:
 * ...
 
 [//]: # (addons)
+
 Unported addons
 ---------------
 addon | version | summary
