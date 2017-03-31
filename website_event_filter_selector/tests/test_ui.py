@@ -3,6 +3,7 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 from openerp.tests.common import HttpCase
+from openerp import fields
 from datetime import datetime, timedelta
 
 
@@ -26,17 +27,25 @@ class UICase(HttpCase):
         }
         with self.cursor() as cr:
             env = self.env(cr)
+            # Create an event for today for assuring test correctness
+            event_1 = env['event.event'].create({
+                'name': 'Test event',
+                'date_begin': fields.Datetime.now(),
+                'date_end': fields.Datetime.now(),
+                'website_published': True,
+                'state': 'confirm',
+            })
+            # Create an old online event
+            event_1.copy({
+                'date_begin': datetime.today() - timedelta(days=60),
+                'date_end': datetime.today() - timedelta(days=50),
+                'address_id': False,
+                'website_published': True,
+            })
             # Enable all templates required for this test to work
             for model, xids in templates.iteritems():
                 for xid in xids:
                     env.ref("%s.%s" % (model, xid)).active = True
-            # We need to have an old and an online event
-            functional_webinar = env.ref("event.event_1")
-            functional_webinar.address_id = False
-            functional_webinar.date_begin = (
-                datetime.today() - timedelta(days=60))
-            functional_webinar.date_end = (
-                datetime.today() - timedelta(days=50))
 
         self.phantom_js(
             url_path="/event",
