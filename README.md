@@ -22,6 +22,7 @@ addon | version | summary
 [crm_lead_to_event_registration](crm_lead_to_event_registration/) | 9.0.1.0.0 | Register a lead directly in an event
 [event_email_reminder](event_email_reminder/) | 9.0.1.0.0 | Send an email before an event start
 [event_registration_cancel_reason](event_registration_cancel_reason/) | 9.0.1.0.0 | Reasons for event registrations cancellations
+[event_registration_mass_mailing](event_registration_mass_mailing/) | 9.0.1.0.0 | Mass mailing from events
 [event_registration_partner_unique](event_registration_partner_unique/) | 9.0.1.0.0 | Enforces 1 registration per partner and event
 [partner_event](partner_event/) | 9.0.1.0.0 | Link partner to events
 [website_event_filter_selector](website_event_filter_selector/) | 9.0.1.0.0 | Add a customizable top area to filter events with selectors
