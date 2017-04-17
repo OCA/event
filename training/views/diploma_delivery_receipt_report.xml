@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+     © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis -->
+
+<openerp>
+<data>
+
+<!-- Templates -->
+<template id="diploma_delivery_receipt_report">
+    <t t-call="report.html_container">
+        <t t-foreach="doc_ids" t-as="doc_id">
+            <t t-raw="translate_doc(
+                doc_id, doc_model, 'partner_id.lang',
+                'training.diploma_delivery_receipt_report_translatable')"/>
+        </t>
+    </t>
+</template>
+
+<template id="diploma_delivery_receipt_report_translatable">
+    <t t-call="report.external_layout">
+        <div class="page">
+            <div class="front row">
+                <h1>Delivery Receipt of Certificate</h1>
+                <p>
+                    <strong>
+                        <t t-if="o.partner_id and o.partner_id.title"
+                           t-esc="o.partner_id.title.shortcut or
+                                  o.partner_id.title.name"/>
+                        <t t-esc="o.name"/>
+                    </strong>
+                    confirms having recieved a document certificating the
+                    following information:
+                </p>
+                <ul>
+                    <li>
+                        <t t-if="o.course_id">
+                            Training:
+                            <t t-esc="o.course_id.name"/>
+                        </t>
+                        <t t-if="not o.course_id">
+                            Event:
+                            <t t-esc="o.event_id.name"/>
+                        </t>
+                    </li>
+                    <li>
+                        Attendee:
+                        <t t-esc="o.name"/>
+                    </li>
+                    <li>
+                        Address:
+                        <t t-esc="o.with_context(show_address=True)
+                                  .event_id.address_id.name_get()[0][1]"/>
+                    </li>
+                    <li>
+                        Begin date:
+                        <t t-esc="o.event_id._fields['date_begin']
+                                  .convert_to_display_name(
+                                    o.event_id.date_begin, o)"/>
+                    </li>
+                    <li>
+                        End date:
+                        <t t-esc="o.event_id._fields['date_end']
+                                  .convert_to_display_name(
+                                    o.event_id.date_end, o)"/>
+                    </li>
+                    <li>
+                        Status:
+                        <t t-esc="dict(o.fields_get()['state']['selection'])
+                                  .get(o.state)"/>
+                    </li>
+                    <li t-if="o.course_id and o.state == 'done'">
+                        Grade:
+                        <t t-if="o.passing">Passed.</t>
+                        <t t-if="not o.passing">Failed.</t>
+                    </li>
+                </ul>
+                <div style="border: thin solid" class="col-xs-4 mt32">
+                    <h3>Signed</h3>
+                    <p class="mt128" t-esc="o.name"/>
+                </div>
+            </div>
+        </div>
+    </t>
+</template>
+
+<!-- Report action -->
+<report
+    id="diploma_delivery_receipt_action"
+    model="event.registration"
+    name="training.diploma_delivery_receipt_report"
+    string="Diploma / Certificate Delivery Receipt"
+    report_type="qweb-pdf"
+    groups="user_group"
+    multi="False"/>
+
+</data>
+</openerp>
