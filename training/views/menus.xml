@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+     © 2015 Grupo ESOC Ingeniería de Servicios, S.L.U. - Jairo Llopis -->
+
+<openerp>
+<data>
+
+<!-- Base menu structure -->
+<menuitem id="training_menu"
+          name="Training"/>
+
+<menuitem id="catalog_menu"
+          parent="training_menu"
+          name="Catalog"/>
+
+<menuitem id="configuration_menu"
+          parent="training_menu"
+          name="Configuration"/>
+
+</data>
+</openerp>
