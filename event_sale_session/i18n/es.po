@@ -1,0 +1,139 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_sale_session
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-06-14 11:31+0000\n"
+"PO-Revision-Date: 2017-06-14 14:10+0200\n"
+"Last-Translator: David <david.vidal@tecnativa.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: event_sale_session
+#: model:ir.model,name:event_sale_session.model_event_registration
+msgid "Attendee"
+msgstr "Asistentes"
+
+#. module: event_sale_session
+#: model:ir.model.fields,field_description:event_sale_session.field_sale_order_line_registration_ids
+#: model:ir.model.fields,field_description:event_sale_session.field_sale_order_registration_ids
+msgid "Attendees"
+msgstr "Asistentes"
+
+#. module: event_sale_session
+#: model:ir.model.fields,field_description:event_sale_session.field_sale_order_line_event_session_seats_available
+msgid "Available Seats"
+msgstr "Plazas disponibles"
+
+#. module: event_sale_session
+#: model:ir.model,name:event_sale_session.model_event_event
+#: model:ir.model.fields,field_description:event_sale_session.field_sale_order_event_ids
+msgid "Event"
+msgstr "Evento"
+
+#. module: event_sale_session
+#: model:ir.model,name:event_sale_session.model_event_session
+msgid "Event session"
+msgstr "Sesión"
+
+#. module: event_sale_session
+#: model:ir.model,name:event_sale_session.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: event_sale_session
+#: code:addons/event_sale_session/models/sale_order.py:73
+#, python-format
+msgid "Not enough seats. Change quanty or session"
+msgstr "No hay plazas suficientes. Cambia la cantidad o escoge otra sesión."
+
+#. module: event_sale_session
+#: model:ir.actions.act_window,name:event_sale_session.act_event_session_unconfirmed_qty
+msgid "Orders"
+msgstr "Pedidos"
+
+#. module: event_sale_session
+#: model:ir.model,name:event_sale_session.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: event_sale_session
+#: model:ir.model,name:event_sale_session.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Línea de pedido de venta"
+
+#. module: event_sale_session
+#: model:ir.model.fields,field_description:event_sale_session.field_event_event_order_line_ids
+#: model:ir.model.fields,field_description:event_sale_session.field_event_session_order_line_ids
+msgid "Sales Order Lines"
+msgstr "Líneas de pedido de venta"
+
+#. module: event_sale_session
+#: model:ir.model.fields,field_description:event_sale_session.field_sale_order_line_event_session_seats_availability
+msgid "Seats Availavility"
+msgstr "Disponibilidad de plazas"
+
+#. module: event_sale_session
+#: model:ir.model.fields,field_description:event_sale_session.field_registration_editor_line_session_id
+#: model:ir.model.fields,field_description:event_sale_session.field_sale_order_line_session_id
+msgid "Session"
+msgstr "Sesión"
+
+#. module: event_sale_session
+#: code:addons/event_sale_session/models/sale_order.py:63
+#, python-format
+msgid ""
+"There are sessions with no available seats!\n"
+"Edit them so you can save the sale order"
+msgstr ""
+"Estás intentando reservar en una sesión sin plazas.\n"
+"Edítal para que puedas guardar tu pedido."
+
+#. module: event_sale_session
+#: model:ir.ui.view,arch_db:event_sale_session.view_event_session_form
+msgid "Ticket"
+msgstr "Ticket"
+
+#. module: event_sale_session
+#: model:ir.model.fields,field_description:event_sale_session.field_sale_order_line_event_sessions_count
+msgid "Total event sessions"
+msgstr "Sesiones de evento totales"
+
+#. module: event_sale_session
+#: model:ir.ui.view,arch_db:event_sale_session.view_event_session_tree
+msgid "Total unconfirmed seats in orders"
+msgstr "Total plazas de pedidos no confirmados"
+
+#. module: event_sale_session
+#: model:ir.model.fields,field_description:event_sale_session.field_event_event_unconfirmed_qty
+#: model:ir.model.fields,field_description:event_sale_session.field_event_session_unconfirmed_qty
+msgid "Unconfirmed Qty"
+msgstr "Cantidad sin asignar"
+
+#. module: event_sale_session
+#: model:ir.ui.view,arch_db:event_sale_session.view_event_form
+msgid "Unconfirmed order seats"
+msgstr "Plazas en pedidos sin confirmar"
+
+#. module: event_sale_session
+#: model:ir.ui.view,arch_db:event_sale_session.view_event_form
+msgid "Unconfirmed orders seats"
+msgstr "Plazas en pedidos sin confirmar"
+
+#. module: event_sale_session
+#: model:ir.model,name:event_sale_session.model_registration_editor
+msgid "registration.editor"
+msgstr "registration.editor"
+
+#. module: event_sale_session
+#: model:ir.model,name:event_sale_session.model_registration_editor_line
+msgid "registration.editor.line"
+msgstr "registration.editor.line"
