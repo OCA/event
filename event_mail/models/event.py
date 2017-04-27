@@ -13,8 +13,8 @@ class EventEvent(models.Model):
         return self.env['ir.values'].get_default(
             'event.config.settings', 'event_mail_template_id')
 
-    event_mail_template_id = fields.Many2one(
-        comodel_name='event.mail.template',
+    event_mail_template_id = fields.Many2many(
+        comodel_name='event.mail.scheduler.template',
         string='Mail Template Scheduler',
         default=_default_event_mail_template_id,
     )
