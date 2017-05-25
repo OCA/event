@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 # Copyright 2017 David Vidal<david.vidal@tecnativa.com>
+# Copyright 2017 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
+from locale import setlocale, LC_ALL
 
 
 class EventSession(models.Model):
@@ -11,8 +13,8 @@ class EventSession(models.Model):
     _description = 'Event session'
 
     name = fields.Char(
-        string='Session',
-        required=True,
+        string='Session', required=True, compute="_compute_name", store=True,
+        default='/',
     )
     active = fields.Boolean(
         default=True,
@@ -47,21 +49,22 @@ class EventSession(models.Model):
     seats_expected = fields.Integer(
         string='Number of Expected Attendees',
         readonly=True, compute='_compute_seats')
-    date = fields.Datetime(
-        string="Session date",
+    date_tz = fields.Selection(
+        string='Timezone', related="event_id.date_tz",
+    )
+    date_begin = fields.Datetime(
+        string="Session start date",
         required=True,
     )
     date_end = fields.Datetime(
         string="Session date end",
         required=True,
     )
-    start_time = fields.Float(
-        required=True,
-        help="Session start time",
+    date_begin_located = fields.Datetime(
+        string='Start Date Located', compute='_compute_date_begin_located',
     )
-    end_time = fields.Float(
-        required=True,
-        help="Session end time",
+    date_end_located = fields.Datetime(
+        string='End Date Located', compute='_compute_date_end_located',
     )
     registration_ids = fields.One2many(
         comodel_name='event.registration',
@@ -74,6 +77,20 @@ class EventSession(models.Model):
         inverse_name='session_id',
         string='Mail Schedule',
         copy=True)
+
+    @api.multi
+    @api.depends('date_begin', 'date_end')
+    def _compute_name(self):
+        setlocale(LC_ALL, locale=(self.env.lang, 'UTF-8'))
+        for session in self:
+            date_begin = fields.Datetime.from_string(session.date_begin)
+            date_end = fields.Datetime.from_string(session.date_end)
+            dt_format = '%A %d/%m/%y %H:%M'
+            name = date_begin.strftime(dt_format)
+            if date_begin.date() == date_end.date():
+                dt_format = '%H:%M'
+            name += " - " + date_end.strftime(dt_format)
+            session.name = name.capitalize()
 
     @api.model
     def _set_session_mail_ids(self, event_id):
@@ -149,12 +166,43 @@ class EventSession(models.Model):
                 session.seats_unconfirmed + session.seats_reserved +
                 session.seats_used)
 
+    @api.multi
+    @api.depends('date_tz', 'date_begin')
+    def _compute_date_begin_located(self):
+        for session in self:
+            if session.date_begin:
+                self_in_tz = session.with_context(
+                    tz=(session.date_tz or 'UTC')
+                )
+                date_begin = fields.Datetime.from_string(session.date_begin)
+                session.date_begin_located = fields.Datetime.to_string(
+                    fields.Datetime.context_timestamp(self_in_tz, date_begin),
+                )
+            else:
+                session.date_begin_located = False
+
+    @api.multi
+    @api.depends('date_tz', 'date_end')
+    def _compute_date_end_located(self):
+        for session in self:
+            if session.date_end:
+                self_in_tz = session.with_context(
+                    tz=(session.date_tz or 'UTC')
+                )
+                date_end = fields.Datetime.from_string(session.date_end)
+                session.date_end_located = fields.Datetime.to_string(
+                    fields.Datetime.context_timestamp(self_in_tz, date_end),
+                )
+            else:
+                session.date_end_located = False
+
     @api.onchange('event_id')
-    def onchage_event_selection(self):
+    def onchange_event_id(self):
         self.seats_min = self.event_id.seats_min
         self.seats_max = self.event_id.seats_max
         self.seats_availability = self.event_id.seats_availability
-        self.date = self.event_id.date_begin_located
+        self.date_begin = self.event_id.date_begin
+        self.date_end = self.event_id.date_end
 
     @api.multi
     @api.constrains('seats_max', 'seats_available')
@@ -166,20 +214,22 @@ class EventSession(models.Model):
                     _('No more available seats for this session.'))
 
     @api.multi
-    @api.constrains('date')
-    def _check_out_of_event_date_range(self):
+    @api.constrains('date_begin', 'date_end')
+    def _check_dates(self):
         for session in self:
-            if self.event_id.date_end_located < session.date or \
-                    session.date < self.event_id.date_begin_located:
+            if (self.event_id.date_end < session.date_begin or
+                    session.date_begin < self.event_id.date_begin or
+                    self.event_id.date_begin > session.date_end or
+                    session.date_end > self.event_id.date_end):
                 raise ValidationError(
                     _("Session date is out of this event dates range")
                 )
 
     @api.multi
-    @api.constrains('start_time', 'end_time')
+    @api.constrains('date_begin', 'date_end')
     def _check_zero_duration(self):
         for session in self:
-            if session.end_time == session.start_time:
+            if session.date_begin == session.date_end:
                 raise ValidationError(
                     _("Ending and starting time can't be the same!")
                 )
