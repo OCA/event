@@ -37,10 +37,8 @@
                         <group>
                             <field name="event_id"/>
                             <field name="name"/>
-                            <field name="date" widget="date"/>
-                            <field name="date_end" widget="date"/>
-                            <field name="start_time" widget="float_time"/>
-                            <field name="end_time" widget="float_time"/>
+                            <field name="date_begin"/>
+                            <field name="date_end"/>
                         </group>
                         <group>
                             <field name="seats_reserved"/>
@@ -97,9 +95,8 @@
             <tree string="Sessions">
                 <field name="event_id" />
                 <field name="name"/>
-                <field name="date" widget="date"/>
-                <field name="start_time" widget="float_time"/>
-                <field name="end_time" widget="float_time"/>
+                <field name="date_begin"/>
+                <field name="date_end"/>
                 <field name="seats_availability"/>
                 <field name="seats_max" attrs="{'invisible':
                        [('seats_availability','=','unlimited')]}"/>
@@ -119,7 +116,7 @@
         <field eval="3" name="priority"/>
         <field name="arch" type="xml">
             <calendar color="event_id"
-                      date_start="date" date_stop="date" string="Session">
+                      date_start="date_begin" date_stop="date_end" string="Session">
                 <field name="name"/>
             </calendar>
         </field>
