@@ -15,6 +15,13 @@ current functionality in Odoo:
 
 [//]: # (addons)
 
+Available addons
+----------------
+addon | version | summary
+--- | --- | ---
+[event_mail](event_mail/) | 10.0.1.0.0 | Mail settings in events
+
+
 Unported addons
 ---------------
 addon | version | summary
