@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 # Copyright 2017 Tecnativa - David Vidal
+# Copyright 2017 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl-3.0).
 
 from odoo.tests import common
 from odoo.exceptions import ValidationError
-from datetime import datetime, timedelta
 
 
 class EventSession(common.SavepointCase):
@@ -14,19 +14,16 @@ class EventSession(common.SavepointCase):
         super(EventSession, cls).setUpClass()
         cls.event = cls.env['event.event'].create({
             'name': 'Test event',
-            'date_begin': datetime.today(),
-            'date_end': datetime.today() + timedelta(days=7),
+            'date_begin': '2017-05-26 20:00:00',
+            'date_end': '2017-05-30 22:00:00',
             'seats_availability': 'limited',
             'seats_max': '5',
             'seats_min': '1',
         })
         cls.session = cls.env['event.session'].create({
-            'name': 'Test session',
-            'date': datetime.today() + timedelta(days=1),
-            'date_end': datetime.today() + timedelta(days=1),
+            'date_begin': '2017-05-26 20:00:00',
+            'date_end': '2017-05-26 22:00:00',
             'event_id': cls.event.id,
-            'start_time': 20.0,
-            'end_time': 21.5,
             'seats_availability': cls.event.seats_availability,
             'seats_max': cls.event.seats_max,
             'seats_min': cls.event.seats_min,
@@ -59,43 +56,41 @@ class EventSession(common.SavepointCase):
                 'template_id': cls.env.ref('event.event_reminder').id})],
         })
 
-    def test_session_methods(self):
-        """ Session methods """
+    def test_session_name_get(self):
         self.assertEqual(
-            # name_get method
-            self.session.name_get()[0][1],
-            '[' + self.event.name + '] ' + self.session.name
+            self.session.name_get()[0][1], '[Test event] ' + self.session.name,
         )
+
+    def test_check_beginning_date(self):
+        self.session.date_begin = '2017-05-26 20:00:00'
+        with self.assertRaises(ValidationError):
+            self.session.date_begin = '2017-05-26 19:59:59'
+        with self.assertRaises(ValidationError):
+            self.session.date_end = '2017-05-30 22:00:01'
+
+    def test_check_end_date(self):
+        self.session.date_end = '2017-05-30 22:00:00'
+        with self.assertRaises(ValidationError):
+            self.session.date_end = '2017-05-30 22:00:01'
+        with self.assertRaises(ValidationError):
+            self.session.date_end = '2017-05-26 19:59:59'
+
+    def test_check_zero_duration(self):
         with self.assertRaises(ValidationError), self.cr.savepoint():
-            # out of range begining date
-            self.session.update({
-                'date': datetime.strptime(
-                    self.event.date_begin, '%Y-%m-%d %H:%M:%S'
-                ) - timedelta(days=1),
+            self.session.write({
+                'date_begin': '2017-05-28 22:00:00',
+                'date_end': '2017-05-28 22:00:00',
             })
-        with self.assertRaises(ValidationError), self.cr.savepoint():
-            # out of range begining date
-            self.session.update({
-                'date': datetime.strptime(
-                    self.event.date_end, '%Y-%m-%d %H:%M:%S'
-                ) + timedelta(days=1),
-            })
-        with self.assertRaises(ValidationError), self.cr.savepoint():
-            # zero duration
-            self.session.update({
-                'start_time': 20.0,
-                'end_time': 20.0,
-            })
+
+    def test_open_registrations(self):
         # registrations button
         res = self.session.button_open_registration()
         attendees = self.env['event.registration'].search([
             ['session_id', '=', self.session.id]
         ])
-        self.assertEqual(
-            res['domain'],
-            [('id', 'in', attendees.ids)]
-        )
-        # assign mail templates
+        self.assertEqual(res['domain'], [('id', 'in', attendees.ids)])
+
+    def test_assign_mail_template(self):
         self.session._set_session_mail_ids(self.event.id)
         self.assertEqual(len(self.session.event_mail_ids), 3)
         self.session._set_session_mail_ids(self.template)

@@ -46,12 +46,14 @@ class EventMailScheduler(models.Model):
             if event_mail.event_id.state in ['confirm', 'done'] and \
                     event_mail.session_id:
                 if event_mail.interval_type == 'before_event':
-                    date, sign = event_mail.session_id.date, -1
+                    date, sign = event_mail.session_id.date_begin, -1
                 else:
                     date, sign = event_mail.session_id.date_end, 1
-                event_mail.scheduled_date = datetime.strptime(
-                    date, tools.DEFAULT_SERVER_DATETIME_FORMAT) + _INTERVALS[
-                    event_mail.interval_unit](sign * event_mail.interval_nbr)
+                event_mail.scheduled_date = (
+                    fields.Datetime.from_string(date) + _INTERVALS[
+                        event_mail.interval_unit
+                    ](sign * event_mail.interval_nbr)
+                )
 
 
 class EventMailRegistration(models.Model):
@@ -65,7 +67,9 @@ class EventMailRegistration(models.Model):
         for event_mail_reg in self:
             if (event_mail_reg.registration_id and
                     event_mail_reg.registration_id.session_id):
-                date_open = event_mail_reg.registration_id.session_id.date
+                date_open = (
+                    event_mail_reg.registration_id.session_id.date_begin
+                )
                 date_open_datetime = date_open and datetime.strptime(
                     date_open, tools.DEFAULT_SERVER_DATETIME_FORMAT
                 ) or fields.datetime.now()
