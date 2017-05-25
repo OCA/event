@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 # Copyright 2017 David Vidal<david.vidal@tecnativa.com>
+# Copyright 2017 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 from datetime import datetime, timedelta
-from time import strftime, strptime
-from locale import setlocale, LC_ALL
+from pytz import timezone, utc
 
 
 class WizardEventSession(models.TransientModel):
@@ -19,10 +19,8 @@ class WizardEventSession(models.TransientModel):
         default='/',
     )
     event_id = fields.Many2one(
-        comodel_name="event.event",
-        readonly=True,
-        default=lambda self: self.env.context["active_id"],
-        required=True,
+        comodel_name="event.event", readonly=True, on_delete="cascade",
+        default=lambda self: self.env.context["active_id"], required=True,
     )
     event_date_begin = fields.Datetime(
         related="event_id.date_begin",
@@ -94,23 +92,16 @@ class WizardEventSession(models.TransientModel):
 
     @api.multi
     def weekdays(self):
-        return (self.mondays,
-                self.tuesdays,
-                self.wednesdays,
-                self.thursdays,
-                self.fridays,
-                self.saturdays,
-                self.sundays)
-
-    @api.multi
-    def datetime_fields(self):
-        """Fields converted to Python's Datetime-based objects."""
-        result = {
-            "event_start": fields.Datetime.from_string(self.event_date_begin),
-            "event_end": fields.Datetime.from_string(self.event_date_end),
-            "day_delta": timedelta(days=1),
-        }
-        return result
+        """Generate a tuple with the values for accessing days by index."""
+        return (
+            self.mondays,
+            self.tuesdays,
+            self.wednesdays,
+            self.thursdays,
+            self.fridays,
+            self.saturdays,
+            self.sundays,
+        )
 
     @api.multi
     def existing_sessions(self, date):
@@ -118,7 +109,7 @@ class WizardEventSession(models.TransientModel):
         # Todo: Improve match
         return self.env["event.session"].search(
             [("event_id", "=", self.event_id.id),
-             ("date", "=", date),
+             ("date_begin", "=", date),
              ("start_time", "=", self.start_time)],
         )
 
@@ -137,24 +128,11 @@ class WizardEventSession(models.TransientModel):
             }))
         return vals
 
-    @api.multi
-    def create_session(self, **values):
-        """Create a new session record with the provided values."""
-        setlocale(LC_ALL, locale=(self.env.lang, 'UTF-8'))
-        data = {
-            "name": "{} {} - {}".format(
-                strftime('%A %d/%m/%y',
-                         strptime(values["date"], "%Y-%m-%d %H:%M:%S")),
-                "%02d:%02d" % divmod(values["start_time"]*60, 60),
-                "%02d:%02d" % divmod(values["end_time"]*60, 60),
-                ).capitalize(),
+    def _prepare_session_values(self, date_begin, date_end):
+        vals = {
             "event_id": self.event_id.id,
-            "date_end": '%s : %s' % (
-                strftime('%Y-%m-%d', strptime(
-                    values["date"], "%Y-%m-%d %H:%M:%S")),
-                "%02d:%02d" % divmod(values["end_time"]*60, 60)),
-            "start_time": values["start_time"],
-            "end_time": values["end_time"],
+            "date_begin": fields.Datetime.to_string(date_begin),
+            "date_end": fields.Datetime.to_string(date_end),
             "seats_min": self.event_id.seats_min,
             "seats_max": self.event_id.seats_max,
             "seats_availability": self.event_id.seats_availability,
@@ -162,46 +140,47 @@ class WizardEventSession(models.TransientModel):
         mail_template = (self.event_mail_template_id or
                          self.event_id._default_event_mail_template_id())
         if mail_template:
-            data['event_mail_ids'] = self._get_session_mail_template(
-                mail_template)
-        else:
-            data['event_mail_ids'] = []
-
-        data.update(values)
-        return self.env["event.session"].create(data)
+            vals['event_mail_ids'] = self._get_session_mail_template(
+                mail_template
+            )
+        return vals
 
     @api.multi
     def generate_sessions(self):
         self.ensure_one()
-        counter = 0
-        dt = self.datetime_fields()
+        session_obj = self.env["event.session"]
+        event_start = utc.localize(
+            fields.Datetime.from_string(self.event_date_begin)
+        )
+        event_end = utc.localize(
+            fields.Datetime.from_string(self.event_date_end)
+        )
         weekdays = self.weekdays()
-        current = dt["event_start"]
-        while current <= dt["event_end"]:
+        current = event_start
+        while current <= event_end:
+            if not weekdays[current.weekday()]:
+                current += timedelta(days=1)
+                continue
             for hour in self.session_hour_ids:
-                tm = hour.time_fields()
+                start_time = datetime.min + timedelta(hours=hour.start_time)
+                end_time = datetime.min + timedelta(hours=hour.end_time)
                 current_start = datetime.combine(
-                    current.date(),
-                    tm["start_time"].time()
+                    current.date(), start_time.time(),
                 )
-                if (current_start >= dt["event_start"] and
-                        weekdays[current.weekday()]):
-                    current_end = datetime.combine(
-                        current.date(),
-                        tm["end_time"].time()
-                    )
-                    if current_end <= dt["event_end"]:
-                        current_start = \
-                            fields.Datetime.to_string(current_start)
-                        # TODO: Check that no session exists with this data
-                        self.create_session(
-                            date=current_start,
-                            start_time=hour.start_time,
-                            end_time=hour.end_time,
-                            )
-                        counter += 1
-            # Next day
-            current += dt["day_delta"]
+                current_end = datetime.combine(current.date(), end_time.time())
+                # Convert to UTC from user TZ
+                local_tz = timezone(self.env.user.tz)
+                current_start = local_tz.localize(current_start)
+                current_start = current_start.astimezone(utc)
+                current_end = local_tz.localize(current_end)
+                current_end = current_end.astimezone(utc)
+                if current_start < event_start or current_end > event_end:
+                    continue
+                # TODO: Check that no session exists with this data
+                session_obj.create(
+                    self._prepare_session_values(current_start, current_end)
+                )
+            current += timedelta(days=1)
 
     @api.multi
     def action_generate_sessions(self):
@@ -242,12 +221,3 @@ class WizardEventSessionHours(models.TransientModel):
                 raise ValidationError(
                     _("You've entered invalid hours!")
                 )
-
-    @api.multi
-    def time_fields(self):
-        """Format hours"""
-        result = {
-            "start_time": datetime.min + timedelta(hours=self.start_time),
-            "end_time": datetime.min + timedelta(hours=self.end_time),
-        }
-        return result
