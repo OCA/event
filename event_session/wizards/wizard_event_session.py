@@ -62,6 +62,7 @@ class WizardEventSession(models.TransientModel):
         help="Create sessions on Sundays",
     )
     delete_existing_sessions = fields.Boolean(
+        default=True,
         help="Check in order to delete every previous session for this event"
     )
     session_hour_ids = fields.One2many(
@@ -113,21 +114,6 @@ class WizardEventSession(models.TransientModel):
              ("start_time", "=", self.start_time)],
         )
 
-    def _get_session_mail_template(self, mail_template):
-        vals = [(6, 0, [])]
-        if isinstance(mail_template, int):
-            mail_template = self.env['event.mail.template'].browse(
-                mail_template)
-        for scheduler in mail_template.scheduler_template_ids:
-            vals.append((0, 0, {
-                'event_id': self.event_id.id,
-                'interval_nbr': scheduler.interval_nbr,
-                'interval_unit': scheduler.interval_unit,
-                'interval_type': scheduler.interval_type,
-                'template_id': scheduler.template_id.id,
-            }))
-        return vals
-
     def _prepare_session_values(self, date_begin, date_end):
         vals = {
             "event_id": self.event_id.id,
@@ -137,12 +123,16 @@ class WizardEventSession(models.TransientModel):
             "seats_max": self.event_id.seats_max,
             "seats_availability": self.event_id.seats_availability,
         }
-        mail_template = (self.event_mail_template_id or
-                         self.event_id._default_event_mail_template_id())
+        mail_template = (
+            self.event_mail_template_id or
+            self.env['ir.values'].get_default(
+                'event.config.settings', 'event_mail_template_id'))
+
         if mail_template:
-            vals['event_mail_ids'] = self._get_session_mail_template(
-                mail_template
-            )
+            template_values = \
+                self.env['event.session']._session_mails_from_template(
+                    self.event_id.id, mail_template)
+            vals['event_mail_ids'] = template_values
         return vals
 
     @api.multi
