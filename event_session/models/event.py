@@ -23,6 +23,19 @@ class EventEvent(models.Model):
     def _compute_sessions_count(self):
         for event in self:
             event.sessions_count = len(event.session_ids)
+    
+    @api.model
+    def create(self, vals):
+        event = super(EventEvent, self).create(vals)
+        if not event.session_ids:
+            event.session_ids = [(0, 0, {
+                'seats_min': event.seats_min,
+                'seats_availability': event.seats_availability,
+                'seats_max': event.seats_max,
+                'date_begin': event.date_begin,
+                'date_end': event.date_end,
+            })]
+        return event
 
 
 class EventRegistration(models.Model):
@@ -48,3 +61,14 @@ class EventRegistration(models.Model):
                     (1 if self.state == 'draft' else 0)):
                 raise ValidationError(
                     _('No more seats available for this event.'))
+
+    @api.multi
+    def confirm_registration(self):
+        for reg in self:
+            if not reg.event_id.session_ids:
+                super(EventRegistration, self).confirm_registration()
+            reg.state = 'open'
+            onsubscribe_schedulers = \
+                reg.session_id.event_mail_ids.filtered(
+                    lambda s: s.interval_type == 'after_sub')
+            onsubscribe_schedulers.execute()

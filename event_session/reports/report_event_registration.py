@@ -15,17 +15,30 @@ class ReportEventRegistration(models.Model):
         required=True,
         readonly=True,
     )
-    session_seats_max = fields.Integer(
-        string="Maximum session seats", readonly=True, group_operator="avg")
-    session_seats_available = fields.Integer(
-        string='Available session Seats', readonly=True, group_operator="avg")
+    seats_expected = fields.Integer(string="Seats expected", readonly=True)
+    seats_max = fields.Integer(
+        string="Max event seats", readonly=True, group_operator="max")
+    seats_available = fields.Integer(
+        string='Available seats', readonly=True, group_operator="min")
+    seats_available_expected = fields.Integer(
+        string='Available expected seats', readonly=True, group_operator="min")
 
     def _select(self):
         select_str = super(ReportEventRegistration, self)._select()
         return select_str + """
+            , sub.session_id,
+            sub.seats_available AS seats_available,
+            (sub.draft_state + sub.confirm_state - sub.cancel_state)
+            AS seats_expected,
+            sub.seats_available_expected
+        """
+    
+    def _sub_select(self):
+        select_str = super(ReportEventRegistration, self)._sub_select()
+        return select_str + """
             , MIN(r.session_id) AS session_id,
-            MIN(es.seats_max) AS session_seats_max,
-            MIN(es.seats_available) AS session_seats_available
+            MIN(es.seats_available) as seats_available,
+            MAX(es.seats_available_expected) AS seats_available_expected
         """
 
     def _from(self):
