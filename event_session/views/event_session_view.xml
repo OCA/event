@@ -53,7 +53,10 @@
                             <field name="seats_availability"/>
                             <field name="seats_available"
                                    attrs="{'invisible':
-                                   [('seats_availability', '=', 'unlimited')]}"/>/>
+                                   [('seats_availability', '=', 'unlimited')]}"/>
+                            <field name="seats_available_expected"
+                                   attrs="{'invisible':
+                                   [('seats_availability', '=', 'unlimited')]}"/>
                         </group>
                     </group>
                     <notebook>
@@ -103,9 +106,12 @@
                 <field name="seats_available"
                        attrs="{'invisible':
                        [('seats_availability','=','unlimited')]}"/>
+                <field name="seats_available_expected"
+                       attrs="{'invisible':
+                       [('seats_availability', '=', 'unlimited')]}"/>
                 <field name="seats_expected"/>
-                <field name="seats_reserved"/>
                 <field name="seats_unconfirmed"/>
+                <field name="seats_reserved"/>
             </tree>
         </field>
     </record>
@@ -134,6 +140,5 @@
     <menuitem id="event_session_menu" name="Sessions" sequence="80"
               parent="event.event_main_menu" action="act_event_session_form"
               groups="event.group_event_user"/>
-
 
 </odoo>
