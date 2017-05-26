@@ -24,6 +24,8 @@ class EventMailScheduler(models.Model):
     )
 
     @api.multi
+    @api.depends('mail_sent', 'interval_type', 'event_id.registration_ids',
+                 'mail_registration_ids')
     def _compute_done(self):
         super(EventMailScheduler, self)._compute_done()
         for event_mail in self:
@@ -40,12 +42,19 @@ class EventMailScheduler(models.Model):
                 )
 
     @api.multi
+    @api.depends('event_id.state', 'event_id.date_begin', 'interval_type',
+                 'interval_unit', 'interval_nbr')
     def _compute_scheduled_date(self):
         super(EventMailScheduler, self)._compute_scheduled_date()
         for event_mail in self:
-            if event_mail.event_id.state in ['confirm', 'done'] and \
-                    event_mail.session_id:
-                if event_mail.interval_type == 'before_event':
+            if not event_mail.session_id:
+                continue
+            if event_mail.event_id.state not in ['confirm', 'done']:
+                event_mail.scheduled_date = False
+            else:
+                if event_mail.interval_type == 'after_sub':
+                    date, sign = event_mail.session_id.create_date, 1
+                elif event_mail.interval_type == 'before_event':
                     date, sign = event_mail.session_id.date_begin, -1
                 else:
                     date, sign = event_mail.session_id.date_end, 1
@@ -67,9 +76,7 @@ class EventMailRegistration(models.Model):
         for event_mail_reg in self:
             if (event_mail_reg.registration_id and
                     event_mail_reg.registration_id.session_id):
-                date_open = (
-                    event_mail_reg.registration_id.session_id.date_begin
-                )
+                date_open = event_mail_reg.registration_id.date_open
                 date_open_datetime = date_open and datetime.strptime(
                     date_open, tools.DEFAULT_SERVER_DATETIME_FORMAT
                 ) or fields.datetime.now()
