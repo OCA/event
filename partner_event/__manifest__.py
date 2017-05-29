@@ -1,17 +1,19 @@
 # -*- coding: utf-8 -*-
-# © 2014 Tecnativa S.L. - Pedro M. Baeza
-# © 2015 Tecnativa S.L. - Javier Iniesta
-# © 2016 Tecnativa S.L. - Antonio Espinosa
-# © 2016 Tecnativa S.L. - Vicent Cubells
+# Copyright 2014 Tecnativa S.L. - Pedro M. Baeza
+# Copyright 2015 Tecnativa S.L. - Javier Iniesta
+# Copyright 2016 Tecnativa S.L. - Antonio Espinosa
+# Copyright 2016 Tecnativa S.L. - Vicent Cubells
+# Copyright 2017 Tecnativa S.L. - David Vidal
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 {
     'name': 'Link partner to events',
-    'version': '9.0.1.0.0',
+    'version': '10.0.1.0.0',
     'category': 'Marketing',
     'author': 'Tecnativa,'
               'Odoo Community Association (OCA)',
-    'website': 'http://www.tecnativa.com',
+    'website': 'https://www.tecnativa.com',
+    "license": "AGPL-3",
     'depends': [
         'event',
     ],
