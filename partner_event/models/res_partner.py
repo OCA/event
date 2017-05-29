@@ -5,7 +5,7 @@
 # © 2016 Tecnativa S.L. - Vicent Cubells
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import api, fields, models
+from odoo import api, fields, models
 
 
 class ResPartner(models.Model):
@@ -20,15 +20,16 @@ class ResPartner(models.Model):
         help="Count of events with confirmed registrations.",
     )
     registration_count = fields.Integer(
-        string='Event registrations number', compute='_count_registration',
+        string='Event registrations number',
+        compute='_compute_registration_count',
         store=True)
     attended_registration_count = fields.Integer(
         string='Event attended registrations number',
-        compute='_count_attended_registration', store=True)
+        compute='_compute_attended_registration_count', store=True)
 
     @api.multi
     @api.depends('registrations')
-    def _count_registration(self):
+    def _compute_registration_count(self):
         for partner in self:
             partner.registration_count = len(partner.registrations)
 
@@ -43,7 +44,7 @@ class ResPartner(models.Model):
 
     @api.multi
     @api.depends('registrations.state')
-    def _count_attended_registration(self):
+    def _compute_attended_registration_count(self):
         for partner in self:
             partner.attended_registration_count = len(
                 partner.registrations.filtered(lambda x: x.state == 'done'))

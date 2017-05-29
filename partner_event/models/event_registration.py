@@ -5,7 +5,7 @@
 # © 2016 Tecnativa S.L. - Vicent Cubells
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import models, api, fields
+from odoo import api, fields, models
 
 
 class EventRegistration(models.Model):
@@ -26,13 +26,13 @@ class EventRegistration(models.Model):
             partner_id = False
             # Look for a partner with that email
             email = vals.get('email').replace('%', '').replace('_', '\\_')
-            partners = partner_model.search(
-                [('email', '=ilike', email)])
+            partner = partner_model.search(
+                [('email', '=ilike', email)], limit=1)
             event = event_model.browse(vals['event_id'])
-            if partners:
-                partner_id = partners[0].id
-                vals['name'] = vals.get('name') or partners[0].name
-                vals['phone'] = vals.get('phone') or partners[0].phone
+            if partner:
+                partner_id = partner.id
+                vals['name'] = vals.get('name') or partner.name
+                vals['phone'] = vals.get('phone') or partner.phone
             elif event.create_partner:
                 # Create partner
                 partner = partner_model.sudo().create(
