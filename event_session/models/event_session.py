@@ -19,6 +19,11 @@ class EventSession(models.Model):
     active = fields.Boolean(
         default=True,
     )
+    company_id = fields.Many2one(
+        comodel_name='res.company',
+        related='event_id.company_id',
+        store=True,
+    )
     event_id = fields.Many2one(
         comodel_name='event.event',
         string='Event',
@@ -94,8 +99,9 @@ class EventSession(models.Model):
             if not (session.date_begin and session.date_end):
                 session.name = '/'
                 continue
-            date_begin = fields.Datetime.from_string(session.date_begin)
-            date_end = fields.Datetime.from_string(session.date_end)
+            date_begin = fields.Datetime.from_string(
+                session.date_begin_located)
+            date_end = fields.Datetime.from_string(session.date_end_located)
             dt_format = '%A %d/%m/%y %H:%M'
             name = date_begin.strftime(dt_format)
             if date_begin.date() == date_end.date():
