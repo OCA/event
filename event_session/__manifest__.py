@@ -14,6 +14,7 @@
     'depends': ['event', 'event_mail'],
     'data': [
         'security/ir.model.access.csv',
+        'security/event_session_security.xml',
         'views/event_session_view.xml',
         'views/event_view.xml',
         'wizards/wizard_event_session_view.xml',
