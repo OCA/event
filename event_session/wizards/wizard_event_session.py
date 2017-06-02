@@ -147,6 +147,7 @@ class WizardEventSession(models.TransientModel):
         )
         weekdays = self.weekdays()
         current = event_start
+        current = current.replace(hour=event_end.hour, minute=event_end.minute)
         while current <= event_end:
             if not weekdays[current.weekday()]:
                 current += timedelta(days=1)
