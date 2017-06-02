@@ -17,13 +17,21 @@ class EventEvent(models.Model):
     sessions_count = fields.Integer(
         compute='_compute_sessions_count',
         string='Total event sessions',
+        store=True,
     )
 
     @api.multi
+    @api.depends('session_ids')
     def _compute_sessions_count(self):
         for event in self:
             event.sessions_count = len(event.session_ids)
-    
+
+    @api.multi
+    @api.constrains('seats_max', 'seats_available')
+    def _check_seats_limit(self):
+        if self.sessions_count < 1:
+            return super(EventEvent, self)._check_seats_limit()
+
     @api.model
     def create(self, vals):
         event = super(EventEvent, self).create(vals)
