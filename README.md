@@ -20,6 +20,7 @@ Available addons
 addon | version | summary
 --- | --- | ---
 [event_mail](event_mail/) | 10.0.1.0.0 | Mail settings in events
+[partner_event](partner_event/) | 10.0.1.0.0 | Link partner to events
 
 
 Unported addons
@@ -27,7 +28,6 @@ Unported addons
 addon | version | summary
 --- | --- | ---
 [event_project](event_project/) | 8.0.1.0.0 (unported) | Event project
-[partner_event](partner_event/) | 8.0.1.1.0 (unported) | Link partner to events
 
 [//]: # (end addons)
 
