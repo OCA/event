@@ -37,6 +37,9 @@ class UICase(HttpCase):
                 datetime.today() - timedelta(days=60))
             functional_webinar.date_end = (
                 datetime.today() - timedelta(days=50))
+            # We need to make sure USA event starts today
+            business_apps_conference = env.ref("event.event_2")
+            business_apps_conference.date_begin = datetime.today()
 
         self.phantom_js(
             url_path="/event",
