@@ -5,7 +5,7 @@
 
 {
     "name": "Register a lead directly in an event",
-    "version": "8.0.1.1.0",
+    "version": "8.0.1.2.0",
     "license": "AGPL-3",
     "author": "Tecnativa, "
               "Odoo Community Association (OCA)",
