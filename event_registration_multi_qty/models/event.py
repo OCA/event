@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# Copyright 2017 Sergio Teruel<sergio.teruel@tecnativa.com>
+# Copyright 2017 Tecnativa - Sergio Teruel
+# Copyright 2017 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import _, api, fields, models
@@ -18,9 +19,8 @@ class EventEvent(models.Model):
     @api.depends('seats_max', 'registration_ids.state',
                  'registration_ids.qty')
     def _compute_seats(self):
-        for event in self:
-            if not event.registration_multi_qty:
-                return super(EventEvent, self)._compute_seats()
+        multi_qty_events = self.filtered('registration_multi_qty')
+        for event in multi_qty_events:
             vals = {
                 'seats_unconfirmed': 0,
                 'seats_reserved': 0,
@@ -45,6 +45,8 @@ class EventEvent(models.Model):
                 vals['seats_unconfirmed'] + vals['seats_reserved'] +
                 vals['seats_used'])
             event.update(vals)
+        rest = self - multi_qty_events
+        super(EventEvent, rest)._compute_seats()
 
     @api.multi
     @api.constrains('registration_multi_qty')
@@ -54,7 +56,7 @@ class EventEvent(models.Model):
                     max(event.registration_ids.mapped('qty') or [0]) > 1:
                 raise ValidationError(
                     _('You can not disable this option if there are '
-                      'registrations with quantities grather than one.'))
+                      'registrations with quantities greater than one.'))
 
 
 class EventRegistration(models.Model):

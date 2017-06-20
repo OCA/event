@@ -52,7 +52,7 @@ msgstr ""
 #, python-format
 msgid ""
 "You can not disable this option if there are registrations with quantities "
-"grather than one."
+"greater than one."
 msgstr ""
 "No puedes desactivar esta opción si tienes registros con más de un "
 "asistente en alguno de los registros."
