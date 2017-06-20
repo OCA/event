@@ -8,29 +8,32 @@ Event Registration Multi Qty
 
 This module allows to make registration to events with more than one attendee.
 
+This was the unique behavior on versions 8 and 9. As it's useful for some use
+cases, this module allows both ways of registering attendees.
+
 
 Configuration
 =============
 
-.. figure:: path/to/local/image.png
-   :alt: alternative description
-   :width: 600 px
+To configure the possibility of registering mutiple attendees:
+
+#. Go to *Events > Events*.
+#. Create one event.
+#. Go to *Registration tab* and check "Registration Multi Qty" to activate
+   this function.
 
 Usage
 =====
 
-To use this module, you need to:
+For registering multiple attendees:
 
-#. Go to *Events* and create one.
-#. Go to *Registration tab* and check "Registration Multi Qty" to activate
-   this function.
-#. Create an attendee for this event and you can write the quantities for this
-   this registration.
+#. Create an attendee for the created event.
+#. Write the quantities for this registration.
 
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/199/10
+   :target: https://runbot.odoo-community.org/runbot/199/10.0
 
 
 Bug Tracker
@@ -53,6 +56,7 @@ Contributors
 ------------
 
 * Sergio Teruel <sergio.teruel@tecnativa.com>
+* Pedro M. Baeza <pedro.baeza@tecnativa.com>
 
 
 Maintainer
