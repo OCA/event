@@ -26,22 +26,12 @@ class ReportEventRegistration(models.Model):
         string="# of Event Sessions", readonly=True, group_operator="min")
 
     def _select(self):
-        select_str = super(ReportEventRegistration, self)._select()
-        return select_str + """
-            , sub.session_id,
-            sub.seats_available AS seats_available,
-            (sub.draft_state + sub.confirm_state)
-            AS seats_expected,
-            sub.seats_available_expected,
-            sub.session_count
-        """
-
-    def _sub_select(self):
-        select_str = super(ReportEventRegistration, self)._sub_select()
-        return select_str + """
-            , MIN(r.session_id) AS session_id,
-            MIN(es.seats_available) as seats_available,
-            MAX(es.seats_available_expected) AS seats_available_expected,
+        return super(ReportEventRegistration, self)._select() + """,
+            MIN(r.session_id) AS session_id,
+            COELESCE(MIN(es.seats_available), e.seats_available)
+                AS seats_available,
+            COELESCE(MAX(es.seats_available_expected),
+                     e.seats_available_expected) AS seats_available_expected,
             MIN(e.sessions_count) AS session_count
         """
 
