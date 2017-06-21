@@ -5,6 +5,7 @@
 
 from odoo.tests import common
 from odoo.exceptions import ValidationError
+from psycopg2 import IntegrityError
 
 
 class EventSession(common.SavepointCase):
@@ -90,12 +91,20 @@ class EventSession(common.SavepointCase):
         ])
         self.assertEqual(res['domain'], [('id', 'in', attendees.ids)])
 
-    # TODO: Revisar test
-    # def test_assign_mail_template(self):
-    #     self.session._session_mails_from_template(self.event.id)
-    #     self.assertEqual(len(self.session.event_mail_ids), 1)
-    #     self.session._session_mails_from_template(self.event.id, self.template)
-    #     self.assertEqual(len(self.session.event_mail_ids), 1)
+    def test_assign_mail_template(self):
+        vals = ({
+            'event_mail_ids':
+                self.session._session_mails_from_template(self.event.id)
+        })
+        self.session.write(vals)
+        self.assertEqual(len(self.session.event_mail_ids), 0)
+        vals = ({
+            'event_mail_ids':
+                self.session._session_mails_from_template(self.event.id,
+                                                          self.template)
+        })
+        self.session.write(vals)
+        self.assertEqual(len(self.session.event_mail_ids), 1)
 
     def test_session_seats(self):
         """ Session seat """
@@ -128,6 +137,9 @@ class EventSession(common.SavepointCase):
         # delete previous sessions
         self.wizard.update({'delete_existing_sessions': True})
         self.wizard.update({'event_mail_template_id': self.template})
+        with self.assertRaises(IntegrityError), self.cr.savepoint():
+            self.wizard.action_generate_sessions()
+        self.attendee.session_id = False
         self.wizard.action_generate_sessions()
         sessions = self.env['event.session'].search([
             ['event_id', '=', self.event.id]
