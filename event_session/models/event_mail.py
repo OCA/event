@@ -2,8 +2,7 @@
 # Copyright 2017 David Vidal<david.vidal@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from datetime import datetime
-from odoo import api, fields, models, tools
+from odoo import api, fields, models
 import logging
 
 _logger = logging.getLogger(__name__)
@@ -77,9 +76,8 @@ class EventMailRegistration(models.Model):
             if (event_mail_reg.registration_id and
                     event_mail_reg.registration_id.session_id):
                 date_open = event_mail_reg.registration_id.date_open
-                date_open_datetime = date_open and datetime.strptime(
-                    date_open, tools.DEFAULT_SERVER_DATETIME_FORMAT
-                ) or fields.datetime.now()
+                date_open_datetime = date_open and fields.Datetime.from_string(
+                    date_open) or fields.datetime.now()
                 event_mail_reg.scheduled_date = (
                     date_open_datetime +
                     _INTERVALS[event_mail_reg.scheduler_id.interval_unit](
