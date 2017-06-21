@@ -59,6 +59,11 @@ class EventSession(models.Model):
         string='Available Expected Seats',
         readonly=True, compute='_compute_seats',
         store=True)
+    seats_available_pc = fields.Float(
+        string='Full %',
+        readonly=True,
+        compute='_compute_seats',
+    )
     date_tz = fields.Selection(
         string='Timezone', related="event_id.date_tz",
     )
@@ -155,26 +160,20 @@ class EventSession(models.Model):
         """Determine reserved, available, reserved but unconfirmed and used
         seats by session.
         """
-        # initialize fields to 0
-        for session in self:
-            session.seats_unconfirmed = session.seats_reserved = \
-                session.seats_used = session.seats_available = 0
         # aggregate registrations by event session and by state
-        if self.ids:
+        if len(self.ids) > 0:
             state_field = {
                 'draft': 'seats_unconfirmed',
                 'open': 'seats_reserved',
                 'done': 'seats_used',
             }
-            query = """
-                SELECT session_id, state, count(session_id)
-                FROM event_registration
-                WHERE session_id IN %s AND state IN ('draft', 'open', 'done')
-                GROUP BY session_id, state """
-            self._cr.execute(query, (tuple(self.ids),))
-            for session_id, state, num in self._cr.fetchall():
-                session = self.browse(session_id)
-                session[state_field[state]] += num
+            result = self.env['event.registration'].read_group([
+                ('session_id', 'in', self.ids),
+                ('state', 'in', ['draft', 'open', 'done'])
+            ], ['state', 'session_id'], ['session_id', 'state'], lazy=False)
+            for res in result:
+                session = self.browse(res['session_id'][0])
+                session[state_field[res['state']]] += res['__count']
         # compute seats_available
         for session in self:
             if session.seats_max > 0:
@@ -185,44 +184,43 @@ class EventSession(models.Model):
                 session.seats_used)
             session.seats_available_expected = (
                 session.seats_max - session.seats_expected)
+            if session.seats_max > 0:
+                session.seats_available_pc = (
+                    session.seats_expected * 100 / float(session.seats_max))
 
     @api.multi
     @api.depends('date_tz', 'date_begin')
     def _compute_date_begin_located(self):
-        for session in self:
-            if session.date_begin:
-                self_in_tz = session.with_context(
-                    tz=(session.date_tz or 'UTC')
-                )
-                date_begin = fields.Datetime.from_string(session.date_begin)
-                session.date_begin_located = fields.Datetime.to_string(
-                    fields.Datetime.context_timestamp(self_in_tz, date_begin),
-                )
-            else:
-                session.date_begin_located = False
+        for session in self.filtered('date_begin'):
+            self_in_tz = session.with_context(
+                tz=(session.date_tz or 'UTC')
+            )
+            date_begin = fields.Datetime.from_string(session.date_begin)
+            session.date_begin_located = fields.Datetime.to_string(
+                fields.Datetime.context_timestamp(self_in_tz, date_begin),
+            )
 
     @api.multi
     @api.depends('date_tz', 'date_end')
     def _compute_date_end_located(self):
-        for session in self:
-            if session.date_end:
-                self_in_tz = session.with_context(
-                    tz=(session.date_tz or 'UTC')
-                )
-                date_end = fields.Datetime.from_string(session.date_end)
-                session.date_end_located = fields.Datetime.to_string(
-                    fields.Datetime.context_timestamp(self_in_tz, date_end),
-                )
-            else:
-                session.date_end_located = False
+        for session in self.filtered('date_end'):
+            self_in_tz = session.with_context(
+                tz=(session.date_tz or 'UTC')
+            )
+            date_end = fields.Datetime.from_string(session.date_end)
+            session.date_end_located = fields.Datetime.to_string(
+                fields.Datetime.context_timestamp(self_in_tz, date_end),
+            )
 
     @api.onchange('event_id')
     def onchange_event_id(self):
-        self.seats_min = self.event_id.seats_min
-        self.seats_max = self.event_id.seats_max
-        self.seats_availability = self.event_id.seats_availability
-        self.date_begin = self.event_id.date_begin
-        self.date_end = self.event_id.date_end
+        self.update({
+            'seats_min': self.event_id.seats_min,
+            'seats_max': self.event_id.seats_max,
+            'seats_availability': self.event_id.seats_availability,
+            'date_begin': self.event_id.date_begin,
+            'date_end': self.event_id.date_end,
+        })
 
     @api.multi
     @api.constrains('seats_max', 'seats_available')

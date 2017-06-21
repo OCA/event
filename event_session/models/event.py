@@ -19,6 +19,7 @@ class EventEvent(models.Model):
         string='Total event sessions',
         store=True,
     )
+    seats_expected = fields.Integer(store=True)
 
     @api.multi
     @api.depends('session_ids')
@@ -29,21 +30,9 @@ class EventEvent(models.Model):
     @api.multi
     @api.constrains('seats_max', 'seats_available')
     def _check_seats_limit(self):
-        if self.sessions_count < 1:
-            return super(EventEvent, self)._check_seats_limit()
-
-    @api.model
-    def create(self, vals):
-        event = super(EventEvent, self).create(vals)
-        if not event.session_ids:
-            event.session_ids = [(0, 0, {
-                'seats_min': event.seats_min,
-                'seats_availability': event.seats_availability,
-                'seats_max': event.seats_max,
-                'date_begin': event.date_begin,
-                'date_end': event.date_end,
-            })]
-        return event
+        for event in self:
+            if not event.session_ids:
+                return super(EventEvent, event)._check_seats_limit()
 
 
 class EventRegistration(models.Model):
@@ -56,17 +45,16 @@ class EventRegistration(models.Model):
     session_id = fields.Many2one(
         comodel_name='event.session',
         string='Session',
-        ondelete='set null',
+        ondelete='restrict',
     )
 
     @api.multi
     @api.constrains('event_id', 'session_id', 'state')
     def _check_seats_limit(self):
-        for registration in self:
+        for registration in self.filtered('session_id'):
             if (registration.session_id.seats_availability == 'limited' and
-                    self.session_id.seats_max and
-                    self.session_id.seats_available <
-                    (1 if self.state == 'draft' else 0)):
+                    registration.session_id.seats_available < 1 and
+                    registration.state == 'open'):
                 raise ValidationError(
                     _('No more seats available for this event.'))
 
@@ -74,7 +62,7 @@ class EventRegistration(models.Model):
     def confirm_registration(self):
         for reg in self:
             if not reg.event_id.session_ids:
-                super(EventRegistration, self).confirm_registration()
+                super(EventRegistration, reg).confirm_registration()
             reg.state = 'open'
             onsubscribe_schedulers = \
                 reg.session_id.event_mail_ids.filtered(
