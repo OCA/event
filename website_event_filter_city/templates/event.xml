@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- © 2016 Antiun Ingeniería S.L. - Jairo Llopis
+<!-- Copyright 2016-2017 Jairo Llopis <jairo.llopis@tecnativa.com>
      License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
 
 <odoo>
@@ -186,6 +186,18 @@
     </xpath>
     <xpath expr="//t[@id='filter_city']" position="attributes">
         <attribute name="t-call">website_event_filter_selector.city</attribute>
+    </xpath>
+</template>
+
+<!-- Static templates always used -->
+<template id="city_breadcrumb"
+          name="City breadcrumb"
+          inherit_id="website_event.index">
+    <xpath expr="//ol[contains(@class, 'breadcrumb')]/li[@t-if='current_country']"
+           position="after">
+        <li t-if="current_city != 'all'">
+            <t t-esc="current_city"/>
+        </li>
     </xpath>
 </template>
 
