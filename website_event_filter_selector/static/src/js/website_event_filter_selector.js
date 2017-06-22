@@ -1,4 +1,4 @@
-/* © 2016 Antiun Ingeniería S.L. - Jairo Llopis
+/* Copyright 2016-2017 Jairo Llopis <jairo.llopis@tecnativa.com>
  * License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). */
 odoo.define("website_event_filter_selector", function (require) {
     "use strict";
