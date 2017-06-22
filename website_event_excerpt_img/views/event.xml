@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright 2016 Tecnativa - Jairo Llopis
+     Copyright 2017 Tecnativa - David Vidal
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 
-<openerp>
-<data>
+<odoo>
 
 <template id="event_item">
     <div
@@ -69,9 +69,9 @@
                             "widget": "contact",
                             "fields": ["city"]
                         }'/>
-                    <div t-if="event.type">
+                    <div t-if="event.event_type_id">
                         <i class="fa fa-tag"/>
-                        <span t-field="event.type"/>
+                        <span t-field="event.event_type_id"/>
                     </div>
                 </div>
             </div>
@@ -138,5 +138,4 @@
     </xpath>
 </template>
 
-</data>
-</openerp>
+</odoo>
