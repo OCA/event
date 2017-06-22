@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# © 2016 Jairo Llopis <jairo.llopis@tecnativa.com>
+# Copyright 2016-2017 Jairo Llopis <jairo.llopis@tecnativa.com>
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-from openerp import fields, models
+from odoo import fields, models
 
 
 class EventEvent(models.Model):
