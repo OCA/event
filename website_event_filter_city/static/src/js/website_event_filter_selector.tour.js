@@ -1,8 +1,9 @@
-/* © 2016 Antiun Ingeniería S.L. - Jairo Llopis
+/* Copyright 2016-2017 Jairo Llopis <jairo.llopis@tecnativa.com>
  * License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). */
 odoo.define("website_event_filter_selector.tour", function (require) {
     "use strict";
-    var Tour = require('web.Tour');
+    var base = require("web_editor.base");
+    var tour = require('web_tour.tour');
     var filter = require("website_event_filter_selector");
 
     var id = filter.prototype.selector,
@@ -10,91 +11,92 @@ odoo.define("website_event_filter_selector.tour", function (require) {
 
     // Get an option value by its text
     function opt_val(filter, option_text) {
-        return $filters.find(
-            _.str.sprintf(
-                "select[name='%s']>option:contains('%s')",
-                filter,
-                option_text
-            )
-        ).val();
+        return _.str.sprintf(
+            "text(%s)",
+            $filters.find(
+                _.str.sprintf(
+                    "select[name='%s']>option:contains('%s')",
+                    filter,
+                    option_text
+                )
+            ).val()
+        );
     }
 
     // Get an element in the selection filters form
     function sel(name) {
-        return _.str.sprintf("%s %s", id, name);
+        return _.str.sprintf("%s select[name='%s']", id, name);
     }
 
-    var tour = {
-        id: "website_event_filter_selector",
-        name: "Apply some filters",
-        path: "/event",
-        mode: "test",
-        steps: [
-            {
-                title: "Get old events",
-                waitFor: id,
-                element: sel("#filter_date"),
-                sampleText: "old",
-            },
-            {
-                title: "Get online events",
-                waitFor: "#left_column .active:contains('Old Events')",
-                element: sel("#filter_country"),
-                sampleText: "online",
-            },
-            {
-                title: "Get every country events",
-                waitFor: "#left_column .active:contains('Online Events')",
-                waitNot: "#left_column li:contains('Fremont')",
-                element: sel("#filter_country"),
-                sampleText: "all",
-            },
-            {
-                title: "Get this month's events",
-                waitFor: "#left_column .active:contains('All Countries')",
-                element: sel("#filter_date"),
-                sampleText: "month",
-            },
-            {
-                title: "Get USA events",
-                waitFor: "#left_column .active:contains('This month')",
-                waitNot: sel("#filter_country:contains('Online Events')"),
-                element: sel("#filter_country"),
-                sampleText: opt_val("country", "United States"),
-            },
-            {
-                title: "Get Fremont events",
-                waitFor: "#left_column .active:contains('United States')",
-                waitNot: "#left_column li:contains('Wavre')",
-                element: sel("#filter_city"),
-                sampleText: opt_val("city", "Fremont"),
-            },
-            {
-                title: "Get all countries' events",
-                waitFor: "#left_column .active:contains('Fremont')",
-                waitNot: "#left_column li:contains('Wavre')",
-                element: sel("#filter_country"),
-                sampleText: "all",
-            },
-            {
-                title: "Get Conference events",
-                waitFor: "#left_column .active:contains('All Countries')",
-                element: sel("#filter_type"),
-                sampleText: opt_val("type", "Conference"),
-            },
-            {
-                title: "Taiwan has no conferences",
-                waitFor: "#left_column .active:contains('Conference')",
-                waitNot: "#left_column li:contains('Taiwan')",
-            },
-        ]
-    }
+    // Define tour
+    var options = {
+        url: "/event",
+        test: true,
+        wait_for: base.ready(),
+    };
+    var steps = [
+        {
+            content: "Get old events",
+            // Make sure Taiwan exists; it's used in the last step
+            extra_trigger: "#left_column li:contains('Taiwan')",
+            trigger: sel("date"),
+            run: "text(old)",
+        },
+        {
+            content: "Get online events",
+            extra_trigger: "#left_column .active:contains('Old Events')",
+            trigger: sel("country"),
+            run: "text(online)",
+        },
+        {
+            content: "Get every country events",
+            extra_trigger: "#left_column .active:contains('Online Events')",
+            trigger: sel("country"),
+            run: "text(all)",
+        },
+        {
+            content: "Get this month's events",
+            extra_trigger: "#left_column .active:contains('All Countries')",
+            trigger: sel("date"),
+            run: "text(month)",
+        },
+        {
+            content: "Get USA events",
+            extra_trigger: "#left_column .active:contains('This month')",
+            trigger: sel("country"),
+            run: opt_val("country", "United States"),
+        },
+        {
+            content: "Get Fremont events",
+            extra_trigger: "#left_column .active:contains('United States')",
+            trigger: sel("city"),
+            run: opt_val("city", "Fremont"),
+        },
+        {
+            content: "Get all countries' events",
+            extra_trigger: "#left_column .active:contains('Fremont')",
+            trigger: sel("country"),
+            run: "text(all)",
+        },
+        {
+            content: "Get Conference events",
+            extra_trigger: "#left_column .active:contains('All Countries')",
+            trigger: sel("type"),
+            run: opt_val("type", "Conference"),
+        },
+        {
+            content: "Taiwan has no conferences",
+            extra_trigger: "#left_column .active:contains('Conference')",
+            trigger: "#left_column:not(li:contains('Taiwan'))",
+        },
+    ];
 
-    Tour.register(tour);
+    tour.register("website_event_filter_selector", options, steps);
 
     return {
         opt_val: opt_val,
-        tour: tour,
+        options: options,
+        steps: steps,
         $filters: $filters,
     }
 });
