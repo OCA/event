@@ -6,27 +6,29 @@
 Event Share
 ===========
 
-This module brings the users the possibility to globally enable/disable a share button
-that will be displayed in each event post.
+This module brings the users the possibility to globally enable/disable a share
+links block that will be displayed in every event post.
 
 Usage
 =====
 
-1. Go to website menu
-2. Open one of your event
-3. Click on customize button
-4. Toggle share button option to enable/disable share button
+1. Go to the website events menu.
+2. Open one of your events.
+3. Click on the customize button.
+4. Toggle the share button option to enable/disable the share links block.
 
-NB: even if you have to go to one specific event, the set up is valid for all of them.
+NB: Although you set the option from a specific event, every event is going to
+be set as well.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/199/9.0
+   :target: https://runbot.odoo-community.org/runbot/199/10.0
 
 Know issues / Roadmap
 =====================
-* Share event configuration valid for all events. No individual configuration for each event
 
+* Share event configuration is set on all events. No individual configuration
+  for each event
 
 Bug Tracker
 ===========
@@ -44,6 +46,7 @@ Contributors
 
 * Andhitia Rama <andhitia.r@gmail.com>
 * Vicent Cubells <vicent.cubells@tecnativa.com>
+* David Vidal <david.vidal@tecnativa.com>
 
 Maintainer
 ----------
