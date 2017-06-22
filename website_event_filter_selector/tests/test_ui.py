@@ -2,7 +2,7 @@
 # Copyright 2016 Jairo Llopis <jairo.llopis@tecnativa.com>
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-from openerp.tests.common import HttpCase
+from odoo.tests.common import HttpCase
 from datetime import datetime, timedelta
 
 
@@ -33,6 +33,7 @@ class UICase(HttpCase):
             # We need to have an old and an online event
             functional_webinar = env.ref("event.event_1")
             functional_webinar.address_id = False
+            functional_webinar.country_id = False
             functional_webinar.date_begin = (
                 datetime.today() - timedelta(days=60))
             functional_webinar.date_end = (
@@ -43,7 +44,7 @@ class UICase(HttpCase):
 
         self.phantom_js(
             url_path="/event",
-            code="odoo.__DEBUG__.services['web.Tour']"
-                 ".run('website_event_filter_selector', 'test')",
-            ready="odoo.__DEBUG__.services['web.Tour']"
-                  ".tours.website_event_filter_selector")
+            code="odoo.__DEBUG__.services['web_tour.tour']"
+                 ".run('website_event_filter_selector')",
+            ready="odoo.__DEBUG__.services['web_tour.tour']"
+                  ".tours.website_event_filter_selector.ready")
