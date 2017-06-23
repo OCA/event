@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
-# © 2016 Antiun Ingeniería S.L. - Jairo Llopis
+# Copyright 2016 Tecnativa - Jairo Llopis
+# Copyright 2017 Tecnativa - David Vidal
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Event Type Description in Website",
     "summary": "Display a specific description for each event type",
-    "version": "8.0.1.1.0",
+    "version": "10.0.1.1.0",
     "category": "Website",
-    "website": "http://www.antiun.com",
-    "author": "Antiun Ingeniería S.L., "
+    "website": "https://www.tecnativa.com",
+    "author": "Tecnativa, "
               "Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "application": False,
