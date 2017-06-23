@@ -33,7 +33,7 @@ To do it from the backend, you need to:
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/199/8.0
+   :target: https://runbot.odoo-community.org/runbot/199/10.0
 
 Known issues / Roadmap
 ======================
@@ -42,6 +42,7 @@ Known issues / Roadmap
   with a friendly slug.
 * In such case, the ``event.type`` model should inherit from
   ``website.seo.metadata`` mixin to have access to all SEO tools.
+* It's not obvious that there is an editable area on event types website.
 
 Bug Tracker
 ===========
@@ -49,11 +50,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues
 <https://github.com/OCA/event/issues>`_. In case of trouble, please
 check there if your issue has already been reported. If you spotted it first,
-help us smashing it by providing a detailed and welcomed `feedback
-<https://github.com/OCA/
-event/issues/new?body=module:%20
-website_event_type_description%0Aversion:%20
-8.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+help us smash it by providing detailed and welcomed feedback.
 
 Credits
 =======
@@ -66,8 +63,9 @@ Images
 Contributors
 ------------
 
-* Rafael Blasco <rafabn@antiun.com>
-* Jairo Llopis <yajo.sk8@gmail.com>
+* Rafael Blasco <rafael.blasco@tecnativa.com>
+* Jairo Llopis <jairo.llopis@tecnativa.com>
+* David Vidal <david.vidal@tecnativa.com>
 
 Maintainer
 ----------
