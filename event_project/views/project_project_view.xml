@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-<data>
+<odoo>
 
 <!-- Add related event to project form view -->
 <record id="edit_project" model="ir.ui.view">
@@ -8,12 +7,11 @@
     <field name="model">project.project</field>
     <field name="inherit_id" ref="project.edit_project"/>
     <field name="arch" type="xml">
-        <field name="parent_id" position="after">
+        <field name="partner_id" position="after">
             <field name="event_id"
                    attrs="{'invisible': [('event_id', '=', False)]}"/>
         </field>
     </field>
 </record>
 
-</data>
-</openerp>
+</odoo>
