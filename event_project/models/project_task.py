@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
-# See README.rst file on addon root folder for license details
 
-from openerp import models, fields
+from odoo import fields, models
 
 
 class ProjectTask(models.Model):
