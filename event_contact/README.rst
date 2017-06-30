@@ -10,38 +10,26 @@ This module adds the possibility to define contacts for
 the event. Contacts are needed due to inform the people
 who should be contacted for the event
 
-Installation
-============
-
-To install this module, you need to:
-
-1.  Clone the branch 8.0 of the repository https://github.com/OCA/event
-2.  Add the path to this repository in your configuration (addons-path)
-3.  Update the module list
-4.  Go to menu *Setting -> Modules -> Local Modules*
-5.  Search For *Event Contacts*
-6.  Install the module
-
 Usage
 =====
 
 To set contacts to event, you need to:
 
-#. Go to *Marketing -> Events -> Events*.
+#. Go to *Events > Events*.
 #. Edit or create one.
 #. You will see a new field under field *Organizer* named *Contacts*.
 
 To set contacts for an event type, you need to:
 
-#. Go to *Marketing > Configuration > Events > Types of Events*.
+#. Go to *Events > Configuration > Event Categories*.
 #. Edit or create one.
 #. You will see a new field under field *Organizer* named *Contacts*.
 #. After doing this, if you create an event and set it this type, the event
-   will get these contacts by default if it had none.
+   will get appended these contacts automatically.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/199/8.0
+   :target: https://runbot.odoo-community.org/runbot/199/10.0
 
 
 Bug Tracker
@@ -50,11 +38,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues
 <https://github.com/OCA/event/issues>`_. In case of trouble, please
 check there if your issue has already been reported. If you spotted it first,
-help us smashing it by providing a detailed and welcomed `feedback
-<https://github.com/OCA/
-event/issues/new?body=module:%20
-event_contact%0Aversion:%20
-8.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+help us smash it by providing detailed and welcomed feedback.
 
 
 Credits
@@ -69,6 +53,7 @@ Contributors
 ------------
 
 * Michael Viriyananda <viriyananda.michael@gmail.com>
+* Jairo Llopis <jairo.llopis@tecnativa.com>
 
 Maintainer
 ----------
