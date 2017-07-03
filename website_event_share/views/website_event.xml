@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="event_share" name="Share Button" inherit_id="website_event.event_details" customize_show="True">
+        <xpath expr="//h4[@t-field='event.address_id']" position="after">
+            <t t-call="website.s_share"/>
+        </xpath>
+  </template>
+</odoo>
