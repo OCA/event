@@ -23,6 +23,7 @@ addon | version | summary
 [event_registration_mass_mailing](event_registration_mass_mailing/) | 10.0.1.0.0 | Mass mailing from events
 [event_registration_multi_qty](event_registration_multi_qty/) | 10.0.1.0.0 | Allow registration grouped by quantities
 [partner_event](partner_event/) | 10.0.1.0.0 | Link partner to events
+[website_event_share](website_event_share/) | 10.0.1.0.0 | Add contacts to event
 
 
 Unported addons
