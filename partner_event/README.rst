@@ -27,8 +27,8 @@ be created automatically with name, email and phone fields.
 If partner already exists and user only fills email, name and phone fields will
 be filled with partner's data.
 
-If partner's email, name or phone is changed and the event end date has not
-passed so will those partner's registration values be changed.
+The event registration values email, name and phone will be changed if the
+related partner values are changed and the event end date hasn't passed yet.
 
 Usage
 =====
