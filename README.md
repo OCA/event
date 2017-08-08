@@ -19,6 +19,7 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
+[event_contact](event_contact/) | 10.0.1.0.0 | Add contacts to event and event type
 [event_mail](event_mail/) | 10.0.1.0.0 | Mail settings in events
 [event_registration_mass_mailing](event_registration_mass_mailing/) | 10.0.1.0.0 | Mass mailing from events
 [event_registration_multi_qty](event_registration_multi_qty/) | 10.0.1.0.0 | Allow registration grouped by quantities
