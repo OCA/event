@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016-2017 Jairo Llopis <jairo.llopis@tecnativa.com>
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
+
+<odoo>
+
+<!-- Reusable callable templates -->
+<template id="element" name="Event Selection Filter Form Element">
+    <div t-att-id="element_id" t-attf-class="col-sm-#{12 / selection_filters_amount}">
+        <div class="form-group">
+            <t t-raw="0"/>
+        </div>
+    </div>
+</template>
+
+<template id="date" name="Event Date Selection Filter">
+    <t t-call="website_event_filter_selector.element">
+        <t t-set="element_id" t-value="filter_selector_date"/>
+        <label for="date">When</label>
+        <select name="date" class="form-control">
+            <t t-foreach="dates" t-as="date">
+                <option
+                    t-att-value="date[0]"
+                    t-esc="'%s (%s)' % (date[1], date[3]) if date[0] != 'old' else date[1]"
+                    t-att-selected="date[0] == searches.get('date') and
+                                    'selected'"/>
+            </t>
+        </select>
+    </t>
+</template>
+
+<template id="country" name="Event Country Selection Filter">
+    <t t-call="website_event_filter_selector.element">
+        <t t-set="element_id" t-value="filter_selector_country"/>
+        <label for="country">Country</label>
+        <select name="country" class="form-control">
+            <t t-foreach="countries" t-as="country">
+                <t t-if="country['country_id']">
+                    <option
+                        t-att-value="country['country_id'][0]"
+                        t-esc="'%s (%s)' % (
+                            country['country_id'][1],
+                            country['country_id_count'])"
+                        t-att-selected=
+                            "country['country_id'][0] == (
+                                current_country and
+                                current_country.id) and
+                             'selected'"/>
+                </t>
+                <t t-if="not country['country_id']">
+                    <option
+                        t-att-selected="searches.get('country') == 'online' and 'selected'"
+                        value="online">
+                        Online Events
+                        <t t-esc="'(%s)' % country['country_id_count']"/>
+                    </option>
+                </t>
+            </t>
+        </select>
+    </t>
+</template>
+
+<template id="city" name="City Selection Filter">
+    <t t-call="website_event_filter_selector.element">
+        <t t-set="element_id" t-value="filter_selector_city"/>
+        <label for="city">City</label>
+        <select name="city" class="form-control">
+            <t t-foreach="cities" t-as="city">
+                <t t-if="city['city']">
+                    <t t-set="city_value"
+                       t-value="city.get('key', city['city'])"/>
+                    <option
+                        t-att-value="city_value"
+                        t-esc="'%s (%s)' % (
+                            city['city'],
+                            city['city_count'])"
+                        t-att-selected="city_value == current_city
+                                        and 'selected'"/>
+                </t>
+            </t>
+        </select>
+    </t>
+</template>
+
+<template
+    id="city_left_column"
+    inherit_id="website_event.event_left_column"
+    active="False"
+    customize_show="True"
+    name="Filter by City">
+    <xpath expr="//div[@id='left_column']" position="inside">
+        <ul class="nav nav-pills nav-stacked mt32">
+            <t t-foreach="cities" t-as="city">
+                <t t-if="city['city']">
+                    <t t-set="city_value"
+                       t-value="city.get('key', city['city'])"/>
+                    <li t-att-class="city_value == current_city and 'active'">
+                        <a t-attf-href="/event?{{ keep_query('country', 'date', 'type', city=city_value) }}">
+                            <t t-esc="city['city']"/>
+                            <span class="badge pull-right">
+                                <t t-esc="city['city_count']"/>
+                            </span>
+                        </a>
+                    </li>
+                </t>
+            </t>
+        </ul>
+    </xpath>
+</template>
+
+<template id="type" name="Event Type Selection Filter">
+    <t t-call="website_event_filter_selector.element">
+        <t t-set="element_id" t-value="filter_selector_date"/>
+        <label for="type">Event Type</label>
+        <select name="type" class="form-control">
+            <t t-foreach="types" t-as="type_">
+                <t t-if="type_['event_type_id']">
+                    <option
+                        t-att-value="type_['event_type_id'][0]"
+                        t-esc="'%s (%s)' % (
+                            type_['event_type_id'][1],
+                            type_['event_type_id_count'])"
+                        t-att-selected="type_['event_type_id'][0] == (
+                                            current_type and
+                                            current_type.id) and
+                                        'selected'"/>
+                </t>
+            </t>
+        </select>
+    </t>
+</template>
+
+<!-- Partial templates to be displayed if enabled -->
+<template id="filter_date"
+          inherit_id="website_event.index"
+          name="Selection Filters"
+          customize_show="True">
+    <xpath expr="//div[@class='row mt8']" position="after">
+        <div id="website_event_filter_selector" class="mt8">
+            <t id="custom"/>
+            <form class="row" action="/event" method="GET">
+                <t t-set="selection_filters_amount" t-value="1"/>
+                <t id="filter_type"/>
+                <t id="filter_country"/>
+                <t id="filter_city"/>
+                <t id="filter_date"
+                   t-call="website_event_filter_selector.date"/>
+            </form>
+        </div>
+    </xpath>
+</template>
+
+<template id="filter_type"
+          inherit_id="filter_date"
+          name="Filter by Category"
+          customize_show="True">
+    <xpath expr="//t[@t-set='selection_filters_amount']" position="after">
+        <t t-set="selection_filters_amount"
+           t-value="selection_filters_amount + 1"/>
+    </xpath>
+    <xpath expr="//t[@id='filter_type']" position="attributes">
+        <attribute name="t-call">website_event_filter_selector.type</attribute>
+    </xpath>
+</template>
+
+<template id="filter_country"
+          inherit_id="filter_date"
+          name="Filter by Country"
+          customize_show="True">
+    <xpath expr="//t[@t-set='selection_filters_amount']" position="after">
+        <t t-set="selection_filters_amount"
+           t-value="selection_filters_amount + 1"/>
+    </xpath>
+    <xpath expr="//t[@id='filter_country']" position="attributes">
+        <attribute name="t-call">website_event_filter_selector.country</attribute>
+    </xpath>
+</template>
+
+<template id="filter_city"
+          inherit_id="filter_date"
+          name="Filter by City"
+          customize_show="True">
+    <xpath expr="//t[@t-set='selection_filters_amount']" position="after">
+        <t t-set="selection_filters_amount"
+           t-value="selection_filters_amount + 1"/>
+    </xpath>
+    <xpath expr="//t[@id='filter_city']" position="attributes">
+        <attribute name="t-call">website_event_filter_selector.city</attribute>
+    </xpath>
+</template>
+
+<!-- Static templates always used -->
+<template id="city_breadcrumb"
+          name="City breadcrumb"
+          inherit_id="website_event.index">
+    <xpath expr="//ol[contains(@class, 'breadcrumb')]/li[@t-if='current_country']"
+           position="after">
+        <li t-if="current_city != 'all'">
+            <t t-esc="current_city"/>
+        </li>
+    </xpath>
+</template>
+
+<!-- Avoid users saving customizations in main template -->
+<template id="user_custom"
+          inherit_id="filter_date"
+          name="Customizations by the User for Event Selection Filters"
+          customize_show="True">
+    <xpath expr="//div[@id='website_event_filter_selector']/t[@id='custom']"
+           position="inside">
+        <div class="oe_structure"/>
+    </xpath>
+</template>
+
+</odoo>
