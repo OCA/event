@@ -10,14 +10,12 @@
     <field name="model">event.registration</field>
     <field name="inherit_id" ref="event.view_registration_search"/>
     <field name="arch" type="xml">
-        <!-- TODO Change expr if https://github.com/odoo/odoo/pull/12997 is merged -->
-        <xpath expr="//filter[@domain=&quot;[('state', 'in', ['draft', 'open', 'done'])]&quot;]"
-               position="after">
+        <filter name="expected" position="after">
             <filter
                 name="done"
                 domain="[('state', '=', 'done')]"
                 string="Attended"/>
-        </xpath>
+        </filter>
     </field>
 </record>
 
