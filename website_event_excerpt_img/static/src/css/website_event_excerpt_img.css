@@ -1,0 +1,12 @@
+@charset "UTF-8";
+/* Copyright 2016 Tecnativa - Jairo Llopis
+ * License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). */
+#website_event_excerpt_img .event-thumbnail .img {
+  height: 8em;
+  width: 100%;
+  object-fit: cover;
+  object-position: center; }
+#website_event_excerpt_img .event-priority-highlighted .event-thumbnail .img {
+  height: 16em; }
+
+/*# sourceMappingURL=website_event_excerpt_img.css.map */

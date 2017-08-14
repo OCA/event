@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 Tecnativa - Jairo Llopis
+     Copyright 2017 Tecnativa - David Vidal
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+<template id="event_item">
+    <div
+        itemscope="itemscope"
+        itemtype="http://schema.org/Event"
+        t-attf-class="mb16 mt16 col-sm-#{12 if event.priority &gt; '0' else 6}">
+        <div class="row">
+            <!-- Image -->
+            <t t-set="image" t-value="False"/>
+            <t t-foreach="env['ir.fields.converter']
+                            .imgs_from_html(event.description, 1)"
+               t-as="image"/>
+            <div t-if="image" class="event-thumbnail col-sm-6">
+                <a t-attf-href="/event/#{slug(event)}">
+                    <img class="img img-thumbnail" t-att-src="image"/>
+                </a>
+            </div>
+
+            <!-- Event metadata -->
+            <div t-attf-class="event-data col-sm-#{6 if image else 12}">
+                <h4>
+                    <a
+                        itemprop="url"
+                        t-att-class="event.state == 'done' and 'text-success'"
+                        t-attf-href="/event/#{slug(event)}">
+                        <span itemprop="name" t-field="event.name"/>
+                    </a>
+                    <small
+                        t-if="not event.address_id"
+                        class="label label-info">
+                        Online
+                    </small>
+                    <small
+                        t-if="not event.website_published"
+                        class="label label-danger">
+                        Not published
+                    </small>
+                </h4>
+
+                <div class="text-muted">
+                    <div>
+                        <t t-if="event.organizer_id">
+                            Organized by:
+                            <span t-field="event.organizer_id"/>
+                        </t>
+                    </div>
+                    <div>
+                        <i class="fa fa-clock-o"/>
+                        <span
+                            itemprop="startDate"
+                            t-field="event.with_context(tz=event.date_tz).date_begin"
+                            t-field-options='{"hide_seconds":"True"}'/>
+                        <i>to</i>
+                        <span
+                            itemprop="endDate"
+                            t-field="event.with_context(tz=event.date_tz).date_end"
+                            t-field-options='{"hide_seconds":"True"}'/>
+                    </div>
+                    <div
+                        itemprop="location"
+                        t-field="event.address_id"
+                        t-field-options='{
+                            "widget": "contact",
+                            "fields": ["city"]
+                        }'/>
+                    <div t-if="event.event_type_id">
+                        <i class="fa fa-tag"/>
+                        <span t-field="event.event_type_id"/>
+                    </div>
+                </div>
+            </div>
+
+            <div t-attf-class="event-description mt8 col-sm-#{
+                    6 if event.priority &gt; '0' and image else 12}">
+                <t t-call="website_event_excerpt_img.description"/>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template id="description">
+    <!-- Description or excerpt -->
+    <t t-set="excerpt_words" t-value="60"/>
+    <p
+        itemprop="description"
+        t-esc="event.website_meta_description or
+            env['ir.fields.converter']
+            .text_from_html(event.description, excerpt_words)"/>
+
+    <!-- Read more button -->
+    <p>
+        <a
+            class="btn btn-default"
+            t-attf-href="/event/#{slug(event)}">
+            Read more
+        </a>
+    </p>
+</template>
+
+<template id="index"
+          name="Images and Description"
+          inherit_id="website_event.index"
+          customize_show="True">
+
+    <xpath expr="//ul[@class='media-list']" position="replace">
+        <div id="website_event_excerpt_img">
+            <!-- Highlighted events -->
+            <t t-set="events_highlighted"
+               t-value="event_ids.filtered(
+                    lambda r: r.priority &gt;= '1')"/>
+            <div t-if="events_highlighted"
+                 t-attf-class="event-priority-highlighted clearfix">
+                <t t-foreach="events_highlighted" t-as="event">
+                    <t t-call="website_event_excerpt_img.event_item"/>
+                </t>
+            </div>
+
+            <!-- Normal events -->
+            <t t-set="events_normal"
+               t-value="event_ids - events_highlighted"/>
+            <div t-if="events_normal"
+                 t-attf-class="event-priority-normal clearfix">
+                <t t-foreach="events_normal" t-as="event">
+                    <t t-call="website_event_excerpt_img.event_item"/>
+
+                    <!-- Height of items can change depending on description
+                         size, and get quite ugly without this -->
+                    <div t-if="event_odd" class="clearfix"/>
+                </t>
+            </div>
+        </div>
+    </xpath>
+</template>
+
+</odoo>
