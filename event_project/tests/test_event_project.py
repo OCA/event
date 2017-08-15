@@ -52,6 +52,9 @@ class TestEventProject(common.SavepointCase):
 
     def test_03_project_change(self):
         self.event.project_id = self.project_2
+        self.event.refresh()
+        self.assertTrue(self.event.project_id)
+        self.assertNotEqual(self.event.project_id, self.project_2)
         self.assertEqual(self.event.project_id.calculation_type, 'date_end')
         self.assertEqual(self.event.project_id.date,
                          str.split(self.event.date_begin, ' ')[0])

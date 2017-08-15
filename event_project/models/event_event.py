@@ -31,8 +31,10 @@ class EventEvent(models.Model):
             event.count_tasks = len(event.task_ids)
 
     def project_data_update(self, vals):
+        """Update data in the linked project. To be called after calling
+        create/write super."""
+        recalculate = False
         if self.project_id:
-            recalculate = False
             project_vals = {}
             if vals.get('name'):
                 project_vals['name'] = self.name
@@ -47,25 +49,26 @@ class EventEvent(models.Model):
                 recalculate = True
             if project_vals:
                 self.project_id.write(project_vals)
-                return recalculate
-        return False
+        return recalculate
+
+    def _check_new_project(self, vals):
+        if vals.get('project_id'):
+            vals['project_id'] = self.env['project.project'].browse(
+                vals['project_id']
+            ).copy().id
 
     @api.model
     def create(self, vals):
-        if vals.get('project_id'):
-            vals['project_id'] = self.env[
-                'project.project'].browse(vals['project_id']).copy().id
+        self._check_new_project(vals)
         event = super(EventEvent, self).create(vals)
         event.project_data_update(vals)
         return event
 
     @api.multi
     def write(self, vals):
-        if self.project_id and not vals.get('project_id'):
-            self.project_id.event_id = False
-        if vals.get('project_id'):
-            vals['project_id'] = self.env[
-                'project.project'].browse(vals['project_id']).copy().id
+        if vals.get('project_id') is not None and not vals.get('project_id'):
+            self.mapped('project_id').write({'event_id': False})
+        self._check_new_project(vals)
         res = super(EventEvent, self).write(vals)
         recalculate = self.project_data_update(vals)
         if recalculate and not self.env.context.get('no_recalculate'):
@@ -76,8 +79,7 @@ class EventEvent(models.Model):
     def button_cancel(self):
         """Archive linked project when event is cancelled"""
         super(EventEvent, self).button_cancel()
-        if self.project_id:
-            self.project_id.active = False
+        self.mapped('project_id').write({'active': False})
 
     @api.multi
     def button_draft(self):
