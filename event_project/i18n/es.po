@@ -1,13 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* event_project
+#   * event_project
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-09 11:24+0000\n"
-"PO-Revision-Date: 2015-05-09 11:24+0000\n"
+"POT-Creation-Date: 2015-10-29 16:16+0000\n"
+"PO-Revision-Date: 2015-10-29 16:16+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,24 +16,97 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: event_project
+#: view:project.template.wizard:event_project.view_project_template_wizard
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: event_project
+#: view:project.template.wizard:event_project.view_project_template_wizard
+msgid "Create Project"
+msgstr "Crear proyecto"
+
+#. module: event_project
+#: field:project.template.wizard,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: event_project
+#: field:project.template.wizard,create_date:0
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: event_project
 #: model:ir.model,name:event_project.model_event_event
+#: view:project.task:event_project.view_task_search_form
 msgid "Event"
 msgstr "Evento"
 
 #. module: event_project
-#: field:project.task,anticipation_days:0
-msgid "Event anticipation days"
-msgstr "Días de anticipación del evento"
+#: view:event.event:event_project.view_event_form
+msgid "Event Details"
+msgstr "Detalles del evento"
 
 #. module: event_project
-#: help:project.task,anticipation_days:0
-msgid "Previous day to event date begin"
-msgstr "Días previos a la fecha inicio del evento"
+#: field:project.template.wizard,event_id:0
+msgid "Event id"
+msgstr "ID del evento"
 
 #. module: event_project
-#: field:event.event,project_related:0
+#: field:project.template.wizard,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: event_project
+#: field:project.template.wizard,write_uid:0
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: event_project
+#: field:project.template.wizard,write_date:0
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: event_project
+#: model:ir.model,name:event_project.model_project_project
+msgid "Project"
+msgstr "Proyecto"
+
+#. module: event_project
+#: model:ir.model,name:event_project.model_project_task_work
+msgid "Project Task Work"
+msgstr "Trabajo de la tarea"
+
+#. module: event_project
+#: model:ir.actions.act_window,name:event_project.action_project_template_wizard
+msgid "Project Template Wizard"
+msgstr "Wizard de plantilla de proyecto"
+
+#. module: event_project
+#: help:event.event,project_id:0
+msgid "Project end date will be updated with event start date."
+msgstr "La fecha fin del proyecto se actualizará con la fecha inicio del evento"
+
+#. module: event_project
+#: field:project.project,event_id:0
+#: field:project.task,event_id:0
+#: field:project.task.work,event_id:0
+msgid "Related event"
+msgstr "Evento relacionado"
+
+#. module: event_project
+#: field:event.event,project_id:0
 msgid "Related project"
-msgstr "Projecto relacionado"
+msgstr "Proyecto relacionado"
+
+#. module: event_project
+#: view:project.template.wizard:event_project.view_project_template_wizard
+msgid "Select a project template"
+msgstr "Seleccionar una plantilla de proyecto"
+
+#. module: event_project
+#: view:event.event:event_project.view_event_form
+msgid "Set Project Template"
+msgstr "Asignar plantilla de proyecto"
 
 #. module: event_project
 #: model:ir.model,name:event_project.model_project_task
@@ -41,6 +114,29 @@ msgid "Task"
 msgstr "Tarea"
 
 #. module: event_project
-#: field:event.event,project_template:0
+#: view:event.event:event_project.view_event_form
+#: model:ir.actions.act_window,name:event_project.act_event_task_list
+msgid "Tasks"
+msgstr "Tareas"
+
+#. module: event_project
+#: field:project.template.wizard,project_id:0
 msgid "Template project"
-msgstr "Plantilla de projecto"
+msgstr "Proyecto plantilla"
+
+#. module: event_project
+#: code:addons/event_project/wizard/project_template_wizard.py:24
+#, python-format
+msgid "Template project is required."
+msgstr "El proyecto plantilla es obligatorio."
+
+#. module: event_project
+#: view:event.event:event_project.view_event_form
+#: field:event.event,work_ids:0
+msgid "Works"
+msgstr "Trabajos"
+
+#. module: event_project
+#: view:project.template.wizard:event_project.view_project_template_wizard
+msgid "or"
+msgstr "o"
