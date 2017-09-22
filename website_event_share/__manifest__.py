@@ -7,7 +7,7 @@
 {
     'name': 'Event Share',
     'version': '10.0.1.0.0',
-    'summary': 'Add contacts to event',
+    'summary': 'Share your events via social media',
     'author': 'OpenSynergy Indonesia,'
               'Tecnativa, '
               'Odoo Community Association (OCA)',
