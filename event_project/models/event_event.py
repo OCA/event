@@ -37,7 +37,7 @@ class EventEvent(models.Model):
         if self.project_id:
             project_vals = {}
             if vals.get('name'):
-                project_vals['name'] = self.name
+                project_vals['name'] = self.display_name
             if vals.get('date_begin'):
                 project_vals['date'] = self.date_begin
                 recalculate = True
@@ -45,7 +45,7 @@ class EventEvent(models.Model):
                 project_vals['event_id'] = self.id
                 project_vals['calculation_type'] = 'date_end'
                 project_vals['date'] = self.date_begin
-                project_vals['name'] = self.name
+                project_vals['name'] = self.display_name
                 recalculate = True
             if project_vals:
                 self.project_id.write(project_vals)

@@ -40,7 +40,7 @@ class TestEventProject(common.SavepointCase):
         self.assertEqual(self.event.project_id.calculation_type, 'date_end')
         self.assertEqual(self.event.project_id.date,
                          str.split(self.event.date_begin, ' ')[0])
-        self.assertEqual(self.event.name, self.event.project_id.name)
+        self.assertEqual(self.event.display_name, self.event.project_id.name)
 
     def test_02_project_recalculation(self):
         self.event.date_begin = self.date['begin2']
@@ -48,7 +48,7 @@ class TestEventProject(common.SavepointCase):
         self.event.name = 'Event name changed'
         self.assertEqual(self.event.project_id.date,
                          str.split(self.event.date_begin, ' ')[0])
-        self.assertEqual(self.event.name, self.event.project_id.name)
+        self.assertEqual(self.event.display_name, self.event.project_id.name)
 
     def test_03_project_change(self):
         self.event.project_id = self.project_2
@@ -58,7 +58,7 @@ class TestEventProject(common.SavepointCase):
         self.assertEqual(self.event.project_id.calculation_type, 'date_end')
         self.assertEqual(self.event.project_id.date,
                          str.split(self.event.date_begin, ' ')[0])
-        self.assertEqual(self.event.name, self.event.project_id.name)
+        self.assertEqual(self.event.display_name, self.event.project_id.name)
         self.assertEqual(self.event.count_tasks, 1)
 
     def test_04_cancel_and_draft_event(self):
