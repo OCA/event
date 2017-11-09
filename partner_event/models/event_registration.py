@@ -11,6 +11,12 @@ from odoo import api, fields, models
 class EventRegistration(models.Model):
     _inherit = "event.registration"
 
+    attendee_partner_id = fields.Many2one(
+        comodel_name='res.partner',
+        string='Attendee Partner',
+        ondelete='restrict',
+    )
+
     def _prepare_partner(self, vals):
         return {
             'name': vals.get('name') or vals.get('email'),
@@ -20,25 +26,24 @@ class EventRegistration(models.Model):
 
     @api.model
     def create(self, vals):
-        if not vals.get('partner_id') and vals.get('email'):
-            partner_model = self.env['res.partner']
-            event_model = self.env['event.event']
-            partner_id = False
+        if not vals.get('attendee_partner_id') and vals.get('email'):
+            Partner = self.env['res.partner']
+            Event = self.env['event.event']
             # Look for a partner with that email
             email = vals.get('email').replace('%', '').replace('_', '\\_')
-            partner = partner_model.search(
-                [('email', '=ilike', email)], limit=1)
-            event = event_model.browse(vals['event_id'])
-            if partner:
-                partner_id = partner.id
-                vals['name'] = vals.get('name') or partner.name
-                vals['phone'] = vals.get('phone') or partner.phone
+            attendee_partner = Partner.search([
+                ('email', '=ilike', email)
+            ], limit=1)
+            event = Event.browse(vals['event_id'])
+            if attendee_partner:
+                vals['name'] = vals.setdefault('name', attendee_partner.name)
+                vals['phone'] = vals.setdefault(
+                    'phone', attendee_partner.phone)
             elif event.create_partner:
                 # Create partner
-                partner = partner_model.sudo().create(
+                attendee_partner = Partner.sudo().create(
                     self._prepare_partner(vals))
-                partner_id = partner.id
-            vals['partner_id'] = partner_id
+            vals['attendee_partner_id'] = attendee_partner.id
         return super(EventRegistration, self).create(vals)
 
     @api.multi

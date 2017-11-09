@@ -5,32 +5,42 @@
 # © 2016 Tecnativa S.L. - Vicent Cubells
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo.tests.common import TransactionCase
 from datetime import datetime, timedelta
+from odoo.tests import common
+from odoo import fields
 
 
-class TestEventRegistration(TransactionCase):
+class TestEventRegistration(common.SavepointCase):
 
-    def setUp(self):
-        super(TestEventRegistration, self).setUp()
-        self.event_0 = self.env.ref('event.event_0')
-        self.event_0.create_partner = True
-        registration_model = self.env[
+    def setUp(cls):
+        super(TestEventRegistration, cls).setUp()
+        cls.event_0 = cls.env['event.event'].create({
+            'name': 'Test event',
+            'date_begin': fields.Datetime.now(),
+            'date_end': fields.Datetime.now(),
+            'seats_availability': 'limited',
+            'seats_max': '5',
+            'seats_min': '1',
+        })
+        cls.event_0.create_partner = True
+        registration_model = cls.env[
             'event.registration'].with_context(registration_force_draft=True)
-        partner_model = self.env['res.partner']
-        self.partner_01 = partner_model.create({'name': 'Test Partner 01',
-                                                'email': 'email01@test.com'})
-        self.registration_01 = registration_model.create({
-            'email': 'email01@test.com', 'event_id': self.event_0.id})
-        self.registration_02 = registration_model.create({
-            'email': 'email02@test.com', 'event_id': self.event_0.id,
+        partner_model = cls.env['res.partner']
+        cls.partner_01 = partner_model.create({
+            'name': 'Test Partner 01',
+            'email': 'email01@test.com'
+        })
+        cls.registration_01 = registration_model.create({
+            'email': 'email01@test.com', 'event_id': cls.event_0.id})
+        cls.registration_02 = registration_model.create({
+            'email': 'email02@test.com', 'event_id': cls.event_0.id,
             'name': 'Test Registration 02', 'phone': '254728911'})
 
     def test_create(self):
         self.assertEqual(self.partner_01.name, self.registration_01.name)
         self.assertEqual(self.partner_01.email, self.registration_01.email)
         self.assertEqual(self.partner_01.phone, self.registration_01.phone)
-        partner_02 = self.registration_02.partner_id
+        partner_02 = self.registration_02.attendee_partner_id
         self.assertEqual(partner_02.name, self.registration_02.name)
         self.assertEqual(partner_02.email, self.registration_02.email)
         self.assertEqual(partner_02.phone, self.registration_02.phone)
@@ -42,16 +52,17 @@ class TestEventRegistration(TransactionCase):
         self.partner_01.invalidate_cache()
         self.assertEqual(self.partner_01.event_count, 1)
         self.registration_02.state = "done"
-        self.registration_02.partner_id = self.partner_01
+        self.registration_02.attendee_partner_id = self.partner_01
         self.registration_02.event_id = event_1
         self.partner_01.invalidate_cache()
         self.assertEqual(self.partner_01.event_count, 2)
 
     def test_button_register(self):
-        event_1 = self.env.ref('event.event_1')
+        event_1 = self.event_0.copy()
         wizard = self.env['res.partner.register.event'].create({
             'event': event_1.id})
-        active_ids = [self.partner_01.id, self.registration_02.partner_id.id]
+        active_ids = [
+            self.partner_01.id, self.registration_02.attendee_partner_id.id]
         wizard.with_context({'active_ids': active_ids}).button_register()
 
     def test_data_update(self):
@@ -63,7 +74,7 @@ class TestEventRegistration(TransactionCase):
         event_2.write({'date_begin': self.last_moth})
         event_2.write({'date_end': self.yesterday})
         self.registration_02.event_id = event_2
-        self.registration_02.partner_id = self.partner_01
+        self.registration_02.attendee_partner_id = self.partner_01
         # Update partner for an old event
         self.partner_01.write({'email': 'new@test.com'})
         self.assertNotEqual(

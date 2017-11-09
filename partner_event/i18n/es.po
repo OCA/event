@@ -57,6 +57,11 @@ msgid "Event registrations number"
 msgstr "Nº Registros a eventos"
 
 #. module: partner_event
+#: field:event.registration,attendee_partner_id:0
+msgid "Attendee Partner"
+msgstr "Empresa asistente"
+
+#. module: partner_event
 #: view:res.partner:partner_event.view_partner_form_registrations
 msgid "Events"
 msgstr "Eventos"
