@@ -8,8 +8,8 @@
     <field name="view_type">form</field>
     <field name="name">Registrations</field>
     <field name="view_mode">tree,form,calendar,graph</field>
-    <field name="domain">[("partner_id", "child_of", active_ids)]</field>
-    <field name="context">{'search_default_partner_id': active_id, 'default_partner_id': active_id, 'search_default_expected': True}</field>
+    <field name="domain">[("attendee_partner_id", "child_of", active_ids)]</field>
+    <field name="context">{'search_default_attendee_partner_id': active_id, 'default_attendee_partner_id': active_id, 'search_default_expected': True}</field>
 </record>
 
 <record model="ir.ui.view" id="view_partner_form_registrations">
