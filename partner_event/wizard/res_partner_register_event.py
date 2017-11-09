@@ -18,6 +18,7 @@ class ResPartnerRegisterEvent(models.TransientModel):
         return {
             'event_id': self.event.id,
             'partner_id': partner.id,
+            'attendee_partner_id': partner.id,
             'name': partner.name,
             'email': partner.email,
             'phone': partner.phone,
