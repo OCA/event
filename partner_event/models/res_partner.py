@@ -13,7 +13,7 @@ class ResPartner(models.Model):
 
     registrations = fields.One2many(
         string="Event registrations",
-        comodel_name='event.registration', inverse_name="partner_id")
+        comodel_name='event.registration', inverse_name="attendee_partner_id")
     event_count = fields.Integer(
         string='Events',
         compute='_compute_event_count',
@@ -38,7 +38,7 @@ class ResPartner(models.Model):
         for partner in self:
             partner.event_count = len(
                 self.env["event.registration"].search([
-                    ("partner_id", "child_of", partner.id),
+                    ("attendee_partner_id", "child_of", partner.id),
                     ("state", "not in", ("cancel", "draft")),
                 ]).mapped("event_id"))
 

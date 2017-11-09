@@ -10,8 +10,8 @@ smart button.
 
 It also includes:
 
-* Search partners by their event registrations.
-* Search partners by number of events registered.
+* Search partners by their event attendees.
+* Search partners by number of events attendees.
 * Search partners by number of events attended.
 * Partner column is visible on registration one2many list inside the event.
 * Action in partner tree view 'More' button, to register several partners
@@ -62,12 +62,13 @@ Images
 Contributors
 ------------
 
-* Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>
+* Pedro M. Baeza <pedro.baeza@tecnativa.com>
 * Javier Iniesta <javieria@antiun.com>
-* Antonio Espinosa <antonioea@antiun.com>
+* Antonio Espinosa <antonioea@tecnativa.com>
 * Jairo Llopis <jairo.llopis@tecnativa.com>
 * Vicent Cubells <vicent.cubells@tecnativa.com>
 * David Vidal <david.vidal@tecnativa.com>
+* Rafael Blasco <rafael.blasco@tecnativa.com>
 
 Maintainer
 ----------
