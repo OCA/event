@@ -7,7 +7,7 @@
 
 {
     'name': 'Link partner to events',
-    'version': '9.0.1.0.0',
+    'version': '9.0.1.0.1',
     'category': 'Marketing',
     'author': 'Tecnativa,'
               'Odoo Community Association (OCA)',
@@ -15,6 +15,7 @@
     'depends': [
         'event',
     ],
+    'license': 'AGPL-3',
     'data': [
         'views/res_partner_view.xml',
         'views/event_event_view.xml',
