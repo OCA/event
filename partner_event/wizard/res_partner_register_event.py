@@ -28,10 +28,9 @@ class ResPartnerRegisterEvent(models.TransientModel):
     @api.multi
     def button_register(self):
         registration_obj = self.env['event.registration']
-        partner_obj = self.env['res.partner']
         errors = []
-        for partner_id in self.env.context.get('active_ids', []):
-            partner = partner_obj.browse(partner_id)
+        for partner in self.env['res.partner'].browse(
+                self.env.context.get('active_ids', [])):
             try:
                 with self.env.cr.savepoint():
                     registration_obj.create(
