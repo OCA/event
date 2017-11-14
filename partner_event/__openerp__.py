@@ -15,6 +15,7 @@
     'depends': [
         'event',
     ],
+    'license': 'AGPL-3',
     'data': [
         'views/res_partner_view.xml',
         'views/event_event_view.xml',
