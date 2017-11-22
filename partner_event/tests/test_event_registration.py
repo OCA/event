@@ -3,17 +3,19 @@
 # © 2015 Tecnativa S.L. - Javier Iniesta
 # © 2016 Tecnativa S.L. - Antonio Espinosa
 # © 2016 Tecnativa S.L. - Vicent Cubells
+# Copyright 2017 Tecnativa - David Vidal
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
+from psycopg2 import IntegrityError
 from datetime import datetime, timedelta
 from odoo.tests import common
 from odoo import fields
 
 
 class TestEventRegistration(common.SavepointCase):
-
-    def setUp(cls):
-        super(TestEventRegistration, cls).setUp()
+    @classmethod
+    def setUpClass(cls):
+        super(TestEventRegistration, cls).setUpClass()
         cls.event_0 = cls.env['event.event'].create({
             'name': 'Test event',
             'date_begin': fields.Datetime.now(),
@@ -84,3 +86,14 @@ class TestEventRegistration(common.SavepointCase):
         self.partner_01.write({'email': 'new@test.com'})
         self.assertEqual(
             event_2.registration_ids.email, 'new@test.com')
+
+    def test_delete_registered_partner(self):
+        # We can't delete a partner with registrations
+        with self.assertRaises(IntegrityError), self.cr.savepoint():
+            self.partner_01.unlink()
+        # Create a brand new partner and delete it
+        partner3 = self.env['res.partner'].create({
+            'name': 'unregistered partner',
+        })
+        partner3.unlink()
+        self.assertFalse(partner3.exists())
