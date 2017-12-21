@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!-- Copyright 2017 Sergio Teruel <sergio.teruel@tecnativa.com>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+<record id="report_event_registration_pivot" model ="ir.ui.view">
+    <field name="model">report.event.registration</field>
+    <field name="inherit_id" ref="event.report_event_registration_pivot"/>
+    <field name="arch" type="xml">
+        <field name="event_id" position="after">
+            <field name="session_id" type="row"/>
+            <field name="seats_max" type="measure"/>
+            <field name="seats_available" type="measure"/>
+            <field name="seats_expected" type="measure"/>
+            <field name="seats_available_expected" type="measure"/>
+        </field>
+        <field name="confirm_state" position="before">
+            <field name="draft_state" type="measure"/>
+        </field>
+    </field>
+</record>
+
+<record id="view_report_event_registration_search" model="ir.ui.view">
+    <field name="model">report.event.registration</field>
+    <field name="inherit_id" ref="event.view_report_event_registration_search"/>
+    <field name="arch" type="xml">
+        <field name="event_id" position="after">
+            <field name="session_id" string="Session"/>
+        </field>
+        <filter name="event" position="after">
+            <filter string="Session"
+                    name="session"
+                    context="{'group_by':'session_id'}"/>
+        </filter>
+    </field>
+</record>
+
+</odoo>
