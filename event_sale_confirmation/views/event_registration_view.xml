@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017,2018 IT-Projects LLC - Ivan Yelizariev
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
+<odoo>
+    <record model="ir.ui.view" id="view_event_registration_tree">
+        <field name="model">event.registration</field>
+        <field name="inherit_id" ref="event.view_event_registration_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='confirm_registration']" position="before">
+                <field name="user_is_manager" invisible="1"/>
+                <field name="event_ticket_price" invisible="1"/>
+            </xpath>
+
+            <xpath expr="//button[@name='confirm_registration']" position="attributes">
+                <attribute name="states"/>
+                <attribute name="attrs">{'invisible':['|', ('state', 'not in', ['draft']), '&amp;', ('event_ticket_price', '>', 0), ('user_is_manager', '=', False)]}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_event_registration_form">
+        <field name="model">event.registration</field>
+        <field name="inherit_id" ref="event.view_event_registration_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='confirm_registration']" position="before">
+                <field name="user_is_manager" invisible="1"/>
+                <field name="event_ticket_price" invisible="1"/>
+            </xpath>
+
+            <xpath expr="//button[@name='confirm_registration']" position="attributes">
+                <attribute name="states"/>
+                <attribute name="attrs">{'invisible':['|', ('state', 'not in', ['draft']), '&amp;', ('event_ticket_price', '>', 0), ('user_is_manager', '=', False)]}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

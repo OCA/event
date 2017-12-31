@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2018 IT-Projects LLC - Ivan Yelizariev
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
+<odoo>
+    <!-- Make the xmlid of menus required by the tour available in webclient -->
+    <record id="event.event_main_menu" model="ir.ui.menu">
+        <field name="load_xmlid" eval="True"/>
+    </record>
+    <record id="event.menu_action_registration" model="ir.ui.menu">
+        <field name="load_xmlid" eval="True"/>
+    </record>
+
+    <template id="tour_assets_backend" name="tour_assets_backend" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script src="/event_sale_confirmation/static/src/js/tour.js" type="text/javascript"></script>
+        </xpath>
+    </template>
+</odoo>
