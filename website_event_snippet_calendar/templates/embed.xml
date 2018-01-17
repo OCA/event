@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2018 Tecnativa - Jairo Llopis
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
+
+<odoo>
+    <!-- Individual snippets -->
+    <template
+        id="embed"
+        name="Events Calendar and List"
+        inherit_id="website.layout"
+        primary="True">
+        <!-- Replace the whole page to include only the snippet -->
+        <xpath expr="//div[@id='wrapwrap']" position="replace">
+            <div id="wrapwrap">
+                <main>
+                    <t t-call="website_event_snippet_calendar.s_event_calendar_list"/>
+                </main>
+            </div>
+        </xpath>
+    </template>
+</odoo>
