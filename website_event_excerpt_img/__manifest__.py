@@ -1,15 +1,15 @@
-# -*- coding: utf-8 -*-
 # Copyright 2016 Tecnativa - Jairo Llopis
 # Copyright 2017 Tecnativa - David Vidal
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 {
     "name": "Excerpt + Image in Events",
     "summary": "New layout for event summary, including an excerpt and image",
-    "version": "10.0.1.0.0",
+    "version": "11.0.1.0.0",
     "category": "Website",
-    "website": "https://www.tecnativa.com",
+    "website": "https://github.com/OCA/event",
     "author": "Tecnativa, "
+              "Onestein, "
               "Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "application": False,
