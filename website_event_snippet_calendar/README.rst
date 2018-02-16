@@ -48,6 +48,7 @@ Contributors
 ------------
 
 * `Tecnativa <https://www.tecnativa.com>`_:
+
   * Jairo Llopis <jairo.llopis@tecnativa.com>
 
 Do not contact contributors directly about support or help with technical issues.
