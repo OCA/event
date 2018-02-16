@@ -41,7 +41,7 @@
                         <h3>Events</h3>
                     </div>
                     <div class="col-md-4 mt16 mb16">
-                        <h4>Calendar</h4>
+                        <h4>Events Calendar</h4>
                         <t t-call="website_event_snippet_calendar.s_event_calendar"/>
                     </div>
                     <div class="col-md-8 mt16 mb16">
