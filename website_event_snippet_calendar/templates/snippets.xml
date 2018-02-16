@@ -27,7 +27,7 @@
             <p>It will display up to the closest <b class="js_amount">4</b> events.</p>
         </div>
         <div t-ignore="true"
-             data-start-format="LLL"
+             data-date-format="LLL"
              class="s_event_list o_not_editable css_editable_mode_hidden">
             <t t-call="website_event_snippet_calendar.loading"/>
         </div>

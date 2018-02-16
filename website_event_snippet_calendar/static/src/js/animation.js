@@ -53,7 +53,7 @@ odoo.define('website_event_snippet_calendar.animation', function (require) {
                 "/website_event_snippet_calendar/static/src/xml/snippets.xml",
                 core.qweb
             );
-            this.start_format = this.$list.data("startFormat") || "LLL";
+            this.date_format = this.$list.data("dateFormat") || "LLL";
             // Get initial events to render the list
             this.load_events(null, this.default_amount)
                 .done($.proxy(this, "render_list"));
@@ -158,7 +158,7 @@ odoo.define('website_event_snippet_calendar.animation', function (require) {
         _render_list: function (events) {
             _.each(events, function (element) {
                 element.date_begin = moment(element.date_begin)
-                    .format(this.start_format);
+                    .format(this.date_format);
             }, this);
             this.$list.html(core.qweb.render(
                 "website_event_snippet_calendar.list",
