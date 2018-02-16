@@ -10,11 +10,8 @@ odoo.define('website_event_snippet_calendar.animation', function (require) {
     var ajax = require("web.ajax");
 
     var DATE_FORMAT = time.strftime_to_moment_format("%Y-%m-%d");
-
-    // Needed because Odoo does not include moment's locales and thus the en_US
-    // is used by bootstrap-datetimepicker to add to data-day attribute
     // HACK https://github.com/tempusdominus/bootstrap-3/issues/73
-    var INVERSE_FORMAT = time.strftime_to_moment_format("%m/%d/%Y");
+    var INVERSE_FORMAT = "L";
 
     var CalendarList = animation.Class.extend({
         selector: ".s_event_calendar_list",
