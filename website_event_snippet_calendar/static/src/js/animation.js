@@ -40,7 +40,7 @@ odoo.define('website_event_snippet_calendar.animation', function (require) {
             };
             this.$calendar = this.$(".s_event_calendar")
                 .on("dp.change", $.proxy(this, "day_selected"))
-                .on("dp.change", $.proxy(this, "highlight_events"))
+                .on("dp.classify", $.proxy(this, "highlight_day"))
                 .on("dp.update", $.proxy(this, "calendar_moved"));
             this.$list = this.$(".s_event_list");
             this.default_amount = Number(this.$(".js_amount").html()) || 4;
@@ -76,10 +76,20 @@ odoo.define('website_event_snippet_calendar.animation', function (require) {
             }
             // Preload dates if needed and show evented days
             this.preload_dates(event.viewDate)
-                .done($.proxy(this, "highlight_events"));
+                .done($.proxy(this, "highlight_month"));
         },
 
-        highlight_events: function () {
+        highlight_day: function (event) {
+            var match = this._dates.matches.indexOf(
+                event.date.format(DATE_FORMAT)
+            );
+            if (match === -1) {
+                return;
+            }
+            event.classNames.push("has-events");
+        },
+
+        highlight_month: function () {
             var _dates = this._dates.matches;
             this.$calendar.find(".day").filter(function () {
                 var day = moment(this.dataset.day, "L").format(DATE_FORMAT);
