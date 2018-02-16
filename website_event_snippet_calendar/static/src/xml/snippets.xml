@@ -11,7 +11,7 @@
                         <t t-esc="event.date_begin"/>
                     </span>
                     <span class="category">
-                        <t t-esc="event['event_type_id.display_name']"/>
+                        <t t-esc="event.event_type_id[1]"/>
                     </span>
                 </div>
                 <div class="col-md-12 event_title">

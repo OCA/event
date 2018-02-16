@@ -60,7 +60,7 @@ class EventCalendar(Controller):
             fields=[
                 "date_begin",
                 "name",
-                "event_type_id.display_name",
+                "event_type_id",
                 "website_published",
             ],
         )
