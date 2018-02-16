@@ -30,6 +30,7 @@ odoo.define('website_event_snippet_calendar.animation', function (require) {
                 },
                 format: DATE_FORMAT,
                 useCurrent: false,
+                locale: moment.locale(),
             };
             return this._super.apply(this, arguments);
         },
