@@ -26,6 +26,8 @@ class EventCalendar(Controller):
         ])
         days = set()
         one_day = timedelta(days=1)
+        start = Date.from_string(start)
+        end = Date.from_string(end)
         for event in events:
             now = max(Date.from_string(event.date_begin), start)
             event_end = min(Date.from_string(event.date_end), end)
