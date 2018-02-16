@@ -9,11 +9,15 @@
     .s_event_calendar {
         .bootstrap-datetimepicker-widget {
             width: 100%;
-
         }
 
         .has-events:not(.active):not(:hover) {
             background-color: @brand-info;
         }
+
+    }
+
+    .category::before {
+        content: "| ";
     }
 }
