@@ -21,15 +21,15 @@ class EventCalendar(Controller):
         """
         events = request.env["event.event"].search([
             "|",
-            ("date_begin", "<", end),
-            ("date_end", ">", start),
+            ("date_begin", "<=", end),
+            ("date_end", ">=", start),
         ])
         days = set()
         one_day = timedelta(days=1)
         for event in events:
-            now = Date.from_string(event.date_begin)
-            end = Date.from_string(event.date_end)
-            while now <= end:
+            now = max(Date.from_string(event.date_begin), start)
+            event_end = min(Date.from_string(event.date_end), end)
+            while now <= event_end:
                 days.add(now)
                 now += one_day
         return [Date.to_string(day) for day in days]

@@ -11,6 +11,11 @@ odoo.define('website_event_snippet_calendar.animation', function (require) {
 
     var DATE_FORMAT = time.strftime_to_moment_format("%Y-%m-%d");
 
+    // Needed because Odoo does not include moment's locales and thus the en_US
+    // is used by bootstrap-datetimepicker to add to data-day attribute
+    // HACK https://github.com/tempusdominus/bootstrap-3/issues/73
+    var INVERSE_FORMAT = time.strftime_to_moment_format("%m/%d/%Y");
+
     var CalendarList = animation.Class.extend({
         selector: ".s_event_calendar_list",
 
@@ -83,8 +88,8 @@ odoo.define('website_event_snippet_calendar.animation', function (require) {
         highlight_month: function () {
             var _dates = this._dates.matches;
             this.$calendar.find(".day").filter(function () {
-                var day = moment(this.dataset.day, "L").format(DATE_FORMAT);
-                return _dates.indexOf(day) !== -1;
+                var day = moment(this.dataset.day, INVERSE_FORMAT);
+                return _dates.indexOf(day.format(DATE_FORMAT)) !== -1;
             }).addClass("has-events");
         },
 
@@ -162,6 +167,7 @@ odoo.define('website_event_snippet_calendar.animation', function (require) {
     return {
         CalendarList: CalendarList,
         DATE_FORMAT: DATE_FORMAT,
+        INVERSE_FORMAT: INVERSE_FORMAT,
     };
 
 });
