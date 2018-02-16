@@ -55,15 +55,6 @@ odoo.define('website_event_snippet_calendar.animation', function (require) {
             this.render_calendar();
         },
 
-        day_before_show: function (date) {
-            var class_ = "",
-                date_str = time.date_to_str(date);
-            if (this._dates.matches.indexOf(date_str) !== -1) {
-                class_ = "ui-state-event";
-            }
-            return [true, class_, null];
-        },
-
         day_selected: function (event) {
             this.load_events(event.date.format(DATE_FORMAT))
                 .done($.proxy(this, "render_list"));
