@@ -58,8 +58,9 @@ odoo.define('website_event_snippet_calendar.animation', function (require) {
             // Get initial events to render the list
             this.load_events(null, this.default_amount)
                 .done($.proxy(this, "render_list"));
-            // Render the calendar and highlight it later
-            this.render_calendar();
+            // Preload dates and render the calendar
+            this.preload_dates(moment())
+                .done($.proxy(this, "render_calendar"));
         },
 
         day_selected: function (event) {
@@ -150,7 +151,6 @@ odoo.define('website_event_snippet_calendar.animation', function (require) {
 
         render_calendar: function () {
             this.$calendar.empty().datetimepicker(this.datepicker_options);
-            this.calendar_moved({change: "M", viewDate: moment()});
         },
 
         render_list: function (events) {
