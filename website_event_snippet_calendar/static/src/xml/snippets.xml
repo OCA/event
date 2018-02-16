@@ -15,7 +15,7 @@
                     </span>
                 </div>
                 <div class="col-md-12 event_title">
-                    <a t-attf-href="/event/#{event.id}">
+                    <a t-att-href="event.website_url">
                         <h3 class="mt0">
                             <t t-esc="event.name"/>
                             <t t-if="!event.website_published">

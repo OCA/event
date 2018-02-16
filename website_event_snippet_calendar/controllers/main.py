@@ -62,6 +62,7 @@ class EventCalendar(Controller):
                 "name",
                 "event_type_id",
                 "website_published",
+                "website_url",
             ],
         )
 
