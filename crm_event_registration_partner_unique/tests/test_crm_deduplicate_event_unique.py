@@ -5,6 +5,7 @@
 from openerp.tests import common
 from openerp.exceptions import UserError
 
+
 class TestDeduplicateEventUnique(common.TransactionCase):
     def setUp(self):
         super(TestDeduplicateEventUnique, self).setUp()
