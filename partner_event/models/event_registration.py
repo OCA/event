@@ -5,7 +5,7 @@
 # © 2016 Tecnativa S.L. - Vicent Cubells
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import api, fields, models
+from odoo import _, api, fields, models
 
 
 class EventRegistration(models.Model):
@@ -25,7 +25,15 @@ class EventRegistration(models.Model):
             'name': vals.get('name') or vals.get('email'),
             'email': vals.get('email', False),
             'phone': vals.get('phone', False),
+            'lang': vals.get('lang', self.env.lang),
         }
+
+    def action_send_badge_email(self):
+        """Print registration in attendee language, if any."""
+        result = super(EventRegistration, self).action_send_badge_email()
+        if self.attendee_partner_id:
+            result["context"]["lang"] = self.attendee_partner_id.lang
+        return result
 
     @api.model
     def create(self, vals):
@@ -48,6 +56,15 @@ class EventRegistration(models.Model):
                     self._prepare_partner(vals))
             vals['attendee_partner_id'] = attendee_partner.id
         return super(EventRegistration, self).create(vals)
+
+    def message_get_suggested_recipients(self):
+        """Suggest the linked attendee partner if any."""
+        result = super(EventRegistration, self) \
+            .message_get_suggested_recipients()
+        for partner in self.mapped("attendee_partner_id"):
+            self._message_add_suggested_recipient(
+                result, partner=partner, reason=_("Attendee Partner"))
+        return result
 
     @api.multi
     def partner_data_update(self, data):
