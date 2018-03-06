@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-# © 2016 Sergio Teruel <sergio.teruel@tecnativa.com>
-# © 2016 Vicent Cubells <vicent.cubells@tecnativa.com>
+# Copyright 2016 Tecnativa - Sergio Teruel
+# Copyright 2016 Tecnativa - Vicent Cubells
+# Copyright 2018 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from datetime import timedelta
@@ -70,7 +71,7 @@ class TestEventEmailReminder(TransactionCase):
         self.assertEqual(len(mails_to_send), 2)
         address = mails_to_send.mapped('email_to')
         self.assertEqual(
-            set([self.user_1.email, self.user_2.email]), set(address))
+            {self.user_1.email, self.user_2.email}, set(address))
 
     def test_cron_run_template(self):
         self.env['event.event'].run_event_email_reminder(
@@ -94,3 +95,20 @@ class TestEventEmailReminder(TransactionCase):
         self.assertEqual(len(mails_to_send), 1)
         address = mails_to_send.mapped('email_to')
         self.assertEqual(self.user_2.email, address[0])
+
+    def test_cron_run_partners(self):
+        user = self.env['res.users'].create({
+            'login': 'test_user_event_email_reminder',
+            'name': 'Test user',
+            'email': 'test_user_event_email_reminder@test.com',
+        })
+        self.env['event.event'].run_event_email_reminder(
+            8, partner_ids=user.partner_id.ids,
+        )
+        mails_to_send = self.mail.search([
+            ('subject', '=', 'The events will be started soon'),
+            ('email_to', 'like', 'test%@test.com'),
+        ])
+        self.assertEqual(len(mails_to_send), 1)
+        address = mails_to_send.mapped('email_to')
+        self.assertEqual(user.email, address[0])
