@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
-# © 2016 Sergio Teruel <sergio.teruel@tecnativa.com>
-# © 2016 Vicent Cubells <vicent.cubells@tecnativa.com>
+# Copyright 2016 Tecnativa - Sergio Teruel
+# Copyright 2016 Tecnativa - Vicent Cubells
+# Copyright 2018 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
     "name": "Event Email Reminder",
     "summary": "Send an email before an event start",
-    "version": "9.0.1.0.0",
+    "version": "9.0.1.1.0",
     "category": "Event Management",
     'website': 'http://www.tecnativa.com',
     'author': 'Tecnativa, '
