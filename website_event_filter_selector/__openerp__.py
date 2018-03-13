@@ -4,7 +4,7 @@
 {
     "name": "Website Event Selection Filters",
     "summary": "Add a customizable top area to filter events with selectors",
-    "version": "9.0.1.0.0",
+    "version": "9.0.1.0.1",
     "category": "Website",
     "website": "https://www.tecnativa.com",
     "author": "Antiun Ingeniería S.L., "
