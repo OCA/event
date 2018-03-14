@@ -68,7 +68,7 @@ class WebsiteEvent(website_event):
             scope=5)
 
         # Return new event results
-        order = 'website_published desc, date_begin'
+        order = 'date_begin'
         if searches["date"] == "old":
             order += " desc"
         values["event_ids"] = event_obj.search(

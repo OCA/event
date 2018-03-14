@@ -4,11 +4,10 @@
 {
     "name": "Website Event Selection Filters",
     "summary": "Add a customizable top area to filter events with selectors",
-    "version": "9.0.1.0.0",
+    "version": "9.0.1.0.1",
     "category": "Website",
-    "website": "https://www.tecnativa.com",
-    "author": "Antiun Ingeniería S.L., "
-              "Tecnativa, "
+    "website": "https://github.com/OCA/event",
+    "author": "Tecnativa, "
               "Odoo Community Association (OCA)",
     "license": "LGPL-3",
     "application": False,
