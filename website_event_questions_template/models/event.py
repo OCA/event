@@ -19,7 +19,7 @@ class EventEvent(models.Model):
         # https://github.com/odoo/odoo/issues/20163
         self.ensure_one()
         vals = [(6, 0, [])]
-        if self.question_ids:
+        if self.question_ids and self.event_question_template_id:
             raise UserError(_(
                 "You can not load a template if there are defined questions"))
         if self.event_question_template_id:
@@ -34,4 +34,4 @@ class EventEvent(models.Model):
                     (0, 0, x._convert_to_write(x._cache)) for x
                     in question.answer_ids]
                 vals.append((0, 0, question_vals))
-            self.question_ids = vals
+        self.question_ids = vals
