@@ -25,7 +25,7 @@ addon | version | summary
 [event_registration_mass_mailing](event_registration_mass_mailing/) | 9.0.1.0.0 | Mass mailing from events
 [event_registration_partner_unique](event_registration_partner_unique/) | 9.0.1.0.0 | Enforces 1 registration per partner and event
 [partner_event](partner_event/) | 9.0.1.0.1 | Link partner to events
-[website_event_filter_selector](website_event_filter_selector/) | 9.0.1.0.0 | Add a customizable top area to filter events with selectors
+[website_event_filter_selector](website_event_filter_selector/) | 9.0.1.0.1 | Add a customizable top area to filter events with selectors
 [website_event_share](website_event_share/) | 9.0.1.0.0 | Add contacts to event
 
 
