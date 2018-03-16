@@ -3,28 +3,15 @@
      License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
 <odoo>
 
-<record id="view_event_question_template_question_form" model="ir.ui.view">
-    <field name="name">event.question.template.question.form</field>
+<record id="view_event_question_form" model="ir.ui.view">
     <field name="model">event.question.template.question</field>
+    <field name="inherit_id"
+           ref="website_event_questions.view_event_question_form"/>
+    <field name="mode">primary</field>
     <field name="arch" type="xml">
-        <form string="Event Question Template Question">
-            <sheet>
-                <group>
-                    <field name="sequence"/>
-                    <field name="title"/>
-                    <field name="is_individual"/>
-                </group>
-                <group string="Answers">
-                    <field name="answer_ids" context="{'default_question_id': active_id}"
-                           nolabel="1">
-                        <tree editable="bottom">
-                            <field name="sequence" widget="handle"/>
-                            <field name="name"/>
-                        </tree>
-                    </field>
-                </group>
-            </sheet>
-        </form>
+        <field name="title" position="before">
+            <field name="sequence"/>
+        </field>
     </field>
 </record>
 
