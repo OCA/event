@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record model="ir.ui.view" id="view_event_track_form">
+    <field name="name">event.track.form</field>
+    <field name="model">event.track</field>
+    <field name="inherit_id" ref="website_event_track.view_event_track_form" />
+    <field name="arch" type="xml">
+      <xpath expr="//group[last()]" position="after">
+        <group name="seats">
+          <field name="seats_max"/>
+          <field name="seats_reserved" readonly="1"/>
+          <field name="seats_unconfirmed" readonly="1"/>
+        </group>
+        <field name="ticket_ids" context="{'default_name': name}">
+          <tree string="Tickets" editable="bottom">
+            <field name="name"/>
+            <field name="product_id" context="{'default_event_ok':True, 'domain': [('event_ok', '=', True)]}"/>
+            <field name="deadline"/>
+            <field name="price"/>
+            <field name="seats_max"/>
+            <field name="seats_reserved" readonly="1"/>
+            <field name="seats_unconfirmed" readonly="1"/>
+          </tree>
+        </field>
+      </xpath>
+    </field>
+  </record>
+</odoo>
