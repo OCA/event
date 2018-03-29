@@ -7,13 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-10 16:37+0000\n"
-"PO-Revision-Date: 2015-11-10 16:37+0000\n"
-"Last-Translator: <>\n"
+"PO-Revision-Date: 2019-02-01 14:03+0000\n"
+"Last-Translator: Marta Vázquez Rodríguez <vazrodmar@gmail.com>\n"
 "Language-Team: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.4\n"
 
 #. module: event_registration_mass_mailing
 #: model:ir.actions.act_window,name:event_registration_mass_mailing.action_event_registration_mail_list
@@ -21,74 +23,83 @@ msgid "Add to mailing list"
 msgstr "Añadir a lista de correos"
 
 #. module: event_registration_mass_mailing
-#: view:event.registration:event_registration_mass_mailing.view_registration_search
+#: model:ir.model,name:event_registration_mass_mailing.model_event_registration
+msgid "Attendee"
+msgstr "Asistente"
+
+#. module: event_registration_mass_mailing
+#: model:ir.ui.view,arch_db:event_registration_mass_mailing.view_registration_search
 msgid "Available for mass mailing"
 msgstr "Disponible para envío masivo de correo"
 
 #. module: event_registration_mass_mailing
-#: view:event.registration.mail.list.wizard:event_registration_mass_mailing.event_registration_mail_list_wizard_form
-msgid "Cancel"
-msgstr "Cancelar"
-
-#. module: event_registration_mass_mailing
-#: view:event.registration.mail.list.wizard:event_registration_mass_mailing.event_registration_mail_list_wizard_form
 #: model:ir.model,name:event_registration_mass_mailing.model_event_registration_mail_list_wizard
+#: model:ir.ui.view,arch_db:event_registration_mass_mailing.event_registration_mail_list_wizard_form
 msgid "Create contact mailing list"
 msgstr "Crear contactos de lista de correo"
 
 #. module: event_registration_mass_mailing
-#: view:event.registration.mail.list.wizard:event_registration_mass_mailing.event_registration_mail_list_wizard_form
+#: model:ir.ui.view,arch_db:event_registration_mass_mailing.event_registration_mail_list_wizard_form
 msgid "Create contacts"
 msgstr "Crear contactos"
 
 #. module: event_registration_mass_mailing
-#: field:event.registration.mail.list.wizard,create_uid:0
+#: model:ir.model.fields,field_description:event_registration_mass_mailing.field_event_registration_mail_list_wizard_create_uid
 msgid "Created by"
 msgstr "Creado por"
 
 #. module: event_registration_mass_mailing
-#: field:event.registration.mail.list.wizard,create_date:0
+#: model:ir.model.fields,field_description:event_registration_mass_mailing.field_event_registration_mail_list_wizard_create_date
 msgid "Created on"
 msgstr "Creado en"
 
 #. module: event_registration_mass_mailing
-#: model:ir.model,name:event_registration_mass_mailing.model_event_registration
-msgid "Event Registration"
-msgstr "Registro"
+#: model:ir.model.fields,field_description:event_registration_mass_mailing.field_event_registration_mail_list_wizard_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
 
 #. module: event_registration_mass_mailing
-#: code:addons/event_registration_mass_mailing/models/mass_mailing.py:15
+#: code:addons/event_registration_mass_mailing/models/mass_mailing.py:14
 #, python-format
 msgid "Event Registrations"
 msgstr "Registros a eventos"
 
 #. module: event_registration_mass_mailing
-#: field:event.registration.mail.list.wizard,event_registrations:0
+#: model:ir.model.fields,field_description:event_registration_mass_mailing.field_event_registration_mail_list_wizard_event_registrations
 msgid "Event registrations"
 msgstr "Registros"
 
 #. module: event_registration_mass_mailing
-#: field:event.registration.mail.list.wizard,id:0
+#: model:ir.model.fields,field_description:event_registration_mass_mailing.field_event_registration_mail_list_wizard_id
 msgid "ID"
 msgstr "ID"
 
 #. module: event_registration_mass_mailing
-#: help:event.registration,opt_out:0
-msgid "If opt-out is checked, this contact has refused to receive emails for mass mailing and marketing campaign."
-msgstr "Si 'No acepta mensajes' está marcado, este contacto ha rehusado recibir correos electrónicos de envíos masivos y campañas de marketing."
+#: model:ir.model.fields,help:event_registration_mass_mailing.field_event_registration_opt_out
+msgid ""
+"If opt-out is checked, this contact has refused to receive emails for mass "
+"mailing and marketing campaign."
+msgstr ""
+"Si 'No acepta mensajes' está marcado, este contacto ha rehusado recibir "
+"correos electrónicos de envíos masivos y campañas de marketing."
 
 #. module: event_registration_mass_mailing
-#: field:event.registration.mail.list.wizard,write_uid:0
+#: model:ir.model.fields,field_description:event_registration_mass_mailing.field_event_registration_mail_list_wizard___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: event_registration_mass_mailing
+#: model:ir.model.fields,field_description:event_registration_mass_mailing.field_event_registration_mail_list_wizard_write_uid
 msgid "Last Updated by"
 msgstr "Última actualización por"
 
 #. module: event_registration_mass_mailing
-#: field:event.registration.mail.list.wizard,write_date:0
+#: model:ir.model.fields,field_description:event_registration_mass_mailing.field_event_registration_mail_list_wizard_write_date
 msgid "Last Updated on"
 msgstr "Última actualización en"
 
 #. module: event_registration_mass_mailing
-#: field:event.registration.mail.list.wizard,mail_list:0
+#: model:ir.model.fields,field_description:event_registration_mass_mailing.field_event_registration_mail_list_wizard_mail_list
 msgid "Mailing list"
 msgstr "Lista de correo"
 
@@ -103,16 +114,24 @@ msgid "Mass mailing to partners"
 msgstr "Envío masivo a empresas"
 
 #. module: event_registration_mass_mailing
-#: view:event.registration:event_registration_mass_mailing.view_registration_search
-msgid "New"
-msgstr "Nuevo"
-
-#. module: event_registration_mass_mailing
-#: field:event.registration,opt_out:0
+#: model:ir.model.fields,field_description:event_registration_mass_mailing.field_event_registration_opt_out
 msgid "Opt-Out"
 msgstr "No acepta recibir emails"
 
 #. module: event_registration_mass_mailing
-#: view:event.registration:event_registration_mass_mailing.view_registration_search
-msgid "Registrations that did not ask not to be included in mass mailing campaigns"
-msgstr "Registros que pidieron no ser incluidos en campañas de envío masivo de correos"
+#: model:ir.ui.view,arch_db:event_registration_mass_mailing.view_registration_search
+msgid ""
+"Registrations that did not ask not to be included in mass mailing campaigns "
+"and has an e-mail set."
+msgstr ""
+"Registros que no solicitaron no ser incluidos en campañas de envío masivo de "
+"correos y tienen establecido un correo electrónico."
+
+#~ msgid "Cancel"
+#~ msgstr "Cancelar"
+
+#~ msgid "Event Registration"
+#~ msgstr "Registro"
+
+#~ msgid "New"
+#~ msgstr "Nuevo"
