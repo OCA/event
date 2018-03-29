@@ -2,9 +2,11 @@
 # Copyright 2016 Antiun Ingenieria S.L. - Javier Iniesta
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo.tests.common import TransactionCase
+from odoo.tests.common import at_install, post_install, TransactionCase
 
 
+@at_install(False)
+@post_install(True)
 class TestEventRegistrationMailListWizard(TransactionCase):
 
     def setUp(self):
