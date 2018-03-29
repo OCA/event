@@ -2,7 +2,7 @@
 # Copyright 2017 Tecnativa - Jairo Llopis
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 
-from openerp import api, exceptions, models
+from openerp import api, models
 
 
 class EventTrack(models.Model):
