@@ -13,7 +13,8 @@ class EventTrackLocation(models.Model):
         help="Can this location have simultaneous tracks?"
     )
 
-    @api.one  # TODO oca.decorators.foreach() in v12
+    # TODO oca.decorators.foreach() in v12
+    @api.one  # pragma pylint: disable=api-one-deprecated
     @api.constrains("overlappable")
     def _check_overlappable(self):
         """Ensure no overlaps happen with this location."""
