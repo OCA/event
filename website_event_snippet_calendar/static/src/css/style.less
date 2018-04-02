@@ -1,0 +1,23 @@
+/* Copyright 2018 Tecnativa - Jairo Llopis
+ * License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). */
+
+.s_event_calendar_list {
+    .event_title {
+        border-bottom: @table-border-color;
+    }
+
+    .s_event_calendar {
+        .bootstrap-datetimepicker-widget {
+            width: 100%;
+        }
+
+        .has-events:not(.active):not(:hover) {
+            background-color: @brand-info;
+        }
+
+    }
+
+    .category::before {
+        content: "| ";
+    }
+}
