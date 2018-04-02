@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2018 Tecnativa - Jairo Llopis
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
+
+<odoo>
+
+    <template id="assets_frontend" inherit_id="website.assets_frontend">
+        <xpath expr=".">
+            <link rel="stylesheet"
+                  href="/website_event_snippet_calendar/static/src/css/style.less"/>
+            <script type="text/javascript"
+                    src="/website_event_snippet_calendar/static/src/js/animation.js"/>
+
+            <!-- TODO Lib copied from Odoo v11, remove when migrating addon -->
+            <link rel="stylesheet"
+                  href="/website_event_snippet_calendar/static/lib/bootstrap-datetimepicker.less"/>
+            <script type="text/javascript"
+                    src="/website_event_snippet_calendar/static/lib/bootstrap-datetimepicker.js"/>
+        </xpath>
+    </template>
+
+    <template id="assets_editor" inherit_id="website.assets_editor">
+        <xpath expr=".">
+            <script type="text/javascript"
+                    src="/website_event_snippet_calendar/static/src/js/options.js"/>
+        </xpath>
+    </template>
+
+</odoo>
