@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2018 Tecnativa - Jairo Llopis
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
+
+<template>
+    <t t-name="website_event_snippet_calendar.list">
+        <t t-foreach="events" t-as="event">
+            <div class="row">
+                <div class="col-md-12 event_details">
+                    <span class="date">
+                        <t t-esc="event.date_begin"/>
+                    </span>
+                    <span class="category">
+                        <t t-esc="event.event_type_id[1]"/>
+                    </span>
+                </div>
+                <div class="col-md-12 event_title">
+                    <a t-att-href="event.website_url" target="_top">
+                        <h3 class="mt0">
+                            <t t-esc="event.name"/>
+                            <t t-if="!event.website_published">
+                                <span class="label label-danger">unpublished</span>
+                            </t>
+                        </h3>
+                    </a>
+                </div>
+            </div>
+        </t>
+    </t>
+</template>
