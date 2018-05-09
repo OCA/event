@@ -32,7 +32,8 @@ class EventEvent(models.Model):
             template_id=None, partner_ids=None):
         """Enqueue mail with a summary of events that begin on days parameter
 
-        :param int days: number of days to reminder when events start.
+        :param int days:
+            Number of days to reminder when events start (or end, if negative).
         :param bool draft_events: filter by draft events too.
         :param bool near_events: If you want receive the events which start
           between now and limit date.
@@ -41,23 +42,27 @@ class EventEvent(models.Model):
           want to notify.
         """
         today = fields.Date.context_today(self)
-        limit_date = fields.Date.from_string(today) + timedelta(days=days)
+        limit_date = fields.Date.to_string(
+            fields.Date.from_string(today) + timedelta(days=days),
+        )
         if draft_events:
             domain = [('state', 'in', ['draft', 'confirm'])]
         else:
             domain = [('state', '=', 'confirm')]
         if not near_events:
             domain.extend([
-                ('date_begin', '>=', '%s 00:00:00' % (
-                    fields.Date.to_string(limit_date))),
-                ('date_begin', '<=', '%s 23:59:59' % (
-                    fields.Date.to_string(limit_date)))
+                ('date_begin', '>=', '%s 00:00:00' % limit_date),
+                ('date_begin', '<=', '%s 23:59:59' % limit_date),
+            ])
+        elif today > limit_date:
+            domain.extend([
+                ('date_end', '>=', '%s 00:00:00' % limit_date),
+                ('date_end', '<=', '%s 23:59:59' % today),
             ])
         else:
             domain.extend([
                 ('date_begin', '>=', '%s 00:00:00' % today),
-                ('date_begin', '<=', '%s 23:59:59' % (
-                    fields.Date.to_string(limit_date)))
+                ('date_begin', '<=', '%s 23:59:59' % limit_date),
             ])
         events = self.search(domain)
         if events:

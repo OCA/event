@@ -7,7 +7,7 @@
 {
     "name": "Event Email Reminder",
     "summary": "Send an email before an event start",
-    "version": "9.0.1.1.0",
+    "version": "9.0.1.1.1",
     "category": "Event Management",
     'website': 'http://www.tecnativa.com',
     'author': 'Tecnativa, '
