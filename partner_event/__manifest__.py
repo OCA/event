@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2014 Tecnativa S.L. - Pedro M. Baeza
 # Copyright 2015 Tecnativa S.L. - Javier Iniesta
 # Copyright 2016 Tecnativa S.L. - Antonio Espinosa
@@ -8,7 +7,7 @@
 
 {
     'name': 'Link partner to events',
-    'version': '10.0.2.0.1',
+    'version': '11.0.2.0.1',
     'category': 'Marketing',
     'author': 'Tecnativa,'
               'Odoo Community Association (OCA)',
