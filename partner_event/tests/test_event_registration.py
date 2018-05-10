@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
-# © 2014 Tecnativa S.L. - Pedro M. Baeza
-# © 2015 Tecnativa S.L. - Javier Iniesta
-# © 2016 Tecnativa S.L. - Antonio Espinosa
-# © 2016 Tecnativa S.L. - Vicent Cubells
+# Copyright 2014 Tecnativa S.L. - Pedro M. Baeza
+# Copyright 2015 Tecnativa S.L. - Javier Iniesta
+# Copyright 2016 Tecnativa S.L. - Antonio Espinosa
+# Copyright 2016 Tecnativa S.L. - Vicent Cubells
 # Copyright 2017 Tecnativa - David Vidal
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
@@ -47,17 +46,17 @@ class TestEventRegistration(common.SavepointCase):
         self.assertEqual(partner_02.email, self.registration_02.email)
         self.assertEqual(partner_02.phone, self.registration_02.phone)
 
-    def test_count_events(self):
+    def test_count_registrations(self):
         event_1 = self.event_0.copy()
-        self.assertEqual(self.partner_01.event_count, 0)
+        self.assertEqual(self.partner_01.registration_count, 0)
         self.registration_01.state = "open"
         self.partner_01.invalidate_cache()
-        self.assertEqual(self.partner_01.event_count, 1)
+        self.assertEqual(self.partner_01.registration_count, 1)
         self.registration_02.state = "done"
         self.registration_02.attendee_partner_id = self.partner_01
         self.registration_02.event_id = event_1
         self.partner_01.invalidate_cache()
-        self.assertEqual(self.partner_01.event_count, 2)
+        self.assertEqual(self.partner_01.registration_count, 2)
 
     def test_button_register(self):
         event_1 = self.event_0.copy()
@@ -90,6 +89,7 @@ class TestEventRegistration(common.SavepointCase):
     def test_delete_registered_partner(self):
         # We can't delete a partner with registrations
         with self.assertRaises(IntegrityError), self.cr.savepoint():
+            self.cr._default_log_exceptions = False
             self.partner_01.unlink()
         # Create a brand new partner and delete it
         partner3 = self.env['res.partner'].create({
