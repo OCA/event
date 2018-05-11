@@ -8,6 +8,7 @@ setuptools.setup(
     description="Meta package for oca-event Odoo addons",
     version=version,
     install_requires=[
+        'odoo9-addon-crm_event_registration_partner_unique',
         'odoo9-addon-crm_lead_to_event_registration',
         'odoo9-addon-event_email_reminder',
         'odoo9-addon-event_registration_cancel_reason',
