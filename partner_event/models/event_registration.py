@@ -17,6 +17,7 @@ class EventRegistration(models.Model):
         comodel_name='res.partner',
         string='Attendee Partner',
         ondelete='restrict',
+        copy=False,
     )
 
     def _prepare_partner(self, vals):
@@ -57,3 +58,15 @@ class EventRegistration(models.Model):
             registrations = self.filtered(
                 lambda x: x.event_end_date >= fields.Datetime.now())
             registrations.write(reg_data)
+
+    @api.onchange('attendee_partner_id', 'partner_id')
+    def _onchange_partner(self):
+        if self.attendee_partner_id:
+            if not self.partner_id:
+                self.partner_id = self.attendee_partner_id
+            get_attendee_partner_address = {
+                'get_attendee_partner_address': self.attendee_partner_id,
+            }
+            return super(EventRegistration, self.with_context(
+                **get_attendee_partner_address))._onchange_partner()
+        return super(EventRegistration, self)._onchange_partner()
