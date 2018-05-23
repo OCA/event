@@ -37,7 +37,7 @@ class ResPartner(models.Model):
     def _compute_event_count(self):
         for partner in self:
             partner.event_count = len(
-                self.env["event.registration"].search([
+                self.env["event.registration"].sudo().search([
                     ("attendee_partner_id", "child_of", partner.id),
                     ("state", "not in", ("cancel", "draft")),
                 ]).mapped("event_id"))
@@ -52,5 +52,5 @@ class ResPartner(models.Model):
     @api.multi
     def write(self, data):
         res = super(ResPartner, self).write(data)
-        self.mapped('registrations').partner_data_update(data)
+        self.sudo().mapped('registrations').partner_data_update(data)
         return res

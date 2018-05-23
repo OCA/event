@@ -16,6 +16,8 @@ class TestEventRegistration(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
         super(TestEventRegistration, cls).setUpClass()
+        cls.demo_user = cls.env.ref("base.user_demo")
+        cls.demo_user.groups_id -= cls.env.ref("event.group_event_user")
         cls.event_0 = cls.env['event.event'].create({
             'name': 'Test event',
             'date_begin': fields.Datetime.now(),
@@ -31,7 +33,7 @@ class TestEventRegistration(common.SavepointCase):
         cls.partner_01 = partner_model.create({
             'name': 'Test Partner 01',
             'email': 'email01@test.com'
-        })
+        }).sudo(cls.demo_user)
         cls.registration_01 = registration_model.create({
             'email': 'email01@test.com', 'event_id': cls.event_0.id})
         cls.registration_02 = registration_model.create({
