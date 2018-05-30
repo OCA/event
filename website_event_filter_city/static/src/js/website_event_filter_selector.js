@@ -2,7 +2,7 @@
  * License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). */
 odoo.define("website_event_filter_selector", function (require) {
     "use strict";
-    var animation = require('web_editor.snippets.animation');
+    var animation = require('website.content.snippets.animation');
 
     return animation.registry.website_event_filter_selector =
     animation.Class.extend({
