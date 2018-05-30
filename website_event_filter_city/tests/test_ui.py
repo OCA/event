@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2016 Jairo Llopis <jairo.llopis@tecnativa.com>
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
@@ -27,7 +26,7 @@ class UICase(HttpCase):
         with self.cursor() as cr:
             env = self.env(cr)
             # Enable all templates required for this test to work
-            for model, xids in templates.iteritems():
+            for model, xids in templates.items():
                 for xid in xids:
                     env.ref("%s.%s" % (model, xid)).active = True
             # We need to have an old and an online event
