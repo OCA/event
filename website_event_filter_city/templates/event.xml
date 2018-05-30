@@ -6,7 +6,7 @@
 
 <!-- Reusable callable templates -->
 <template id="element" name="Event Selection Filter Form Element">
-    <div t-att-id="element_id" t-attf-class="col-sm-#{12 / selection_filters_amount}">
+    <div t-att-id="element_id" t-attf-class="col-sm-#{int(12 / selection_filters_amount)}">
         <div class="form-group">
             <t t-raw="0"/>
         </div>
@@ -135,7 +135,7 @@
           inherit_id="website_event.index"
           name="Selection Filters"
           customize_show="True">
-    <xpath expr="//div[@class='row mt8']" position="after">
+    <xpath expr="//div[hasclass('row', 'mt8')]" position="after">
         <div id="website_event_filter_selector" class="mt8">
             <t id="custom"/>
             <form class="row" action="/event" method="GET">
@@ -193,7 +193,7 @@
 <template id="city_breadcrumb"
           name="City breadcrumb"
           inherit_id="website_event.index">
-    <xpath expr="//ol[contains(@class, 'breadcrumb')]/li[@t-if='current_country']"
+    <xpath expr="//ol[hasclass('breadcrumb')]/li[@t-if='current_country']"
            position="after">
         <li t-if="current_city != 'all'">
             <t t-esc="current_city"/>
