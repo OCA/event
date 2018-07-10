@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2016 Antiun Ingenieria S.L. - Javier Iniesta
 # Copyright 2017 Tecnativa - Vicent Cubells
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
@@ -6,10 +5,9 @@
 {
     'name': "Mass mailing from events",
     'category': 'Marketing',
-    'version': '10.0.1.0.1',
+    'version': '11.0.1.0.1',
     'depends': [
-        'event',
-        'mass_mailing'
+        'mass_mailing_event',
     ],
     'data': [
         'views/event_registration.xml',
