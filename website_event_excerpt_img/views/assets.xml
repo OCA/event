@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 Tecnativa - Jairo Llopis
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+<template id="assets_frontend"
+          inherit_id="website.assets_frontend">
+    <xpath expr=".">
+        <link rel="stylesheet"
+              type="text/less"
+              href="/website_event_excerpt_img/static/src/less/website_event_excerpt_img.less"/>
+    </xpath>
+</template>
+
+</odoo>
