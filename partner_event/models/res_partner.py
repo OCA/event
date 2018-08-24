@@ -17,6 +17,7 @@ class ResPartner(models.Model):
     event_count = fields.Integer(
         string='Events',
         compute='_compute_event_count',
+        compute_sudo=True,
         help="Count of events with confirmed registrations.",
     )
     registration_count = fields.Integer(
@@ -37,7 +38,7 @@ class ResPartner(models.Model):
     def _compute_event_count(self):
         for partner in self:
             partner.event_count = len(
-                self.env["event.registration"].sudo().search([
+                self.env["event.registration"].search([
                     ("attendee_partner_id", "child_of", partner.id),
                     ("state", "not in", ("cancel", "draft")),
                 ]).mapped("event_id"))
