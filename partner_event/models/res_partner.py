@@ -17,6 +17,7 @@ class ResPartner(models.Model):
     event_count = fields.Integer(
         string='Events',
         compute='_compute_event_count',
+        compute_sudo=True,
         help="Count of events with confirmed registrations.",
     )
     registration_count = fields.Integer(
@@ -52,5 +53,5 @@ class ResPartner(models.Model):
     @api.multi
     def write(self, data):
         res = super(ResPartner, self).write(data)
-        self.mapped('registrations').partner_data_update(data)
+        self.sudo().mapped('registrations').partner_data_update(data)
         return res
