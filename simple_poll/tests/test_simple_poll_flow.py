@@ -22,11 +22,14 @@ class TestSimplePollFlow(TestPollQuestionCommon):
 
     def test_public_url(self):
         def validate_url(url):
-            """ Reference: https://github.com/django/django/blob/master/django/core/validators.py """
+            """ Reference:
+            https://github.com/django/django/
+            blob/master/django/core/validators.py """
             url_regex = re.compile(
                 r'^https?://'  # http:// or https://
                 # domain...
-                r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|'
+                r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)'
+                r'+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|'
                 r'localhost|'  # localhost...
                 r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|'  # ...or ipv4
                 r'\[?[A-F0-9]*:[A-F0-9:]+\]?)'  # ...or ipv6
@@ -35,7 +38,8 @@ class TestSimplePollFlow(TestPollQuestionCommon):
             return True if url_regex.match(url) else False
 
         base_url = self.IrConfigParam.get_param('web.base.url')
-        url = "questions/%s?uuid=%s" % (self.simple_text_question.id, self.simple_text_question.uuid)
+        url = "questions/%s?uuid=%s" % \
+              (self.simple_text_question.id, self.simple_text_question.uuid)
         full_url = urljoin(base_url, url)
         self.assertTrue(validate_url(self.simple_text_question.public_url))
         self.assertEqual(full_url, self.simple_text_question.public_url)

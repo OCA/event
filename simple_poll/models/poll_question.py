@@ -54,7 +54,7 @@ class PollQuestion(models.Model):
     yes_no_maybe = fields.Boolean(string='Yes/No/Maybe Poll')
 
     public_url = fields.Char(string='Public link',
-                             compute=_compute_question_url, readonly=True)
+                             compute='_compute_question_url', readonly=True)
     question_answer_ids = fields.One2many(
         'question.answer', 'question_id', string='Answers')
 
@@ -68,7 +68,9 @@ class PollQuestion(models.Model):
             'relative_url') else self.env['ir.config_parameter'].get_param(
             'web.base.url')
         for question in self:
-            question.public_url = urljoin(base_url, "questions/%s?uuid=%s" % (self.id, question.uuid))
+            question.public_url = \
+                urljoin(base_url,
+                        "questions/%s?uuid=%s" % (self.id, question.uuid))
 
     def get_participant_emails(self):
         participant_emails = [

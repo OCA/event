@@ -52,4 +52,7 @@ class PollQuestion(http.Controller):
         if uuid != question.uuid:
             return request.render('website.404')
         request.env['question.answer'].sudo().save_answer(question, post)
-        return http.request.render('simple_poll.submit_poll', {'question': question})
+        return http.request.render(
+            'simple_poll.submit_poll',
+            {'question': question}
+        )

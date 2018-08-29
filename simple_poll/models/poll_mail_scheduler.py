@@ -31,7 +31,8 @@ class PollMailScheduler(models.Model):
         'mail.template', string='Email to Send',
         domain=[('model', '=', 'poll.question')], required=True,
         ondelete='restrict',
-        help='This field contains the template of the mail that will be automatically sent')
+        help='This field contains the template of '
+             'the mail that will be automatically sent')
     scheduled_date = fields.Datetime(
         string='Scheduled Sent Mail', compute='_compute_scheduled_date',
         store=True)
