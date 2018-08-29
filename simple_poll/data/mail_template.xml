@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!--Email template -->
+        <record id="email_template_edi_poll" model="mail.template">
+            <field name="name">Poll - Send by Email</field>
+            <field name="email_from">${user.email}</field>
+            <field name="subject">Odoo Poll: ${object.title}</field>
+            <field name="email_to">${object.get_participant_emails()}</field>
+            <field name="model_id" ref="simple_poll.model_poll_question"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="lang">${user.lang}</field>
+            <field name="body_html"><![CDATA[
+<p>Dear All,</p>
+<br/>
+<p>
+we kindly invite you to take part in the following inquire:
+% if object.title:
+    <p>${object.title}</p>
+% endif
+</p>
+<p>
+To do so, please visit the following link:  ${object.public_url}
+</p>
+<br/>
+<p>Thank you,<br/>
+${user.name}
+</p>
+]]></field>
+        </record>
+
+        <!--Email Reminder template -->
+        <record id="email_reminder_template_edi_poll" model="mail.template">
+            <field name="name">Poll Reminder - Send by Email</field>
+            <field name="email_from">${user.email}</field>
+            <field name="subject">Odoo Poll Reminder: ${object.title}</field>
+            <field name="email_to">${object.get_participant_emails()}</field>
+            <field name="model_id" ref="simple_poll.model_poll_question"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="lang">${user.lang}</field>
+            <field name="body_html"><![CDATA[
+<p>Dear All,</p>
+
+<p>
+we kindly remind you to take part in the following inquire:
+% if object.title:
+    <p>${object.title}</p>
+% endif
+</p>
+<p>
+To do so, please visit the following link:  ${object.public_url}
+</p>
+
+<p>Thank you,<br/>
+${user.name}
+</p>
+]]></field>
+        </record>
+    </data>
+</odoo>

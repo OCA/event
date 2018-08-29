@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="assets_frontend_simple_poll" inherit_id="website.assets_frontend" name="Simple Poll assets">
+            <xpath expr="." position="inside">
+                <link href="/simple_poll/static/src/css/simple_poll.css" rel="stylesheet" type="text/css"/>
+            </xpath>
+        </template>
+        <template id="poll_page" name="Question page" page="True">
+            <t t-call="website.layout">
+            <div class="oe_structure">
+                <div class="container">
+            <form role="form" method="post" class="js_surveyform" t-att-action="'/questions/submit/%s?uuid=%s' % (question.id, question.uuid)">
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                <input type="hidden" name="token" t-att-value="token" />
+                <div class="js_question-wrapper" t-att-id="prefix">
+                    <h2>
+                        <span t-field='question.title' />
+                    </h2>
+                    <table class="table table-bordered table-striped question_table">
+                        <tr class="info">
+                            <td></td>
+                            <t t-foreach='question.option_ids' t-as='option'>
+                                <t t-if="question.type=='date'">
+                                    <td><span t-field='option.name_date'/></td>
+                                </t>
+                                <t t-if="question.type=='date_time'">
+                                    <td><span t-field='option.name_datetime'/></td>
+                                </t>
+                                <t t-if="question.type=='simple_text'">
+                                    <td><span t-field='option.name'/></td>
+                                </t>
+                            </t>
+                        </tr>
+                        <t t-foreach="answers" t-as="answer">
+                            <tr>
+                                <td><span t-field="answer.name"></span></td>
+                                <t t-foreach='answer_value' t-as='answer_answer'>
+                                    <t t-set='val' t-value='answer_answer.answer'/>
+                                    <t t-if="val == '1'">
+                                        <td class="font_color_green">
+                                            <span t-field='answer_answer.answer'/>
+                                        </td>
+                                    </t>
+                                    <t t-if="val == '2'">
+                                        <td class="font_color_red">
+                                            <span t-field='answer_answer.answer'/>
+                                        </td>
+                                    </t>
+                                    <t t-if="val == '3'">
+                                        <td class="font_color_orange">
+                                            <span t-field='answer_answer.answer'/>
+                                        </td>
+                                    </t>
+                                </t>
+                            </tr>
+                        </t>
+                        <t t-if="answers">
+                            <tr>
+                                <td></td>
+                                <t t-foreach='question.option_ids' t-as='option'>
+                                    <td>
+                                        <span class="align_left font_size_big">
+                                            <t t-foreach="answer_sum[option]" t-as="yes_no_maybe">
+                                                <t t-if="yes_no_maybe[0] == '1'">
+                                                    <span class="font_color_green">(<span t-esc="yes_no_maybe[1]"/>)Yes<br/></span>
+                                                </t>
+                                                <t t-if="yes_no_maybe[0] == '2'">
+                                                    <span class="font_color_red">(<span t-esc="yes_no_maybe[1]"/>)No<br/></span>
+                                                </t>
+                                                <t t-if="yes_no_maybe[0] == '3'">
+                                                    <span class="font_color_orange">(<span t-esc="yes_no_maybe[1]"/>)Maybe<br/></span>
+                                                </t>
+                                            </t>
+                                        </span>
+                                    </td>
+                                </t>
+                            </tr>
+                        </t>
+                        <t t-if="question.get_participants()">
+                            <tr>
+                                <td>
+                                    <select t-attf-name="res_partner_id" required="true">
+                                        <t t-foreach='question.get_participants()' t-as="partner">
+                                            <option t-esc='partner.name' t-att-value='partner.id'/>
+                                        </t>
+                                    </select>
+                                </td>
+                                <t t-foreach='question.option_ids' t-as='option'>
+                                    <t t-if="question.yes_no_maybe">
+                                        <td>
+                                            <span class="align_left">
+                                                <input type="radio" t-att-name="'%s' % (option.id)" t-att-value="1"/>Yes<br/>
+                                                <input type="radio" t-att-name="'%s' % (option.id)" t-att-value="2"/>No<br/>
+                                                <input type="radio" t-att-name="'%s' % (option.id)" t-att-value="3"/>Maybe
+                                            </span>
+                                        </td>
+                                    </t>
+                                    <t t-if="question.type=='date' and not question.yes_no_maybe">
+                                        <td>
+                                            <input type="checkbox" t-att-name="'%s' % (option.id)" t-att-value='option.id' />
+                                        </td>
+                                    </t>
+                                    <t t-if="question.type=='date_time' and not question.yes_no_maybe">
+                                        <td>
+                                            <input type="checkbox" t-att-name="'%s' % (option.id)" t-att-value='option.id' />
+                                        </td>
+                                    </t>
+                                    <t t-if="question.type=='simple_text' and not question.yes_no_maybe">
+                                        <td>
+                                            <input type="checkbox" t-att-name="'%s' % (option.id)" t-att-value='option.id' />
+                                        </td>
+                                    </t>
+                                </t>
+                            </tr>
+                        </t>
+                    </table>
+                </div>
+                <t t-if="question.get_participants()">
+                    <div class="text-center mt16 mb16">
+                        <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                    </div>
+                </t>
+            </form>
+                </div>
+            </div>
+            </t>
+        </template>
+        <!-- "Thank you" message-->
+        <template id="submit_poll" name="Submit Poll">
+            <head>
+                <link rel='stylesheet' href='/web/static/lib/bootstrap/css/bootstrap.css'/>
+            </head>
+            <div class="container">
+                <div clas="row">
+                    <h1 class="text-center">Thank you!</h1>
+                </div>
+                <div class="text-center mt16 mb16">
+                    <a t-att-href="'/questions/%s?uuid=%s' % (slug(question), question.uuid)" class="btn btn-primary btn-lg mt32 mb4" >View Result</a>
+                </div>
+            </div>
+        </template>
+    </data>
+</odoo>
