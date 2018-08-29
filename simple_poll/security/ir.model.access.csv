@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_poll_mail_scheduler,access_poll_mail_scheduler,model_poll_mail_scheduler,base.group_user,1,1,1,1
+access_poll_question,access_poll_question,model_poll_question,base.group_user,1,1,1,1
+access_question_option,access_question_option,model_question_option,base.group_user,1,1,1,1
+access_question_answer,access_question_answer,model_question_answer,base.group_user,1,1,1,1
+access_poll_group,access_poll_group,model_poll_group,base.group_user,1,1,1,1
+

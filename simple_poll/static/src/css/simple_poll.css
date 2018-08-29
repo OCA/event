@@ -1,0 +1,33 @@
+.question_table {
+
+}
+
+.question_table tr:first-child td {
+    color: blue;
+}
+
+.question_table  tr  td:not(:first-child)
+{
+    text-align: center;
+}
+
+.align_left{
+    text-align: left !important;
+    display: inline-block;
+}
+
+.font_size_big{
+    font-size: 16px;
+}
+
+.font_color_green{
+    color: green;
+}
+
+.font_color_orange{
+    color: orange;
+}
+
+.font_color_red{
+    color: red;
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="robots_simple_poll" inherit_id="website.robots" name="Exclude '/questions' from robots.txt">
+            <xpath expr="." position="replace">
+                <t t-name="website.robots">
+User-agent: *
+Sitemap: <t t-esc="url_root"/>sitemap.xml
+User-agent: *
+disallow: /questions
+                </t>
+            </xpath>
+    </template>
+</odoo>

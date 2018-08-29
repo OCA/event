@@ -1,0 +1,456 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* simple_poll
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-13 12:18+0000\n"
+"PO-Revision-Date: 2018-07-13 12:18+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: simple_poll
+#: model:mail.template,body_html:simple_poll.email_reminder_template_edi_poll
+msgid "\n"
+"<p>Dear All,</p>\n"
+"\n"
+"<p>\n"
+"we kindly remind you to take part in the following inquire:\n"
+"% if object.title:\n"
+"    <p>${object.title}</p>\n"
+"% endif\n"
+"</p>\n"
+"<p>\n"
+"To do so, please visit the following link:  ${object.public_url}\n"
+"</p>\n"
+"\n"
+"<p>Thank you,<br/>\n"
+"${user.name}\n"
+"</p>\n"
+""
+msgstr ""
+
+#. module: simple_poll
+#: model:mail.template,body_html:simple_poll.email_template_edi_poll
+msgid "\n"
+"<p>Dear All,</p>\n"
+"<br/>\n"
+"<p>\n"
+"we kindly invite you to take part in the following inquire:\n"
+"% if object.title:\n"
+"    <p>${object.title}</p>\n"
+"% endif\n"
+"</p>\n"
+"<p>\n"
+"To do so, please visit the following link:  ${object.public_url}\n"
+"</p>\n"
+"<br/>\n"
+"<p>Thank you,<br/>\n"
+"${user.name}\n"
+"</p>\n"
+""
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.ui.view,arch_db:simple_poll.poll_page
+msgid ")Maybe<br/>"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.ui.view,arch_db:simple_poll.poll_page
+msgid ")No<br/>"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.ui.view,arch_db:simple_poll.poll_page
+msgid ")Yes<br/>"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.ui.view,arch_db:simple_poll.poll_question_view_form
+msgid "Answer Options"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_poll_question_option_ids
+#: model:ir.model.fields,field_description:simple_poll.field_poll_question_question_answer_ids
+#: model:ir.ui.view,arch_db:simple_poll.poll_question_view_form
+msgid "Answers"
+msgstr ""
+
+#. module: simple_poll
+#: selection:poll.question,type:0
+msgid "Choose Date Question"
+msgstr ""
+
+#. module: simple_poll
+#: selection:poll.question,type:0
+msgid "Choose Date Time Question"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_poll_group_create_uid
+#: model:ir.model.fields,field_description:simple_poll.field_poll_mail_scheduler_create_uid
+#: model:ir.model.fields,field_description:simple_poll.field_poll_question_create_uid
+#: model:ir.model.fields,field_description:simple_poll.field_question_answer_create_uid
+#: model:ir.model.fields,field_description:simple_poll.field_question_option_create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_poll_group_create_date
+#: model:ir.model.fields,field_description:simple_poll.field_poll_mail_scheduler_create_date
+#: model:ir.model.fields,field_description:simple_poll.field_poll_question_create_date
+#: model:ir.model.fields,field_description:simple_poll.field_question_answer_create_date
+#: model:ir.model.fields,field_description:simple_poll.field_question_option_create_date
+msgid "Created on"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_question_option_name_date
+msgid "Date Answer"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_question_option_name_datetime
+msgid "Date Time Answer"
+msgstr ""
+
+#. module: simple_poll
+#: selection:poll.mail.scheduler,interval_unit:0
+msgid "Day(s)"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_poll_group_display_name
+#: model:ir.model.fields,field_description:simple_poll.field_poll_mail_scheduler_display_name
+#: model:ir.model.fields,field_description:simple_poll.field_poll_question_display_name
+#: model:ir.model.fields,field_description:simple_poll.field_question_answer_display_name
+#: model:ir.model.fields,field_description:simple_poll.field_question_option_display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_poll_mail_scheduler_template_id
+msgid "Email to Send"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_poll_question_end_date
+msgid "End Date"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_poll_group_name
+msgid "Group Name"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_poll_group_res_partner_ids
+msgid "Group Participants"
+msgstr ""
+
+#. module: simple_poll
+#: selection:poll.mail.scheduler,interval_unit:0
+msgid "Hour(s)"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_poll_group_id
+#: model:ir.model.fields,field_description:simple_poll.field_poll_mail_scheduler_id
+#: model:ir.model.fields,field_description:simple_poll.field_poll_question_id
+#: model:ir.model.fields,field_description:simple_poll.field_question_answer_id
+#: model:ir.model.fields,field_description:simple_poll.field_question_option_id
+msgid "ID"
+msgstr ""
+
+#. module: simple_poll
+#: selection:poll.mail.scheduler,interval_unit:0
+msgid "Immediately"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_poll_mail_scheduler_interval_nbr
+msgid "Interval"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.ui.view,arch_db:simple_poll.poll_question_view_form
+msgid "Invite Participants"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_poll_question_invited_partner_ids
+msgid "Invited People"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_poll_group___last_update
+#: model:ir.model.fields,field_description:simple_poll.field_poll_mail_scheduler___last_update
+#: model:ir.model.fields,field_description:simple_poll.field_poll_question___last_update
+#: model:ir.model.fields,field_description:simple_poll.field_question_answer___last_update
+#: model:ir.model.fields,field_description:simple_poll.field_question_option___last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_poll_group_write_uid
+#: model:ir.model.fields,field_description:simple_poll.field_poll_mail_scheduler_write_uid
+#: model:ir.model.fields,field_description:simple_poll.field_poll_question_write_uid
+#: model:ir.model.fields,field_description:simple_poll.field_question_answer_write_uid
+#: model:ir.model.fields,field_description:simple_poll.field_question_option_write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_poll_group_write_date
+#: model:ir.model.fields,field_description:simple_poll.field_poll_mail_scheduler_write_date
+#: model:ir.model.fields,field_description:simple_poll.field_poll_question_write_date
+#: model:ir.model.fields,field_description:simple_poll.field_question_answer_write_date
+#: model:ir.model.fields,field_description:simple_poll.field_question_option_write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_poll_question_mail_scheduler_ids
+#: model:ir.ui.view,arch_db:simple_poll.poll_question_view_form
+msgid "Mail Schedulers"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_poll_mail_scheduler_mail_sent
+msgid "Mail Sent on Poll"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.ui.view,arch_db:simple_poll.poll_page
+#: selection:question.answer,answer:0
+msgid "Maybe"
+msgstr ""
+
+#. module: simple_poll
+#: selection:poll.mail.scheduler,interval_unit:0
+msgid "Month(s)"
+msgstr ""
+
+#. module: simple_poll
+#: selection:question.answer,answer:0
+msgid "No"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.ui.view,arch_db:simple_poll.poll_page
+msgid "No<br/>"
+msgstr ""
+
+#. module: simple_poll
+#: model:mail.template,subject:simple_poll.email_reminder_template_edi_poll
+msgid "Odoo Poll Reminder: ${object.title}"
+msgstr ""
+
+#. module: simple_poll
+#: model:mail.template,subject:simple_poll.email_template_edi_poll
+msgid "Odoo Poll: ${object.title}"
+msgstr ""
+
+#. module: simple_poll
+#: sql_constraint:question.answer:0
+msgid "One user can have only one answer for specific question and option!"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_question_answer_res_partner_id
+msgid "Participant"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_poll_mail_scheduler_poll_id
+#: model:ir.ui.view,arch_db:simple_poll.poll_question_view_form
+msgid "Poll"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.ui.menu,name:simple_poll.poll_group_menu
+msgid "Poll Email Groups"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.actions.act_window,name:simple_poll.poll_group_action
+#: model:ir.model.fields,field_description:simple_poll.field_poll_question_group_ids
+msgid "Poll Groups"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.ui.view,arch_db:simple_poll.poll_question_view_form
+msgid "Poll Question"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.actions.act_window,name:simple_poll.poll_question_action
+#: model:ir.ui.menu,name:simple_poll.poll_question_menu
+#: model:ir.ui.menu,name:simple_poll.polls_menu
+msgid "Polls"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_poll_question_public_url
+msgid "Public link"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_question_answer_question_id
+msgid "Question"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_question_answer_option_id
+msgid "Question Option"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_question_option_question_id
+msgid "Question id"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_poll_mail_scheduler_scheduled_date
+msgid "Scheduled Sent Mail"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.ui.view,arch_db:simple_poll.poll_question_view_form
+msgid "Send by Email"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_poll_mail_scheduler_done
+msgid "Sent"
+msgstr ""
+
+#. module: simple_poll
+#: selection:poll.question,type:0
+msgid "Simple Text Question"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.ui.view,arch_db:simple_poll.poll_page
+msgid "Submit"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_question_option_name
+msgid "Text Answer"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.ui.view,arch_db:simple_poll.submit_poll
+msgid "Thank you!"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,help:simple_poll.field_poll_mail_scheduler_template_id
+msgid "This field contains the template of the mail that will be automatically sent"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_poll_question_title
+msgid "Title"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_poll_question_type
+#: model:ir.model.fields,field_description:simple_poll.field_question_option_question_type
+msgid "Type of Question"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_poll_mail_scheduler_interval_unit
+msgid "Unit"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.ui.view,arch_db:simple_poll.robots_simple_poll
+msgid "User-agent: *\n"
+"Sitemap:"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_poll_question_uuid
+msgid "Uuid"
+msgstr ""
+
+#. module: simple_poll
+#: selection:poll.mail.scheduler,interval_unit:0
+msgid "Week(s)"
+msgstr ""
+
+#. module: simple_poll
+#: selection:question.answer,answer:0
+msgid "Yes"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_question_answer_answer
+msgid "Yes/No/Maybe"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model.fields,field_description:simple_poll.field_poll_question_yes_no_maybe
+msgid "Yes/No/Maybe Poll"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.ui.view,arch_db:simple_poll.poll_page
+msgid "Yes<br/>"
+msgstr ""
+
+#. module: simple_poll
+#: code:addons/simple_poll/models/poll_question.py:210
+#: code:addons/simple_poll/models/poll_question.py:221
+#, python-format
+msgid "You should select Participants having email"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model,name:simple_poll.model_poll_group
+msgid "poll.group"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model,name:simple_poll.model_poll_mail_scheduler
+msgid "poll.mail.scheduler"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model,name:simple_poll.model_poll_question
+msgid "poll.question"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model,name:simple_poll.model_poll_question_report
+msgid "poll.question.report"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model,name:simple_poll.model_question_answer
+msgid "question.answer"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.model,name:simple_poll.model_question_option
+msgid "question.option"
+msgstr ""
+
+#. module: simple_poll
+#: model:ir.ui.view,arch_db:simple_poll.robots_simple_poll
+msgid "sitemap.xml\n"
+"User-agent: *\n"
+"disallow: /questions"
+msgstr ""
+

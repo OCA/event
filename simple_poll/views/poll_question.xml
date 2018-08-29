@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="poll_question_view_form" model="ir.ui.view">
+        <field name="name">poll.question.form</field>
+        <field name="model">poll.question</field>
+        <field name="arch" type="xml">
+            <form string="Poll">
+                <sheet>
+                    <div class="oe_button_box">
+                        <button name="action_poll_send" string="Send by Email" type="object" class="btn-primary"/>
+                    </div>
+                    <div class="oe_title">
+                        <label for="title" class="oe_edit_only"/>
+                        <h1><field name="title" placeholder="Poll Question"/></h1>
+                    </div>
+                    <group>
+                        <group name='form_header'>
+                            <field name="type"/>
+                            <field name="end_date"/>
+                            <field name="public_url" widget="url"/>
+                        </group>
+                        <group>
+                            <field name="yes_no_maybe"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="options" string="Answer Options">
+                            <field name="option_ids" context="{'default_question_type': type}">
+                                <tree editable="bottom">
+                                    <field name="question_type" invisible="1"/>
+                                    <field name="name" attrs="{'invisible':  [('question_type', '!=', 'simple_text')], 'required': [('question_type', '=', 'simple_text')]}"/>
+                                    <field name="name_datetime" attrs="{'invisible': [('question_type', '!=', 'date_time')], 'required': [('question_type', '=', 'date_time')]}"/>
+                                    <field name="name_date" attrs="{'invisible': [('question_type', '!=', 'date')], 'required': [('question_type', '=', 'date')]}"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="invite_participants" string="Invite Participants">
+                            <field name="group_ids"/>
+                            <field name="invited_partner_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="email"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="mail_schedulers" string="Mail Schedulers">
+                            <field name="mail_scheduler_ids" context="{'default_poll_id':active_id}">
+                                <tree>
+                                    <field name="template_id"/>
+                                    <field name="interval_nbr"/>
+                                    <field name="interval_unit"/>
+                                    <field name="scheduled_date"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="answers" string="Answers" invisible="1">
+                            <field name="question_answer_ids">
+                                <tree>
+                                    <field name="res_partner_id"/>
+                                    <field name="option_id"/>
+                                    <field name="answer"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="poll_question_action" model="ir.actions.act_window">
+        <field name="name">Polls</field>
+        <field name="res_model">poll.question</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="poll_group_action" model="ir.actions.act_window">
+        <field name="name">Poll Groups</field>
+        <field name="res_model">poll.group</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- MENU ELEMENTS -->
+    <menuitem id="polls_menu" name="Polls"/>
+
+    <!-- Left menu elements: Poll -->
+    <menuitem id="poll_question_menu" name="Polls" action="poll_question_action" parent="polls_menu" sequence="1"/>
+
+    <!-- Left menu elements: Poll Groups -->
+    <menuitem id="poll_group_menu" name="Poll Email Groups" action="poll_group_action" parent="polls_menu"/>
+</odoo>
