@@ -31,6 +31,7 @@ From there one can create simple polls from the following types:
         "views/poll_webpage.xml",
         "data/mail_template.xml",
         "data/ir_cron.xml",
-        "data/website_templates.xml"
+        "data/website_templates.xml",
+        "security/ir.model.access.csv",
     ],
 }
