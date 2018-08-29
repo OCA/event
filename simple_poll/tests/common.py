@@ -20,18 +20,13 @@ class TestPollQuestionCommon(common.TransactionCase):
 
         self.partner_id = self.env.ref('base.res_partner_1').id
 
-        # Create Option for Simple Text Question
-        self.text_option_1 = self.QuestionOption.create({
-            'name': 'Test Option 01'
-        })
-
         # Test Poll Questions creation
         self.simple_text_question = self.PollQuestion.create({
             'title': 'Simple Text Question',
             'type': 'simple_text',
             'end_date': fields.Datetime.now(),
             'yes_no_maybe': True,
-            'option_ids': [(6, 0, [self.text_option_1])],
+            'option_ids': [(0, 0, {'name': 'Test Option 01'})],
         })
         self.choose_date_question = self.PollQuestion.create({
             'title': 'Choose Date Question',
