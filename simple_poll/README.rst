@@ -51,6 +51,10 @@ To create a poll email group follow the steps:
 * Fill "Group Participants"
 * Save group
 
+Known issues / Roadmap
+======================
+
+* The website dependency can be removed when migrated to v11.
 
 Bug Tracker
 ===========
