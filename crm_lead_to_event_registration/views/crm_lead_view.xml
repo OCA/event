@@ -10,7 +10,7 @@
     <field name="model">crm.lead</field>
     <field name="inherit_id" ref="crm.crm_case_form_view_leads"/>
     <field name="arch" type="xml">
-        <xpath expr="//field[@name='referred']" position="after">
+        <field name="referred" position="after">
             <field name="event_registration_id"/>
             <button
                 name="%(event_pick_action)d"
@@ -21,7 +21,7 @@
                         ('event_registration_id', '!=', False),
                     ],
                 }"/>
-        </xpath>
+        </field>
     </field>
 </record>
 
@@ -30,7 +30,7 @@
     <field name="model">crm.lead</field>
     <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
     <field name="arch" type="xml">
-        <xpath expr="//field[@name='source_id']" position="after">
+        <field name="source_id" position="after">
             <field name="event_registration_id"/>
             <button
                 name="%(event_pick_action)d"
@@ -41,7 +41,7 @@
                         ('event_registration_id', '!=', False),
                     ],
                 }"/>
-        </xpath>
+        </field>
     </field>
 </record>
 

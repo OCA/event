@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
 # Copyright 2016 Pedro M. Baeza <pedro.baeza@tecnativa.com>
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
-from openerp import fields
-from openerp.tests import common
+from odoo import fields
+from odoo.tests import common
 
 
 class TestCrmLeadToEventRegistration(common.TransactionCase):
@@ -52,7 +51,7 @@ class TestCrmLeadToEventRegistration(common.TransactionCase):
             self.event.registration_ids[0].partner_id, self.partner)
 
     def test_event_pick_and_track(self):
-        stage_won = self.env.ref('crm.stage_lead5')
+        stage_won = self.env.ref('crm.stage_lead4')
         wizard = self.wiz_event.create({
             'lead_id': self.lead.id,
             'event_id': self.event.id,
@@ -60,15 +59,15 @@ class TestCrmLeadToEventRegistration(common.TransactionCase):
         wizard.action_accept()
         self.assertTrue(self.event.registration_ids)
 
-        def _track_subtype(self, cr, uid, ids, init_values, context=None):
-            record = self.browse(cr, uid, ids[0], context=context)
+        def _track_subtype(self, init_values):
+            self.ensure_one()
             if 'stage_id' in init_values \
-                    and record.probability == 100 \
-                    and record.stage_id \
-                    and record.stage_id.on_change:
+                    and self.probability == 100 \
+                    and self.stage_id \
+                    and self.stage_id.on_change:
                 return 'crm.mt_lead_won'
             elif 'active' in init_values \
-                    and record.probability == 0 and not record.active:
+                    and self.probability == 0 and not self.active:
                 return 'crm.mt_lead_lost'
             return False
 
