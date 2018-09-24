@@ -32,6 +32,11 @@ Known issues / Roadmap
 ======================
 
 * Remove ``bootstrap-datetimepicker`` bundled library when migrating to v11.
+* Do not rely on ``date_begin_located`` field in v11+, because implementation
+  has changed, and it returns a human-readable format instead of a
+  machine-parseable one.
+* This addon is affected by https://github.com/odoo/odoo/issues/27179 like
+  Odoo itself. It should get the same fix as upstream when it lands.
 
 Bug Tracker
 ===========
