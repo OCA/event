@@ -58,7 +58,8 @@ class EventCalendar(Controller):
             domain=domain,
             limit=limit,
             fields=[
-                "date_begin",
+                # TODO Use a v10-like field in v11+
+                "date_begin_located",
                 "name",
                 "event_type_id",
                 "website_published",
