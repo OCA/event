@@ -1,18 +1,17 @@
-# -*- coding: utf-8 -*-
 # Copyright 2016 Antiun Ingeniería S.L.
-# Copyright 2016 Pedro M. Baeza <pedro.baeza@tecnativa.com>
-# Copyright 2017 Vicent Cubells <vicent.cubells@tecnativa.com>
+# Copyright 2016 Tecnativa - Pedro M. Baeza
+# Copyright 2017 Tecnativa - Vicent Cubells
+# Copyright 2018 Tecnativa - Cristina Martin
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 {
     "name": "Reasons for event registrations cancellations",
-    "version": "9.0.1.0.0",
+    "version": "11.0.1.0.0",
     "license": "AGPL-3",
-    "author": "Antiun Ingeniería S.L., "
-              "Tecnativa, "
+    "author": "Tecnativa, "
               "Odoo Community Association (OCA)",
-    "website": "https://www.antiun.com",
-    "category": "Event Management",
+    "website": "https://github.com/OCA/event",
+    "category": "Marketing",
     "depends": [
         'event',
     ],
