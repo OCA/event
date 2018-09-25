@@ -155,7 +155,7 @@ odoo.define('website_event_snippet_calendar.animation', function (require) {
         },
         _render_list: function (events) {
             _.each(events, function (element) {
-                element.date_begin = moment(element.date_begin)
+                element.date_begin = moment(element.date_begin_located)
                     .format(this.date_format);
             }, this);
             this.$list.html(core.qweb.render(
