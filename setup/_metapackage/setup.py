@@ -8,6 +8,7 @@ setuptools.setup(
     description="Meta package for oca-event Odoo addons",
     version=version,
     install_requires=[
+        'odoo11-addon-event_registration_cancel_reason',
         'odoo11-addon-event_registration_mass_mailing',
         'odoo11-addon-partner_event',
         'odoo11-addon-website_event_excerpt_img',
