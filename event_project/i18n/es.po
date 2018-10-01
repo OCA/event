@@ -7,14 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-29 16:16+0000\n"
-"PO-Revision-Date: 2015-10-29 16:16+0000\n"
-"Last-Translator: <>\n"
+"PO-Revision-Date: 2018-10-01 11:11+0000\n"
+"Last-Translator: Darío Lodeiros <dario@aloxa.eu>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.1.1\n"
 
 #. module: event_project
 #: model:ir.model,name:event_project.model_event_event
@@ -52,7 +53,7 @@ msgstr "Tarea"
 #. module: event_project
 #: model:ir.model.fields,field_description:event_project.field_event_event_count_tasks
 msgid "Task number"
-msgstr ""
+msgstr "Número de Tarea"
 
 #. module: event_project
 #: model:ir.actions.act_window,name:event_project.act_event_task_list
