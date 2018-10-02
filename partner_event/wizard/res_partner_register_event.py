@@ -2,6 +2,7 @@
 # Copyright 2015 Tecnativa S.L. - Javier Iniesta
 # Copyright 2016 Tecnativa S.L. - Antonio Espinosa
 # Copyright 2016 Tecnativa S.L. - Vicent Cubells
+# Copyright 2018 Jupical Technologies Pvt. Ltd. - Anil Kesariya
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo import api, fields, models
@@ -9,6 +10,8 @@ from odoo import api, fields, models
 
 class ResPartnerRegisterEvent(models.TransientModel):
     _name = 'res.partner.register.event'
+
+    _description = 'Register partner for event'
 
     event = fields.Many2one('event.event', required=True)
     errors = fields.Text(readonly=True)
