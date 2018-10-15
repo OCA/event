@@ -34,6 +34,9 @@ htmlcov/
 nosetests.xml
 coverage.xml
 
+# OSX Files
+.DS_Store
+
 # Translations
 *.mo
 
