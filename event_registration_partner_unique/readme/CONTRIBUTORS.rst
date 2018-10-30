@@ -1,0 +1,6 @@
+* `Tecnativa <https://www.tecnativa.com>`_
+
+    * Rafael Blasco
+    * Jairo Llopis
+    * Vicent Cubells
+    * Cristina Martin R.
