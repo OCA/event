@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
-# © 2016 Antiun Ingeniería S.L. - Jairo Llopis
+# Copyright 2016 Antiun Ingeniería S.L. - Jairo Llopis
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import _, exceptions
+from odoo import _, exceptions
 
 
 class UniqueRegistrationPartnerValidationError(exceptions.ValidationError):
