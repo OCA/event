@@ -11,6 +11,7 @@ setuptools.setup(
         'odoo11-addon-crm_lead_to_event_registration',
         'odoo11-addon-event_registration_cancel_reason',
         'odoo11-addon-event_registration_mass_mailing',
+        'odoo11-addon-event_registration_partner_unique',
         'odoo11-addon-partner_event',
         'odoo11-addon-website_event_excerpt_img',
         'odoo11-addon-website_event_filter_selector',
