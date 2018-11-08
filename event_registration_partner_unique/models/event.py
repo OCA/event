@@ -25,7 +25,7 @@ class EventRegistration(models.Model):
     _inherit = "event.registration"
 
     @api.multi
-    @api.constrains("event_id", "partner_id")
+    @api.constrains("event_id", "attendee_partner_id")
     def _check_forbid_duplicates(self):
         """Ensure no duplicated attendees are found in the event."""
         for s in self.filtered("event_id.forbid_duplicates"):
@@ -34,7 +34,7 @@ class EventRegistration(models.Model):
                 raise exceptions.DuplicatedPartnerError(
                     s.event_id.display_name,
                     ", ".join(d.display_name
-                              for d in dupes.mapped("partner_id")),
+                              for d in dupes.mapped("attendee_partner_id")),
                     registrations=dupes,
                 )
 
