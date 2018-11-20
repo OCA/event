@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Sergio Teruel <sergio.teruel@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -25,47 +24,45 @@ class EventMailCase(SavepointCase):
 
     def test_event_template_config(self):
         # Store default template in event settings
-        event_config = self.env['event.config.settings'].sudo().create({
+        event_config = self.env['res.config.settings'].sudo().create({
             'event_mail_template_id': self.template1.id,
             'auto_confirmation': 1,
         })
         event_config.execute()
-        config_template_id = self.env['ir.values'].get_default(
-            'event.config.settings', 'event_mail_template_id')
+        config_template_id = self.env['ir.default'].get(
+            'res.config.settings', 'event_mail_template_id')
         self.assertTrue(
             config_template_id,
             'Event Mail: Template store in default values')
 
         # Create an event
         vals = {
-            'name': 'Event test',
-            'date_begin': '2017-05-01',
-            'date_end': '2017-06-01',
+            'name': 'Event type test',
             'auto_confirm': False,
             'event_mail_template_id': self.template1.id,
         }
-        event = self.env['event.event'].create(vals)
-        event._onchange_event_mail_template_id()
+        event_type = self.env['event.type'].create(vals)
+        event_type._onchange_event_mail_template_id()
         self.assertTrue(
-            event.event_mail_ids,
+            event_type.event_mail_ids,
             'Event Mail: mails scheduler created for this event')
 
         # Change template in event
-        event.event_mail_template_id = self.template2
-        event._onchange_event_mail_template_id()
+        event_type.event_mail_template_id = self.template2
+        event_type._onchange_event_mail_template_id()
         self.assertEqual(
-            len(event.event_mail_ids), 1,
-            'Event Mail: mails scheduler only one')
+            len(event_type.event_mail_ids), 2,
+            'Event Mail: mails scheduler not two')
 
     def test_event_template_no_config(self):
         # Store default template in event settings
-        event_config = self.env['event.config.settings'].sudo().create({
+        event_config = self.env['res.config.settings'].sudo().create({
             'event_mail_template_id': False,
             'auto_confirmation': 1,
         })
         event_config.execute()
-        config_template_id = self.env['ir.values'].get_default(
-            'event.config.settings', 'event_mail_template_id')
+        config_template_id = self.env['ir.default'].get(
+            'res.config.settings', 'event_mail_template_id')
         self.assertFalse(
             self.env['event.mail.template'].browse(
                 config_template_id).exists(),
@@ -82,3 +79,23 @@ class EventMailCase(SavepointCase):
         self.assertEqual(
             len(event.event_mail_ids), 0,
             'Event Mail: mails scheduler no created for this event')
+
+    def test_get_default_event_type_mail_ids(self):
+        vals = {
+            'name': 'Event type test',
+            'auto_confirm': False,
+        }
+        event_type = self.env[
+            'event.type'
+        ].with_context(by_pass_config_template=False).create(vals)
+        self.assertFalse(event_type._get_default_event_type_mail_ids())
+        event_type = self.env['event.type'].create(vals)
+        self.assertFalse(event_type._get_default_event_type_mail_ids())
+        event_config = self.env['res.config.settings'].sudo().create({
+            'event_mail_template_id': self.template1.id,
+            'auto_confirmation': 1,
+        })
+        event_config.execute()
+        self.assertTrue(self.env['ir.default'].get(
+            'res.config.settings', 'event_mail_template_id')
+        )

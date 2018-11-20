@@ -1,17 +1,16 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Sergio Teruel <sergio.teruel@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models
 
 
-class EventEvent(models.Model):
-    _inherit = 'event.event'
+class EventType(models.Model):
+    _inherit = 'event.type'
 
     @api.model
     def _default_event_mail_template_id(self):
-        return self.env['ir.values'].get_default(
-            'event.config.settings', 'event_mail_template_id')
+        return self.env['ir.default'].get(
+            'res.config.settings', 'event_mail_template_id')
 
     event_mail_template_id = fields.Many2one(
         comodel_name='event.mail.template',
@@ -34,13 +33,13 @@ class EventEvent(models.Model):
             self.event_mail_ids = vals
 
     @api.model
-    def _default_event_mail_ids(self):
+    def _get_default_event_type_mail_ids(self):
         if self.env.context.get('by_pass_config_template', False):
-            return super(EventEvent, self)._default_event_mail_ids()
+            return super(EventType, self)._get_default_event_type_mail_ids()
 
-        event_mail_template_id = self.env['ir.values'].get_default(
-            'event.config.settings', 'event_mail_template_id')
+        event_mail_template_id = self.env['ir.default'].get(
+            'res.config.settings', 'event_mail_template_id')
         if event_mail_template_id:
-            return super(EventEvent, self)._default_event_mail_ids()
+            return super(EventType, self)._get_default_event_type_mail_ids()
         else:
             return []
