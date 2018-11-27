@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 David Vidal<david.vidal@tecnativa.com>
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
 
 
@@ -19,7 +18,27 @@ class EventEvent(models.Model):
         string='Total event sessions',
         store=True,
     )
-    seats_expected = fields.Integer(store=True)
+    seats_available_expected = fields.Integer(
+        compute='_compute_seats_available_expected',
+        string='Available expected seats',
+        readonly=True,
+        store=True,
+    )
+    draft_state = fields.Integer(
+        compute='_compute_state_numbers',
+        string=' # No of Draft Registrations',
+        store=True,
+    )
+    cancel_state = fields.Integer(
+        compute='_compute_state_numbers',
+        string=' # No of Cancelled Registrations',
+        store=True,
+    )
+    confirm_state = fields.Integer(
+        compute='_compute_state_numbers',
+        string=' # No of Confirmed Registrations',
+        store=True,
+    )
 
     @api.multi
     @api.depends('session_ids')
@@ -33,6 +52,27 @@ class EventEvent(models.Model):
         for event in self:
             if not event.session_ids:
                 return super(EventEvent, event)._check_seats_limit()
+
+    @api.multi
+    @api.depends('seats_max', 'seats_expected')
+    def _compute_seats_available_expected(self):
+        for this in self:
+            seats = this.seats_max - this.seats_expected
+            this.seats_available_expected = seats
+
+    @api.multi
+    @api.depends('registration_ids.state')
+    def _compute_state_numbers(self):
+        for this in self:
+            this.draft_state = len(this.registration_ids.filtered(
+                lambda x: x.state == 'draft'
+            ))
+            this.cancel_state = len(this.registration_ids.filtered(
+                lambda x: x.state == 'cancel'
+            ))
+            this.confirm_state = len(this.registration_ids.filtered(
+                lambda x: x.state == 'confirm'
+            ))
 
 
 class EventRegistration(models.Model):
