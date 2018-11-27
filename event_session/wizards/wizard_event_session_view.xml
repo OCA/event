@@ -55,7 +55,6 @@
                 </group>
                 <group string="Other options">
                     <field name="delete_existing_sessions"/>
-                    <field name="event_mail_template_id"/>
                 </group>
             </group>
             <footer>

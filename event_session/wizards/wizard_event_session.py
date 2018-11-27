@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Copyright 2017 David Vidal<david.vidal@tecnativa.com>
 # Copyright 2017 Tecnativa - Pedro M. Baeza
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
@@ -70,10 +70,6 @@ class WizardEventSession(models.TransientModel):
         inverse_name='wizard_event_session_id',
         string='Hours',
     )
-    event_mail_template_id = fields.Many2one(
-        comodel_name='event.mail.template',
-        string='Mail Schedule Template',
-    )
 
     @api.multi
     @api.constrains('session_hour_ids')
@@ -119,20 +115,7 @@ class WizardEventSession(models.TransientModel):
             "event_id": self.event_id.id,
             "date_begin": fields.Datetime.to_string(date_begin),
             "date_end": fields.Datetime.to_string(date_end),
-            "seats_min": self.event_id.seats_min,
-            "seats_max": self.event_id.seats_max,
-            "seats_availability": self.event_id.seats_availability,
         }
-        mail_template = (
-            self.event_mail_template_id or
-            self.env['ir.values'].get_default(
-                'event.config.settings', 'event_mail_template_id'))
-
-        if mail_template:
-            template_values = \
-                self.env['event.session']._session_mails_from_template(
-                    self.event_id.id, mail_template)
-            vals['event_mail_ids'] = template_values
         return vals
 
     @api.multi
