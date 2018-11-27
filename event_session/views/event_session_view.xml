@@ -131,13 +131,25 @@
             </calendar>
         </field>
     </record>
+    
+    <record id="view_event_session_pivot" model="ir.ui.view">
+        <field name="name">event.session.pivot</field>
+        <field name="model">event.session</field>
+        <field eval="4" name="priority"/>
+        <field name="arch" type="xml">
+            <pivot>
+                <field name="date_begin" type="col"/>
+                <field name="event_id" type="row"/>
+            </pivot>
+        </field>
+    </record>
 
     <!-- EVENT.SESSIONS ACTIONS -->
     <record id="act_event_session_form" model="ir.actions.act_window">
         <field name="res_model">event.session</field>
         <field name="view_type">form</field>
         <field name="name">Sessions</field>
-        <field name="view_mode">tree,form,calendar</field>
+        <field name="view_mode">tree,form,calendar,pivot</field>
     </record>
 
     <!-- Menu items -->

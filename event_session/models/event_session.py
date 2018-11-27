@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 David Vidal<david.vidal@tecnativa.com>
 # Copyright 2017 Tecnativa - Pedro M. Baeza
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
@@ -117,8 +116,8 @@ class EventSession(models.Model):
     def _session_mails_from_template(self, event_id, mail_template=None):
         vals = [(6, 0, [])]
         if not mail_template:
-            mail_template = self.env['ir.values'].get_default(
-                'event.config.settings', 'event_mail_template_id')
+            mail_template = self.env['ir.default'].get(
+                'res.config.settings', 'event_mail_template_id')
             if not mail_template:
                 # Not template scheduler defined in event settings
                 return vals
@@ -147,12 +146,25 @@ class EventSession(models.Model):
 
     @api.model
     def create(self, vals):
+        # Config availabilities based on event
+        if vals.get('event_id', False):
+            event = self.env['event.event'].browse(vals.get('event_id'))
+            vals['seats_availability'] = event.seats_availability
+            vals['seats_max'] = event.seats_max
         if not vals.get('event_mail_ids', False):
             vals.update({
                 'event_mail_ids':
                     self._session_mails_from_template(vals['event_id'])
             })
         return super(EventSession, self).create(vals)
+
+    @api.multi
+    def unlink(self):
+        for this in self:
+            if this.registration_ids:
+                raise ValidationError(_("You are trying to delete one or more \
+                sessions with active registrations"))
+        return super(EventSession, self).unlink()
 
     @api.multi
     @api.depends('seats_max', 'registration_ids.state')
