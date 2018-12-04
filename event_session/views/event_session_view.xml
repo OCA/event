@@ -29,6 +29,33 @@
                         <field name="date_begin"/>
                         <field name="date_end"/>
                     </group>
+                    <notebook>
+                        <page string="Email Schedule">
+                            <field name="event_mail_ids" context="{'default_event_id': event_id}">
+                                <tree string="Email Schedule" editable="bottom">
+                                    <field name="event_id" invisible="1"/>
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="template_id" />
+                                    <field name="interval_nbr"
+                                           attrs="{'readonly':
+                                           [('interval_unit','=','now')]}"/>
+                                    <field name="interval_unit"/>
+                                    <field name="interval_type"/>
+                                    <field name="done"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="registrations" string="Registrations">
+                            <field name="registration_ids" context="{'default_event_id': event_id}">
+                                <tree string="Attendees" editable="bottom">
+                                    <field name="event_id" invisible="1"/>
+                                    <field name="partner_id" string="Partner"/>
+                                    <field name="origin" string="Origin"/>
+                                    <field name="state" string="State"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>

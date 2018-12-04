@@ -23,3 +23,17 @@ class EventEvent(models.Model):
     def _compute_sessions_count(self):
         for event in self:
             event.sessions_count = len(event.session_ids)
+
+
+class EventRegistration(models.Model):
+    _inherit = 'event.registration'
+
+    event_sessions_count = fields.Integer(
+        related='event_id.sessions_count',
+        readonly=True,
+    )
+    session_id = fields.Many2one(
+        comodel_name='event.session',
+        string='Session',
+        ondelete='restrict',
+    )

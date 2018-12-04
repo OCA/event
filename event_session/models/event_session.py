@@ -46,6 +46,18 @@ class EventSession(models.Model):
     date_end_located = fields.Datetime(
         string='End Date Located', compute='_compute_date_end_located',
     )
+    registration_ids = fields.One2many(
+        comodel_name='event.registration',
+        inverse_name='session_id',
+        string='Attendees',
+        state={'done': [('readonly', True)]},
+    )
+    event_mail_ids = fields.One2many(
+        comodel_name='event.mail',
+        inverse_name='session_id',
+        string='Mail Schedule',
+        copy=True
+    )
 
     @api.multi
     @api.depends('date_begin', 'date_end')
@@ -65,6 +77,27 @@ class EventSession(models.Model):
             name += " - " + date_end.strftime(dt_format)
             session.name = name.capitalize()
 
+    def _session_mails_from_template(self, event_id, mail_template=None):
+        vals = [(6, 0, [])]
+        if not mail_template:
+            mail_template = self.env['ir.default'].get(
+                'res.config.settings', 'event_mail_template_id')
+            if not mail_template:
+                # Not template scheduler defined in event settings
+                return vals
+        if isinstance(mail_template, int):
+            mail_template = self.env['event.mail.template'].browse(
+                mail_template)
+        for scheduler in mail_template.scheduler_template_ids:
+            vals.append((0, 0, {
+                'event_id': event_id,
+                'interval_nbr': scheduler.interval_nbr,
+                'interval_unit': scheduler.interval_unit,
+                'interval_type': scheduler.interval_type,
+                'template_id': scheduler.template_id.id,
+            }))
+        return vals
+
     @api.multi
     def name_get(self):
         """Redefine the name_get method to show the event name with the event
@@ -74,6 +107,15 @@ class EventSession(models.Model):
         for item in self:
             res.append((item.id, "[%s] %s" % (item.event_id.name, item.name)))
         return res
+
+    @api.model
+    def create(self, vals):
+        if not vals.get('event_mail_ids', False):
+            vals.update({
+                'event_mail_ids':
+                    self._session_mails_from_template(vals['event_id'])
+            })
+        return super(EventSession, self).create(vals)
 
     @api.multi
     @api.depends('date_tz', 'date_begin')
@@ -126,3 +168,16 @@ class EventSession(models.Model):
                 raise ValidationError(
                     _("Ending and starting time can't be the same!")
                 )
+
+    @api.multi
+    def button_open_registration(self):
+        """Opens session registrations"""
+        self.ensure_one()
+        action = self.env.ref(
+            'event.act_event_registration_from_event').read()[0]
+        action['domain'] = [('id', 'in', self.registration_ids.ids)]
+        action['context'] = {
+            'default_event_id': self.event_id.id,
+            'default_session_id': self.id,
+        }
+        return action

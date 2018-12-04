@@ -1,5 +1,30 @@
 <?xml version="1.0"?>
 <odoo>
+    
+    <record id="view_event_registration_form" model="ir.ui.view">
+        <field name="model">event.registration</field>
+        <field name="inherit_id" ref="event.view_event_registration_form"/>
+        <field name="arch" type="xml">
+            <field name="event_id" position="after">
+                <field name="event_sessions_count" invisible="1"/>
+                <field name="session_id"
+                       domain="[('event_id', '=', event_id)]"
+                       attrs="{'required': [('event_sessions_count', '&gt;', 0)],
+                               'invisible':[('event_sessions_count', '&lt;', 1)]}"
+                       options="{'no_create': True}"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_event_registration_tree" model="ir.ui.view">
+        <field name="model">event.registration</field>
+        <field name="inherit_id" ref="event.view_event_registration_tree"/>
+        <field name="arch" type="xml">
+            <field name="event_id" position="after">
+                <field name="session_id"/>
+            </field>
+        </field>
+    </record>
 
     <!-- Event session action form stat button -->
     <record id="act_event_session_event_form" model="ir.actions.act_window">
