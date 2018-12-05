@@ -27,6 +27,42 @@ class EventSession(models.Model):
         comodel_name='event.event',
         string='Event',
     )
+    seats_min = fields.Integer(
+        string='Minimum seats',
+    )
+    seats_max = fields.Integer(
+        string="Maximum seats",
+    )
+    seats_availability = fields.Selection(
+        [('limited', 'Limited'), ('unlimited', 'Unlimited')],
+        'Maximum Attendees', required=True, default='unlimited',
+    )
+    seats_reserved = fields.Integer(
+        string='Reserved Seats', store=True, readonly=True,
+        compute='_compute_seats',
+    )
+    seats_available = fields.Integer(
+        oldname='register_avail', string='Available Seats',
+        store=True, readonly=True, compute='_compute_seats')
+    seats_unconfirmed = fields.Integer(
+        oldname='register_prospect', string='Unconfirmed Seat Reservations',
+        store=True, readonly=True, compute='_compute_seats')
+    seats_used = fields.Integer(
+        oldname='register_attended', string='Number of Participants',
+        store=True, readonly=True, compute='_compute_seats')
+    seats_expected = fields.Integer(
+        string='Number of Expected Attendees',
+        readonly=True, compute='_compute_seats',
+        store=True)
+    seats_available_expected = fields.Integer(
+        string='Available Expected Seats',
+        readonly=True, compute='_compute_seats',
+        store=True)
+    seats_available_pc = fields.Float(
+        string='Full %',
+        readonly=True,
+        compute='_compute_seats',
+    )
     date_tz = fields.Selection(
         string='Timezone', related="event_id.date_tz",
     )
@@ -110,12 +146,59 @@ class EventSession(models.Model):
 
     @api.model
     def create(self, vals):
+        # Config availabilities based on event
+        if vals.get('event_id', False):
+            event = self.env['event.event'].browse(vals.get('event_id'))
+            vals['seats_availability'] = event.seats_availability
+            vals['seats_max'] = event.seats_max
         if not vals.get('event_mail_ids', False):
             vals.update({
                 'event_mail_ids':
                     self._session_mails_from_template(vals['event_id'])
             })
         return super(EventSession, self).create(vals)
+
+    @api.multi
+    def unlink(self):
+        for this in self:
+            if this.registration_ids:
+                raise ValidationError(_("You are trying to delete one or more \
+                sessions with active registrations"))
+        return super(EventSession, self).unlink()
+
+    @api.multi
+    @api.depends('seats_max', 'registration_ids.state')
+    def _compute_seats(self):
+        """Determine reserved, available, reserved but unconfirmed and used
+        seats by session.
+        """
+        # aggregate registrations by event session and by state
+        if len(self.ids) > 0:
+            state_field = {
+                'draft': 'seats_unconfirmed',
+                'open': 'seats_reserved',
+                'done': 'seats_used',
+            }
+            result = self.env['event.registration'].read_group([
+                ('session_id', 'in', self.ids),
+                ('state', 'in', ['draft', 'open', 'done'])
+            ], ['state', 'session_id'], ['session_id', 'state'], lazy=False)
+            for res in result:
+                session = self.browse(res['session_id'][0])
+                session[state_field[res['state']]] += res['__count']
+        # compute seats_available
+        for session in self:
+            if session.seats_max > 0:
+                session.seats_available = session.seats_max - (
+                    session.seats_reserved + session.seats_used)
+            session.seats_expected = (
+                session.seats_unconfirmed + session.seats_reserved +
+                session.seats_used)
+            session.seats_available_expected = (
+                session.seats_max - session.seats_expected)
+            if session.seats_max > 0:
+                session.seats_available_pc = (
+                    session.seats_expected * 100 / float(session.seats_max))
 
     @api.multi
     @api.depends('date_tz', 'date_begin')
@@ -144,9 +227,21 @@ class EventSession(models.Model):
     @api.onchange('event_id')
     def onchange_event_id(self):
         self.update({
+            'seats_min': self.event_id.seats_min,
+            'seats_max': self.event_id.seats_max,
+            'seats_availability': self.event_id.seats_availability,
             'date_begin': self.event_id.date_begin,
             'date_end': self.event_id.date_end,
         })
+
+    @api.multi
+    @api.constrains('seats_max', 'seats_available')
+    def _check_seats_limit(self):
+        for session in self:
+            if (session.seats_availability == 'limited' and
+                    session.seats_max and session.seats_available < 0):
+                raise ValidationError(
+                    _('No more available seats for this session.'))
 
     @api.multi
     @api.constrains('date_begin', 'date_end')
