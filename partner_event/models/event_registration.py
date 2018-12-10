@@ -25,6 +25,7 @@ class EventRegistration(models.Model):
             'name': vals.get('name') or vals.get('email'),
             'email': vals.get('email', False),
             'phone': vals.get('phone', False),
+            'company_id': vals.get('company_id', False),
         }
 
     @api.model
@@ -34,16 +35,21 @@ class EventRegistration(models.Model):
             Event = self.env['event.event']
             # Look for a partner with that email
             email = vals.get('email').replace('%', '').replace('_', '\\_')
-            attendee_partner = Partner.search([
-                ('email', '=ilike', email)
-            ], limit=1)
             event = Event.browse(vals['event_id'])
+            company_id = event.company_id.id
+            attendee_partner = Partner.search([
+                ('email', '=ilike', email),
+                '|',
+                ('company_id', '=', company_id),
+                ('company_id', '=', False),
+            ], limit=1)
             if attendee_partner:
                 vals['name'] = vals.setdefault('name', attendee_partner.name)
                 vals['phone'] = vals.setdefault(
                     'phone', attendee_partner.phone)
             elif event.create_partner:
                 # Create partner
+                vals['company_id'] = company_id
                 attendee_partner = Partner.sudo().create(
                     self._prepare_partner(vals))
             vals['attendee_partner_id'] = attendee_partner.id

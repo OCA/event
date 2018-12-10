@@ -24,18 +24,22 @@ class TestEventRegistration(common.SavepointCase):
             'seats_min': '1',
         })
         cls.event_0.create_partner = True
-        registration_model = cls.env[
+        cls.registration_model = cls.env[
             'event.registration'].with_context(registration_force_draft=True)
-        partner_model = cls.env['res.partner']
-        cls.partner_01 = partner_model.create({
+        cls.partner_model = cls.env['res.partner']
+        cls.partner_01 = cls.partner_model.create({
             'name': 'Test Partner 01',
             'email': 'email01@test.com'
         })
-        cls.registration_01 = registration_model.create({
+        cls.registration_01 = cls.registration_model.create({
             'email': 'email01@test.com', 'event_id': cls.event_0.id})
-        cls.registration_02 = registration_model.create({
+        cls.registration_02 = cls.registration_model.create({
             'email': 'email02@test.com', 'event_id': cls.event_0.id,
             'name': 'Test Registration 02', 'phone': '254728911'})
+        cls.company2 = cls.env['res.company'].create({
+            'name': 'Test Co. Inc.',
+            'parent_id': cls.env.ref('base.main_company').id,
+        })
 
     def test_create(self):
         self.assertEqual(self.partner_01.name, self.registration_01.name)
@@ -97,3 +101,20 @@ class TestEventRegistration(common.SavepointCase):
         })
         partner3.unlink()
         self.assertFalse(partner3.exists())
+
+    def test_multi_company(self):
+        # We create another event with a different company
+        event_1 = self.event_0.copy({'company_id': self.company2.id})
+        registration_c2 = self.registration_model.create({
+            'email': 'email01@test.com',
+            'event_id': event_1.id,
+        })
+        # The although there's already a partner, we create another one for the
+        # company.
+        self.assertEqual(registration_c2.attendee_partner_id.company_id,
+                         self.company2)
+        # We've got a partner for each company
+        count_partner = self.partner_model.search([
+            ('email', '=', 'email01@test.com')])
+        self.assertEqual(len(count_partner), 2)
+        self.assertEqual(len(count_partner.mapped('company_id')), 2)
