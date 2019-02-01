@@ -7,14 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-10 16:37+0000\n"
-"PO-Revision-Date: 2015-11-10 16:37+0000\n"
-"Last-Translator: <>\n"
+"PO-Revision-Date: 2019-02-01 14:03+0000\n"
+"Last-Translator: Marta Vázquez Rodríguez <vazrodmar@gmail.com>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.4\n"
 
 #. module: event_registration_mass_mailing
 #: model:ir.actions.act_window,name:event_registration_mass_mailing.action_event_registration_mail_list
@@ -24,7 +25,7 @@ msgstr "Añadir a lista de correos"
 #. module: event_registration_mass_mailing
 #: model:ir.model,name:event_registration_mass_mailing.model_event_registration
 msgid "Attendee"
-msgstr ""
+msgstr "Asistente"
 
 #. module: event_registration_mass_mailing
 #: model:ir.ui.view,arch_db:event_registration_mass_mailing.view_registration_search
@@ -55,7 +56,7 @@ msgstr "Creado en"
 #. module: event_registration_mass_mailing
 #: model:ir.model.fields,field_description:event_registration_mass_mailing.field_event_registration_mail_list_wizard_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nombre a mostrar"
 
 #. module: event_registration_mass_mailing
 #: code:addons/event_registration_mass_mailing/models/mass_mailing.py:14
@@ -84,9 +85,8 @@ msgstr ""
 
 #. module: event_registration_mass_mailing
 #: model:ir.model.fields,field_description:event_registration_mass_mailing.field_event_registration_mail_list_wizard___last_update
-#, fuzzy
 msgid "Last Modified on"
-msgstr "Última actualización en"
+msgstr "Última modificación en"
 
 #. module: event_registration_mass_mailing
 #: model:ir.model.fields,field_description:event_registration_mass_mailing.field_event_registration_mail_list_wizard_write_uid
@@ -120,13 +120,12 @@ msgstr "No acepta recibir emails"
 
 #. module: event_registration_mass_mailing
 #: model:ir.ui.view,arch_db:event_registration_mass_mailing.view_registration_search
-#, fuzzy
 msgid ""
 "Registrations that did not ask not to be included in mass mailing campaigns "
 "and has an e-mail set."
 msgstr ""
-"Registros que pidieron no ser incluidos en campañas de envío masivo de "
-"correos"
+"Registros que no solicitaron no ser incluidos en campañas de envío masivo de "
+"correos y tienen establecido un correo electrónico."
 
 #~ msgid "Cancel"
 #~ msgstr "Cancelar"
