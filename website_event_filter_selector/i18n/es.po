@@ -7,14 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-05 19:00+0000\n"
-"PO-Revision-Date: 2016-05-05 19:00+0000\n"
-"Last-Translator: <>\n"
+"PO-Revision-Date: 2019-02-01 14:03+0000\n"
+"Last-Translator: Marta Vázquez Rodríguez <vazrodmar@gmail.com>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.4\n"
 
 #. module: website_event_filter_selector
 #: code:addons/website_event_filter_selector/controllers/main.py:51
@@ -46,7 +47,7 @@ msgstr "Tipo de evento"
 #. module: website_event_filter_selector
 #: model:ir.ui.view,arch_db:website_event_filter_selector.country
 msgid "Online Events"
-msgstr ""
+msgstr "Eventos online"
 
 #. module: website_event_filter_selector
 #: model:ir.ui.view,arch_db:website_event_filter_selector.date
