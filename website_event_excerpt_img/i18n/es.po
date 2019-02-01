@@ -7,70 +7,71 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-22 16:51+0000\n"
-"PO-Revision-Date: 2016-03-22 17:53+0100\n"
-"Last-Translator: <>\n"
+"PO-Revision-Date: 2019-02-01 14:03+0000\n"
+"Last-Translator: Marta Vázquez Rodríguez <vazrodmar@gmail.com>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: \n"
-"X-Generator: Poedit 1.8.7.1\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.4\n"
 
 #. module: website_event_excerpt_img
 #: model:ir.ui.view,arch_db:website_event_excerpt_img.event_item
 msgid "<i>to</i>"
-msgstr ""
+msgstr "<i>a</i>"
 
 #. module: website_event_excerpt_img
 #: model:ir.model,name:website_event_excerpt_img.model_event_event
 msgid "Event"
-msgstr ""
+msgstr "Evento"
 
 #. module: website_event_excerpt_img
 #: model:ir.ui.view,arch_db:website_event_excerpt_img.view_event_form
 msgid "Featured content"
-msgstr ""
+msgstr "Contenido destacado"
 
 #. module: website_event_excerpt_img
 #: selection:event.event,priority:0
 msgid "Highlighted"
-msgstr ""
+msgstr "Resaltado"
 
 #. module: website_event_excerpt_img
 #: model:ir.model.fields,help:website_event_excerpt_img.field_event_event_priority
 msgid "Importance of the event, as shown in website (if enabled)."
 msgstr ""
+"Importancia del evento, como se muestra en el sitio web (si está habilitado)."
 
 #. module: website_event_excerpt_img
 #: selection:event.event,priority:0
 msgid "Normal"
-msgstr ""
+msgstr "Normal"
 
 #. module: website_event_excerpt_img
 #: model:ir.ui.view,arch_db:website_event_excerpt_img.event_item
 msgid "Not published"
-msgstr ""
+msgstr "No publicado"
 
 #. module: website_event_excerpt_img
 #: model:ir.ui.view,arch_db:website_event_excerpt_img.event_item
 msgid "Online"
-msgstr ""
+msgstr "Online"
 
 #. module: website_event_excerpt_img
 #: model:ir.ui.view,arch_db:website_event_excerpt_img.event_item
 msgid "Organized by:"
-msgstr ""
+msgstr "Organizado por:"
 
 #. module: website_event_excerpt_img
 #: model:ir.model.fields,field_description:website_event_excerpt_img.field_event_event_priority
 msgid "Priority"
-msgstr ""
+msgstr "Prioridad"
 
 #. module: website_event_excerpt_img
 #: model:ir.ui.view,arch_db:website_event_excerpt_img.description
 msgid "Read more"
-msgstr ""
+msgstr "Leer más"
 
 #. module: website_event_excerpt_img
 #: model:ir.ui.view,arch_db:website_event_excerpt_img.view_event_form
