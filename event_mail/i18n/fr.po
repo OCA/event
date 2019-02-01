@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* event_mail
+# 	* event_mail
 #
 msgid ""
 msgstr ""
@@ -53,7 +53,7 @@ msgstr "Modèle mail événement"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template_id
-#: model:ir.model.fields,field_description:event_mail.field_event_mail_template_id_4770
+#: model:ir.model.fields,field_description:event_mail.field_event_mail_template_id_5067
 msgid "ID"
 msgstr "ID"
 
