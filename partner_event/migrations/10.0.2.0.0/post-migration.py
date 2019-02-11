@@ -6,9 +6,9 @@ from openupgradelib import openupgrade
 
 
 @openupgrade.migrate()
-def migrate(env, version):
+def migrate(cr, version):
     if not version:
         return
     openupgrade.logged_query(
-        env.cr,
+        cr,
         'UPDATE event_registration SET attendee_partner_id = partner_id')
