@@ -18,7 +18,6 @@ class EventEvent(models.Model):
         string='Total event sessions',
         store=True,
     )
-    seats_expected = fields.Integer(store=True)
     seats_available_expected = fields.Integer(
         compute='_compute_seats_available_expected',
         string='Available expected seats',
