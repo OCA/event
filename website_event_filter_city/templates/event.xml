@@ -89,15 +89,15 @@
     customize_show="True"
     name="Filter by City">
     <xpath expr="//div[@id='left_column']" position="inside">
-        <ul class="nav nav-pills nav-stacked mt32">
+        <ul class="nav nav-pills flex-column mt32">
             <t t-foreach="cities" t-as="city">
                 <t t-if="city['city']">
                     <t t-set="city_value"
                        t-value="city.get('key', city['city'])"/>
-                    <li t-att-class="city_value == current_city and 'active'">
-                        <a t-attf-href="/event?{{ keep_query('country', 'date', 'type', city=city_value) }}">
+                    <li class="nav-item">
+                        <a t-attf-href="/event?{{ keep_query('country', 'date', 'type', city=city_value) }}" t-attf-class="nav-link#{city_value == current_city and ' active' or ''}">
                             <t t-esc="city['city']"/>
-                            <span class="badge pull-right">
+                            <span class="badge badge-pill float-right">
                                 <t t-esc="city['city_count']"/>
                             </span>
                         </a>
