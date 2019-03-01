@@ -30,7 +30,7 @@ class UICase(HttpCase):
                 for xid in xids:
                     env.ref("%s.%s" % (model, xid)).active = True
             # We need to have an old and an online event
-            functional_webinar = env.ref("event.event_1")
+            functional_webinar = env.ref("event.event_0")
             functional_webinar.address_id = False
             functional_webinar.country_id = False
             functional_webinar.date_begin = (
