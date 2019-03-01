@@ -1,9 +1,10 @@
 # Copyright 2016-2017 Jairo Llopis <jairo.llopis@tecnativa.com>
+# Copyright 2019 Tecnativa - Cristina Martin R.
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 {
     "name": "Website Event Selection Filters",
     "summary": "Add a customizable top area to filter events with selectors",
-    "version": "11.0.1.0.0",
+    "version": "12.0.1.0.0",
     "category": "Website",
     "website": "https://github.com/OCA/event",
     "author": "Antiun Ingeniería S.L., "
@@ -22,9 +23,5 @@
     ],
     "demo": [
         "demo/assets.xml",
-    ],
-    "images": [
-        "images/all.png",
-        "images/choose.png",
     ],
 }
