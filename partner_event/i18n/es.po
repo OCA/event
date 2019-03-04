@@ -10,29 +10,79 @@ msgstr ""
 "PO-Revision-Date: 2015-11-03 16:30+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
 #. module: partner_event
-#: view:res.partner.register.event:partner_event.res_partner_register_event_view
+#: model:ir.model.fields,field_description:partner_event.field_res_partner__registration_count
+#: model:ir.model.fields,field_description:partner_event.field_res_users__registration_count
+#, fuzzy
+msgid "Attendances"
+msgstr "Empresa asistente"
+
+#. module: partner_event
+#: model_terms:ir.ui.view,arch_db:partner_event.view_registration_search
+msgid "Attended"
+msgstr ""
+
+#. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_event_registration__attendee_partner_id
+msgid "Attendee Partner"
+msgstr "Empresa asistente"
+
+#. module: partner_event
+#: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
 msgid "Cancel"
 msgstr "Cancelar"
 
 #. module: partner_event
-#: field:event.event,create_partner:0
+#: model:ir.model,name:partner_event.model_res_partner
+#: model:ir.model.fields,field_description:partner_event.field_event_registration__partner_id
+msgid "Contact"
+msgstr ""
+
+#. module: partner_event
+#: model_terms:ir.ui.view,arch_db:partner_event.view_partner_form_registrations
+msgid "Count of events with confirmed registrations."
+msgstr ""
+
+#. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_event_event__create_partner
 msgid "Create Partners in registration"
 msgstr "Crear empresas en el registro"
 
 #. module: partner_event
-#: view:res.partner.register.event:partner_event.res_partner_register_event_view
+#: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
 msgid "Create registrations"
 msgstr "Crear registros"
 
 #. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__create_date
+#, fuzzy
+msgid "Created on"
+msgstr "Crear registros"
+
+#. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__errors
+msgid "Errors"
+msgstr ""
+
+#. module: partner_event
 #: model:ir.model,name:partner_event.model_event_event
-#: field:res.partner.register.event,event:0
+#: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__event
 msgid "Event"
 msgstr "Evento"
 
@@ -42,38 +92,41 @@ msgid "Event Registration"
 msgstr "Registro a evento"
 
 #. module: partner_event
-#: field:res.partner,attended_registration_count:0
-msgid "Event attended registrations number"
-msgstr "Nº de registrados que han asistido al evento"
-
-#. module: partner_event
-#: field:res.partner,registrations:0
+#: model:ir.model.fields,field_description:partner_event.field_res_partner__event_registration_ids
+#: model:ir.model.fields,field_description:partner_event.field_res_users__event_registration_ids
 msgid "Event registrations"
 msgstr "Registros a eventos"
 
 #. module: partner_event
-#: field:res.partner,registration_count:0
-msgid "Event registrations number"
-msgstr "Nº Registros a eventos"
+#: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__id
+msgid "ID"
+msgstr ""
 
 #. module: partner_event
-#: field:event.registration,attendee_partner_id:0
-msgid "Attendee Partner"
-msgstr "Empresa asistente"
+#: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event____last_update
+msgid "Last Modified on"
+msgstr ""
 
 #. module: partner_event
-#: view:res.partner:partner_event.view_partner_form_registrations
-msgid "Events"
-msgstr "Eventos"
+#: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__write_uid
+msgid "Last Updated by"
+msgstr ""
 
 #. module: partner_event
-#: model:ir.model,name:partner_event.model_res_partner
-msgid "Partner"
-msgstr "Empresa"
+#: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__write_date
+msgid "Last Updated on"
+msgstr ""
 
 #. module: partner_event
 #: model:ir.actions.act_window,name:partner_event.action_partner_register_event
+#: model:ir.actions.act_window,name:partner_event.partner_register_event
 msgid "Register in an event"
+msgstr "Registrar en un evento"
+
+#. module: partner_event
+#: model:ir.model,name:partner_event.model_res_partner_register_event
+#, fuzzy
+msgid "Register partner for event"
 msgstr "Registrar en un evento"
 
 #. module: partner_event
@@ -82,11 +135,28 @@ msgid "Registrations"
 msgstr "Registros"
 
 #. module: partner_event
-#: view:res.partner.register.event:partner_event.res_partner_register_event_view
+#: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
 msgid "Select event to register"
 msgstr "Selecciona el evento para registrar"
 
 #. module: partner_event
-#: view:res.partner.register.event:partner_event.res_partner_register_event_view
-msgid "or"
-msgstr "o"
+#: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
+msgid ""
+"These partners haven't been registered because they\\'re "
+"already                        registered or other error occurred"
+msgstr ""
+
+#~ msgid "Event attended registrations number"
+#~ msgstr "Nº de registrados que han asistido al evento"
+
+#~ msgid "Event registrations number"
+#~ msgstr "Nº Registros a eventos"
+
+#~ msgid "Events"
+#~ msgstr "Eventos"
+
+#~ msgid "Partner"
+#~ msgstr "Empresa"
+
+#~ msgid "or"
+#~ msgstr "o"
