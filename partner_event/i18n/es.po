@@ -1,0 +1,92 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * partner_event
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-03 16:30+0000\n"
+"PO-Revision-Date: 2015-11-03 16:30+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: partner_event
+#: view:res.partner.register.event:partner_event.res_partner_register_event_view
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: partner_event
+#: field:event.event,create_partner:0
+msgid "Create Partners in registration"
+msgstr "Crear empresas en el registro"
+
+#. module: partner_event
+#: view:res.partner.register.event:partner_event.res_partner_register_event_view
+msgid "Create registrations"
+msgstr "Crear registros"
+
+#. module: partner_event
+#: model:ir.model,name:partner_event.model_event_event
+#: field:res.partner.register.event,event:0
+msgid "Event"
+msgstr "Evento"
+
+#. module: partner_event
+#: model:ir.model,name:partner_event.model_event_registration
+msgid "Event Registration"
+msgstr "Registro a evento"
+
+#. module: partner_event
+#: field:res.partner,attended_registration_count:0
+msgid "Event attended registrations number"
+msgstr "Nº de registrados que han asistido al evento"
+
+#. module: partner_event
+#: field:res.partner,registrations:0
+msgid "Event registrations"
+msgstr "Registros a eventos"
+
+#. module: partner_event
+#: field:res.partner,registration_count:0
+msgid "Event registrations number"
+msgstr "Nº Registros a eventos"
+
+#. module: partner_event
+#: field:event.registration,attendee_partner_id:0
+msgid "Attendee Partner"
+msgstr "Empresa asistente"
+
+#. module: partner_event
+#: view:res.partner:partner_event.view_partner_form_registrations
+msgid "Events"
+msgstr "Eventos"
+
+#. module: partner_event
+#: model:ir.model,name:partner_event.model_res_partner
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: partner_event
+#: model:ir.actions.act_window,name:partner_event.action_partner_register_event
+msgid "Register in an event"
+msgstr "Registrar en un evento"
+
+#. module: partner_event
+#: model:ir.actions.act_window,name:partner_event.act_partner_registration
+msgid "Registrations"
+msgstr "Registros"
+
+#. module: partner_event
+#: view:res.partner.register.event:partner_event.res_partner_register_event_view
+msgid "Select event to register"
+msgstr "Selecciona el evento para registrar"
+
+#. module: partner_event
+#: view:res.partner.register.event:partner_event.res_partner_register_event_view
+msgid "or"
+msgstr "o"
