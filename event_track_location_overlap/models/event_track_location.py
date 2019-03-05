@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Tecnativa - Jairo Llopis
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 
 from datetime import timedelta
-from openerp import _, api, exceptions, fields, models
+from odoo import _, api, exceptions, fields, models
 
 
 class EventTrackLocation(models.Model):
@@ -14,7 +13,7 @@ class EventTrackLocation(models.Model):
     )
 
     # TODO oca.decorators.foreach() in v12
-    @api.one  # pragma pylint: disable=api-one-deprecated
+    @api.multi
     @api.constrains("overlappable")
     def _check_overlappable(self):
         """Ensure no overlaps happen with this location."""
