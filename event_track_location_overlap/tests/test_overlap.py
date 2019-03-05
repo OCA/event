@@ -1,11 +1,10 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Tecnativa - Jairo Llopis
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 
 from collections import namedtuple
 
-from openerp.exceptions import ValidationError
-from openerp.tests.common import SavepointCase
+from odoo.exceptions import ValidationError
+from odoo.tests.common import SavepointCase
 
 
 Sample = namedtuple(
