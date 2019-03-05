@@ -1,10 +1,10 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Tecnativa - Jairo Llopis
+# Copyright 2019 Tecnativa - Cristina Martin Llopis
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 {
     "name": "Event Track Location Overlap",
     "summary": "Restrict event track location overlapping",
-    "version": "9.0.1.0.0",
+    "version": "12.0.1.0.0",
     "category": "Marketing",
     "website": "https://github.com/OCA/event",
     "author": "Tecnativa, Odoo Community Association (OCA)",
