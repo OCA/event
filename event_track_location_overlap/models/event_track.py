@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Tecnativa - Jairo Llopis
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 
-from openerp import api, models
+from odoo import api, models
 
 
 class EventTrack(models.Model):
