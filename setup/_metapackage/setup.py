@@ -13,6 +13,7 @@ setuptools.setup(
         'odoo10-addon-event_project',
         'odoo10-addon-event_registration_mass_mailing',
         'odoo10-addon-event_registration_multi_qty',
+        'odoo10-addon-event_sale_registration_multi_qty',
         'odoo10-addon-event_session',
         'odoo10-addon-partner_event',
         'odoo10-addon-website_event_excerpt_img',
