@@ -24,6 +24,7 @@ addon | version | summary
 [event_project](event_project/) | 10.0.1.0.1 | Event project
 [event_registration_mass_mailing](event_registration_mass_mailing/) | 10.0.1.0.1 | Mass mailing from events
 [event_registration_multi_qty](event_registration_multi_qty/) | 10.0.1.0.0 | Allow registration grouped by quantities
+[event_sale_registration_multi_qty](event_sale_registration_multi_qty/) | 10.0.1.0.0 | Allows sell registrations with more than one attendee
 [event_session](event_session/) | 10.0.1.0.0 | Sessions in events
 [partner_event](partner_event/) | 10.0.2.0.1 | Link partner to events
 [website_event_excerpt_img](website_event_excerpt_img/) | 10.0.1.0.0 | New layout for event summary, including an excerpt and image
