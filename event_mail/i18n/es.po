@@ -54,7 +54,7 @@ msgstr "Plantilla de emails"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template_id
-#: model:ir.model.fields,field_description:event_mail.field_event_mail_template_id_4770
+#: model:ir.model.fields,field_description:event_mail.field_event_mail_template_id_5067
 msgid "ID"
 msgstr "ID"
 
