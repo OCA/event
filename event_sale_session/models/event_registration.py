@@ -1,7 +1,5 @@
-# -*- coding: utf-8 -*-
-# Copyright 2017 David Vidal<david.vidal@tecnativa.com>
+# Copyright 2017-19 Tecnativa - David Vidal
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-
 from odoo import api, models
 
 
