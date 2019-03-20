@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<odoo>
+
+<!-- Event session action from stat button -->
+<record id="act_wizard_event_session" model="ir.actions.act_window">
+    <field name="name">Generate Sessions Wizard</field>
+    <field name="res_model">wizard.event.session</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+</record>
+
+<record id="session_view_event_form" model="ir.ui.view">
+    <field name="model">event.event</field>
+    <field name="inherit_id" ref="event.view_event_form"/>
+    <field name="arch" type="xml">
+        <field name="state" position="before">
+            <button string="Generate Sessions"
+                    name="%(act_wizard_event_session)d"
+                    states="draft,confirm"
+                    type="action"/>
+        </field>
+    </field>
+</record>
+
+<record id="generator_view_form" model="ir.ui.view">
+    <field name="name">Event sessions generator</field>
+    <field name="model">wizard.event.session</field>
+    <field name="arch" type="xml">
+        <form>
+            <group name="main">
+                <group string="Dates and event data">
+                    <field name="event_id" readonly="True"/>
+                    <field name="event_date_begin" readonly="True"/>
+                    <field name="event_date_end" readonly="True"/>
+                    <field name="event_date_tz" readonly="True"/>
+                    <field name="name" invisible="1"/>
+                </group>
+                <group string="Weekdays">
+                    <field name="mondays"/>
+                    <field name="tuesdays"/>
+                    <field name="wednesdays"/>
+                    <field name="thursdays"/>
+                    <field name="fridays"/>
+                    <field name="saturdays"/>
+                    <field name="sundays"/>
+                </group>
+                <group string="Schedule">
+                    <field name="session_hour_ids">
+                        <tree string="Hours" editable="top">
+                            <field name="start_time" widget="float_time"/>
+                            <field name="end_time" widget="float_time"/>
+                        </tree>
+                    </field>
+                </group>
+                <group string="Other options">
+                    <field name="delete_existing_sessions"/>
+                    <field name="event_mail_template_id"/>
+                </group>
+            </group>
+            <footer>
+                <button name="action_generate_sessions"
+                        type="object"
+                        string="Generate sessions"
+                        class="oe_highlight"/>
+                <button special="cancel" string="Cancel"/>
+            </footer>
+        </form>
+    </field>
+</record>
+
+
+</odoo>
