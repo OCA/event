@@ -1,5 +1,5 @@
-# -*- coding: utf-8 -*-
-
+# Copyright 2017-19 Tecnativa - David Vidal
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 from odoo import api, fields, models
 
 
@@ -29,10 +29,9 @@ class EventSession(models.Model):
     @api.multi
     def button_open_unconfirmed_event_order(self):
         action = self.env.ref('sale.action_quotations').read()[0]
-        sales = self.env[
-            'sale.order.line'].search(
-            [('event_id','=',self.id)]).mapped('order_id').ids
+        sales = self.env['sale.order.line'].search([
+            ('event_id', 'in', self.ids)]).mapped('order_id').ids
         action['domain'] = [('id', 'in' , sales),
-                            ('state','in',('draft','sent'))]
+                            ('state', 'in', ('draft', 'sent'))]
         action['context'] = {}
         return action
