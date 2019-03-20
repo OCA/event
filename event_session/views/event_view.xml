@@ -31,7 +31,7 @@
         <field name="res_model">event.session</field>
         <field name="view_type">form</field>
         <field name="name">Sessions</field>
-        <field name="view_mode">tree,form,calendar</field>
+        <field name="view_mode">tree,form,calendar,pivot</field>
         <field name="context">{'search_default_event_id': active_id, 'default_event_id': active_id}</field>
     </record>
 

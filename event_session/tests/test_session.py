@@ -1,9 +1,9 @@
-# Copyright 2017 Tecnativa - David Vidal
+# Copyright 2017-19 Tecnativa - David Vidal
 # Copyright 2017 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl-3.0).
 from dateutil.relativedelta import relativedelta
 
-from odoo import _, fields
+from odoo import _
 from odoo.tests import common
 from odoo.exceptions import ValidationError
 
@@ -214,36 +214,17 @@ class EventSession(common.SavepointCase):
     def test_event_mail_compute_scheduled_date(self):
         self.assertFalse(self.scheduler.scheduled_date)
         self.scheduler.event_id.update({'state': 'confirm'})
-        date = fields.Datetime.from_string(
-            self.scheduler.session_id.create_date
-        ) + relativedelta(hours=+1)
-        self.assertEqual(
-            self.scheduler.scheduled_date,
-            fields.Datetime.to_string(date)
-        )
+        date = self.scheduler.session_id.create_date + relativedelta(hours=+1)
+        self.assertEqual(self.scheduler.scheduled_date, date)
         self.scheduler.update({'interval_type': 'before_event'})
-        date = fields.Datetime.from_string(
-            self.scheduler.session_id.date_begin
-        ) + relativedelta(hours=-1)
-        self.assertEqual(
-            self.scheduler.scheduled_date,
-            fields.Datetime.to_string(date)
-        )
+        date = self.scheduler.session_id.date_begin + relativedelta(hours=-1)
+        self.assertEqual(self.scheduler.scheduled_date, date)
         self.scheduler.update({'interval_type': 'after_event'})
-        date = fields.Datetime.from_string(
-            self.scheduler.session_id.date_end
-        ) + relativedelta(hours=+1)
-        self.assertEqual(
-            self.scheduler.scheduled_date,
-            fields.Datetime.to_string(date)
-        )
+        date = self.scheduler.session_id.date_end + relativedelta(hours=+1)
+        self.assertEqual(self.scheduler.scheduled_date, date)
 
     def test_event_mail_registration_compute_scheduled_date(self):
         self.scheduler.update({'interval_unit': 'days'})
-        date = fields.Datetime.from_string(
-            self.mail_registration.registration_id.date_open
-        ) + relativedelta(days=+1)
-        self.assertEqual(
-            self.mail_registration.scheduled_date,
-            fields.Datetime.to_string(date)
-        )
+        date = (self.mail_registration.registration_id.date_open +
+                relativedelta(days=+1))
+        self.assertEqual(self.mail_registration.scheduled_date, date)

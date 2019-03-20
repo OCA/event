@@ -10,6 +10,7 @@ from pytz import timezone, utc
 
 class WizardEventSession(models.TransientModel):
     _name = "wizard.event.session"
+    _description = "Wizard for ease sessions creation"
 
     name = fields.Char(
         "Session info",
@@ -71,7 +72,7 @@ class WizardEventSession(models.TransientModel):
     )
     event_mail_template_id = fields.Many2one(
         comodel_name='event.mail.template',
-        string='Mail Schedule Template',
+        string='Mail Schedule',
     )
 
     @api.multi
@@ -181,6 +182,7 @@ class WizardEventSession(models.TransientModel):
 
 class WizardEventSessionHours(models.TransientModel):
     _name = "wizard.event.session.hours"
+    _description = "Hours in wich the sessions will run"
 
     wizard_event_session_id = fields.Many2one(
         comodel_name='wizard.event.session'
