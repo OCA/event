@@ -89,20 +89,3 @@ class EventMailRegistration(models.Model):
                     date_open_datetime +
                     _INTERVALS[event_mail_reg.scheduler_id.interval_unit](
                         event_mail_reg.scheduler_id.interval_nbr))
-
-
-class EventMailTemplate(models.Model):
-    _name = 'event.mail.template'
-
-    @api.model
-    def _default_scheduler_template_ids(self):
-        return self.env['event.type'].with_context(
-            by_pass_config_template=True)._get_default_event_type_mail_ids()
-
-    name = fields.Char()
-    scheduler_template_ids = fields.One2many(
-        comodel_name='event.mail',
-        inverse_name='event_mail_template_id',
-        string='Mail Schedule',
-        default=_default_scheduler_template_ids,
-    )
