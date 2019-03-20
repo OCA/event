@@ -1,7 +1,7 @@
-# -*- coding: utf-8 -*-
-
+# Copyright 2017-19 Tecnativa - David Vidal
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 from odoo import _, api, fields, models
-from odoo import exceptions
+from odoo.exceptions import ValidationError
 
 
 class SaleOrder(models.Model):
@@ -24,7 +24,21 @@ class SaleOrder(models.Model):
     @api.depends('order_line.event_id')
     def _compute_event_ids(self):
         for sale in self:
-            sale.event_ids = sale.order_line.mapped('event_id')
+            sale.event_ids = sale.order_line.event_id
+
+    def _session_seats_available(self):
+        """Check if there are lines that could do session overbooking"""
+        sessions = {}
+        for line in self.mapped('order_line').filtered(
+                lambda x: x.event_session_seats_availability == 'limited'):
+            sessions.setdefault(line.session_id,
+                                line.event_session_seats_available)
+            sessions[line.session_id] -= line.product_uom_qty
+            # Break if any session can't allocate seats
+            if sessions[line.session_id] < 0:
+                return False
+        return True
+
 
 class SaleOrderLine(models.Model):
 
@@ -56,44 +70,32 @@ class SaleOrderLine(models.Model):
         readonly=True,
     )
 
-    @api.multi
-    def write(self, values):
-        super(SaleOrderLine, self).write(values)
-        for line in self:
-            if not line._session_seats_available():
-                raise exceptions.ValidationError(_(
-                    "There are sessions with no available seats!\n"
-                    "Edit them so you can save the sale order"))
+    @api.onchange('session_id')
+    def onchange_session_id(self):
+        """Don't allow to book seats if there aren't enough"""
+        if not self.order_id._session_seats_available():
+            raise ValidationError(_(
+                "Not enough seats. Change quantity or session"))
 
-    @api.onchange(
-        'product_uom_qty', 'event_id', 'session_id', 'event_ticket_id')
+    @api.onchange()
     def product_uom_change(self):
-        super(SaleOrderLine, self).product_uom_change()
-        if self.session_id:
-            if not self._session_seats_available():
-                raise exceptions.UserError(_(
-                    "Not enough seats. Change quanty or session"))
+        """Don't allow to book seats if there aren't enough"""
+        if not self.order_id._session_seats_available():
+            raise ValidationError(
+                _("Not enough seats. Change quantity or session"))
+        return super().product_uom_change()
 
     @api.multi
-    @api.onchange('event_id', 'session_id', 'event_ticket_id')
-    def event_id_change(self):
-        for so_line in self:
-            so_line.name = so_line._set_order_line_description()
-            if self.event_sessions_count == 1:
-                so_line.session_id = self.event_id.session_ids[0]
+    @api.onchange('event_id')
+    def _onchange_event_id(self):
+        """Force default session"""
+        if self.event_sessions_count == 1:
+            self.session_id = self.event_id.session_ids[0]
+        return super()._onchange_event_id()
 
-    def _session_seats_available(self):
-        self.ensure_one()
-        if self.session_id and self.session_id.seats_availability == 'limited':
-            seats = self.event_session_seats_available - self.product_uom_qty
-            return True if seats > 0 else False
-        else:
-            return True
-
-    def _set_order_line_description(self):
-        description = self.event_id.name or self.product_id.name
-        if self.session_id:
-            description += ' - %s' % self.session_id.name or ''
-        if self.event_ticket_id:
-            description += ' - %s' % self.event_ticket_id.name or ''
-        return description
+    def get_sale_order_line_multiline_description_sale(self, product):
+        """Add the session name"""
+        name = super().get_sale_order_line_multiline_description_sale(product)
+        if self.event_ticket_id and self.session_id:
+            name += '\n' + self.session_id.display_name
+        return name

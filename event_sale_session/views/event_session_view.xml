@@ -16,13 +16,11 @@
     <field name="model">event.session</field>
     <field name="inherit_id" ref="event_session.view_event_session_tree"/>
     <field name="arch" type="xml">
-        <xpath expr="//field[@name='seats_expected']"
-               position="after">
+        <field name="seats_expected" position="after">
             <field name="unconfirmed_qty"
-                   attributes="
-                   {'invisible': '[('unconfirmed_qty','&lt;','1')]'}"
+                   attrs="{'invisible': [('unconfirmed_qty','&lt;', 1)]}"
                    sum="Total unconfirmed seats in orders"/>
-        </xpath>
+        </field>
     </field>
 </record>
 
