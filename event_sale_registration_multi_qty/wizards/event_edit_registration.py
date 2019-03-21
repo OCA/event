@@ -1,8 +1,6 @@
-# -*- coding: utf-8 -*-
-# Copyright 2017 David Vidal <david.vidal@tecnativa.com>
-# Copyright 2017 Sergio Teruel <sergio.teruel@tecnativa.com>
+# Copyright 2017-19 Tecnativa - David Vidal
+# Copyright 2017 Tecnativa - Sergio Teruel
 #  License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-
 from odoo import api, fields, models
 
 
@@ -42,3 +40,9 @@ class RegistrationEditorLine(models.TransientModel):
     _inherit = "registration.editor.line"
 
     qty = fields.Integer(string='Quantity', default=1)
+
+    @api.multi
+    def get_registration_data(self):
+        res = super().get_registration_data()
+        res['qty'] = self.qty
+        return res

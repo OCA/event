@@ -1,15 +1,13 @@
-# -*- coding: utf-8 -*-
-# Copyright 2017 Tecnativa - David Vidal
+# Copyright 2017-19 Tecnativa - David Vidal
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl-3.0).
-
 from odoo.tests import common
 
 
-class EventSale(common.SavepointCase):
+class TestEventSaleRegistrationMultiQty(common.SavepointCase):
 
     @classmethod
     def setUpClass(cls):
-        super(EventSale, cls).setUpClass()
+        super(TestEventSaleRegistrationMultiQty, cls).setUpClass()
         cls.product_category = cls.env['product.category'].create({
             'name': 'test_cat',
         })
@@ -79,16 +77,18 @@ class EventSale(common.SavepointCase):
             'partner_id': self.partner.id,
             'order_line': [self.so_line_e_multi]
         })
-        sale.action_confirm()
+        editor = self.env['registration.editor'].create({
+            'sale_order_id': sale.id,
+            'event_registration_ids': [(0, 0, {
+                'event_id': self.so_line_e_multi[2]['event_id'],
+                'qty': 10,
+            })],
+        })
+        editor.action_make_registration()
         reg = self.env['event.registration'].search([
             ('sale_order_id', '=', sale.id)
         ])
-        editor = self.env['registration.editor'].create({
-            'sale_order_id': sale.id,
-            'event_registration_ids': reg,
-        })
-        editor.action_make_registration()
-        # self.assertEqual(reg.state, 'open')
+        self.assertEqual(reg.qty, 10)
 
     def test_sale_nomulti(self):
         sale = self.env['sale.order'].create({
