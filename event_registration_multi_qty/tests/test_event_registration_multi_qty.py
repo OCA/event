@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Sergio Teruel<sergio.teruel@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -11,8 +10,6 @@ class EventRegistrationMultiQty(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
         super(EventRegistrationMultiQty, cls).setUpClass()
-        cls.env['ir.values'].set_default(
-            'event.config.settings', 'auto_confirmation', False)
         cls.event = cls.env['event.event'].create({
             'name': 'Test event',
             'date_begin': '2017-05-26 20:00:00',
