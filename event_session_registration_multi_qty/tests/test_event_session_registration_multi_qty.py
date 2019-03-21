@@ -1,9 +1,6 @@
-# -*- coding: utf-8 -*-
-# Copyright 2017 David Vidal <david.vidal@tecnativa.com>
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-
+# Copyright 2017-19 Tecnativa - David Vidal
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl-3.0).
 from odoo.tests import common
-from odoo.exceptions import ValidationError
 
 
 class EventSessionRegistrationMultiQty(common.SavepointCase):
@@ -94,7 +91,3 @@ class EventSessionRegistrationMultiQty(common.SavepointCase):
         self.assertEqual(self.session.seats_expected, 36)
         self.assertEqual(self.session.seats_available, 219)
         self.assertEqual(self.session.seats_available_expected, 214)
-
-    def test_change_session_option(self):
-        with self.assertRaises(ValidationError):
-            self.event.registration_multi_qty = False

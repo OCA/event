@@ -1,9 +1,6 @@
-# -*- coding: utf-8 -*-
-# Copyright 2017 David Vidal <david.vidal@tecnativa.com>
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-
-from odoo import _, api, models
-from odoo.exceptions import ValidationError
+# Copyright 2017-19 Tecnativa - David Vidal
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl-3.0).
+from odoo import api, models
 
 
 class EventSession(models.Model):
@@ -43,13 +40,3 @@ class EventSession(models.Model):
                 vals['seats_available_expected'] = (
                     session.seats_max - vals['seats_expected'])
             session.update(vals)
-
-    @api.multi
-    @api.constrains('registration_multi_qty')
-    def _check_attendees_qty(self):
-        for session in self:
-            if not session.event_id.registration_multi_qty and \
-                    max(session.registration_ids.mapped('qty') or [0]) > 1:
-                raise ValidationError(
-                    _('You cannot disable this option if there are '
-                      'registrations with quantities greater than one.'))
