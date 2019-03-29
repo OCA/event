@@ -19,6 +19,7 @@ setuptools.setup(
         'odoo10-addon-website_event_excerpt_img',
         'odoo10-addon-website_event_filter_selector',
         'odoo10-addon-website_event_questions_template',
+        'odoo10-addon-website_event_require_login',
         'odoo10-addon-website_event_share',
         'odoo10-addon-website_event_snippet_calendar',
         'odoo10-addon-website_event_type_description',
