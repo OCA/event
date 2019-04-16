@@ -4,6 +4,8 @@
 from datetime import timedelta
 from odoo import _, api, exceptions, fields, models
 
+from oca.decorators import foreach
+
 
 class EventTrackLocation(models.Model):
     _inherit = "event.track.location"
@@ -12,23 +14,17 @@ class EventTrackLocation(models.Model):
         help="Can this location have simultaneous tracks?"
     )
 
-    # TODO oca.decorators.foreach() in v12
-    @api.multi
     @api.constrains("overlappable")
+    @foreach()
     def _check_overlappable(self):
         """Ensure no overlaps happen with this location."""
         # Skip locations that can be overlapped
         if self.overlappable:
             return
-        # Get track states that can always overlap
-        skip_track_states = self.env.context.get(
-            "skip_track_states",
-            ["draft", "refused", "cancel"],
-        )
         # Get tracks that could produce an overlap
         remaining_tracks = self.env["event.track"].search([
             ("location_id", "=", self.id),
-            ("state", "not in", skip_track_states),
+            ("stage_id.is_cancel", "=", False),
         ])
         # Compare tracks overlapping among themselves
         while remaining_tracks:
@@ -36,12 +32,12 @@ class EventTrackLocation(models.Model):
             a_track = remaining_tracks[0]
             remaining_tracks -= a_track
             # Get track A's dates
-            a_start = fields.Datetime.from_string(a_track.date)
+            a_start = a_track.date
             a_end = a_start + timedelta(hours=a_track.duration)
             # Compare with all remaining tracks
             for b_track in remaining_tracks:
                 # Get track B's dates
-                b_start = fields.Datetime.from_string(b_track.date)
+                b_start = b_track.date
                 b_end = b_start + timedelta(hours=b_track.duration)
                 # Fail if there's an overlap
                 if b_start <= a_end and b_end >= a_start:
