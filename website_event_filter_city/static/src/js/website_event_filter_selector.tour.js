@@ -9,23 +9,19 @@ odoo.define("website_event_filter_selector.tour", function (require) {
     var id = filter.prototype.selector,
         $filters = $(id);
 
-    // Get an option value by its text
-    function opt_val(filter, option_text) {
-        return _.str.sprintf(
-            "text(%s)",
-            $filters.find(
-                _.str.sprintf(
-                    "select[name='%s']>option:contains('%s')",
-                    filter,
-                    option_text
-                )
-            ).val()
-        );
+    // Get an element in the selection filters form
+    function sel (name) {
+        return _.str.sprintf("%s select[name='%s']", id, name);
     }
 
-    // Get an element in the selection filters form
-    function sel(name) {
-        return _.str.sprintf("%s select[name='%s']", id, name);
+    // Get an option value by its text
+    function opt_val (option_text) {
+        return function (action_helper) {
+            var option_id = this.$anchor.children(_.str.sprintf(
+                "option:contains('%s')", option_text
+            )).val();
+            action_helper.text(option_id);
+        };
     }
 
     // Define tour
@@ -36,58 +32,57 @@ odoo.define("website_event_filter_selector.tour", function (require) {
     };
     var steps = [
         {
-            content: "Get old events",
-            // Make sure Taiwan exists; it's used in the last step
-            extra_trigger: "#left_column li:contains('Taiwan')",
+            extra_trigger:
+                "#middle_column:not(:contains('Barcelona Days 2017'))" +
+                ":not(:contains('Online Code Sprint 2018'))" +
+                ":not(:contains('Sevilla Code Sprint 2018'))" +
+                ":not(:contains('Sevilla Code Awesome Breakfast'))",
+            run: "text old",
             trigger: sel("date"),
-            run: "text(old)",
         },
         {
-            content: "Get online events",
-            extra_trigger: "#left_column .active:contains('Old Events')",
+            extra_trigger:
+                "#middle_column:contains('Barcelona Days 2017')" +
+                ":contains('Online Code Sprint 2018')" +
+                ":contains('Sevilla Code Sprint 2018')" +
+                ":contains('Sevilla Awesome Breakfast 2018')",
             trigger: sel("country"),
-            run: "text(online)",
+            run: "text online",
         },
         {
-            content: "Get every country events",
-            extra_trigger: "#left_column .active:contains('Online Events')",
+            extra_trigger:
+                "#middle_column:not(:contains('Barcelona Days 2017'))" +
+                ":contains('Online Code Sprint 2018')" +
+                ":not(:contains('Sevilla Code Sprint 2018'))" +
+                ":not(:contains('Sevilla Code Awesome Breakfast'))",
             trigger: sel("country"),
-            run: "text(all)",
+            run: opt_val("Spain"),
         },
         {
-            content: "Get this month's events",
-            extra_trigger: "#left_column .active:contains('All Countries')",
-            trigger: sel("date"),
-            run: "text(month)",
-        },
-        {
-            content: "Get USA events",
-            extra_trigger: "#left_column .active:contains('This month')",
-            trigger: sel("country"),
-            run: opt_val("country", "United States"),
-        },
-        {
-            content: "Get Fremont events",
-            extra_trigger: "#left_column .active:contains('United States')",
+            extra_trigger:
+                "#middle_column:contains('Barcelona Days 2017')" +
+                ":not(:contains('Online Code Sprint 2018'))" +
+                ":contains('Sevilla Code Sprint 2018')" +
+                ":contains('Sevilla Awesome Breakfast 2018')",
             trigger: sel("city"),
-            run: opt_val("city", "Fremont"),
+            run: opt_val("Sevilla"),
         },
         {
-            content: "Get all countries' events",
-            extra_trigger: "#left_column .active:contains('Fremont')",
-            trigger: sel("country"),
-            run: "text(all)",
-        },
-        {
-            content: "Get Conference events",
-            extra_trigger: "#left_column .active:contains('All Countries')",
+            extra_trigger:
+                "#middle_column:not(:contains('Barcelona Days 2017'))" +
+                ":not(:contains('Online Code Sprint 2018'))" +
+                ":contains('Sevilla Code Sprint 2018')" +
+                ":contains('Sevilla Awesome Breakfast 2018')",
             trigger: sel("type"),
-            run: opt_val("type", "Conference"),
+            run: opt_val("Code Sprint"),
         },
         {
-            content: "Taiwan has no conferences",
-            extra_trigger: "#left_column .active:contains('Conference')",
-            trigger: "#left_column:not(li:contains('Taiwan'))",
+            extra_trigger:
+                "#middle_column:not(:contains('Barcelona Days 2017'))" +
+                ":not(:contains('Online Code Sprint 2018'))" +
+                ":contains('Sevilla Code Sprint 2018')" +
+                ":not(:contains('Sevilla Awesome Breakfast 2018'))",
+            trigger: "a:contains('Sevilla Code Sprint 2018')",
         },
     ];
 
@@ -98,5 +93,5 @@ odoo.define("website_event_filter_selector.tour", function (require) {
         options: options,
         steps: steps,
         $filters: $filters,
-    }
+    };
 });
