@@ -46,7 +46,6 @@ class OverlappingCase(SavepointCase):
                 "event_id": self.event.id,
                 "location_id": self.location.id,
                 "name": "test track a",
-                "state": "confirmed",
             })
             self.env["event.track"].create({
                 "date": sample.b_start,
@@ -54,7 +53,6 @@ class OverlappingCase(SavepointCase):
                 "event_id": self.event.id,
                 "location_id": self.location.id,
                 "name": "test track b",
-                "state": "confirmed",
             })
             if raise_always:
                 # This notifies good track creation but rolls it back
