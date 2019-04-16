@@ -14,6 +14,11 @@
     "depends": [
         "website_event_track",
     ],
+    "external_dependencies": {
+        "python": [
+            "oca.decorators",
+        ],
+    },
     "data": [
         "views/event_track_location_view.xml",
     ],
