@@ -23,5 +23,6 @@
     ],
     "demo": [
         "demo/assets.xml",
+        "demo/tour_data.xml",
     ],
 }
