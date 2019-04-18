@@ -1,10 +1,9 @@
-# -*- coding: utf-8 -*-
 # Copyright 2016 Tecnativa - Sergio Teruel
 # Copyright 2016 Tecnativa - Vicent Cubells
 # Copyright 2018 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import api, fields, models
+from odoo import api, fields, models
 from datetime import timedelta
 
 
@@ -42,27 +41,25 @@ class EventEvent(models.Model):
           want to notify.
         """
         today = fields.Date.context_today(self)
-        limit_date = fields.Date.to_string(
-            fields.Date.from_string(today) + timedelta(days=days),
-        )
+        limit_date = today + timedelta(days=days)
         if draft_events:
             domain = [('state', 'in', ['draft', 'confirm'])]
         else:
             domain = [('state', '=', 'confirm')]
         if not near_events:
             domain.extend([
-                ('date_begin', '>=', '%s 00:00:00' % limit_date),
-                ('date_begin', '<=', '%s 23:59:59' % limit_date),
+                ('date_begin', '>=', limit_date),
+                ('date_begin', '<=', limit_date),
             ])
         elif today > limit_date:
             domain.extend([
-                ('date_end', '>=', '%s 00:00:00' % limit_date),
-                ('date_end', '<=', '%s 23:59:59' % today),
+                ('date_end', '>=', limit_date),
+                ('date_end', '<=', today),
             ])
         else:
             domain.extend([
-                ('date_begin', '>=', '%s 00:00:00' % today),
-                ('date_begin', '<=', '%s 23:59:59' % limit_date),
+                ('date_begin', '>=', today),
+                ('date_begin', '<=', limit_date),
             ])
         events = self.search(domain)
         if events:

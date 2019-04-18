@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2016 Tecnativa - Sergio Teruel
 # Copyright 2016 Tecnativa - Vicent Cubells
 # Copyright 2018 Tecnativa - Pedro M. Baeza
@@ -7,7 +6,7 @@
 {
     "name": "Event Email Reminder",
     "summary": "Send an email before an event start",
-    "version": "9.0.1.1.1",
+    "version": "12.0.1.0.0",
     "category": "Event Management",
     'website': 'http://www.tecnativa.com',
     'author': 'Tecnativa, '
