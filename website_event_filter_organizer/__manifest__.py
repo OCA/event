@@ -6,13 +6,17 @@
     'name': 'Website Event Filter Organizer',
     'summary': 'Filter events by organizer in frontend',
     'version': '12.0.1.0.0',
-    'category': "website",
+    'category': "event",
     'author': 'Tecnativa, '
               'Odoo Community Association (OCA)',
     'license': 'AGPL-3',
+    'website': 'https://github.com/OCA/event',
     'depends': ['website_event'],
     'data': [
         'views/website_event.xml',
+    ],
+    'demo': [
+        'demo/assets.xml',
     ],
     'installable': True,
 }
