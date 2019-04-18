@@ -1,55 +1,52 @@
-# -*- coding: utf-8 -*-
 # Copyright 2016 Tecnativa - Sergio Teruel
 # Copyright 2016 Tecnativa - Vicent Cubells
 # Copyright 2018 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from datetime import timedelta
-import time
+from datetime import datetime, timedelta
 
-from openerp.tests.common import TransactionCase
-from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
-from openerp import fields
+from odoo.tests.common import SavepointCase
 
 
-class TestEventEmailReminder(TransactionCase):
+class TestEventEmailReminder(SavepointCase):
 
-    def setUp(self):
-        super(TestEventEmailReminder, self).setUp()
-        today = time.strftime(DEFAULT_SERVER_DATE_FORMAT)
-        date_event_1 = fields.Date.from_string(today) + timedelta(days=7)
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        today = datetime.now()
+        date_event_1 = today + timedelta(days=7)
 
-        self.user_1 = self.env['res.users'].sudo().create({
+        cls.user_1 = cls.env['res.users'].sudo().create({
             'name': 'user - test 01',
             'email': 'test01@test.com',
             'login': 'test01@test.com',
         })
-        self.user_2 = self.env['res.users'].sudo().create({
+        cls.user_2 = cls.env['res.users'].sudo().create({
             'name': 'user - test 02',
             'email': 'test02@test.com',
             'login': 'test02@test.com',
         })
-        self.event_1 = self.env["event.event"].create({
+        cls.event_1 = cls.env["event.event"].create({
             "name": "Test 01",
             "date_begin": date_event_1,
             "date_end": date_event_1,
-            "user_id": self.user_1.id,
+            "user_id": cls.user_1.id,
             "state": 'confirm',
         })
-        date_event_2 = fields.Date.from_string(today) + timedelta(days=8)
-        self.event_2 = self.env["event.event"].create({
+        date_event_2 = today + timedelta(days=8)
+        cls.event_2 = cls.env["event.event"].create({
             "name": "Test 01",
             "date_begin": date_event_2,
             "date_end": date_event_2,
-            "user_id": self.user_2.id,
+            "user_id": cls.user_2.id,
             "state": 'confirm',
         })
-        self.template_default = self.env.ref(
+        cls.template_default = cls.env.ref(
             'event_email_reminder.event_email_reminder_template')
-        self.template_default.lang = 'en_EN'
-        self.template = self.template_default.copy()
-        self.template.subject = 'Hello test - copy'
-        self.mail = self.env['mail.mail']
+        cls.template_default.lang = 'en_EN'
+        cls.template = cls.template_default.copy()
+        cls.template.subject = 'Hello test - copy'
+        cls.mail = cls.env['mail.mail']
 
     def test_cron_run_default_values(self):
         # Default values events which start exactly in today + 7 days

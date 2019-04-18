@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- © 2016 Sergio Teruel <sergio.teruel@tecnativa.com>
-     © 2016 Vicent Cubells <vicent.cubells@tecnativa.com>
+<!-- Copyright 2016 Sergio Teruel <sergio.teruel@tecnativa.com>
+     Copyright 2016 Vicent Cubells <vicent.cubells@tecnativa.com>
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo noupdate="1">
 
@@ -45,9 +45,8 @@ ${object.company_id.name or ''}
 <record id="ir_cron_event_email_reminder_action" model="ir.cron">
     <field name="name">Event Email Reminder</field>
     <field name="active" eval="True"/>
-    <field name="model" eval="'event.event'"/>
-    <field name="function" eval="'run_event_email_reminder'"/>
-    <field name="args" eval="'(7, False, False, None)'"/>
+    <field name="model_id" ref="event.model_event_event"/>
+    <field name="code">model.run_event_email_reminder(7, False, False, None)</field>
     <field name="doall" eval="False"/>
     <field name="interval_number">7</field>
     <field name="interval_type">days</field>
