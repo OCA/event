@@ -8,6 +8,7 @@ setuptools.setup(
     description="Meta package for oca-event Odoo addons",
     version=version,
     install_requires=[
+        'odoo12-addon-event_email_reminder',
         'odoo12-addon-event_registration_multi_qty',
         'odoo12-addon-event_track_location_overlap',
         'odoo12-addon-partner_event',
