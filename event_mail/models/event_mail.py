@@ -1,7 +1,5 @@
-# -*- coding: utf-8 -*-
-# Copyright 2017 Sergio Teruel <sergio.teruel@tecnativa.com>
+# Copyright 2017 Tecnativa - Sergio Teruel <sergio.teruel@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-
 from odoo import api, fields, models
 
 
@@ -20,11 +18,12 @@ class EventMailSchedulerTemplate(models.Model):
 
 class EventMailTemplate(models.Model):
     _name = 'event.mail.template'
+    _description = 'Scheduling templates for events'
 
     @api.model
     def _default_scheduler_template_ids(self):
-        return self.env['event.event'].with_context(
-            by_pass_config_template=True)._default_event_mail_ids()
+        return self.env['event.type'].with_context(
+            by_pass_config_template=True)._get_default_event_type_mail_ids()
 
     name = fields.Char()
     scheduler_template_ids = fields.One2many(
