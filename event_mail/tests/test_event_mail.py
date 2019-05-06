@@ -1,7 +1,5 @@
-# -*- coding: utf-8 -*-
-# Copyright 2017 Sergio Teruel <sergio.teruel@tecnativa.com>
+# Copyright 2017 Tecnativa - Sergio Teruel <sergio.teruel@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-
 from odoo.tests.common import SavepointCase
 
 
@@ -25,13 +23,11 @@ class EventMailCase(SavepointCase):
 
     def test_event_template_config(self):
         # Store default template in event settings
-        event_config = self.env['event.config.settings'].sudo().create({
+        event_config = self.env['res.config.settings'].sudo().create({
             'event_mail_template_id': self.template1.id,
-            'auto_confirmation': 1,
         })
         event_config.execute()
-        config_template_id = self.env['ir.values'].get_default(
-            'event.config.settings', 'event_mail_template_id')
+        config_template_id = self.env.user.company_id.event_mail_template_id
         self.assertTrue(
             config_template_id,
             'Event Mail: Template store in default values')
@@ -59,13 +55,11 @@ class EventMailCase(SavepointCase):
 
     def test_event_template_no_config(self):
         # Store default template in event settings
-        event_config = self.env['event.config.settings'].sudo().create({
+        event_config = self.env['res.config.settings'].sudo().create({
             'event_mail_template_id': False,
-            'auto_confirmation': 1,
         })
         event_config.execute()
-        config_template_id = self.env['ir.values'].get_default(
-            'event.config.settings', 'event_mail_template_id')
+        config_template_id = self.env.user.company_id.event_mail_template_id
         self.assertFalse(
             self.env['event.mail.template'].browse(
                 config_template_id).exists(),

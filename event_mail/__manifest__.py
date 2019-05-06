@@ -1,15 +1,14 @@
-# -*- coding: utf-8 -*-
-# © 2016 Sergio Teruel <sergio.teruel@tecnativa.com>
+# Copyright 2017 Tecnativa - Sergio Teruel <sergio.teruel@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 {
     'name': 'Event Mail',
     'summary': 'Mail settings in events',
-    'version': '10.0.1.0.0',
+    'version': '12.0.1.0.0',
     'author': 'Tecnativa, '
               'Odoo Community Association (OCA)',
     "license": "AGPL-3",
-    'website': 'https://odoo-community.org/',
+    'website': 'https://github.com/OCA/event',
     'category': 'Marketing',
     'depends': ['event'],
     'data': [
