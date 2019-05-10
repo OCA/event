@@ -4,9 +4,8 @@
 
 <odoo>
 
-<template id="index"
-          inherit_id="website_event.index">
-    <xpath expr="//div[@class='row mt32 mb32']" position="before">
+<template id="index" inherit_id="website_event.index">
+    <xpath expr="//div[hasclass('row', 'mt32', 'mb32')]" position="before">
         <t t-if="current_type">
             <div t-field="current_type.description"/>
         </t>
