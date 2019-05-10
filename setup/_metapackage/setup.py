@@ -18,6 +18,7 @@ setuptools.setup(
         'odoo11-addon-website_event_filter_selector',
         'odoo11-addon-website_event_questions_by_ticket',
         'odoo11-addon-website_event_questions_free_text',
+        'odoo11-addon-website_event_require_login',
     ],
     classifiers=[
         'Programming Language :: Python',
