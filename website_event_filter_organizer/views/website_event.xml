@@ -30,7 +30,7 @@
 <template id="event_category" inherit_id="website_event.event_category" name="Filter by Category Organizer">
     <xpath expr="//a[contains(@t-attf-href,'type=type')]" position="attributes">
         <attribute name="t-attf-href">
-            /event?{{ keep_query('country', 'date', 'organizer', type=type['type'][0]) }}
+            /event?{{ keep_query('country', 'date', 'organizer', type=type['event_type_id'][0]) }}
         </attribute>
     </xpath>
 </template>
