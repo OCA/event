@@ -49,7 +49,7 @@
                         <t t-call="website_event_snippet_calendar.s_event_list"/>
                     </div>
                     <div class="col-md-12 mb32 text-right">
-                        <a href="/events" class="btn btn-info">All events</a>
+                        <a href="/event" class="btn btn-info">All events</a>
                     </div>
                 </div>
             </div>

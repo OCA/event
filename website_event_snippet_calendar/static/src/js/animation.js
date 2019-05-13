@@ -1,20 +1,27 @@
 /* Copyright 2018 Tecnativa - Jairo Llopis
+   Copyright 2018 Tecnativa - Alexandre Díaz
  * License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). */
 
 odoo.define('website_event_snippet_calendar.animation', function (require) {
     "use strict";
 
-    var animation = require("web_editor.snippets.animation");
+    var animation = require('website.content.snippets.animation');
     var core = require("web.core");
     var time = require("web.time");
     var ajax = require("web.ajax");
 
+
     var DATE_FORMAT = time.strftime_to_moment_format("%Y-%m-%d");
+    var DATETIME_FORMAT = time.strftime_to_moment_format(
+        "%Y-%m-%d %H:%M:%S");
     // HACK https://github.com/tempusdominus/bootstrap-3/issues/73
     var INVERSE_FORMAT = "L";
 
     var CalendarList = animation.Class.extend({
         selector: ".s_event_calendar_list",
+        xmlDependencies: [
+            "/website_event_snippet_calendar/static/src/xml/snippets.xml",
+        ],
 
         init: function () {
             this.datepicker_options = {
@@ -33,6 +40,8 @@ odoo.define('website_event_snippet_calendar.animation', function (require) {
         },
 
         start: function (editable_mode) {
+            this._super.apply(this, arguments);
+
             if (editable_mode) {
                 return;
             }
@@ -41,16 +50,12 @@ odoo.define('website_event_snippet_calendar.animation', function (require) {
                 max: null,
                 matches: [],
             };
-            this.$calendar = this.$(".s_event_calendar")
-                .on("dp.change", $.proxy(this, "day_selected"))
-                .on("dp.classify", $.proxy(this, "highlight_day"))
-                .on("dp.update", $.proxy(this, "calendar_moved"));
-            this.$list = this.$(".s_event_list");
+
+            this.$calendar = this.$target.find('.s_event_calendar')
+                .on("change.datetimepicker", $.proxy(this, "day_selected"))
+                .on("update.datetimepicker", $.proxy(this, "calendar_moved"));
+            this.$list = this.$target.find(".s_event_list");
             this.default_amount = Number(this.$(".js_amount").html()) || 4;
-            this.loaded_templates = ajax.loadXML(
-                "/website_event_snippet_calendar/static/src/xml/snippets.xml",
-                core.qweb
-            );
             this.date_format = this.$list.data("dateFormat") || "LLL";
             // Get initial events to render the list
             this.load_events(null, this.default_amount)
@@ -71,26 +76,7 @@ odoo.define('website_event_snippet_calendar.animation', function (require) {
                 return;
             }
             // Preload dates if needed and show evented days
-            this.preload_dates(event.viewDate)
-                .done($.proxy(this, "highlight_month"));
-        },
-
-        highlight_day: function (event) {
-            var match = this._dates.matches.indexOf(
-                event.date.format(DATE_FORMAT)
-            );
-            if (match === -1) {
-                return;
-            }
-            event.classNames.push("has-events");
-        },
-
-        highlight_month: function () {
-            var _dates = this._dates.matches;
-            this.$calendar.find(".day").filter(function () {
-                var day = moment(this.dataset.day, INVERSE_FORMAT);
-                return _dates.indexOf(day.format(DATE_FORMAT)) !== -1;
-            }).addClass("has-events");
+            this.preload_dates(event.viewDate);
         },
 
         preload_dates: function (when) {
@@ -125,8 +111,7 @@ odoo.define('website_event_snippet_calendar.animation', function (require) {
                     start: start.format(DATE_FORMAT),
                     end: end.format(DATE_FORMAT),
                 }
-            )
-            .done($.proxy(this, "_update_dates_cache", start, end));
+            ).done($.proxy(this, "_update_dates_cache", start, end));
         },
 
         _update_dates_cache: function (start, end, dates) {
@@ -147,22 +132,25 @@ odoo.define('website_event_snippet_calendar.animation', function (require) {
         },
 
         render_calendar: function () {
-            this.$calendar.empty().datetimepicker(this.datepicker_options);
+            var enabledDates = _.map(this._dates.matches, function (ndate) {
+                return moment(ndate, DATE_FORMAT);
+            });
+            this.$calendar.empty().datetimepicker(_.extend({},
+                this.datepicker_options, {'enabledDates': enabledDates}));
         },
 
         render_list: function (events) {
-            this.loaded_templates.done($.proxy(this, "_render_list", events));
-        },
-        _render_list: function (events) {
             _.each(events, function (element) {
-                element.date_begin = moment(element.date_begin_located)
-                    .format(this.date_format);
+                var date_begin_located = moment(
+                    element.date_begin_pred_located, DATETIME_FORMAT);
+                element.date_begin = date_begin_located.format(
+                    this.date_format);
             }, this);
             this.$list.html(core.qweb.render(
                 "website_event_snippet_calendar.list",
                 {events: events}
             ));
-        }
+        },
     });
 
     animation.registry.website_event_snippet_calendar = CalendarList;
@@ -170,6 +158,7 @@ odoo.define('website_event_snippet_calendar.animation', function (require) {
     return {
         CalendarList: CalendarList,
         DATE_FORMAT: DATE_FORMAT,
+        DATETIME_FORMAT: DATETIME_FORMAT,
         INVERSE_FORMAT: INVERSE_FORMAT,
     };
 
