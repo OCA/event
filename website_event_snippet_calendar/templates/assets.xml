@@ -7,15 +7,9 @@
     <template id="assets_frontend" inherit_id="website.assets_frontend">
         <xpath expr=".">
             <link rel="stylesheet"
-                  href="/website_event_snippet_calendar/static/src/css/style.less"/>
+                  href="/website_event_snippet_calendar/static/src/css/style.scss"/>
             <script type="text/javascript"
                     src="/website_event_snippet_calendar/static/src/js/animation.js"/>
-
-            <!-- TODO Lib copied from Odoo v11, remove when migrating addon -->
-            <link rel="stylesheet"
-                  href="/website_event_snippet_calendar/static/lib/bootstrap-datetimepicker.less"/>
-            <script type="text/javascript"
-                    src="/website_event_snippet_calendar/static/lib/bootstrap-datetimepicker.js"/>
         </xpath>
     </template>
 

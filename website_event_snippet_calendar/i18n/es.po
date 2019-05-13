@@ -18,52 +18,64 @@ msgstr ""
 "X-Generator: Poedit 2.0.3\n"
 
 #. module: website_event_snippet_calendar
-#: model:ir.ui.view,arch_db:website_event_snippet_calendar.snippet_options
+#: model_terms:ir.ui.view,arch_db:website_event_snippet_calendar.snippet_options
 msgid "<i class=\"fa fa-minus\"/> Remove one event"
 msgstr "<i class=\"fa fa-minus\"/> Quitar un evento"
 
 #. module: website_event_snippet_calendar
-#: model:ir.ui.view,arch_db:website_event_snippet_calendar.snippet_options
+#: model_terms:ir.ui.view,arch_db:website_event_snippet_calendar.snippet_options
 msgid "<i class=\"fa fa-plus\"/> Add one event"
 msgstr "<i class=\"fa fa-plus\"/> Añadir un evento"
 
 #. module: website_event_snippet_calendar
-#: model:ir.ui.view,arch_db:website_event_snippet_calendar.loading
+#: model_terms:ir.ui.view,arch_db:website_event_snippet_calendar.loading
 msgid "<i class=\"fa fa-spinner fa-spin\"/> Loading..."
 msgstr "<i class=\"fa fa-spinner fa-spin\"/> Cargando..."
 
 #. module: website_event_snippet_calendar
-#: model:ir.ui.view,arch_db:website_event_snippet_calendar.s_event_calendar_list
+#: model_terms:ir.ui.view,arch_db:website_event_snippet_calendar.s_event_calendar_list
 msgid "All events"
 msgstr "Todos los eventos"
 
 #. module: website_event_snippet_calendar
-#: model:ir.ui.view,arch_db:website_event_snippet_calendar.s_event_calendar
+#: model_terms:ir.ui.view,arch_db:website_event_snippet_calendar.s_event_calendar
 msgid "Calendar visible only when you save"
 msgstr "Calendario visible solo tras guardar"
 
 #. module: website_event_snippet_calendar
-#: model:ir.ui.view,arch_db:website_event_snippet_calendar.s_event_list
+#: model:ir.model.fields,field_description:website_event_snippet_calendar.field_event_event__date_begin_pred_located
+msgid "Date Begin Pred Located"
+msgstr ""
+
+#. module: website_event_snippet_calendar
+#: model:ir.model,name:website_event_snippet_calendar.model_event_event
+#, fuzzy
+#| msgid "Events"
+msgid "Event"
+msgstr "Eventos"
+
+#. module: website_event_snippet_calendar
+#: model_terms:ir.ui.view,arch_db:website_event_snippet_calendar.s_event_list
 msgid "Event list visible only when you save."
 msgstr "Listado de eventos visible solo tras guardar."
 
 #. module: website_event_snippet_calendar
-#: model:ir.ui.view,arch_db:website_event_snippet_calendar.s_event_calendar_list
+#: model_terms:ir.ui.view,arch_db:website_event_snippet_calendar.s_event_calendar_list
 msgid "Events"
 msgstr "Eventos"
 
 #. module: website_event_snippet_calendar
-#: model:ir.ui.view,arch_db:website_event_snippet_calendar.s_event_calendar_list
+#: model_terms:ir.ui.view,arch_db:website_event_snippet_calendar.s_event_calendar_list
 msgid "Events Calendar"
 msgstr "Calendario de eventos"
 
 #. module: website_event_snippet_calendar
-#: model:ir.ui.view,arch_db:website_event_snippet_calendar.s_event_list
+#: model_terms:ir.ui.view,arch_db:website_event_snippet_calendar.s_event_list
 msgid "It will display up to the closest <b class=\"js_amount\">4</b> events."
 msgstr "Mostrará hasta los <b class=\"js_amount\">4</b> eventos más cercanos."
 
 #. module: website_event_snippet_calendar
-#: model:ir.ui.view,arch_db:website_event_snippet_calendar.s_event_calendar_list
+#: model_terms:ir.ui.view,arch_db:website_event_snippet_calendar.s_event_calendar_list
 msgid "List"
 msgstr "Listado"
 
