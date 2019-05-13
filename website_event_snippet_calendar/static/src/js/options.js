@@ -1,12 +1,12 @@
 /* Copyright 2018 Tecnativa - Jairo Llopis
  * License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). */
 
-odoo.define('website_event_snippet_calendar.snippets', function(require) {
+odoo.define('website_event_snippet_calendar.snippets', function (require) {
     "use strict";
 
     var options = require('web_editor.snippets.options');
 
-    var List = options.Class.extend({
+    var SnippetOptions = options.Class.extend({
         start: function () {
             this._super.apply(this, arguments);
             this.$amount = this.$(".js_amount");
@@ -29,9 +29,7 @@ odoo.define('website_event_snippet_calendar.snippets', function(require) {
         },
     });
 
-    options.registry.website_event_snippet_calendar_list = List;
+    options.registry.website_event_snippet_calendar_list = SnippetOptions;
 
-    return {
-        List: List,
-    };
+    return SnippetOptions;
 });
