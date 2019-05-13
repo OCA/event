@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2018 Tecnativa - Jairo Llopis
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 
@@ -58,8 +57,7 @@ class EventCalendar(Controller):
             domain=domain,
             limit=limit,
             fields=[
-                # TODO Use a v10-like field in v11+
-                "date_begin_located",
+                "date_begin_pred_located",
                 "name",
                 "event_type_id",
                 "website_published",

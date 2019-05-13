@@ -1,9 +1,11 @@
 /* Copyright 2018 Tecnativa - Jairo Llopis
+   Copyright 2019 Tecnativa - Alexandre Díaz
  * License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). */
 
 .s_event_calendar_list {
     .event_title {
-        border-bottom: @table-border-color;
+        border: 0 solid $table-border-color;
+        border-bottom-width: 1px;
     }
 
     .s_event_calendar {
@@ -11,10 +13,10 @@
             width: 100%;
         }
 
-        .has-events:not(.active):not(:hover) {
-            background-color: @brand-info;
+        .day:not(.active):not(:hover):not(.disabled) {
+            background-color: $cyan;
+            border-radius: 1em;
         }
-
     }
 
     .category::before {
