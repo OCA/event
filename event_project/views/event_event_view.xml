@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
 <!-- Action for smartbutton in event form view -->
@@ -6,7 +6,7 @@
     <field name="res_model">project.task</field>
     <field name="view_type">form</field>
     <field name="name">Tasks</field>
-    <field name="view_mode">tree,gantt,kanban,form,calendar,graph</field>
+    <field name="view_mode">tree,kanban,form,calendar,graph</field>
     <field name="context">{'default_event_id': active_id}</field>
     <field name="domain">[('event_id', '=', active_id)]</field>
 </record>
@@ -15,19 +15,23 @@
 <record id="view_event_form" model="ir.ui.view">
     <field name="name">Add project to event</field>
     <field name="model">event.event</field>
-    <field name="inherit_id" ref="event.view_event_form"/>
+    <field name="inherit_id" ref="event.view_event_form" />
     <field name="arch" type="xml">
         <field name="date_tz" position="after">
-            <field name="project_id"
-                   domain="[('event_id', '=', False), ('active', '!=', False)]"/>
+            <field
+                    name="project_id"
+                    domain="[('event_id', '=', False), ('active', '!=', False)]"
+                />
         </field>
         <div name="button_box" position="inside">
-            <button name="%(act_event_task_list)d"
+            <button
+                    name="%(act_event_task_list)d"
                     type="action"
                     class="oe_stat_button oe_inline"
                     icon="fa-tasks"
-                    attrs="{'invisible': [('count_tasks','&lt;','1')]}">
-                <field name="count_tasks" widget="statinfo" string="Tasks"/>
+                    attrs="{'invisible': [('count_tasks','&lt;','1')]}"
+                >
+                <field name="count_tasks" widget="statinfo" string="Tasks" />
             </button>
         </div>
     </field>

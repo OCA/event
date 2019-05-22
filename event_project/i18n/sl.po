@@ -19,7 +19,7 @@ msgstr ""
 
 #. module: event_project
 #: model:ir.model,name:event_project.model_event_event
-#: model:ir.ui.view,arch_db:event_project.view_task_search_form
+#: model_terms:ir.ui.view,arch_db:event_project.view_task_search_form
 msgid "Event"
 msgstr "Dogodek"
 
@@ -29,19 +29,19 @@ msgid "Project"
 msgstr ""
 
 #. module: event_project
-#: model:ir.model.fields,help:event_project.field_event_event_project_id
+#: model:ir.model.fields,help:event_project.field_event_event__project_id
 msgid "Project end date will be updated with event start date."
 msgstr ""
 
 #. module: event_project
-#: model:ir.model.fields,field_description:event_project.field_project_project_event_id
-#: model:ir.model.fields,field_description:event_project.field_project_task_event_id
+#: model:ir.model.fields,field_description:event_project.field_project_project__event_id
+#: model:ir.model.fields,field_description:event_project.field_project_task__event_id
 #, fuzzy
 msgid "Related event"
 msgstr "Povezani projekt"
 
 #. module: event_project
-#: model:ir.model.fields,field_description:event_project.field_event_event_project_id
+#: model:ir.model.fields,field_description:event_project.field_event_event__project_id
 msgid "Related project"
 msgstr "Povezani projekt"
 
@@ -51,14 +51,14 @@ msgid "Task"
 msgstr "Opravilo"
 
 #. module: event_project
-#: model:ir.model.fields,field_description:event_project.field_event_event_count_tasks
+#: model:ir.model.fields,field_description:event_project.field_event_event__count_tasks
 msgid "Task number"
 msgstr ""
 
 #. module: event_project
 #: model:ir.actions.act_window,name:event_project.act_event_task_list
-#: model:ir.model.fields,field_description:event_project.field_event_event_task_ids
-#: model:ir.ui.view,arch_db:event_project.view_event_form
+#: model:ir.model.fields,field_description:event_project.field_event_event__task_ids
+#: model_terms:ir.ui.view,arch_db:event_project.view_event_form
 #, fuzzy
 msgid "Tasks"
 msgstr "Opravilo"
