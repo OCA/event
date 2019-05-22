@@ -6,7 +6,7 @@
     <field name="res_model">project.task</field>
     <field name="view_type">form</field>
     <field name="name">Tasks</field>
-    <field name="view_mode">tree,gantt,kanban,form,calendar,graph</field>
+    <field name="view_mode">tree,kanban,form,calendar,graph</field>
     <field name="context">{'default_event_id': active_id}</field>
     <field name="domain">[('event_id', '=', active_id)]</field>
 </record>

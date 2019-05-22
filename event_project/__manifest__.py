@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2015 Antiun - Javier Iniesta
 # Copyright 2015 Antiun - Endika Iglesias
 # Copyright 2015 Tecnativa - Antonio Espinosa
@@ -7,7 +6,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     "name": "Event project",
-    "version": "10.0.1.0.1",
+    "version": "12.0.1.0.0",
     "author": "Tecnativa, "
               "Odoo Community Association (OCA)",
     "website": "https://www.tecnativa.com",
