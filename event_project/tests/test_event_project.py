@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2016 Pedro M. Baeza <pedro.baeza@tecnativa.com>
 # Copyright 2017 David Vidal <david.vidal@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
@@ -39,7 +38,7 @@ class TestEventProject(common.SavepointCase):
     def test_01_defaults(self):
         self.assertEqual(self.event.project_id.calculation_type, 'date_end')
         self.assertEqual(self.event.project_id.date,
-                         str.split(self.event.date_begin, ' ')[0])
+                         self.event.date_begin.date())
         self.assertEqual(self.event.display_name, self.event.project_id.name)
 
     def test_02_project_recalculation(self):
@@ -47,7 +46,7 @@ class TestEventProject(common.SavepointCase):
         self.event.date_end = self.date['end2']
         self.event.name = 'Event name changed'
         self.assertEqual(self.event.project_id.date,
-                         str.split(self.event.date_begin, ' ')[0])
+                         self.event.date_begin.date())
         self.assertEqual(self.event.display_name, self.event.project_id.name)
 
     def test_03_project_change(self):
@@ -57,7 +56,7 @@ class TestEventProject(common.SavepointCase):
         self.assertNotEqual(self.event.project_id, self.project_2)
         self.assertEqual(self.event.project_id.calculation_type, 'date_end')
         self.assertEqual(self.event.project_id.date,
-                         str.split(self.event.date_begin, ' ')[0])
+                         self.event.date_begin.date())
         self.assertEqual(self.event.display_name, self.event.project_id.name)
         self.assertEqual(self.event.count_tasks, 1)
 
