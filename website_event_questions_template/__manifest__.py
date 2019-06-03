@@ -1,11 +1,10 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Tecnativa - Sergio Teruel
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 {
     'name': 'Website Event Questions Template',
     'summary': 'Set question templates for events',
-    'version': '10.0.1.0.0',
+    'version': '12.0.1.0.0',
     'author': 'Tecnativa, '
               'Odoo Community Association (OCA)',
     "license": "LGPL-3",
