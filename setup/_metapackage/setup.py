@@ -14,6 +14,7 @@ setuptools.setup(
         'odoo9-addon-event_registration_cancel_reason',
         'odoo9-addon-event_registration_mass_mailing',
         'odoo9-addon-event_registration_partner_unique',
+        'odoo9-addon-event_track_location_overlap',
         'odoo9-addon-partner_event',
         'odoo9-addon-website_event_filter_selector',
         'odoo9-addon-website_event_share',
