@@ -7,20 +7,16 @@
 {
     "name": "Event project",
     "version": "12.0.1.0.0",
-    "author": "Tecnativa, "
-              "Odoo Community Association (OCA)",
-    "website": "https://www.tecnativa.com",
+    "author": "Tecnativa, " "Odoo Community Association (OCA)",
+    "website": "https://github.com/OCA/event",
     "license": "AGPL-3",
     "category": "Event Management",
-    "depends": [
-        'event',
-        'project_recalculate'
-    ],
-    'data': [
+    "depends": ["event", "project_recalculate"],
+    "data": [
         "views/event_event_view.xml",
         "views/project_project_view.xml",
         "views/project_task_view.xml",
         "security/ir.model.access.csv",
     ],
-    'installable': True,
+    "installable": True,
 }
