@@ -23,4 +23,5 @@
         'wizard/res_partner_register_event_view.xml',
     ],
     "installable": True,
+    'license': 'AGPL-3',
 }
