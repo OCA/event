@@ -24,6 +24,7 @@ class EventQuestion(models.Model):
 
 class EventAnswerFree(models.Model):
     _name = 'event.answer.free'
+    _description = 'Event Answer Free Text'
 
     registration_id = fields.Many2one(
         comodel_name='event.registration',
