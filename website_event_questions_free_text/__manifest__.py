@@ -3,7 +3,7 @@
 
 {
     "name": "Free Text Answers on Events Questions",
-    "version": "11.0.1.0.0",
+    "version": "12.0.1.0.0",
     "category": "Website",
     "website": "https://github.com/OCA/event",
     "author": "Tecnativa, "
