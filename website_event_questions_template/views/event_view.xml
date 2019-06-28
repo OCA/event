@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!-- Copyright 2017 Tecnativa - Sergio Teruel
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
+<odoo>
+
+<record id="view_event_form" model="ir.ui.view">
+    <field name="model">event.event</field>
+    <field name="inherit_id"
+           ref="website_event_questions.view_event_form_inherit_question"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='question_ids']" position="before">
+            <group>
+                <field name="event_question_template_id"/>
+            </group>
+            <group>
+                <button name="load_question_template" type="object" string="Load Questions Template"
+                        attrs="{'invisible': [('event_question_template_id', '=', False)]}"/>
+            </group>
+        </xpath>
+    </field>
+</record>
+
+</odoo>
