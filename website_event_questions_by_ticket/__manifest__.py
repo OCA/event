@@ -4,7 +4,7 @@
 {
     "name": "Conditional Events Questions",
     "summary": "Events Questions conditional to the chosen ticket",
-    "version": "11.0.1.0.0",
+    "version": "12.0.1.0.0",
     "category": "Website",
     "website": "https://github.com/OCA/event",
     "author": "Tecnativa, "
