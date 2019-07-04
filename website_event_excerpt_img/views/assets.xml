@@ -8,7 +8,7 @@
           inherit_id="website.assets_frontend">
     <xpath expr=".">
         <link rel="stylesheet"
-              href="/website_event_excerpt_img/static/src/css/website_event_excerpt_img.css"/>
+              href="/website_event_excerpt_img/static/src/css/website_event_excerpt_img.scss"/>
     </xpath>
 </template>
 

@@ -11,16 +11,7 @@
         itemtype="http://schema.org/Event"
         t-attf-class="mb16 mt16 col-sm-#{12 if event.priority &gt; '0' else 6}">
         <div class="row">
-            <!-- Image -->
-            <t t-set="image" t-value="False"/>
-            <t t-foreach="env['ir.fields.converter']
-                            .imgs_from_html(event.description, 1)"
-               t-as="image"/>
-            <div t-if="image" class="event-thumbnail col-sm-6">
-                <a t-attf-href="/event/#{slug(event)}">
-                    <img class="img img-thumbnail" t-att-src="image"/>
-                </a>
-            </div>
+
 
             <!-- Event metadata -->
             <div t-attf-class="event-data col-sm-#{6 if image else 12}">
@@ -76,10 +67,6 @@
                 </div>
             </div>
 
-            <div t-attf-class="event-description mt8 col-sm-#{
-                    6 if event.priority &gt; '0' and image else 12}">
-                <t t-call="website_event_excerpt_img.description"/>
-            </div>
         </div>
     </div>
 </template>
@@ -96,7 +83,7 @@
     <!-- Read more button -->
     <p>
         <a
-            class="btn btn-default"
+            class="btn btn-primary"
             t-attf-href="/event/#{slug(event)}">
             Read more
         </a>
@@ -104,38 +91,48 @@
 </template>
 
 <template id="index"
+          active="False"
           name="Images and Description"
           inherit_id="website_event.index"
           customize_show="True">
 
-    <xpath expr="//ul[@class='media-list']" position="replace">
-        <div id="website_event_excerpt_img">
-            <!-- Highlighted events -->
-            <t t-set="events_highlighted"
-               t-value="event_ids.filtered(
-                    lambda r: r.priority &gt;= '1')"/>
-            <div t-if="events_highlighted"
-                 t-attf-class="event-priority-highlighted clearfix">
-                <t t-foreach="events_highlighted" t-as="event">
-                    <t t-call="website_event_excerpt_img.event_item"/>
-                </t>
-            </div>
+    <xpath expr="//*[@id='middle_column']" position="attributes">
+        <attribute name="class" separator=" " add="website_event_excerpt_img"/>
+    </xpath>
 
-            <!-- Normal events -->
-            <t t-set="events_normal"
-               t-value="event_ids - events_highlighted"/>
-            <div t-if="events_normal"
-                 t-attf-class="event-priority-normal clearfix">
-                <t t-foreach="events_normal" t-as="event">
-                    <t t-call="website_event_excerpt_img.event_item"/>
+    <!-- Distinction among highlighted and normal events -->
+    <xpath expr="//li[@t-as='event']" position="attributes">
+        <attribute name="t-attf-class" separator="#"
+            remove="{' mt-3' if event_index else ''}"/>
+        <attribute name="t-attf-class" separator=" "
+            add="event-priority-#{event.priority}"/>
+    </xpath>
 
-                    <!-- Height of items can change depending on description
-                         size, and get quite ugly without this -->
-                    <div t-if="event_odd" class="clearfix"/>
-                </t>
+    <xpath expr="//*[hasclass('media-body')]" position="replace">
+        <div t-attf-class="row rounded align-self-stretch event #{'bg-light' if event.priority == '0' else 'bg-dark'}">$0</div>
+    </xpath>
+
+    <!-- Image -->
+    <xpath expr="//*[hasclass('media-body')]" position="before">
+        <!-- This for is a way to call next() on the generator, but it is
+                forced to only do 1 loop max -->
+        <t t-foreach="env['ir.fields.converter'].imgs_from_html(event.description, 1)"
+           t-as="image">
+            <div class="event-thumbnail">
+                <a t-attf-href="/event/#{slug(event)}">
+                    <img class="img img-thumbnail" t-att-src="image"/>
+                </a>
             </div>
+        </t>
+    </xpath>
+
+    <!-- Event description excerpt -->
+    <xpath expr="//*[hasclass('media-body')]" position="after">
+        <div class="event-description align-self-end">
+            <t t-call="website_event_excerpt_img.description"/>
         </div>
     </xpath>
+
 </template>
 
 </odoo>
