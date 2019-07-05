@@ -46,7 +46,7 @@ class EventRegistration(models.Model):
                 # Create partner
                 attendee_partner = Partner.sudo().create(
                     self._prepare_partner(vals))
-            vals['attendee_partner_id'] = attendee_partner.id
+            vals['partner_id'] = attendee_partner.id
         return super(EventRegistration, self).create(vals)
 
     @api.multi
