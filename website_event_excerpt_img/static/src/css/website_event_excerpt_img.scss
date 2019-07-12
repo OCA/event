@@ -1,0 +1,50 @@
+/* Copyright 2016 Tecnativa - Jairo Llopis
+ * License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). */
+
+.website_event_excerpt_img {
+    .list-unstyled {
+        @include make-row();
+    }
+
+    .event {
+        margin: {
+            bottom: 1rem;
+            left: $grid-gutter-width / -4;
+            right: $grid-gutter-width / -4;
+        }
+    }
+
+    // Highlighted and normal events
+    .event-thumbnail, .media-body {
+        @include make-col-ready();
+        @include make-col(12);
+
+        margin-top: 1rem;
+    }
+    .event-description {
+        @include make-col-ready();
+        @include make-col(12);
+
+        margin-top: 0.5rem;
+    }
+
+    // Only normal events (not highlighted)
+    .event-priority-0 {
+        @include make-col-ready();
+
+        &, .event-thumbnail, .event-thumbnail + .media-body {
+            @include media-breakpoint-up(md) {
+                @include make-col(6);
+            }
+        }
+    }
+
+    // Only highlighted events
+    .event-priority-1 {
+        .event-thumbnail {
+            .img {
+                margin-top: 2rem;
+            }
+        }
+    }
+}

@@ -19,6 +19,7 @@ setuptools.setup(
         'odoo12-addon-event_session_registration_multi_qty',
         'odoo12-addon-event_track_location_overlap',
         'odoo12-addon-partner_event',
+        'odoo12-addon-website_event_excerpt_img',
         'odoo12-addon-website_event_filter_organizer',
         'odoo12-addon-website_event_filter_selector',
         'odoo12-addon-website_event_questions_free_text',
