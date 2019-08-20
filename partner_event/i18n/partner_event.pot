@@ -1,16 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#   * partner_event
+#	* partner_event
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 8.0\n"
+"Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-03 16:30+0000\n"
-"PO-Revision-Date: 2015-11-03 16:30+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -29,7 +26,7 @@ msgstr ""
 #. module: partner_event
 #: model:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr ""
 
 #. module: partner_event
 #: model:ir.model.fields,help:partner_event.field_res_partner_event_count
@@ -40,12 +37,12 @@ msgstr ""
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_event_event_create_partner
 msgid "Create Partners in registration"
-msgstr "Crear empresas en el registro"
+msgstr ""
 
 #. module: partner_event
 #: model:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
 msgid "Create registrations"
-msgstr "Crear registros"
+msgstr ""
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event_create_uid
@@ -54,9 +51,8 @@ msgstr ""
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event_create_date
-#, fuzzy
 msgid "Created on"
-msgstr "Crear registros"
+msgstr ""
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event_display_name
@@ -72,27 +68,27 @@ msgstr ""
 #: model:ir.model,name:partner_event.model_event_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event_event
 msgid "Event"
-msgstr "Evento"
+msgstr ""
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_attended_registration_count
 msgid "Event attended registrations number"
-msgstr "Nº de registrados que han asistido al evento"
+msgstr ""
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_registrations
 msgid "Event registrations"
-msgstr "Registros a eventos"
+msgstr ""
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_registration_count
 msgid "Event registrations number"
-msgstr "Nº Registros a eventos"
+msgstr ""
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_event_count
 msgid "Events"
-msgstr "Eventos"
+msgstr ""
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event_id
@@ -117,28 +113,26 @@ msgstr ""
 #. module: partner_event
 #: model:ir.model,name:partner_event.model_res_partner
 msgid "Partner"
-msgstr "Empresa"
+msgstr ""
 
 #. module: partner_event
 #: model:ir.actions.act_window,name:partner_event.action_partner_register_event
 msgid "Register in an event"
-msgstr "Registrar en un evento"
+msgstr ""
 
 #. module: partner_event
 #: model:ir.actions.act_window,name:partner_event.act_partner_registration
 msgid "Registrations"
-msgstr "Registros"
+msgstr ""
 
 #. module: partner_event
 #: model:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
 msgid "Select event to register"
-msgstr "Selecciona el evento para registrar"
+msgstr ""
 
 #. module: partner_event
 #: model:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
-msgid ""
-"These partners haven't been registered because they're already registered or "
-"other error occurred"
+msgid "These partners haven't been registered because they're already registered or other error occurred"
 msgstr ""
 
 #. module: partner_event
@@ -146,8 +140,3 @@ msgstr ""
 msgid "res.partner.register.event"
 msgstr ""
 
-#~ msgid "Event Registration"
-#~ msgstr "Registro a evento"
-
-#~ msgid "or"
-#~ msgstr "o"
