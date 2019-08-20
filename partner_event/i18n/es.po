@@ -7,26 +7,26 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-03 16:30+0000\n"
-"PO-Revision-Date: 2015-11-03 16:30+0000\n"
-"Last-Translator: <>\n"
+"PO-Revision-Date: 2019-08-20 14:44+0000\n"
+"Last-Translator: Jairo Llopis <jairo.llopis@tecnativa.com>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.7.1\n"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner__registration_count
 #: model:ir.model.fields,field_description:partner_event.field_res_users__registration_count
-#, fuzzy
 msgid "Attendances"
-msgstr "Empresa asistente"
+msgstr "Asistencias"
 
 #. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.view_registration_search
 msgid "Attended"
-msgstr ""
+msgstr "Asistido"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_event_registration__attendee_partner_id
@@ -42,12 +42,12 @@ msgstr "Cancelar"
 #: model:ir.model,name:partner_event.model_res_partner
 #: model:ir.model.fields,field_description:partner_event.field_event_registration__partner_id
 msgid "Contact"
-msgstr ""
+msgstr "Contacto"
 
 #. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.view_partner_form_registrations
 msgid "Count of events with confirmed registrations."
-msgstr ""
+msgstr "Cantidad de eventos con asistencia confirmada."
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_event_event__create_partner
@@ -62,23 +62,22 @@ msgstr "Crear registros"
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creado por"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__create_date
-#, fuzzy
 msgid "Created on"
-msgstr "Crear registros"
+msgstr "Creado el"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nombre mostrado"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__errors
 msgid "Errors"
-msgstr ""
+msgstr "Errores"
 
 #. module: partner_event
 #: model:ir.model,name:partner_event.model_event_event
@@ -100,22 +99,22 @@ msgstr "Registros a eventos"
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última modificación el"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Última actualización por"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Última actualización el"
 
 #. module: partner_event
 #: model:ir.actions.act_window,name:partner_event.action_partner_register_event
@@ -125,9 +124,8 @@ msgstr "Registrar en un evento"
 
 #. module: partner_event
 #: model:ir.model,name:partner_event.model_res_partner_register_event
-#, fuzzy
 msgid "Register partner for event"
-msgstr "Registrar en un evento"
+msgstr "Registrar empresa al evento"
 
 #. module: partner_event
 #: model:ir.actions.act_window,name:partner_event.act_partner_registration
@@ -145,6 +143,8 @@ msgid ""
 "These partners haven't been registered because they\\'re "
 "already                        registered or other error occurred"
 msgstr ""
+"Estas empresas no se han registrado porque ya                        estaban "
+"registradas u otro error ocurrió"
 
 #~ msgid "Event attended registrations number"
 #~ msgstr "Nº de registrados que han asistido al evento"
