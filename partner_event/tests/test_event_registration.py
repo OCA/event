@@ -10,6 +10,7 @@ from psycopg2 import IntegrityError
 from datetime import datetime, timedelta
 from odoo.tests import common
 from odoo import fields
+from ..hooks import LANG_NEW, LANG_OLD, uninstall_hook
 
 
 class TestEventRegistration(common.SavepointCase):
@@ -39,6 +40,11 @@ class TestEventRegistration(common.SavepointCase):
         cls.registration_02 = registration_model.create({
             'email': 'email02@test.com', 'event_id': cls.event_0.id,
             'name': 'Test Registration 02', 'phone': '254728911'})
+        # Need a 2nd lang to do some lang-specific tests
+        wiz = cls.env["base.language.install"].create({
+            "lang": "it_IT",
+        })
+        wiz.lang_install()
 
     def test_create(self):
         self.assertEqual(self.partner_01.name, self.registration_01.name)
@@ -99,3 +105,67 @@ class TestEventRegistration(common.SavepointCase):
         })
         partner3.unlink()
         self.assertFalse(partner3.exists())
+
+    def test_badge_email_lang(self):
+        """Attendee created in right lang, badge generated in such."""
+        # Attendee should be created with Spanish language
+        reg3 = self.env["event.registration"] \
+            .with_context(lang="it_IT").create({
+                'email': 'email03@test.com',
+                'event_id': self.event_0.id
+            })
+        reg3 = reg3.with_context(lang="en_US")
+        self.assertEqual(reg3.attendee_partner_id.lang, "it_IT")
+        # Badge should be printed in Spanish, no matter user's context
+        action = reg3.action_send_badge_email()
+        self.assertEqual(action["context"]["lang"], "it_IT")
+
+    def test_message_recipient_suggestion(self):
+        """Attendee partner is suggested as follower."""
+        suggestions = self.registration_02.message_get_suggested_recipients()
+        self.assertNotIn(
+            self.partner_01.id,
+            {each[0] for each in suggestions[self.registration_02.id]},
+        )
+        self.assertIn(
+            self.registration_02.attendee_partner_id.id,
+            {each[0] for each in suggestions[self.registration_02.id]},
+        )
+        # Partner 01 pays the bill
+        self.registration_02.partner_id = self.partner_01
+        suggestions = self.registration_02.message_get_suggested_recipients()
+        self.assertIn(
+            self.partner_01.id,
+            {each[0] for each in suggestions[self.registration_02.id]},
+        )
+        self.assertIn(
+            self.registration_02.attendee_partner_id.id,
+            {each[0] for each in suggestions[self.registration_02.id]},
+        )
+
+    def test_uninstall_hook(self):
+        """Lang in templates is restored after uninstall"""
+        # All templates must have new lang computing
+        tpls = self.env["mail.template"].search([
+            ("model_id", "=", "event.registration"),
+            ("lang", "=", LANG_NEW),
+        ])
+        self.assertTrue(tpls)
+        tpls = self.env["mail.template"].search([
+            ("model_id", "=", "event.registration"),
+            ("lang", "=", LANG_OLD),
+        ])
+        self.assertFalse(tpls)
+        # Uninstall
+        uninstall_hook(self.env.cr, None)
+        # All templates must have old lang computing
+        tpls = self.env["mail.template"].search([
+            ("model_id", "=", "event.registration"),
+            ("lang", "=", LANG_NEW),
+        ])
+        self.assertFalse(tpls)
+        tpls = self.env["mail.template"].search([
+            ("model_id", "=", "event.registration"),
+            ("lang", "=", LANG_OLD),
+        ])
+        self.assertTrue(tpls)

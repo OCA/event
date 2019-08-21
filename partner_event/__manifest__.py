@@ -8,7 +8,7 @@
 
 {
     'name': 'Link partner to events',
-    'version': '10.0.2.0.1',
+    'version': '10.0.2.1.1',
     'category': 'Marketing',
     'author': 'Tecnativa,'
               'Odoo Community Association (OCA)',
@@ -17,6 +17,8 @@
     'depends': [
         'event',
     ],
+    "post_init_hook": "post_init_hook",
+    "uninstall_hook": "uninstall_hook",
     'data': [
         'views/res_partner_view.xml',
         'views/event_event_view.xml',

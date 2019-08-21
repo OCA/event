@@ -26,7 +26,7 @@ addon | version | summary
 [event_registration_multi_qty](event_registration_multi_qty/) | 10.0.1.0.0 | Allow registration grouped by quantities
 [event_sale_registration_multi_qty](event_sale_registration_multi_qty/) | 10.0.1.0.0 | Allows sell registrations with more than one attendee
 [event_session](event_session/) | 10.0.1.0.0 | Sessions in events
-[partner_event](partner_event/) | 10.0.2.0.1 | Link partner to events
+[partner_event](partner_event/) | 10.0.2.1.0 | Link partner to events
 [website_event_excerpt_img](website_event_excerpt_img/) | 10.0.1.0.0 | New layout for event summary, including an excerpt and image
 [website_event_filter_selector](website_event_filter_selector/) | 10.0.1.0.0 | Add a customizable top area to filter events with selectors
 [website_event_questions_template](website_event_questions_template/) | 10.0.1.0.0 | Set question templates for events
