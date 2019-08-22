@@ -13,7 +13,7 @@
     'author': 'Tecnativa,'
               'Odoo Community Association (OCA)',
     'website': 'https://www.tecnativa.com',
-    'development_status': 'stable',
+    'development_status': 'Production/Stable',
     "license": "AGPL-3",
     'depends': [
         'event',
