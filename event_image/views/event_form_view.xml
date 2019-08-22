@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_event_with_image" model="ir.ui.view">
+        <field name="name">Event: Image</field>
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_form"/>
+        <field name="arch" type="xml">
+            <div class="oe_title" position="before">
+                <field name="image" options="{'size': [90, 90]}" widget="image" class="oe_avatar" style="margin-right:24px" />
+            </div>
+        </field>
+    </record>
+
+</odoo>
