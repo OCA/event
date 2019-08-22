@@ -8,4 +8,4 @@ class EventWithImage(models.Model):
 
     _inherit = 'event.event'
 
-    image = fields.Binary('image')
+    image = fields.Binary('Image', attachment=True)
