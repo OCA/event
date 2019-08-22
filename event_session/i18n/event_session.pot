@@ -75,11 +75,6 @@ msgid "Company"
 msgstr ""
 
 #. module: event_session
-#: model:ir.model,name:event_session.model_res_config_settings
-msgid "Config Settings"
-msgstr ""
-
-#. module: event_session
 #: model:ir.model.fields,help:event_session.field_wizard_event_session__fridays
 msgid "Create sessions on Fridays"
 msgstr ""
@@ -295,11 +290,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:event_session.field_event_session__event_mail_ids
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__event_mail_template_id
 msgid "Mail Schedule"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_res_config_settings__event_mail_template_id
-msgid "Mail Template"
 msgstr ""
 
 #. module: event_session
