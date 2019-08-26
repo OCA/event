@@ -6,6 +6,7 @@ from odoo import api, fields, models
 
 class WizardModel(models.TransientModel):
     _name = "crm.lead.event.pick"
+    _description = "Crm Lead Event Pick"
 
     lead_id = fields.Many2one(
         "crm.lead",
