@@ -18,12 +18,16 @@ msgstr ""
 "X-Generator: Poedit 1.8.6\n"
 
 #. module: event_registration_partner_unique
-#: help:event.event,forbid_duplicates:0
-msgid "Check this to disallow duplicate partners in an event"
-msgstr "Active esto para impedir que haya registros de empresas duplicadas en el evento"
+#: model:ir.model.fields,help:event_registration_partner_unique.field_event_event__forbid_duplicates
+#, fuzzy
+msgid ""
+"Check this to disallow duplicate attendees in this event's registrations"
+msgstr ""
+"Active esto para impedir que haya registros de empresas duplicadas en el "
+"evento"
 
 #. module: event_registration_partner_unique
-#: code:addons/event_registration_partner_unique/exceptions.py:21
+#: code:addons/event_registration_partner_unique/exceptions.py:20
 #, python-format
 msgid "Duplicated partners found in event {0}: {1}."
 msgstr "Empresas duplicadas encontradas en el evento {0}: {1}."
@@ -39,6 +43,7 @@ msgid "Event Registration"
 msgstr "Registro del evento"
 
 #. module: event_registration_partner_unique
-#: field:event.event,forbid_duplicates:0
-msgid "Forbid duplicates"
+#: model:ir.model.fields,field_description:event_registration_partner_unique.field_event_event__forbid_duplicates
+#, fuzzy
+msgid "Forbid Duplicates"
 msgstr "Prohibir duplicados"
