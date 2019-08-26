@@ -12,7 +12,7 @@ class EventRegistration(models.Model):
 
     cancel_reason_id = fields.Many2one(
         comodel_name='event.registration.cancel.reason', readonly=True,
-        string="Cancellation reason", ondelete="restrict")
+        string="Cancellation Reason", ondelete="restrict")
 
     @api.multi
     def button_reg_cancel(self):
@@ -35,6 +35,7 @@ class EventRegistration(models.Model):
 
 class EventRegistrationCancelReason(models.Model):
     _name = 'event.registration.cancel.reason'
+    _description = 'Event Registration Cancel Reason'
 
     name = fields.Char('Reason', required=True, translate=True)
     event_type_ids = fields.Many2many(
