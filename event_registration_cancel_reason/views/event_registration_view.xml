@@ -7,11 +7,11 @@
         <field name="inherit_id" ref="event.view_event_registration_form"/>
         <field name="arch" type="xml">
             <data>
-                <xpath expr="//group[@name='event']" position="after">
-                    <h2 attrs="{'invisible':[('cancel_reason_id','=',False)]}">
-                        <label for="cancel_reason_id" string="Cancellation Reason:"/>
-                        <field name="cancel_reason_id" class="oe_inline" options="{'no_open':True'}"/>
-                    </h2>
+                <xpath expr="//group[@name='attendee']" position="inside">
+                    <field name="cancel_reason_id"
+                           class="oe_inline"
+                           options="{'no_open':True'}"
+                           attrs="{'invisible':[('cancel_reason_id','=',False)]}"/>
                 </xpath>
             </data>
         </field>
@@ -22,8 +22,8 @@
         <field name="model">event.registration</field>
         <field name="inherit_id" ref="event.view_registration_search"/>
         <field name="arch" type="xml">
-            <filter context="{'group_by':'state'}" position="after">
-                <filter string="Cancellation reason" domain="[]" context="{'group_by': 'cancel_reason_id'}"/>
+            <filter name="status" position="after">
+                <filter name="cancellation_reason" string="Cancellation reason" domain="[]" context="{'group_by': 'cancel_reason_id'}"/>
             </filter>
         </field>
     </record>

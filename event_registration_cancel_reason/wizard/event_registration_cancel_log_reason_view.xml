@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <form name="">
                 <field name="event_type_id" invisible="1"/>
-                <label string="Select the reason for cancelling the registration:"/>
+                <label for="reason_id" string="Select the reason for cancelling the registration:"/>
                 <field name="reason_id"/>
                 <footer>
                     <button name="button_log"

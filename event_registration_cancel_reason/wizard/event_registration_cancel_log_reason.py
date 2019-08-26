@@ -7,6 +7,7 @@ from odoo import _, api, exceptions, fields, models
 
 class EventRegistrationCancelLogReason(models.TransientModel):
     _name = 'event.registration.cancel.log.reason'
+    _description = 'Event Registration Cancel Log Reason'
 
     event_type_id = fields.Many2one(
         comodel_name="event.type", string="Event type")
