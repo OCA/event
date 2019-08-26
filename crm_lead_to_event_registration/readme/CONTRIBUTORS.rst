@@ -5,3 +5,4 @@
   * Jairo Llopis
   * Vicent Cubells
   * Cristina Martín
+  * Victor M.M. Torres
