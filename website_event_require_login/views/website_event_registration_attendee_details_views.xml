@@ -3,6 +3,7 @@
 
     <record id="registration_attendee_details" model="ir.ui.view">
         <field name="inherit_id" ref="website_event.registration_attendee_details"/>
+        <field name="priority">99</field>
         <field name="arch" type="xml">
           <xpath expr="//*[hasclass('container')]/t[3]" position="replace">
             <t t-foreach="tickets" t-as="ticket">
