@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     'name': 'Website Event Require Login',
-    'version': '12.0.1.0.0',
+    'version': '12.0.1.1.0',
     'author': 'Tecnativa, '
               'Odoo Community Association (OCA)',
     'website': 'https://github.com/OCA/event',
@@ -13,6 +13,7 @@
     'data': [
         'views/event_views.xml',
         'views/website_event_templates.xml',
+		'views/website_event_registration_attendee_details_views.xml'
     ],
     'installable': True,
     'license': 'AGPL-3',
