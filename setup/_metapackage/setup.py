@@ -8,6 +8,7 @@ setuptools.setup(
     description="Meta package for oca-event Odoo addons",
     version=version,
     install_requires=[
+        'odoo12-addon-crm_lead_to_event_registration',
         'odoo12-addon-event_contact',
         'odoo12-addon-event_email_reminder',
         'odoo12-addon-event_mail',
