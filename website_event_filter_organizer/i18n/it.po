@@ -21,28 +21,26 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: website_event_filter_organizer
-#: view:website:website_event.index
-msgid ""
-"/event?{{ keep_query('country', 'date', 'organizer', type=type['type'][0]) }}"
-msgstr ""
-"/event?{{ keep_query('country', 'date', 'organizer', type=type['type'][0]) }}"
-
-#. module: website_event_filter_organizer
-#: view:website:website_event.index
-msgid "/event?{{ keep_query('country', 'type', 'organizer', date=date[0]) }}"
-msgstr "/event?{{ keep_query('country', 'type', 'organizer', date=date[0]) }}"
-
-#. module: website_event_filter_organizer
-#: view:website:website_event.index
-msgid ""
-"/event?{{ keep_query('date', 'type', 'organizer', "
-"country=country['country_id'][0]) }}"
-msgstr ""
-"/event?{{ keep_query('date', 'type', 'organizer', "
-"country=country['country_id'][0]) }}"
-
-#. module: website_event_filter_organizer
-#: code:addons/website_event_filter_organizer/controllers/main.py:32
+#: code:addons/website_event_filter_organizer/controllers/main.py:29
 #, python-format
 msgid "All Organizers"
 msgstr "Tutti gli Organizzatori"
+
+#~ msgid ""
+#~ "/event?{{ keep_query('country', 'date', 'organizer', type=type['type']"
+#~ "[0]) }}"
+#~ msgstr ""
+#~ "/event?{{ keep_query('country', 'date', 'organizer', type=type['type']"
+#~ "[0]) }}"
+
+#~ msgid ""
+#~ "/event?{{ keep_query('country', 'type', 'organizer', date=date[0]) }}"
+#~ msgstr ""
+#~ "/event?{{ keep_query('country', 'type', 'organizer', date=date[0]) }}"
+
+#~ msgid ""
+#~ "/event?{{ keep_query('date', 'type', 'organizer', "
+#~ "country=country['country_id'][0]) }}"
+#~ msgstr ""
+#~ "/event?{{ keep_query('date', 'type', 'organizer', "
+#~ "country=country['country_id'][0]) }}"
