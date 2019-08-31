@@ -18,7 +18,7 @@ msgstr ""
 "X-Generator: Weblate 3.4\n"
 
 #. module: website_event_excerpt_img
-#: model:ir.ui.view,arch_db:website_event_excerpt_img.event_item
+#: model_terms:ir.ui.view,arch_db:website_event_excerpt_img.event_item
 msgid "<i>to</i>"
 msgstr "<i>a</i>"
 
@@ -28,7 +28,7 @@ msgid "Event"
 msgstr "Evento"
 
 #. module: website_event_excerpt_img
-#: model:ir.ui.view,arch_db:website_event_excerpt_img.view_event_form
+#: model_terms:ir.ui.view,arch_db:website_event_excerpt_img.view_event_form
 msgid "Featured content"
 msgstr "Contenido destacado"
 
@@ -38,7 +38,7 @@ msgid "Highlighted"
 msgstr "Resaltado"
 
 #. module: website_event_excerpt_img
-#: model:ir.model.fields,help:website_event_excerpt_img.field_event_event_priority
+#: model:ir.model.fields,help:website_event_excerpt_img.field_event_event__priority
 msgid "Importance of the event, as shown in website (if enabled)."
 msgstr ""
 "Importancia del evento, como se muestra en el sitio web (si está habilitado)."
@@ -49,31 +49,31 @@ msgid "Normal"
 msgstr "Normal"
 
 #. module: website_event_excerpt_img
-#: model:ir.ui.view,arch_db:website_event_excerpt_img.event_item
+#: model_terms:ir.ui.view,arch_db:website_event_excerpt_img.event_item
 msgid "Not published"
 msgstr "No publicado"
 
 #. module: website_event_excerpt_img
-#: model:ir.ui.view,arch_db:website_event_excerpt_img.event_item
+#: model_terms:ir.ui.view,arch_db:website_event_excerpt_img.event_item
 msgid "Online"
 msgstr "Online"
 
 #. module: website_event_excerpt_img
-#: model:ir.ui.view,arch_db:website_event_excerpt_img.event_item
+#: model_terms:ir.ui.view,arch_db:website_event_excerpt_img.event_item
 msgid "Organized by:"
 msgstr "Organizado por:"
 
 #. module: website_event_excerpt_img
-#: model:ir.model.fields,field_description:website_event_excerpt_img.field_event_event_priority
+#: model:ir.model.fields,field_description:website_event_excerpt_img.field_event_event__priority
 msgid "Priority"
 msgstr "Prioridad"
 
 #. module: website_event_excerpt_img
-#: model:ir.ui.view,arch_db:website_event_excerpt_img.description
+#: model_terms:ir.ui.view,arch_db:website_event_excerpt_img.description
 msgid "Read more"
 msgstr "Leer más"
 
 #. module: website_event_excerpt_img
-#: model:ir.ui.view,arch_db:website_event_excerpt_img.view_event_form
+#: model_terms:ir.ui.view,arch_db:website_event_excerpt_img.view_event_form
 msgid "Short description of about 155 characters..."
 msgstr "Descripción corta de unos 155 caracteres..."
