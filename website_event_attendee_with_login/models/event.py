@@ -9,5 +9,6 @@ class EventEvent(models.Model):
     website_attendee_require_login = fields.Boolean(
         string='Require attendee login for tickets',
         help='If set, an attendee must have their own account '
-             'to register for an event. All tickets limited to their logged-in name/email.',
+             'to register for an event. All tickets limited to '
+             'their logged-in name/email.',
     )
