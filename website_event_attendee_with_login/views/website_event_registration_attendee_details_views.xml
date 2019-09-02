@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <odoo>
 
-    <record id="registration_attendee_details_loginonly" model="ir.ui.view">
+    <record id="registration_attendee_details_attendeeloggedin" model="ir.ui.view">
+        <field name="name">registration.attendee.details.attendeeloggedin</field>
         <field name="inherit_id" ref="website_event.registration_attendee_details"/>
         <field name="priority">99</field>
         <field name="arch" type="xml">

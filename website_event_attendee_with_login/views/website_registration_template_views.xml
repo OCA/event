@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <odoo>
 
-  <record id="registration_template_loginonly" model="ir.ui.view">
+  <record id="registration_template_attendeeloggedin" model="ir.ui.view">
+    <field name="name">registration.template.attendeeloggedin</field>
     <field name="inherit_id" ref="website_event.registration_template"/>
     <field name="priority">99</field>
     <field name="arch" type="xml">
@@ -22,7 +23,7 @@
           </t>
         </select>        
       </xpath>
-      <xpath expr="//div[@class='card-footer']/div[1]" position="replace">
+      <xpath expr="//div[hasclass('card-footer')]/div[1]" position="replace">
         <div class="row">
           <span t-if="(event.website_attendee_require_login and event.is_participating)==true" class="alert alert-warning">You already registered for a ticket on this account - Contact us if you wish to cancel</span>
           <div t-else="" class="col-lg-4 offset-lg-8 col-xl-3 offset-xl-9">
