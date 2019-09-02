@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <odoo>
 
-    <record id="registration_attendee_details" model="ir.ui.view">
+    <record id="registration_attendee_details_loginonly" model="ir.ui.view">
         <field name="inherit_id" ref="website_event.registration_attendee_details"/>
         <field name="priority">99</field>
         <field name="arch" type="xml">
@@ -21,7 +21,7 @@
                 <div class="col-lg-5">
                   <strong>Email</strong>
                 </div>
-                <div class="col-lg-3" t-if="event.website_attendee_require_login == 'false'">
+                <div class="col-lg-3" t-if="event.website_attendee_require_login == false">
                   <strong>Phone</strong>
                   <span class="text-muted">(Optional)</span>
                 </div>

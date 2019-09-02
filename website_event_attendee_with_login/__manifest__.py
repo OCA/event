@@ -12,7 +12,8 @@
     ],
     'data': [
         'views/event_views.xml',
-        'views/website_event_registration_attendee_details_views.xml'
+        'views/website_event_registration_attendee_details_views.xml',
+        'views/website_registration_template_views.xml'
     ],
     'installable': True,
     'license': 'AGPL-3',
