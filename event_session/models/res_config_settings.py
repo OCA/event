@@ -13,7 +13,8 @@ class ResConfigSettings(models.TransientModel):
     )
 
     @api.multi
-    def set_default_event_mail_template_id(self):
+    def set_values(self):
+        super().set_values()
         self.env['ir.default'].set(
             'res.config.settings', 'event_mail_template_id',
             self.event_mail_template_id.id
