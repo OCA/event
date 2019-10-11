@@ -11,6 +11,7 @@ current functionality in Odoo:
 * Link with projects and plan them
 * Add images to events
 * Allow nested events
+* Allows multiple events to plan.
 * ...
 
 
