@@ -28,7 +28,9 @@ msgid "Attendee"
 msgstr "Asistente"
 
 #. module: partner_event
+#: code:addons/partner_event/models/event_registration.py:66
 #: model:ir.model.fields,field_description:partner_event.field_event_registration_attendee_partner_id
+#, python-format
 msgid "Attendee Partner"
 msgstr "Empresa asistente"
 
