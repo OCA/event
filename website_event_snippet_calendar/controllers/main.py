@@ -8,7 +8,7 @@ from openerp.http import Controller, request, route
 
 class EventCalendar(Controller):
     @route("/website_event_snippet_calendar/days_with_events",
-           auth="public", type="json")
+           auth="public", type="json", website=True)
     def days_with_events(self, start, end):
         """Let visitors know when are there going to be any events.
 
@@ -36,7 +36,7 @@ class EventCalendar(Controller):
         return [Date.to_string(day) for day in days]
 
     @route("/website_event_snippet_calendar/events_for_day",
-           auth="public", type="json")
+           auth="public", type="json", website=True)
     def events_for_day(self, day=None, limit=None):
         """List events for a given day.
 
