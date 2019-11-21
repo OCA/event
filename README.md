@@ -32,7 +32,7 @@ addon | version | summary
 [website_event_questions_template](website_event_questions_template/) | 10.0.1.0.0 | Set question templates for events
 [website_event_require_login](website_event_require_login/) | 10.0.1.0.0 | Website Event Require Login
 [website_event_share](website_event_share/) | 10.0.1.0.0 | Share your events via social media
-[website_event_snippet_calendar](website_event_snippet_calendar/) | 10.0.1.0.1 | Browsable calendar with events list for your website
+[website_event_snippet_calendar](website_event_snippet_calendar/) | 10.0.1.0.2 | Browsable calendar with events list for your website
 [website_event_type_description](website_event_type_description/) | 10.0.1.1.0 | Display a specific description for each event type
 
 [//]: # (end addons)
