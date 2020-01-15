@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 Tecnativa - Jairo Llopis
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+<record id="view_event_type_form" model="ir.ui.view">
+    <field name="name">Add description</field>
+    <field name="model">event.type</field>
+    <field name="inherit_id" ref="event.view_event_type_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//div[@name='event_type_attendees']" position="after">
+            <h2>Description</h2>
+            <div class="row mt16" name="event_type_description">
+                <div class="col-12">
+                    <field name="description"/>
+                </div>
+            </div>
+        </xpath>
+    </field>
+</record>
+
+</odoo>

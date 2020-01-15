@@ -1,0 +1,73 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_project
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-05-09 11:24+0000\n"
+"PO-Revision-Date: 2015-10-12 06:20+0200\n"
+"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
+"Language-Team: \n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 1.8.5\n"
+
+#. module: event_project
+#: model:ir.model,name:event_project.model_event_event
+#: model_terms:ir.ui.view,arch_db:event_project.view_task_search_form
+msgid "Event"
+msgstr "Dogodek"
+
+#. module: event_project
+#: model:ir.model,name:event_project.model_project_project
+msgid "Project"
+msgstr ""
+
+#. module: event_project
+#: model:ir.model.fields,help:event_project.field_event_event__project_id
+msgid "Project end date will be updated with event start date."
+msgstr ""
+
+#. module: event_project
+#: model:ir.model.fields,field_description:event_project.field_project_project__event_id
+#: model:ir.model.fields,field_description:event_project.field_project_task__event_id
+#, fuzzy
+msgid "Related event"
+msgstr "Povezani projekt"
+
+#. module: event_project
+#: model:ir.model.fields,field_description:event_project.field_event_event__project_id
+msgid "Related project"
+msgstr "Povezani projekt"
+
+#. module: event_project
+#: model:ir.model,name:event_project.model_project_task
+msgid "Task"
+msgstr "Opravilo"
+
+#. module: event_project
+#: model:ir.model.fields,field_description:event_project.field_event_event__count_tasks
+msgid "Task number"
+msgstr ""
+
+#. module: event_project
+#: model:ir.actions.act_window,name:event_project.act_event_task_list
+#: model:ir.model.fields,field_description:event_project.field_event_event__task_ids
+#: model_terms:ir.ui.view,arch_db:event_project.view_event_form
+#, fuzzy
+msgid "Tasks"
+msgstr "Opravilo"
+
+#~ msgid "Event anticipation days"
+#~ msgstr "Dni pred dogodkom"
+
+#~ msgid "Previous day to event date begin"
+#~ msgstr "Dni pred začetkom dogodka"
+
+#~ msgid "Template project"
+#~ msgstr "Predloga projekta"

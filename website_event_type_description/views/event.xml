@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 Tecnativa - Jairo Llopis
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+    <template id="index_sidebar_description"
+              inherit_id="website_event.index_sidebar" active="True"
+              customize_show="True" name="Description" priority="19">
+        <xpath expr="//div[@id='o_wevent_index_sidebar']" position="inside">
+            <t t-if="current_type">
+                <div class="o_wevent_sidebar_block">
+                    <h6 class="o_wevent_sidebar_title">Description</h6>
+                    <div t-field="current_type.description"/>
+                </div>
+            </t>
+        </xpath>
+    </template>
+</odoo>
