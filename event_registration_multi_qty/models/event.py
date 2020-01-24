@@ -1,9 +1,12 @@
 # Copyright 2017 Tecnativa - Sergio Teruel
 # Copyright 2017 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+import logging
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
+
+_logger = logging.getLogger(__name__)
 
 
 class EventEvent(models.Model):
@@ -42,7 +45,8 @@ class EventEvent(models.Model):
             vals['seats_expected'] = (
                 vals['seats_unconfirmed'] + vals['seats_reserved'] +
                 vals['seats_used'])
-            event.update(vals)
+            event.write(vals)
+            _logger.info(vals)
         rest = self - multi_qty_events
         super(EventEvent, rest)._compute_seats()
 
