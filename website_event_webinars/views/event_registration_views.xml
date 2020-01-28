@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="view_event_registration_form" model="ir.ui.view">
+        <field name="model">event.registration</field>
+        <field name="inherit_id" ref="event.view_event_registration_form"/>
+        <field name="arch" type="xml">
+            <field name="date_closed" position="after">
+                <field name="webinar_id" widget="url"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<odoo>
+	<data noupdate="0">
+		<record id="event_type_webinar" model="event.type">
+			<field name="name">Webinar</field>
+			<field name="auto_confirm" eval="True"/>
+			<field name="is_online" eval="True"/>
+			<field name="use_mail_schedule" eval="False"/>
+		</record>
+	</data>
+</odoo>
