@@ -2,6 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from odoo import fields, models
 
+
 class EventEvent(models.Model):
     _inherit = 'event.event'
 
@@ -14,5 +15,5 @@ class EventEvent(models.Model):
 
     webinar_id = fields.Char(
         string='Webinar ID/URL',
-        help='Assign ID or URL provided by webinar software which can be used to integrate.'
+        help='Assign ID or URL of webinar.'
         )

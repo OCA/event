@@ -2,16 +2,8 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     'name': 'Website Event Webinars',
-    
-    'summary': """Add webinar functionality to events module""",
 
-    'description': """
-        Adds webinar functionality to events with:
-            -New field on events and event registrations titled 'Webinar ID/URL' [webinar_id]
-             Ability to store the ID/URL of a webinar and can be used to integrate i.e link to Zapier for Zoom integration
-            -New field on event titled 'Restrict ticket to logged-in user' [website_attendee_require_login]
-             Forces event to only allow ticket under logged-in email / name
-    """,
+    'summary': """Add webinar functionality to events module""",
 
     'version': '12.0.1.0.0',
     'author': 'Chris Mann, '
