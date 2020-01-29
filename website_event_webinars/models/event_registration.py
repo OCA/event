@@ -4,9 +4,9 @@ from odoo import fields, models
 
 
 class EventRegistration(models.Model):
-    _inherit='event.registration'
+    _inherit = 'event.registration'
 
-    webinar_id=fields.Char(
+    webinar_id = fields.Char(
         string='Webinar ID/URL',
         related='event_id.webinar_id',
         store=False,
