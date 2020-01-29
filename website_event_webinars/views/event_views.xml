@@ -8,7 +8,7 @@
                 <field name="website_attendee_require_login"/>
             </field>
             <field name="website_attendee_require_login" position="after">
-                <field name="webinar_id" widget="url"/>
+                <field name="webinar_id" widget="url" attrs="{'invisible': [('is_online', '=', False)]}"/>
             </field>
         </field>
     </record>
