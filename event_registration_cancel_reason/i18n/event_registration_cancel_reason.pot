@@ -64,7 +64,7 @@ msgstr ""
 
 #. module: event_registration_cancel_reason
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_log_reason_id
-#: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_reason_id_5547
+#: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_reason_id_5658
 msgid "ID"
 msgstr ""
 
