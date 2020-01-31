@@ -244,7 +244,7 @@ msgid "Hours"
 msgstr ""
 
 #. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_mail_template_id_5603
+#: model:ir.model.fields,field_description:event_session.field_event_mail_template_id_5714
 #: model:ir.model.fields,field_description:event_session.field_event_session_id
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session_hours_id
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session_id
