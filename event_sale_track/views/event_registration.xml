@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<odoo>
+
+  <record id="view_event_registration_form_event_sale_track" model="ir.ui.view">
+    <field name="name">event.registration.form.event_track_ticket</field>
+    <field name="model">event.registration</field>
+    <field name="inherit_id" ref="event.view_event_registration_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='date_closed']" position="after">
+        <label for="ticket_ids" string="Tickets"/>
+        <field name="ticket_ids" nolabel="1" colspan="2" domain="[('event_id', '=', event_id)]">
+          <tree name="tickets">
+            <field name="track_id"/>
+            <field name="name"/>
+          </tree>
+        </field>
+        <field name="track_ids" invisible="1" />
+      </xpath>
+      <xpath expr="//field[@name='event_ticket_id']" position="attributes">
+        <attribute name="invisible">1</attribute>
+      </xpath>
+    </field>
+  </record>
+
+</odoo>

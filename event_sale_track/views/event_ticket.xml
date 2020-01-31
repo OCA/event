@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="event_ticket_form_view" model="ir.ui.view">
+    <field name="name">event.event.ticket.form</field>
+    <field name="model">event.event.ticket</field>
+    <field name="inherit_id" ref="event_sale.event_ticket_form_view" />
+    <field name="arch" type="xml">
+      <field name="event_id" position="replace">
+        <field name="track_id" />
+      </field>
+    </field>
+  </record>
+</odoo>
