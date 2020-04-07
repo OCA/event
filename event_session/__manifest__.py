@@ -3,7 +3,7 @@
 
 {
     'name': 'Event Sessions',
-    'version': '12.0.1.0.1',
+    'version': '12.0.1.0.3',
     'author': 'Tecnativa, '
               'Odoo Community Association (OCA)',
     "license": "AGPL-3",

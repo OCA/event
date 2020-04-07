@@ -2,10 +2,17 @@
 # Copyright 2017 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl-3.0).
 from dateutil.relativedelta import relativedelta
+from datetime import datetime
 
 from odoo import _
 from odoo.tests import common
 from odoo.exceptions import ValidationError
+from odoo.addons.event_session.models.event_session import (
+    get_locale,
+    localized_format,
+    time_format,
+    datetime_format
+)
 
 
 class EventSession(common.SavepointCase):
@@ -66,6 +73,15 @@ class EventSession(common.SavepointCase):
             'scheduler_id': cls.scheduler.id,
             'registration_id': cls.attendee.id,
         })
+
+        # Enable all languages used in the tests without loading them
+        languages = cls.env['res.lang'].search([
+            ['code', 'in', ['en_US', 'fr_FR', 'fr_CA', 'en_CA', 'ru_RU']],
+            '|',
+            ['active', '=', True],
+            ['active', '=', False]
+        ])
+        languages.write({'active': True})
 
     def test_session_name_get(self):
         self.assertEqual(
@@ -145,7 +161,7 @@ class EventSession(common.SavepointCase):
             'date_end': '2017-05-28 23:00:00',
         }
         session = self.env['event.session'].new(vals)
-        self.assertEqual(session.name, 'Sunday 28/05/17 22:00 - 23:00')
+        self.assertEqual(session.name, 'Sunday 5/28/17, 10:00 PM - 11:00 PM')
         session.date_begin = session.date_end = False
         self.assertEqual(session.name, '/')
 
@@ -228,3 +244,178 @@ class EventSession(common.SavepointCase):
         date = (self.mail_registration.registration_id.date_open +
                 relativedelta(days=+1))
         self.assertEqual(self.mail_registration.scheduled_date, date)
+
+    def test_get_locale(self):
+        """
+        Check if the locale correctly return from the locale set
+        in the context of the environment.
+        """
+        session = self.env['event.session']
+        # Check a locale that can't be the default one
+        locale = get_locale(session.with_context(lang='fr_CA').env)
+        self.assertEqual(locale.language, 'fr')
+        self.assertEqual(locale.territory, 'CA')
+        # Check locale change to en_US
+        locale = get_locale(session.with_context(lang='en_US').env)
+        self.assertEqual(locale.language, 'en')
+        self.assertEqual(locale.territory, 'US')
+        # Check locale change to Russian
+        locale = get_locale(session.with_context(lang='ru_RU').env)
+        self.assertEqual(locale.language, 'ru')
+        self.assertEqual(locale.territory, 'RU')
+        # Check default locale when lang is None should be en_US
+        locale = get_locale(session.with_context(lang=None).env)
+        self.assertEqual(locale.language, 'en')
+        self.assertEqual(locale.territory, 'US')
+
+    def test_time_format(self):
+        session = self.env['event.session']
+        datetime_val = datetime(2020, 1, 1, 15, 30)
+        short_time = time_format("short")
+        # Create some locales
+        locale_us = get_locale(session.with_context(lang='en_US').env)
+        locale_ru = get_locale(session.with_context(lang='ru_RU').env)
+        locale_enca = get_locale(session.with_context(lang='en_CA').env)
+        locale_frca = get_locale(session.with_context(lang='fr_CA').env)
+        locale_frfr = get_locale(session.with_context(lang='fr_FR').env)
+        # Check that result of short time is indeed the one of the locale
+        # being passed explicitly as string or as Locale from get_locale
+        # Check US format
+        short_time_us = short_time(datetime_val, locale_us)
+        short_time_us2 = short_time(datetime_val, 'en_US')
+        self.assertEqual(short_time_us, '3:30 PM')
+        self.assertEqual(short_time_us, short_time_us2)
+        # Check en_CA format
+        short_time_enca = short_time(datetime_val, locale_enca)
+        short_time_enca2 = short_time(datetime_val, 'en_CA')
+        self.assertEqual(short_time_enca, '3:30 PM')
+        self.assertEqual(short_time_enca, short_time_enca2)
+        # Check fr_CA format
+        short_time_frca = short_time(datetime_val, locale_frca)
+        short_time_frca2 = short_time(datetime_val, 'fr_CA')
+        self.assertEqual(short_time_frca, '15:30')
+        self.assertEqual(short_time_frca, short_time_frca2)
+        # Check fr_FR  format
+        short_time_frfr = short_time(datetime_val, locale_frfr)
+        short_time_frfr2 = short_time(datetime_val, 'fr_FR')
+        self.assertEqual(short_time_frfr, '15:30')
+        self.assertEqual(short_time_frfr, short_time_frfr2)
+        # Check ru_RU format
+        short_time_ru = short_time(datetime_val, locale_ru)
+        short_time_ru2 = short_time(datetime_val, 'ru_RU')
+        self.assertEqual(short_time_ru, '15:30')
+        self.assertEqual(short_time_ru, short_time_ru2)
+
+    def test_datetime_format(self):
+        """
+        Check the datetime_format method works with different locales
+        """
+        session = self.env['event.session']
+        datetime_val = datetime(2020, 1, 31, 15, 30)
+        short_time = datetime_format("short")
+        weekday_time = datetime_format("EEEE")
+        # Create some locales
+        locale_us = get_locale(session.with_context(lang='en_US').env)
+        locale_ru = get_locale(session.with_context(lang='ru_RU').env)
+        locale_enca = get_locale(session.with_context(lang='en_CA').env)
+        locale_frca = get_locale(session.with_context(lang='fr_CA').env)
+        locale_frfr = get_locale(session.with_context(lang='fr_FR').env)
+        # Check that result of short time is indeed the one of the locale
+        # being passed explicitly as string or as Locale from get_locale
+        # Check US format
+        short_time_us = short_time(datetime_val, locale_us)
+        short_time_us2 = short_time(datetime_val, 'en_US')
+        self.assertEqual(short_time_us, '1/31/20, 3:30 PM')
+        self.assertEqual(short_time_us, short_time_us2)
+        # Check en_CA format
+        short_time_enca = short_time(datetime_val, locale_enca)
+        short_time_enca2 = short_time(datetime_val, 'en_CA')
+        self.assertEqual(short_time_enca, '2020-01-31, 3:30 PM')
+        self.assertEqual(short_time_enca, short_time_enca2)
+        # Check fr_CA format
+        short_time_frca = short_time(datetime_val, locale_frca)
+        short_time_frca2 = short_time(datetime_val, 'fr_CA')
+        self.assertEqual(short_time_frca, '20-01-31 15:30')
+        self.assertEqual(short_time_frca, short_time_frca2)
+        # Check fr_FR  format
+        short_time_frfr = short_time(datetime_val, locale_frfr)
+        short_time_frfr2 = short_time(datetime_val, 'fr_FR')
+        self.assertEqual(short_time_frfr, '31/01/2020 15:30')
+        self.assertEqual(short_time_frfr, short_time_frfr2)
+        # Check ru_RU format
+        short_time_ru = short_time(datetime_val, locale_ru)
+        short_time_ru2 = short_time(datetime_val, 'ru_RU')
+        self.assertEqual(short_time_ru, '31.01.20, 15:30')
+        self.assertEqual(short_time_ru, short_time_ru2)
+
+        # Check week days formatted
+        weekday_us = weekday_time(datetime_val, locale_us)
+        weekday_us2 = weekday_time(datetime_val, 'en_US')
+        self.assertEqual(weekday_us, 'Friday')
+        self.assertEqual(weekday_us, weekday_us2)
+        # Check en_CA format
+        weekday_enca = weekday_time(datetime_val, locale_enca)
+        weekday_enca2 = weekday_time(datetime_val, 'en_CA')
+        self.assertEqual(weekday_enca, 'Friday')
+        self.assertEqual(weekday_enca, weekday_enca2)
+        # Check fr_CA format
+        weekday_frca = weekday_time(datetime_val, locale_frca)
+        weekday_frca2 = weekday_time(datetime_val, 'fr_CA')
+        self.assertEqual(weekday_frca, 'vendredi')
+        self.assertEqual(weekday_frca, weekday_frca2)
+        # Check fr_FR  format
+        weekday_frfr = weekday_time(datetime_val, locale_frfr)
+        weekday_frfr2 = weekday_time(datetime_val, 'fr_FR')
+        self.assertEqual(weekday_frfr, 'vendredi')
+        self.assertEqual(weekday_frfr, weekday_frfr2)
+        # Check ru_RU
+        weekday_ru = weekday_time(datetime_val, locale_ru)
+        weekday_ru2 = weekday_time(datetime_val, 'ru_RU')
+        self.assertEqual(weekday_ru, 'пятница')
+        self.assertEqual(weekday_ru, weekday_ru2)
+
+    def test_check_localized_format(self):
+        """
+        Check that localized_format can format multiple
+        time format in one string seperated by spaces according
+        to the context language.
+        """
+        session = self.env['event.session']
+
+        datetime_val = datetime(2020, 1, 31, 15, 30)
+        # Create some locales
+        locale_us = get_locale(session.with_context(lang='en_US').env)
+        locale_ru = get_locale(session.with_context(lang='ru_RU').env)
+        locale_enca = get_locale(session.with_context(lang='en_CA').env)
+        locale_frca = get_locale(session.with_context(lang='fr_CA').env)
+        locale_frfr = get_locale(session.with_context(lang='fr_FR').env)
+
+        # Create a list of formats to test which result in a string with
+        # the formated text separated by a space
+        # "formated1 formated2 formated3"
+        formats = [
+            datetime_format('EEEE'),
+            datetime_format('short'),
+            time_format('short')
+        ]
+
+        self.assertEqual(
+            localized_format(datetime_val, formats, locale_us),
+            'Friday 1/31/20, 3:30 PM 3:30 PM'
+        )
+        self.assertEqual(
+            localized_format(datetime_val, formats, locale_enca),
+            'Friday 2020-01-31, 3:30 PM 3:30 PM'
+        )
+        self.assertEqual(
+            localized_format(datetime_val, formats, locale_frca),
+            'vendredi 20-01-31 15:30 15:30',
+        )
+        self.assertEqual(
+            localized_format(datetime_val, formats, locale_frfr),
+            'vendredi 31/01/2020 15:30 15:30',
+        )
+        self.assertEqual(
+            localized_format(datetime_val, formats, locale_ru),
+            'пятница 31.01.20, 15:30 15:30'
+        )

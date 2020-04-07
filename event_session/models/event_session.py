@@ -4,7 +4,51 @@
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
-from locale import setlocale, LC_ALL
+import babel
+from babel.dates import format_datetime, format_time
+
+
+def get_locale(env):
+    """
+    Get the locale from the environment as done in ir.qweb.field
+
+    https://github.com/odoo/odoo/blob/12.0/odoo/addons/base/models/ir_qweb_fields.py#L235
+    """
+    lang = env['ir.qweb.field'].user_lang()
+    locale = babel.Locale.parse(lang.code)
+    return locale
+
+
+def localized_format(value, formats, locale):
+    """
+    Return a string separated by spaces of the formatted
+    value based on the locale passed as argument.
+    """
+    values = [
+        dt_format(value, locale)
+        for dt_format in formats
+    ]
+    return " ".join(values)
+
+
+def time_format(dt_format):
+    """
+    Returns a callable that will format a datetime with a locale
+    using the format_time method of babel.
+    """
+    def wrap(value, locale):
+        return format_time(value, dt_format, locale=locale)
+    return wrap
+
+
+def datetime_format(dt_format):
+    """
+    Returns a callable that will format a datetime with a locale
+    using the format_datetime method of babel.
+    """
+    def wrap(value, locale):
+        return format_datetime(value, dt_format, locale=locale)
+    return wrap
 
 
 class EventSession(models.Model):
@@ -98,20 +142,35 @@ class EventSession(models.Model):
     @api.multi
     @api.depends('date_begin', 'date_end')
     def _compute_name(self):
-        setlocale(LC_ALL, locale=(self.env.lang, 'UTF-8'))
+        locale = get_locale(self.env)
         for session in self:
             if not (session.date_begin and session.date_end):
                 session.name = '/'
                 continue
             date_begin = fields.Datetime.from_string(
-                session.date_begin_located)
-            date_end = fields.Datetime.from_string(session.date_end_located)
-            dt_format = '%A %d/%m/%y %H:%M'
-            name = date_begin.strftime(dt_format)
+                session.date_begin_located
+            )
+            date_end = fields.Datetime.from_string(
+                session.date_end_located
+            )
+
+            dt_formats = [
+                datetime_format("EEEE"),
+                datetime_format("short")
+            ]
+
+            name = localized_format(date_begin, dt_formats, locale)
+
             if date_begin.date() == date_end.date():
-                dt_format = '%H:%M'
-            name += " - " + date_end.strftime(dt_format)
-            session.name = name.capitalize()
+                dt_formats = [
+                    time_format("short")
+                ]
+
+            name = "%s - %s" % (
+                name,
+                localized_format(date_end, dt_formats, locale)
+            )
+            session.name = name
 
     def _session_mails_from_template(self, event_id, mail_template=None):
         vals = [(6, 0, [])]
