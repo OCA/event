@@ -17,6 +17,18 @@ class TemplateEventQuestion(models.Model):
     )
 
 
+class EventQuestion(models.Model):
+    _inherit = 'event.question'
+    _description = 'Questions for event template'
+
+    template_id = fields.Many2one(
+        comodel_name='event.question.template',
+        string='Event Question Template',
+        required=True,
+        ondelete='cascade',
+    )
+
+
 class EventQuestionTemplateQuestion(models.Model):
     _inherit = 'event.question'
     _name = 'event.question.template.question'
