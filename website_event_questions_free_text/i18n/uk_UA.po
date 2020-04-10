@@ -1,0 +1,101 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_event_questions_free_text
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-09 10:10+0000\n"
+"PO-Revision-Date: 2020-04-09 10:10+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_event_questions_free_text
+#: model:ir.model.fields,help:website_event_questions_free_text.field_event_question__free_text
+msgid "Allow user to introduce a free text as answer."
+msgstr ""
+
+#. module: website_event_questions_free_text
+#: model:ir.model.fields,field_description:website_event_questions_free_text.field_event_answer_free__answer
+msgid "Answer"
+msgstr "Відповідь"
+
+#. module: website_event_questions_free_text
+#: model:ir.model.fields,field_description:website_event_questions_free_text.field_event_answer_free__create_uid
+msgid "Created by"
+msgstr "Створив"
+
+#. module: website_event_questions_free_text
+#: model:ir.model.fields,field_description:website_event_questions_free_text.field_event_answer_free__create_date
+msgid "Created on"
+msgstr "Створено на"
+
+#. module: website_event_questions_free_text
+#: model:ir.model.fields,field_description:website_event_questions_free_text.field_event_answer_free__display_name
+msgid "Display Name"
+msgstr "Назва для відображення"
+
+#. module: website_event_questions_free_text
+#: model:ir.model,name:website_event_questions_free_text.model_event_answer_free
+msgid "Event Answer Free Text"
+msgstr ""
+
+#. module: website_event_questions_free_text
+#: model:ir.model,name:website_event_questions_free_text.model_event_registration
+msgid "Event Registration"
+msgstr "Реєстрація події"
+
+#. module: website_event_questions_free_text
+#: model:ir.model.fields,field_description:website_event_questions_free_text.field_event_registration__free_answer_ids
+msgid "Free Answers"
+msgstr ""
+
+#. module: website_event_questions_free_text
+#: model:ir.model.fields,field_description:website_event_questions_free_text.field_event_question__free_text
+msgid "Free Text"
+msgstr ""
+
+#. module: website_event_questions_free_text
+#: model:ir.model.fields,field_description:website_event_questions_free_text.field_event_answer_free__id
+msgid "ID"
+msgstr ""
+
+#. module: website_event_questions_free_text
+#: model:ir.model.fields,field_description:website_event_questions_free_text.field_event_answer_free____last_update
+msgid "Last Modified on"
+msgstr "Останні зміни на"
+
+#. module: website_event_questions_free_text
+#: model:ir.model.fields,field_description:website_event_questions_free_text.field_event_answer_free__write_uid
+msgid "Last Updated by"
+msgstr "Востаннє оновив"
+
+#. module: website_event_questions_free_text
+#: model:ir.model.fields,field_description:website_event_questions_free_text.field_event_answer_free__write_date
+msgid "Last Updated on"
+msgstr "Останнє оновлення"
+
+#. module: website_event_questions_free_text
+#: model:ir.model.fields,field_description:website_event_questions_free_text.field_event_answer_free__question_id
+msgid "Question"
+msgstr "Запитання"
+
+#. module: website_event_questions_free_text
+#: model:ir.model,name:website_event_questions_free_text.model_event_question
+msgid "Questions for event template"
+msgstr ""
+
+#. module: website_event_questions_free_text
+#: model:ir.model.fields,field_description:website_event_questions_free_text.field_event_answer_free__registration_id
+msgid "Registration"
+msgstr "Реєстрація"
+
+#. module: website_event_questions_free_text
+#: model:ir.model.constraint,message:website_event_questions_free_text.constraint_event_answer_free_unique_registration_question
+msgid "You can't answer the same question 2 times"
+msgstr ""
