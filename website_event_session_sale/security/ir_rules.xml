@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<odoo>
+
+  <record id="public_access_sessions" model="ir.rule">
+    <field name="name">Public Access Event Session</field>
+    <field name="model_id" ref="event_session.model_event_session" />
+    <field name="domain_force">[["date_begin", ">", time.strftime('%Y-%m-%d %H:%M:%S')]]</field>
+    <field name="groups" eval="[(4, ref('base.group_public'))]" />
+    <field name="perm_read" eval="True" />
+  </record>
+
+</odoo>

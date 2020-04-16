@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <template
+    id="registration_attendee_details"
+    inherit_id="website_event.registration_attendee_details"
+    priority="10"
+    >
+    <xpath expr="//*[hasclass('modal-body')]/div/t[last()]" position="after">
+      <t t-if="event.session_ids">
+        <h4 class="o_page_header mt8"><strong>Session</strong></h4>
+        <div>
+          <div class="col-lg-6">
+            <select t-attf-name="#{counter}-session_id" required="true">
+              <option
+                hidden="hidden"
+                disabled="disabled"
+                selected="selected"
+                value=""
+              > -- Select a session -- </option>
+              <t t-foreach='event.session_ids' t-as="session">
+                <option t-att-value="session.id">
+                  <span t-field="session.date_begin" t-options="{'format': 'EEEE YYYY/MM/dd HH:mm'}"></span> -
+                  <span t-field="session.date_end" t-options="{'format': 'HH:mm'}"></span>
+                </option>
+              </t>
+            </select>
+          </div>
+        </div>
+      </t>
+    </xpath>
+  </template>
+
+  <template
+    id="registration_complete"
+    inherit_id="website_event.registration_complete"
+    >
+    <xpath expr="//thead/tr/th[3]" position="after">
+      <th>Session</th>
+    </xpath>
+    <xpath expr="//tbody/t/tr/td[3]" position="after">
+      <td><t t-esc="attendee.session_id.name"/></td>
+    </xpath>
+  </template>
+
+</odoo>

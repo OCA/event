@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<odoo>
+
+  <record id="public_access_sessions" model="ir.model.access">
+    <field name="name">Public Access Event Session</field>
+    <field name="model_id" ref="event_session.model_event_session" />
+    <field name="group_id" ref="base.group_public" />
+    <field name="perm_read" eval="True" />
+  </record>
+
+</odoo>
