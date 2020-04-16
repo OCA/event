@@ -172,7 +172,7 @@ msgid "End Time"
 msgstr "Eindtijd"
 
 #. module: event_session
-#: code:addons/event_session/models/event_session.py:264
+#: code:addons/event_session/models/event_session.py:323
 #, python-format
 msgid "Ending and starting time can't be the same!"
 msgstr "Eind- en begintijd kunnen niet hetzelfde zijn!"
@@ -328,7 +328,7 @@ msgid "Mondays"
 msgstr "Maandag"
 
 #. module: event_session
-#: code:addons/event_session/models/event_session.py:244
+#: code:addons/event_session/models/event_session.py:303
 #, python-format
 msgid "No more available seats for this session."
 msgstr "Geen plaatsen meer beschikbaar voor deze sessie."
@@ -405,7 +405,7 @@ msgid "Session date end"
 msgstr "Sessie einddatum"
 
 #. module: event_session
-#: code:addons/event_session/models/event_session.py:255
+#: code:addons/event_session/models/event_session.py:314
 #, python-format
 msgid "Session date is out of this event dates range"
 msgstr "Sessiedatum is niet in hetzelfde bereik als de evenementdatum"
@@ -580,7 +580,7 @@ msgid "Wizard for ease sessions creation"
 msgstr "Wizard evenementensessie id"
 
 #. module: event_session
-#: code:addons/event_session/models/event_session.py:165
+#: code:addons/event_session/models/event_session.py:224
 #, python-format
 msgid ""
 "You are trying to delete one or more                 sessions with active "
@@ -588,7 +588,7 @@ msgid ""
 msgstr ""
 
 #. module: event_session
-#: code:addons/event_session/tests/test_session.py:163
+#: code:addons/event_session/tests/test_session.py:179
 #, python-format
 msgid ""
 "You are trying to delete one or more             sessions with active "
