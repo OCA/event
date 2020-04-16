@@ -99,3 +99,17 @@ class SaleOrderLine(models.Model):
         if self.event_ticket_id and self.session_id:
             name += '\n' + self.session_id.display_name
         return name
+
+    @api.multi
+    def _update_registrations(self, confirm=True, cancel_to_draft=False, registration_data=None):
+        super(SaleOrderLine, self)._update_registrations(
+            confirm=confirm,
+            cancel_to_draft=cancel_to_draft,
+            registration_data=registration_data
+        )
+
+        Registration = self.env['event.registration'].sudo()
+        registrations = Registration.search([('sale_order_line_id', 'in', self.ids)])
+
+        for registration in registrations.filtered('session_id'):
+            registration.sale_order_line_id.session_id = registration.session_id.id

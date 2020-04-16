@@ -8,8 +8,8 @@ class EventRegistration(models.Model):
 
     @api.model
     def _prepare_attendee_values(self, registration):
-        data = super(EventRegistration, self)._prepare_attendee_values(
-            registration)
-        session_id = registration['sale_order_line_id'].session_id.id
-        data.update({'session_id': session_id})
+        data = super(EventRegistration, self)._prepare_attendee_values(registration)
+        if not data.get('session_id') and 'sale_order_line_id' in registration:
+            session_id = registration['sale_order_line_id'].session_id.id
+            data.update({'session_id': session_id})
         return data
