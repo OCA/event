@@ -173,7 +173,7 @@ msgid "End Time"
 msgstr "Hora de fin"
 
 #. module: event_session
-#: code:addons/event_session/models/event_session.py:264
+#: code:addons/event_session/models/event_session.py:323
 #, python-format
 msgid "Ending and starting time can't be the same!"
 msgstr "La hora de comienzo y de fin no puede ser la misma"
@@ -329,7 +329,7 @@ msgid "Mondays"
 msgstr "Lunes"
 
 #. module: event_session
-#: code:addons/event_session/models/event_session.py:244
+#: code:addons/event_session/models/event_session.py:303
 #, python-format
 msgid "No more available seats for this session."
 msgstr "No hay más plazas disponibles para esta sesión."
@@ -406,7 +406,7 @@ msgid "Session date end"
 msgstr "Fecha de fin de sesión"
 
 #. module: event_session
-#: code:addons/event_session/models/event_session.py:255
+#: code:addons/event_session/models/event_session.py:314
 #, python-format
 msgid "Session date is out of this event dates range"
 msgstr "La fecha de la sesión está fuera del rango de fechas de este evento"
@@ -581,7 +581,7 @@ msgid "Wizard for ease sessions creation"
 msgstr "Wizard event session id"
 
 #. module: event_session
-#: code:addons/event_session/models/event_session.py:165
+#: code:addons/event_session/models/event_session.py:224
 #, python-format
 msgid ""
 "You are trying to delete one or more                 sessions with active "
@@ -589,7 +589,7 @@ msgid ""
 msgstr ""
 
 #. module: event_session
-#: code:addons/event_session/tests/test_session.py:163
+#: code:addons/event_session/tests/test_session.py:179
 #, python-format
 msgid ""
 "You are trying to delete one or more             sessions with active "
