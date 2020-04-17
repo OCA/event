@@ -11,7 +11,7 @@
         <h4 class="o_page_header mt8"><strong>Session</strong></h4>
         <div>
           <div class="col-lg-6">
-            <select t-attf-name="#{counter}-session_id" required="true">
+            <select class="form-control" t-attf-name="#{counter}-session_id" required="true">
               <option
                 hidden="hidden"
                 disabled="disabled"
