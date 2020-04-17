@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from odoo.addons.website_event.controllers.main import WebsiteEventController
 from odoo.exceptions import UserError
 
