@@ -6,9 +6,8 @@ class WebsiteEvent(WebsiteEventController):
 
     def _process_registration_details(self, details):
         ''' Process data posted from the attendee details form. '''
-        registrations = super(WebsiteEvent, self)._process_registration_details(
-            details
-        )
+        super_method = super(WebsiteEvent, self)._process_registration_details
+        registrations = super_method(details)
 
         for registration in registrations:
             session_id = registration.get('session_id')

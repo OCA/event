@@ -18,4 +18,5 @@
         'security/ir_rules.xml',
     ],
     'application': False,
+    'license': 'AGPL-3',
 }
