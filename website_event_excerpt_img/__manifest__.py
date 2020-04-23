@@ -5,7 +5,7 @@
 {
     "name": "Excerpt + Image in Events",
     "summary": "New layout for event summary, including an excerpt and image",
-    "version": "12.0.1.0.0",
+    "version": "12.0.1.1.0",
     "category": "Website",
     "website": "https://github.com/OCA/event",
     "author": "Tecnativa, "
