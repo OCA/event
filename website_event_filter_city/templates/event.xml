@@ -6,7 +6,7 @@
 
 <!-- Reusable callable templates -->
 <template id="element" name="Event Selection Filter Form Element">
-    <div t-att-id="element_id" t-attf-class="col-sm-#{int(12 / selection_filters_amount)}">
+    <div t-att-id="element_id" class="col-sm">
         <div class="form-group">
             <t t-raw="0"/>
         </div>
@@ -139,7 +139,6 @@
         <div id="website_event_filter_selector" class="mt8">
             <t id="custom"/>
             <form class="row" action="/event" method="GET">
-                <t t-set="selection_filters_amount" t-value="1"/>
                 <t id="filter_type"/>
                 <t id="filter_country"/>
                 <t id="filter_city"/>
@@ -154,10 +153,6 @@
           inherit_id="filter_date"
           name="Filter by Category"
           customize_show="True">
-    <xpath expr="//t[@t-set='selection_filters_amount']" position="after">
-        <t t-set="selection_filters_amount"
-           t-value="selection_filters_amount + 1"/>
-    </xpath>
     <xpath expr="//t[@id='filter_type']" position="attributes">
         <attribute name="t-call">website_event_filter_selector.type</attribute>
     </xpath>
@@ -167,10 +162,6 @@
           inherit_id="filter_date"
           name="Filter by Country"
           customize_show="True">
-    <xpath expr="//t[@t-set='selection_filters_amount']" position="after">
-        <t t-set="selection_filters_amount"
-           t-value="selection_filters_amount + 1"/>
-    </xpath>
     <xpath expr="//t[@id='filter_country']" position="attributes">
         <attribute name="t-call">website_event_filter_selector.country</attribute>
     </xpath>
@@ -180,10 +171,6 @@
           inherit_id="filter_date"
           name="Filter by City"
           customize_show="True">
-    <xpath expr="//t[@t-set='selection_filters_amount']" position="after">
-        <t t-set="selection_filters_amount"
-           t-value="selection_filters_amount + 1"/>
-    </xpath>
     <xpath expr="//t[@id='filter_city']" position="attributes">
         <attribute name="t-call">website_event_filter_selector.city</attribute>
     </xpath>
