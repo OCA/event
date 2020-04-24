@@ -4,7 +4,7 @@
 {
     "name": "Website Event Selection Filters",
     "summary": "Add a customizable top area to filter events with selectors",
-    "version": "12.0.1.1.0",
+    "version": "12.0.1.2.0",
     "category": "Website",
     "website": "https://github.com/OCA/event",
     "author": "Antiun Ingeniería S.L., "
