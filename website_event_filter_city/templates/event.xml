@@ -17,7 +17,7 @@
     <t t-call="website_event_filter_selector.element">
         <t t-set="element_id" t-value="filter_selector_date"/>
         <label for="date">When</label>
-        <select name="date" class="form-control">
+        <select name="date" class="custom-select">
             <t t-foreach="dates" t-as="date">
                 <option
                     t-att-value="date[0]"
@@ -33,7 +33,7 @@
     <t t-call="website_event_filter_selector.element">
         <t t-set="element_id" t-value="filter_selector_country"/>
         <label for="country">Country</label>
-        <select name="country" class="form-control">
+        <select name="country" class="custom-select">
             <t t-foreach="countries" t-as="country">
                 <t t-if="country['country_id']">
                     <option
@@ -64,7 +64,7 @@
     <t t-call="website_event_filter_selector.element">
         <t t-set="element_id" t-value="filter_selector_city"/>
         <label for="city">City</label>
-        <select name="city" class="form-control">
+        <select name="city" class="custom-select">
             <t t-foreach="cities" t-as="city">
                 <t t-if="city['city']">
                     <t t-set="city_value"
@@ -112,7 +112,7 @@
     <t t-call="website_event_filter_selector.element">
         <t t-set="element_id" t-value="filter_selector_date"/>
         <label for="type">Event Type</label>
-        <select name="type" class="form-control">
+        <select name="type" class="custom-select">
             <t t-foreach="types" t-as="type_">
                 <t t-if="type_['event_type_id']">
                     <option
