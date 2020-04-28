@@ -18,11 +18,6 @@ msgstr ""
 "X-Generator: Weblate 3.4\n"
 
 #. module: website_event_excerpt_img
-#: model_terms:ir.ui.view,arch_db:website_event_excerpt_img.event_item
-msgid "<i>to</i>"
-msgstr "<i>a</i>"
-
-#. module: website_event_excerpt_img
 #: model:ir.model,name:website_event_excerpt_img.model_event_event
 msgid "Event"
 msgstr "Evento"
@@ -49,21 +44,6 @@ msgid "Normal"
 msgstr "Normal"
 
 #. module: website_event_excerpt_img
-#: model_terms:ir.ui.view,arch_db:website_event_excerpt_img.event_item
-msgid "Not published"
-msgstr "No publicado"
-
-#. module: website_event_excerpt_img
-#: model_terms:ir.ui.view,arch_db:website_event_excerpt_img.event_item
-msgid "Online"
-msgstr "Online"
-
-#. module: website_event_excerpt_img
-#: model_terms:ir.ui.view,arch_db:website_event_excerpt_img.event_item
-msgid "Organized by:"
-msgstr "Organizado por:"
-
-#. module: website_event_excerpt_img
 #: model:ir.model.fields,field_description:website_event_excerpt_img.field_event_event__priority
 msgid "Priority"
 msgstr "Prioridad"
@@ -77,3 +57,15 @@ msgstr "Leer más"
 #: model_terms:ir.ui.view,arch_db:website_event_excerpt_img.view_event_form
 msgid "Short description of about 155 characters..."
 msgstr "Descripción corta de unos 155 caracteres..."
+
+#~ msgid "<i>to</i>"
+#~ msgstr "<i>a</i>"
+
+#~ msgid "Not published"
+#~ msgstr "No publicado"
+
+#~ msgid "Online"
+#~ msgstr "Online"
+
+#~ msgid "Organized by:"
+#~ msgstr "Organizado por:"
