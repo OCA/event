@@ -14,11 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: website_event_excerpt_img
-#: model_terms:ir.ui.view,arch_db:website_event_excerpt_img.event_item
-msgid "<i>to</i>"
-msgstr ""
-
-#. module: website_event_excerpt_img
 #: model:ir.model,name:website_event_excerpt_img.model_event_event
 msgid "Event"
 msgstr ""
@@ -41,21 +36,6 @@ msgstr ""
 #. module: website_event_excerpt_img
 #: selection:event.event,priority:0
 msgid "Normal"
-msgstr ""
-
-#. module: website_event_excerpt_img
-#: model_terms:ir.ui.view,arch_db:website_event_excerpt_img.event_item
-msgid "Not published"
-msgstr ""
-
-#. module: website_event_excerpt_img
-#: model_terms:ir.ui.view,arch_db:website_event_excerpt_img.event_item
-msgid "Online"
-msgstr ""
-
-#. module: website_event_excerpt_img
-#: model_terms:ir.ui.view,arch_db:website_event_excerpt_img.event_item
-msgid "Organized by:"
 msgstr ""
 
 #. module: website_event_excerpt_img
