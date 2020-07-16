@@ -14,6 +14,7 @@ setuptools.setup(
         'odoo12-addon-event_mail',
         'odoo12-addon-event_project',
         'odoo12-addon-event_registration_cancel_reason',
+        'odoo12-addon-event_registration_mass_mailing',
         'odoo12-addon-event_registration_multi_qty',
         'odoo12-addon-event_registration_partner_unique',
         'odoo12-addon-event_sale_registration_multi_qty',
