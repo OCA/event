@@ -78,10 +78,8 @@ msgstr "Última actualización en"
 msgid "Mailing list"
 msgstr "Lista de correo"
 
-#. module: event_registration_mass_mailing
-#: model:ir.actions.act_window,name:event_registration_mass_mailing.action_event_registration_mass_mail
-msgid "Mass mailing to partners"
-msgstr "Envío masivo a empresas"
+#~ msgid "Mass mailing to partners"
+#~ msgstr "Envío masivo a empresas"
 
 #~ msgid "Attendee"
 #~ msgstr "Asistente"
@@ -92,8 +90,12 @@ msgstr "Envío masivo a empresas"
 #~ msgid "Event registrations"
 #~ msgstr "Registros"
 
-#~ msgid "If opt-out is checked, this contact has refused to receive emails for mass mailing and marketing campaign."
-#~ msgstr "Si 'No acepta mensajes' está marcado, este contacto ha rehusado recibir correos electrónicos de envíos masivos y campañas de marketing."
+#~ msgid ""
+#~ "If opt-out is checked, this contact has refused to receive emails for "
+#~ "mass mailing and marketing campaign."
+#~ msgstr ""
+#~ "Si 'No acepta mensajes' está marcado, este contacto ha rehusado recibir "
+#~ "correos electrónicos de envíos masivos y campañas de marketing."
 
 #~ msgid "Mass Mailing"
 #~ msgstr "Envío masivo"
@@ -101,8 +103,12 @@ msgstr "Envío masivo a empresas"
 #~ msgid "Opt-Out"
 #~ msgstr "No acepta recibir emails"
 
-#~ msgid "Registrations that did not ask not to be included in mass mailing campaigns and has an e-mail set."
-#~ msgstr "Registros que no solicitaron no ser incluidos en campañas de envío masivo de correos y tienen establecido un correo electrónico."
+#~ msgid ""
+#~ "Registrations that did not ask not to be included in mass mailing "
+#~ "campaigns and has an e-mail set."
+#~ msgstr ""
+#~ "Registros que no solicitaron no ser incluidos en campañas de envío masivo "
+#~ "de correos y tienen establecido un correo electrónico."
 
 #~ msgid "Cancel"
 #~ msgstr "Cancelar"
