@@ -30,7 +30,6 @@ msgstr "Evento"
 #. module: event_registration_multi_qty
 #: model:ir.model,name:event_registration_multi_qty.model_event_registration
 #, fuzzy
-#| msgid "report.event.registration"
 msgid "Event Registration"
 msgstr "report.event.registration"
 
