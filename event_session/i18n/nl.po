@@ -24,14 +24,12 @@ msgstr ""
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_event__confirm_state
 #, fuzzy
-#| msgid "Unconfirmed Seat Reservations"
 msgid " # No of Confirmed Registrations"
 msgstr "Onbevestigd gereserveerde plaatsen"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_event__draft_state
 #, fuzzy
-#| msgid "Registrations"
 msgid " # No of Draft Registrations"
 msgstr "Inschrijvingen"
 
@@ -138,7 +136,6 @@ msgstr "Datums en evenementgegevens"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__delete_existing_sessions
 #, fuzzy
-#| msgid "Delete existing sessions"
 msgid "Delete Existing Sessions"
 msgstr "Verwijder bestaande sessies"
 
@@ -167,7 +164,6 @@ msgstr "Einddatum locatie"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session_hours__end_time
 #, fuzzy
-#| msgid "End time"
 msgid "End Time"
 msgstr "Eindtijd"
 
@@ -196,14 +192,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:event_session.field_event_mail__event_mail_template_id
 #: model:ir.model.fields,field_description:event_session.field_event_mail_scheduler_template__event_mail_template_id
 #, fuzzy
-#| msgid "Mail Schedule Template"
 msgid "Event Mail Template"
 msgstr "Mail planner sjabloon"
 
 #. module: event_session
 #: model:ir.model,name:event_session.model_event_registration
 #, fuzzy
-#| msgid "Registrations"
 msgid "Event Registration"
 msgstr "Inschrijvingen"
 
@@ -466,7 +460,6 @@ msgstr "Startdatum locatie"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session_hours__start_time
 #, fuzzy
-#| msgid "Start time"
 msgid "Start Time"
 msgstr "Begintijd"
 
@@ -568,14 +561,12 @@ msgstr "Weekdagen"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session_hours__wizard_event_session_id
 #, fuzzy
-#| msgid "Wizard event session id"
 msgid "Wizard Event Session"
 msgstr "Wizard evenementensessie id"
 
 #. module: event_session
 #: model:ir.model,name:event_session.model_wizard_event_session
 #, fuzzy
-#| msgid "Wizard event session id"
 msgid "Wizard for ease sessions creation"
 msgstr "Wizard evenementensessie id"
 
