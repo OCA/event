@@ -25,7 +25,6 @@ msgstr ""
 #. module: website_event_questions_template
 #: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_answer__name
 #, fuzzy
-#| msgid "Answers"
 msgid "Answer"
 msgstr "Respuestas"
 
@@ -81,7 +80,6 @@ msgstr "Plantilla de preguntas de eventos"
 #. module: website_event_questions_template
 #: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_question__event_type_id
 #, fuzzy
-#| msgid "Event id"
 msgid "Event Type"
 msgstr "Evento ID"
 
@@ -143,7 +141,6 @@ msgstr "Nombre"
 #. module: website_event_questions_template
 #: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_answer__question_id
 #, fuzzy
-#| msgid "Questions"
 msgid "Question"
 msgstr "Preguntas"
 
