@@ -49,7 +49,6 @@ msgstr ""
 #. module: event_mail
 #: model:ir.model,name:event_mail.model_res_config_settings
 #, fuzzy
-#| msgid "event.config.settings"
 msgid "Config Settings"
 msgstr "event.config.settings"
 
@@ -79,7 +78,6 @@ msgstr "Nombre a mostrar"
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__sequence
 #, fuzzy
-#| msgid "Display Name"
 msgid "Display order"
 msgstr "Nombre a mostrar"
 
@@ -91,7 +89,6 @@ msgstr "Programación de Correo Electrónico"
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__template_id
 #, fuzzy
-#| msgid "Mail Template"
 msgid "Email Template"
 msgstr "Plantilla de mail"
 
@@ -154,7 +151,6 @@ msgstr "Última actualización el"
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__mail_registration_ids
 #, fuzzy
-#| msgid "Mail options"
 msgid "Mail Registration"
 msgstr "Opciones de correo"
 
@@ -227,7 +223,6 @@ msgstr ""
 #. module: event_mail
 #: model_terms:ir.ui.view,arch_db:event_mail.res_config_settings_view_form
 #, fuzzy
-#| msgid "Mail Template"
 msgid "Template"
 msgstr "Plantilla de mail"
 
