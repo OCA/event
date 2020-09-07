@@ -38,7 +38,11 @@ class EventRegistrationCancelReason(models.Model):
     _name = "event.registration.cancel.reason"
     _description = "Event Registration Cancel Reason"
 
+<<<<<<< HEAD
     name = fields.Char(string="Reason", required=True, translate=True)
+=======
+    name = fields.Char("Reason", required=True, translate=True)
+>>>>>>> [IMP] : black, isort, prettier
     event_type_ids = fields.Many2many(
         comodel_name="event.type",
         string="Event types",
