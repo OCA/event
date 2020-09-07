@@ -8,17 +8,14 @@
     "name": "Reasons for event registrations cancellations",
     "version": "12.0.1.0.0",
     "license": "AGPL-3",
-    "author": "Tecnativa, "
-              "Odoo Community Association (OCA)",
+    "author": "Tecnativa, " "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/event",
     "category": "Marketing",
-    "depends": [
-        'event',
-    ],
+    "depends": ["event",],
     "data": [
-        'security/ir.model.access.csv',
-        'views/event_registration_view.xml',
-        'wizard/event_registration_cancel_log_reason_view.xml',
+        "security/ir.model.access.csv",
+        "views/event_registration_view.xml",
+        "wizard/event_registration_cancel_log_reason_view.xml",
     ],
     "installable": True,
 }
