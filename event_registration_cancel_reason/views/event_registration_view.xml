@@ -45,7 +45,6 @@
     <record id="event_registration_cancel_reason_action" model="ir.actions.act_window">
         <field name="name">Registration cancellation reasons</field>
         <field name="res_model">event.registration.cancel.reason</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree</field>
     </record>
     <menuitem
