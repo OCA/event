@@ -7,23 +7,20 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 {
-    'name': 'Link partner to events',
-    'version': '12.0.1.0.1',
-    'category': 'Marketing',
-    'author': 'Tecnativa,'
-              'Odoo Community Association (OCA)',
-    'website': 'https://www.tecnativa.com',
-    'development_status': 'Production/Stable',
+    "name": "Link partner to events",
+    "version": "12.0.1.0.1",
+    "category": "Marketing",
+    "author": "Tecnativa," "Odoo Community Association (OCA)",
+    "website": "https://www.tecnativa.com",
+    "development_status": "Production/Stable",
     "license": "AGPL-3",
-    'depends': [
-        'event',
+    "depends": ["event",],
+    "data": [
+        "views/res_partner_view.xml",
+        "views/event_event_view.xml",
+        "views/event_registration_view.xml",
+        "wizard/res_partner_register_event_view.xml",
     ],
-    'data': [
-        'views/res_partner_view.xml',
-        'views/event_event_view.xml',
-        'views/event_registration_view.xml',
-        'wizard/res_partner_register_event_view.xml',
-    ],
-    'post_init_hook': 'post_init_hook',
+    "post_init_hook": "post_init_hook",
     "installable": True,
 }
