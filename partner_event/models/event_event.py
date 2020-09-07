@@ -8,7 +8,8 @@ from odoo import fields, models
 
 
 class EventEvent(models.Model):
-    _inherit = 'event.event'
+    _inherit = "event.event"
 
-    create_partner = fields.Boolean(string="Create Partners in registration",
-                                    default=False)
+    create_partner = fields.Boolean(
+        string="Create Partners in registration", default=False
+    )
