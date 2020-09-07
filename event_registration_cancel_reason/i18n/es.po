@@ -130,7 +130,7 @@ msgid "Select the reason for cancelling the registration:"
 msgstr "Seleccione la razón para cancelar el registro:"
 
 #. module: event_registration_cancel_reason
-#: code:addons/event_registration_cancel_reason/wizard/event_registration_cancel_log_reason.py:30
+#: code:addons/event_registration_cancel_reason/wizard/event_registration_cancel_log_reason.py:0
 #, python-format
 msgid "You cannot cancel registrations from events of different types at once."
 msgstr "No puede cancelar registros de eventos de distintos tipos a la vez."
