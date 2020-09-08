@@ -36,7 +36,6 @@
     <record id="action_partner_register_event" model="ir.actions.act_window">
         <field name="name">Register in an event</field>
         <field name="res_model">res.partner.register.event</field>
-        <field name="view_type">form</field>
         <field name="view_mode">form</field>
         <field name="view_id" ref="res_partner_register_event_view" />
         <field name="binding_model_id" ref="partner_event.model_event_registration" />
@@ -45,11 +44,10 @@
     <act_window
         id="partner_register_event"
         name="Register in an event"
-        src_model="res.partner"
+        binding_model="res.partner"
         res_model="res.partner.register.event"
-        view_type="form"
         view_mode="form"
-        key2="client_action_multi"
+        binding_views="form"
         target="new"
     />
 </odoo>

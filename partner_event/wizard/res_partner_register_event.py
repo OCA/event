@@ -3,9 +3,10 @@
 # Copyright 2016 Tecnativa S.L. - Antonio Espinosa
 # Copyright 2016 Tecnativa S.L. - Vicent Cubells
 # Copyright 2018 Jupical Technologies Pvt. Ltd. - Anil Kesariya
+# Copyright 2020 Tecnativa S.L. - Víctor Martínez
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class ResPartnerRegisterEvent(models.TransientModel):
@@ -13,7 +14,7 @@ class ResPartnerRegisterEvent(models.TransientModel):
 
     _description = "Register partner for event"
 
-    event = fields.Many2one("event.event", required=True)
+    event = fields.Many2one(comodel_name="event.event", required=True)
     errors = fields.Text(readonly=True)
 
     def _prepare_registration(self, partner):
@@ -27,7 +28,6 @@ class ResPartnerRegisterEvent(models.TransientModel):
             "date_open": fields.Datetime.now(),
         }
 
-    @api.multi
     def button_register(self):
         registration_obj = self.env["event.registration"]
         errors = []
@@ -37,7 +37,7 @@ class ResPartnerRegisterEvent(models.TransientModel):
             try:
                 with self.env.cr.savepoint():
                     registration_obj.create(self._prepare_registration(partner))
-            except:
+            except Exception:
                 errors.append(partner.name)
         if errors:
             self.errors = "\n".join(errors)
@@ -46,7 +46,6 @@ class ResPartnerRegisterEvent(models.TransientModel):
                 "type": "ir.actions.act_window",
                 "res_model": self._name,
                 "view_mode": "form",
-                "view_type": "form",
                 "view_id": [data_obj.id],
                 "res_id": self.id,
                 "target": "new",

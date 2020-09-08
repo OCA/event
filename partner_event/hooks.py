@@ -9,7 +9,7 @@ def post_init_hook(cr, registry):
     with api.Environment.manage():
         env = api.Environment(cr, SUPERUSER_ID, {})
         attendees_emails = env["event.registration"].read_group(
-            [("email", "!=", False),], ["email"], groupby="email"
+            [("email", "!=", False)], ["email"], groupby="email"
         )
         for email in attendees_emails:
             attendee_partner = env["res.partner"].search(
@@ -17,6 +17,4 @@ def post_init_hook(cr, registry):
             )
             if attendee_partner:
                 attendees = env["event.registration"].search(email["__domain"])
-                attendees.write(
-                    {"attendee_partner_id": attendee_partner.id,}
-                )
+                attendees.write({"attendee_partner_id": attendee_partner.id})
