@@ -33,7 +33,11 @@ class TestEventRegistration(common.SavepointCase):
         )
         partner_model = cls.env["res.partner"]
         cls.partner_01 = partner_model.create(
-            {"name": "Test Partner 01", "email": "email01@test.com"}
+            {
+                "name": "Test Partner 01",
+                "email": "email01@test.com",
+                "phone": "254728911",
+            }
         )
         cls.registration_01 = registration_model.create(
             {"email": "email01@test.com", "event_id": cls.event_0.id}
@@ -98,6 +102,6 @@ class TestEventRegistration(common.SavepointCase):
             self.cr._default_log_exceptions = False
             self.partner_01.unlink()
         # Create a brand new partner and delete it
-        partner3 = self.env["res.partner"].create({"name": "unregistered partner",})
+        partner3 = self.env["res.partner"].create({"name": "unregistered partner"})
         partner3.unlink()
         self.assertFalse(partner3.exists())
