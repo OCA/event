@@ -1,8 +1,15 @@
-* Pedro M. Baeza <pedro.baeza@tecnativa.com>
-* Javier Iniesta <javieria@antiun.com>
-* Antonio Espinosa <antonioea@tecnativa.com>
-* Jairo Llopis <jairo.llopis@tecnativa.com>
-* Vicent Cubells <vicent.cubells@tecnativa.com>
-* David Vidal <david.vidal@tecnativa.com>
-* Rafael Blasco <rafael.blasco@tecnativa.com>
-* Anil Kesariya <anil.r.kesariya@gmail.com>
+* `Tecnativa <https://www.tecnativa.com>`__:
+
+  * Pedro M. Baeza
+  * Antonio Espinosa
+  * Jairo Llopis
+  * Vicent Cubells
+  * David Vidal
+  * Rafael Blasco
+  * Víctor Martínez
+
+* `Antiun <https://antiun.com/>`__:
+
+  * Javier Iniesta
+
+* `Anil Kesariya`
