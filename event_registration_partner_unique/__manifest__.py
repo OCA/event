@@ -8,16 +8,10 @@
     "version": "12.0.1.0.0",
     "category": "Marketing",
     "website": "https://github.com/oca/event",
-    "author": "Tecnativa, "
-              "Odoo Community Association (OCA)",
+    "author": "Tecnativa, " "Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": [
-        "event",
-        "partner_event",
-    ],
-    "data": [
-        "views/event_event_view.xml",
-    ],
+    "depends": ["event", "partner_event"],
+    "data": ["views/event_event_view.xml"],
 }
