@@ -6,6 +6,7 @@ from odoo import _, exceptions
 
 class UniqueRegistrationPartnerValidationError(exceptions.ValidationError):
     """Base class for this module's validation errors."""
+
     def __init__(self, *args, **kwargs):
         self._args, self._kwargs = args, kwargs
         value = self._message()
