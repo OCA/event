@@ -27,7 +27,7 @@ msgstr ""
 "evento"
 
 #. module: event_registration_partner_unique
-#: code:addons/event_registration_partner_unique/exceptions.py:20
+#: code:addons/event_registration_partner_unique/exceptions.py:0
 #, python-format
 msgid "Duplicated partners found in event {0}: {1}."
 msgstr "Empresas duplicadas encontradas en el evento {0}: {1}."
