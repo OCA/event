@@ -1,4 +1,5 @@
 # Copyright 2016 Antiun Ingeniería S.L. - Jairo Llopis
+# Copyright 2020 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo.tests.common import TransactionCase
@@ -8,8 +9,9 @@ from .. import exceptions
 
 class DuplicatedPartnerCase(TransactionCase):
     def setUp(self):
-        super(DuplicatedPartnerCase, self).setUp()
+        super().setUp()
         self.event = self.env.ref("event.event_0")
+        self.event.forbid_duplicates = False
         self.partner = self.env.ref("base.res_partner_1")
         self.registration = self.env["event.registration"].create(
             {
