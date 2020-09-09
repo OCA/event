@@ -2,6 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo import api, fields, models
+
 from .. import exceptions
 
 
@@ -10,15 +11,16 @@ class EventEvent(models.Model):
 
     forbid_duplicates = fields.Boolean(
         help="Check this to disallow duplicate attendees in this event's "
-             "registrations",
+        "registrations",
     )
 
     @api.multi
     @api.constrains("forbid_duplicates", "registration_ids")
     def _check_forbid_duplicates(self):
         """Ensure no duplicated attendee are found in the event."""
-        return (self.filtered("forbid_duplicates")
-                .registration_ids._check_forbid_duplicates())
+        return self.filtered(
+            "forbid_duplicates"
+        ).registration_ids._check_forbid_duplicates()
 
 
 class EventRegistration(models.Model):
@@ -33,8 +35,9 @@ class EventRegistration(models.Model):
             if dupes:
                 raise exceptions.DuplicatedPartnerError(
                     s.event_id.display_name,
-                    ", ".join(d.display_name
-                              for d in dupes.mapped("attendee_partner_id")),
+                    ", ".join(
+                        d.display_name for d in dupes.mapped("attendee_partner_id")
+                    ),
                     registrations=dupes,
                 )
 
