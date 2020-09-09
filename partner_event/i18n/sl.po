@@ -1,0 +1,154 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* partner_event
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-05-27 09:20+0000\n"
+"PO-Revision-Date: 2015-08-30 07:43+0200\n"
+"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>\n"
+"Language-Team: \n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 1.8.4\n"
+
+#. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_res_partner__registration_count
+#: model:ir.model.fields,field_description:partner_event.field_res_users__registration_count
+msgid "Attendances"
+msgstr ""
+
+#. module: partner_event
+#: model_terms:ir.ui.view,arch_db:partner_event.view_registration_search
+msgid "Attended"
+msgstr ""
+
+#. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_event_registration__attendee_partner_id
+#, fuzzy
+msgid "Attendee Partner"
+msgstr "Partner"
+
+#. module: partner_event
+#: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
+msgid "Cancel"
+msgstr ""
+
+#. module: partner_event
+#: model:ir.model,name:partner_event.model_res_partner
+#: model:ir.model.fields,field_description:partner_event.field_event_registration__partner_id
+msgid "Contact"
+msgstr ""
+
+#. module: partner_event
+#: model_terms:ir.ui.view,arch_db:partner_event.view_partner_form_registrations
+msgid "Count of events with confirmed registrations."
+msgstr ""
+
+#. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_event_event__create_partner
+#, fuzzy
+msgid "Create Partners in registration"
+msgstr "Prijave na dogodek"
+
+#. module: partner_event
+#: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
+#, fuzzy
+msgid "Create registrations"
+msgstr "Prijave na dogodek"
+
+#. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__errors
+msgid "Errors"
+msgstr ""
+
+#. module: partner_event
+#: model:ir.model,name:partner_event.model_event_event
+#: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__event
+#, fuzzy
+msgid "Event"
+msgstr "Dogodki"
+
+#. module: partner_event
+#: model:ir.model,name:partner_event.model_event_registration
+#, fuzzy
+msgid "Event Registration"
+msgstr "Prijave na dogodek"
+
+#. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_res_partner__event_registration_ids
+#: model:ir.model.fields,field_description:partner_event.field_res_users__event_registration_ids
+msgid "Event registrations"
+msgstr "Prijave na dogodek"
+
+#. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__id
+msgid "ID"
+msgstr ""
+
+#. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: partner_event
+#: model:ir.actions.act_window,name:partner_event.action_partner_register_event
+#: model:ir.actions.act_window,name:partner_event.partner_register_event
+#, fuzzy
+msgid "Register in an event"
+msgstr "Registracijska številka"
+
+#. module: partner_event
+#: model:ir.model,name:partner_event.model_res_partner_register_event
+msgid "Register partner for event"
+msgstr ""
+
+#. module: partner_event
+#: model:ir.actions.act_window,name:partner_event.act_partner_registration
+msgid "Registrations"
+msgstr "Prijave"
+
+#. module: partner_event
+#: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
+msgid "Select event to register"
+msgstr ""
+
+#. module: partner_event
+#: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
+msgid ""
+"These partners haven't been registered because they\\'re "
+"already                        registered or other error occurred"
+msgstr ""
+
+#~ msgid "Attended registration number"
+#~ msgstr "Pričakovano število prijav"
