@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2016 Tecnativa - Jairo Llopis
+     Copyright 2017 Tecnativa - Vicent Cubells
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+    <record id="view_event_form" model="ir.ui.view">
+        <field name="name">Add option to avoid duplicates</field>
+        <field name="model">event.event</field>
+        <!-- Make sure this view is loaded after event_sale's one, as it replaces full page -->
+        <field name="priority" eval="99" />
+        <field name="inherit_id" ref="event.view_event_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='seats_min']" position="before">
+                <field name="forbid_duplicates" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
