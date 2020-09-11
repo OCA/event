@@ -8,6 +8,7 @@ setuptools.setup(
     description="Meta package for oca-event Odoo addons",
     version=version,
     install_requires=[
+        'odoo13-addon-event_registration_partner_unique',
         'odoo13-addon-partner_event',
     ],
     classifiers=[
