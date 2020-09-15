@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="registration_attendee_details_single" name="Registration Attendee Details">
+        <div id="modal_attendees_registration" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <form id="attendee_registration" t-attf-action="/event/#{slug(event)}/registration/confirm" method="post" class="js_website_submit_form">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <div class="modal-content">
+                        <div class="modal-header align-items-center">
+                            <h4 class="modal-title">Attendees</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>&amp;times;</span></button>
+                        </div>
+                        <t t-if="availability_check">
+                            <div class="modal-body bg-light border-bottom">
+                                <h5 class="mt-1 pb-2 border-bottom">Tickets holder</h5>
+
+                                <t t-foreach="tickets" t-as="ticket">
+                                    <div class="row col-lg"><span t-esc="ticket['quantity']" />x - <span t-esc="ticket['name']"/></div>
+                                    <input class="d-none" type="text" t-attf-name="0-ticket_id_qty-#{ticket['id']}" t-attf-value="#{ticket['quantity']}"/>
+                                </t>
+                                <div class="row">
+                                    <div class="col-lg my-2">
+                                        <label>Name</label>
+                                        <input class="form-control" type="text" t-attf-name="1-name" required="This field is required"/>
+                                    </div>
+                                    <div class="col-lg my-2">
+                                        <label>Email</label>
+                                        <input class="form-control" type="email" t-attf-name="1-email" required="This field is required"/>
+                                    </div>
+                                    <div class="col-lg my-2">
+                                        <label>Phone <small>(Optional)</small></label>
+                                        <input class="form-control" type="tel" t-attf-name="1-phone"/>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </t>
+                        <t t-if="not availability_check">
+                            <strong> You ordered more tickets than available seats</strong>
+                        </t>
+                        <div class="modal-footer border-0 justify-content-between">
+                            <button type="button" class="btn btn-secondary js_goto_event" data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary" t-if="availability_check">Continue</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </template>
+</odoo>
