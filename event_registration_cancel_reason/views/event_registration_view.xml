@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="view_event_registration_form">
+        <field name="name">Event registration form (with cancellation reason)</field>
+        <field name="model">event.registration</field>
+        <field name="inherit_id" ref="event.view_event_registration_form" />
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//group[@name='attendee']" position="inside">
+                    <field
+                        name="cancel_reason_id"
+                        class="oe_inline"
+                        options="{'no_open':True'}"
+                        attrs="{'invisible':[('cancel_reason_id','=',False)]}"
+                    />
+                </xpath>
+            </data>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_registration_search">
+        <field name="name">Event registration search (with cancellation reason)</field>
+        <field name="model">event.registration</field>
+        <field name="inherit_id" ref="event.view_registration_search" />
+        <field name="arch" type="xml">
+            <filter name="status" position="after">
+                <filter
+                    name="cancellation_reason"
+                    string="Cancellation reason"
+                    domain="[]"
+                    context="{'group_by': 'cancel_reason_id'}"
+                />
+            </filter>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="event_registration_cancel_reason_tree">
+        <field name="name">Registrations cancellation reasons tree</field>
+        <field name="model">event.registration.cancel.reason</field>
+        <field name="arch" type="xml">
+            <tree name="Registration cancellation reasons" editable="top">
+                <field name="name" />
+                <field name="event_type_ids" widget="many2many_tags" />
+            </tree>
+        </field>
+    </record>
+    <record id="event_registration_cancel_reason_action" model="ir.actions.act_window">
+        <field name="name">Registration cancellation reasons</field>
+        <field name="res_model">event.registration.cancel.reason</field>
+        <field name="view_mode">tree</field>
+    </record>
+    <menuitem
+        action="event_registration_cancel_reason_action"
+        id="menu_event_registration_cancel_reason"
+        parent="event.menu_event_configuration"
+    />
+</odoo>
