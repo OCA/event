@@ -17,5 +17,6 @@
     "data": [
         "templates/event_templates.xml",
         "views/event_event.xml",
+        "views/event_type.xml",
     ],
 }
