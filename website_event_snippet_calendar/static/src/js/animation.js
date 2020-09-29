@@ -57,15 +57,15 @@ odoo.define("website_event_snippet_calendar.animation", function(require) {
             this.default_amount = Number(this.$(".js_amount").html()) || 4;
             this.date_format = this.$list.data("dateFormat") || "LLL";
             // Get initial events to render the list
-            this.load_events(null, this.default_amount).done(
+            this.load_events(null, this.default_amount).then(
                 $.proxy(this, "render_list")
             );
             // Preload dates and render the calendar
-            this.preload_dates(moment()).done($.proxy(this, "render_calendar"));
+            this.preload_dates(moment()).then($.proxy(this, "render_calendar"));
         },
 
         day_selected: function(event) {
-            this.load_events(event.date.format(DATE_FORMAT)).done(
+            this.load_events(event.date.format(DATE_FORMAT)).then(
                 $.proxy(this, "render_list")
             );
         },
@@ -111,7 +111,7 @@ odoo.define("website_event_snippet_calendar.animation", function(require) {
                     start: start.format(DATE_FORMAT),
                     end: end.format(DATE_FORMAT),
                 })
-                .done($.proxy(this, "_update_dates_cache", start, end));
+                .then($.proxy(this, "_update_dates_cache", start, end));
         },
 
         _update_dates_cache: function(start, end, dates) {
@@ -125,9 +125,17 @@ odoo.define("website_event_snippet_calendar.animation", function(require) {
         },
 
         load_events: function(day, limit) {
+            var searches = $("ul.o_wevent_index_topbar_filters>li>div>a.active");
+            if (searches.length) {
+                searches = searches[0].search;
+            } else {
+                searches = "";
+            }
+
             return ajax.rpc("/website_event_snippet_calendar/events_for_day", {
                 day: day,
                 limit: limit,
+                searches: searches,
             });
         },
 

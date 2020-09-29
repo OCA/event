@@ -20,7 +20,9 @@
         </div>
     </template>
     <template id="s_event_list" name="Events List">
-        <div class="o_not_editable css_non_editable_mode_hidden alert alert-info">
+        <div
+            class="o_not_editable css_non_editable_mode_hidden alert alert-info s_manage_event_count"
+        >
             <p>Event list visible only when you save.</p>
             <p>It will display up to the closest <b class="js_amount">4</b> events.</p>
         </div>
@@ -65,18 +67,17 @@
     </template>
     <!-- Add snippets options -->
     <template id="snippet_options" inherit_id="website.snippet_options">
-        <xpath expr=".">
+        <xpath expr="." position="inside">
             <!-- Allow to add or remove events from the list -->
             <div
                 data-js="website_event_snippet_calendar_list"
-                data-selector=".s_event_calendar_list:has(.js_amount)"
+                data-selector=".s_event_calendar_list"
             >
-                <li data-only="click" data-increase="1">
-                    <a tabindex="-1"><i class="fa fa-plus" /> Add one event</a>
-                </li>
-                <li data-only="click" data-increase="-1">
-                    <a tabindex="-1"><i class="fa fa-minus" /> Remove one event</a>
-                </li>
+                <we-button data-increase="" data-no-preview="true">Add event</we-button>
+                <we-button
+                    data-decrease=""
+                    data-no-preview="true"
+                >Remove event</we-button>
             </div>
         </xpath>
     </template>
