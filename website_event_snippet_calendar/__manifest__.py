@@ -10,12 +10,6 @@
     "license": "LGPL-3",
     "application": False,
     "installable": True,
-    "depends": [
-        "website_event",
-    ],
-    "data": [
-        "templates/assets.xml",
-        "templates/embed.xml",
-        "templates/snippets.xml",
-    ],
+    "depends": ["website_event",],
+    "data": ["templates/assets.xml", "templates/embed.xml", "templates/snippets.xml",],
 }

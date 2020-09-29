@@ -1,13 +1,13 @@
 /* Copyright 2018 Tecnativa - Jairo Llopis
  * License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). */
 
-odoo.define('website_event_snippet_calendar.snippets', function (require) {
+odoo.define("website_event_snippet_calendar.snippets", function(require) {
     "use strict";
 
-    var options = require('web_editor.snippets.options');
+    var options = require("web_editor.snippets.options");
 
     var SnippetOptions = options.Class.extend({
-        start: function () {
+        start: function() {
             this._super.apply(this, arguments);
             this.$amount = this.$(".js_amount");
         },
@@ -18,7 +18,7 @@ odoo.define('website_event_snippet_calendar.snippets', function (require) {
          * @param {String} type Event type
          * @param {Number} value How many events to add
          */
-        increase: function (type, value) {
+        increase: function(type, value) {
             var increment = Number(value);
             if (type === "reset") {
                 increment *= -1;
