@@ -24,7 +24,7 @@ class EventCalendar(Controller):
             Search events until that date.
         """
         events = request.env["event.event"].search(
-            ["|", ("date_begin", "<=", end), ("date_end", ">=", start),]
+            ["|", ("date_begin", "<=", end), ("date_end", ">=", start)]
         )
         days = set()
         one_day = timedelta(days=1)
