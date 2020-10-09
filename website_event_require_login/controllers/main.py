@@ -14,6 +14,6 @@ class RequireLoginToRegister(WebsiteEventController):
             return request.env["ir.ui.view"].render_template(
                 "website_event_require_login"
                 ".modal_attendees_registration_login_required",
-                {"event_url": event.website_url,},
+                {"event_url": event.website_url},
             )
         return super(RequireLoginToRegister, self).registration_new(event, **post)
