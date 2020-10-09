@@ -4,10 +4,10 @@ from odoo import fields, models
 
 
 class EventEvent(models.Model):
-    _inherit = 'event.event'
+    _inherit = "event.event"
 
     website_require_login = fields.Boolean(
-        string='Require login for website registrations',
-        help='If set, a user must be logged in to be able to register '
-             'attendees from the website.',
+        string="Require login for website registrations",
+        help="If set, a user must be logged in to be able to register "
+        "attendees from the website.",
     )
