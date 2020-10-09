@@ -23,7 +23,7 @@ Website Event Require Login
     :target: https://runbot.odoo-community.org/runbot/199/12.0
     :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| |badge4| |badge5| 
+|badge1| |badge2| |badge3| |badge4| |badge5|
 
 
 Require login for event registration from the website.
@@ -82,6 +82,8 @@ Contributors
 * `Tecnativa <https://www.tecnativa.com>`_:
   * David Vidal
   * Rafael Blasco
+* `Sygel <https://www.https://sygel.es/>`_:
+  * Manuel Regidor
 
 Maintainers
 ~~~~~~~~~~~
