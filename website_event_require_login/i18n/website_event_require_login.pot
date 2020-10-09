@@ -1,12 +1,12 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* website_event_require_login
+# 	* website_event_require_login
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: <>\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,7 +30,9 @@ msgstr ""
 
 #. module: website_event_require_login
 #: model:ir.model.fields,help:website_event_require_login.field_event_event__website_require_login
-msgid "If set, a user must be logged in to be able to register attendees from the website."
+msgid ""
+"If set, a user must be logged in to be able to register attendees from the "
+"website."
 msgstr ""
 
 #. module: website_event_require_login
@@ -52,4 +54,3 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:website_event_require_login.modal_attendees_registration_login_required
 msgid "You must be logged in to be able to register to this event."
 msgstr ""
-
