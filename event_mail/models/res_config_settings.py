@@ -5,11 +5,11 @@ from odoo import fields, models
 
 
 class ResConfigSettings(models.TransientModel):
-    _inherit = 'res.config.settings'
+    _inherit = "res.config.settings"
 
     event_mail_template_id = fields.Many2one(
-        related='company_id.event_mail_template_id',
-        comodel_name='event.mail.template',
-        string='Mail Template',
+        related="company_id.event_mail_template_id",
+        comodel_name="event.mail.template",
+        string="Mail Template",
         readonly=False,
     )
