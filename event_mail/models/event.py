@@ -8,8 +8,7 @@ class EventEvent(models.Model):
 
     @api.model
     def _default_event_mail_template_id(self):
-        company = self.env["res.company"]._company_default_get("event.event")
-        return company.event_mail_template_id
+        return self.env.company.event_mail_template_id
 
     event_mail_template_id = fields.Many2one(
         comodel_name="event.mail.template",

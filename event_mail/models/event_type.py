@@ -10,8 +10,7 @@ class EventType(models.Model):
     def _get_default_event_type_mail_ids(self):
         if self.env.context.get("by_pass_config_template", False):
             return super()._get_default_event_type_mail_ids()
-        company = self.env["res.company"]._company_default_get("event.event")
-        event_mail_template_id = company.event_mail_template_id
+        event_mail_template_id = self.env.company.event_mail_template_id
         if event_mail_template_id:
             return [
                 {
