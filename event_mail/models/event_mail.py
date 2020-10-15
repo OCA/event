@@ -6,6 +6,7 @@ from odoo import api, fields, models
 class EventMailSchedulerTemplate(models.Model):
     _name = "event.mail.scheduler.template"
     _inherit = "event.mail"
+    _description = "Event mail scheduler template"
 
     event_id = fields.Many2one(required=False)
     event_mail_template_id = fields.Many2one(
