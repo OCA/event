@@ -1,0 +1,61 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_event_require_login
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-19 12:00+0000\n"
+"PO-Revision-Date: 2019-03-19 12:00+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_event_require_login
+#: model_terms:ir.ui.view,arch_db:website_event_require_login.modal_attendees_registration_login_required
+msgid "&amp;times;"
+msgstr "&amp;times;"
+
+#. module: website_event_require_login
+#: model_terms:ir.ui.view,arch_db:website_event_require_login.modal_attendees_registration_login_required
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: website_event_require_login
+#: model:ir.model,name:website_event_require_login.model_event_event
+msgid "Event"
+msgstr "Evento"
+
+#. module: website_event_require_login
+#: model:ir.model.fields,help:website_event_require_login.field_event_event__website_require_login
+msgid ""
+"If set, a user must be logged in to be able to register attendees from the "
+"website."
+msgstr ""
+"Si está establecido, el usuario deberá iniciar sesión para registrar "
+"asistentes desde el sito web."
+
+#. module: website_event_require_login
+#: model_terms:ir.ui.view,arch_db:website_event_require_login.modal_attendees_registration_login_required
+msgid "Login"
+msgstr "Iniciar sesión"
+
+#. module: website_event_require_login
+#: model_terms:ir.ui.view,arch_db:website_event_require_login.modal_attendees_registration_login_required
+msgid "Login required"
+msgstr "Inicio de sesión requerido"
+
+#. module: website_event_require_login
+#: model:ir.model.fields,field_description:website_event_require_login.field_event_event__website_require_login
+msgid "Require login for website registrations"
+msgstr "Requerir inicio de sesión para registros desde la página web"
+
+#. module: website_event_require_login
+#: model_terms:ir.ui.view,arch_db:website_event_require_login.modal_attendees_registration_login_required
+msgid "You must be logged in to be able to register to this event."
+msgstr "Debe iniciar sesión para poder regitrase en este evento."
