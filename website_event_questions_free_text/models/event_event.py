@@ -25,7 +25,7 @@ class EventAnswerFree(models.Model):
     _description = "Event Answer Free Text"
 
     registration_id = fields.Many2one(
-        comodel_name="event.registration", required=True, ondelete="cascade",
+        comodel_name="event.registration", required=True, ondelete="cascade"
     )
     question_id = fields.Many2one(
         comodel_name="event.question",
@@ -33,14 +33,14 @@ class EventAnswerFree(models.Model):
         ondelete="restrict",
         domain="[('free_text', '=', True)]",
     )
-    answer = fields.Char(required=True,)
+    answer = fields.Char(required=True)
 
     _sql_constraints = [
         (
             "unique_registration_question",
             "UNIQUE(registration_id, question_id)",
             "You can't answer the same question 2 times",
-        ),
+        )
     ]
 
     def name_get(self):
