@@ -12,7 +12,7 @@ class WebsiteEvent(WebsiteEvent):
             for key, value in registration.items():
                 if key.startswith("answer_free_text-"):
                     free_answers.append(
-                        (0, 0, {"question_id": int(key[17:]), "answer": value,})
+                        (0, 0, {"question_id": int(key[17:]), "answer": value})
                     )
             registration["free_answer_ids"] = free_answers
         return registrations
