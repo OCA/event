@@ -1,9 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!-- Copyright 2019 Tecnativa - Pedro M. Baeza
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 <odoo>
-
-    <template id="registration_attendee_details_questions" inherit_id="website_event_questions.registration_attendee_details_questions">
+    <template
+        id="registration_attendee_details_questions"
+        inherit_id="website_event_questions.registration_attendee_details_questions"
+    >
         <xpath expr="//select[hasclass('o_specific_answer')]" position="attributes">
             <attribute name="t-if">not question.free_text</attribute>
         </xpath>
@@ -29,5 +31,4 @@
             />
         </xpath>
     </template>
-
 </odoo>
