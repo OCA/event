@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2020 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <template id="third_party_roles">
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>Partner</th>
+                    <th>Roles</th>
+                </tr>
+            </thead>
+            <tbody>
+                <t t-foreach="o.third_party_ids" t-as="party">
+                    <tr>
+                        <td>
+                            <address
+                                t-field="party.partner_id"
+                                t-options='{"widget": "contact", "fields": ["phone", "mobile", "name"], "no_marker": True, "phone_icons": True}'
+                            />
+                        </td>
+                        <td>
+                            <table
+                                class="table table-sm table-borderless"
+                                name="table_roles"
+                            >
+                                <t t-foreach="party.role_ids" t-as="role">
+                                    <tr>
+                                        <t
+                                            t-set="color"
+                                            t-value="role._get_role_colors()[role.color]"
+                                        />
+                                        <td>
+                                            <span
+                                                t-attf-style="color: #{color};"
+                                                t-field="role.name"
+                                            />
+                                        </td>
+                                    </tr>
+                                </t>
+                            </table>
+                        </td>
+                    </tr>
+                </t>
+            </tbody>
+        </table>
+    </template>
+    <template id="report_third_party_document">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="web.external_layout" t-lang="lang">
+                <div class="page">
+                    <h2>
+                        <t t-esc="o.name" />
+                        <br />
+                        <div class="small">
+                            <span t-field="o.date_begin" />
+                            ->
+                            <span t-field="o.date_end" />
+                        </div>
+                    </h2>
+                    <t t-call="event_third_party.third_party_roles" />
+                </div>
+            </t>
+        </t>
+    </template>
+    <template id="report_third_party">
+        <t t-call="web.html_container">
+            <t t-set="lang" t-value="docs.env.lang" />
+            <t t-call="event_third_party.report_third_party_document" t-lang="lang" />
+        </t>
+    </template>
+    <record id="report_third_party" model="ir.actions.report">
+        <field name="name">Event Third Parties</field>
+        <field name="model">event.event</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">event_third_party.report_third_party</field>
+        <field name="report_file">event_third_party.report_third_party</field>
+        <field name="binding_model_id" ref="model_event_event" />
+        <field name="binding_type">report</field>
+    </record>
+    <template id="template_third_party_summary">
+        <table class="table table-sm border-black">
+            <thead>
+                <tr>
+                    <th name="th_event">Event</th>
+                    <th name="th_begin_date">Begin Date</th>
+                    <th name="th_end_date">End Date</th>
+                    <th name="th_location">Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="small" name="td_event_name">
+                        <span t-field="o.name" />
+                    </td>
+                    <td class="small" name="td_begin_date">
+                        <span t-field="o.date_begin" />
+                    </td>
+                    <td class="small" name="td_end_date">
+                        <span t-field="o.date_end" />
+                    </td>
+                    <td class="small" name="td_address">
+                        <span
+                            t-field="o.address_id"
+                            t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}'
+                        />
+                    </td>
+                    <t t-call="event_third_party.third_party_roles" />
+                </tr>
+            </tbody>
+        </table>
+    </template>
+    <template id="template_event_third_party_summary">
+        <t t-call="web.basic_layout">
+            <div class="page">
+                <h2>Third Party Summary</h2>
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="event_third_party.template_third_party_summary">
+                        <t t-set="o" t-value="o" />
+                    </t>
+                </t>
+            </div>
+        </t>
+    </template>
+    <record id="report_third_party_summary" model="ir.actions.report">
+        <field name="name">Event Third Parties Summary</field>
+        <field name="model">event.event</field>
+        <field name="report_type">qweb-pdf</field>
+        <!-- prettier-ignore-start -->
+        <field name="report_name">event_third_party.template_event_third_party_summary</field>
+        <field name="report_file">event_third_party.template_event_third_party_summary</field>
+        <!-- prettier-ignore-end -->
+        <field name="binding_model_id" ref="model_event_event" />
+        <field name="binding_type">report</field>
+        <field
+            name="paperformat_id"
+            ref="event_third_party.paperformat_euro_landscape"
+        />
+    </record>
+</odoo>

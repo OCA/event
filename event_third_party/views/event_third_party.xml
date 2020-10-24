@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2020 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="event_third_party_form_view">
+        <field name="name">event.third.party.form (in event_third_party)</field>
+        <field name="model">event.third.party</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="partner_id" />
+                        <field name="event_id" />
+                        <field name="role_ids" widget="many2many_tags" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="event_third_party_search_view">
+        <field name="name">event.third.party.search (in event_third_party)</field>
+        <field name="model">event.third.party</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="partner_id" />
+            </search>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="event_third_party_tree_view">
+        <field name="name">event.third.party.tree (in event_third_party)</field>
+        <field name="model">event.third.party</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="partner_id" />
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="event_third_party_act_window">
+        <field name="name">Event Third Party</field>
+        <field name="res_model">event.third.party</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+    <record model="ir.ui.menu" id="event_third_party_party_menu">
+        <field name="name">Event Third Party</field>
+        <field name="parent_id" ref="event_third_party.event_third_party_menu" />
+        <field name="action" ref="event_third_party_act_window" />
+        <field name="sequence" eval="16" />
+    </record>
+</odoo>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2020 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.menu" id="event_third_party_menu">
+        <field name="name">Third Party Management</field>
+        <field name="parent_id" ref="event.menu_event_configuration" />
+        <field name="sequence" eval="16" />
+    </record>
+</odoo>

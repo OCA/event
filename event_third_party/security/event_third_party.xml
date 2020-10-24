@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2020 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.model.access" id="event_third_party_user">
+        <field name="name">event.third.party User</field>
+        <field name="model_id" ref="model_event_third_party" />
+        <field name="group_id" ref="event.group_event_user" />
+        <field name="perm_read" eval="1" />
+        <field name="perm_create" eval="1" />
+        <field name="perm_write" eval="1" />
+        <field name="perm_unlink" eval="0" />
+    </record>
+    <record model="ir.model.access" id="event_third_party_manager">
+        <field name="name">event.third.party Manager</field>
+        <field name="model_id" ref="model_event_third_party" />
+        <field name="group_id" ref="event.group_event_manager" />
+        <field name="perm_read" eval="1" />
+        <field name="perm_create" eval="1" />
+        <field name="perm_write" eval="1" />
+        <field name="perm_unlink" eval="1" />
+    </record>
+</odoo>

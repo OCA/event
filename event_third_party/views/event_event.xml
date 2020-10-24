@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2020 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="event_event_form_view">
+        <field name="name">event.event.form (in event_third_party)</field>
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_form" />
+        <field name="arch" type="xml">
+            <page name="event_communication" position="after">
+                <page name="third_party" string="Third Parties">
+                    <group>
+                        <field name="third_party_ids" widget="one2many">
+                            <form>
+                                <sheet>
+                                    <group>
+                                        <field name="partner_id" />
+                                        <field name="event_id" invisible="1" />
+                                        <field
+                                            name="role_ids"
+                                            widget="many2many_tags"
+                                        />
+                                    </group>
+                                </sheet>
+                            </form>
+                            <tree>
+                                <field name="partner_id" />
+                                <field name="event_id" invisible="1" />
+                                <field name="role_ids" widget="many2many_tags" />
+                            </tree>
+                        </field>
+                    </group>
+                    <group>
+
+                    </group>
+                </page>
+            </page>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2020 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo noupdate="1">
+    <record model="event.third.party" id="event_third_party_demo_1">
+        <field name="event_id" ref="event.event_1" />
+        <field name="partner_id" ref="res_partner_address_glenn" />
+        <field name="role_ids" eval="[(4, ref('event_third_party_role_demo_pilot'))]" />
+    </record>
+</odoo>

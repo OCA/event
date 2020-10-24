@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2020 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="event_third_party_role_form_view">
+        <field name="name">event.third.party.role.form (in event_third_party)</field>
+        <field name="model">event.third.party.role</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="color" widget="color_picker" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="event_third_party_role_search_view">
+        <field name="name">event.third.party.role.search (in event_third_party)</field>
+        <field name="model">event.third.party.role</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+            </search>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="event_third_party_role_tree_view">
+        <field name="name">event.third.party.role.tree (in event_third_party)</field>
+        <field name="model">event.third.party.role</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="event_third_party_role_act_window">
+        <field name="name">Event Third Party Role</field>
+        <field name="res_model">event.third.party.role</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+    <record model="ir.ui.menu" id="event_third_party_role_menu">
+        <field name="name">Event Third Party Role</field>
+        <field name="parent_id" ref="event_third_party.event_third_party_menu" />
+        <field name="action" ref="event_third_party_role_act_window" />
+        <field name="sequence" eval="16" />
+    </record>
+</odoo>
