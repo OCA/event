@@ -50,7 +50,6 @@ msgstr ""
 #. module: website_event_snippet_calendar
 #: model:ir.model,name:website_event_snippet_calendar.model_event_event
 #, fuzzy
-#| msgid "Events"
 msgid "Event"
 msgstr "Eventos"
 
