@@ -25,14 +25,12 @@ msgstr ""
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_event_confirm_state
 #, fuzzy
-#| msgid "Unconfirmed Seat Reservations"
 msgid " # No of Confirmed Registrations"
 msgstr "Reservas de plazas no confirmadas"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_event_draft_state
 #, fuzzy
-#| msgid "Registrations"
 msgid " # No of Draft Registrations"
 msgstr "Registros"
 
@@ -146,7 +144,6 @@ msgstr "Datos de evento y fechas"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session_delete_existing_sessions
 #, fuzzy
-#| msgid "Delete existing sessions"
 msgid "Delete Existing Sessions"
 msgstr "Borrar sesiones existentes"
 
@@ -176,7 +173,6 @@ msgstr "Fecha de finalización localizada"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session_hours_end_time
 #, fuzzy
-#| msgid "End time"
 msgid "End Time"
 msgstr "Hora de fin"
 
@@ -202,7 +198,6 @@ msgstr ""
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_event_mail_template_id
 #, fuzzy
-#| msgid "Mail Schedule Template"
 msgid "Event Mail Template"
 msgstr "Plantilla de programación de correos"
 
@@ -313,7 +308,6 @@ msgstr "Plantilla de programación de correos"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_res_config_settings_event_mail_template_id
 #, fuzzy
-#| msgid "Mail Schedule Template"
 msgid "Mail Template"
 msgstr "Plantilla de programación de correos"
 
@@ -480,7 +474,6 @@ msgstr "Fecha de inicio localizada"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session_hours_start_time
 #, fuzzy
-#| msgid "Start time"
 msgid "Start Time"
 msgstr "Hora de incio"
 
@@ -582,7 +575,6 @@ msgstr "Días de la semana"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session_hours_wizard_event_session_id
 #, fuzzy
-#| msgid "Wizard event session id"
 msgid "Wizard Event Session"
 msgstr "Wizard event session id"
 
@@ -617,7 +609,6 @@ msgstr "¡Las horas introducidas son erróneas!"
 #. module: event_session
 #: model:ir.model,name:event_session.model_event_mail_template
 #, fuzzy
-#| msgid "event.mail"
 msgid "event.mail.template"
 msgstr "event.mail"
 
