@@ -1,4 +1,0 @@
-diff a/.prettierrc.yml b/.prettierrc.yml	(rejected hunks)
-@@ -7,2 +7 @@ semi: true
- trailingComma: "es5"
--xmlWhitespaceSensitivity: "ignore"
