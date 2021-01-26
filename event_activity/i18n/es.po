@@ -1,0 +1,52 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_activity
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-03 09:45+0000\n"
+"PO-Revision-Date: 2021-02-03 09:47+0000\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.4.2\n"
+"Last-Translator: Jairo Llopis <jairo.llopis@tecnativa.com>\n"
+"Language: es_ES\n"
+
+#. module: event_activity
+#: model:ir.model,name:event_activity.model_event_event
+msgid "Event"
+msgstr "Evento"
+
+#. module: event_activity
+#: model:ir.model,name:event_activity.model_event_registration
+msgid "Event Registration"
+msgstr "Registro a evento"
+
+#. module: event_activity
+#: model_terms:ir.ui.view,arch_db:event_activity.view_event_search
+#: model_terms:ir.ui.view,arch_db:event_activity.view_registration_search
+msgid "Future Activities"
+msgstr "Actividades futuras"
+
+#. module: event_activity
+#: model_terms:ir.ui.view,arch_db:event_activity.view_event_search
+#: model_terms:ir.ui.view,arch_db:event_activity.view_registration_search
+msgid "Late Activities"
+msgstr "Actividades retrasadas"
+
+#. module: event_activity
+#: model_terms:ir.ui.view,arch_db:event_activity.view_event_search
+#: model_terms:ir.ui.view,arch_db:event_activity.view_registration_search
+msgid "Show all records which has next action date is before today"
+msgstr "Mostrar todos los registros cuya siguiente actividad era para ayer o antes"
+
+#. module: event_activity
+#: model_terms:ir.ui.view,arch_db:event_activity.view_event_search
+#: model_terms:ir.ui.view,arch_db:event_activity.view_registration_search
+msgid "Today Activities"
+msgstr "Actividades para hoy"
