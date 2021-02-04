@@ -23,7 +23,7 @@ Event activities
     :target: https://runbot.odoo-community.org/runbot/199/12.0
     :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| |badge4| |badge5|
+|badge1| |badge2| |badge3| |badge4| |badge5| 
 
 This module extends the functionality of events and registrations to support
 activities scheduling.
@@ -76,7 +76,7 @@ promote its widespread use.
 
 Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
-|maintainer-Yajo|
+|maintainer-Yajo| 
 
 This module is part of the `OCA/event <https://github.com/OCA/event/tree/12.0/event_activity>`_ project on GitHub.
 
