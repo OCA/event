@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2021 Tecnativa - Jairo Llopis
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
+<data>
+
+    <record model="ir.ui.view" id="view_event_form">
+        <field name="name">Activities in event.event form</field>
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_form"></field>
+        <field name="arch" type="xml">
+            <field name="message_ids" position="before">
+                <field name="activity_ids" widget="mail_activity" />
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_event_search">
+        <field name="name">Activities in event.event search</field>
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_search"></field>
+        <field name="arch" type="xml">
+            <filter name="inactive" position="after">
+                <separator />
+                <filter string="Late Activities" name="activities_overdue" domain="[('activity_ids.date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]" help="Show all records which has next action date is before today" />
+                <filter string="Today Activities" name="activities_today" domain="[('activity_ids.date_deadline', '=', context_today().strftime('%Y-%m-%d'))]" />
+                <filter string="Future Activities" name="activities_upcoming_all" domain="[('activity_ids.date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))]" />
+            </filter>
+        </field>
+    </record>
+
+</data>
