@@ -1,0 +1,91 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#       * crm_event
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-10 12:25+0000\n"
+"PO-Revision-Date: 2021-02-10 12:25+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: crm_event
+#: model_terms:ir.ui.view,arch_db:crm_event.crm_opportunity_report_view_search
+msgid "Event"
+msgstr ""
+
+#. module: crm_event
+#: model:ir.model,name:crm_event.model_event_type
+msgid "Event Category"
+msgstr ""
+
+#. module: crm_event
+#: model:ir.model.fields,field_description:crm_event.field_crm_lead__event_type_id
+#: model_terms:ir.ui.view,arch_db:crm_event.crm_opportunity_report_view_search
+#: model_terms:ir.ui.view,arch_db:crm_event.view_crm_case_leads_filter
+#: model_terms:ir.ui.view,arch_db:crm_event.view_crm_case_opportunities_filter
+msgid "Event category"
+msgstr ""
+
+#. module: crm_event
+#: code:addons/crm_event/models/event_type.py:94
+#, python-format
+msgid "Events"
+msgstr ""
+
+#. module: crm_event
+#: model:ir.model.fields,field_description:crm_event.field_event_type__seats_available_total
+msgid "Events (seats)"
+msgstr ""
+
+#. module: crm_event
+#: model:ir.model.fields,help:crm_event.field_crm_lead__seats_wanted
+msgid "If this lead/opportunity is related to a specific event category, indicate how many seats would you sell if won."
+msgstr ""
+
+#. module: crm_event
+#: model:ir.model.fields,help:crm_event.field_crm_lead__event_type_id
+msgid "If this lead/opportunity is related to a specific event category, indicate it here."
+msgstr ""
+
+#. module: crm_event
+#: model:ir.model,name:crm_event.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr ""
+
+#. module: crm_event
+#: model:ir.model.fields,help:crm_event.field_event_type__seats_wanted_total
+msgid "Open opportunities for events of this category (and wanted seats)."
+msgstr ""
+
+#. module: crm_event
+#: code:addons/crm_event/models/event_type.py:109
+#, python-format
+msgid "Opportunities"
+msgstr ""
+
+#. module: crm_event
+#: model:ir.model.fields,field_description:crm_event.field_event_type__seats_wanted_total
+msgid "Opportunities (seats)"
+msgstr ""
+
+#. module: crm_event
+#: model:ir.model.fields,field_description:crm_event.field_crm_lead__seats_wanted
+msgid "Seats Wanted"
+msgstr ""
+
+#. module: crm_event
+#: model_terms:ir.ui.view,arch_db:crm_event.crm_case_tree_view_oppor
+msgid "Total seats wanted"
+msgstr ""
+
+#. module: crm_event
+#: model:ir.model.fields,help:crm_event.field_event_type__seats_available_total
+msgid "Upcoming/running events of this category (and available seats)."
+msgstr ""
