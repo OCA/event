@@ -7,7 +7,7 @@
     "development_status": "Production/Stable",
     "category": "Marketing",
     "website": "https://github.com/OCA/event",
-    "author": "Tecnativa - Jairo Llopis, Odoo Community Association (OCA)",
+    "author": "Tecnativa, Odoo Community Association (OCA)",
     "maintainers": ["Yajo"],
     "license": "LGPL-3",
     "application": False,
