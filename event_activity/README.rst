@@ -55,7 +55,7 @@ Credits
 Authors
 ~~~~~~~
 
-* Tecnativa - Jairo Llopis
+* Tecnativa
 
 Maintainers
 ~~~~~~~~~~~
