@@ -8,7 +8,7 @@
         <field eval="20" name="priority" />
         <field name="inherit_id" ref="event.view_event_form" />
         <field name="arch" type="xml">
-            <field name="seats_min" position="before">
+            <field name="address_id" position="after">
                 <field name="create_partner" />
             </field>
         </field>
