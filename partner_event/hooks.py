@@ -5,7 +5,7 @@ from odoo import SUPERUSER_ID, api
 
 def post_init_hook(cr, registry):
     """Preload proper attendee partner for existing registrations using
-       the same rules the module does"""
+    the same rules the module does"""
     with api.Environment.manage():
         env = api.Environment(cr, SUPERUSER_ID, {})
         attendees_emails = env["event.registration"].read_group(
