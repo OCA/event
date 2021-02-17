@@ -57,7 +57,7 @@ class EventRegistration(models.Model):
             registrations.write(reg_data)
 
     @api.onchange("attendee_partner_id", "partner_id")
-    def _onchange_partner(self):
+    def _onchange_partner_id(self):
         if self.attendee_partner_id:
             if not self.partner_id:
                 self.partner_id = self.attendee_partner_id
@@ -66,5 +66,5 @@ class EventRegistration(models.Model):
             }
             return super(
                 EventRegistration, self.with_context(**get_attendee_partner_address)
-            )._onchange_partner()
-        return super(EventRegistration, self)._onchange_partner()
+            )._onchange_partner_id()
+        return super(EventRegistration, self)._onchange_partner_id()

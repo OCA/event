@@ -9,7 +9,10 @@
         <field name="arch" type="xml">
             <form string="Select event to register">
                 <group attrs="{'invisible': [('errors', '!=', False)]}">
-                    <field name="event" />
+                    <field
+                        name="event"
+                        options="{'no_create': True, 'no_create_edit':True}"
+                    />
                 </group>
                 <group attrs="{'invisible': [('errors', '=', False)]}">
                     <separator
@@ -38,16 +41,7 @@
         <field name="res_model">res.partner.register.event</field>
         <field name="view_mode">form</field>
         <field name="view_id" ref="res_partner_register_event_view" />
-        <field name="binding_model_id" ref="partner_event.model_event_registration" />
+        <field name="binding_model_id" ref="base.model_res_partner" />
         <field name="target">new</field>
     </record>
-    <act_window
-        id="partner_register_event"
-        name="Register in an event"
-        binding_model="res.partner"
-        res_model="res.partner.register.event"
-        view_mode="form"
-        binding_views="form"
-        target="new"
-    />
 </odoo>

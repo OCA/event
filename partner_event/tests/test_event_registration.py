@@ -22,9 +22,8 @@ class TestEventRegistration(common.SavepointCase):
                 "name": "Test event",
                 "date_begin": fields.Datetime.now(),
                 "date_end": fields.Datetime.now(),
-                "seats_availability": "limited",
+                "seats_limited": True,
                 "seats_max": "5",
-                "seats_min": "1",
             }
         )
         cls.event_0.create_partner = True
