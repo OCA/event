@@ -8,21 +8,13 @@
     "category": "Website",
     "website": "https://github.com/OCA/event",
     "author": "Antiun Ingeniería S.L., "
-              "Tecnativa, "
-              "Onestein, "
-              "Odoo Community Association (OCA)",
+    "Tecnativa, "
+    "Onestein, "
+    "Odoo Community Association (OCA)",
     "license": "LGPL-3",
     "application": False,
     "installable": True,
-    "depends": [
-        "website_event",
-    ],
-    "data": [
-        "templates/assets.xml",
-        "templates/event.xml",
-    ],
-    "demo": [
-        "demo/assets.xml",
-        "demo/tour_data.xml",
-    ],
+    "depends": ["website_event",],
+    "data": ["templates/assets.xml", "templates/event.xml",],
+    "demo": ["demo/assets.xml", "demo/tour_data.xml",],
 }
