@@ -6,7 +6,7 @@
         <xpath expr=".">
             <script
                 type="text/javascript"
-                src="/website_event_filter_selector/static/src/js/website_event_filter_selector.tour.js"
+                src="/website_event_filter_city/static/src/js/website_event_filter_city.tour.js"
             />
         </xpath>
     </template>
