@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2021 Tecnativa - Jairo Llopis
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+
+<data>
+
+    <!-- Leads -->
+    <record id="crm_case_form_view_leads" model="ir.ui.view">
+        <field name="name">Event category in CRM leads</field>
+        <field name="model">crm.lead</field>
+        <field name="groups_id" eval="[(4, ref('event.group_event_user'))]" />
+        <field name="inherit_id" ref="crm.crm_case_form_view_leads"></field>
+        <field name="arch" type="xml">
+            <xpath expr="//group[field[@name='tag_ids']]" position="after">
+                <group name="event_type">
+                    <field name="event_type_id"></field>
+                    <field name="seats_wanted"></field>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_crm_case_leads_filter" model="ir.ui.view">
+        <field name="name">Search by event category in CRM leads</field>
+        <field name="model">crm.lead</field>
+        <field name="groups_id" eval="[(4, ref('event.group_event_user'))]" />
+        <field name="inherit_id" ref="crm.view_crm_case_leads_filter"></field>
+        <field name="arch" type="xml">
+            <field name="lost_reason" position="before">
+                <field name="event_type_id"></field>
+            </field>
+
+            <filter name="lostreason" position="before">
+                <filter string="Event type" name="groupby_event_type_id" context="{'group_by': 'event_type_id'}"></filter>
+            </filter>
+        </field>
+    </record>
+
+    <!-- Opportunities -->
+    <record id="crm_case_kanban_view_leads" model="ir.ui.view">
+        <field name="name">Event category in CRM opportunities kanban</field>
+        <field name="model">crm.lead</field>
+        <field name="groups_id" eval="[(4, ref('event.group_event_user'))]" />
+        <field name="inherit_id" ref="crm.crm_case_kanban_view_leads"></field>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('o_kanban_record_bottom')]" position="before">
+                <t t-if="record.event_type_id.raw_value">
+                    <div class="o_kanban_record_body text-info">
+                        <field name="seats_wanted" class="oe_inline" nolabel="1" />
+                        <i class="fa fa-ticket"></i>
+                        <field name="event_type_id" class="oe_inline" nolabel="1" />
+                    </div>
+                </t>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="quick_create_opportunity_form" model="ir.ui.view">
+        <field name="name">Event category in CRM opportunities quick form</field>
+        <field name="model">crm.lead</field>
+        <field name="groups_id" eval="[(4, ref('event.group_event_user'))]" />
+        <field name="inherit_id" ref="crm.quick_create_opportunity_form"></field>
+        <field name="arch" type="xml">
+            <field name="priority" position="before">
+                <field name="event_type_id"></field>
+                <field name="seats_wanted" attrs="{'invisible': [('event_type_id', '=', False)]}"></field>
+            </field>
+        </field>
+    </record>
+
+    <record id="crm_case_tree_view_oppor" model="ir.ui.view">
+        <field name="name">Event category in CRM opportunities tree</field>
+        <field name="model">crm.lead</field>
+        <field name="groups_id" eval="[(4, ref('event.group_event_user'))]" />
+        <field name="inherit_id" ref="crm.crm_case_tree_view_oppor"></field>
+        <field name="arch" type="xml">
+            <field name="stage_id" position="after">
+                <field name="event_type_id"></field>
+                <field name="seats_wanted" sum="Total seats wanted"></field>
+            </field>
+        </field>
+    </record>
+
+    <record id="crm_case_form_view_oppor" model="ir.ui.view">
+        <field name="name">Event category in CRM opportunities form</field>
+        <field name="model">crm.lead</field>
+        <field name="groups_id" eval="[(4, ref('event.group_event_user'))]" />
+        <field name="inherit_id" ref="crm.crm_case_form_view_oppor"></field>
+        <field name="arch" type="xml">
+            <xpath expr="//group[field[@name='tag_ids']]" position="after">
+                <group name="event_type">
+                    <field name="event_type_id"></field>
+                    <field name="seats_wanted" attrs="{'invisible': [('event_type_id', '=', False)]}"></field>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_crm_case_opportunities_filter" model="ir.ui.view">
+        <field name="name">Search by event category in CRM opportunities</field>
+        <field name="model">crm.lead</field>
+        <field name="groups_id" eval="[(4, ref('event.group_event_user'))]" />
+        <field name="inherit_id" ref="crm.view_crm_case_opportunities_filter"></field>
+        <field name="arch" type="xml">
+            <field name="lost_reason" position="before">
+                <field name="event_type_id"></field>
+            </field>
+
+            <filter name="lostreason" position="before">
+                <filter string="Event type" name="groupby_event_type_id" context="{'group_by': 'event_type_id'}"></filter>
+            </filter>
+        </field>
+    </record>
+
+    <!-- Shared between opportunities and leads -->
+    <record id="crm_opportunity_report_view_search" model="ir.ui.view">
+        <field name="name">Search by event category in CRM opportunities report</field>
+        <field name="model">crm.lead</field>
+        <field name="groups_id" eval="[(4, ref('event.group_event_user'))]" />
+        <field name="inherit_id" ref="crm.crm_opportunity_report_view_search"></field>
+        <field name="arch" type="xml">
+            <filter name="lost" position="after">
+                <filter string="Event" name="has_event_type_id" domain="[('event_type_id', '!=', False)]" />
+            </filter>
+            <filter name="lostreason" position="before">
+                <filter string="Event type" name="groupby_event_type_id" context="{'group_by': 'event_type_id'}"></filter>
+            </filter>
+        </field>
+    </record>
+
+</data>
