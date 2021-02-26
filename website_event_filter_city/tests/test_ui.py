@@ -10,7 +10,7 @@ class UICase(HttpCase):
         self.browser_js(
             url_path="/event",
             code="odoo.__DEBUG__.services['web_tour.tour']"
-                 ".run('website_event_filter_selector')",
+            ".run('website_event_filter_selector')",
             ready="odoo.__DEBUG__.services['web_tour.tour']"
-                  ".tours.website_event_filter_selector.ready",
+            ".tours.website_event_filter_selector.ready",
         )
