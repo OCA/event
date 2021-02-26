@@ -26,11 +26,11 @@ CRM Event Category
 |badge1| |badge2| |badge3| |badge4| |badge5| 
 
 This module extends the functionality of CRM opportunities (and leads, if
-enabled) to support linking them to event types and to allow you to keep track
-of leads interested in an upcoming event of some type.
+enabled) to support linking them to event categories and to allow you to keep
+track of leads interested in an upcoming event of some category.
 
 This is useful if you organize your events based on the amount of people
-interested in a certain type of event.
+interested in a certain category of event.
 
 **Table of contents**
 
@@ -48,13 +48,13 @@ To make use of this module, a user needs these minimal permissions:
 Usage
 =====
 
-To link a lead or opportunity to an event type:
+To link a lead or opportunity to an event category:
 
 #. Go to *CRM > Pipeline* and pick one lead.
 #. Go to the lead form.
-#. Use the new field *Event type*.
+#. Use the new field *Event category*.
 
-To know if there are events planned of a certain type:
+To know if there are events planned of a certain category:
 
 #. Go to *Events > Configuration > Event Categories* and pick one.
 #. Use the new *Events* smart button.
@@ -62,7 +62,7 @@ To know if there are events planned of a certain type:
    * It only counts those that are upcoming or running.
    * The number between parenthesis is the available seats sum of all those events.
 
-To know if there is people interested in a certain type of event:
+To know if there is people interested in a certain category of event:
 
 #. Go to *Events > Configuration > Event Categories* and pick one.
 #. Use the new *Opportunities* smart button.
