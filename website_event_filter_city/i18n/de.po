@@ -16,78 +16,58 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: website_event_filter_selector
-#: code:addons/website_event_filter_selector/controllers/main.py:50
+#. module: website_event_filter_city
+#: code:addons/website_event_filter_city/controllers/main.py:0
+#: model_terms:ir.ui.view,arch_db:website_event_filter_city.event_city
 #, python-format
 msgid "All Cities"
 msgstr "Alle Städte"
 
-#. module: website_event_filter_selector
-#: model:event.event,name:website_event_filter_selector.event_barcelona
+#. module: website_event_filter_city
+#: model:event.event,name:website_event_filter_city.event_barcelona
 msgid "Barcelona Days 2017"
 msgstr ""
 
-#. module: website_event_filter_selector
-#: model:event.type,name:website_event_filter_selector.event_type_breakfast
+#. module: website_event_filter_city
+#: model:event.type,name:website_event_filter_city.event_type_breakfast
 msgid "Breakfast"
 msgstr ""
 
-#. module: website_event_filter_selector
-#: model:ir.model.fields,field_description:website_event_filter_selector.field_event_event__city
-#: model_terms:ir.ui.view,arch_db:website_event_filter_selector.city
+#. module: website_event_filter_city
+#: model:ir.model.fields,field_description:website_event_filter_city.field_event_event__city
 msgid "City"
 msgstr "Stadt"
 
-#. module: website_event_filter_selector
-#: model:event.type,name:website_event_filter_selector.event_type_code_sprint
+#. module: website_event_filter_city
+#: model:event.type,name:website_event_filter_city.event_type_code_sprint
 msgid "Code Sprint"
 msgstr ""
 
-#. module: website_event_filter_selector
-#: model_terms:ir.ui.view,arch_db:website_event_filter_selector.country
-msgid "Country"
-msgstr "Land"
-
-#. module: website_event_filter_selector
-#: model:ir.model,name:website_event_filter_selector.model_event_event
+#. module: website_event_filter_city
+#: model:ir.model,name:website_event_filter_city.model_event_event
 msgid "Event"
 msgstr "Veranstaltung"
 
-#. module: website_event_filter_selector
-#: model_terms:ir.ui.view,arch_db:website_event_filter_selector.type
-msgid "Event Type"
-msgstr "Veranstaltungsart"
-
-#. module: website_event_filter_selector
-#: model:event.event,name:website_event_filter_selector.event_online
+#. module: website_event_filter_city
+#: model:event.event,name:website_event_filter_city.event_online
 msgid "Online Code Sprint 2018"
 msgstr ""
 
-#. module: website_event_filter_selector
-#: model_terms:ir.ui.view,arch_db:website_event_filter_selector.country
-msgid "Online Events"
-msgstr ""
-
-#. module: website_event_filter_selector
-#: model:event.event,name:website_event_filter_selector.event_sevilla_bf
+#. module: website_event_filter_city
+#: model:event.event,name:website_event_filter_city.event_sevilla_bf
 msgid "Sevilla Awesome Breakfast 2018"
 msgstr ""
 
-#. module: website_event_filter_selector
-#: model:event.event,name:website_event_filter_selector.event_sevilla_cs
+#. module: website_event_filter_city
+#: model:event.event,name:website_event_filter_city.event_sevilla_cs
 msgid "Sevilla Code Sprint 2018"
 msgstr ""
 
-#. module: website_event_filter_selector
-#: model_terms:ir.ui.view,arch_db:website_event_filter_selector.date
-msgid "When"
-msgstr "Wann"
+#~ msgid "Country"
+#~ msgstr "Land"
 
-#~ msgid "website_event_filter_selector.city"
-#~ msgstr "website_event_filter_selector.city"
+#~ msgid "Event Type"
+#~ msgstr "Veranstaltungsart"
 
-#~ msgid "website_event_filter_selector.country"
-#~ msgstr "website_event_filter_selector.country"
-
-#~ msgid "website_event_filter_selector.type"
-#~ msgstr "website_event_filter_selector.type"
+#~ msgid "When"
+#~ msgstr "Wann"

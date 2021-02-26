@@ -10,10 +10,10 @@ class WebsiteEvent(WebsiteEventController):
     @http.route()
     def events(self, page=1, **searches):
         # Get current render values
-        searches.setdefault("city", "all")
-        result = super(WebsiteEvent, self).events(page, **searches)
+        result = super().events(page, **searches)
         values = result.qcontext
         searches = values["searches"]
+        searches.setdefault("city", _("All Cities"))
 
         # Regenerate current domain. Ideally, upstream would make all this in a
         # separate method and make our life easier, but not happening now.
@@ -46,13 +46,12 @@ class WebsiteEvent(WebsiteEventController):
             {
                 "city_count": sum(x["city_count"] for x in cities),
                 "city": _("All Cities"),
-                "key": "all",
             },
         )
         values["cities"] = cities
         values["current_city"] = searches["city"]
 
-        if searches["city"] != "all":
+        if searches["city"] != _("All Cities"):
             domain.append(("city", "=", searches["city"]))
             # Patch type count
             values["types"][1:] = Event.read_group(
@@ -82,7 +81,7 @@ class WebsiteEvent(WebsiteEventController):
                     )
 
         # We need a new pager now
-        step = 10  # This is hardcoded upstream too
+        step = 12
         values["pager"] = http.request.website.pager(
             url="/event",
             url_args={
@@ -98,9 +97,12 @@ class WebsiteEvent(WebsiteEventController):
         )
 
         # Return new event results
-        order = "website_published desc, date_begin"
-        if searches["date"] == "old":
-            order += " desc"
+        order = "date_begin"
+        if searches.get("date", "all") == "old":
+            order = "date_begin desc"
+        if searches["country"] != "all":  # if we are looking for a specific country
+            order = "is_online, " + order  # show physical events first
+        order = "is_published desc, " + order
         values["event_ids"] = Event.search(
             domain, limit=step, offset=values["pager"]["offset"], order=order
         )
