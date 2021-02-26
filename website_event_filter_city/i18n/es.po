@@ -82,12 +82,3 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:website_event_filter_selector.date
 msgid "When"
 msgstr "Cuándo"
-
-#~ msgid "website_event_filter_selector.city"
-#~ msgstr "website_event_filter_selector.city"
-
-#~ msgid "website_event_filter_selector.country"
-#~ msgstr "website_event_filter_selector.country"
-
-#~ msgid "website_event_filter_selector.type"
-#~ msgstr "website_event_filter_selector.type"
