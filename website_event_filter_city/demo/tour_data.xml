@@ -1,27 +1,24 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!-- Copyright 2019 Tecnativa - Jairo Llopis
+     Copyright 2021 Tecnativa - Víctor Martínez
      License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
 <!-- Data required to run the tour without depending on upstream demo data -->
 <data>
     <record id="partner_barcelona" model="res.partner">
         <field name="city">Barcelona</field>
         <field name="country_id" ref="base.es" />
-        <field name="customer" eval="False" />
         <field name="email">hotel.catala@example.com</field>
         <field name="is_company" eval="True" />
         <field name="name">Hotel Català</field>
         <field name="street">Carrer Català</field>
-        <field name="supplier" eval="True" />
     </record>
     <record id="partner_sevilla" model="res.partner">
         <field name="city">Sevilla</field>
         <field name="country_id" ref="base.es" />
-        <field name="customer" eval="False" />
         <field name="email">hotel.aceite.jerez@example.com</field>
         <field name="is_company" eval="True" />
         <field name="name">Hotel Aceite de Jerez</field>
         <field name="street">C/ Alquería</field>
-        <field name="supplier" eval="True" />
     </record>
     <record id="event_type_code_sprint" model="event.type">
         <field name="name">Code Sprint</field>
