@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-15 16:33+0100\n"
-"PO-Revision-Date: 2016-02-15 16:34+0100\n"
-"Last-Translator: <>\n"
+"PO-Revision-Date: 2021-03-17 14:45+0000\n"
+"Last-Translator: Ana Suárez <ana.suarez@qubiq.es>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: \n"
-"X-Generator: Poedit 1.8.6\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: event_registration_cancel_reason
 #: model_terms:ir.ui.view,arch_db:event_registration_cancel_reason.event_registration_cancel_log_reason_view
@@ -24,9 +24,8 @@ msgstr "Cancelar registro"
 
 #. module: event_registration_cancel_reason
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration__cancel_reason_id
-#, fuzzy
 msgid "Cancellation Reason"
-msgstr "Razón de cancelación:"
+msgstr "Motivo de cancelación"
 
 #. module: event_registration_cancel_reason
 #: model_terms:ir.ui.view,arch_db:event_registration_cancel_reason.view_registration_search
@@ -49,7 +48,7 @@ msgstr "Creado en"
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_log_reason__display_name
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_reason__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nombre mostrado"
 
 #. module: event_registration_cancel_reason
 #: model:ir.model,name:event_registration_cancel_reason.model_event_registration
@@ -60,13 +59,12 @@ msgstr "Registro evento"
 #: model:ir.model,name:event_registration_cancel_reason.model_event_registration_cancel_log_reason
 #, fuzzy
 msgid "Event Registration Cancel Log Reason"
-msgstr "Razones de cancelación de registros"
+msgstr "Razones de cancelación de registro en evento"
 
 #. module: event_registration_cancel_reason
 #: model:ir.model,name:event_registration_cancel_reason.model_event_registration_cancel_reason
-#, fuzzy
 msgid "Event Registration Cancel Reason"
-msgstr "Razones de cancelación de registros"
+msgstr "Motivos de cancelación de registro en evento"
 
 #. module: event_registration_cancel_reason
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_log_reason__event_type_id
@@ -87,9 +85,8 @@ msgstr "ID"
 #. module: event_registration_cancel_reason
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_log_reason____last_update
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_reason____last_update
-#, fuzzy
 msgid "Last Modified on"
-msgstr "Última actualización en"
+msgstr "Última modificación el"
 
 #. module: event_registration_cancel_reason
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_log_reason__write_uid
