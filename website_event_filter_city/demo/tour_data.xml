@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2019 Tecnativa - Jairo Llopis
+     Copyright 2021 Tecnativa - Víctor Martínez
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
+<!-- Data required to run the tour without depending on upstream demo data -->
+<data>
+    <record id="partner_barcelona" model="res.partner">
+        <field name="city">Barcelona</field>
+        <field name="country_id" ref="base.es" />
+        <field name="email">hotel.catala@example.com</field>
+        <field name="is_company" eval="True" />
+        <field name="name">Hotel Català</field>
+        <field name="street">Carrer Català</field>
+    </record>
+    <record id="partner_sevilla" model="res.partner">
+        <field name="city">Sevilla</field>
+        <field name="country_id" ref="base.es" />
+        <field name="email">hotel.aceite.jerez@example.com</field>
+        <field name="is_company" eval="True" />
+        <field name="name">Hotel Aceite de Jerez</field>
+        <field name="street">C/ Alquería</field>
+    </record>
+    <record id="event_type_code_sprint" model="event.type">
+        <field name="name">Code Sprint</field>
+    </record>
+    <record id="event_type_breakfast" model="event.type">
+        <field name="name">Breakfast</field>
+    </record>
+    <record id="event_barcelona" model="event.event">
+        <field name="address_id" ref="partner_barcelona" />
+        <field name="date_begin">2017-05-29 09:00:00</field>
+        <field name="date_end">2017-05-31 19:00:00</field>
+        <field name="event_type_id" ref="event_type_code_sprint" />
+        <field name="name">Barcelona Days 2017</field>
+        <field name="seats_availability">limited</field>
+        <field name="seats_max">500</field>
+        <field name="user_id" ref="base.user_admin" />
+        <field name="website_published" eval="True" />
+    </record>
+    <record id="event_sevilla_cs" model="event.event">
+        <field name="address_id" ref="partner_sevilla" />
+        <field name="date_begin">2018-06-11 09:00:00</field>
+        <field name="date_end">2018-06-13 19:00:00</field>
+        <field name="event_type_id" ref="event_type_code_sprint" />
+        <field name="name">Sevilla Code Sprint 2018</field>
+        <field name="seats_availability">limited</field>
+        <field name="seats_max">200</field>
+        <field name="user_id" ref="base.user_admin" />
+        <field name="website_published" eval="True" />
+    </record>
+    <record id="event_sevilla_bf" model="event.event">
+        <field name="address_id" ref="partner_sevilla" />
+        <field name="date_begin">2018-06-11 08:00:00</field>
+        <field name="date_end">2018-06-11 09:00:00</field>
+        <field name="event_type_id" ref="event_type_breakfast" />
+        <field name="name">Sevilla Awesome Breakfast 2018</field>
+        <field name="seats_availability">limited</field>
+        <field name="seats_max">10</field>
+        <field name="user_id" ref="base.user_admin" />
+        <field name="website_published" eval="True" />
+    </record>
+    <record id="event_online" model="event.event">
+        <field name="address_id" eval="False" />
+        <field name="date_begin">2018-04-18 09:00:00</field>
+        <field name="date_end">2018-04-20 19:00:00</field>
+        <field name="event_type_id" ref="event_type_code_sprint" />
+        <field name="is_online" eval="True" />
+        <field name="name">Online Code Sprint 2018</field>
+        <field name="seats_availability">unlimited</field>
+        <field name="user_id" ref="base.user_admin" />
+        <field name="website_published" eval="True" />
+    </record>
+</data>
