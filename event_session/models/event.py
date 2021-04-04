@@ -36,27 +36,23 @@ class EventEvent(models.Model):
         store=True,
     )
 
-    @api.multi
     @api.depends("session_ids")
     def _compute_sessions_count(self):
         for event in self:
             event.sessions_count = len(event.session_ids)
 
-    @api.multi
     @api.constrains("seats_max", "seats_available")
     def _check_seats_limit(self):
         for event in self:
             if not event.session_ids:
                 return super(EventEvent, event)._check_seats_limit()
 
-    @api.multi
     @api.depends("seats_max", "seats_expected")
     def _compute_seats_available_expected(self):
         for this in self:
             seats = this.seats_max - this.seats_expected
             this.seats_available_expected = seats
 
-    @api.multi
     @api.depends("registration_ids.state")
     def _compute_state_numbers(self):
         for this in self:
@@ -81,7 +77,6 @@ class EventRegistration(models.Model):
         comodel_name="event.session", string="Session", ondelete="restrict",
     )
 
-    @api.multi
     @api.constrains("event_id", "session_id", "state")
     def _check_seats_limit(self):
         for registration in self.filtered("session_id"):
@@ -92,7 +87,6 @@ class EventRegistration(models.Model):
             ):
                 raise ValidationError(_("No more seats available for this event."))
 
-    @api.multi
     def confirm_registration(self):
         for reg in self:
             if not reg.event_id.session_ids:

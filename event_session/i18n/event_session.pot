@@ -1,12 +1,12 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* event_session
+# 	* event_session
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: <>\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -161,7 +161,7 @@ msgid "End Time"
 msgstr ""
 
 #. module: event_session
-#: code:addons/event_session/models/event_session.py:323
+#: code:addons/event_session/models/event_session.py:0
 #, python-format
 msgid "Ending and starting time can't be the same!"
 msgstr ""
@@ -282,7 +282,7 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: event_session
-#: selection:event.session,seats_availability:0
+#: model:ir.model.fields.selection,name:event_session.selection__event_session__seats_availability__limited
 msgid "Limited"
 msgstr ""
 
@@ -313,13 +313,13 @@ msgid "Mondays"
 msgstr ""
 
 #. module: event_session
-#: code:addons/event_session/models/event_session.py:303
+#: code:addons/event_session/models/event_session.py:0
 #, python-format
 msgid "No more available seats for this session."
 msgstr ""
 
 #. module: event_session
-#: code:addons/event_session/models/event.py:99
+#: code:addons/event_session/models/event.py:0
 #, python-format
 msgid "No more seats available for this event."
 msgstr ""
@@ -390,7 +390,7 @@ msgid "Session date end"
 msgstr ""
 
 #. module: event_session
-#: code:addons/event_session/models/event_session.py:314
+#: code:addons/event_session/models/event_session.py:0
 #, python-format
 msgid "Session date is out of this event dates range"
 msgstr ""
@@ -422,13 +422,17 @@ msgstr ""
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_wizard_event_session__event_date_begin
-msgid "Set it up in the event configurationSessions will be generated from this date"
+msgid ""
+"Set it up in the event configurationSessions will be generated from this "
+"date"
 msgstr ""
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_wizard_event_session__event_date_end
 #: model:ir.model.fields,help:event_session.field_wizard_event_session__event_date_tz
-msgid "Set it up in the event configurationSessions will be generated up to this date"
+msgid ""
+"Set it up in the event configurationSessions will be generated up to this "
+"date"
 msgstr ""
 
 #. module: event_session
@@ -457,14 +461,14 @@ msgid "Sundays"
 msgstr ""
 
 #. module: event_session
-#: code:addons/event_session/wizards/wizard_event_session.py:86
-#: code:addons/event_session/wizards/wizard_event_session.py:91
+#: code:addons/event_session/wizards/wizard_event_session.py:0
+#: code:addons/event_session/wizards/wizard_event_session.py:0
 #, python-format
 msgid "There are overlapping hours!"
 msgstr ""
 
 #. module: event_session
-#: code:addons/event_session/wizards/wizard_event_session.py:201
+#: code:addons/event_session/wizards/wizard_event_session.py:0
 #, python-format
 msgid "There are sessions with no duration!"
 msgstr ""
@@ -527,7 +531,7 @@ msgid "Unconfirmed Seat Reservations"
 msgstr ""
 
 #. module: event_session
-#: selection:event.session,seats_availability:0
+#: model:ir.model.fields.selection,name:event_session.selection__event_session__seats_availability__unlimited
 msgid "Unlimited"
 msgstr ""
 
@@ -552,26 +556,29 @@ msgid "Wizard for ease sessions creation"
 msgstr ""
 
 #. module: event_session
-#: code:addons/event_session/models/event_session.py:224
+#: code:addons/event_session/models/event_session.py:0
 #, python-format
-msgid "You are trying to delete one or more                 sessions with active registrations"
+msgid ""
+"You are trying to delete one or more                 sessions with active "
+"registrations"
 msgstr ""
 
 #. module: event_session
-#: code:addons/event_session/tests/test_session.py:179
+#: code:addons/event_session/tests/test_session.py:0
 #, python-format
-msgid "You are trying to delete one or more             sessions with active registrations"
+msgid ""
+"You are trying to delete one or more             sessions with active "
+"registrations"
 msgstr ""
 
 #. module: event_session
-#: code:addons/event_session/wizards/wizard_event_session.py:177
+#: code:addons/event_session/wizards/wizard_event_session.py:0
 #, python-format
 msgid "You must select at least one weekday"
 msgstr ""
 
 #. module: event_session
-#: code:addons/event_session/wizards/wizard_event_session.py:210
+#: code:addons/event_session/wizards/wizard_event_session.py:0
 #, python-format
 msgid "You've entered invalid hours!"
 msgstr ""
-
