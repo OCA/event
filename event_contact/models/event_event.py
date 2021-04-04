@@ -6,12 +6,13 @@ from openerp import api, fields, models
 
 
 class EventEvent(models.Model):
-    _inherit = 'event.event'
+    _inherit = "event.event"
 
     contact_ids = fields.Many2many(
-        string='Contacts',
-        comodel_name='res.partner',
-        help='Partners available to attend attendees requests for this event.')
+        string="Contacts",
+        comodel_name="res.partner",
+        help="Partners available to attend attendees requests for this event.",
+    )
 
     @api.onchange("event_type_id")
     def _onchange_type_set_contact_ids(self):
