@@ -12,8 +12,11 @@ class EventEvent(models.Model):
         string="Contacts",
         comodel_name="res.partner",
         help="Partners available to attend attendees requests for this event.",
+        compute="_compute_contact_ids",
+        store=True,
+        readonly=False,
     )
 
-    @api.onchange("event_type_id")
-    def _onchange_type_set_contact_ids(self):
+    @api.depends("event_type_id")
+    def _compute_contact_ids(self):
         self.contact_ids |= self.event_type_id.contact_ids
