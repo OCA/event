@@ -4,7 +4,6 @@
     <record id="act_wizard_event_session" model="ir.actions.act_window">
         <field name="name">Generate Sessions Wizard</field>
         <field name="res_model">wizard.event.session</field>
-        <field name="view_type">form</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
