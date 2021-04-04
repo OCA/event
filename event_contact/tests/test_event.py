@@ -14,6 +14,7 @@ class EventCase(TransactionCase):
         self.partner2 = self.env["res.partner"].create({"name": "Test Partner 2"})
         self.partner3 = self.env["res.partner"].create({"name": "Test Partner 3"})
         self.partner4 = self.env["res.partner"].create({"name": "Test Partner 4"})
+        self.partner5 = self.env["res.partner"].create({"name": "Test Partner 5"})
 
         self.type1 = self.env["event.type"].create(
             {
@@ -39,15 +40,12 @@ class EventCase(TransactionCase):
     def test_event_onchange_type_contacts_empty(self):
         """You get default contacts from type."""
         self.event1.event_type_id = self.type2
-        self.event1._onchange_type_set_contact_ids()
         self.assertEqual(self.event1.contact_ids, self.type2.contact_ids)
 
     def test_event_onchange_type_contacts_full(self):
         """Contacts not updated because it is not empty."""
+        self.event1.contact_ids = [(6, False, [self.partner5.id])]
         self.event1.event_type_id = self.type1
-        self.event1._onchange_type_set_contact_ids()
-        self.event1.event_type_id = self.type2
-        self.event1._onchange_type_set_contact_ids()
         self.assertEqual(
-            self.event1.contact_ids, self.type1.contact_ids | self.type2.contact_ids
+            self.event1.contact_ids, self.partner5 | self.type1.contact_ids
         )
