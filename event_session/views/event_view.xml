@@ -28,7 +28,6 @@
     <!-- Event session action form stat button -->
     <record id="act_event_session_event_form" model="ir.actions.act_window">
         <field name="res_model">event.session</field>
-        <field name="view_type">form</field>
         <field name="name">Sessions</field>
         <field name="view_mode">tree,form,calendar,pivot</field>
         <field

@@ -9,7 +9,7 @@ from odoo import _
 from odoo.exceptions import ValidationError
 from odoo.tests import common
 
-from odoo.addons.event_session.models.event_session import (
+from ..models.event_session import (
     datetime_format,
     get_locale,
     localized_format,
@@ -59,7 +59,7 @@ class EventSession(common.SavepointCase):
                 "sundays": True,
                 "saturdays": True,
                 "delete_existing_sessions": False,
-                "session_hour_ids": [(0, 0, {"start_time": 20.0, "end_time": 21.0}),],
+                "session_hour_ids": [(0, 0, {"start_time": 20.0, "end_time": 21.0})],
             }
         )
         cls.template = cls.env["event.mail.template"].create(
@@ -88,7 +88,7 @@ class EventSession(common.SavepointCase):
             }
         )
         cls.mail_registration = cls.env["event.mail.registration"].create(
-            {"scheduler_id": cls.scheduler.id, "registration_id": cls.attendee.id,}
+            {"scheduler_id": cls.scheduler.id, "registration_id": cls.attendee.id}
         )
 
         # Enable all languages used in the tests without loading them
@@ -159,7 +159,7 @@ class EventSession(common.SavepointCase):
         self.assertEqual(self.event.seats_used, self.session.seats_used)
         with self.assertRaises(ValidationError), self.cr.savepoint():
             # check limit regs
-            for i in range(int(self.session.seats_available) + 1):
+            for _i in range(int(self.session.seats_available) + 1):
                 self.env["event.registration"].create(
                     {
                         "name": "Test Attendee",
@@ -208,12 +208,12 @@ class EventSession(common.SavepointCase):
         with self.assertRaises(ValidationError), self.cr.savepoint():
             # session duration = 0
             self.wizard.update(
-                {"session_hour_ids": [(0, 0, {"start_time": 20.0, "end_time": 20.0}),],}
+                {"session_hour_ids": [(0, 0, {"start_time": 20.0, "end_time": 20.0})]}
             )
         with self.assertRaises(ValidationError), self.cr.savepoint():
             # hour invalidity
             self.wizard.update(
-                {"session_hour_ids": [(0, 0, {"start_time": 24.0, "end_time": 24.1}),],}
+                {"session_hour_ids": [(0, 0, {"start_time": 24.0, "end_time": 24.1})]}
             )
         with self.assertRaises(ValidationError), self.cr.savepoint():
             # schedules overlap
@@ -309,12 +309,12 @@ class EventSession(common.SavepointCase):
         # Check en_CA format
         short_time_enca = short_time(datetime_val, locale_enca)
         short_time_enca2 = short_time(datetime_val, "en_CA")
-        self.assertEqual(short_time_enca, "3:30 PM")
+        self.assertEqual(short_time_enca, "3:30 p.m.")
         self.assertEqual(short_time_enca, short_time_enca2)
         # Check fr_CA format
         short_time_frca = short_time(datetime_val, locale_frca)
         short_time_frca2 = short_time(datetime_val, "fr_CA")
-        self.assertEqual(short_time_frca, "15:30")
+        self.assertEqual(short_time_frca, "15 h 30")
         self.assertEqual(short_time_frca, short_time_frca2)
         # Check fr_FR  format
         short_time_frfr = short_time(datetime_val, locale_frfr)
@@ -351,12 +351,12 @@ class EventSession(common.SavepointCase):
         # Check en_CA format
         short_time_enca = short_time(datetime_val, locale_enca)
         short_time_enca2 = short_time(datetime_val, "en_CA")
-        self.assertEqual(short_time_enca, "2020-01-31, 3:30 PM")
+        self.assertEqual(short_time_enca, "2020-01-31, 3:30 p.m.")
         self.assertEqual(short_time_enca, short_time_enca2)
         # Check fr_CA format
         short_time_frca = short_time(datetime_val, locale_frca)
         short_time_frca2 = short_time(datetime_val, "fr_CA")
-        self.assertEqual(short_time_frca, "20-01-31 15:30")
+        self.assertEqual(short_time_frca, "20-01-31 15 h 30")
         self.assertEqual(short_time_frca, short_time_frca2)
         # Check fr_FR  format
         short_time_frfr = short_time(datetime_val, locale_frfr)
@@ -366,7 +366,7 @@ class EventSession(common.SavepointCase):
         # Check ru_RU format
         short_time_ru = short_time(datetime_val, locale_ru)
         short_time_ru2 = short_time(datetime_val, "ru_RU")
-        self.assertEqual(short_time_ru, "31.01.20, 15:30")
+        self.assertEqual(short_time_ru, "31.01.2020, 15:30")
         self.assertEqual(short_time_ru, short_time_ru2)
 
         # Check week days formatted
@@ -426,11 +426,11 @@ class EventSession(common.SavepointCase):
         )
         self.assertEqual(
             localized_format(datetime_val, formats, locale_enca),
-            "Friday 2020-01-31, 3:30 PM 3:30 PM",
+            "Friday 2020-01-31, 3:30 p.m. 3:30 p.m.",
         )
         self.assertEqual(
             localized_format(datetime_val, formats, locale_frca),
-            "vendredi 20-01-31 15:30 15:30",
+            "vendredi 20-01-31 15 h 30 15 h 30",
         )
         self.assertEqual(
             localized_format(datetime_val, formats, locale_frfr),
@@ -438,5 +438,5 @@ class EventSession(common.SavepointCase):
         )
         self.assertEqual(
             localized_format(datetime_val, formats, locale_ru),
-            "пятница 31.01.20, 15:30 15:30",
+            "пятница 31.01.2020, 15:30 15:30",
         )
