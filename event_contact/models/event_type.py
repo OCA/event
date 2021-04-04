@@ -6,10 +6,11 @@ from openerp import fields, models
 
 
 class EventType(models.Model):
-    _inherit = 'event.type'
+    _inherit = "event.type"
 
     contact_ids = fields.Many2many(
-        string='Contacts',
-        comodel_name='res.partner',
-        help='Partners available to attend attendees requests by default for '
-             'events of this type.')
+        string="Contacts",
+        comodel_name="res.partner",
+        help="Partners available to attend attendees requests by default for "
+        "events of this type.",
+    )
