@@ -16,7 +16,7 @@ except ImportError:
 class EventMailScheduler(models.Model):
     _inherit = "event.mail"
 
-    event_id = fields.Many2one(required=False,)
+    event_id = fields.Many2one(required=False)
     session_id = fields.Many2one(
         comodel_name="event.session", string="Session", ondelete="cascade",
     )
@@ -26,7 +26,6 @@ class EventMailScheduler(models.Model):
         ondelete="cascade",
     )
 
-    @api.multi
     @api.depends(
         "mail_sent",
         "interval_type",
@@ -34,7 +33,7 @@ class EventMailScheduler(models.Model):
         "mail_registration_ids",
     )
     def _compute_done(self):
-        super(EventMailScheduler, self)._compute_done()
+        super()._compute_done()
         for event_mail in self:
             if event_mail.session_id and event_mail.interval_type not in [
                 "before_event",
@@ -49,7 +48,6 @@ class EventMailScheduler(models.Model):
                     and all(line.mail_sent for line in event_mail.mail_registration_ids)
                 )
 
-    @api.multi
     @api.depends(
         "event_id.state",
         "event_id.date_begin",
@@ -58,7 +56,7 @@ class EventMailScheduler(models.Model):
         "interval_nbr",
     )
     def _compute_scheduled_date(self):
-        super(EventMailScheduler, self)._compute_scheduled_date()
+        super()._compute_scheduled_date()
         for event_mail in self:
             if not event_mail.session_id:
                 continue
@@ -71,31 +69,26 @@ class EventMailScheduler(models.Model):
                     date, sign = event_mail.session_id.date_begin, -1
                 else:
                     date, sign = event_mail.session_id.date_end, 1
-                event_mail.scheduled_date = fields.Datetime.from_string(
-                    date
-                ) + _INTERVALS[event_mail.interval_unit](sign * event_mail.interval_nbr)
+                event_mail.scheduled_date = date + _INTERVALS[event_mail.interval_unit](
+                    sign * event_mail.interval_nbr
+                )
 
 
 class EventMailRegistration(models.Model):
     _inherit = "event.mail.registration"
 
-    @api.multi
     @api.depends(
         "registration_id", "scheduler_id.interval_unit", "scheduler_id.interval_type"
     )
     def _compute_scheduled_date(self):
-        super(EventMailRegistration, self)._compute_scheduled_date()
+        super()._compute_scheduled_date()
         for event_mail_reg in self:
             if (
                 event_mail_reg.registration_id
                 and event_mail_reg.registration_id.session_id
             ):
                 date_open = event_mail_reg.registration_id.date_open
-                date_open_datetime = (
-                    date_open
-                    and fields.Datetime.from_string(date_open)
-                    or fields.datetime.now()
-                )
+                date_open_datetime = date_open and date_open or fields.datetime.now()
                 event_mail_reg.scheduled_date = date_open_datetime + _INTERVALS[
                     event_mail_reg.scheduler_id.interval_unit
                 ](event_mail_reg.scheduler_id.interval_nbr)
