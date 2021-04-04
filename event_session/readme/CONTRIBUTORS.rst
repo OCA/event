@@ -4,3 +4,4 @@
   * David Vidal <david.vidal@tecnativa.com>
 
 * Nikos Tsirintanis <ntsirintanis@therp.nl>
+* David Alonso <david.alonso@solvos.es>

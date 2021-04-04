@@ -13,7 +13,8 @@ def get_locale(env):
     """
     Get the locale from the environment as done in ir.qweb.field
 
-    https://github.com/odoo/odoo/blob/12.0/odoo/addons/base/models/ir_qweb_fields.py#L235
+    https://github.com/odoo/odoo/blob/13.0/odoo/addons/base/models
+    /ir_qweb_fields.py#L238
     """
     lang = env["ir.qweb.field"].user_lang()
     locale = babel.Locale.parse(lang.code)
@@ -68,9 +69,9 @@ class EventSession(models.Model):
     company_id = fields.Many2one(
         comodel_name="res.company", related="event_id.company_id", store=True,
     )
-    event_id = fields.Many2one(comodel_name="event.event", string="Event",)
-    seats_min = fields.Integer(string="Minimum seats",)
-    seats_max = fields.Integer(string="Maximum seats",)
+    event_id = fields.Many2one(comodel_name="event.event", string="Event")
+    seats_min = fields.Integer(string="Minimum seats")
+    seats_max = fields.Integer(string="Maximum seats")
     seats_availability = fields.Selection(
         [("limited", "Limited"), ("unlimited", "Unlimited")],
         "Maximum Attendees",
@@ -81,21 +82,15 @@ class EventSession(models.Model):
         string="Reserved Seats", store=True, readonly=True, compute="_compute_seats",
     )
     seats_available = fields.Integer(
-        oldname="register_avail",
-        string="Available Seats",
-        store=True,
-        readonly=True,
-        compute="_compute_seats",
+        string="Available Seats", store=True, readonly=True, compute="_compute_seats",
     )
     seats_unconfirmed = fields.Integer(
-        oldname="register_prospect",
         string="Unconfirmed Seat Reservations",
         store=True,
         readonly=True,
         compute="_compute_seats",
     )
     seats_used = fields.Integer(
-        oldname="register_attended",
         string="Number of Participants",
         store=True,
         readonly=True,
@@ -114,9 +109,9 @@ class EventSession(models.Model):
         store=True,
     )
     seats_available_pc = fields.Float(
-        string="Full %", readonly=True, compute="_compute_seats",
+        string="Full %", readonly=True, compute="_compute_seats", compute_sudo=True,
     )
-    date_tz = fields.Selection(string="Timezone", related="event_id.date_tz",)
+    date_tz = fields.Selection(string="Timezone", related="event_id.date_tz")
     date_begin = fields.Datetime(
         string="Session start date",
         required=True,
@@ -146,7 +141,6 @@ class EventSession(models.Model):
         copy=True,
     )
 
-    @api.multi
     @api.depends("date_begin", "date_end")
     def _compute_name(self):
         locale = get_locale(self.env)
@@ -154,8 +148,8 @@ class EventSession(models.Model):
             if not (session.date_begin and session.date_end):
                 session.name = "/"
                 continue
-            date_begin = fields.Datetime.from_string(session.date_begin_located)
-            date_end = fields.Datetime.from_string(session.date_end_located)
+            date_begin = session.date_begin_located
+            date_end = session.date_end_located
 
             dt_formats = [datetime_format("EEEE"), datetime_format("short")]
 
@@ -164,7 +158,9 @@ class EventSession(models.Model):
             if date_begin.date() == date_end.date():
                 dt_formats = [time_format("short")]
 
-            name = "{} - {}".format(name, localized_format(date_end, dt_formats, locale))
+            name = "{} - {}".format(
+                name, localized_format(date_end, dt_formats, locale)
+            )
             session.name = name
 
     def _session_mails_from_template(self, event_id, mail_template=None):
@@ -194,7 +190,6 @@ class EventSession(models.Model):
             )
         return vals
 
-    @api.multi
     def name_get(self):
         """Redefine the name_get method to show the event name with the event
         session.
@@ -215,9 +210,8 @@ class EventSession(models.Model):
             vals.update(
                 {"event_mail_ids": self._session_mails_from_template(vals["event_id"])}
             )
-        return super(EventSession, self).create(vals)
+        return super().create(vals)
 
-    @api.multi
     def unlink(self):
         for this in self:
             if this.registration_ids:
@@ -227,9 +221,8 @@ class EventSession(models.Model):
                 sessions with active registrations"
                     )
                 )
-        return super(EventSession, self).unlink()
+        return super().unlink()
 
-    @api.multi
     @api.depends("seats_max", "registration_ids.state")
     def _compute_seats(self):
         """Determine reserved, available, reserved but unconfirmed and used
@@ -271,22 +264,20 @@ class EventSession(models.Model):
                     session.seats_expected * 100 / float(session.seats_max)
                 )
 
-    @api.multi
     @api.depends("date_tz", "date_begin")
     def _compute_date_begin_located(self):
         for session in self.filtered("date_begin"):
             self_in_tz = session.with_context(tz=(session.date_tz or "UTC"))
-            date_begin = fields.Datetime.from_string(session.date_begin)
+            date_begin = session.date_begin
             session.date_begin_located = fields.Datetime.to_string(
                 fields.Datetime.context_timestamp(self_in_tz, date_begin),
             )
 
-    @api.multi
     @api.depends("date_tz", "date_end")
     def _compute_date_end_located(self):
         for session in self.filtered("date_end"):
             self_in_tz = session.with_context(tz=(session.date_tz or "UTC"))
-            date_end = fields.Datetime.from_string(session.date_end)
+            date_end = session.date_end
             session.date_end_located = fields.Datetime.to_string(
                 fields.Datetime.context_timestamp(self_in_tz, date_end),
             )
@@ -303,7 +294,6 @@ class EventSession(models.Model):
             }
         )
 
-    @api.multi
     @api.constrains("seats_max", "seats_available")
     def _check_seats_limit(self):
         for session in self:
@@ -314,7 +304,6 @@ class EventSession(models.Model):
             ):
                 raise ValidationError(_("No more available seats for this session."))
 
-    @api.multi
     @api.constrains("date_begin", "date_end")
     def _check_dates(self):
         for session in self:
@@ -328,14 +317,12 @@ class EventSession(models.Model):
                     _("Session date is out of this event dates range")
                 )
 
-    @api.multi
     @api.constrains("date_begin", "date_end")
     def _check_zero_duration(self):
         for session in self:
             if session.date_begin == session.date_end:
                 raise ValidationError(_("Ending and starting time can't be the same!"))
 
-    @api.multi
     def button_open_registration(self):
         """Opens session registrations"""
         self.ensure_one()

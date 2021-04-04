@@ -45,13 +45,13 @@ class WizardEventSession(models.TransientModel):
         help="Set it up in the event configuration"
         "Sessions will be generated up to this date",
     )
-    mondays = fields.Boolean(help="Create sessions on Mondays",)
-    tuesdays = fields.Boolean(help="Create sessions on Tuesdays",)
-    wednesdays = fields.Boolean(help="Create sessions on Wednesdays",)
-    thursdays = fields.Boolean(help="Create sessions on Thursdays",)
-    fridays = fields.Boolean(help="Create sessions on Fridays",)
-    saturdays = fields.Boolean(help="Create sessions on Saturdays",)
-    sundays = fields.Boolean(help="Create sessions on Sundays",)
+    mondays = fields.Boolean(help="Create sessions on Mondays")
+    tuesdays = fields.Boolean(help="Create sessions on Tuesdays")
+    wednesdays = fields.Boolean(help="Create sessions on Wednesdays")
+    thursdays = fields.Boolean(help="Create sessions on Thursdays")
+    fridays = fields.Boolean(help="Create sessions on Fridays")
+    saturdays = fields.Boolean(help="Create sessions on Saturdays")
+    sundays = fields.Boolean(help="Create sessions on Sundays")
     delete_existing_sessions = fields.Boolean(
         default=True,
         help="Check in order to delete every previous session for this event",
@@ -65,7 +65,6 @@ class WizardEventSession(models.TransientModel):
         comodel_name="event.mail.template", string="Mail Schedule",
     )
 
-    @api.multi
     @api.constrains("session_hour_ids")
     def _avoid_overlapping_hours(self):
         for hour_a in self.session_hour_ids:
@@ -76,7 +75,6 @@ class WizardEventSession(models.TransientModel):
                     elif hour_b.start_time < hour_a.start_time < hour_b.end_time:
                         raise ValidationError(_("There are overlapping hours!"))
 
-    @api.multi
     def weekdays(self):
         """Generate a tuple with the values for accessing days by index."""
         return (
@@ -89,7 +87,6 @@ class WizardEventSession(models.TransientModel):
             self.sundays,
         )
 
-    @api.multi
     def existing_sessions(self, date):
         """Return existing sessions that match some criteria."""
         # Todo: Improve match
@@ -117,12 +114,11 @@ class WizardEventSession(models.TransientModel):
             vals["event_mail_ids"] = template_values
         return vals
 
-    @api.multi
     def generate_sessions(self):
         self.ensure_one()
         session_obj = self.env["event.session"]
-        event_start = utc.localize(fields.Datetime.from_string(self.event_date_begin))
-        event_end = utc.localize(fields.Datetime.from_string(self.event_date_end))
+        event_start = utc.localize(self.event_date_begin)
+        event_end = utc.localize(self.event_date_end)
         weekdays = self.weekdays()
         current = event_start
         current = current.replace(hour=event_end.hour, minute=event_end.minute)
@@ -149,7 +145,6 @@ class WizardEventSession(models.TransientModel):
                 )
             current += timedelta(days=1)
 
-    @api.multi
     def action_generate_sessions(self):
         """Here's where magic is triggered"""
         weekdays = self.weekdays()
@@ -170,14 +165,12 @@ class WizardEventSessionHours(models.TransientModel):
 
     # Todo: manage multiday sessions
 
-    @api.multi
     @api.constrains("start_time", "end_time")
     def _check_zero_duration(self):
         for hour in self:
             if hour.start_time == hour.end_time:
                 raise ValidationError(_("There are sessions with no duration!"))
 
-    @api.multi
     @api.constrains("start_time", "end_time")
     def _check_hour_validity(self):
         for hour in self:
