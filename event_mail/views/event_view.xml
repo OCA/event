@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<!-- Copyright 2017 Tecnativa - Sergio Teruel <sergio.teruel@tecnativa.com>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_event_form" model="ir.ui.view">
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='event_mail_ids']" position="before">
+                <field
+                    name="event_mail_template_id"
+                    attrs="{'readonly': [('seats_expected', '>', 0)]}"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
