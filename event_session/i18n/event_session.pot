@@ -1,0 +1,577 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* event_session
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_event__cancel_state
+msgid " # No of Cancelled Registrations"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_event__confirm_state
+msgid " # No of Confirmed Registrations"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_event__draft_state
+msgid " # No of Draft Registrations"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__active
+msgid "Active"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__registration_ids
+#: model_terms:ir.ui.view,arch_db:event_session.view_event_session_form
+msgid "Attendees"
+msgstr ""
+
+#. module: event_session
+#: model_terms:ir.ui.view,arch_db:event_session.view_event_session_form
+msgid "Attendees on this session"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__seats_available_expected
+msgid "Available Expected Seats"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__seats_available
+msgid "Available Seats"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_event__seats_available_expected
+msgid "Available expected seats"
+msgstr ""
+
+#. module: event_session
+#: model_terms:ir.ui.view,arch_db:event_session.generator_view_form
+msgid "Cancel"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,help:event_session.field_wizard_event_session__delete_existing_sessions
+msgid "Check in order to delete every previous session for this event"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__company_id
+msgid "Company"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,help:event_session.field_wizard_event_session__fridays
+msgid "Create sessions on Fridays"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,help:event_session.field_wizard_event_session__mondays
+msgid "Create sessions on Mondays"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,help:event_session.field_wizard_event_session__saturdays
+msgid "Create sessions on Saturdays"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,help:event_session.field_wizard_event_session__sundays
+msgid "Create sessions on Sundays"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,help:event_session.field_wizard_event_session__thursdays
+msgid "Create sessions on Thursdays"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,help:event_session.field_wizard_event_session__tuesdays
+msgid "Create sessions on Tuesdays"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,help:event_session.field_wizard_event_session__wednesdays
+msgid "Create sessions on Wednesdays"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__create_uid
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session__create_uid
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session_hours__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__create_date
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session__create_date
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session_hours__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: event_session
+#: model_terms:ir.ui.view,arch_db:event_session.generator_view_form
+msgid "Dates and event data"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session__delete_existing_sessions
+msgid "Delete Existing Sessions"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__display_name
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session__display_name
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session_hours__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: event_session
+#: model_terms:ir.ui.view,arch_db:event_session.view_event_session_form
+msgid "Email Schedule"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session__event_date_end
+msgid "End Date"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__date_end_located
+msgid "End Date Located"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session_hours__end_time
+msgid "End Time"
+msgstr ""
+
+#. module: event_session
+#: code:addons/event_session/models/event_session.py:323
+#, python-format
+msgid "Ending and starting time can't be the same!"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model,name:event_session.model_event_event
+#: model:ir.model.fields,field_description:event_session.field_event_mail__event_id
+#: model:ir.model.fields,field_description:event_session.field_event_mail_scheduler_template__event_id
+#: model:ir.model.fields,field_description:event_session.field_event_session__event_id
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session__event_id
+#: model_terms:ir.ui.view,arch_db:event_session.view_session_search
+msgid "Event"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model,name:event_session.model_event_mail
+msgid "Event Automated Mailing"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_mail__event_mail_template_id
+#: model:ir.model.fields,field_description:event_session.field_event_mail_scheduler_template__event_mail_template_id
+msgid "Event Mail Template"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model,name:event_session.model_event_registration
+msgid "Event Registration"
+msgstr ""
+
+#. module: event_session
+#: model_terms:ir.ui.view,arch_db:event_session.view_event_session_form
+msgid "Event Session"
+msgstr ""
+
+#. module: event_session
+#: model_terms:ir.ui.view,arch_db:event_session.view_session_search
+msgid "Event Sesssion"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model,name:event_session.model_event_session
+msgid "Event session"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session__fridays
+msgid "Fridays"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__seats_available_pc
+msgid "Full %"
+msgstr ""
+
+#. module: event_session
+#: model_terms:ir.ui.view,arch_db:event_session.session_view_event_form
+msgid "Generate Sessions"
+msgstr ""
+
+#. module: event_session
+#: model:ir.actions.act_window,name:event_session.act_wizard_event_session
+msgid "Generate Sessions Wizard"
+msgstr ""
+
+#. module: event_session
+#: model_terms:ir.ui.view,arch_db:event_session.generator_view_form
+msgid "Generate sessions"
+msgstr ""
+
+#. module: event_session
+#: model_terms:ir.ui.view,arch_db:event_session.view_session_search
+msgid "Group By"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session__session_hour_ids
+#: model_terms:ir.ui.view,arch_db:event_session.generator_view_form
+msgid "Hours"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model,name:event_session.model_wizard_event_session_hours
+msgid "Hours in wich the sessions will run"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__id
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session__id
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session_hours__id
+msgid "ID"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,help:event_session.field_wizard_event_session__name
+msgid "It will be generated according to given parameters"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session____last_update
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session____last_update
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session_hours____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__write_uid
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session__write_uid
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session_hours__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__write_date
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session__write_date
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session_hours__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: event_session
+#: selection:event.session,seats_availability:0
+msgid "Limited"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__event_mail_ids
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session__event_mail_template_id
+msgid "Mail Schedule"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__seats_availability
+msgid "Maximum Attendees"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__seats_max
+msgid "Maximum seats"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__seats_min
+msgid "Minimum seats"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session__mondays
+msgid "Mondays"
+msgstr ""
+
+#. module: event_session
+#: code:addons/event_session/models/event_session.py:303
+#, python-format
+msgid "No more available seats for this session."
+msgstr ""
+
+#. module: event_session
+#: code:addons/event_session/models/event.py:99
+#, python-format
+msgid "No more seats available for this event."
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__seats_expected
+msgid "Number of Expected Attendees"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__seats_used
+msgid "Number of Participants"
+msgstr ""
+
+#. module: event_session
+#: model_terms:ir.ui.view,arch_db:event_session.view_event_session_form
+msgid "Origin"
+msgstr ""
+
+#. module: event_session
+#: model_terms:ir.ui.view,arch_db:event_session.generator_view_form
+msgid "Other options"
+msgstr ""
+
+#. module: event_session
+#: model_terms:ir.ui.view,arch_db:event_session.view_event_session_form
+msgid "Partner"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model,name:event_session.model_event_mail_registration
+msgid "Registration Mail Scheduler"
+msgstr ""
+
+#. module: event_session
+#: model_terms:ir.ui.view,arch_db:event_session.view_event_session_form
+msgid "Registrations"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__seats_reserved
+msgid "Reserved Seats"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session__saturdays
+msgid "Saturdays"
+msgstr ""
+
+#. module: event_session
+#: model_terms:ir.ui.view,arch_db:event_session.generator_view_form
+msgid "Schedule"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_mail__session_id
+#: model:ir.model.fields,field_description:event_session.field_event_mail_scheduler_template__session_id
+#: model:ir.model.fields,field_description:event_session.field_event_registration__session_id
+#: model:ir.model.fields,field_description:event_session.field_event_session__name
+#: model_terms:ir.ui.view,arch_db:event_session.view_event_session_calendar
+#: model_terms:ir.ui.view,arch_db:event_session.view_session_search
+msgid "Session"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__date_end
+msgid "Session date end"
+msgstr ""
+
+#. module: event_session
+#: code:addons/event_session/models/event_session.py:314
+#, python-format
+msgid "Session date is out of this event dates range"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session__name
+msgid "Session info"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__date_begin
+msgid "Session start date"
+msgstr ""
+
+#. module: event_session
+#: model:ir.actions.act_window,name:event_session.act_event_session_event_form
+#: model:ir.actions.act_window,name:event_session.act_event_session_form
+#: model:ir.model.fields,field_description:event_session.field_event_event__session_ids
+#: model:ir.ui.menu,name:event_session.event_session_menu
+#: model_terms:ir.ui.view,arch_db:event_session.view_event_form
+#: model_terms:ir.ui.view,arch_db:event_session.view_event_session_tree
+msgid "Sessions"
+msgstr ""
+
+#. module: event_session
+#: model_terms:ir.ui.view,arch_db:event_session.view_event_form
+msgid "Sessions availables for this event"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,help:event_session.field_wizard_event_session__event_date_begin
+msgid "Set it up in the event configurationSessions will be generated from this date"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,help:event_session.field_wizard_event_session__event_date_end
+#: model:ir.model.fields,help:event_session.field_wizard_event_session__event_date_tz
+msgid "Set it up in the event configurationSessions will be generated up to this date"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session__event_date_begin
+msgid "Start Date"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__date_begin_located
+msgid "Start Date Located"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session_hours__start_time
+msgid "Start Time"
+msgstr ""
+
+#. module: event_session
+#: model_terms:ir.ui.view,arch_db:event_session.view_event_session_form
+msgid "State"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session__sundays
+msgid "Sundays"
+msgstr ""
+
+#. module: event_session
+#: code:addons/event_session/wizards/wizard_event_session.py:86
+#: code:addons/event_session/wizards/wizard_event_session.py:91
+#, python-format
+msgid "There are overlapping hours!"
+msgstr ""
+
+#. module: event_session
+#: code:addons/event_session/wizards/wizard_event_session.py:201
+#, python-format
+msgid "There are sessions with no duration!"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session__thursdays
+msgid "Thursdays"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__date_tz
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session__event_date_tz
+msgid "Timezone"
+msgstr ""
+
+#. module: event_session
+#: model_terms:ir.ui.view,arch_db:event_session.view_event_session_tree
+msgid "Total available expected seats"
+msgstr ""
+
+#. module: event_session
+#: model_terms:ir.ui.view,arch_db:event_session.view_event_session_tree
+msgid "Total available seats"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_event__sessions_count
+#: model:ir.model.fields,field_description:event_session.field_event_registration__event_sessions_count
+msgid "Total event sessions"
+msgstr ""
+
+#. module: event_session
+#: model_terms:ir.ui.view,arch_db:event_session.view_event_session_tree
+msgid "Total seats"
+msgstr ""
+
+#. module: event_session
+#: model_terms:ir.ui.view,arch_db:event_session.view_event_session_tree
+msgid "Total seats expected"
+msgstr ""
+
+#. module: event_session
+#: model_terms:ir.ui.view,arch_db:event_session.view_event_session_tree
+msgid "Total seats reserved"
+msgstr ""
+
+#. module: event_session
+#: model_terms:ir.ui.view,arch_db:event_session.view_event_session_tree
+msgid "Total seats unconfirmed"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session__tuesdays
+msgid "Tuesdays"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__seats_unconfirmed
+msgid "Unconfirmed Seat Reservations"
+msgstr ""
+
+#. module: event_session
+#: selection:event.session,seats_availability:0
+msgid "Unlimited"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session__wednesdays
+msgid "Wednesdays"
+msgstr ""
+
+#. module: event_session
+#: model_terms:ir.ui.view,arch_db:event_session.generator_view_form
+msgid "Weekdays"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session_hours__wizard_event_session_id
+msgid "Wizard Event Session"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model,name:event_session.model_wizard_event_session
+msgid "Wizard for ease sessions creation"
+msgstr ""
+
+#. module: event_session
+#: code:addons/event_session/models/event_session.py:224
+#, python-format
+msgid "You are trying to delete one or more                 sessions with active registrations"
+msgstr ""
+
+#. module: event_session
+#: code:addons/event_session/tests/test_session.py:179
+#, python-format
+msgid "You are trying to delete one or more             sessions with active registrations"
+msgstr ""
+
+#. module: event_session
+#: code:addons/event_session/wizards/wizard_event_session.py:177
+#, python-format
+msgid "You must select at least one weekday"
+msgstr ""
+
+#. module: event_session
+#: code:addons/event_session/wizards/wizard_event_session.py:210
+#, python-format
+msgid "You've entered invalid hours!"
+msgstr ""
+
