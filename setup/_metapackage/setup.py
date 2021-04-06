@@ -11,6 +11,7 @@ setuptools.setup(
         'odoo13-addon-event_mail',
         'odoo13-addon-event_registration_cancel_reason',
         'odoo13-addon-event_registration_partner_unique',
+        'odoo13-addon-event_session',
         'odoo13-addon-partner_event',
         'odoo13-addon-website_event_filter_city',
         'odoo13-addon-website_event_questions_by_ticket',
