@@ -14,15 +14,11 @@ class EventEvent(models.Model):
     @api.model
     def _send_event_template(self, events, template, partner_ids):
         ctx = self.env.context.copy()
-        ctx.update(
-            {"events": events.sorted(lambda x: x.date_begin),}
-        )
+        ctx.update({"events": events.sorted(lambda x: x.date_begin)})
         for partner_id in partner_ids:
             lang = self.env["res.partner"].browse(partner_id).lang
             # Set the contexts with the partner's language
-            ctx.update(
-                {"events": ctx["events"].with_context(lang=lang), "lang": lang,}
-            )
+            ctx.update({"events": ctx["events"].with_context(lang=lang), "lang": lang})
             template.with_context(ctx).send_mail(partner_id)
 
     @api.model
@@ -53,15 +49,13 @@ class EventEvent(models.Model):
             domain = [("state", "=", "confirm")]
         if not near_events:
             domain.extend(
-                [("date_begin", ">=", limit_date), ("date_begin", "<=", limit_date),]
+                [("date_begin", ">=", limit_date), ("date_begin", "<=", limit_date)]
             )
         elif today > limit_date:
-            domain.extend(
-                [("date_end", ">=", limit_date), ("date_end", "<=", today),]
-            )
+            domain.extend([("date_end", ">=", limit_date), ("date_end", "<=", today)])
         else:
             domain.extend(
-                [("date_begin", ">=", today), ("date_begin", "<=", limit_date),]
+                [("date_begin", ">=", today), ("date_begin", "<=", limit_date)]
             )
         events = self.search(domain)
         if events:
