@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2021 Tecnativa - Jairo Llopis
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
+
+<data>
+
+    <template id="registration_template" inherit_id="website_event.registration_template">
+        <xpath expr="//span[@itemprop='price']" position="before">
+            <p class="text-muted small" t-call="website_sale_b2x_alt_price.alt_price">            
+                <t t-set="combination_info" t-value="ticket._get_ticket_combination_info()"/>
+            </p>
+        </xpath>
+    </template>
+
+</data>
