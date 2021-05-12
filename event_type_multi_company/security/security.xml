@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright 2021 Camptocamp - Iván Todorovich
+    License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+-->
+<odoo>
+    <record id="ir_rule_event_type_multi_company" model="ir.rule">
+        <field name="name">event.type multi-company</field>
+        <field name="model_id" ref="event.model_event_type" />
+        <field name="global" eval="True" />
+        <field
+            name="domain_force"
+        >['|', ('company_id','=',False), ('company_id', 'in', company_ids)]</field>
+    </record>
+</odoo>
