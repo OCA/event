@@ -32,6 +32,7 @@ setuptools.setup(
         'odoo12-addon-website_event_questions_free_text',
         'odoo12-addon-website_event_questions_template',
         'odoo12-addon-website_event_require_login',
+        'odoo12-addon-website_event_sale_b2x_alt_price',
         'odoo12-addon-website_event_share',
         'odoo12-addon-website_event_snippet_calendar',
         'odoo12-addon-website_event_type_description',
