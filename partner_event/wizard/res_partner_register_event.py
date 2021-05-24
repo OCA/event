@@ -31,8 +31,15 @@ class ResPartnerRegisterEvent(models.TransientModel):
     def button_register(self):
         registration_obj = self.env['event.registration']
         errors = []
-        for partner in self.env['res.partner'].browse(
-                self.env.context.get('active_ids', [])):
+        context = self.env.context
+        active_ids = context.get("active_ids", [])
+        if context.get("active_model", "") == "event.registration":
+            partners = self.env["event.registration"].browse(
+                active_ids
+            ).mapped("attendee_partner_id")
+        else:
+            partners = self.env["res.partner"].browse(active_ids)
+        for partner in partners:
             try:
                 with self.env.cr.savepoint():
                     registration_obj.create(
