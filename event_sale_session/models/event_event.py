@@ -20,7 +20,6 @@ class EventSession(models.Model):
         "order_line_ids.product_uom_qty",
         "order_line_ids.order_id.state",
     )
-    @api.multi
     def _compute_unconfirmed_qty(self):
         for event in self:
             event.unconfirmed_qty = int(
@@ -31,7 +30,6 @@ class EventSession(models.Model):
                 )
             )
 
-    @api.multi
     def button_open_unconfirmed_event_order(self):
         action = self.env.ref("sale.action_quotations").read()[0]
         sales = (

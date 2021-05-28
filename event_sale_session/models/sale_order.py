@@ -20,7 +20,6 @@ class SaleOrder(models.Model):
         readonly=True,
     )
 
-    @api.multi
     @api.depends("order_line.event_id")
     def _compute_event_ids(self):
         for sale in self:
@@ -41,10 +40,9 @@ class SaleOrder(models.Model):
 
 
 class SaleOrderLine(models.Model):
-
     _inherit = "sale.order.line"
 
-    session_id = fields.Many2one(comodel_name="event.session", string="Session",)
+    session_id = fields.Many2one(comodel_name="event.session", string="Session")
     event_sessions_count = fields.Integer(
         comodel_name="event.session", related="event_id.sessions_count", readonly=True,
     )
@@ -76,7 +74,6 @@ class SaleOrderLine(models.Model):
             raise ValidationError(_("Not enough seats. Change quantity or session"))
         return super().product_uom_change()
 
-    @api.multi
     @api.onchange("event_id")
     def _onchange_event_id(self):
         """Force default session"""
