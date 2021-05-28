@@ -1,33 +1,33 @@
 # Copyright 2017 Tecnativa - Sergio Teruel
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-from odoo import api, models
+from odoo import models
 
 
-class AccountInvoice(models.Model):
-    _inherit = "account.invoice"
+class AccountMove(models.Model):
+    _inherit = "account.move"
 
-    @api.multi
-    def action_cancel(self):
-        res = super(AccountInvoice, self).action_cancel()
-        if res and not self.env.context.get("is_merge", False):
+    def button_cancel(self):
+        super().button_cancel()
+        if self.state == "cancel" and not self.env.context.get("is_merge", False):
             self.mapped("invoice_line_ids.sale_line_ids.registration_ids").filtered(
                 lambda x: x.state not in ["done", "draft"]
             ).do_draft()
-        return res
 
-    @api.multi
     def unlink(self):
         registrations = self.mapped(
             "invoice_line_ids.sale_line_ids.registration_ids"
         ).filtered(lambda x: x.state not in ["done", "draft"])
-        res = super(AccountInvoice, self).unlink()
+        res = super().unlink()
         if res:
             registrations.filtered(
                 lambda x: x.state not in ["done", "draft"]
             ).do_draft()
 
-    @api.multi
-    def action_invoice_draft(self):
-        res = super(AccountInvoice, self).action_invoice_draft()
-        if res:
-            self._confirm_attendees()
+    def button_draft(self):
+        super().button_draft()
+        if self.state == "draft":
+            registrations = self.mapped(
+                "invoice_line_ids.sale_line_ids.registration_ids"
+            )
+            for registration in registrations:
+                registration.do_draft()

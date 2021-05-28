@@ -138,22 +138,3 @@ msgstr "Plazas en pedidos sin confirmar"
 #: model_terms:ir.ui.view,arch_db:event_sale_session.view_event_form
 msgid "Unconfirmed orders seats"
 msgstr "Plazas en pedidos sin confirmar"
-
-#~ msgid "Attendee"
-#~ msgstr "Asistentes"
-
-#~ msgid "Orders"
-#~ msgstr "Pedidos"
-
-#~ msgid ""
-#~ "There are sessions with no available seats!\n"
-#~ "Edit them so you can save the sale order"
-#~ msgstr ""
-#~ "Estás intentando reservar en una sesión sin plazas.\n"
-#~ "Edítal para que puedas guardar tu pedido."
-
-#~ msgid "registration.editor"
-#~ msgstr "registration.editor"
-
-#~ msgid "registration.editor.line"
-#~ msgstr "registration.editor.line"

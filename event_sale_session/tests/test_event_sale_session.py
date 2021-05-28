@@ -7,8 +7,8 @@ from odoo.tests import common
 class EventSaleSession(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
-        super(EventSaleSession, cls).setUpClass()
-        cls.product_category = cls.env["product.category"].create({"name": "test_cat",})
+        super().setUpClass()
+        cls.product_category = cls.env["product.category"].create({"name": "test_cat"})
         cls.product = cls.env["product.product"].create(
             {
                 "name": "Test product event",
@@ -31,7 +31,7 @@ class EventSaleSession(common.SavepointCase):
                     (
                         0,
                         0,
-                        {"product_id": cls.product.id, "name": "test2", "price": 8.0,},
+                        {"product_id": cls.product.id, "name": "test2", "price": 8.0},
                     ),
                 ],
             }
@@ -73,7 +73,7 @@ class EventSaleSession(common.SavepointCase):
                 "event_id": cls.event2.id,
             }
         )
-        cls.partner = cls.env["res.partner"].create({"name": "Test partner",})
+        cls.partner = cls.env["res.partner"].create({"name": "Test partner"})
 
     def test_sale(self):
         """Sell an event with session"""
