@@ -9,22 +9,22 @@ class AccountInvoice(models.Model):
     @api.multi
     def action_cancel(self):
         res = super(AccountInvoice, self).action_cancel()
-        if res and not self.env.context.get('is_merge', False):
-            self.mapped(
-                'invoice_line_ids.sale_line_ids.registration_ids').filtered(
-                lambda x: x.state not in ['done', 'draft']
+        if res and not self.env.context.get("is_merge", False):
+            self.mapped("invoice_line_ids.sale_line_ids.registration_ids").filtered(
+                lambda x: x.state not in ["done", "draft"]
             ).do_draft()
         return res
 
     @api.multi
     def unlink(self):
         registrations = self.mapped(
-            'invoice_line_ids.sale_line_ids.registration_ids').filtered(
-            lambda x: x.state not in ['done', 'draft'])
+            "invoice_line_ids.sale_line_ids.registration_ids"
+        ).filtered(lambda x: x.state not in ["done", "draft"])
         res = super(AccountInvoice, self).unlink()
         if res:
             registrations.filtered(
-                lambda x: x.state not in ['done', 'draft']).do_draft()
+                lambda x: x.state not in ["done", "draft"]
+            ).do_draft()
 
     @api.multi
     def action_invoice_draft(self):
