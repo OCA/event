@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2021 Camptocamp SA - Iván Todorovich
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <template id="sale_order_portal_content_event_registrations">
+        <h5 class="mt-4" t-field="event.display_name" />
+        <table class="table table-sm">
+            <thead class="bg-100">
+                <tr>
+                    <th name="th_registration" class="text-left">Registration</th>
+                    <th name="th_event" class="text-left">Ticket</th>
+                    <th
+                        t-if="event.portal_badge_download"
+                        name="th_badge"
+                        class="text-center"
+                    />
+                </tr>
+            </thead>
+            <tbody>
+                <tr t-foreach="registrations" t-as="registration">
+                    <td name="td_event">
+                        <div t-if="registration.name" t-field="registration.name" />
+                        <div t-if="registration.email" t-field="registration.email" />
+                        <div t-if="registration.phone" t-field="registration.phone" />
+                    </td>
+                    <td name="td_event">
+                        <div t-field="registration.event_ticket_id.display_name" />
+                    </td>
+                    <td
+                        t-if="event.portal_badge_download"
+                        name="td_actions"
+                        class="text-right"
+                    >
+                        <a
+                            t-attf-href="/my/orders/#{sale_order.id}/event/#{event.id}/badge/#{registration.id}?access_token=#{token}&amp;download=true"
+                            class="btn btn-link download"
+                        >
+                            <i class="fa fa-download" />
+                        </a>
+                        <a
+                            t-attf-href="/my/orders/#{sale_order.id}/event/#{event.id}/badge/#{registration.id}?access_token=#{token}"
+                            class="btn btn-link print"
+                        >
+                            <i class="fa fa-print" />
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="mt-8 text-right" t-if="event.portal_badge_download">
+            <a
+                class="btn btn-link"
+                title="Download all"
+                t-attf-href="/my/orders/#{sale_order.id}/event/#{event.id}/badge?access_token=#{token}&amp;download=true"
+            >
+                <i class="fa fa-download" /> Download all
+            </a>
+            <a
+                class="btn btn-link"
+                title="Print all badges"
+                t-attf-href="/my/orders/#{sale_order.id}/event/#{event.id}/badge?access_token=#{token}"
+            >
+                <i class="fa fa-print" /> Print all
+            </a>
+        </div>
+    </template>
+    <template
+        id="sale_order_portal_content"
+        inherit_id="sale.sale_order_portal_content"
+        name="Event registrations"
+        priority="100"
+    >
+        <xpath expr="//section[@id='details']//parent::div" position="inside">
+            <t
+                t-set="confirmed_registrations"
+                t-value="sale_order.event_registration_ids.filtered(lambda r: r.state == 'open')"
+            />
+            <t t-set="events" t-value="confirmed_registrations.mapped('event_id')" />
+            <section
+                t-if="confirmed_registrations"
+                class="mt-5"
+                id="event_registrations"
+                name="Event Registrations"
+            >
+                <h3>Event Registrations</h3>
+                <t t-foreach="events" t-as="event">
+                    <t
+                        t-call="event_sale_portal.sale_order_portal_content_event_registrations"
+                    >
+                        <t
+                            t-set="registrations"
+                            t-value="confirmed_registrations.filtered(lambda r: r.event_id == event)"
+                        />
+                    </t>
+                </t>
+            </section>
+        </xpath>
+    </template>
+</odoo>
