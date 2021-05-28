@@ -23,7 +23,9 @@ class SaleReport(models.Model):
             {
                 "event_id": " ,min(l.event_id) as event_id",
                 "session_id": " ,min(l.session_id) as session_id",
-                "event_session_count": ", min(ev.sessions_count) as event_session_count",
+                "event_session_count": (
+                    ", min(ev.sessions_count) as event_session_count"
+                ),
             }
         )
         from_clause += """

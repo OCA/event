@@ -20,7 +20,6 @@ class EventSession(models.Model):
         "order_line_ids.product_uom_qty",
         "order_line_ids.order_id.state",
     )
-    @api.multi
     def _compute_unconfirmed_qty(self):
         for session in self:
             session.unconfirmed_qty = int(
