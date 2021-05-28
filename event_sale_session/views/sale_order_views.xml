@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="sale.view_order_form" />
         <field name="arch" type="xml">
             <xpath
-                expr="//field[@name='order_line']//form//field[@name='event_id']"
+                expr="//field[@name='order_line']//tree//field[@name='event_id']"
                 position="after"
             >
                 <field name="event_sessions_count" invisible="1" />
@@ -18,11 +18,13 @@
                        'invisible': [('event_sessions_count', '&lt;', 1)],
                        'required': [('event_sessions_count', '&gt;', 0)]
                        }"
+                    optional="hide"
                 />
                 <field
                     name="event_session_seats_available"
                     attrs="{'invisible': ['|',('session_id','=',False),
                        ('event_session_seats_availability','=','unlimited')]}"
+                    optional="hide"
                 />
             </xpath>
         </field>
