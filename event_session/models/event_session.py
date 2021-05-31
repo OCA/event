@@ -249,6 +249,10 @@ class EventSession(models.Model):
                 session[state_field[res["state"]]] += res["__count"]
         # compute seats_available
         for session in self:
+            # We need to initialize the values to avoid Unexpected error when we access
+            # to the sessions when the session has no limit of seats (seats_max = 0).
+            session.seats_available = 0
+            session.seats_available_pc = 0
             if session.seats_max > 0:
                 session.seats_available = session.seats_max - (
                     session.seats_reserved + session.seats_used
