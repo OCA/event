@@ -13,7 +13,6 @@ class EventEvent(models.Model):
         string="Allow multiple attendees per registration", default=True,
     )
 
-    @api.multi
     @api.depends("seats_max", "registration_ids.state", "registration_ids.qty")
     def _compute_seats(self):
         multi_qty_events = self.filtered("registration_multi_qty")
@@ -50,7 +49,6 @@ class EventEvent(models.Model):
         rest = self - multi_qty_events
         super(EventEvent, rest)._compute_seats()
 
-    @api.multi
     @api.constrains("registration_multi_qty")
     def _check_attendees_qty(self):
         for event in self:
@@ -71,7 +69,6 @@ class EventRegistration(models.Model):
 
     qty = fields.Integer(string="Quantity", required=True, default=1,)
 
-    @api.multi
     @api.constrains("qty")
     def _check_attendees_qty(self):
         for registration in self:
