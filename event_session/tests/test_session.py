@@ -440,3 +440,40 @@ class EventSession(common.SavepointCase):
             localized_format(datetime_val, formats, locale_ru),
             "пятница 31.01.2020, 15:30 15:30",
         )
+
+    def test_atendee_counting(self):
+        session = self.env["event.session"].create(
+            {
+                "date_begin": "2017-05-27 20:00:00",
+                "date_end": "2017-05-27 22:00:00",
+                "event_id": self.event.id,
+                "seats_availability": self.event.seats_availability,
+                "seats_max": self.event.seats_max,
+                "seats_min": self.event.seats_min,
+            }
+        )
+        atendee_1 = self.env["event.registration"].create(
+            {
+                "name": "First Atendee",
+                "event_id": self.event.id,
+                "session_id": session.id,
+            }
+        )
+        atendee_2 = self.env["event.registration"].create(
+            {
+                "name": "Second Atendee",
+                "event_id": self.event.id,
+                "session_id": session.id,
+            }
+        )
+        session._compute_seats()
+        self.assertEqual(session.seats_unconfirmed, 2)
+        self.assertEqual(session.seats_reserved, 0)
+        atendee_1.confirm_registration()
+        session._compute_seats()
+        self.assertEqual(session.seats_unconfirmed, 1)
+        self.assertEqual(session.seats_reserved, 1)
+        atendee_2.confirm_registration()
+        session._compute_seats()
+        self.assertEqual(session.seats_unconfirmed, 0)
+        self.assertEqual(session.seats_reserved, 2)
