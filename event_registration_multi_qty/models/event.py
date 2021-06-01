@@ -83,3 +83,12 @@ class EventRegistration(models.Model):
                         " in event"
                     )
                 )
+
+    @api.model
+    def _prepare_attendee_values(self, registration):
+        res = super()._prepare_attendee_values(registration)
+        # Passed fields are not taken into account if a default is set,
+        # so we need to force this
+        if "qty" in registration:
+            res.update({"qty": registration.get("qty")})
+        return res
