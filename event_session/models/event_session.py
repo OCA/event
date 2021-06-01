@@ -229,26 +229,27 @@ class EventSession(models.Model):
         seats by session.
         """
         # aggregate registrations by event session and by state
-        if len(self.ids) > 0:
-            state_field = {
-                "draft": "seats_unconfirmed",
-                "open": "seats_reserved",
-                "done": "seats_used",
-            }
-            result = self.env["event.registration"].read_group(
-                [
-                    ("session_id", "in", self.ids),
-                    ("state", "in", ["draft", "open", "done"]),
-                ],
-                ["state", "session_id"],
-                ["session_id", "state"],
-                lazy=False,
-            )
-            for res in result:
-                session = self.browse(res["session_id"][0])
-                session[state_field[res["state"]]] += res["__count"]
+        state_field = {
+            "draft": "seats_unconfirmed",
+            "open": "seats_reserved",
+            "done": "seats_used",
+        }
         # compute seats_available
         for session in self:
+            result = self.env["event.registration"].read_group(
+                [
+                    ("session_id", "=", session.id),
+                    ("state", "in", ["draft", "open", "done"]),
+                ],
+                ["state"],
+                ["state"],
+                lazy=False,
+            )
+            session.seats_unconfirmed = 0
+            session.seats_reserved = 0
+            session.seats_used = 0
+            for res in result:
+                session[state_field[res["state"]]] = res["__count"]
             # We need to initialize the values to avoid Unexpected error when we access
             # to the sessions when the session has no limit of seats (seats_max = 0).
             session.seats_available = 0
