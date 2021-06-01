@@ -8,7 +8,7 @@ from odoo.tests import common
 class EventRegistrationMultiQty(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
-        super(EventRegistrationMultiQty, cls).setUpClass()
+        super().setUpClass()
         cls.event = cls.env["event.event"].create(
             {
                 "name": "Test event",
@@ -42,7 +42,7 @@ class EventRegistrationMultiQty(common.SavepointCase):
             }
         )
         cls.attendee_done = cls.env["event.registration"].create(
-            {"name": "Test attendee done", "event_id": cls.event.id, "state": "done",}
+            {"name": "Test attendee done", "event_id": cls.event.id, "state": "done"}
         )
         cls.event_no_qty_option = cls.env["event.event"].create(
             {
