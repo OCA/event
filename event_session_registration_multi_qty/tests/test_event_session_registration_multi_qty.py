@@ -6,7 +6,7 @@ from odoo.tests import common
 class EventSessionRegistrationMultiQty(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
-        super(EventSessionRegistrationMultiQty, cls).setUpClass()
+        super().setUpClass()
         cls.event = cls.env["event.event"].create(
             {
                 "name": "Test event",
@@ -69,7 +69,7 @@ class EventSessionRegistrationMultiQty(common.SavepointCase):
                 "sundays": True,
                 "saturdays": True,
                 "delete_existing_sessions": False,
-                "session_hour_ids": [(0, 0, {"start_time": 20.0, "end_time": 21.0}),],
+                "session_hour_ids": [(0, 0, {"start_time": 20.0, "end_time": 21.0})],
             }
         )
         cls.template = cls.env["event.mail.template"].create(
