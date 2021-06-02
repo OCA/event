@@ -2,14 +2,12 @@
 # Copyright 2017 Tecnativa - Sergio Teruel
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, models
+from odoo import models
 
 
 class SaleOrderLine(models.Model):
-
     _inherit = "sale.order.line"
 
-    @api.multi
     def _update_registrations(
         self, confirm=True, cancel_to_draft=False, registration_data=None
     ):

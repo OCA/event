@@ -7,7 +7,7 @@ class TestEventSaleRegistrationMultiQty(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
         super(TestEventSaleRegistrationMultiQty, cls).setUpClass()
-        cls.product_category = cls.env["product.category"].create({"name": "test_cat",})
+        cls.product_category = cls.env["product.category"].create({"name": "test_cat"})
         cls.product = cls.env["product.product"].create(
             {
                 "name": "Test product event",
@@ -45,7 +45,7 @@ class TestEventSaleRegistrationMultiQty(common.SavepointCase):
                 "registration_multi_qty": False,
             }
         )
-        cls.partner = cls.env["res.partner"].create({"name": "Test partner",})
+        cls.partner = cls.env["res.partner"].create({"name": "Test partner"})
         cls.so_line_e_multi = (
             0,
             0,
@@ -89,7 +89,7 @@ class TestEventSaleRegistrationMultiQty(common.SavepointCase):
                     (
                         0,
                         0,
-                        {"event_id": self.so_line_e_multi[2]["event_id"], "qty": 10,},
+                        {"event_id": self.so_line_e_multi[2]["event_id"], "qty": 10},
                     )
                 ],
             }
