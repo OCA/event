@@ -9,13 +9,16 @@ class RegistrationEditor(models.TransientModel):
 
     @api.model
     def default_get(self, fields):
-        res = super(RegistrationEditor, self).default_get(fields)
+        res = super().default_get(fields)
         Event = self.env["event.event"]
         SaleOrderLine = self.env["sale.order.line"]
         attendees = [(6, 0, [])]
         attendees_no_multi = []
         so_line_id = False
-        for registration in res["event_registration_ids"][1:]:
+        registration = (
+            res["event_registration_ids"] and res["event_registration_ids"][0]
+        )
+        if registration:
             multi_qty = Event.browse(registration[2]["event_id"]).registration_multi_qty
             if multi_qty:
                 if registration[2]["sale_order_line_id"] != so_line_id:
@@ -38,7 +41,6 @@ class RegistrationEditorLine(models.TransientModel):
 
     qty = fields.Integer(string="Quantity", default=1)
 
-    @api.multi
     def get_registration_data(self):
         res = super().get_registration_data()
         res["qty"] = self.qty
