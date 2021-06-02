@@ -2,13 +2,13 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl-3.0).
 {
     "name": "Event Registration Multi Qty",
-    "version": "12.0.1.0.0",
+    "version": "13.0.1.0.0",
     "author": "Tecnativa, " "Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "website": "https://www.github.com/OCA/event",
     "category": "Marketing",
     "summary": "Allow registration grouped by quantities in sessions",
-    "depends": ["event_session", "event_registration_multi_qty",],
+    "depends": ["event_session", "event_registration_multi_qty"],
     "installable": True,
     "auto_install": True,
 }
