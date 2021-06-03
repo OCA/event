@@ -1,0 +1,62 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_registration_multi_qty
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-06-02 16:29+0200\n"
+"PO-Revision-Date: 2019-02-01 14:03+0000\n"
+"Last-Translator: Marta Vázquez Rodríguez <vazrodmar@gmail.com>\n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.4\n"
+
+#. module: event_registration_multi_qty
+#: model:ir.model.fields,field_description:event_registration_multi_qty.field_event_event__registration_multi_qty
+msgid "Allow multiple attendees per registration"
+msgstr "Permitir múltiples asistentes por registro"
+
+#. module: event_registration_multi_qty
+#: model:ir.model,name:event_registration_multi_qty.model_event_event
+msgid "Event"
+msgstr "Evento"
+
+#. module: event_registration_multi_qty
+#: model:ir.model,name:event_registration_multi_qty.model_event_registration
+#, fuzzy
+msgid "Event Registration"
+msgstr "report.event.registration"
+
+#. module: event_registration_multi_qty
+#: model:ir.model.fields,field_description:event_registration_multi_qty.field_event_registration__qty
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: event_registration_multi_qty
+#: code:addons/event_registration_multi_qty/models/event.py:77
+#, python-format
+msgid ""
+"You can not add quantities if you not active the option \"Allow multiple "
+"attendees per registration\" in event"
+msgstr ""
+"No puedes añadir cantidades de registro si no tienes marcada la opción "
+"\"Permitir múltiples asistentes en el registro\" en el evento"
+
+#. module: event_registration_multi_qty
+#: code:addons/event_registration_multi_qty/models/event.py:57
+#, python-format
+msgid ""
+"You can not disable this option if there are registrations with quantities "
+"greater than one."
+msgstr ""
+"No puedes desactivar esta opción si tienes registros con más de un asistente "
+"en alguno de los registros."
+
+#~ msgid "Attendee"
+#~ msgstr "Registro"
