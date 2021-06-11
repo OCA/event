@@ -6,8 +6,6 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-15 11:28+0000\n"
-"PO-Revision-Date: 2021-02-15 11:28+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -82,7 +80,7 @@ msgid "Invite automatically to website event category"
 msgstr ""
 
 #. module: website_event_crm
-#: code:addons/website_event_crm/models/crm_lead.py:86
+#: code:addons/website_event_crm/models/crm_lead.py:87
 #, python-format
 msgid "Invite to visit website"
 msgstr ""
@@ -105,7 +103,7 @@ msgid "Notify all opportunities related to event categories"
 msgstr ""
 
 #. module: website_event_crm
-#: code:addons/website_event_crm/models/crm_lead.py:73
+#: code:addons/website_event_crm/models/crm_lead.py:74
 #, python-format
 msgid "Select one event type with published events."
 msgstr ""
