@@ -1,0 +1,179 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#       * website_event_crm
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-15 11:28+0000\n"
+"PO-Revision-Date: 2021-02-15 11:32+0000\n"
+"Last-Translator: Jairo Llopis <jairo.llopis@tecnativa.com>\n"
+"Language-Team: \n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.4.2\n"
+
+#. module: website_event_crm
+#: model:mail.template,body_html:website_event_crm.crm_lead_event_type_tpl
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;"
+"\">Dear ${object.partner_name or object.partner_id.name},</p>\n"
+"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                    You seem to be interested in registering into an event "
+"of category\n"
+"                    <b>${object.event_type_id.name}</b>.\n"
+"                </p>\n"
+"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                    I just wanted to inform you that\n"
+"                    <b>we have currently some event(s) of that category "
+"published</b>\n"
+"                    in our website:\n"
+"                </p>\n"
+"                <p>\n"
+"                    <div style=\"margin: 16px 8px 16px 8px; text-align: "
+"center;\">\n"
+"                        <a href=\"${object.event_type_website_url}\" style="
+"\"background-color: #875a7b; padding: 8px 16px 8px 16px; text-decoration: "
+"none; color: #fff; border-radius: 5px;\">\n"
+"                            View events of category\n"
+"                            <strong>${object.event_type_id.name}</strong>\n"
+"                        </a>\n"
+"                    </div>\n"
+"                </p>\n"
+"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                    Please visit that link and register to any event you "
+"like.\n"
+"                </p>\n"
+"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                    Regards.\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+msgstr ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;"
+"\">Estimado/a ${object.partner_name or object.partner_id.name}:</p>\n"
+"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                    Parece que usted está interesado en registrarse en un "
+"evento de categoría\n"
+"                    <b>${object.event_type_id.name}</b>.\n"
+"                </p>\n"
+"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                    Tan solo quería informarle de que\n"
+"                    <b>actualmente tenemos algún evento publicado de dicha "
+"categoría</b>\n"
+"                    en nuestro sitio web:\n"
+"                </p>\n"
+"                <p>\n"
+"                    <div style=\"margin: 16px 8px 16px 8px; text-align: "
+"center;\">\n"
+"                        <a href=\"${object.event_type_website_url}\" style="
+"\"background-color: #875a7b; padding: 8px 16px 8px 16px; text-decoration: "
+"none; color: #fff; border-radius: 5px;\">\n"
+"                            Ver eventos de la categoría\n"
+"                            <strong>${object.event_type_id.name}</strong>\n"
+"                        </a>\n"
+"                    </div>\n"
+"                </p>\n"
+"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                    Por favor, visite ese enlace y regístrese en cualquier "
+"evento que desee.\n"
+"                </p>\n"
+"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                    Saludos.\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+
+#. module: website_event_crm
+#: model:ir.model.fields,field_description:website_event_crm.field_crm_stage__auto_advance_stage_invite_website_event_type
+msgid "Advance stage automatically when inviting to website event category"
+msgstr ""
+"Avanzar etapa automáticamente al invitar a la categoría de eventos en el "
+"sitio web"
+
+#. module: website_event_crm
+#: model:ir.model,name:website_event_crm.model_crm_stage
+msgid "CRM Stages"
+msgstr "Etapas CRM"
+
+#. module: website_event_crm
+#: model:ir.model,name:website_event_crm.model_mail_compose_message
+msgid "Email composition wizard"
+msgstr "Asistente para componer correo electrónico"
+
+#. module: website_event_crm
+#: model_terms:ir.ui.view,arch_db:website_event_crm.crm_stage_form
+msgid "Event Categories"
+msgstr "Categorías de evento"
+
+#. module: website_event_crm
+#: model:ir.model,name:website_event_crm.model_event_type
+msgid "Event Category"
+msgstr "Categoría de evento"
+
+#. module: website_event_crm
+#: model:ir.model.fields,field_description:website_event_crm.field_crm_lead__event_type_website_url
+msgid "Event Type Website Url"
+msgstr "URL en el sitio web de la categoría de evento"
+
+#. module: website_event_crm
+#: model:ir.model.fields,field_description:website_event_crm.field_crm_stage__auto_invite_website_event_type
+msgid "Invite automatically to website event category"
+msgstr "Invitar automáticamente a categorías de evento en el sitio web"
+
+#. module: website_event_crm
+#: code:addons/website_event_crm/models/crm_lead.py:86
+#, python-format
+msgid "Invite to visit website"
+msgstr "Invitar a visitar el sitio web"
+
+#. module: website_event_crm
+#: model_terms:ir.ui.view,arch_db:website_event_crm.crm_case_form_view_oppor
+msgid "Invite to website"
+msgstr "Invitar al sitio web"
+
+#. module: website_event_crm
+#: model:ir.model,name:website_event_crm.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Iniciativa/Oportunidad"
+
+#. module: website_event_crm
+#: model:ir.actions.server,name:website_event_crm.cron_ir_actions_server
+#: model:ir.cron,cron_name:website_event_crm.cron
+#: model:ir.cron,name:website_event_crm.cron
+msgid "Notify all opportunities related to event categories"
+msgstr ""
+"Notificar a todas las oportunidades relacionadas a categorías de evento"
+
+#. module: website_event_crm
+#: code:addons/website_event_crm/models/crm_lead.py:73
+#, python-format
+msgid "Select one event type with published events."
+msgstr "Seleccione una categoría de eventos con eventos publicados."
+
+#. module: website_event_crm
+#: model:ir.model.fields,help:website_event_crm.field_crm_stage__auto_advance_stage_invite_website_event_type
+msgid ""
+"When an opportunity in this stage is invited to a website event category, it "
+"will advance automatically to the next stage."
+msgstr ""
+"Cuando se invite a ver la categoría de evento en el sitio web a oportunidad "
+"en esta etapa, avanzará automáticamente a la siguiente etapa."
+
+#. module: website_event_crm
+#: model:ir.model.fields,help:website_event_crm.field_crm_stage__auto_invite_website_event_type
+msgid ""
+"When an opportunity is in this stage and there is any new event published "
+"for its category with available seats, opportunities found in this stage "
+"will get invited to it and moved to the next stage automatically."
+msgstr ""
+"Cuando una oportunidad esté en esta etapa y haya un nuevo evento publicado "
+"en su categoría con plazas disponibles, las oportunidades en esta etapa "
+"serán invitadas a esa categoría y movidas a la siguiente etapa "
+"automáticamente."
