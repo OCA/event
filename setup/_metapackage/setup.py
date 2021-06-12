@@ -13,6 +13,7 @@ setuptools.setup(
         'odoo13-addon-event_registration_cancel_reason',
         'odoo13-addon-event_registration_multi_qty',
         'odoo13-addon-event_registration_partner_unique',
+        'odoo13-addon-event_sale_registration_multi_qty',
         'odoo13-addon-event_session',
         'odoo13-addon-event_session_registration_multi_qty',
         'odoo13-addon-partner_event',
