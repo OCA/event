@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2017 Tecnativa - Sergio Teruel
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_event_registration_editor_form" model="ir.ui.view">
+        <field name="model">registration.editor</field>
+        <field name="inherit_id" ref="event_sale.view_event_registration_editor_form" />
+        <field name="arch" type="xml">
+            <field name="name" position="before">
+                <field name="qty" />
+            </field>
+        </field>
+    </record>
+</odoo>
