@@ -9,32 +9,18 @@
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form" />
         <field name="arch" type="xml">
-            <xpath expr="//header/button[@name='action_draft']" position="after">
+            <button name="action_draft" position="after">
                 <button
-                    name="do_registrations"
+                    name="update_event_registrations"
                     type="object"
                     string="Reserve attendees"
                 />
                 <button
-                    name="confirm_reserved_registrations"
+                    name="confirm_event_registrations"
                     type="object"
                     string="Confirm attendees"
                 />
-            </xpath>
-            <xpath expr="//div[@name='button_box']" position="inside">
-                <button
-                    name="action_view_invoice"
-                    type="object"
-                    class="oe_stat_button"
-                    icon="fa-pencil-square-o"
-                >
-                    <field
-                        name="attendees_count"
-                        widget="statinfo"
-                        string="Attendees"
-                    />
-                </button>
-            </xpath>
+            </button>
         </field>
     </record>
 </odoo>
