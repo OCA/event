@@ -16,7 +16,9 @@ class WebsiteEvent(WebsiteEventController):
 
         # Regenerate current domain. Ideally, upstream would make all this in a
         # separate method and make our life easier, but not happening now.
-        domain = [("state", "in", ("draft", "confirm", "done"))]
+        domain = http.request.website.website_domain() + [
+            ("state", "in", ("draft", "confirm", "done")),
+        ]
 
         def dom_without(without):
             return [leaf for leaf in domain if leaf[0] not in without]
