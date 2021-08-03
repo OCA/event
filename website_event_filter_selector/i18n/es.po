@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: website_event_filter_selector
-#: code:addons/website_event_filter_selector/controllers/main.py:50
+#: code:addons/website_event_filter_selector/controllers/main.py:52
 #, python-format
 msgid "All Cities"
 msgstr "Todas las poblaciones"
