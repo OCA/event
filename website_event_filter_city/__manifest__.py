@@ -11,6 +11,7 @@
     "Tecnativa, "
     "Onestein, "
     "Odoo Community Association (OCA)",
+    "maintainers": ["Yajo"],
     "license": "LGPL-3",
     "application": False,
     "installable": True,
