@@ -20,6 +20,7 @@ setuptools.setup(
         'odoo13-addon-partner_event',
         'odoo13-addon-website_event_filter_city',
         'odoo13-addon-website_event_questions_by_ticket',
+        'odoo13-addon-website_event_questions_free_text',
         'odoo13-addon-website_event_require_login',
     ],
     classifiers=[
