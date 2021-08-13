@@ -1,12 +1,12 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* website_event_questions_free_text
+# 	* website_event_questions_free_text
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: <>\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -94,7 +94,6 @@ msgid "Registration"
 msgstr ""
 
 #. module: website_event_questions_free_text
-#: sql_constraint:event.answer.free:0
+#: model:ir.model.constraint,message:website_event_questions_free_text.constraint_event_answer_free_unique_registration_question
 msgid "You can't answer the same question 2 times"
 msgstr ""
-
