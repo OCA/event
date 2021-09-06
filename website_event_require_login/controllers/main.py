@@ -11,7 +11,7 @@ class RequireLoginToRegister(WebsiteEventController):
     def registration_new(self, event, **post):
         public_user = request.env.user == request.website.user_id
         if public_user and event.website_require_login:
-            return request.env["ir.ui.view"].render_template(
+            return request.env["ir.ui.view"]._render_template(
                 "website_event_require_login"
                 ".modal_attendees_registration_login_required",
                 {"event_url": event.website_url},
