@@ -20,6 +20,7 @@
         <div name="button_box" position="inside">
             <button name="%(partner_event.act_partner_registration)d"
                     type="action"
+                    groups="event.group_event_user"
                     class="oe_stat_button oe_inline"
                     help="Count of events with confirmed registrations."
                     icon="fa-id-card">
