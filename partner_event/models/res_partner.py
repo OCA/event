@@ -21,8 +21,6 @@ class ResPartner(models.Model):
     @api.multi
     @api.depends('event_registration_ids')
     def _compute_registration_count(self):
-        if not self.user_has_groups('event.group_event_user'):
-            return
         for partner in self:
             partner.registration_count = len(
                 self.env["event.registration"].search([
