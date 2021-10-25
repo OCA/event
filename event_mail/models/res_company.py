@@ -7,5 +7,6 @@ class ResCompany(models.Model):
     _inherit = "res.company"
 
     event_mail_template_id = fields.Many2one(
-        comodel_name="event.mail.template", string="Mail Template",
+        comodel_name="event.mail.template",
+        string="Mail Template",
     )

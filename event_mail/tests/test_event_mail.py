@@ -97,7 +97,8 @@ class EventMailCase(SavepointCase):
             {"name": "Online", "is_online": "True", "use_mail_schedule": "False"}
         )
         self.assertFalse(
-            online_type_id.event_type_mail_ids.exists(), "Musn't be 'Mail Schedule'",
+            online_type_id.event_type_mail_ids.exists(),
+            "Musn't be 'Mail Schedule'",
         )
         with Form(self.env["event.event"]) as event_form:
             event_form.name = "Event test"
@@ -119,7 +120,8 @@ class EventMailCase(SavepointCase):
             {"name": "Physical", "is_online": "False", "use_mail_schedule": "False"}
         )
         self.assertTrue(
-            physical_type_id.event_type_mail_ids.exists(), "Must be 'Mail Schedule'",
+            physical_type_id.event_type_mail_ids.exists(),
+            "Must be 'Mail Schedule'",
         )
         self.assertEqual(
             len(physical_type_id.event_type_mail_ids),
