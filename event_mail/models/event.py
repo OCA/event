@@ -16,28 +16,25 @@ class EventEvent(models.Model):
         default=_default_event_mail_template_id,
     )
 
-    @api.onchange("event_mail_template_id")
-    def _onchange_event_mail_template_id(self):
-        vals = [(6, 0, [])]
-        if self.event_mail_template_id.exists():
-            for scheduler in self.event_mail_template_id.scheduler_template_ids:
-                vals.append(
-                    (
-                        0,
-                        0,
-                        {
-                            "interval_nbr": scheduler.interval_nbr,
-                            "interval_unit": scheduler.interval_unit,
-                            "interval_type": scheduler.interval_type,
-                            "template_id": scheduler.template_id.id,
-                        },
-                    )
+    @api.depends("event_mail_template_id")
+    def _compute_event_mail_ids(self):
+        records = self.filtered("event_mail_template_id")
+        without_template = self - records
+        for event in records:
+            command = [(5, 0)] + [
+                (
+                    0,
+                    0,
+                    {
+                        attribute_name: line[attribute_name]
+                        if not isinstance(line[attribute_name], models.BaseModel)
+                        else line[attribute_name].id
+                        for attribute_name in self.env[
+                            "event.type.mail"
+                        ]._get_event_mail_fields_whitelist()
+                    },
                 )
-            self.event_mail_ids = vals
-
-    @api.onchange("event_type_id")
-    def _onchange_type(self):
-        """If a template is already set, we'll override the event.type
-        schedulers"""
-        if not self.event_mail_template_id:
-            return super()._onchange_type()
+                for line in event.event_mail_template_id.scheduler_template_ids
+            ]
+            event.event_mail_ids = command
+        super(EventEvent, without_template)._compute_event_mail_ids()
