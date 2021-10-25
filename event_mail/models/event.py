@@ -38,6 +38,6 @@ class EventEvent(models.Model):
     @api.onchange("event_type_id")
     def _onchange_type(self):
         """If a template is already set, we'll override the event.type
-           schedulers"""
+        schedulers"""
         if not self.event_mail_template_id:
             return super()._onchange_type()
