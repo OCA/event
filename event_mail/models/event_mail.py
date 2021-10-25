@@ -23,11 +23,21 @@ class EventMailTemplate(models.Model):
 
     @api.model
     def _default_scheduler_template_ids(self):
-        return (
-            self.env["event.type"]
-            .with_context(by_pass_config_template=True)
-            ._get_default_event_type_mail_ids()
-        )
+        return [
+            {
+                "notification_type": "mail",
+                "interval_unit": "now",
+                "interval_type": "after_sub",
+                "template_id": self.env.ref("event.event_subscription").id,
+            },
+            {
+                "notification_type": "mail",
+                "interval_nbr": 10,
+                "interval_unit": "days",
+                "interval_type": "before_event",
+                "template_id": self.env.ref("event.event_reminder").id,
+            },
+        ]
 
     name = fields.Char()
     scheduler_template_ids = fields.One2many(

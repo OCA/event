@@ -1,25 +1,33 @@
 # Copyright 2019 Tecnativa - David Vidal
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-from odoo import api, models
+from odoo import models
 
 
 class EventType(models.Model):
     _inherit = "event.type"
 
-    @api.model
-    def _get_default_event_type_mail_ids(self):
-        if self.env.context.get("by_pass_config_template", False):
-            return super()._get_default_event_type_mail_ids()
+    def _compute_event_type_mail_ids(self):
         event_mail_template_id = self.env.company.event_mail_template_id
-        if event_mail_template_id:
-            return [
-                {
-                    "template_id": line.template_id,
-                    "interval_nbr": line.interval_nbr,
-                    "interval_unit": line.interval_unit,
-                    "interval_type": line.interval_type,
-                }
-                for line in event_mail_template_id.scheduler_template_ids
-            ]
-        else:
-            return []
+        for template in self:
+            if (
+                template.use_mail_schedule
+                and not template.event_type_mail_ids
+                and event_mail_template_id
+            ):
+                template.event_type_mail_ids = [
+                    (
+                        0,
+                        0,
+                        {
+                            attribute_name: line[attribute_name]
+                            if not isinstance(line[attribute_name], models.BaseModel)
+                            else line[attribute_name].id
+                            for attribute_name in self.env[
+                                "event.type.mail"
+                            ]._get_event_mail_fields_whitelist()
+                        },
+                    )
+                    for line in event_mail_template_id.scheduler_template_ids
+                ]
+            else:
+                template.event_type_mail_ids = [(5, 0)]
