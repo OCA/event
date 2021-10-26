@@ -1,4 +1,7 @@
 * Michael Viriyananda <viriyananda.michael@gmail.com>
-* Jairo Llopis <jairo.llopis@tecnativa.com>
-* Alexandre D??az <alexandre.diaz@tecnativa.com>
 * David Alonso <david.alonso@solvos.es>
+* `Tecnativa <https://www.tecnativa.com>`__:
+
+  * Jairo Llopis
+  * Alexandre D??az
+  * Ernesto Tejeda
