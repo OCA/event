@@ -19,6 +19,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
+[event_contact](event_contact/) | 14.0.1.0.0 |  | Add contacts to event and event type
 [website_event_require_login](website_event_require_login/) | 14.0.1.0.1 |  | Website Event Require Login
 
 [//]: # (end addons)
