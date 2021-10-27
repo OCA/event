@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record model="ir.ui.view" id="event_contacts_form_view">
+        <field name="name">Event Contacts</field>
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_form" />
+        <field name="arch" type="xml">
+            <field name="organizer_id" position="after">
+                <field name="contact_ids" widget="many2many_tags" />
+            </field>
+        </field>
+    </record>
+</odoo>
