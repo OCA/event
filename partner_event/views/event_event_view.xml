@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2016 Tecnativa S.L. - Vicent Cubells
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+    <record model="ir.ui.view" id="view_event_form_partner">
+        <field name="name">Events (with partner)</field>
+        <field name="model">event.event</field>
+        <field eval="20" name="priority" />
+        <field name="inherit_id" ref="event.view_event_form" />
+        <field name="arch" type="xml">
+            <field name="address_id" position="after">
+                <field name="create_partner" />
+            </field>
+        </field>
+    </record>
+</odoo>
