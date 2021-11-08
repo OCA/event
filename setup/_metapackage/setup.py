@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo14-addon-event_contact',
+        'odoo14-addon-partner_event',
         'odoo14-addon-website_event_require_login',
     ],
     classifiers=[
