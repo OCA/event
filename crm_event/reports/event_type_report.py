@@ -3,7 +3,7 @@
 
 from psycopg2 import sql
 
-from odoo import api, fields, models, tools
+from odoo import fields, models, tools
 
 
 class EventTypeReport(models.Model):
@@ -94,10 +94,10 @@ class EventTypeReport(models.Model):
         result = sql.Composed(map(sql.SQL, clauses)).join(", ")
         return result
 
-    @api.model_cr
     def init(self):
         """(Re-)create report view."""
         tools.drop_view_if_exists(self.env.cr, self._table)
+        # pylint: disable=sql-injection
         self.env.cr.execute(
             sql.SQL("CREATE OR REPLACE VIEW {} AS ({})").format(
                 sql.Identifier(self._table), self._query(),

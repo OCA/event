@@ -62,7 +62,6 @@
     <record id="action_event_type_report" model="ir.actions.act_window">
         <field name="name">Event category analysis</field>
         <field name="res_model">event.type.report</field>
-        <field name="view_type">form</field>
         <field name="view_mode">pivot,graph</field>
         <!-- <field name="view_id"></field> force empty -->
         <field name="search_view_id" ref="view_event_type_report_search" />
