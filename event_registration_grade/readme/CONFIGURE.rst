@@ -1,0 +1,1 @@
+You have to select the event_type 'Examen' and you will be able to fill grades for attendees.

@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <!-- EVENT.REGISTRATION.GRADE ACTIONS -->
+        <record id="act_event_registration_grade_from_registration" model="ir.actions.act_window">
+            <field name="res_model">event.registration.grade</field>
+            <field name="name">Grades</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('event_registration_id', '=', active_id)]</field>
+            <field name="context">{'default_event_registration_id': active_id}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create an Grade
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_event_registration_grade_tree">
+            <field name="name">event.registration.grade.tree</field>
+            <field name="model">event.registration.grade</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom" create="1" delete="1" multi_edit="1" string="Grades">
+                    <field name="partner_id"/>
+                    <field name="name"/>
+                    <field name="grade"/>
+                    <field name="state"/>
+                    <button name="grade_close" states="draft" type="object" string="Close" groups="event.group_event_manager"/>
+                    <button name="grade_draft" states="close" type="object" string="Draft" groups="event.group_event_manager"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_event_registration_grade_form">
+            <field name="name">event.registration.grade.form</field>
+            <field name="model">event.registration.grade</field>
+            <field name="arch" type="xml">
+                <form string="Event Registration Grade">
+                    <header>
+                        <button name="grade_close" states="draft" type="object" string="Close" groups="event.group_event_manager"/>
+                        <button name="grade_draft" states="close" type="object" string="Draft" groups="event.group_event_manager"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="grade"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

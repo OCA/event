@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="view_event_registration_form_grade" model="ir.ui.view">
+            <field name="name">event.registration.form.grade</field>
+            <field name="model">event.registration</field>
+            <field name="inherit_id" ref="event.view_event_registration_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <button name="action_send_badge_email" position="attributes">
+                    <attribute name="string">
+                        Send Badge by Email
+                    </attribute>
+                </button>
+                <button name="action_send_badge_email" position="after">
+                    <button name="action_send_grade_email" string="Send Grade by Email" type="object" attrs="{'invisible': [('event_type_id', '=', %(event_registration_grade.event_type_examen)d),('state','not in',('open','done'))]}" class="oe_highlight"/>
+                </button>
+                <div name="button_box" position="inside">
+                    <field name="event_type_id" invisible="1"/>
+                    <button name="%(act_event_registration_grade_from_registration)d"
+                        type="action"
+                        class="oe_stat_button"
+                        icon="fa-graduation-cap"
+                        attrs="{'invisible': [('event_type_id', '!=', %(event_registration_grade.event_type_examen)d)]}"
+                        help="Grade average / Grade count for this Registration">
+                        <field name="grade_average" widget="statinfo" nolabel="1"/>
+                        /
+                        <field name="grade_count" widget="statinfo" nolabel="1"/>
+                    </button>
+                </div>
+            </field>
+        </record>
+
+    </data>
+</odoo>

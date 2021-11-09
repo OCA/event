@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<odoo>
+    <data noupdate="1">
+        <record id="event_registration_mail_template_grade" model="mail.template">
+            <field name="name">Event: Registration Grade</field>
+            <field name="model_id" ref="event.model_event_registration"/>
+            <field name="subject">Your grades for ${object.event_id.name}</field>
+            <field name="email_from">${(object.event_id.organizer_id.email_formatted or object.event_id.user_id.email_formatted or '') | safe}</field>
+            <field name="email_to">${(object.email and '"%s" &lt;%s&gt;' % (object.name, object.email) or object.partner_id.email_formatted or '') | safe}</field>
+            <field name="body_html" type="html">
+                <div>
+                    Dear ${object.name},<br/>
+                    Thank you for your inquiry.<br/>
+                    Here are your grades for the event ${object.event_id.name}.<br/>
+                    % for row in object.grade_ids:
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th style="text-align:left;width:135px">Class</th>
+                                <th style="text-align:left;width:85px;">Grade</th>
+                            </tr>
+                            <tr>
+                                <td> ${row.name}</td>
+                                <td style="text-align:center;">${row.grade}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    % endfor
+                    If you have any questions, please let us know.
+                    <br/><br/>
+                    Thank you,
+                    % if object.event_id.user_id.signature:
+                    <br />
+                    ${object.event_id.user_id.signature | safe}
+                    % endif
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>
