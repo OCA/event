@@ -2,6 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from psycopg2 import sql
+
 from odoo import api, fields, models, tools
 
 
@@ -29,10 +30,7 @@ class EventTypeReport(models.Model):
     def _query(self):
         """Composed view."""
         return sql.SQL("SELECT {} FROM {} WHERE {} GROUP BY {}").format(
-            self._select(),
-            self._from(),
-            self._where(),
-            self._groupby(),
+            self._select(), self._from(), self._where(), self._groupby(),
         )
 
     def _select(self, fields_=()):
@@ -102,7 +100,6 @@ class EventTypeReport(models.Model):
         tools.drop_view_if_exists(self.env.cr, self._table)
         self.env.cr.execute(
             sql.SQL("CREATE OR REPLACE VIEW {} AS ({})").format(
-                sql.Identifier(self._table),
-                self._query(),
+                sql.Identifier(self._table), self._query(),
             ),
         )
