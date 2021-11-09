@@ -23,7 +23,7 @@ class EventQuestionTemplate(SavepointCase):
                         0,
                         {
                             "title": "question T2 01",
-                            "is_individual": True,
+                            "once_per_order": True,
                             "answer_ids": [
                                 (0, 0, {"name": "Answer 01 test 01"}),
                                 (0, 0, {"name": "Answer 02 test 01"}),
@@ -44,7 +44,7 @@ class EventQuestionTemplate(SavepointCase):
             "event_question_template_id": self.template1.id,
         }
         event = self.env["event.event"].create(vals)
-        event.load_question_template()
+        event._onchange_event_question_template_id()
         self.assertFalse(
             event.question_ids,
             "Event Question Template: Questions created for this event",
@@ -52,7 +52,7 @@ class EventQuestionTemplate(SavepointCase):
 
         # Change template in event
         event.event_question_template_id = self.template2
-        event.load_question_template()
+        event._onchange_event_question_template_id()
         self.assertEqual(
             len(event.question_ids), 1, "Event Question Template: Questions only one"
         )
@@ -77,7 +77,7 @@ class EventQuestionTemplate(SavepointCase):
                     0,
                     {
                         "title": "question T2 01",
-                        "is_individual": True,
+                        "once_per_order": True,
                     },
                 ),
                 (
@@ -85,11 +85,11 @@ class EventQuestionTemplate(SavepointCase):
                     0,
                     {
                         "title": "question T2 02",
-                        "is_individual": True,
+                        "once_per_order": True,
                     },
                 ),
             ],
         }
         event = self.env["event.event"].create(vals)
         with self.assertRaises(UserError):
-            event.load_question_template()
+            event._onchange_event_question_template_id()
