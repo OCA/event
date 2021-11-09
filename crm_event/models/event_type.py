@@ -55,15 +55,11 @@ class EventType(models.Model):
         domain = self._events_domain()
         types_with_unlimited_seats = (
             self.env["event.event"]
-            .search(
-                domain + [("seats_availability", "=", "unlimited")],
-            )
+            .search(domain + [("seats_availability", "=", "unlimited")],)
             .mapped("event_type_id")
         )
         results = self.env["event.event"].read_group(
-            domain=domain,
-            fields=["seats_available"],
-            groupby=["event_type_id"],
+            domain=domain, fields=["seats_available"], groupby=["event_type_id"],
         )
         translated_unlimited = dict(
             self.env["event.event"].fields_get(["seats_availability"])[
