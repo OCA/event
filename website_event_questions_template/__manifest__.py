@@ -4,8 +4,8 @@
 {
     "name": "Website Event Questions Template",
     "summary": "Set question templates for events",
-    "version": "12.0.1.0.0",
-    "author": "Tecnativa, " "Odoo Community Association (OCA)",
+    "version": "14.0.1.0.0",
+    "author": "Tecnativa, Odoo Community Association (OCA)",
     "license": "LGPL-3",
     "website": "https://github.com/OCA/event",
     "category": "Marketing",

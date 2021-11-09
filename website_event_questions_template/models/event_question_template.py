@@ -39,7 +39,7 @@ class EventQuestionTemplateQuestion(models.Model):
 
 
 class EventQuestionTemplateAnswer(models.Model):
-    _inherit = "event.answer"
+    _inherit = "event.question.answer"
     _name = "event.question.template.answer"
     _description = "Answers for question template"
     _order = "sequence,id"
