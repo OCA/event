@@ -1,16 +1,15 @@
-<?xml version="1.0"?>
+<?xml version="1.0" ?>
 <!-- Copyright 2017 Tecnativa - Sergio Teruel
      License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
 <odoo>
 
 <record id="view_event_question_form" model="ir.ui.view">
     <field name="model">event.question.template.question</field>
-    <field name="inherit_id"
-           ref="website_event_questions.view_event_question_form"/>
+    <field name="inherit_id" ref="website_event_questions.view_event_question_form" />
     <field name="mode">primary</field>
     <field name="arch" type="xml">
         <field name="title" position="before">
-            <field name="sequence"/>
+            <field name="sequence" />
         </field>
     </field>
 </record>
@@ -22,16 +21,19 @@
         <form string="Event Question Template">
             <sheet>
                 <group>
-                    <field name="name"/>
+                    <field name="name" />
                 </group>
                 <group string="Questions">
-                    <field name="question_ids" nolabel="1"
-                           context="{'default_template_id': active_id}">
+                    <field
+                            name="question_ids"
+                            nolabel="1"
+                            context="{'default_template_id': active_id}"
+                        >
                         <tree string="Questions">
-                            <field name="sequence" widget="handle"/>
-                            <field name="title"/>
-                            <field name="is_individual"/>
-                            <field name="answer_ids"/>
+                            <field name="sequence" widget="handle" />
+                            <field name="title" />
+                            <field name="is_individual" />
+                            <field name="answer_ids" />
                         </tree>
                     </field>
                 </group>
@@ -48,9 +50,12 @@
     <field name="context">{}</field>
 </record>
 
-<menuitem id="menu_event_question_template" name="Questions Templates"
-          action="act_event_question_template"
-          parent="event.menu_event_configuration"
-          groups="base.group_no_one"/>
+<menuitem
+        id="menu_event_question_template"
+        name="Questions Templates"
+        action="act_event_question_template"
+        parent="event.menu_event_configuration"
+        groups="base.group_no_one"
+    />
 
 </odoo>
