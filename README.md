@@ -21,6 +21,7 @@ addon | version | maintainers | summary
 --- | --- | --- | ---
 [event_contact](event_contact/) | 14.0.1.0.0 |  | Add contacts to event and event type
 [partner_event](partner_event/) | 14.0.1.0.0 |  | Link partner to events
+[website_event_questions_template](website_event_questions_template/) | 14.0.1.0.0 |  | Set question templates for events
 [website_event_require_login](website_event_require_login/) | 14.0.1.0.1 |  | Website Event Require Login
 
 [//]: # (end addons)
