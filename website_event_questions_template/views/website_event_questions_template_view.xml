@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<!-- Copyright 2017 Tecnativa - Sergio Teruel
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
+<odoo>
+
+<record id="view_event_question_form" model="ir.ui.view">
+    <field name="model">event.question.template.question</field>
+    <field name="inherit_id" ref="website_event_questions.event_question_view_form" />
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <field name="title" position="before">
+            <field name="sequence" />
+        </field>
+    </field>
+</record>
+
+<record id="view_event_question_template_form" model="ir.ui.view">
+    <field name="name">event.question.template.form</field>
+    <field name="model">event.question.template</field>
+    <field name="arch" type="xml">
+        <form string="Event Question Template">
+            <sheet>
+                <group>
+                    <field name="name" />
+                </group>
+                <group string="Questions">
+                    <field
+                            name="question_ids"
+                            nolabel="1"
+                            context="{'default_template_id': active_id}"
+                        >
+                        <tree string="Questions">
+                            <field name="sequence" widget="handle" />
+                            <field name="title" />
+                            <field name="once_per_order" />
+                            <field name="question_type" />
+                            <field name="answer_ids" />
+                        </tree>
+                    </field>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+<record id="act_event_question_template" model="ir.actions.act_window">
+    <field name="res_model">event.question.template</field>
+    <field name="name">Event Question Template</field>
+    <field name="view_mode">tree,form</field>
+    <field name="context">{}</field>
+</record>
+
+<menuitem
+        id="menu_event_question_template"
+        name="Questions Templates"
+        action="act_event_question_template"
+        parent="event.menu_event_configuration"
+        groups="base.group_no_one"
+    />
+
+</odoo>
