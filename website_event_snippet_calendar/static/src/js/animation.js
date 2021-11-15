@@ -2,18 +2,16 @@
    Copyright 2018 Tecnativa - Alexandre Díaz
  * License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). */
 
-odoo.define('website_event_snippet_calendar.animation', function (require) {
+odoo.define("website_event_snippet_calendar.animation", function (require) {
     "use strict";
 
-    var animation = require('website.content.snippets.animation');
+    var animation = require("website.content.snippets.animation");
     var core = require("web.core");
     var time = require("web.time");
     var ajax = require("web.ajax");
 
-
     var DATE_FORMAT = time.strftime_to_moment_format("%Y-%m-%d");
-    var DATETIME_FORMAT = time.strftime_to_moment_format(
-        "%Y-%m-%d %H:%M:%S");
+    var DATETIME_FORMAT = time.strftime_to_moment_format("%Y-%m-%d %H:%M:%S");
     // HACK https://github.com/tempusdominus/bootstrap-3/issues/73
     var INVERSE_FORMAT = "L";
 
@@ -51,23 +49,25 @@ odoo.define('website_event_snippet_calendar.animation', function (require) {
                 matches: [],
             };
 
-            this.$calendar = this.$target.find('.s_event_calendar')
+            this.$calendar = this.$target
+                .find(".s_event_calendar")
                 .on("change.datetimepicker", $.proxy(this, "day_selected"))
                 .on("update.datetimepicker", $.proxy(this, "calendar_moved"));
             this.$list = this.$target.find(".s_event_list");
             this.default_amount = Number(this.$(".js_amount").html()) || 4;
             this.date_format = this.$list.data("dateFormat") || "LLL";
             // Get initial events to render the list
-            this.load_events(null, this.default_amount)
-                .done($.proxy(this, "render_list"));
+            this.load_events(null, this.default_amount).then(
+                $.proxy(this, "render_list")
+            );
             // Preload dates and render the calendar
-            this.preload_dates(moment())
-                .done($.proxy(this, "render_calendar"));
+            this.preload_dates(moment()).then($.proxy(this, "render_calendar"));
         },
 
         day_selected: function (event) {
-            this.load_events(event.date.format(DATE_FORMAT))
-                .done($.proxy(this, "render_list"));
+            this.load_events(event.date.format(DATE_FORMAT)).then(
+                $.proxy(this, "render_list")
+            );
         },
 
         calendar_moved: function (event) {
@@ -83,7 +83,8 @@ odoo.define('website_event_snippet_calendar.animation', function (require) {
             var margin = moment.duration(4, "months");
             // Don't preload if we have up to 4 months of margin
             if (
-                this._dates.min && this._dates.max &&
+                this._dates.min &&
+                this._dates.max &&
                 this._dates.min <= when - margin &&
                 this._dates.max >= when + margin
             ) {
@@ -105,13 +106,12 @@ odoo.define('website_event_snippet_calendar.animation', function (require) {
         },
 
         load_dates: function (start, end) {
-            return ajax.rpc(
-                "/website_event_snippet_calendar/days_with_events",
-                {
+            return ajax
+                .rpc("/website_event_snippet_calendar/days_with_events", {
                     start: start.format(DATE_FORMAT),
                     end: end.format(DATE_FORMAT),
-                }
-            ).done($.proxy(this, "_update_dates_cache", start, end));
+                })
+                .then($.proxy(this, "_update_dates_cache", start, end));
         },
 
         _update_dates_cache: function (start, end, dates) {
@@ -125,31 +125,45 @@ odoo.define('website_event_snippet_calendar.animation', function (require) {
         },
 
         load_events: function (day, limit) {
-            return ajax.rpc(
-                "/website_event_snippet_calendar/events_for_day",
-                {day: day, limit: limit}
-            );
+            return ajax.rpc("/website_event_snippet_calendar/events_for_day", {
+                day: day,
+                limit: limit,
+            });
         },
 
         render_calendar: function () {
             var enabledDates = _.map(this._dates.matches, function (ndate) {
                 return moment(ndate, DATE_FORMAT);
             });
-            this.$calendar.empty().datetimepicker(_.extend({},
-                this.datepicker_options, {'enabledDates': enabledDates}));
+            this.$calendar
+                .empty()
+                .datetimepicker(
+                    _.extend({}, this.datepicker_options, {enabledDates: enabledDates})
+                );
         },
 
         render_list: function (events) {
-            _.each(events, function (element) {
-                var date_begin_located = moment(
-                    element.date_begin_pred_located, DATETIME_FORMAT);
-                element.date_begin = date_begin_located.format(
-                    this.date_format);
-            }, this);
-            this.$list.html(core.qweb.render(
-                "website_event_snippet_calendar.list",
-                {events: events}
-            ));
+            _.each(
+                events,
+                function (element) {
+                    var date_begin_located = moment(
+                        element.date_begin_pred_located,
+                        DATETIME_FORMAT
+                    );
+                    var date_end_located = moment(
+                        element.date_end_pred_located,
+                        DATETIME_FORMAT
+                    );
+                    element.date_begin = date_begin_located.format(this.date_format);
+                    element.date_end = date_end_located.format(this.date_format);
+                },
+                this
+            );
+            this.$list.html(
+                core.qweb.render("website_event_snippet_calendar.list", {
+                    events: events,
+                })
+            );
         },
     });
 
@@ -161,5 +175,4 @@ odoo.define('website_event_snippet_calendar.animation', function (require) {
         DATETIME_FORMAT: DATETIME_FORMAT,
         INVERSE_FORMAT: INVERSE_FORMAT,
     };
-
 });

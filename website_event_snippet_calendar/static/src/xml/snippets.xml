@@ -1,23 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!-- Copyright 2018 Tecnativa - Jairo Llopis
      License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
-
-<template>
+<templates>
     <t t-name="website_event_snippet_calendar.list">
         <t t-foreach="events" t-as="event">
             <div class="row">
                 <div class="col-12 event_details">
                     <span class="date">
-                        <t t-esc="event.date_begin"/>
+                        <t t-esc="event.date_begin" />
+                    </span>
+                    <span>
+                        <i class="fas fa fa-arrow-right text-muted mx-1 my-1" />
+                    </span>
+                    <span class="date">
+                        <t t-esc="event.date_end" />
                     </span>
                     <span class="category">
-                        <t t-esc="event.event_type_id[1]"/>
+                        <t t-esc="event.event_type_id[1]" />
                     </span>
                 </div>
                 <div class="col-12 event_title">
                     <a t-att-href="event.website_url" target="_top">
                         <h3 class="mt0">
-                            <t t-esc="event.name"/>
+                            <t t-esc="event.name" />
                             <t t-if="!event.website_published">
                                 <span class="badge badge-danger">unpublished</span>
                             </t>
@@ -27,4 +32,4 @@
             </div>
         </t>
     </t>
-</template>
+</templates>

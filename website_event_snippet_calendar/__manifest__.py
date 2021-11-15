@@ -3,7 +3,7 @@
 {
     "name": "Event Calendar and List Snippet and Iframe",
     "summary": "Browsable calendar with events list for your website",
-    "version": "12.0.1.1.0",
+    "version": "14.0.1.0.0",
     "category": "Website",
     "website": "https://github.com/OCA/event",
     "author": "Tecnativa, Odoo Community Association (OCA)",
@@ -14,8 +14,8 @@
         "website_event",
     ],
     "data": [
-        "templates/assets.xml",
-        "templates/embed.xml",
-        "templates/snippets.xml",
+        "views/assets.xml",
+        "views/embed.xml",
+        "views/snippets.xml",
     ],
 }

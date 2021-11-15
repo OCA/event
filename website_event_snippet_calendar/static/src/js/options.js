@@ -1,35 +1,26 @@
 /* Copyright 2018 Tecnativa - Jairo Llopis
  * License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). */
 
-odoo.define('website_event_snippet_calendar.snippets', function (require) {
+odoo.define("website_event_snippet_calendar.snippets", function (require) {
     "use strict";
 
-    var options = require('web_editor.snippets.options');
+    var options = require("web_editor.snippets.options");
 
-    var SnippetOptions = options.Class.extend({
-        start: function () {
-            this._super.apply(this, arguments);
-            this.$amount = this.$(".js_amount");
-        },
-
+    options.registry.website_event_snippet_calendar_list = options.Class.extend({
         /**
-         * Add or remove a given amount of events by default
-         *
-         * @param {String} type Event type
-         * @param {Number} value How many events to add
+         * Add or remove one event
          */
-        increase: function (type, value) {
-            var increment = Number(value);
-            if (type === "reset") {
-                increment *= -1;
-            }
-            var current = Number(this.$amount.html()) || 4;
-            current += increment;
+        increase: function () {
+            this.$amount = this.$(".js_amount");
+            var current = parseInt(this.$amount.html()) || 4;
+            current += 1;
+            this.$amount.html(current);
+        },
+        decrease: function () {
+            this.$amount = this.$(".js_amount");
+            var current = parseInt(this.$amount.html()) || 4;
+            current -= 1;
             this.$amount.html(current);
         },
     });
-
-    options.registry.website_event_snippet_calendar_list = SnippetOptions;
-
-    return SnippetOptions;
 });
