@@ -7,7 +7,7 @@
         <field name="model">crm.stage</field>
         <field name="inherit_id" ref="crm.crm_stage_form" />
         <field name="arch" type="xml">
-            <xpath expr="//group[field[@name='on_change']]" position="after">
+            <xpath expr="//sheet/group">
                 <group name="event_type" string="Event Categories">
                     <field
                         name="auto_invite_website_event_type"
