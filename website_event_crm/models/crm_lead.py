@@ -13,9 +13,7 @@ _logger = logging.getLogger(__name__)
 class CRMLead(models.Model):
     _inherit = "crm.lead"
 
-    event_type_website_url = fields.Char(
-        compute="_compute_event_type_url",
-    )
+    event_type_website_url = fields.Char(compute="_compute_event_type_url",)
 
     @api.depends("event_type_id")
     def _compute_event_type_url(self):
@@ -54,15 +52,14 @@ class CRMLead(models.Model):
                 action = lead.action_invite_to_website_event_type()
                 assert action["res_model"] == "mail.compose.message"
                 composer = Form(
-                    self.env["mail.compose.message"]
-                    .with_context(
+                    self.env["mail.compose.message"].with_context(
                         active_id=lead.id,
                         active_ids=lead.ids,
                         active_model=lead._name,
                         mail_notify_force_send=False,
                         **action["context"],
                     ),
-                    action['view_id']
+                    action["view_id"],
                 )
                 composer.save().send_mail()
             except Exception:
