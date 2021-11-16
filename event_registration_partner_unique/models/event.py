@@ -47,4 +47,5 @@ class EventRegistration(models.Model):
             ("id", "!=", self.id),
             ("event_id", "=", self.event_id.id),
             ("attendee_partner_id", "=", self.attendee_partner_id.id),
+            ("attendee_partner_id", "!=", False),
         ]
