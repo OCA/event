@@ -9,10 +9,14 @@ class EventEvent(models.Model):
     _inherit = "event.event"
 
     session_ids = fields.One2many(
-        comodel_name="event.session", inverse_name="event_id", string="Sessions",
+        comodel_name="event.session",
+        inverse_name="event_id",
+        string="Sessions",
     )
     sessions_count = fields.Integer(
-        compute="_compute_sessions_count", string="Total event sessions", store=True,
+        compute="_compute_sessions_count",
+        string="Total event sessions",
+        store=True,
     )
     seats_available_expected = fields.Integer(
         compute="_compute_seats_available_expected",
@@ -71,10 +75,13 @@ class EventRegistration(models.Model):
     _inherit = "event.registration"
 
     event_sessions_count = fields.Integer(
-        related="event_id.sessions_count", readonly=True,
+        related="event_id.sessions_count",
+        readonly=True,
     )
     session_id = fields.Many2one(
-        comodel_name="event.session", string="Session", ondelete="restrict",
+        comodel_name="event.session",
+        string="Session",
+        ondelete="restrict",
     )
 
     @api.constrains("event_id", "session_id", "state")

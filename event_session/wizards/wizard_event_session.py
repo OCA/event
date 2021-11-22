@@ -62,7 +62,8 @@ class WizardEventSession(models.TransientModel):
         string="Hours",
     )
     event_mail_template_id = fields.Many2one(
-        comodel_name="event.mail.template", string="Mail Schedule",
+        comodel_name="event.mail.template",
+        string="Mail Schedule",
     )
 
     @api.constrains("session_hour_ids")
@@ -129,7 +130,10 @@ class WizardEventSession(models.TransientModel):
             for hour in self.session_hour_ids:
                 start_time = datetime.min + timedelta(hours=hour.start_time)
                 end_time = datetime.min + timedelta(hours=hour.end_time)
-                current_start = datetime.combine(current.date(), start_time.time(),)
+                current_start = datetime.combine(
+                    current.date(),
+                    start_time.time(),
+                )
                 current_end = datetime.combine(current.date(), end_time.time())
                 # Convert to UTC from user TZ
                 local_tz = timezone(self.env.user.tz)
