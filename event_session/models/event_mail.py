@@ -1,4 +1,5 @@
 # Copyright 2017 David Vidal<david.vidal@tecnativa.com>
+# Copyright 2021 Moka Tourisme (https://www.mokatourisme.fr).
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 import logging
@@ -7,90 +8,52 @@ from odoo import api, fields, models
 
 _logger = logging.getLogger(__name__)
 
-try:
-    from odoo.addons.event.models.event_mail import _INTERVALS
-except ImportError:
-    _logger.debug("Can not import events module.")
 
-
-class EventMailScheduler(models.Model):
+class EventMail(models.Model):
     _inherit = "event.mail"
 
-    event_id = fields.Many2one(required=False)
-    session_id = fields.Many2one(
-        comodel_name="event.session",
-        string="Session",
-        ondelete="cascade",
+    use_sessions = fields.Boolean(
+        related="event_id.use_sessions",
     )
-    event_mail_template_id = fields.Many2one(
-        comodel_name="event.mail.template",
-        string="Event Mail Template",
-        ondelete="cascade",
+    session_scheduler_ids = fields.One2many(
+        comodel_name="event.mail.session",
+        inverse_name="scheduler_id",
+        string="Session Mails",
     )
 
-    @api.depends(
-        "mail_sent",
-        "interval_type",
-        "event_id.registration_ids",
-        "mail_registration_ids",
-    )
-    def _compute_done(self):
-        super()._compute_done()
-        for event_mail in self:
-            if event_mail.session_id and event_mail.interval_type not in [
-                "before_event",
-                "after_event",
-            ]:
-                event_mail.done = (
-                    True
-                    if event_mail.event_id.sessions_count > 0
-                    and not event_mail.session_id
-                    else len(event_mail.mail_registration_ids)
-                    == len(event_mail.session_id.registration_ids)
-                    and all(line.mail_sent for line in event_mail.mail_registration_ids)
-                )
-
-    @api.depends(
-        "event_id.state",
-        "event_id.date_begin",
-        "interval_type",
-        "interval_unit",
-        "interval_nbr",
-    )
+    @api.depends("event_id.use_sessions")
     def _compute_scheduled_date(self):
-        super()._compute_scheduled_date()
-        for event_mail in self:
-            if not event_mail.session_id:
-                continue
-            if event_mail.event_id.state not in ["confirm", "done"]:
-                event_mail.scheduled_date = False
-            else:
-                if event_mail.interval_type == "after_sub":
-                    date, sign = event_mail.session_id.create_date, 1
-                elif event_mail.interval_type == "before_event":
-                    date, sign = event_mail.session_id.date_begin, -1
-                else:
-                    date, sign = event_mail.session_id.date_end, 1
-                event_mail.scheduled_date = date + _INTERVALS[event_mail.interval_unit](
-                    sign * event_mail.interval_nbr
-                )
+        # OVERRIDE to handle event session mail schedulers.
+        # We set scheduled_date to False because it doesn't make sense for sessions,
+        # as we use them only as "templates" to be copied/synced to the sessions as
+        # `event.mail.session` records. Their scheduled_dates are then computed from
+        # the dates of the related session.
+        # By doing it, we get the additional benefit of having them automatically
+        # ignored by the scheduled_date domain leaf of the core's mail scheduler cron.
+        session_records = self.filtered("use_sessions")
+        session_records.scheduled_date = False
+        regular_records = self - session_records
+        return super(EventMail, regular_records)._compute_scheduled_date()
 
+    @api.model
+    def schedule_communications(self, autocommit=False):
+        # OVERRIDE to also process session mail schedulers
+        res = super().schedule_communications(autocommit=autocommit)
+        self.env["event.mail.session"].schedule_communications(autocommit=autocommit)
+        return res
 
-class EventMailRegistration(models.Model):
-    _inherit = "event.mail.registration"
+    def execute(self):  # pragma: no cover
+        # OVERRIDE. Just in case, prevent execution of schedulers linked to event.event
+        # that are using sessions. They manage that through event.mail.session.
+        # This should never happen because they always have scheduled_date = False.
+        session_records = self.filtered("use_sessions")
+        regular_records = self - session_records
+        if session_records:  # pragma: no cover
+            _logger.error("Trying to execute event.mail linked to a session event.")
+        return super(EventMail, regular_records).execute()
 
-    @api.depends(
-        "registration_id", "scheduler_id.interval_unit", "scheduler_id.interval_type"
-    )
-    def _compute_scheduled_date(self):
-        super()._compute_scheduled_date()
-        for event_mail_reg in self:
-            if (
-                event_mail_reg.registration_id
-                and event_mail_reg.registration_id.session_id
-            ):
-                date_open = event_mail_reg.registration_id.date_open
-                date_open_datetime = date_open and date_open or fields.datetime.now()
-                event_mail_reg.scheduled_date = date_open_datetime + _INTERVALS[
-                    event_mail_reg.scheduler_id.interval_unit
-                ](event_mail_reg.scheduler_id.interval_nbr)
+    def _prepare_session_mail_scheduler_vals(self, session):
+        return {
+            "scheduler_id": self.id,
+            "session_id": session.id,
+        }
