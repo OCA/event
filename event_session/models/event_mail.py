@@ -18,7 +18,9 @@ class EventMailScheduler(models.Model):
 
     event_id = fields.Many2one(required=False)
     session_id = fields.Many2one(
-        comodel_name="event.session", string="Session", ondelete="cascade",
+        comodel_name="event.session",
+        string="Session",
+        ondelete="cascade",
     )
     event_mail_template_id = fields.Many2one(
         comodel_name="event.mail.template",
