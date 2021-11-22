@@ -1,182 +1,273 @@
 # Copyright 2017 David Vidal<david.vidal@tecnativa.com>
 # Copyright 2017 Tecnativa - Pedro M. Baeza
+# Copyright 2021 Moka Tourisme (https://www.mokatourisme.fr).
+# @author Iván Todorovich <ivan.todorovich@gmail.com>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from datetime import datetime, timedelta
+from datetime import datetime, time, timedelta
 
-from pytz import timezone, utc
+import pytz
+from dateutil import rrule
+from dateutil.relativedelta import relativedelta
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
+
+SELECT_FREQ_TO_RRULE = {
+    "daily": rrule.DAILY,
+    "weekly": rrule.WEEKLY,
+    "monthly": rrule.MONTHLY,
+    "yearly": rrule.YEARLY,
+}
+
+RRULE_WEEKDAYS = {
+    "SUN": "SU",
+    "MON": "MO",
+    "TUE": "TU",
+    "WED": "WE",
+    "THU": "TH",
+    "FRI": "FR",
+    "SAT": "SA",
+}
+
+
+def freq_to_rrule(freq):
+    return SELECT_FREQ_TO_RRULE[freq]
+
+
+def float_time_to_hours_and_minutes(float_time):
+    # Round to 2 decimals to avoid hours like 1:60
+    # It'd be rounded to 2:00
+    float_time = round(float_time, 2)
+    hours = int(float_time)
+    minutes = round((float_time - hours) * 60)
+    return (hours, minutes)
+
+
+def float_time_as_timedelta(float_time):
+    hours, minutes = float_time_to_hours_and_minutes(float_time)
+    return timedelta(hours=hours, minutes=minutes)
+
+
+def float_time_as_time(float_time):
+    hours, minutes = float_time_to_hours_and_minutes(float_time)
+    return time(hour=hours, minute=minutes)
 
 
 class WizardEventSession(models.TransientModel):
     _name = "wizard.event.session"
     _description = "Wizard for ease sessions creation"
 
-    name = fields.Char(
-        "Session info",
-        required=True,
-        help="It will be generated according to given parameters",
-        default="/",
-    )
     event_id = fields.Many2one(
         comodel_name="event.event",
-        readonly=True,
-        on_delete="cascade",
         default=lambda self: self.env.context["active_id"],
+        ondelete="cascade",
+        required=True,
+        readonly=True,
+    )
+    date_tz = fields.Selection(
+        related="event_id.date_tz",
+        help="Set it up in the event configuration"
+        "Sessions will be generated up to this date",
+    )
+    duration = fields.Float(
+        compute="_compute_duration",
+        readonly=False,
+        store=True,
+        required=True,
+        help="Duration of the sessions in hours",
+    )
+    timeslot_ids = fields.Many2many(
+        comodel_name="event.session.timeslot",
+        string="Time slots",
         required=True,
     )
-    event_date_begin = fields.Datetime(
-        related="event_id.date_begin",
-        readonly=True,
-        help="Set it up in the event configuration"
-        "Sessions will be generated from this date",
+    # rrule fields
+    interval = fields.Integer(default=1, required=True)
+    rrule_type = fields.Selection(
+        [("weekly", "Weeks"), ("monthly", "Months")],
+        string="Recurrence",
+        default="weekly",
+        required=True,
     )
-    event_date_end = fields.Datetime(
-        related="event_id.date_end",
-        readonly=True,
-        help="Set it up in the event configuration"
-        "Sessions will be generated up to this date",
+    mon = fields.Boolean()
+    tue = fields.Boolean()
+    wed = fields.Boolean()
+    thu = fields.Boolean()
+    fri = fields.Boolean()
+    sat = fields.Boolean()
+    sun = fields.Boolean()
+    month_by = fields.Selection(
+        [("date", "Date of month"), ("day", "Day of month")],
+        default="date",
     )
-    event_date_tz = fields.Selection(
-        related="event_id.date_tz",
-        readonly=True,
-        help="Set it up in the event configuration"
-        "Sessions will be generated up to this date",
+    day = fields.Integer(default=1)
+    weekday = fields.Selection(
+        [
+            ("MON", "Monday"),
+            ("TUE", "Tuesday"),
+            ("WED", "Wednesday"),
+            ("THU", "Thursday"),
+            ("FRI", "Friday"),
+            ("SAT", "Saturday"),
+            ("SUN", "Sunday"),
+        ],
     )
-    mondays = fields.Boolean(help="Create sessions on Mondays")
-    tuesdays = fields.Boolean(help="Create sessions on Tuesdays")
-    wednesdays = fields.Boolean(help="Create sessions on Wednesdays")
-    thursdays = fields.Boolean(help="Create sessions on Thursdays")
-    fridays = fields.Boolean(help="Create sessions on Fridays")
-    saturdays = fields.Boolean(help="Create sessions on Saturdays")
-    sundays = fields.Boolean(help="Create sessions on Sundays")
-    delete_existing_sessions = fields.Boolean(
-        default=True,
-        help="Check in order to delete every previous session for this event",
+    byday = fields.Selection(
+        [
+            ("1", "First"),
+            ("2", "Second"),
+            ("3", "Third"),
+            ("4", "Fourth"),
+            ("-1", "Last"),
+        ],
+        string="By day",
     )
-    session_hour_ids = fields.One2many(
-        comodel_name="wizard.event.session.hours",
-        inverse_name="wizard_event_session_id",
-        string="Hours",
+    start = fields.Date(
+        compute="_compute_start",
+        readonly=False,
+        required=True,
+        store=True,
     )
-    event_mail_template_id = fields.Many2one(
-        comodel_name="event.mail.template",
-        string="Mail Schedule",
-    )
+    until = fields.Date(required=True)
 
-    @api.constrains("session_hour_ids")
-    def _avoid_overlapping_hours(self):
-        for hour_a in self.session_hour_ids:
-            for hour_b in self.session_hour_ids:
-                if hour_a != hour_b:
-                    if hour_a.start_time == hour_b.start_time:
-                        raise ValidationError(_("There are overlapping hours!"))
-                    elif hour_b.start_time < hour_a.start_time < hour_b.end_time:
-                        raise ValidationError(_("There are overlapping hours!"))
+    @api.depends("event_id")
+    def _compute_start(self):
+        # Suggest to create sessions from the date of the last session
+        # Usually the user wants to add new ones.
+        for rec in self:
+            rec.start = rec.event_id.date_end.date() + timedelta(days=1)
 
-    def weekdays(self):
-        """Generate a tuple with the values for accessing days by index."""
-        return (
-            self.mondays,
-            self.tuesdays,
-            self.wednesdays,
-            self.thursdays,
-            self.fridays,
-            self.saturdays,
-            self.sundays,
+    @api.depends("event_id")
+    def _compute_duration(self):
+        # Suggest to create sessions with the same duration than the
+        # last existing session
+        for rec in self:
+            if rec.event_id.session_ids:
+                session = rec.event_id.session_ids[-1]
+                delta = session.date_end - session.date_begin
+                rec.duration = round(delta.total_seconds() / 3600, 2)
+
+    @api.constrains("duration")
+    def _check_duration(self):
+        if any(rec.duration <= 0 for rec in self):
+            raise ValidationError(_("Duration is required."))
+
+    @api.constrains("interval")
+    def _check_interval(self):
+        if any(rec.interval <= 0 for rec in self):
+            raise ValidationError(_("The interval cannot be negative."))
+
+    def _get_lang_week_start(self):
+        lang = self.env["res.lang"]._lang_get(self.env.user.lang)
+        week_start = int(lang.week_start)
+        # lang.week_start ranges from '1' to '7'
+        # rrule expects an int from 0 to 6
+        return rrule.weekday(week_start - 1)
+
+    def _get_week_days(self):
+        return tuple(
+            rrule.weekday(weekday_index)
+            for weekday_index, weekday in {
+                rrule.MO.weekday: self.mon,
+                rrule.TU.weekday: self.tue,
+                rrule.WE.weekday: self.wed,
+                rrule.TH.weekday: self.thu,
+                rrule.FR.weekday: self.fri,
+                rrule.SA.weekday: self.sat,
+                rrule.SU.weekday: self.sun,
+            }.items()
+            if weekday
         )
 
-    def existing_sessions(self, date):
-        """Return existing sessions that match some criteria."""
-        # Todo: Improve match
-        return self.env["event.session"].search(
-            [
-                ("event_id", "=", self.event_id.id),
-                ("date_begin", "=", date),
-                ("start_time", "=", self.start_time),
-            ],
-        )
-
-    def _prepare_session_values(self, date_begin, date_end):
-        vals = {
-            "event_id": self.event_id.id,
-            "date_begin": fields.Datetime.to_string(date_begin),
-            "date_end": fields.Datetime.to_string(date_end),
-        }
-        mail_template = self.event_mail_template_id or self.env["ir.default"].get(
-            "res.config.settings", "event_mail_template_id"
-        )
-        if mail_template:
-            template_values = self.env["event.session"]._session_mails_from_template(
-                self.event_id.id, mail_template
-            )
-            vals["event_mail_ids"] = template_values
-        return vals
-
-    def generate_sessions(self):
+    def _get_rrule(self, dtstart=None):
+        """Builds the rrule from fields"""
         self.ensure_one()
-        session_obj = self.env["event.session"]
-        event_start = utc.localize(self.event_date_begin)
-        event_end = utc.localize(self.event_date_end)
-        weekdays = self.weekdays()
-        current = event_start
-        current = current.replace(hour=event_end.hour, minute=event_end.minute)
-        while current <= event_end:
-            if not weekdays[current.weekday()]:
-                current += timedelta(days=1)
-                continue
-            for hour in self.session_hour_ids:
-                start_time = datetime.min + timedelta(hours=hour.start_time)
-                end_time = datetime.min + timedelta(hours=hour.end_time)
-                current_start = datetime.combine(
-                    current.date(),
-                    start_time.time(),
+        freq = self.rrule_type
+        rrule_params = dict(
+            dtstart=dtstart,
+            until=datetime.combine(self.until, datetime.max.time()),
+            interval=self.interval,
+        )
+        if freq == "monthly" and self.month_by == "date":
+            rrule_params["bymonthday"] = self.day
+        elif freq == "monthly" and self.month_by == "day":
+            rrule_params["byweekday"] = getattr(rrule, RRULE_WEEKDAYS[self.weekday])(
+                int(self.byday)
+            )
+        elif freq == "weekly":
+            weekdays = self._get_week_days()
+            if not weekdays:  # pragma: no cover
+                raise ValidationError(
+                    _("You have to choose at least one day in the week")
                 )
-                current_end = datetime.combine(current.date(), end_time.time())
-                # Convert to UTC from user TZ
-                local_tz = timezone(self.env.user.tz)
-                current_start = local_tz.localize(current_start)
-                current_start = current_start.astimezone(utc)
-                current_end = local_tz.localize(current_end)
-                current_end = current_end.astimezone(utc)
-                if current_start < event_start or current_end > event_end:
-                    continue
-                # TODO: Check that no session exists with this data
-                session_obj.create(
-                    self._prepare_session_values(current_start, current_end)
+            rrule_params["byweekday"] = weekdays
+            rrule_params["wkst"] = self._get_lang_week_start()
+        return rrule.rrule(freq_to_rrule(freq), **rrule_params)
+
+    def _get_start_of_period(self):
+        self.ensure_one()
+        dtstart = datetime.combine(self.start, datetime.min.time())
+        if self.rrule_type == "monthly":
+            return dtstart - relativedelta(day=1)
+        return dtstart
+
+    def _get_occurrences(self):
+        self.ensure_one()
+        dtstart = self._get_start_of_period()
+        occurences = self._get_rrule(dtstart=dtstart)
+        return list(occurences)
+
+    def _get_ranges(self):
+        """Generate ranges from the rrule
+
+        :return: list of tuples (start_dt, end_dt, extra_vals)
+        """
+        self.ensure_one()
+        res = []
+        ocurrences = self._get_occurrences()
+        duration = float_time_as_timedelta(self.duration)
+        timezone = pytz.timezone(self.date_tz)
+        timeslot_times = [float_time_as_time(t.time) for t in self.timeslot_ids]
+        for dtstart in ocurrences:
+            for tslot, ttime in zip(self.timeslot_ids, timeslot_times):
+                start = datetime.combine(dtstart, ttime)
+                start_utc = (
+                    timezone.localize(start, is_dst=False)
+                    .astimezone(pytz.utc)
+                    .replace(tzinfo=None)
                 )
-            current += timedelta(days=1)
+                extra_vals = tslot._prepare_session_extra_vals()
+                res.append((start_utc, start_utc + duration, extra_vals))
+        return res
 
-    def action_generate_sessions(self):
-        """Here's where magic is triggered"""
-        weekdays = self.weekdays()
-        if not any(weekdays):
-            raise ValidationError(_("You must select at least one weekday"))
-        if self.delete_existing_sessions:
-            self.event_id.session_ids.unlink()
-        self.generate_sessions()
+    def _prepare_session_vals(self, date_begin, date_end):
+        self.ensure_one()
+        return {
+            "event_id": self.event_id.id,
+            "date_begin": date_begin,
+            "date_end": date_end,
+        }
 
+    def _create_sessions(self):
+        """Create sessions"""
+        self.ensure_one()
+        session_vals = []
+        for date_begin, date_end, extra_vals in self._get_ranges():
+            vals = self._prepare_session_vals(date_begin, date_end)
+            vals.update(extra_vals)
+            session_vals.append(vals)
+        return self.env["event.session"].create(session_vals)
 
-class WizardEventSessionHours(models.TransientModel):
-    _name = "wizard.event.session.hours"
-    _description = "Hours in wich the sessions will run"
-
-    wizard_event_session_id = fields.Many2one(comodel_name="wizard.event.session")
-    start_time = fields.Float(required=True)
-    end_time = fields.Float(required=True)
-
-    # Todo: manage multiday sessions
-
-    @api.constrains("start_time", "end_time")
-    def _check_zero_duration(self):
-        for hour in self:
-            if hour.start_time == hour.end_time:
-                raise ValidationError(_("There are sessions with no duration!"))
-
-    @api.constrains("start_time", "end_time")
-    def _check_hour_validity(self):
-        for hour in self:
-            if hour.start_time > 23.99 or hour.end_time > 23.99:
-                raise ValidationError(_("You've entered invalid hours!"))
+    def action_create_sessions(self):
+        self.ensure_one()
+        sessions = self._create_sessions()
+        action = self.env["ir.actions.act_window"]._for_xml_id(
+            "event_session.act_event_session_event_form"
+        )
+        action["domain"] = [("id", "in", sessions.ids)]
+        action["context"] = {
+            "default_event_id": self.event_id.id,
+            "search_default_event_id": self.event_id.id,
+        }
+        return action

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="view_event_type_form" model="ir.ui.view">
+        <field name="model">event.type</field>
+        <field name="inherit_id" ref="event.view_event_type_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='has_seats_limitation']/parent::div"
+                position="before"
+            >
+                <div colspan="2" class="o_checkbox_optional_field">
+                    <label for="use_sessions" />
+                    <field name="use_sessions" class="w-100" />
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
