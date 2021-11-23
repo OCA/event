@@ -1,1 +1,2 @@
 # See https://github.com/OCA/odoo-community.org/blob/master/website/Contribution/CONTRIBUTING.rst#oca_dependencies-txt
+rest-framework https://github.com/acsone/rest-framework 14.0-base-rest-pydantic-lmi
