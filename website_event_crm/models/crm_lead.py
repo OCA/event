@@ -27,7 +27,17 @@ class CRMLead(models.Model):
             domain = lead.event_type_id._published_events_domain()
             events = self.env["event.event"].search(domain, limit=1)
             if events:
-                lead.event_type_website_url = "/event?type=%d" % lead.event_type_id.id
+                if "website_id" in self.env.context:
+                    website = self.env["website"].get_current_website(
+                        fallback=False
+                    )
+                else:
+                    website = self.env["website"].search([
+                        ("company_id", "=", lead.company_id.id)
+                    ], limit=1)
+                lead.event_type_website_url = "%s/event?type=%d" % (
+                    website._get_http_domain(), lead.event_type_id.id
+                )
 
     @api.model
     def _cron_auto_invite_website_event_type(self):
