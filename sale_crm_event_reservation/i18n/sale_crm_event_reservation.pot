@@ -1,13 +1,11 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#       * sale_crm_event_reservation
+#	* sale_crm_event_reservation
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-05 16:37+0000\n"
-"PO-Revision-Date: 2021-02-05 16:37+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -41,8 +39,13 @@ msgid "Event"
 msgstr ""
 
 #. module: sale_crm_event_reservation
+#: model:ir.model,name:sale_crm_event_reservation.model_event_type_report
+msgid "Event categories analysis report"
+msgstr ""
+
+#. module: sale_crm_event_reservation
 #: model:ir.model.fields,field_description:sale_crm_event_reservation.field_crm_lead_event_sale_wizard__event_type_id
-msgid "Event type"
+msgid "Event category"
 msgstr ""
 
 #. module: sale_crm_event_reservation
@@ -67,12 +70,12 @@ msgstr ""
 
 #. module: sale_crm_event_reservation
 #: model:ir.model.fields,help:sale_crm_event_reservation.field_crm_lead_event_sale_wizard__seats_wanted
-msgid "If this lead/opportunity is related to a specific event type, indicate how many seats would you sell if won."
+msgid "If this lead/opportunity is related to a specific event category, indicate how many seats would you sell if won."
 msgstr ""
 
 #. module: sale_crm_event_reservation
 #: model:ir.model.fields,help:sale_crm_event_reservation.field_crm_lead_event_sale_wizard__event_type_id
-msgid "If this lead/opportunity is related to a specific event type, indicate it here."
+msgid "If this lead/opportunity is related to a specific event category, indicate it here."
 msgstr ""
 
 #. module: sale_crm_event_reservation
@@ -121,6 +124,11 @@ msgid "Reserve upcoming event"
 msgstr ""
 
 #. module: sale_crm_event_reservation
+#: model:ir.model.fields,field_description:sale_crm_event_reservation.field_event_type_report__seats_reservation_total
+msgid "Reserved seats"
+msgstr ""
+
+#. module: sale_crm_event_reservation
 #: model:ir.model.fields,field_description:sale_crm_event_reservation.field_crm_lead_event_sale_wizard__seats_wanted
 msgid "Seats Wanted"
 msgstr ""
@@ -134,3 +142,4 @@ msgstr ""
 #: model:ir.model,name:sale_crm_event_reservation.model_crm_lead_event_sale_wizard
 msgid "Wizard to generate event quotation from event opportunity"
 msgstr ""
+
