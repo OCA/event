@@ -117,7 +117,11 @@ Authors
 Contributors
 ~~~~~~~~~~~~
 
-* Jairo Llopis <jairo.llopis@tecnativa.com> (https://www.tecnativa.com/)
+* `Tecnativa <https://www.tecnativa.com>`_:
+
+  * Jairo Llopis
+  * David Vidal
+  * Sergio Teruel
 
 Maintainers
 ~~~~~~~~~~~
