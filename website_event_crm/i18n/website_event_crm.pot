@@ -80,7 +80,7 @@ msgid "Invite automatically to website event category"
 msgstr ""
 
 #. module: website_event_crm
-#: code:addons/website_event_crm/models/crm_lead.py:87
+#: code:addons/website_event_crm/models/crm_lead.py:97
 #, python-format
 msgid "Invite to visit website"
 msgstr ""
@@ -103,7 +103,7 @@ msgid "Notify all opportunities related to event categories"
 msgstr ""
 
 #. module: website_event_crm
-#: code:addons/website_event_crm/models/crm_lead.py:74
+#: code:addons/website_event_crm/models/crm_lead.py:84
 #, python-format
 msgid "Select one event type with published events."
 msgstr ""
