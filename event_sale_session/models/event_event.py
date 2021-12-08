@@ -12,7 +12,9 @@ class EventSession(models.Model):
         string="Sales Order Lines",
     )
     unconfirmed_qty = fields.Integer(
-        string="Unconfirmed Qty", compute="_compute_unconfirmed_qty", store=True,
+        string="Unconfirmed Qty",
+        compute="_compute_unconfirmed_qty",
+        store=True,
     )
 
     @api.depends(
