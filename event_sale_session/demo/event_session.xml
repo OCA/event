@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="event_ticket_007_free" model="event.event.ticket">
+        <field name="name">Free</field>
+        <field name="description">Free entrance !</field>
+        <field name="event_id" ref="event_session.event_event_007" />
+        <field name="seats_max">0</field>
+        <field name="product_id" ref="event_sale.product_product_event" />
+        <field name="price">0.0</field>
+    </record>
+
+    <record id="event_ticket_007_standard" model="event.event.ticket">
+        <field name="name">Standard</field>
+        <field name="description">Standard</field>
+        <field name="event_id" ref="event_session.event_event_007" />
+        <field name="seats_max">0</field>
+        <field name="product_id" ref="event_sale.product_product_event" />
+        <field name="price">12.0</field>
+    </record>
+
+    <record id="event_ticket_007_vip" model="event.event.ticket">
+        <field name="name">VIP</field>
+        <field name="description">Standard + catering event</field>
+        <field name="event_id" ref="event_session.event_event_007" />
+        <field name="seats_max">0</field>
+        <field name="product_id" ref="event_sale.product_product_event" />
+        <field name="price">60.0</field>
+    </record>
+
+</odoo>
