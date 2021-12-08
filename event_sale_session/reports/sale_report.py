@@ -8,10 +8,14 @@ class SaleReport(models.Model):
     _inherit = "sale.report"
 
     event_id = fields.Many2one(
-        comodel_name="event.event", string="Event", readonly=True,
+        comodel_name="event.event",
+        string="Event",
+        readonly=True,
     )
     session_id = fields.Many2one(
-        comodel_name="event.session", string="Session", readonly=True,
+        comodel_name="event.session",
+        string="Session",
+        readonly=True,
     )
     event_session_count = fields.Integer(
         string="Number of event sessions", readonly=True, group_operator="avg"
