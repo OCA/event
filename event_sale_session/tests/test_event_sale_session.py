@@ -1,152 +1,118 @@
-# Copyright 2017-19 Tecnativa - David Vidal
+# Copyright 2017 Tecnativa - David Vidal
+# Copyright 2022 Moka Tourisme (https://www.mokatourisme.fr).
+# @author Iván Todorovich <ivan.todorovich@gmail.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl-3.0).
-from odoo.exceptions import ValidationError
-from odoo.tests import common
+
+from odoo.tests import Form, TransactionCase
 
 
-class EventSaleSession(common.SavepointCase):
+class EventSaleSession(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.product_category = cls.env["product.category"].create({"name": "test_cat"})
-        cls.product = cls.env["product.product"].create(
+        cls.partner = cls.env.ref("base.res_partner_address_28")
+        cls.product = cls.env.ref("event_sale.product_product_event")
+        cls.session = cls.env.ref("event_session.event_session_007_1_16_00")
+        cls.ticket = cls.env.ref("event_sale_session.event_ticket_007_standard")
+        cls.event = cls.session.event_id
+        cls.order = cls.env["sale.order"].create(
             {
-                "name": "Test product event",
-                "type": "service",
-                "event_ok": True,
-                "lst_price": 10.0,
-                "categ_id": cls.product_category.id,
-            }
-        )
-        cls.event = cls.env["event.event"].create(
-            {
-                "name": "Test event",
-                "date_begin": "2017-05-26 20:00:00",
-                "date_end": "2017-05-30 22:00:00",
-                "seats_availability": "limited",
-                "seats_max": "100",
-                "seats_min": "1",
-                "event_ticket_ids": [
-                    (0, 0, {"product_id": cls.product.id, "name": "test1"}),
-                    (
-                        0,
-                        0,
-                        {"product_id": cls.product.id, "name": "test2", "price": 8.0},
-                    ),
-                ],
-            }
-        )
-        cls.event2 = cls.env["event.event"].create(
-            {
-                "name": "Test event",
-                "date_begin": "2017-05-26 20:00:00",
-                "date_end": "2017-05-30 22:00:00",
-                "seats_availability": "limited",
-                "seats_max": "50",
-                "seats_min": "1",
-                "event_ticket_ids": [
-                    (0, 0, {"product_id": cls.product.id, "name": "test1"}),
-                ],
-            }
-        )
-        cls.session = cls.env["event.session"].create(
-            {
-                "name": "Test session",
-                "date_begin": "2017-05-26 20:00:00",
-                "date_end": "2017-05-26 22:00:00",
-                "event_id": cls.event.id,
-            }
-        )
-        cls.session_alt_1 = cls.env["event.session"].create(
-            {
-                "name": "Test Alternative Session",
-                "date_begin": "2017-05-27 20:00:00",
-                "date_end": "2017-05-27 22:00:00",
-                "event_id": cls.event.id,
-            }
-        )
-        cls.session_alt_2 = cls.env["event.session"].create(
-            {
-                "name": "Test Alternative Session",
-                "date_begin": "2017-05-27 20:00:00",
-                "date_end": "2017-05-27 22:00:00",
-                "event_id": cls.event2.id,
-            }
-        )
-        cls.partner = cls.env["res.partner"].create({"name": "Test partner"})
-
-    def test_sale(self):
-        """Sell an event with session"""
-        sale = self.env["sale.order"].create(
-            {
-                "partner_id": self.partner.id,
+                "partner_id": cls.partner.id,
                 "order_line": [
                     (
                         0,
                         0,
                         {
-                            "product_id": self.product.id,
-                            "event_id": self.event.id,
-                            "session_id": self.session.id,
+                            "product_id": cls.product.id,
+                            "event_id": cls.event.id,
+                            "event_session_id": cls.session.id,
+                            "event_ticket_id": cls.ticket.id,
                             "product_uom_qty": 5.0,
-                            "event_ticket_id": self.event.event_ticket_ids[0].id,
                         },
                     ),
                 ],
             }
         )
-        self.assertEqual(self.session.unconfirmed_qty, 5)
-        self.assertEqual(self.event.unconfirmed_qty, 5)
-        sale.action_confirm()
-        self.assertEqual(self.session.unconfirmed_qty, 0)
-        self.assertEqual(self.event.unconfirmed_qty, 0)
-        regs = self.env["event.registration"].search([("sale_order_id", "=", sale.id)])
+
+    def test_sale_session(self):
+        """Sell an event with session"""
+        self.order.action_confirm()
+        regs = self.env["event.registration"].search(
+            [("sale_order_id", "=", self.order.id)]
+        )
+        # Check that all registration data is properly set
         self.assertTrue(len(regs) > 0)
         for reg in regs:
             self.assertEqual(reg.event_id.id, self.event.id)
             self.assertEqual(reg.session_id.id, self.session.id)
             self.assertEqual(reg.partner_id.id, self.partner.id)
             self.assertEqual(reg.name, self.partner.name)
+        # Check the event.session sale subtotal amount
+        self.assertEqual(self.order.amount_untaxed, self.session.sale_price_subtotal)
+        # Check that we can access the orders from the session
+        action = self.session.action_view_linked_orders()
+        orders = self.env["sale.order"].search(action["domain"])
+        self.assertIn(self.order, orders)
 
-    def test_session_overbooking(self):
-        """Sell an event with session"""
-        sale = self.env["sale.order"].create(
-            {
-                "partner_id": self.partner.id,
-                "order_line": [
-                    (
-                        0,
-                        0,
-                        {
-                            "product_id": self.product.id,
-                            "event_id": self.event.id,
-                            "session_id": self.session.id,
-                            "product_uom_qty": 60.0,
-                            "event_ticket_id": self.event.event_ticket_ids[0].id,
-                        },
-                    )
-                ],
-            }
+    def test_sale_order_line_session_onchange_autocomplete(self):
+        """Test that session is automatically filled and or unset on form"""
+        form = Form(self.order)
+        line = form.order_line.new()
+        line.product_id = self.product
+        # Case 1: The event is a session event, but has multiple sessions
+        line.event_id = self.event
+        self.assertFalse(line.event_session_id)
+        # Case 2: The event is a session event with only 1 session
+        (self.event.session_ids - self.session).active = False
+        line.event_id = self.event
+        self.assertEqual(line.event_session_id, self.session)
+        # Case 3: The event is not a session event, session should be unset
+        line.event_id = self.env.ref("event.event_0")
+        self.assertFalse(line.event_session_id)
+
+    def test_sale_order_event_configurator_onchange_autocomplete(self):
+        """Test that session is automatically filled and or unset on wizard"""
+        wizard = self.env["event.event.configurator"].create(
+            {"product_id": self.product.id}
         )
-        self.assertTrue(sale._session_seats_available())
-        # We can order up to the limit of 100 for this session
-        self.env["sale.order.line"].create(
-            {
-                "order_id": sale.id,
-                "product_id": self.product.id,
-                "event_id": self.event.id,
-                "session_id": self.session.id,
-                "product_uom_qty": 40.0,
-                "event_ticket_id": self.event.event_ticket_ids[0].id,
-            }
+        form = Form(wizard)
+        # Case 1: The event is a session event, but has multiple sessions
+        form.event_id = self.event
+        self.assertFalse(form.event_session_id)
+        # Case 2: The event is a session event with only 1 session
+        (self.event.session_ids - self.session).active = False
+        form.event_id = self.event
+        self.assertEqual(form.event_session_id, self.session)
+        # Case 3: The event is not a session event, session should be unset
+        form.event_id = self.env.ref("event.event_0")
+        self.assertFalse(form.event_session_id)
+
+    def test_event_registration_editor(self):
+        # Case 1: Read from sale.order.lines (event.registrations don't exist)
+        editor = (
+            self.env["registration.editor"]
+            .with_context(default_sale_order_id=self.order.id)
+            .create({})
         )
-        self.assertTrue(sale._session_seats_available())
-        # If we try to book another seat, an error will raise
-        with self.assertRaises(ValidationError):
-            sale.order_line[1].product_uom_qty += 1
-            sale.order_line[1].product_uom_change()
-        # It's not allowed to overbook in a session with not enough seats
-        self.session_alt_1.seats_max = 50
-        with self.assertRaises(ValidationError):
-            sale.order_line[0].session_id = self.session_alt_1
-            sale.order_line[0].onchange_session_id()
+        self.assertEqual(len(editor.event_registration_ids), 5.0)
+        self.assertEqual(
+            editor.event_registration_ids.session_id,
+            self.session,
+            "Session is filled from sale.order.line",
+        )
+        # Case 2: Saving properly sets the session_id on event.registrations
+        self.assertEqual(len(self.session.registration_ids), 0)
+        editor.action_make_registration()
+        self.assertEqual(len(self.session.registration_ids), 5)
+        # Case 3: Read from event.registration
+        editor = (
+            self.env["registration.editor"]
+            .with_context(default_sale_order_id=self.order.id)
+            .create({})
+        )
+        self.assertEqual(len(editor.event_registration_ids), 5.0)
+        self.assertEqual(
+            editor.event_registration_ids.session_id,
+            self.session,
+            "Session is filled from event.registration",
+        )
