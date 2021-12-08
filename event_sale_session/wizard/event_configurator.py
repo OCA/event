@@ -9,7 +9,9 @@ class EventConfigurator(models.TransientModel):
 
     session_id = fields.Many2one(comodel_name="event.session", string="Session")
     event_sessions_count = fields.Integer(
-        comodel_name="event.session", related="event_id.sessions_count", readonly=True,
+        comodel_name="event.session",
+        related="event_id.sessions_count",
+        readonly=True,
     )
 
     @api.onchange("event_id")

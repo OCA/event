@@ -44,10 +44,14 @@ class SaleOrderLine(models.Model):
 
     session_id = fields.Many2one(comodel_name="event.session", string="Session")
     event_sessions_count = fields.Integer(
-        comodel_name="event.session", related="event_id.sessions_count", readonly=True,
+        comodel_name="event.session",
+        related="event_id.sessions_count",
+        readonly=True,
     )
     event_session_seats_available = fields.Integer(
-        related="session_id.seats_available", string="Available Seats", readonly=True,
+        related="session_id.seats_available",
+        string="Available Seats",
+        readonly=True,
     )
     event_session_seats_availability = fields.Selection(
         related="session_id.seats_availability",

@@ -1,4 +1,4 @@
-odoo.define("event_sale_session.EventConfiguratorFormController", function(require) {
+odoo.define("event_sale_session.EventConfiguratorFormController", function (require) {
     "use strict";
 
     const FormController = require("event.EventConfiguratorFormController");
@@ -7,7 +7,7 @@ odoo.define("event_sale_session.EventConfiguratorFormController", function(requi
         /**
          * @override
          */
-        saveRecord: function() {
+        saveRecord: function () {
             var state = this.renderer.state.data;
             if (state.session_id) {
                 return this.do_action({
