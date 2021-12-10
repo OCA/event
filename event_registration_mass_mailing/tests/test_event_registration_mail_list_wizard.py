@@ -10,9 +10,7 @@ class TestEventRegistrationMailListWizard(SavepointCase):
     def setUpClass(cls):
         super().setUpClass()
         cls.mass_mailing_obj = cls.env["mail.mass_mailing"]
-        cls.mail_list = cls.env["mail.mass_mailing.list"].create(
-            {"name": "Test 01"}
-        )
+        cls.mail_list = cls.env["mail.mass_mailing.list"].create({"name": "Test 01"})
         cls.contact = cls.env["mail.mass_mailing.contact"].create(
             {
                 "name": "Test Contact 01",
