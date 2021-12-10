@@ -1,13 +1,15 @@
 <?xml version="1.0" ?>
 <odoo>
 
-    <act_window name="Add to mailing list"
+    <act_window
+        name="Add to mailing list"
         res_model="event.registration.mail.list.wizard"
         src_model="event.registration"
         view_mode="form"
         multi="True"
         target="new"
         key2="client_action_multi"
-        id="action_event_registration_mail_list"/>
+        id="action_event_registration_mail_list"
+    />
 
 </odoo>
