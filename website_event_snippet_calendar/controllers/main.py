@@ -2,13 +2,18 @@
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 
 from datetime import date, timedelta
+
 from openerp.fields import Date
 from openerp.http import Controller, request, route
 
 
 class EventCalendar(Controller):
-    @route("/website_event_snippet_calendar/days_with_events",
-           auth="public", type="json", website=True)
+    @route(
+        "/website_event_snippet_calendar/days_with_events",
+        auth="public",
+        type="json",
+        website=True,
+    )
     def days_with_events(self, start, end):
         """Let visitors know when are there going to be any events.
 
@@ -18,11 +23,13 @@ class EventCalendar(Controller):
         :param end string:
             Search events until that date.
         """
-        events = request.env["event.event"].search([
-            "|",
-            ("date_begin", "<=", end),
-            ("date_end", ">=", start),
-        ])
+        events = request.env["event.event"].search(
+            [
+                "|",
+                ("date_begin", "<=", end),
+                ("date_end", ">=", start),
+            ]
+        )
         days = set()
         one_day = timedelta(days=1)
         start = Date.from_string(start)
@@ -35,8 +42,12 @@ class EventCalendar(Controller):
                 now += one_day
         return [Date.to_string(day) for day in days]
 
-    @route("/website_event_snippet_calendar/events_for_day",
-           auth="public", type="json", website=True)
+    @route(
+        "/website_event_snippet_calendar/events_for_day",
+        auth="public",
+        type="json",
+        website=True,
+    )
     def events_for_day(self, day=None, limit=None):
         """List events for a given day.
 
@@ -65,7 +76,11 @@ class EventCalendar(Controller):
             ],
         )
 
-    @route("/website_event_snippet_calendar/embed",
-           auth="public", type="http", website=True)
+    @route(
+        "/website_event_snippet_calendar/embed",
+        auth="public",
+        type="http",
+        website=True,
+    )
     def embed(self, *args, **kwargs):
         return request.render("website_event_snippet_calendar.embed")

@@ -1,10 +1,10 @@
 /* Copyright 2018 Tecnativa - Jairo Llopis
  * License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). */
 
-odoo.define('website_event_snippet_calendar.snippets', function (require) {
+odoo.define("website_event_snippet_calendar.snippets", function (require) {
     "use strict";
 
-    var options = require('web_editor.snippets.options');
+    var options = require("web_editor.snippets.options");
 
     var SnippetOptions = options.Class.extend({
         start: function () {
