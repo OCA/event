@@ -57,15 +57,15 @@ odoo.define("website_event_snippet_calendar.animation", function (require) {
             this.default_amount = Number(this.$(".js_amount").html()) || 4;
             this.date_format = this.$list.data("dateFormat") || "LLL";
             // Get initial events to render the list
-            this.load_events(null, this.default_amount).done(
+            this.load_events(null, this.default_amount).then(
                 $.proxy(this, "render_list")
             );
             // Preload dates and render the calendar
-            this.preload_dates(moment()).done($.proxy(this, "render_calendar"));
+            this.preload_dates(moment()).then($.proxy(this, "render_calendar"));
         },
 
         day_selected: function (event) {
-            this.load_events(event.date.format(DATE_FORMAT)).done(
+            this.load_events(event.date.format(DATE_FORMAT)).then(
                 $.proxy(this, "render_list")
             );
         },
@@ -111,7 +111,7 @@ odoo.define("website_event_snippet_calendar.animation", function (require) {
                     start: start.format(DATE_FORMAT),
                     end: end.format(DATE_FORMAT),
                 })
-                .done($.proxy(this, "_update_dates_cache", start, end));
+                .then($.proxy(this, "_update_dates_cache", start, end));
         },
 
         _update_dates_cache: function (start, end, dates) {
@@ -150,7 +150,12 @@ odoo.define("website_event_snippet_calendar.animation", function (require) {
                         element.date_begin_pred_located,
                         DATETIME_FORMAT
                     );
+                    var date_end_located = moment(
+                        element.date_end_pred_located,
+                        DATETIME_FORMAT
+                    );
                     element.date_begin = date_begin_located.format(this.date_format);
+                    element.date_end = date_end_located.format(this.date_format);
                 },
                 this
             );

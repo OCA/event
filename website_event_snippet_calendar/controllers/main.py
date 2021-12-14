@@ -3,8 +3,8 @@
 
 from datetime import date, timedelta
 
-from openerp.fields import Date
-from openerp.http import Controller, request, route
+from odoo.fields import Date
+from odoo.http import Controller, request, route
 
 
 class EventCalendar(Controller):
@@ -69,6 +69,7 @@ class EventCalendar(Controller):
             limit=limit,
             fields=[
                 "date_begin_pred_located",
+                "date_end_pred_located",
                 "name",
                 "event_type_id",
                 "website_published",
