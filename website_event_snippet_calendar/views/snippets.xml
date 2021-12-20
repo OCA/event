@@ -23,6 +23,7 @@
         <div class="o_not_editable css_non_editable_mode_hidden alert alert-info">
             <p>Event list visible only when you save.</p>
             <p>It will display up to the closest <b class="js_amount">4</b> events.</p>
+            <p><b class="enddateFlag d-none">false</b></p>
         </div>
         <div
             t-ignore="true"
@@ -77,6 +78,17 @@
                 <we-button data-decrease="" data-no-preview="true"><i
                         class="fa fa-minus pr-2"
                     />Remove one event</we-button>
+            </div>
+            <div
+                data-js="EndDateVisibility"
+                data-option-name="showEventEndDate"
+                data-selector=".s_event_calendar_list"
+            >
+                <we-checkbox
+                    string="Show End Date"
+                    data-show-on-event-enddate="true"
+                    data-no-preview="true"
+                />
             </div>
         </xpath>
     </template>

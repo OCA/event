@@ -9,12 +9,14 @@
                     <span class="date">
                         <t t-esc="event.date_begin" />
                     </span>
-                    <span>
-                        <i class="fas fa fa-arrow-right text-muted mx-1 my-1" />
-                    </span>
-                    <span class="date">
-                        <t t-esc="event.date_end" />
-                    </span>
+                    <t t-if="event.date_end">
+                        <span>
+                            <i class="fas fa fa-arrow-right text-muted mx-1 my-1" />
+                        </span>
+                        <span class="end-date-info">
+                            <t t-esc="event.date_end" />
+                        </span>
+                    </t>
                     <span class="category">
                         <t t-esc="event.event_type_id[1]" />
                     </span>

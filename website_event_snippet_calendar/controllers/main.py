@@ -48,7 +48,7 @@ class EventCalendar(Controller):
         type="json",
         website=True,
     )
-    def events_for_day(self, day=None, limit=None):
+    def events_for_day(self, day=None, limit=None, enddate_flag=None):
         """List events for a given day.
 
         :param day string:
@@ -57,24 +57,29 @@ class EventCalendar(Controller):
 
         :param limit int:
             How many results to return.
+
+        :param enddate_flag str:
+            Holds true/false based on snippet option Show End Date.
         """
         ref = day or Date.to_string(date.today())
         domain = [
             ("date_end", ">=", ref),
         ]
+        fields = [
+            "date_begin_pred_located",
+            "name",
+            "event_type_id",
+            "website_published",
+            "website_url",
+        ]
         if day:
             domain.append(("date_begin", "<=", ref))
+        if enddate_flag == "true":
+            fields.append("date_end_pred_located")
         return request.env["event.event"].search_read(
             domain=domain,
             limit=limit,
-            fields=[
-                "date_begin_pred_located",
-                "date_end_pred_located",
-                "name",
-                "event_type_id",
-                "website_published",
-                "website_url",
-            ],
+            fields=fields,
         )
 
     @route(

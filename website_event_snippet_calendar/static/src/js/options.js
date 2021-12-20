@@ -23,4 +23,33 @@ odoo.define("website_event_snippet_calendar.snippets", function (require) {
             this.$amount.html(current);
         },
     });
+
+    options.registry.EndDateVisibility = options.Class.extend({
+        /**
+         * Show or hide Events' End Date.
+         * Set EndDateFlag value based on option Show End Date.
+         *
+         * @private
+         * @param {Boolean} previewMode
+         * @param {String} widgetValue
+         * @param {Object} params
+         */
+        showOnEventEnddate(previewMode, widgetValue, params) {
+            this.$enddateFlag = this.$(".enddateFlag");
+            this.$enddateFlag.html(widgetValue);
+        },
+        /**
+         * @override
+         * @param {String} methodName
+         * @param {Object} params
+         * @returns {Promise<String|undefined>|String|undefined}
+         */
+        _computeWidgetState(methodName, params) {
+            if (methodName === "showOnEventEnddate") {
+                this.$enddateFlag = this.$(".enddateFlag");
+                return this.$enddateFlag.html();
+            }
+            return this._super(...arguments);
+        },
+    });
 });

@@ -55,9 +55,10 @@ odoo.define("website_event_snippet_calendar.animation", function (require) {
                 .on("update.datetimepicker", $.proxy(this, "calendar_moved"));
             this.$list = this.$target.find(".s_event_list");
             this.default_amount = Number(this.$(".js_amount").html()) || 4;
+            this.default_enddateFlag = this.$(".enddateFlag").html();
             this.date_format = this.$list.data("dateFormat") || "LLL";
             // Get initial events to render the list
-            this.load_events(null, this.default_amount).then(
+            this.load_events(null, this.default_amount, this.default_enddateFlag).then(
                 $.proxy(this, "render_list")
             );
             // Preload dates and render the calendar
@@ -124,10 +125,11 @@ odoo.define("website_event_snippet_calendar.animation", function (require) {
             this._dates.matches = _.union(this._dates.matches, dates);
         },
 
-        load_events: function (day, limit) {
+        load_events: function (day, limit, enddateFlag) {
             return ajax.rpc("/website_event_snippet_calendar/events_for_day", {
                 day: day,
                 limit: limit,
+                enddate_flag: enddateFlag,
             });
         },
 
@@ -150,12 +152,14 @@ odoo.define("website_event_snippet_calendar.animation", function (require) {
                         element.date_begin_pred_located,
                         DATETIME_FORMAT
                     );
-                    var date_end_located = moment(
-                        element.date_end_pred_located,
-                        DATETIME_FORMAT
-                    );
                     element.date_begin = date_begin_located.format(this.date_format);
-                    element.date_end = date_end_located.format(this.date_format);
+                    if (element.date_end_pred_located) {
+                        var date_end_located = moment(
+                            element.date_end_pred_located,
+                            DATETIME_FORMAT
+                        );
+                        element.date_end = date_end_located.format(this.date_format);
+                    }
                 },
                 this
             );
