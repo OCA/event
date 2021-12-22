@@ -1,12 +1,12 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* website_event_crm
+# 	* website_event_crm
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: <>\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,7 +15,8 @@ msgstr ""
 
 #. module: website_event_crm
 #: model:mail.template,body_html:website_event_crm.crm_lead_event_type_tpl
-msgid "<div style=\"margin: 0px; padding: 0px;\">\n"
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
 "                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">Dear ${object.partner_name or object.partner_id.name},</p>\n"
 "                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
 "                    You seem to be interested in registering into an event of category\n"
@@ -80,13 +81,13 @@ msgid "Invite automatically to website event category"
 msgstr ""
 
 #. module: website_event_crm
-#: code:addons/website_event_crm/models/crm_lead.py:87
+#: code:addons/website_event_crm/models/crm_lead.py:0
 #, python-format
 msgid "Invite to visit website"
 msgstr ""
 
 #. module: website_event_crm
-#: model_terms:ir.ui.view,arch_db:website_event_crm.crm_case_form_view_oppor
+#: model_terms:ir.ui.view,arch_db:website_event_crm.crm_lead_view_form
 msgid "Invite to website"
 msgstr ""
 
@@ -103,18 +104,22 @@ msgid "Notify all opportunities related to event categories"
 msgstr ""
 
 #. module: website_event_crm
-#: code:addons/website_event_crm/models/crm_lead.py:74
+#: code:addons/website_event_crm/models/crm_lead.py:0
 #, python-format
 msgid "Select one event type with published events."
 msgstr ""
 
 #. module: website_event_crm
 #: model:ir.model.fields,help:website_event_crm.field_crm_stage__auto_advance_stage_invite_website_event_type
-msgid "When an opportunity in this stage is invited to a website event category, it will advance automatically to the next stage."
+msgid ""
+"When an opportunity in this stage is invited to a website event category, it"
+" will advance automatically to the next stage."
 msgstr ""
 
 #. module: website_event_crm
 #: model:ir.model.fields,help:website_event_crm.field_crm_stage__auto_invite_website_event_type
-msgid "When an opportunity is in this stage and there is any new event published for its category with available seats, opportunities found in this stage will get invited to it and moved to the next stage automatically."
+msgid ""
+"When an opportunity is in this stage and there is any new event published "
+"for its category with available seats, opportunities found in this stage "
+"will get invited to it and moved to the next stage automatically."
 msgstr ""
-
