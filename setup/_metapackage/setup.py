@@ -20,6 +20,7 @@ setuptools.setup(
         'odoo13-addon-event_session_registration_multi_qty',
         'odoo13-addon-event_type_multi_company',
         'odoo13-addon-partner_event',
+        'odoo13-addon-website_event_crm',
         'odoo13-addon-website_event_filter_city',
         'odoo13-addon-website_event_questions_by_ticket',
         'odoo13-addon-website_event_questions_free_text',
