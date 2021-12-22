@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Tecnativa - Jairo Llopis
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<data noupdate="1">
+    <record id="cron" model="ir.cron">
+        <field name="name">Notify all opportunities related to event categories</field>
+        <field name="active" eval="True" />
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="crm.model_crm_lead" />
+        <field name="code">model._cron_auto_invite_website_event_type()</field>
+    </record>
+</data>
