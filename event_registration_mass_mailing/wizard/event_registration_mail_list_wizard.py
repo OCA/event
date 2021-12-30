@@ -8,29 +8,19 @@ class EventRegistrationMailListWizard(models.TransientModel):
     _name = "event.registration.mail.list.wizard"
     _description = "Create contact mailing list"
 
-    mail_list = fields.Many2one(
-        comodel_name="mail.mass_mailing.list", string="Mailing list"
-    )
+    mail_list = fields.Many2one(comodel_name="mailing.list", string="Mailing list")
     event_registrations = fields.Many2many(
         comodel_name="event.registration",
-        relation="mail_list_wizard_event" "_registration",
+        relation="mail_list_wizard_event_registration",
     )
 
     def add_to_mail_list(self):
-        contact_obj = self.env["mail.mass_mailing.contact"]
-        for registration in self.env.context.get("active_ids", []):
-            registration = self.env["event.registration"].browse(registration)
-            if contact_obj.search(
-                [
-                    ("email", "=", registration.email),
-                    ("list_ids", "in", self.mail_list.id),
-                ]
-            ):
-                continue
-            contact_obj.create(
-                {
-                    "email": registration.email,
-                    "name": registration.name,
-                    "list_ids": [[6, 0, [self.mail_list.id]]],
-                }
-            )
+        registrations = self.env["event.registration"].search(
+            [
+                ("id", "in", self.env.context.get("active_ids", [])),
+                ("email", "not in", self.mail_list.contact_ids.mapped("email")),
+            ]
+        )
+        self.mail_list.contact_ids = [
+            (0, 0, {"email": r.email, "name": r.name}) for r in registrations
+        ]

@@ -9,9 +9,9 @@ class TestEventRegistrationMailListWizard(SavepointCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.mass_mailing_obj = cls.env["mail.mass_mailing"]
-        cls.mail_list = cls.env["mail.mass_mailing.list"].create({"name": "Test 01"})
-        cls.contact = cls.env["mail.mass_mailing.contact"].create(
+        cls.mass_mailing_obj = cls.env["mailing.mailing"]
+        cls.mail_list = cls.env["mailing.list"].create({"name": "Test 01"})
+        cls.contact = cls.env["mailing.contact"].create(
             {
                 "name": "Test Contact 01",
                 "email": "email01@test.com",
@@ -23,9 +23,7 @@ class TestEventRegistrationMailListWizard(SavepointCase):
                 "name": "Test event",
                 "date_begin": fields.Datetime.now(),
                 "date_end": fields.Datetime.now(),
-                "seats_availability": "limited",
                 "seats_max": "5",
-                "seats_min": "1",
             }
         )
         cls.registration_01 = cls.env["event.registration"].create(
@@ -50,4 +48,4 @@ class TestEventRegistrationMailListWizard(SavepointCase):
         wizard.with_context(
             {"active_ids": [self.registration_01.id, self.registration_02.id]}
         ).add_to_mail_list()
-        self.assertEqual(self.mail_list.contact_nbr, 2)
+        self.assertEqual(len(self.mail_list.contact_ids), 2)
