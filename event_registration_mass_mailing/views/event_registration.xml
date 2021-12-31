@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="action_event_registration_mail_list" model="ir.actions.act_window">
+        <field name="name">Add to mailing list</field>
+        <field name="res_model">event.registration.mail.list.wizard</field>
+        <field name="binding_model_id" ref="event.model_event_registration" />
+        <field name="view_mode">form</field>
+        <field name="binding_view_types">list</field>
+        <field name="target">new</field>
+    </record>
+</odoo>
