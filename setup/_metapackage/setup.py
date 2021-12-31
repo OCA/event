@@ -10,6 +10,7 @@ setuptools.setup(
     install_requires=[
         'odoo14-addon-event_contact',
         'odoo14-addon-event_mail',
+        'odoo14-addon-event_registration_mass_mailing',
         'odoo14-addon-partner_event',
         'odoo14-addon-website_event_questions_template',
         'odoo14-addon-website_event_require_login',
