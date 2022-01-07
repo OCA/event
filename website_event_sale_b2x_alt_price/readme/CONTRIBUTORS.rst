@@ -1,1 +1,4 @@
-* Jairo Llopis (https://www.tecnativa.com/)
+* `Tecnativa <https://www.tecnativa.com>`_:
+
+  * Jairo Llopis
+  * Carlos Roca
