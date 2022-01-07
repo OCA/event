@@ -1,0 +1,14 @@
+/* Copyright 2022 Carlos Roca - Tecnativa
+ * License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). */
+// Class created to display the information related to taxes correctly on the website
+// when the it is showed on events page.
+.event_b2x_flex_centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    p {
+        margin-bottom: 0;
+    }
+}
