@@ -10,7 +10,7 @@ from odoo.addons.base_rest import restapi
 from odoo.addons.base_rest_pydantic.restapi import PydanticModel, PydanticModelList
 from odoo.addons.component.core import Component
 
-from ..pydantic_models.event_info import EventInfo
+from ..pydantic_models.event_info import EventInfo, EventShortInfo
 from ..pydantic_models.event_registration_info import EventRegistrationInfo
 from ..pydantic_models.event_registration_request import (
     EventRegistrationRequest,
@@ -54,14 +54,14 @@ class EventService(Component):
     @restapi.method(
         routes=[(["/", "/search"], "GET")],
         input_param=PydanticModel(EventSearchFilter),
-        output_param=PydanticModelList(EventInfo),
+        output_param=PydanticModelList(EventShortInfo),
         auth="public",
     )
-    def search(self, event_search_filter: EventSearchFilter) -> List[EventInfo]:
+    def search(self, event_search_filter: EventSearchFilter) -> List[EventShortInfo]:
         domain = self._get_search_domain(event_search_filter)
-        res: List[EventInfo] = []
+        res: List[EventShortInfo] = []
         for e in self.env["event.event"].sudo().search(domain):
-            res.append(EventInfo.from_orm(e))
+            res.append(EventShortInfo.from_orm(e))
         return res
 
     def _prepare_event_registration_values(
