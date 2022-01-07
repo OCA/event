@@ -3,7 +3,8 @@ from odoo import fields, models
 
 
 class Project(models.Model):
-    _inherit = 'project.project'
+    _inherit = "project.project"
 
     event_id = fields.Many2one(
-        comodel_name='event.event', string="Related event", readonly=True)
+        comodel_name="event.event", string="Related event", readonly=True
+    )
