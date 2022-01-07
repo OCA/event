@@ -5,7 +5,7 @@ from odoo import models
 
 
 class EventEventTicket(models.Model):
-    _inherit = 'event.event.ticket'
+    _inherit = "event.event.ticket"
 
     def _get_ticket_combination_info(self):
         """Imitate product.template's _get_combination_info()."""
