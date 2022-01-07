@@ -11,11 +11,6 @@
     "maintainers": ["Yajo"],
     "license": "LGPL-3",
     "auto_install": True,
-    "depends": [
-        "website_event_sale",
-        "website_sale_b2x_alt_price",
-    ],
-    "data": [
-        "templates/website_event_sale.xml",
-    ],
+    "depends": ["website_event_sale", "website_sale_b2x_alt_price"],
+    "data": ["templates/website_event_sale.xml"],
 }
