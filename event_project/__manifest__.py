@@ -6,8 +6,8 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     "name": "Event project",
-    "version": "12.0.1.0.0",
-    "author": "Tecnativa, " "Odoo Community Association (OCA)",
+    "version": "14.0.1.0.0",
+    "author": "Tecnativa, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/event",
     "license": "AGPL-3",
     "category": "Event Management",

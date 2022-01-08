@@ -4,7 +4,6 @@
 <!-- Action for smartbutton in event form view -->
 <record id="act_event_task_list" model="ir.actions.act_window">
     <field name="res_model">project.task</field>
-    <field name="view_type">form</field>
     <field name="name">Tasks</field>
     <field name="view_mode">tree,kanban,form,calendar,graph</field>
     <field name="context">{'default_event_id': active_id}</field>
