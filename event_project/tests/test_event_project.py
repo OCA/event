@@ -64,9 +64,3 @@ class TestEventProject(common.SavepointCase):
         self.assertEqual(self.event.project_id.date, self.event.date_begin.date())
         self.assertEqual(self.event.display_name, self.event.project_id.name)
         self.assertEqual(self.event.count_tasks, 1)
-
-    def test_04_cancel_and_draft_event(self):
-        self.event.button_cancel()
-        self.assertFalse(self.event.project_id.active)
-        self.event.button_draft()
-        self.assertTrue(self.event.project_id.active)
