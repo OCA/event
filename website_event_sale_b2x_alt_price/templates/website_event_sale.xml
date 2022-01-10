@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Tecnativa - Jairo Llopis
+     Copyright 2022 Tecnativa - Carlos Roca
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
+<data>
+    <template
+        id="registration_template"
+        inherit_id="website_event_sale.registration_template"
+    >
+        <!-- Add the website_sale_b2x_alt_price.alt_price when more than 1 types of tickets -->
+        <xpath
+            expr="//t[@t-if='len(event.event_ticket_ids) &gt; 1']//span[@itemprop='price']"
+            position="before"
+        >
+            <p class="text-muted small" t-call="website_sale_b2x_alt_price.alt_price">
+                <t
+                    t-set="combination_info"
+                    t-value="ticket._get_ticket_combination_info()"
+                />
+            </p>
+        </xpath>
+        <!-- Display correctly on website -->
+        <xpath
+            expr="//t[@t-if='len(event.event_ticket_ids) &gt; 1']//t[@t-if='ticket.price or editable']"
+            position="before"
+        >
+            <div class="event_b2x_flex_centered" t-if="ticket.price or editable" />
+        </xpath>
+        <xpath
+            expr="//t[@t-if='len(event.event_ticket_ids) &gt; 1']//div[hasclass('event_b2x_flex_centered')]"
+            position="inside"
+        >
+            <xpath
+                expr="//t[@t-if='len(event.event_ticket_ids) &gt; 1']//t[@t-if='ticket.price or editable']"
+                position="move"
+            />
+        </xpath>
+        <xpath
+            expr="//t[@t-if='len(event.event_ticket_ids) &gt; 1']//t[@t-if='ticket.price or editable']"
+            position="attributes"
+        >
+            <attribute name="t-if">True</attribute>
+        </xpath>
+        <!-- Add the website_sale_b2x_alt_price.alt_price when just 1 type of ticket -->
+        <xpath expr="//t[@t-else='']//span[@itemprop='price']" position="before">
+            <p class="text-muted small" t-call="website_sale_b2x_alt_price.alt_price">
+                <t
+                    t-set="combination_info"
+                    t-value="tickets._get_ticket_combination_info()"
+                />
+            </p>
+        </xpath>
+    </template>
+    <template id="ticket" inherit_id="website_event.ticket">
+        <!-- Display correctly on website -->
+        <xpath expr="//div/t[@t-raw='price']/.." position="attributes">
+            <attribute name="class" separator=" " add="event_b2x_flex_centered" />
+        </xpath>
+    </template>
+</data>

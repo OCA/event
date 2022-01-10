@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<odoo>
+    <template id="assets_frontend" inherit_id="website.assets_frontend">
+        <xpath expr="//link[last()]" position="after">
+            <link
+                rel="stylesheet"
+                type="text/scss"
+                href="/website_event_sale_b2x_alt_price/static/src/scss/website_event_sale_b2x_alt_price.scss"
+            />
+        </xpath>
+    </template>
+    <template id="assets_tests" inherit_id="website.assets_tests">
+        <xpath expr=".">
+            <script
+                type="text/javascript"
+                src="/website_event_sale_b2x_alt_price/static/src/js/b2b.js"
+            />
+            <script
+                type="text/javascript"
+                src="/website_event_sale_b2x_alt_price/static/src/js/b2c.js"
+            />
+        </xpath>
+    </template>
+</odoo>
