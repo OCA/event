@@ -25,6 +25,7 @@ setuptools.setup(
         'odoo13-addon-website_event_questions_by_ticket',
         'odoo13-addon-website_event_questions_free_text',
         'odoo13-addon-website_event_require_login',
+        'odoo13-addon-website_event_sale_b2x_alt_price',
     ],
     classifiers=[
         'Programming Language :: Python',
