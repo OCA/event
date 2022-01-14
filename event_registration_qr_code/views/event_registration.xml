@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="view_registration_search" model="ir.ui.view">
+        <field name="model">event.registration</field>
+        <field name="inherit_id" ref="event.view_registration_search" />
+        <field name="arch" type="xml">
+            <field name="id" position="after">
+                <field name="qr_code" />
+            </field>
+        </field>
+    </record>
+
+    <record id="view_event_registration_form" model="ir.ui.view">
+        <field name="model">event.registration</field>
+        <field name="inherit_id" ref="event.view_event_registration_form" />
+        <field name="arch" type="xml">
+            <group name="event" position="inside">
+                <field name="qr_code" />
+            </group>
+        </field>
+    </record>
+
+</odoo>
