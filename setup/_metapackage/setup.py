@@ -10,6 +10,7 @@ setuptools.setup(
     install_requires=[
         'odoo13-addon-crm_event',
         'odoo13-addon-event_contact',
+        'odoo13-addon-event_email_reminder',
         'odoo13-addon-event_mail',
         'odoo13-addon-event_registration_cancel_reason',
         'odoo13-addon-event_registration_multi_qty',
