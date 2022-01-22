@@ -1,0 +1,96 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_email_reminder
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-11 13:10+0200\n"
+"PO-Revision-Date: 2016-10-11 13:12+0200\n"
+"Last-Translator: Sergio Teruel <sergio.teruel@tecnativa.com>\n"
+"Language-Team: \n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: event_email_reminder
+#: model:mail.template,body_html:event_email_reminder.event_email_reminder_template
+msgid ""
+"\n"
+"        \n"
+"<p>Hello ${object.name},&nbsp;</p>\n"
+"<p>This is a event's summary: </p>\n"
+"<table>\n"
+"    <thead>\n"
+"        <tr style=\"height: 15px; background-color: #d8d8d8;font-size: 13px;"
+"font-weight:bold;\" align=\"center\" valign=\"middle\">\n"
+"            <td>Date Begin</td>\n"
+"            <td>Event Name</td>\n"
+"            <td>Date End</td>\n"
+"            <td>State</td>\n"
+"        </tr>\n"
+"    </thead>\n"
+"    % for event in ctx[\"events\"]:\n"
+"    <tr>\n"
+"        <td><span>${event.date_begin}</span></td>\n"
+"        <td><span>${event.name}</span></td>\n"
+"        <td><span>${event.date_end}</td>\n"
+"        <td><span style=\"font-weight:bold;\">${event.state}</td>\n"
+"    </tr>\n"
+"    % endfor\n"
+"</table>\n"
+"<pre>\n"
+"--\n"
+"Automatic Email.\n"
+"${object.company_id.name or ''}\n"
+"</pre>\n"
+"    "
+msgstr ""
+"\n"
+"        \n"
+"<p>Hola ${object.name},&nbsp;</p>\n"
+"<p>Esto es un resumen de los eventos: </p>\n"
+"<table>\n"
+"    <thead>\n"
+"        <tr style=\"height: 15px; background-color: #d8d8d8;font-size: 13px;"
+"font-weight:bold;\" align=\"center\" valign=\"middle\">\n"
+"            <td>Fecha inicio</td>\n"
+"            <td>Nombre</td>\n"
+"            <td>Fecha fin</td>\n"
+"            <td>Estado</td>\n"
+"        </tr>\n"
+"    </thead>\n"
+"    % for event in ctx[\"events\"]:\n"
+"    <tr>\n"
+"        <td><span>${event.date_begin}</span></td>\n"
+"        <td><span>${event.name}</span></td>\n"
+"        <td><span>${event.date_end}</td>\n"
+"\t<td><span style=\"font-weight:bold;\">${event.state}</td>\n"
+"    </tr>\n"
+"    % endfor\n"
+"</table>\n"
+"<pre>\n"
+"--\n"
+"Email automático.\n"
+"${object.company_id.name or ''}\n"
+"</pre>"
+
+#. module: event_email_reminder
+#: model:ir.model,name:event_email_reminder.model_event_event
+msgid "Event"
+msgstr "Evento"
+
+#. module: event_email_reminder
+#: model:ir.actions.server,name:event_email_reminder.ir_cron_event_email_reminder_action_ir_actions_server
+#: model:ir.cron,cron_name:event_email_reminder.ir_cron_event_email_reminder_action
+#: model:ir.cron,name:event_email_reminder.ir_cron_event_email_reminder_action
+msgid "Event Email Reminder"
+msgstr ""
+
+#. module: event_email_reminder
+#: model:mail.template,subject:event_email_reminder.event_email_reminder_template
+msgid "The events will be started soon"
+msgstr "Hay eventos que comenzarán en breve"

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2016 Tecnativa - Sergio Teruel
+     Copyright 2016 Tecnativa - Vicent Cubells
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo noupdate="1">
+    <record id="event_email_reminder_template" model="mail.template">
+        <field name="name">Event Email Reminder</field>
+        <field
+            name="email_from"
+        >${object.company_id.name}&lt;${object.company_id.email}&gt;</field>
+        <field name="subject">The events will be started soon</field>
+        <field name="email_to">${object.email|safe}</field>
+        <field name="lang">${object.lang}</field>
+        <field name="model_id" ref="base.model_res_partner" />
+        <field name="auto_delete" eval="True" />
+        <field name="body_html">
+        <![CDATA[
+<p>Hello ${object.name},&nbsp;</p>
+<p>This is a event's summary: </p>
+<table>
+    <thead>
+        <tr style="height: 15px; background-color: #d8d8d8;font-size: 13px;font-weight:bold;" align="center" valign="middle">
+            <td>Date Begin</td>
+            <td>Event Name</td>
+            <td>Date End</td>
+            <td>State</td>
+        </tr>
+    </thead>
+    % for event in ctx["events"]:
+    <tr>
+        <td><span>${event.date_begin}</span></td>
+        <td><span>${event.name}</span></td>
+        <td><span>${event.date_end}</td>
+        <td><span style="font-weight:bold;">${event.state}</td>
+    </tr>
+    % endfor
+</table>
+<pre>
+--
+Automatic Email.
+${object.company_id.name or ''}
+</pre>]]>
+    </field>
+    </record>
+    <record id="ir_cron_event_email_reminder_action" model="ir.cron">
+        <field name="name">Event Email Reminder</field>
+        <field name="active" eval="True" />
+        <field name="model_id" ref="event.model_event_event" />
+        <field name="code">model.run_event_email_reminder(7, False, False, None)</field>
+        <field name="doall" eval="False" />
+        <field name="interval_number">7</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+    </record>
+</odoo>
