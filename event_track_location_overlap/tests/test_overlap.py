@@ -6,25 +6,23 @@ from collections import namedtuple
 from odoo.exceptions import ValidationError
 from odoo.tests.common import SavepointCase
 
-
-Sample = namedtuple(
-    "Sample",
-    ("a_start", "a_duration", "b_start", "b_duration"),
-)
+Sample = namedtuple("Sample", ("a_start", "a_duration", "b_start", "b_duration"),)
 
 
 class OverlappingCase(SavepointCase):
     @classmethod
     def setUpClass(cls):
         super(OverlappingCase, cls).setUpClass()
-        cls.event = cls.env["event.event"].create({
-            "name": "test event",
-            "date_begin": "2018-01-01",
-            "date_end": "2018-01-05",
-        })
-        cls.location = cls.env["event.track.location"].create({
-            "name": "test location",
-        })
+        cls.event = cls.env["event.event"].create(
+            {
+                "name": "test event",
+                "date_begin": "2018-01-01",
+                "date_end": "2018-01-05",
+            }
+        )
+        cls.location = cls.env["event.track.location"].create(
+            {"name": "test location",}
+        )
         # Define some example ranges, to test correct overlap evaluation
         cls.good = (
             Sample("2018-01-01 09:00:00", 3, "2018-01-02 09:00:00", 3),
@@ -40,20 +38,24 @@ class OverlappingCase(SavepointCase):
     def create_tracks(self, sample, raise_always):
         """Create tracks from a sample, and raise some exception."""
         with self.env.cr.savepoint():
-            self.env["event.track"].create({
-                "date": sample.a_start,
-                "duration": sample.a_duration,
-                "event_id": self.event.id,
-                "location_id": self.location.id,
-                "name": "test track a",
-            })
-            self.env["event.track"].create({
-                "date": sample.b_start,
-                "duration": sample.b_duration,
-                "event_id": self.event.id,
-                "location_id": self.location.id,
-                "name": "test track b",
-            })
+            self.env["event.track"].create(
+                {
+                    "date": sample.a_start,
+                    "duration": sample.a_duration,
+                    "event_id": self.event.id,
+                    "location_id": self.location.id,
+                    "name": "test track a",
+                }
+            )
+            self.env["event.track"].create(
+                {
+                    "date": sample.b_start,
+                    "duration": sample.b_duration,
+                    "event_id": self.event.id,
+                    "location_id": self.location.id,
+                    "name": "test track b",
+                }
+            )
             if raise_always:
                 # This notifies good track creation but rolls it back
                 raise Warning(u"{} worked!".format(sample))

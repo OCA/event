@@ -2,17 +2,16 @@
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 
 from datetime import timedelta
-from odoo import _, api, exceptions, fields, models
 
 from oca.decorators import foreach
+
+from odoo import _, api, exceptions, fields, models
 
 
 class EventTrackLocation(models.Model):
     _inherit = "event.track.location"
 
-    overlappable = fields.Boolean(
-        help="Can this location have simultaneous tracks?"
-    )
+    overlappable = fields.Boolean(help="Can this location have simultaneous tracks?")
 
     @api.constrains("overlappable")
     @foreach()
@@ -22,10 +21,9 @@ class EventTrackLocation(models.Model):
         if self.overlappable:
             return
         # Get tracks that could produce an overlap
-        remaining_tracks = self.env["event.track"].search([
-            ("location_id", "=", self.id),
-            ("stage_id.is_cancel", "=", False),
-        ])
+        remaining_tracks = self.env["event.track"].search(
+            [("location_id", "=", self.id), ("stage_id.is_cancel", "=", False),]
+        )
         # Compare tracks overlapping among themselves
         while remaining_tracks:
             # Extract some track from the set
