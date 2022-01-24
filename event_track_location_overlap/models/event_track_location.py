@@ -3,8 +3,6 @@
 
 from datetime import timedelta
 
-from oca.decorators import foreach
-
 from odoo import _, api, exceptions, fields, models
 
 
@@ -14,15 +12,18 @@ class EventTrackLocation(models.Model):
     overlappable = fields.Boolean(help="Can this location have simultaneous tracks?")
 
     @api.constrains("overlappable")
-    @foreach()
     def _check_overlappable(self):
+        for item in self:
+            item._check_overlappable_one()
+
+    def _check_overlappable_one(self):
         """Ensure no overlaps happen with this location."""
         # Skip locations that can be overlapped
         if self.overlappable:
             return
         # Get tracks that could produce an overlap
         remaining_tracks = self.env["event.track"].search(
-            [("location_id", "=", self.id), ("stage_id.is_cancel", "=", False),]
+            [("location_id", "=", self.id), ("stage_id.is_cancel", "=", False)]
         )
         # Compare tracks overlapping among themselves
         while remaining_tracks:
