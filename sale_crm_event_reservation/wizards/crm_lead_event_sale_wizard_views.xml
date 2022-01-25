@@ -54,7 +54,6 @@
     <record id="crm_lead_event_sale_wizard_action" model="ir.actions.act_window">
         <field name="name">Generate event quotation</field>
         <field name="res_model">crm.lead.event.sale.wizard</field>
-        <field name="view_type">form</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
