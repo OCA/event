@@ -23,8 +23,7 @@ class RegistrationEditor(models.TransientModel):
                         0,
                         {
                             "sale_order_line_id": sol.id,
-                            "event_reservation_type_id":
-                                sol.event_reservation_type_id.id,
+                            "event_reservation_type_id": sol.event_reservation_type_id.id,
                         },
                     )
                 ]
@@ -64,8 +63,5 @@ class RegistrationEditor(models.TransientModel):
         result = super().action_make_registration()
         return {
             "type": "ir.actions.act_multi",
-            "actions": [
-                result,
-                {"type": "ir.actions.act_view_reload"},
-            ],
+            "actions": [result, {"type": "ir.actions.act_view_reload"},],
         }
