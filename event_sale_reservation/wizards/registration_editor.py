@@ -17,20 +17,24 @@ class RegistrationEditor(models.TransientModel):
             for sol in order.order_line:
                 if not sol.product_id.event_reservation_ok:
                     continue
+                sol_type = sol.event_reservation_type_id
                 result["event_registration_ids"] += [
                     (
                         0,
                         0,
                         {
                             "sale_order_line_id": sol.id,
-                            "event_reservation_type_id": sol.event_reservation_type_id.id,
+                            "event_reservation_type_id": sol_type.id,
                         },
                     )
                 ]
         return result
 
     def action_convert_to_registration(self):
-        """Convert reservations to registrations."""
+        """Convert reservations to registrations.
+        We use the skip_event_sale_registration_multi_qty context to "skip" the
+        operation of the event_sale_registration_multi_qty addon because they are
+        "incompatible with each other"."""
         # Modify SO lines to be tickets instead of reservations
         for line in self.event_registration_ids:
             line.sale_order_line_id.write(
@@ -47,7 +51,11 @@ class RegistrationEditor(models.TransientModel):
             "actions": [
                 {"type": "ir.actions.act_window_close"},
                 {
-                    "context": dict(self.env.context, registering_reservations=False),
+                    "context": dict(
+                        self.env.context,
+                        registering_reservations=False,
+                        skip_event_sale_registration_multi_qty=True,
+                    ),
                     "res_model": self._name,
                     "target": "new",
                     "type": "ir.actions.act_window",
@@ -63,5 +71,5 @@ class RegistrationEditor(models.TransientModel):
         result = super().action_make_registration()
         return {
             "type": "ir.actions.act_multi",
-            "actions": [result, {"type": "ir.actions.act_view_reload"},],
+            "actions": [result, {"type": "ir.actions.act_view_reload"}],
         }
