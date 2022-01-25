@@ -12,7 +12,7 @@ class OpportunityCase(SavepointCase):
         cls.pricelist = cls.env["product.pricelist"].create(
             {
                 "name": "Test pricelist",
-                "currency_id": cls.env.user.company_id.currency_id.id,
+                "currency_id": cls.env.company.currency_id.id,
                 "item_ids": [
                     (
                         0,
