@@ -9,9 +9,7 @@ class SaleReport(models.Model):
     _inherit = "sale.report"
 
     event_reservation_type_id = fields.Many2one(
-        comodel_name="event.type",
-        readonly=True,
-        string="Event reservation type",
+        comodel_name="event.type", readonly=True, string="Event reservation type",
     )
 
     def _query(self, with_clause="", fields=frozendict(), groupby="", from_clause=""):

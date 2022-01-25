@@ -1,11 +1,10 @@
 # Copyright 2021 Tecnativa - Jairo Llopis
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from datetime import datetime, timedelta
+
 from odoo.tests.common import Form, SavepointCase
-from ..exceptions import (
-    ReservationWithoutEventTypeError,
-    TicketAndReservationError,
-)
+
+from ..exceptions import ReservationWithoutEventTypeError, TicketAndReservationError
 
 
 class EventSaleCase(SavepointCase):
