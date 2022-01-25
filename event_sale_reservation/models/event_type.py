@@ -51,6 +51,6 @@ class EventType(models.Model):
     def action_open_sale_orders(self):
         """Display SO that include reservations."""
         sol = self.env["sale.order.line"].search(self._seats_reservation_domain(),)
-        result = self.env["ir.actions.act_window"].for_xml_id("sale", "action_orders",)
+        result = self.env["ir.actions.act_window"].for_xml_id("sale", "action_orders")
         result["domain"] = [("order_line", "in", sol.ids)]
         return result

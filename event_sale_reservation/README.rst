@@ -14,13 +14,13 @@ Sell event reservations
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fevent-lightgray.png?logo=github
-    :target: https://github.com/OCA/event/tree/12.0/event_sale_reservation
+    :target: https://github.com/OCA/event/tree/13.0/event_sale_reservation
     :alt: OCA/event
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/event-12-0/event-12-0-event_sale_reservation
+    :target: https://translation.odoo-community.org/projects/event-13-0/event-13-0-event_sale_reservation
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
-    :target: https://runbot.odoo-community.org/runbot/199/12.0
+    :target: https://runbot.odoo-community.org/runbot/199/13.0
     :alt: Try me on Runbot
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
@@ -115,13 +115,20 @@ If the ticket was free, the registrations are confirmed. Otherwise, they are
 kept as draft until an invoice is created for the sales order, and paid. But
 that is just upstream ``event_sale`` module in action.
 
+Known issues / Roadmap
+======================
+
+Some addons (event_registration_multi_qty + event_sale_registration_multi_qty)
+makes totals wrong because they depend currently on count and not sum of qtys;
+integrating with them would require a glue module.
+
 Bug Tracker
 ===========
 
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/event/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/event/issues/new?body=module:%20event_sale_reservation%0Aversion:%2012.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/event/issues/new?body=module:%20event_sale_reservation%0Aversion:%2013.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -136,7 +143,9 @@ Authors
 Contributors
 ~~~~~~~~~~~~
 
-* Jairo Llopis <jairo.llopis@tecnativa.com> (https://www.tecnativa.com/)
+* `Tecnativa <https://www.tecnativa.com>`_:
+
+  * Jairo Llopis
 
 Maintainers
 ~~~~~~~~~~~
@@ -159,6 +168,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-Yajo| 
 
-This module is part of the `OCA/event <https://github.com/OCA/event/tree/12.0/event_sale_reservation>`_ project on GitHub.
+This module is part of the `OCA/event <https://github.com/OCA/event/tree/13.0/event_sale_reservation>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
