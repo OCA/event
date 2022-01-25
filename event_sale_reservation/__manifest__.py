@@ -4,7 +4,7 @@
 {
     "name": "Sell event reservations",
     "summary": "Allow selling event registrations before the event exists",
-    "version": "12.0.1.0.0",
+    "version": "13.0.1.0.0",
     "development_status": "Beta",
     "category": "Marketing",
     "website": "https://github.com/OCA/event",
@@ -25,7 +25,4 @@
         "views/product_template_view.xml",
         "views/sale_order_view.xml",
     ],
-    # These modules makes totals wrong because they depend currently on count
-    # and not sum of qtys; integrating with them would require a glue module
-    "excludes": ["event_registration_multi_qty", "event_sale_registration_multi_qty"],
 }

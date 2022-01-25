@@ -53,7 +53,6 @@
         <field name="name">Register in event</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">registration.editor</field>
-        <field name="view_type">form</field>
         <field name="view_mode">form</field>
         <field name="view_id" ref="registration_editor_reservations_view_form" />
         <field name="target">new</field>
