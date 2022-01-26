@@ -19,6 +19,7 @@ setuptools.setup(
         'odoo13-addon-event_sale_session',
         'odoo13-addon-event_session',
         'odoo13-addon-event_session_registration_multi_qty',
+        'odoo13-addon-event_track_location_overlap',
         'odoo13-addon-event_type_multi_company',
         'odoo13-addon-partner_event',
         'odoo13-addon-website_event_crm',
