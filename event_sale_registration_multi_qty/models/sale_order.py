@@ -12,6 +12,12 @@ class SaleOrderLine(models.Model):
         self, confirm=True, cancel_to_draft=False, registration_data=None
     ):
         """Update registrations on events with multi qty enabled"""
+        if self.env.context.get("skip_event_sale_registration_multi_qty"):
+            return super()._update_registrations(
+                confirm=confirm,
+                cancel_to_draft=cancel_to_draft,
+                registration_data=registration_data,
+            )
         Registration = self.env["event.registration"]
         for so_line in self.filtered("event_id"):
             if not so_line.event_id.registration_multi_qty:
