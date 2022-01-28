@@ -12,6 +12,7 @@ class EventRegistrationRequest(models.BaseModel):
     lastname: str
     email: str
     phone: str = None
+    mobile: str = None
     event_ticket_id: int = None
 
 

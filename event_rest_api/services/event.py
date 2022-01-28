@@ -74,6 +74,7 @@ class EventService(Component):
             "lastname": event_registration_request.lastname,
             "email": event_registration_request.email,
             "phone": event_registration_request.phone,
+            "mobile": event_registration_request.mobile,
             "event_ticket_id": event_registration_request.event_ticket_id,
         }
 

@@ -20,6 +20,7 @@ class EventShortInfo(models.BaseModel):
     date_end: datetime
     event_type: EventTypeInfo = pydantic.Field(None, alias="event_type_id")
     stage: EventStageInfo = pydantic.Field(None, alias="stage_id")
+    note: str = None
     write_date: datetime
 
     class Config:
@@ -29,3 +30,6 @@ class EventShortInfo(models.BaseModel):
 
 class EventInfo(EventShortInfo):
     event_tickets: List[EventTicketInfo] = pydantic.Field([], alias="event_ticket_ids")
+    seats_limited: bool
+    seats_max: int = None
+    seats_expected: int = None
