@@ -3,10 +3,11 @@
 
 from typing import List
 
-from odoo.addons.pydantic import models
+from extendable_pydantic import ExtendableModelMeta
+from pydantic import BaseModel
 
 
-class EventRegistrationRequest(models.BaseModel):
+class EventRegistrationRequest(BaseModel, metaclass=ExtendableModelMeta):
 
     firstname: str
     lastname: str
@@ -16,6 +17,6 @@ class EventRegistrationRequest(models.BaseModel):
     event_ticket_id: int = None
 
 
-class EventRegistrationRequestList(models.BaseModel):
+class EventRegistrationRequestList(BaseModel, metaclass=ExtendableModelMeta):
 
     event_registration_requests: List[EventRegistrationRequest] = []

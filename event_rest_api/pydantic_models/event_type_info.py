@@ -3,10 +3,13 @@
 
 from datetime import datetime
 
-from odoo.addons.pydantic import models, utils
+from extendable_pydantic import ExtendableModelMeta
+from pydantic import BaseModel
+
+from odoo.addons.pydantic import utils
 
 
-class EventTypeInfo(models.BaseModel):
+class EventTypeInfo(BaseModel, metaclass=ExtendableModelMeta):
     id: int
     name: str
     write_date: datetime

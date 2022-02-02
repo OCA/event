@@ -1,10 +1,11 @@
 # Copyright 2021 ACSONE SA/NV
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-from odoo.addons.pydantic import models
+from extendable_pydantic import ExtendableModelMeta
+from pydantic import BaseModel
 
 
-class EventTypeSearchFilter(models.BaseModel):
+class EventTypeSearchFilter(BaseModel, metaclass=ExtendableModelMeta):
 
     id: int = None
     name: str = None

@@ -8,11 +8,11 @@
     "license": "AGPL-3",
     "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/event",
-    "depends": ["base_rest", "base_rest_pydantic", "event"],
+    "depends": ["base_rest", "base_rest_pydantic", "extendable", "event"],
     "data": [],
     "external_dependencies": {
         "python": [
-            "pydantic",
+            "extendable-pydantic",
         ]
     },
 }

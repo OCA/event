@@ -5,15 +5,17 @@ from datetime import datetime
 from typing import List
 
 import pydantic
+from extendable_pydantic import ExtendableModelMeta
+from pydantic import BaseModel
 
-from odoo.addons.pydantic import models, utils
+from odoo.addons.pydantic import utils
 
 from .event_stage_info import EventStageInfo
 from .event_ticket_info import EventTicketInfo
 from .event_type_info import EventTypeInfo
 
 
-class EventShortInfo(models.BaseModel):
+class EventShortInfo(BaseModel, metaclass=ExtendableModelMeta):
     id: int
     name: str
     date_begin: datetime

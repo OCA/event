@@ -4,10 +4,11 @@
 from datetime import datetime
 from typing import List
 
-from odoo.addons.pydantic import models
+from extendable_pydantic import ExtendableModelMeta
+from pydantic import BaseModel
 
 
-class EventSearchFilter(models.BaseModel):
+class EventSearchFilter(BaseModel, metaclass=ExtendableModelMeta):
 
     id: int = None
     name: str = None

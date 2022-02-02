@@ -3,10 +3,13 @@
 
 from datetime import date, datetime
 
-from odoo.addons.pydantic import models, utils
+from extendable_pydantic import ExtendableModelMeta
+from pydantic import BaseModel
+
+from odoo.addons.pydantic import utils
 
 
-class EventTicketInfo(models.BaseModel):
+class EventTicketInfo(BaseModel, metaclass=ExtendableModelMeta):
     id: int
     event_id: int
     name: str

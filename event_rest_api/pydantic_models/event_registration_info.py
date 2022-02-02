@@ -4,14 +4,16 @@
 from datetime import datetime
 
 import pydantic
+from extendable_pydantic import ExtendableModelMeta
+from pydantic import BaseModel
 
-from odoo.addons.pydantic import models, utils
+from odoo.addons.pydantic import utils
 
 from .event_info import EventInfo
 from .event_ticket_info import EventTicketInfo
 
 
-class EventRegistrationInfo(models.BaseModel):
+class EventRegistrationInfo(BaseModel, metaclass=ExtendableModelMeta):
     id: int
     partner_id: int = None
     firstname: str = None
