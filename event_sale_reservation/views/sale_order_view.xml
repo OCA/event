@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Tecnativa - Jairo Llopis
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<data>
+    <record id="view_sale_order_form_inherit_event" model="ir.ui.view">
+        <field name="name">Event reservation management</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="event_sale.sale_order_view_form" />
+        <field name="arch" type="xml">
+            <button id="action_confirm" position="after">
+                <field name="event_reservations_pending" invisible="1" />
+                <button
+                    name="%(action_registration_editor_reservations)d"
+                    type="action"
+                    string="Register in event"
+                    class="btn-primary"
+                    attrs="{'invisible': ['|', ('event_reservations_pending', '=', 0), ('state', 'not in', ('sale', 'done'))]}"
+                />
+            </button>
+            <div class="oe_button_box" name="button_box" position="inside">
+                <button
+                    name="action_open_event_registrations"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-users"
+                    attrs="{'invisible': [('event_registration_count', '=', 0)]}"
+                >
+                    <field name="event_registration_count" widget="statinfo" />
+                </button>
+            </div>
+            <xpath
+                expr="//field[@name='order_line']//form//field[@name='event_ok']"
+                position="after"
+            >
+                <field name="event_registration_ids" invisible="1" />
+            </xpath>
+        </field>
+    </record>
+</data>

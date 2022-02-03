@@ -10,6 +10,8 @@ class RegistrationEditor(models.TransientModel):
     @api.model
     def default_get(self, fields):
         res = super().default_get(fields)
+        if self.env.context.get("skip_event_sale_registration_multi_qty"):
+            return res
         Event = self.env["event.event"]
         SaleOrderLine = self.env["sale.order.line"]
         attendees = [(6, 0, [])]

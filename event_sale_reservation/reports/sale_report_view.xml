@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Tecnativa - Jairo Llopis
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<data>
+    <record id="view_order_product_search" model="ir.ui.view">
+        <field name="name">Event type search</field>
+        <field name="model">sale.report</field>
+        <field name="inherit_id" ref="sale.view_order_product_search" />
+        <field name="arch" type="xml">
+            <filter name="Product" position="after">
+                <filter
+                    name="groupby_event_reservation_type_id"
+                    string="Event Reservation Type"
+                    context="{'group_by': 'event_reservation_type_id'}"
+                />
+            </filter>
+        </field>
+    </record>
+</data>
