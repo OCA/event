@@ -21,7 +21,6 @@ class EventTypeService(Component):
     @restapi.method(
         routes=[(["/<int:_id>"], "GET")],
         output_param=PydanticModel(EventTypeInfo),
-        auth="public",
     )
     def get(self, _id: int) -> EventTypeInfo:
         event_type = self._get(_id)
@@ -39,7 +38,6 @@ class EventTypeService(Component):
         routes=[(["/", "/search"], "GET")],
         input_param=PydanticModel(EventTypeSearchFilter),
         output_param=PydanticModelList(EventTypeInfo),
-        auth="public",
     )
     def search(
         self, event_type_search_filter: EventTypeSearchFilter

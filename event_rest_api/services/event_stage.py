@@ -21,7 +21,6 @@ class EventStageService(Component):
     @restapi.method(
         routes=[(["/<int:_id>"], "GET")],
         output_param=PydanticModel(EventStageInfo),
-        auth="public",
     )
     def get(self, _id: int) -> EventStageInfo:
         event_stage = self._get(_id)
@@ -41,7 +40,6 @@ class EventStageService(Component):
         routes=[(["/", "/search"], "GET")],
         input_param=PydanticModel(EventStageSearchFilter),
         output_param=PydanticModelList(EventStageInfo),
-        auth="public",
     )
     def search(
         self, event_stage_search_filter: EventStageSearchFilter

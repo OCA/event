@@ -29,7 +29,6 @@ class EventService(Component):
     @restapi.method(
         routes=[(["/<int:_id>"], "GET")],
         output_param=PydanticModel(EventInfo),
-        auth="public",
     )
     def get(self, _id: int) -> EventInfo:
         event = self._get(_id)
@@ -55,7 +54,6 @@ class EventService(Component):
         routes=[(["/", "/search"], "GET")],
         input_param=PydanticModel(EventSearchFilter),
         output_param=PydanticModelList(EventShortInfo),
-        auth="public",
     )
     def search(self, event_search_filter: EventSearchFilter) -> List[EventShortInfo]:
         domain = self._get_search_domain(event_search_filter)
@@ -82,7 +80,6 @@ class EventService(Component):
         routes=[(["/<int:_id>/registration"], "POST")],
         input_param=PydanticModel(EventRegistrationRequestList),
         output_param=PydanticModelList(EventRegistrationInfo),
-        auth="public_or_default",
     )
     def registration(
         self, _id: int, event_registration_request_list: EventRegistrationRequestList
