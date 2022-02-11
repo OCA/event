@@ -23,6 +23,7 @@ setuptools.setup(
         'odoo13-addon-event_track_location_overlap',
         'odoo13-addon-event_type_multi_company',
         'odoo13-addon-partner_event',
+        'odoo13-addon-sale_crm_event_reservation',
         'odoo13-addon-website_event_crm',
         'odoo13-addon-website_event_filter_city',
         'odoo13-addon-website_event_questions_by_ticket',
