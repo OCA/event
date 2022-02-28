@@ -9,7 +9,7 @@
 
 {
     "name": "Link partner to events",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.0.1",
     "category": "Marketing",
     "author": "Tecnativa," "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/event",
