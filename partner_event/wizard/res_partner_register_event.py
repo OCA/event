@@ -14,7 +14,9 @@ class ResPartnerRegisterEvent(models.TransientModel):
 
     _description = "Register partner for event"
 
-    event = fields.Many2one(comodel_name="event.event", required=True)
+    event = fields.Many2one(
+        comodel_name="event.event", required=True, ondelete="cascade"
+    )
     errors = fields.Text(readonly=True)
 
     def _prepare_registration(self, partner):
