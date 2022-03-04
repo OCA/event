@@ -8,6 +8,17 @@ from odoo.tests.common import Form, HttpCase
 class UICase(HttpCase):
     def setUp(self):
         super().setUp()
+        website = self.env["website"].get_current_website()
+        pricelist = self.env["product.pricelist"].create(
+            {
+                "name": "website_sale_event_b2x_alt_price public",
+                "currency_id": website.user_id.company_id.currency_id.id,
+                "selectable": True,
+            }
+        )
+        website.user_id.property_product_pricelist = pricelist
+        admin = self.env.ref("base.user_admin")
+        admin.property_product_pricelist = pricelist
         self.tax_group_22 = self.env["account.tax.group"].create(
             {"name": "Tax group 22%"}
         )
