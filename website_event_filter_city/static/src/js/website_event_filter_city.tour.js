@@ -42,7 +42,6 @@ odoo.define("website_event_filter_city.tour", function(require) {
             {
                 extra_trigger:
                     "#o_wevent_index_main_col:contains('Barcelona Days 2017')" +
-                    ":not(:contains('Online Code Sprint 2018'))" +
                     ":contains('Sevilla Code Sprint 2018')" +
                     ":contains('Sevilla Awesome Breakfast 2018')",
                 trigger: "a.dropdown-item:contains('Sevilla')",
