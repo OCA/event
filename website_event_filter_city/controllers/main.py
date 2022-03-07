@@ -1,47 +1,66 @@
 # Copyright 2016-2017 Jairo Llopis <jairo.llopis@tecnativa.com>
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-from odoo import _, http
+from odoo import _
+from odoo.http import request, route
 
 from odoo.addons.website_event.controllers.main import WebsiteEventController
 
 
 class WebsiteEvent(WebsiteEventController):
-    @http.route()
+    @route()
     def events(self, page=1, **searches):
-        # Get current render values
-        result = super().events(page, **searches)
-        values = result.qcontext
-        searches = values["searches"]
+        # We need to set the defaults again for the pager that we need to reconstruct
+        searches.setdefault("search", "")
+        searches.setdefault("date", "all")
+        searches.setdefault("type", "all")
+        searches.setdefault("country", "all")
         searches.setdefault("city", _("All Cities"))
-
-        # Regenerate current domain. Ideally, upstream would make all this in a
-        # separate method and make our life easier, but not happening now.
-        domain = http.request.website.website_domain() + [
+        if searches["city"] != _("All Cities"):
+            request.context = dict(request.context, event_filter_city=searches["city"])
+        # Get current render values
+        response = super().events(page, **searches)
+        # Drop the context key to avoid side effects
+        context = dict(request.context)
+        context.pop("event_filter_city", None)
+        request.context = context
+        # Controller pagers are quite encapsulated so we need to reconstruct it to add
+        # our new stuff
+        step = 12
+        response.qcontext["pager"] = request.website.pager(
+            url="/event",
+            url_args=searches,
+            total=step * response.qcontext["pager"]["page_count"],
+            page=page,
+            step=step,  # This is hardcoded upstream too
+            scope=5,  # This is hardcoded upstream too
+        )
+        # Reconstruct domain from the response qcontext to obtain city render values
+        domain = request.website.website_domain() + [
             ("state", "in", ("draft", "confirm", "done")),
         ]
-
-        def dom_without(without):
-            return [leaf for leaf in domain if leaf[0] not in without]
-
+        # Search term, if any
+        if searches["search"]:
+            domain.append(("name", "ilike", searches["search"]))
         # Date domain
-        for date in values["dates"]:
-            if values["searches"]["date"] == date[0]:
+        for date in response.qcontext["dates"]:
+            if response.qcontext["searches"]["date"] == date[0]:
                 domain += date[2]
                 break
-
         # Type domain
-        if values["current_type"]:
-            domain.append(("event_type_id", "=", values["current_type"].id))
-
+        if response.qcontext["current_type"]:
+            domain.append(("event_type_id", "=", response.qcontext["current_type"].id))
         # Country domain
-        if values["current_country"]:
-            domain.append(("country_id", "=", values["current_country"].id))
-        elif searches["country"] == "online":
+        if response.qcontext["current_country"]:
+            domain += [
+                "|",
+                ("country_id", "=", response.qcontext["current_country"].id),
+                ("country_id", "=", False),
+            ]
+        elif searches.get("country", "") == "online":
             domain.append(("country_id", "=", False))
-
         # Handle city search
-        Event = http.request.env["event.event"].with_context(http.request.context)
+        Event = request.env["event.event"].with_context(request.context)
         cities = Event.read_group(domain, ["city"], groupby="city", orderby="city")
         cities.insert(
             0,
@@ -50,65 +69,6 @@ class WebsiteEvent(WebsiteEventController):
                 "city": _("All Cities"),
             },
         )
-        values["cities"] = cities
-        values["current_city"] = searches["city"]
-
-        if searches["city"] != _("All Cities"):
-            domain.append(("city", "=", searches["city"]))
-            # Patch type count
-            values["types"][1:] = Event.read_group(
-                dom_without({"event_type_id"}),
-                ["id", "event_type_id"],
-                groupby=["event_type_id"],
-                orderby="event_type_id",
-            )
-            values["types"][0]["event_type_id_count"] = sum(
-                int(type_["event_type_id_count"]) for type_ in values["types"][1:]
-            )
-            # Patch country count
-            values["countries"][1:] = Event.read_group(
-                dom_without({"country_id"}),
-                ["id", "country_id"],
-                groupby="country_id",
-                orderby="country_id",
-            )
-            values["countries"][0]["country_id_count"] = sum(
-                int(type_["country_id_count"]) for type_ in values["countries"][1:]
-            )
-            # Patch date count
-            for date in values["dates"]:
-                if date[0] != "old":
-                    date[3] = Event.search_count(
-                        dom_without({"date_end", "date_begin"}) + date[2]
-                    )
-
-        # We need a new pager now
-        step = 12
-        values["pager"] = http.request.website.pager(
-            url="/event",
-            url_args={
-                "date": searches.get("date"),
-                "type": searches.get("type"),
-                "country": searches.get("country"),
-                "city": searches.get("city"),
-            },
-            total=Event.search(domain, count=True),
-            page=page,
-            step=step,  # This is hardcoded upstream too
-            scope=5,
-        )
-
-        # Return new event results
-        order = "date_begin"
-        if searches.get("date", "all") == "old":
-            order = "date_begin desc"
-        if searches["country"] != "all":  # if we are looking for a specific country
-            order = "is_online, " + order  # show physical events first
-        order = "is_published desc, " + order
-        values["event_ids"] = Event.search(
-            domain, limit=step, offset=values["pager"]["offset"], order=order
-        )
-
-        # Return changed template
-        result.qcontext = values
-        return result
+        response.qcontext["cities"] = cities
+        response.qcontext["current_city"] = searches["city"]
+        return response
