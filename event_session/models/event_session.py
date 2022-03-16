@@ -65,9 +65,13 @@ class EventSession(models.Model):
         store=True,
         default="/",
     )
-    active = fields.Boolean(default=True,)
+    active = fields.Boolean(
+        default=True,
+    )
     company_id = fields.Many2one(
-        comodel_name="res.company", related="event_id.company_id", store=True,
+        comodel_name="res.company",
+        related="event_id.company_id",
+        store=True,
     )
     event_id = fields.Many2one(comodel_name="event.event", string="Event")
     seats_min = fields.Integer(string="Minimum seats")
@@ -79,10 +83,16 @@ class EventSession(models.Model):
         default="unlimited",
     )
     seats_reserved = fields.Integer(
-        string="Reserved Seats", store=True, readonly=True, compute="_compute_seats",
+        string="Reserved Seats",
+        store=True,
+        readonly=True,
+        compute="_compute_seats",
     )
     seats_available = fields.Integer(
-        string="Available Seats", store=True, readonly=True, compute="_compute_seats",
+        string="Available Seats",
+        store=True,
+        readonly=True,
+        compute="_compute_seats",
     )
     seats_unconfirmed = fields.Integer(
         string="Unconfirmed Seat Reservations",
@@ -109,7 +119,10 @@ class EventSession(models.Model):
         store=True,
     )
     seats_available_pc = fields.Float(
-        string="Full %", readonly=True, compute="_compute_seats", compute_sudo=True,
+        string="Full %",
+        readonly=True,
+        compute="_compute_seats",
+        compute_sudo=True,
     )
     date_tz = fields.Selection(string="Timezone", related="event_id.date_tz")
     date_begin = fields.Datetime(
@@ -123,10 +136,12 @@ class EventSession(models.Model):
         default=lambda self: self.event_id.date_end,
     )
     date_begin_located = fields.Datetime(
-        string="Start Date Located", compute="_compute_date_begin_located",
+        string="Start Date Located",
+        compute="_compute_date_begin_located",
     )
     date_end_located = fields.Datetime(
-        string="End Date Located", compute="_compute_date_end_located",
+        string="End Date Located",
+        compute="_compute_date_end_located",
     )
     registration_ids = fields.One2many(
         comodel_name="event.registration",

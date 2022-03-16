@@ -104,7 +104,8 @@ class EventSession(common.SavepointCase):
 
     def test_session_name_get(self):
         self.assertEqual(
-            self.session.name_get()[0][1], "[Test event] " + self.session.name,
+            self.session.name_get()[0][1],
+            "[Test event] " + self.session.name,
         )
 
     def test_check_beginning_date(self):
