@@ -11,12 +11,13 @@
         <field name="model">event.event</field>
         <field name="inherit_id" ref="event.view_event_form" />
         <field name="arch" type="xml">
-            <field name="state" position="before">
+            <field name="stage_id" position="before">
+                <field name="generate_sessions_button_visible" invisible="1" />
                 <button
                     string="Generate Sessions"
                     name="%(act_wizard_event_session)d"
-                    states="draft,confirm"
                     type="action"
+                    attrs="{'invisible': [('generate_sessions_button_visible', '=', False)]}"
                 />
             </field>
         </field>

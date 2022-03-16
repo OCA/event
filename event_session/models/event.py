@@ -39,6 +39,7 @@ class EventEvent(models.Model):
         string=" # No of Confirmed Registrations",
         store=True,
     )
+    generate_sessions_button_visible = fields.Boolean(related="stage_id.pipe_end")
 
     @api.depends("session_ids")
     def _compute_sessions_count(self):
@@ -88,7 +89,7 @@ class EventRegistration(models.Model):
     def _check_seats_limit(self):
         for registration in self.filtered("session_id"):
             if (
-                registration.session_id.seats_availability == "limited"
+                registration.session_id.seats_limited
                 and registration.session_id.seats_available < 1
                 and registration.state == "open"
             ):

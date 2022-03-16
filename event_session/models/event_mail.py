@@ -1,16 +1,8 @@
-# Copyright 2017 David Vidal<david.vidal@tecnativa.com>
+# Copyright 2017-22 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-
-import logging
-
 from odoo import api, fields, models
 
-_logger = logging.getLogger(__name__)
-
-try:
-    from odoo.addons.event.models.event_mail import _INTERVALS
-except ImportError:
-    _logger.debug("Can not import events module.")
+from odoo.addons.event.models.event_mail import _INTERVALS
 
 
 class EventMailScheduler(models.Model):
@@ -28,12 +20,7 @@ class EventMailScheduler(models.Model):
         ondelete="cascade",
     )
 
-    @api.depends(
-        "mail_sent",
-        "interval_type",
-        "event_id.registration_ids",
-        "mail_registration_ids",
-    )
+    @api.depends()
     def _compute_done(self):
         super()._compute_done()
         for event_mail in self:
@@ -50,38 +37,27 @@ class EventMailScheduler(models.Model):
                     and all(line.mail_sent for line in event_mail.mail_registration_ids)
                 )
 
-    @api.depends(
-        "event_id.state",
-        "event_id.date_begin",
-        "interval_type",
-        "interval_unit",
-        "interval_nbr",
-    )
+    @api.depends("session_id.date_begin", "session_id.date_end")
     def _compute_scheduled_date(self):
         super()._compute_scheduled_date()
         for event_mail in self:
             if not event_mail.session_id:
                 continue
-            if event_mail.event_id.state not in ["confirm", "done"]:
-                event_mail.scheduled_date = False
+            if event_mail.interval_type == "after_sub":
+                date, sign = event_mail.session_id.create_date, 1
+            elif event_mail.interval_type == "before_event":
+                date, sign = event_mail.session_id.date_begin, -1
             else:
-                if event_mail.interval_type == "after_sub":
-                    date, sign = event_mail.session_id.create_date, 1
-                elif event_mail.interval_type == "before_event":
-                    date, sign = event_mail.session_id.date_begin, -1
-                else:
-                    date, sign = event_mail.session_id.date_end, 1
-                event_mail.scheduled_date = date + _INTERVALS[event_mail.interval_unit](
-                    sign * event_mail.interval_nbr
-                )
+                date, sign = event_mail.session_id.date_end, 1
+            event_mail.scheduled_date = date + _INTERVALS[event_mail.interval_unit](
+                sign * event_mail.interval_nbr
+            )
 
 
 class EventMailRegistration(models.Model):
     _inherit = "event.mail.registration"
 
-    @api.depends(
-        "registration_id", "scheduler_id.interval_unit", "scheduler_id.interval_type"
-    )
+    @api.depends()
     def _compute_scheduled_date(self):
         super()._compute_scheduled_date()
         for event_mail_reg in self:

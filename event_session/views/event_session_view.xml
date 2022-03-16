@@ -56,22 +56,21 @@
                             <field name="seats_used" />
                         </group>
                         <group>
-                            <field name="seats_min" />
-                            <field name="seats_availability" />
+                            <field name="seats_limited" />
                             <field
                                 name="seats_max"
                                 attrs="{'invisible':
-                                   [('seats_availability', '=', 'unlimited')]}"
+                                   [('seats_limited', '=', False)]}"
                             />
                             <field
                                 name="seats_available"
                                 attrs="{'invisible':
-                                   [('seats_availability', '=', 'unlimited')]}"
+                                   [('seats_limited', '=', False)]}"
                             />
                             <field
                                 name="seats_available_expected"
                                 attrs="{'invisible':
-                                   [('seats_availability', '=', 'unlimited')]}"
+                                   [('seats_limited', '=', False)]}"
                             />
                         </group>
                     </group>
@@ -104,7 +103,6 @@
                                 <tree string="Attendees" editable="bottom">
                                     <field name="event_id" invisible="1" />
                                     <field name="partner_id" string="Partner" />
-                                    <field name="origin" string="Origin" />
                                     <field name="state" string="State" />
                                 </tree>
                             </field>
@@ -123,24 +121,21 @@
                 <field name="name" />
                 <field name="date_begin" />
                 <field name="date_end" />
-                <field name="seats_availability" />
+                <field name="seats_limited" />
                 <field
                     name="seats_max"
                     sum="Total seats"
-                    attrs="{'invisible':
-                       [('seats_availability','=','unlimited')]}"
+                    attrs="{'invisible': [('seats_limited','=',False)]}"
                 />
                 <field
                     name="seats_available"
                     sum="Total available seats"
-                    attrs="{'invisible':
-                       [('seats_availability','=','unlimited')]}"
+                    attrs="{'invisible': [('seats_limited','=',False)]}"
                 />
                 <field
                     name="seats_available_expected"
                     sum="Total available expected seats"
-                    attrs="{'invisible':
-                       [('seats_availability', '=', 'unlimited')]}"
+                    attrs="{'invisible': [('seats_limited','=',False)]}"
                 />
                 <field name="seats_expected" sum="Total seats expected" />
                 <field name="seats_reserved" sum="Total seats reserved" />
@@ -148,8 +143,7 @@
                 <field
                     name="seats_available_pc"
                     widget="progressbar"
-                    attrs="{'invisible':
-                   [('seats_availability','=','unlimited')]}"
+                    attrs="{'invisible': [('seats_limited','=',False)]}"
                 />
             </tree>
         </field>

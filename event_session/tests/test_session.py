@@ -26,9 +26,8 @@ class EventSession(common.SavepointCase):
                 "name": "Test event",
                 "date_begin": "2017-05-26 20:00:00",
                 "date_end": "2017-05-30 22:00:00",
-                "seats_availability": "limited",
+                "seats_limited": True,
                 "seats_max": "5",
-                "seats_min": "1",
             }
         )
         cls.session = cls.env["event.session"].create(
@@ -36,9 +35,8 @@ class EventSession(common.SavepointCase):
                 "date_begin": "2017-05-26 20:00:00",
                 "date_end": "2017-05-26 22:00:00",
                 "event_id": cls.event.id,
-                "seats_availability": cls.event.seats_availability,
+                "seats_limited": cls.event.seats_limited,
                 "seats_max": cls.event.seats_max,
-                "seats_min": cls.event.seats_min,
             }
         )
         cls.attendee = cls.env["event.registration"].create(
@@ -184,9 +182,9 @@ class EventSession(common.SavepointCase):
         """Test Session Generation Wizard"""
         self.event.date_end = "2017-06-11 23:59:59"
         self.event.date_begin = "2017-06-05 00:00:00"
-        self.wizard.delete_existing_session = True
+        self.wizard.delete_existing_sessions = False
         self.wizard.action_generate_sessions()
-        # delete previous sessions
+        # Delete previous sessions
         self.wizard.update({"delete_existing_sessions": True})
         self.wizard.update({"event_mail_template_id": self.template})
         with self.assertRaises(ValidationError) as error, self.cr.savepoint():
@@ -205,7 +203,7 @@ class EventSession(common.SavepointCase):
         for session in sessions:
             self.assertTrue(session.event_mail_ids)
             self.assertEqual(session.seats_max, self.event.seats_max)
-            self.assertEqual(session.seats_availability, self.event.seats_availability)
+            self.assertEqual(session.seats_limited, self.event.seats_limited)
         with self.assertRaises(ValidationError), self.cr.savepoint():
             # session duration = 0
             self.wizard.update(
@@ -251,8 +249,6 @@ class EventSession(common.SavepointCase):
             self.wizard.action_generate_sessions()
 
     def test_event_mail_compute_scheduled_date(self):
-        self.assertFalse(self.scheduler.scheduled_date)
-        self.scheduler.event_id.update({"state": "confirm"})
         date = self.scheduler.session_id.create_date + relativedelta(hours=+1)
         self.assertEqual(self.scheduler.scheduled_date, date)
         self.scheduler.update({"interval_type": "before_event"})
@@ -448,9 +444,8 @@ class EventSession(common.SavepointCase):
                 "date_begin": "2017-05-27 20:00:00",
                 "date_end": "2017-05-27 22:00:00",
                 "event_id": self.event.id,
-                "seats_availability": self.event.seats_availability,
+                "seats_limited": self.event.seats_limited,
                 "seats_max": self.event.seats_max,
-                "seats_min": self.event.seats_min,
             }
         )
         atendee_1 = self.env["event.registration"].create(

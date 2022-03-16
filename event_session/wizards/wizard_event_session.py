@@ -23,7 +23,7 @@ class WizardEventSession(models.TransientModel):
     event_id = fields.Many2one(
         comodel_name="event.event",
         readonly=True,
-        on_delete="cascade",
+        ondelete="cascade",
         default=lambda self: self.env.context["active_id"],
         required=True,
     )

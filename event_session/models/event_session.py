@@ -74,14 +74,8 @@ class EventSession(models.Model):
         store=True,
     )
     event_id = fields.Many2one(comodel_name="event.event", string="Event")
-    seats_min = fields.Integer(string="Minimum seats")
     seats_max = fields.Integer(string="Maximum seats")
-    seats_availability = fields.Selection(
-        [("limited", "Limited"), ("unlimited", "Unlimited")],
-        "Maximum Attendees",
-        required=True,
-        default="unlimited",
-    )
+    seats_limited = fields.Boolean(string="Maximum Attendees", required=True)
     seats_reserved = fields.Integer(
         string="Reserved Seats",
         store=True,
@@ -147,7 +141,6 @@ class EventSession(models.Model):
         comodel_name="event.registration",
         inverse_name="session_id",
         string="Attendees",
-        state={"done": [("readonly", True)]},
     )
     event_mail_ids = fields.One2many(
         comodel_name="event.mail",
@@ -219,7 +212,7 @@ class EventSession(models.Model):
         # Config availabilities based on event
         if vals.get("event_id", False):
             event = self.env["event.event"].browse(vals.get("event_id"))
-            vals["seats_availability"] = event.seats_availability
+            vals["seats_limited"] = event.seats_limited
             vals["seats_max"] = event.seats_max
         if not vals.get("event_mail_ids", False):
             vals.update(
@@ -228,14 +221,13 @@ class EventSession(models.Model):
         return super().create(vals)
 
     def unlink(self):
-        for this in self:
-            if this.registration_ids:
-                raise ValidationError(
-                    _(
-                        "You are trying to delete one or more \
-                sessions with active registrations"
-                    )
+        if self.filtered("registration_ids"):
+            raise ValidationError(
+                _(
+                    "You are trying to delete one or more \
+            sessions with active registrations"
                 )
+            )
         return super().unlink()
 
     @api.depends("seats_max", "registration_ids.state")
@@ -306,9 +298,8 @@ class EventSession(models.Model):
     def onchange_event_id(self):
         self.update(
             {
-                "seats_min": self.event_id.seats_min,
                 "seats_max": self.event_id.seats_max,
-                "seats_availability": self.event_id.seats_availability,
+                "seats_limited": self.event_id.seats_limited,
                 "date_begin": self.event_id.date_begin,
                 "date_end": self.event_id.date_end,
             }
@@ -318,7 +309,7 @@ class EventSession(models.Model):
     def _check_seats_limit(self):
         for session in self:
             if (
-                session.seats_availability == "limited"
+                session.seats_limited
                 and session.seats_max
                 and session.seats_available < 0
             ):
@@ -346,7 +337,9 @@ class EventSession(models.Model):
     def button_open_registration(self):
         """Opens session registrations"""
         self.ensure_one()
-        action = self.env.ref("event.act_event_registration_from_event").read()[0]
+        action = self.env["ir.actions.actions"]._for_xml_id(
+            "event.act_event_registration_from_event"
+        )
         action["domain"] = [("id", "in", self.registration_ids.ids)]
         action["context"] = {
             "default_event_id": self.event_id.id,
