@@ -7,7 +7,7 @@
         <field name="inherit_id" ref="event_sale.view_event_registration_editor_form" />
         <field name="arch" type="xml">
             <field name="name" position="before">
-                <field name="qty" />
+                <field name="qty" readonly="1" />
             </field>
         </field>
     </record>

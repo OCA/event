@@ -11,30 +11,29 @@ class RegistrationEditor(models.TransientModel):
     def default_get(self, fields):
         res = super().default_get(fields)
         if self.env.context.get("skip_event_sale_registration_multi_qty"):
-            return res
+            return super().default_get(fields)
         Event = self.env["event.event"]
         SaleOrderLine = self.env["sale.order.line"]
-        attendees = [(6, 0, [])]
-        attendees_no_multi = []
-        so_line_id = False
-        registration = (
-            res["event_registration_ids"] and res["event_registration_ids"][0]
-        )
-        if registration:
-            multi_qty = Event.browse(registration[2]["event_id"]).registration_multi_qty
-            if multi_qty:
-                if registration[2]["sale_order_line_id"] != so_line_id:
-                    so_line_id = registration[2]["sale_order_line_id"]
-                    so_line = SaleOrderLine.browse(so_line_id)
-                    if multi_qty:
-                        registration[2].update({"qty": so_line.product_uom_qty})
-                        attendees.append(registration)
-            else:
-                registration[2].update({"qty": 1})
-                attendees_no_multi.append(registration)
-        if len(attendees) > 1:
-            attendees.extend(attendees_no_multi)
-            res["event_registration_ids"] = attendees
+        event_multi_records_dict = {}
+        registrations = res.get("event_registration_ids", [])
+        filtered_registrations = []
+        for registration in registrations:
+            if len(registration) != 3:
+                filtered_registrations.append(registration)
+                continue
+            event = Event.browse(registration[2].get("event_id"))
+            so_line = SaleOrderLine.browse(registration[2].get("sale_order_line_id"))
+            if not event.registration_multi_qty:
+                filtered_registrations.append(registration)
+                continue
+            event_line_key = (event, so_line)
+            # Drop subsequent records which we won't use
+            if event_multi_records_dict.get(event_line_key):
+                continue
+            registration[2].update({"qty": so_line.product_uom_qty})
+            event_multi_records_dict[event_line_key] = registration
+            filtered_registrations.append(registration)
+        res["event_registration_ids"] = filtered_registrations
         return res
 
 
