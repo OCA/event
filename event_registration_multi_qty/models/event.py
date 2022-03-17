@@ -10,7 +10,8 @@ class EventEvent(models.Model):
     _inherit = "event.event"
 
     registration_multi_qty = fields.Boolean(
-        string="Allow multiple attendees per registration", default=True,
+        string="Allow multiple attendees per registration",
+        default=True,
     )
 
     @api.depends("seats_max", "registration_ids.state", "registration_ids.qty")
@@ -67,7 +68,11 @@ class EventEvent(models.Model):
 class EventRegistration(models.Model):
     _inherit = "event.registration"
 
-    qty = fields.Integer(string="Quantity", required=True, default=1,)
+    qty = fields.Integer(
+        string="Quantity",
+        required=True,
+        default=1,
+    )
 
     @api.constrains("qty")
     def _check_attendees_qty(self):
