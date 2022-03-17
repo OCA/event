@@ -1,6 +1,6 @@
 # Copyright 2017-19 Tecnativa - David Vidal
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl-3.0).
-from odoo.tests import common
+from odoo.tests import Form, common
 
 
 class TestEventSaleRegistrationMultiQty(common.SavepointCase):
@@ -22,9 +22,8 @@ class TestEventSaleRegistrationMultiQty(common.SavepointCase):
                 "name": "Test event multi",
                 "date_begin": "2017-05-26 20:00:00",
                 "date_end": "2017-05-30 22:00:00",
-                "seats_availability": "limited",
+                "seats_limited": True,
                 "seats_max": "100",
-                "seats_min": "1",
                 "event_ticket_ids": [
                     (0, 0, {"product_id": cls.product.id, "name": "test1"}),
                 ],
@@ -36,9 +35,8 @@ class TestEventSaleRegistrationMultiQty(common.SavepointCase):
                 "name": "Test event no multi",
                 "date_begin": "2017-05-26 20:00:00",
                 "date_end": "2017-05-30 22:00:00",
-                "seats_availability": "limited",
+                "seats_limited": True,
                 "seats_max": "100",
-                "seats_min": "1",
                 "event_ticket_ids": [
                     (0, 0, {"product_id": cls.product.id, "name": "test1"}),
                 ],
@@ -46,31 +44,25 @@ class TestEventSaleRegistrationMultiQty(common.SavepointCase):
             }
         )
         cls.partner = cls.env["res.partner"].create({"name": "Test partner"})
-        cls.so_line_e_multi = (
-            0,
-            0,
-            {
-                "product_id": cls.product.id,
-                "event_id": cls.event_multi.id,
-                "product_uom_qty": 5.0,
-                "event_ticket_id": cls.event_multi.event_ticket_ids[0].id,
-            },
-        )
-        cls.so_line_e_nomulti = (
-            0,
-            0,
-            {
-                "product_id": cls.product.id,
-                "event_id": cls.event_nomulti.id,
-                "product_uom_qty": 5.0,
-                "event_ticket_id": cls.event_nomulti.event_ticket_ids[0].id,
-            },
-        )
+
+    def _add_so_line_event(self, sale, event, qty=5):
+        """Helper method to quickly add sale lines"""
+        sale_form = Form(sale)
+        with sale_form.order_line.new() as line:
+            line.product_id = self.product
+            line.event_id = event
+            line.product_uom_qty = qty
+            line.event_ticket_id = event.event_ticket_ids[:1]
+        sale_form.save()
+
+    def _create_sale(self):
+        sale_form = Form(self.env["sale.order"])
+        sale_form.partner_id = self.partner
+        return sale_form
 
     def test_sale_multi(self):
-        sale = self.env["sale.order"].create(
-            {"partner_id": self.partner.id, "order_line": [self.so_line_e_multi]}
-        )
+        sale = self._create_sale().save()
+        self._add_so_line_event(sale, self.event_multi)
         sale.action_confirm()
         reg = self.env["event.registration"].search([("sale_order_id", "=", sale.id)])
         self.assertEqual(len(reg), 1)
@@ -78,30 +70,9 @@ class TestEventSaleRegistrationMultiQty(common.SavepointCase):
         self.assertEqual(reg.event_id, self.event_multi)
         self.assertEqual(reg.state, "draft")
 
-    def test_sale_registration_editor(self):
-        sale = self.env["sale.order"].create(
-            {"partner_id": self.partner.id, "order_line": [self.so_line_e_multi]}
-        )
-        editor = self.env["registration.editor"].create(
-            {
-                "sale_order_id": sale.id,
-                "event_registration_ids": [
-                    (
-                        0,
-                        0,
-                        {"event_id": self.so_line_e_multi[2]["event_id"], "qty": 10},
-                    )
-                ],
-            }
-        )
-        editor.action_make_registration()
-        reg = self.env["event.registration"].search([("sale_order_id", "=", sale.id)])
-        self.assertEqual(reg.qty, 10)
-
     def test_sale_nomulti(self):
-        sale = self.env["sale.order"].create(
-            {"partner_id": self.partner.id, "order_line": [self.so_line_e_nomulti]}
-        )
+        sale = self._create_sale().save()
+        self._add_so_line_event(sale, self.event_nomulti)
         sale.action_confirm()
         regs = self.env["event.registration"].search([("sale_order_id", "=", sale.id)])
         self.assertEqual(len(regs), 5)
@@ -111,12 +82,9 @@ class TestEventSaleRegistrationMultiQty(common.SavepointCase):
             self.assertEqual(reg.state, "draft")
 
     def test_sale_mixed(self):
-        sale = self.env["sale.order"].create(
-            {
-                "partner_id": self.partner.id,
-                "order_line": [self.so_line_e_nomulti, self.so_line_e_multi],
-            }
-        )
+        sale = self._create_sale().save()
+        self._add_so_line_event(sale, self.event_multi)
+        self._add_so_line_event(sale, self.event_nomulti)
         sale.action_confirm()
         regs = self.env["event.registration"].search([("sale_order_id", "=", sale.id)])
         self.assertEqual(len(regs), 6)
