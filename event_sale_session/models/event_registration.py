@@ -1,14 +1,13 @@
-# Copyright 2017-19 Tecnativa - David Vidal
+# Copyright 2022 Tecnativa - David Vidal
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-from odoo import api, models
+from odoo import models
 
 
 class EventRegistration(models.Model):
     _inherit = "event.registration"
 
-    @api.model
-    def _prepare_attendee_values(self, registration):
-        data = super()._prepare_attendee_values(registration)
-        session_id = registration["sale_order_line_id"].session_id.id
-        data.update({"session_id": session_id})
-        return data
+    def _synchronize_so_line_values(self, so_line):
+        res = super()._synchronize_so_line_values(so_line)
+        if so_line:
+            res.update({"session_id": so_line.session_id.id})
+        return res

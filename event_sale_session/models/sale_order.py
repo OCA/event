@@ -28,9 +28,7 @@ class SaleOrder(models.Model):
     def _session_seats_available(self):
         """Check if there are lines that could do session overbooking"""
         sessions = {}
-        for line in self.mapped("order_line").filtered(
-            lambda x: x.event_session_seats_availability == "limited"
-        ):
+        for line in self.mapped("order_line").filtered("event_session_seats_limited"):
             sessions.setdefault(line.session_id, line.event_session_seats_available)
             sessions[line.session_id] -= line.product_uom_qty
             # Break if any session can't allocate seats
@@ -53,8 +51,8 @@ class SaleOrderLine(models.Model):
         string="Available Seats",
         readonly=True,
     )
-    event_session_seats_availability = fields.Selection(
-        related="session_id.seats_availability",
+    event_session_seats_limited = fields.Boolean(
+        related="session_id.seats_limited",
         string="Seats Availavility",
         readonly=True,
     )
@@ -71,7 +69,7 @@ class SaleOrderLine(models.Model):
         if not self.order_id._session_seats_available():
             raise ValidationError(_("Not enough seats. Change quantity or session"))
 
-    @api.onchange()
+    @api.onchange("product_uom", "product_uom_qty")
     def product_uom_change(self):
         """Don't allow to book seats if there aren't enough"""
         if not self.order_id._session_seats_available():

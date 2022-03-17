@@ -9,15 +9,11 @@ class RegistrationEditor(models.TransientModel):
     @api.model
     def default_get(self, fields):
         res = super().default_get(fields)
-        vals = [(6, 0, [])]
         so_line = self.env["sale.order.line"]
         for registration in res["event_registration_ids"]:
             if so_line.id != registration[2]["sale_order_line_id"]:
                 so_line = so_line.browse(registration[2]["sale_order_line_id"])
-            vals.append(
-                (0, 0, dict(registration[2], session_id=so_line.session_id.id)),
-            )
-        res["event_registration_ids"] = vals
+                registration[2]["session_id"] = so_line.session_id.id
         return res
 
 

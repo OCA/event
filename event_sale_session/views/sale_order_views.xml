@@ -10,7 +10,7 @@
                 position="after"
             >
                 <field name="event_sessions_count" invisible="1" />
-                <field name="event_session_seats_availability" invisible="1" />
+                <field name="event_session_seats_limited" invisible="1" />
                 <field
                     name="session_id"
                     domain="[('event_id', '=', event_id)]"
@@ -23,8 +23,28 @@
                 <field
                     name="event_session_seats_available"
                     attrs="{'invisible': ['|',('session_id','=',False),
-                       ('event_session_seats_availability','=','unlimited')]}"
+                       ('event_session_seats_limited','=',False)]}"
                     optional="hide"
+                />
+            </xpath>
+            <xpath
+                expr="//field[@name='order_line']//form//field[@name='event_id']"
+                position="after"
+            >
+                <field name="event_sessions_count" invisible="1" />
+                <field name="event_session_seats_limited" invisible="1" />
+                <field
+                    name="session_id"
+                    domain="[('event_id', '=', event_id)]"
+                    attrs="{
+                       'invisible': [('event_sessions_count', '&lt;', 1)],
+                       'required': [('event_sessions_count', '&gt;', 0)]
+                       }"
+                />
+                <field
+                    name="event_session_seats_available"
+                    attrs="{'invisible': ['|',('session_id','=',False),
+                       ('event_session_seats_limited','=',False)]}"
                 />
             </xpath>
         </field>
