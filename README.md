@@ -23,6 +23,7 @@ addon | version | maintainers | summary
 [event_mail](event_mail/) | 14.0.1.0.0 |  | Mail settings in events
 [event_project](event_project/) | 14.0.1.0.0 |  | Event project
 [event_registration_mass_mailing](event_registration_mass_mailing/) | 14.0.1.0.0 |  | Put event registrations emails into mailing lists
+[event_registration_multi_qty](event_registration_multi_qty/) | 14.0.1.0.0 |  | Allow registration grouped by quantities
 [partner_event](partner_event/) | 14.0.1.0.1 |  | Link partner to events
 [website_event_questions_template](website_event_questions_template/) | 14.0.1.0.0 |  | Set question templates for events
 [website_event_require_login](website_event_require_login/) | 14.0.1.0.1 |  | Website Event Require Login
