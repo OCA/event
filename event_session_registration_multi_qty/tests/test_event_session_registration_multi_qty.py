@@ -12,7 +12,7 @@ class EventSessionRegistrationMultiQty(common.SavepointCase):
                 "name": "Test event",
                 "date_begin": "2017-05-26 20:00:00",
                 "date_end": "2017-05-30 22:00:00",
-                "seats_availability": "limited",
+                "seats_limited": True,
                 "seats_max": "250",
                 "registration_multi_qty": True,
             }
@@ -22,7 +22,7 @@ class EventSessionRegistrationMultiQty(common.SavepointCase):
                 "date_begin": "2017-05-26 20:00:00",
                 "date_end": "2017-05-26 22:00:00",
                 "event_id": cls.event.id,
-                "seats_availability": cls.event.seats_availability,
+                "seats_limited": cls.event.seats_limited,
                 "seats_max": cls.event.seats_max,
             }
         )
