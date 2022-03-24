@@ -6,7 +6,7 @@ from odoo import api, models
 class EventSession(models.Model):
     _inherit = "event.session"
 
-    @api.depends("seats_max", "registration_ids.state", "registration_ids.qty")
+    @api.depends("registration_ids.qty")
     def _compute_seats(self):
         for session in self:
             if not session.event_id.registration_multi_qty:
