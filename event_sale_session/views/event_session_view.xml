@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="view_event_session_form" model="ir.ui.view">
+        <field name="model">event.session</field>
+        <field name="inherit_id" ref="event_session.view_event_session_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='registration_ids']//field[@name='state']"
+                position="before"
+            >
+                <field name="event_ticket_id" string="Ticket" />
+            </xpath>
+        </field>
+    </record>
+    <record id="view_event_session_tree" model="ir.ui.view">
+        <field name="model">event.session</field>
+        <field name="inherit_id" ref="event_session.view_event_session_tree" />
+        <field name="arch" type="xml">
+            <field name="seats_expected" position="after">
+                <field
+                    name="unconfirmed_qty"
+                    attrs="{'invisible': [('unconfirmed_qty','&lt;', 1)]}"
+                    sum="Total unconfirmed seats in orders"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>

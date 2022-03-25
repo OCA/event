@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_sale_order_form_inherit_event" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='order_line']//tree//field[@name='event_id']"
+                position="after"
+            >
+                <field name="event_sessions_count" invisible="1" />
+                <field name="event_session_seats_limited" invisible="1" />
+                <field
+                    name="session_id"
+                    domain="[('event_id', '=', event_id)]"
+                    attrs="{
+                       'invisible': [('event_sessions_count', '&lt;', 1)],
+                       'required': [('event_sessions_count', '&gt;', 0)]
+                       }"
+                    optional="hide"
+                />
+                <field
+                    name="event_session_seats_available"
+                    attrs="{'invisible': ['|',('session_id','=',False),
+                       ('event_session_seats_limited','=',False)]}"
+                    optional="hide"
+                />
+            </xpath>
+            <xpath
+                expr="//field[@name='order_line']//form//field[@name='event_id']"
+                position="after"
+            >
+                <field name="event_sessions_count" invisible="1" />
+                <field name="event_session_seats_limited" invisible="1" />
+                <field
+                    name="session_id"
+                    domain="[('event_id', '=', event_id)]"
+                    attrs="{
+                       'invisible': [('event_sessions_count', '&lt;', 1)],
+                       'required': [('event_sessions_count', '&gt;', 0)]
+                       }"
+                />
+                <field
+                    name="event_session_seats_available"
+                    attrs="{'invisible': ['|',('session_id','=',False),
+                       ('event_session_seats_limited','=',False)]}"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

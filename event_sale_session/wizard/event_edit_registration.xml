@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_event_inherit_registration_editor_form" model="ir.ui.view">
+        <field name="name">registration.editor.form</field>
+        <field name="model">registration.editor</field>
+        <field name="inherit_id" ref="event_sale.view_event_registration_editor_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='event_registration_ids']//field[@name='event_id']"
+                position="after"
+            >
+                <field name="session_id" readonly="1" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
