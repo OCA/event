@@ -13,6 +13,7 @@ setuptools.setup(
         'odoo14-addon-event_project',
         'odoo14-addon-event_registration_mass_mailing',
         'odoo14-addon-event_registration_multi_qty',
+        'odoo14-addon-event_session',
         'odoo14-addon-partner_event',
         'odoo14-addon-website_event_questions_template',
         'odoo14-addon-website_event_require_login',
