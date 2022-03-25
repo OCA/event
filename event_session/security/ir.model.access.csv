@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_event_session_user,event.session.user,event_session.model_event_session,event.group_event_user,1,0,0,0
+access_event_session_admin,event.session.admin,event_session.model_event_session,event.group_event_manager,1,1,1,1
+access_wizard_event_session_user,event.session.user,event_session.model_wizard_event_session,event.group_event_user,1,0,0,0
+access_wizard_event_session_admin,event.session.admin,event_session.model_wizard_event_session,event.group_event_manager,1,1,1,1
+access_wizard_event_session_hours_user,event.session.user,event_session.model_wizard_event_session_hours,event.group_event_user,1,0,0,0
+access_wizard_event_session_hours_admin,event.session.admin,event_session.model_wizard_event_session_hours,event.group_event_manager,1,1,1,1
