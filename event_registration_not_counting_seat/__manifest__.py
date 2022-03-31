@@ -3,7 +3,7 @@
 {
     "name": "Event Registration Not Counting Seat",
     "summary": "Register attendee for an event but does not take one seat",
-    "version": "13.0.1.0.0",
+    "version": "13.0.1.1.0",
     "development_status": "Beta",
     "category": "Event",
     "website": "https://github.com/OCA/event",
