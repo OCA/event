@@ -1,7 +1,7 @@
-# Copyright 2017 David Vidal<david.vidal@tecnativa.com>
+# Copyright 2017-22 Tecntiva - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import SUPERUSER_ID, _, api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -95,12 +95,13 @@ class EventRegistration(models.Model):
             ):
                 raise ValidationError(_("No more seats available for this event."))
 
-    def confirm_registration(self):
-        for reg in self:
-            if not reg.event_id.session_ids:
-                super(EventRegistration, reg).confirm_registration()
-            reg.state = "open"
-            onsubscribe_schedulers = reg.session_id.event_mail_ids.filtered(
+    def write(self, vals):
+        """Trigger schedulers the same way it's done with events now"""
+        res = super().write(vals)
+        if vals.get("state", "") == "open":
+            # Auto-trigger after_sub (on subscribe) mail schedulers, if needed
+            onsubscribe_schedulers = self.mapped("session_id.event_mail_ids").filtered(
                 lambda s: s.interval_type == "after_sub"
             )
-            onsubscribe_schedulers.execute()
+            onsubscribe_schedulers.with_user(SUPERUSER_ID).execute()
+        return res

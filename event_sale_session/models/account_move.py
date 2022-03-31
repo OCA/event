@@ -11,7 +11,7 @@ class AccountMove(models.Model):
         if self.state == "cancel" and not self.env.context.get("is_merge", False):
             self.mapped("invoice_line_ids.sale_line_ids.registration_ids").filtered(
                 lambda x: x.state not in ["done", "draft"]
-            ).do_draft()
+            ).write({"state": "draft"})
 
     def unlink(self):
         registrations = self.mapped(
@@ -19,15 +19,13 @@ class AccountMove(models.Model):
         ).filtered(lambda x: x.state not in ["done", "draft"])
         res = super().unlink()
         if res:
-            registrations.filtered(
-                lambda x: x.state not in ["done", "draft"]
-            ).do_draft()
+            registrations.filtered(lambda x: x.state not in ["done", "draft"]).write(
+                {"state": "draft"}
+            )
 
     def button_draft(self):
         super().button_draft()
         if self.state == "draft":
-            registrations = self.mapped(
-                "invoice_line_ids.sale_line_ids.registration_ids"
+            self.mapped("invoice_line_ids.sale_line_ids.registration_ids").write(
+                {"state": "draft"}
             )
-            for registration in registrations:
-                registration.do_draft()
