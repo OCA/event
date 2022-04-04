@@ -11,7 +11,6 @@ class EventEvent(models.Model):
 
     registration_multi_qty = fields.Boolean(
         string="Allow multiple attendees per registration",
-        default=True,
     )
 
     @api.depends("seats_max", "registration_ids.state", "registration_ids.qty")
