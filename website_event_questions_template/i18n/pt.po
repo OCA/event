@@ -1,0 +1,171 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_event_questions_template
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+
+#. module: website_event_questions_template
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_answer__name
+msgid "Answer"
+msgstr ""
+
+#. module: website_event_questions_template
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_question__answer_ids
+msgid "Answers"
+msgstr ""
+
+#. module: website_event_questions_template
+#: model:ir.model,name:website_event_questions_template.model_event_question_template_answer
+msgid "Answers for question template"
+msgstr ""
+
+#. module: website_event_questions_template
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_question__once_per_order
+msgid "Ask only once per order"
+msgstr ""
+
+#. module: website_event_questions_template
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template__create_uid
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_answer__create_uid
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_question__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: website_event_questions_template
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template__create_date
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_answer__create_date
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_question__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: website_event_questions_template
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_event__display_name
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template__display_name
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_answer__display_name
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_question__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: website_event_questions_template
+#: model:ir.model,name:website_event_questions_template.model_event_event
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_question__event_id
+msgid "Event"
+msgstr ""
+
+#. module: website_event_questions_template
+#: model:ir.actions.act_window,name:website_event_questions_template.act_event_question_template
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_question__template_id
+#: model_terms:ir.ui.view,arch_db:website_event_questions_template.view_event_question_template_form
+msgid "Event Question Template"
+msgstr ""
+
+#. module: website_event_questions_template
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_question__event_type_id
+msgid "Event Type"
+msgstr ""
+
+#. module: website_event_questions_template
+#: model:ir.model,name:website_event_questions_template.model_event_question_template
+msgid "Event questions template"
+msgstr ""
+
+#. module: website_event_questions_template
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_event__id
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template__id
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_answer__id
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_question__id
+msgid "ID"
+msgstr ""
+
+#. module: website_event_questions_template
+#: model:ir.model.fields,help:website_event_questions_template.field_event_question_template_question__once_per_order
+msgid ""
+"If True, this question will be asked only once and its value will be "
+"propagated to every attendees.If not it will be asked for every attendee of "
+"a reservation."
+msgstr ""
+
+#. module: website_event_questions_template
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_event____last_update
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template____last_update
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_answer____last_update
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_question____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: website_event_questions_template
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template__write_uid
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_answer__write_uid
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_question__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: website_event_questions_template
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template__write_date
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_answer__write_date
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_question__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: website_event_questions_template
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template__name
+msgid "Name"
+msgstr ""
+
+#. module: website_event_questions_template
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_answer__question_id
+msgid "Question"
+msgstr ""
+
+#. module: website_event_questions_template
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_question__question_type
+msgid "Question Type"
+msgstr ""
+
+#. module: website_event_questions_template
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template__question_ids
+#: model_terms:ir.ui.view,arch_db:website_event_questions_template.view_event_question_template_form
+msgid "Questions"
+msgstr ""
+
+#. module: website_event_questions_template
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_event__event_question_template_id
+msgid "Questions Template"
+msgstr ""
+
+#. module: website_event_questions_template
+#: model:ir.ui.menu,name:website_event_questions_template.menu_event_question_template
+msgid "Questions Templates"
+msgstr ""
+
+#. module: website_event_questions_template
+#: model:ir.model,name:website_event_questions_template.model_event_question_template_question
+msgid "Questions for event template"
+msgstr ""
+
+#. module: website_event_questions_template
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_answer__sequence
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_question__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: website_event_questions_template
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_question__title
+msgid "Title"
+msgstr ""
+
+#. module: website_event_questions_template
+#: code:addons/website_event_questions_template/models/event.py:0
+#, python-format
+msgid "You can not load a template if there are defined questions"
+msgstr ""
