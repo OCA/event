@@ -32,14 +32,14 @@ class TestEventRegistrationCancelReason(common.TransactionCase):
         self.wizard_model = self.env["event.registration.cancel.log.reason"]
 
     def test_cancel(self):
-        action = self.registration1.button_reg_cancel()
+        action = self.registration1.action_cancel()
         self.assertEqual(action.get("type"), "ir.actions.act_window")
         wizard = self.wizard_model.with_context(
             active_ids=self.registrations.ids
         ).create({"reason_id": self.cancel_reason.id})
         wizard.button_log()
         self.assertEqual(self.registration1.cancel_reason_id, self.cancel_reason)
-        self.registration1.do_draft()
+        self.registration1.action_set_draft()
         self.assertFalse(self.registration1.cancel_reason_id)
 
     def test_cancel_multi_event_type(self):
