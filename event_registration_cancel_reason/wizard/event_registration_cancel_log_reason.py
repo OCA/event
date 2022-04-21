@@ -43,4 +43,4 @@ class EventRegistrationCancelLogReason(models.TransientModel):
             self.env.context["active_ids"]
         )
         registrations.write({"cancel_reason_id": self.reason_id.id})
-        registrations.with_context(bypass_reason=True).button_reg_cancel()
+        registrations.with_context(bypass_reason=True).action_cancel()
