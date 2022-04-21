@@ -29,7 +29,7 @@ msgid ""
 "                </p>\n"
 "                <p>\n"
 "                    <div style=\"margin: 16px 8px 16px 8px; text-align: center;\">\n"
-"                        <a href=\"${object.event_type_website_url}\" style=\"background-color: #875a7b; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;\">\n"
+"                        <a href=\"${ctx.get('base_url', '')}${object.event_type_website_url}\" style=\"background-color: #875a7b; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;\">\n"
 "                            View events of category\n"
 "                            <strong>${object.event_type_id.name}</strong>\n"
 "                        </a>\n"
@@ -46,8 +46,21 @@ msgid ""
 msgstr ""
 
 #. module: website_event_crm
+#: model_terms:ir.ui.view,arch_db:website_event_crm.crm_lead_view_form
+msgid ""
+"<i class=\"fa fa-info\"/> It's not possible to determine to propose events "
+"if the company isn't set or if the company has no websites. So no invitation"
+" will be sent for this lead"
+msgstr ""
+
+#. module: website_event_crm
 #: model:ir.model.fields,field_description:website_event_crm.field_crm_stage__auto_advance_stage_invite_website_event_type
 msgid "Advance stage automatically when inviting to website event category"
+msgstr ""
+
+#. module: website_event_crm
+#: model:ir.model.fields,field_description:website_event_crm.field_crm_lead__auto_invite_warning
+msgid "Auto Invite Warning"
 msgstr ""
 
 #. module: website_event_crm
@@ -89,6 +102,14 @@ msgstr ""
 #. module: website_event_crm
 #: model_terms:ir.ui.view,arch_db:website_event_crm.crm_lead_view_form
 msgid "Invite to website"
+msgstr ""
+
+#. module: website_event_crm
+#: code:addons/website_event_crm/models/crm_lead.py:0
+#, python-format
+msgid ""
+"It's not possible to determine to propose events if the company isn't set or"
+" if the company has no websites. So no invitation will be sent for this lead"
 msgstr ""
 
 #. module: website_event_crm

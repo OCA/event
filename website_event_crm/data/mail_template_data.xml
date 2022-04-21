@@ -28,7 +28,7 @@
                 <p>
                     <div style="margin: 16px 8px 16px 8px; text-align: center;">
                         <a
-                            href="${object.event_type_website_url}"
+                            href="${ctx.get('base_url', '')}${object.event_type_website_url}"
                             style="background-color: #875a7b; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;"
                         >
                             View events of category
