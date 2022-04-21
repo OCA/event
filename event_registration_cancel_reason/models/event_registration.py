@@ -5,7 +5,7 @@
 # Copyright 2020 Tecnativa - Víctor Martínez
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
-from openerp import fields, models
+from odoo import fields, models
 
 
 class EventRegistration(models.Model):
@@ -18,9 +18,9 @@ class EventRegistration(models.Model):
         ondelete="restrict",
     )
 
-    def button_reg_cancel(self):
+    def action_cancel(self):
         if self.env.context.get("bypass_reason"):
-            return super(EventRegistration, self).button_reg_cancel()
+            return super().action_cancel()
         return {
             "type": "ir.actions.act_window",
             "name": "Cancellation reason",
@@ -29,8 +29,8 @@ class EventRegistration(models.Model):
             "target": "new",
         }
 
-    def do_draft(self):
-        super(EventRegistration, self).do_draft()
+    def action_set_draft(self):
+        super().action_set_draft()
         self.write({"cancel_reason_id": False})
 
 
