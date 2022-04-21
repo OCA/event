@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 from odoo.tests.common import SavepointCase
 
 
-class EventTypeCase(SavepointCase):
+class CrmEventCase(SavepointCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -94,6 +94,8 @@ class EventTypeCase(SavepointCase):
         for opp in cls.opportunities:
             cls.leads |= opp.copy({"type": "lead"})
 
+
+class CrmEventTest(CrmEventCase):
     def test_event_totals(self):
         self.assertEqual(self.type_a.seats_available_total, "3 (1101)")
         self.assertEqual(self.type_b.seats_available_total, "3 (Unlimited)")
