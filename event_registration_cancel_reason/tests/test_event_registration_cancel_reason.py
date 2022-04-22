@@ -7,29 +7,30 @@ from odoo import exceptions, fields
 from odoo.tests import common
 
 
-class TestEventRegistrationCancelReason(common.TransactionCase):
-    def setUp(self):
-        super(TestEventRegistrationCancelReason, self).setUp()
-        self.event1 = self.env["event.event"].create(
+class TestEventRegistrationCancelReason(common.SavepointCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.event1 = cls.env["event.event"].create(
             {
                 "name": "Test event",
-                "event_type_id": self.env.ref("event.event_type_1").id,
+                "event_type_id": cls.env.ref("event.event_type_1").id,
                 "date_begin": fields.Date.today(),
                 "date_end": fields.Date.today(),
             }
         )
-        self.event2 = self.event1.copy()
-        self.partner = self.env["res.partner"].create({"name": "Test partner"})
-        self.cancel_reason = self.env["event.registration.cancel.reason"].create(
+        cls.event2 = cls.event1.copy()
+        cls.partner = cls.env["res.partner"].create({"name": "Test partner"})
+        cls.cancel_reason = cls.env["event.registration.cancel.reason"].create(
             {"name": "Test reason"}
         )
-        self.registration1 = self.env["event.registration"].create(
-            {"event_id": self.event1.id, "partner_id": self.partner.id}
+        cls.registration1 = cls.env["event.registration"].create(
+            {"event_id": cls.event1.id, "partner_id": cls.partner.id}
         )
-        self.registration2 = self.registration1.copy()
-        self.registration2.event_id = self.event2
-        self.registrations = self.registration1 | self.registration2
-        self.wizard_model = self.env["event.registration.cancel.log.reason"]
+        cls.registration2 = cls.registration1.copy()
+        cls.registration2.event_id = cls.event2
+        cls.registrations = cls.registration1 | cls.registration2
+        cls.wizard_model = cls.env["event.registration.cancel.log.reason"]
 
     def test_cancel(self):
         action = self.registration1.action_cancel()
