@@ -28,6 +28,7 @@ addon | version | maintainers | summary
 [event_registration_multi_qty](event_registration_multi_qty/) | 14.0.1.0.0 |  | Allow registration grouped by quantities
 [event_sale_session](event_sale_session/) | 14.0.1.0.1 |  | Sessions sales in events
 [event_session](event_session/) | 14.0.1.0.1 |  | Sessions in events
+[event_session_registration_multi_qty](event_session_registration_multi_qty/) | 14.0.1.0.0 |  | Allow registration grouped by quantities in sessions
 [partner_event](partner_event/) | 14.0.1.0.1 |  | Link partner to events
 [website_event_questions_template](website_event_questions_template/) | 14.0.1.0.0 |  | Set question templates for events
 [website_event_require_login](website_event_require_login/) | 14.0.1.0.1 |  | Website Event Require Login
