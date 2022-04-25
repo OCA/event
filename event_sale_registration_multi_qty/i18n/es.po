@@ -1,0 +1,44 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_sale_registration_multi_qty
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-06-14 14:00+0000\n"
+"PO-Revision-Date: 2017-06-14 16:01+0200\n"
+"Last-Translator: David <david.vidal@tecnativa.com>\n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: event_sale_registration_multi_qty
+#: model:ir.model,name:event_sale_registration_multi_qty.model_registration_editor
+msgid "Edit Attendee Details on Sales Confirmation"
+msgstr ""
+
+#. module: event_sale_registration_multi_qty
+#: model:ir.model,name:event_sale_registration_multi_qty.model_registration_editor_line
+msgid "Edit Attendee Line on Sales Confirmation"
+msgstr ""
+
+#. module: event_sale_registration_multi_qty
+#: model:ir.model.fields,field_description:event_sale_registration_multi_qty.field_registration_editor_line__qty
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: event_sale_registration_multi_qty
+#: model:ir.model,name:event_sale_registration_multi_qty.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Línea de pedido de venta"
+
+#~ msgid "registration.editor"
+#~ msgstr "registration.editor"
+
+#~ msgid "registration.editor.line"
+#~ msgstr "registration.editor.line"
