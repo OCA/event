@@ -14,6 +14,7 @@ setuptools.setup(
         'odoo14-addon-event_registration_cancel_reason',
         'odoo14-addon-event_registration_mass_mailing',
         'odoo14-addon-event_registration_multi_qty',
+        'odoo14-addon-event_sale_registration_multi_qty',
         'odoo14-addon-event_sale_session',
         'odoo14-addon-event_session',
         'odoo14-addon-event_session_registration_multi_qty',
