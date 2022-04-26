@@ -1,10 +1,10 @@
 # Copyright 2016 Antiun Ingeniería S.L. - Jairo Llopis
 # Copyright 2020 Tecnativa - Víctor Martínez
+# Copyright 2022 Tecnativa - Luis D. Lafaurie
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import api, fields, models
-
-from .. import exceptions
+from odoo import _, api, fields, models
+from odoo.exceptions import ValidationError
 
 
 class EventEvent(models.Model):
@@ -32,13 +32,14 @@ class EventRegistration(models.Model):
         for event_reg in self.filtered("event_id.forbid_duplicates"):
             dupes = self.search(event_reg._duplicate_search_domain())
             if dupes:
-                raise exceptions.DuplicatedPartnerError(
-                    event_reg.event_id.display_name,
-                    ", ".join(
-                        partner_id.display_name
-                        for partner_id in dupes.mapped("attendee_partner_id")
-                    ),
-                    registrations=dupes,
+                raise ValidationError(
+                    _("Duplicated partners found in event {0}: {1}.").format(
+                        event_reg.event_id.display_name,
+                        ", ".join(
+                            partner_id.display_name
+                            for partner_id in dupes.mapped("attendee_partner_id")
+                        ),
+                    )
                 )
 
     def _duplicate_search_domain(self):
