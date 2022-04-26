@@ -14,19 +14,19 @@ Unique Partner per Event
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fevent-lightgray.png?logo=github
-    :target: https://github.com/OCA/event/tree/13.0/event_registration_partner_unique
+    :target: https://github.com/OCA/event/tree/14.0/event_registration_partner_unique
     :alt: OCA/event
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/event-13-0/event-13-0-event_registration_partner_unique
+    :target: https://translation.odoo-community.org/projects/event-14-0/event-14-0-event_registration_partner_unique
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
-    :target: https://runbot.odoo-community.org/runbot/199/13.0
+    :target: https://runbot.odoo-community.org/runbot/199/14.0
     :alt: Try me on Runbot
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
 
-This module intended used only with backend and extends the functionality of events
-to support forbidding to duplicate the same Attendee in an event.
+This module is intended for backend use only, and extends the functionality
+of events to avoid duplicating attendees.
 
 **Table of contents**
 
@@ -36,25 +36,29 @@ to support forbidding to duplicate the same Attendee in an event.
 Usage
 =====
 
-#. Go to **Events > Events > Create**.
-#. Enable **Forbid duplicates**.
-#. Try to create 2 registrations for the same Attendee in this event.
-#. You can't.
+#. Go to **Events** and choose an event or create a new one.
+#. Enable **Forbid Duplicates**.
+#. Go to **Attendees**.
+#. Create a new attendee, starting with **Booked by**.
+#. Several attendees can have the same *Booked by* person or company, but if
+   you try to register an attendee by **Attendee Name** or by
+   **Attendee Partner** more than once for the same event, the system won't
+   allow it and will show a *Validation Error*.
 
 Known issues / Roadmap
 ======================
 
-* This modules intended used with backend, so the validation error
-  are enough to show user what is wrong, when *website_event* is installed
-  public user would try register attendees.
-  As soon try more than one attendee this will trigger validation error as
-  the attendee partner is duplicated the error shown is 500 internal server error
-  which is no appropriated.
-* It would be necessary have a new module with depends on website_event and this
-  one to prevent this issue.
-* Another kind of problem is with *event_sale* module that would try use Sale Order
-  contact as attendee that will lead to the issue of attendee duplicates if try to
-  buy two times same event.
+* This module is intended for backend use, so the validation error is enough
+  to show the user what is wrong,
+* When *website_event* is installed, and public users try to register more
+  than one attendee, this will trigger a validation error as the attendee
+  partner is duplicated. The error shown is 500 internal server error.
+* It would be necessary to have a new module which depends on *website_event*
+  plus this one to prevent said issue.
+* Another problem would arise when used with *event_sale* module, because it
+  would try to use "Sale Order" contact as attendee and that will lead to the
+  issue of duplicated attendees if trying to buy access to the same event
+  more than once.
 
 Bug Tracker
 ===========
@@ -62,7 +66,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/event/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/event/issues/new?body=module:%20event_registration_partner_unique%0Aversion:%2013.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/event/issues/new?body=module:%20event_registration_partner_unique%0Aversion:%2014.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -99,6 +103,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/event <https://github.com/OCA/event/tree/13.0/event_registration_partner_unique>`_ project on GitHub.
+This module is part of the `OCA/event <https://github.com/OCA/event/tree/14.0/event_registration_partner_unique>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
