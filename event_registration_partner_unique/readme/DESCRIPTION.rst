@@ -1,2 +1,2 @@
-This module intended used only with backend and extends the functionality of events
-to support forbidding to duplicate the same Attendee in an event.
+This module is intended for backend use only, and extends the functionality
+of events to avoid duplicating attendees.
