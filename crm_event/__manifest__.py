@@ -3,7 +3,7 @@
 {
     "name": "CRM Event Category",
     "summary": "Link opportunities to event categories",
-    "version": "13.0.1.0.0",
+    "version": "13.0.1.0.1",
     "development_status": "Production/Stable",
     "category": "Event Management",
     "website": "https://github.com/OCA/event",
