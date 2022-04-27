@@ -4,7 +4,7 @@
     "name": "Create event quotations from opportunities",
     "summary": "Combine event reservations, opportunities and quotations",
     "version": "13.0.1.0.0",
-    "development_status": "Production/Stable",
+    "development_status": "Beta",
     "category": "Marketing",
     "website": "https://github.com/OCA/event",
     "author": "Tecnativa, Odoo Community Association (OCA)",
