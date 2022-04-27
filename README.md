@@ -27,7 +27,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[crm_event](crm_event/) | 13.0.1.0.0 | [![Yajo](https://github.com/Yajo.png?size=30px)](https://github.com/Yajo) | Link opportunities to event categories
+[crm_event](crm_event/) | 13.0.1.0.1 | [![Yajo](https://github.com/Yajo.png?size=30px)](https://github.com/Yajo) | Link opportunities to event categories
 [event_contact](event_contact/) | 13.0.1.0.0 |  | Add contacts to event and event type
 [event_email_reminder](event_email_reminder/) | 13.0.1.0.0 |  | Send an email before an event start
 [event_mail](event_mail/) | 13.0.1.0.0 |  | Mail settings in events
@@ -42,7 +42,7 @@ addon | version | maintainers | summary
 [event_track_location_overlap](event_track_location_overlap/) | 13.0.1.0.0 |  | Restrict event track location overlapping
 [event_type_multi_company](event_type_multi_company/) | 13.0.1.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Event Type Multi-Company
 [partner_event](partner_event/) | 13.0.1.0.1 |  | Link partner to events
-[sale_crm_event_reservation](sale_crm_event_reservation/) | 13.0.1.0.0 | [![Yajo](https://github.com/Yajo.png?size=30px)](https://github.com/Yajo) | Combine event reservations, opportunities and quotations
+[sale_crm_event_reservation](sale_crm_event_reservation/) | 13.0.1.0.1 | [![Yajo](https://github.com/Yajo.png?size=30px)](https://github.com/Yajo) | Combine event reservations, opportunities and quotations
 [website_event_crm](website_event_crm/) | 13.0.1.0.0 | [![Yajo](https://github.com/Yajo.png?size=30px)](https://github.com/Yajo) | Invite leads to event types on website
 [website_event_filter_city](website_event_filter_city/) | 13.0.1.0.1 | [![Yajo](https://github.com/Yajo.png?size=30px)](https://github.com/Yajo) | Add a customizable top area to filter events with city
 [website_event_questions_by_ticket](website_event_questions_by_ticket/) | 13.0.1.0.1 |  | Events Questions conditional to the chosen ticket
