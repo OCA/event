@@ -12,7 +12,7 @@
     "version": "13.0.1.0.1",
     "category": "Marketing",
     "author": "Tecnativa," "Odoo Community Association (OCA)",
-    "website": "https://www.tecnativa.com",
+    "website": "https://github.com/OCA/event",
     "development_status": "Production/Stable",
     "license": "AGPL-3",
     "depends": ["event"],

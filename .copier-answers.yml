@@ -1,0 +1,20 @@
+# Do NOT update manually; changes here will be overwritten by Copier
+_commit: v1.6.1
+_src_path: https://github.com/OCA/oca-addons-repo-template.git
+ci: GitHub
+dependency_installation_mode: PIP
+generate_requirements_txt: true
+include_wkhtmltopdf: false
+odoo_version: 13.0
+org_name: Odoo Community Association (OCA)
+org_slug: OCA
+rebel_module_groups: []
+repo_description: This repository includes all modules relative to event management
+    that extends current functionality in Odoo:\n\n* Link with projects and plan them\n*
+    Add images to events\n* Allow nested events\n* ...
+repo_name: Event management addons for Odoo
+repo_slug: event
+repo_website: https://github.com/OCA/event
+travis_apt_packages: []
+travis_apt_sources: []
+

@@ -6,7 +6,7 @@
     "version": "13.0.1.0.0",
     "author": "Tecnativa, " "Odoo Community Association (OCA)",
     "license": "AGPL-3",
-    "website": "https://www.github.com/OCA/event",
+    "website": "https://github.com/OCA/event",
     "category": "Marketing",
     "summary": "Allows sell registrations with more than one attendee",
     "depends": ["event_sale", "event_registration_multi_qty"],
