@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 Camptocamp SA - Damien Crier
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_event_quick_registration_form" model="ir.ui.view">
+        <field name="name">event.quick.registration.form</field>
+        <field name="model">event.quick.registration</field>
+        <field name="arch" type="xml">
+            <form string="Registration">
+                <group>
+                        <field name="event_id" readonly='1' />
+                        <field
+                        name="event_ticket_id"
+                        domain="[('event_id', '=', event_id)]"
+                    />
+                        <field name="qty" />
+                        <field name="name" />
+                        <field name="email" />
+                        <field name="phone" />
+                        <field name="confirm_registration" />
+                </group>
+                <footer>
+                    <button
+                        string="Apply"
+                        name="create_attendees"
+                        type="object"
+                        class="btn-primary"
+                    />
+                    <button string="Skip" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_event_quick_registration" model="ir.actions.act_window">
+        <field name="name">Event Quick Registrations</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">event.quick.registration</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_event_quick_registration_form" />
+        <field name="target">new</field>
+        <field name="context">{}</field>
+    </record>
+</odoo>
