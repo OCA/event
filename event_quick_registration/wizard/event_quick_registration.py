@@ -12,9 +12,9 @@ class EventQuickRegistration(models.TransientModel):
     event_ticket_id = fields.Many2one("event.event.ticket", required=True)
     qty = fields.Integer(required=True)
     confirm_registration = fields.Boolean()
-    email = fields.Char(string="Email")
-    phone = fields.Char(string="Phone")
-    name = fields.Char(string="Name")
+    email = fields.Char()
+    phone = fields.Char()
+    name = fields.Char()
 
     @api.model
     def default_get(self, fields):
@@ -35,9 +35,8 @@ class EventQuickRegistration(models.TransientModel):
 
     def create_attendees(self):
         self.ensure_one()
-        Registration = self.env["event.registration"]
-        attendees = Registration.browse()
-        for _i in range(self.qty):
-            attendees |= Registration.create(self._get_registration_data())
+        attendees = self.env["event.registration"].create(
+            [self._get_registration_data() for i in range(self.qty)]
+        )
         if self.confirm_registration:
             attendees.confirm_registration()

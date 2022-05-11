@@ -6,12 +6,11 @@
         <field name="model">event.event</field>
         <field name="inherit_id" ref="event.view_event_form" />
         <field name="arch" type="xml">
-            <field name="state" position="before">
+            <field name="stage_id" position="before">
                 <button
                     string="Add attendees"
                     name="%(event_quick_registration.action_event_quick_registration)d"
                     type="action"
-                    states="draft,confirm"
                 />
             </field>
         </field>
