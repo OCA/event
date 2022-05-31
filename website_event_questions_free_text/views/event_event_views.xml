@@ -2,55 +2,38 @@
 <!-- Copyright 2019 Tecnativa - Pedro M. Baeza
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 <odoo>
-    <record model="ir.ui.view" id="view_event_question_form">
-        <field name="model">event.question</field>
-        <field
-            name="inherit_id"
-            ref="website_event_questions.view_event_question_form"
-        />
+    <record id="event_event_view_form" model="ir.ui.view">
+        <field name="name">event.event.view.form.inherit.question</field>
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="website_event_questions.event_event_view_form" />
         <field name="arch" type="xml">
-            <field name="is_individual" position="before">
+            <field name="once_per_order" position="after">
                 <field name="free_text" />
-                <label name="free_text" for="free_text" />
             </field>
             <field name="answer_ids" position="attributes">
                 <attribute
                     name="attrs"
                 >{'invisible': [('free_text', '=', True)]}</attribute>
             </field>
-        </field>
-    </record>
-    <record model="ir.ui.view" id="view_event_form_inherit_question">
-        <field name="model">event.event</field>
-        <field
-            name="inherit_id"
-            ref="website_event_questions.view_event_form_inherit_question"
-        />
-        <field name="arch" type="xml">
-            <xpath
-                expr="//field[@name='question_ids']/tree/field[@name='is_individual']"
-                position="after"
-            >
+            <xpath expr="//group/div/field[@name='once_per_order']" position="before">
                 <field name="free_text" />
+                <label for="free_text" />
             </xpath>
-            <xpath
-                expr="//field[@name='question_ids']/tree/field[@name='answer_ids']"
-                position="attributes"
-            >
+            <xpath expr="//notebook/page[@name='answers']" position="attributes">
                 <attribute
                     name="attrs"
                 >{'invisible': [('free_text', '=', True)]}</attribute>
             </xpath>
         </field>
     </record>
-    <record model="ir.ui.view" id="view_event_registration_form_inherit_question">
+    <record model="ir.ui.view" id="event_registration_view_form_inherit_question">
         <field name="model">event.registration</field>
         <field
             name="inherit_id"
-            ref="website_event_questions.view_event_registration_form_inherit_question"
+            ref="website_event_questions.event_registration_view_form_inherit_question"
         />
         <field name="arch" type="xml">
-            <field name="answer_ids" position="after">
+            <field name="registration_answer_ids" position="after">
                 <field name="free_answer_ids" readonly="1" widget="many2many_tags" />
             </field>
         </field>

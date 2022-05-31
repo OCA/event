@@ -3,13 +3,13 @@
 
 {
     "name": "Free Text Answers on Events Questions",
-    "version": "13.0.1.0.0",
+    "version": "14.0.1.0.0",
     "category": "Website",
     "website": "https://github.com/OCA/event",
     "author": "Tecnativa, " "Odoo Community Association (OCA)",
     "license": "LGPL-3",
     "installable": True,
-    "depends": ["website_event_questions"],
+    "depends": ["website_event_questions", "website_event_questions_template"],
     "data": [
         "security/ir.model.access.csv",
         "views/event_event_views.xml",
