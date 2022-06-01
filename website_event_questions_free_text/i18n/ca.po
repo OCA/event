@@ -6,95 +6,97 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2022-06-01 11:05+0000\n"
+"Last-Translator: pere-aquarian <pere@aquarian.tech>\n"
 "Language-Team: none\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: website_event_questions_free_text
 #: model:ir.model.fields,help:website_event_questions_free_text.field_event_question__free_text
 msgid "Allow user to introduce a free text as answer."
-msgstr ""
+msgstr "Permet als/les usuaris/àries introduir un texte lliure com a resposta."
 
 #. module: website_event_questions_free_text
 #: model:ir.model.fields,field_description:website_event_questions_free_text.field_event_answer_free__answer
 msgid "Answer"
-msgstr ""
+msgstr "Resposta"
 
 #. module: website_event_questions_free_text
 #: model:ir.model.fields,field_description:website_event_questions_free_text.field_event_answer_free__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creat per"
 
 #. module: website_event_questions_free_text
 #: model:ir.model.fields,field_description:website_event_questions_free_text.field_event_answer_free__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creat el"
 
 #. module: website_event_questions_free_text
 #: model:ir.model.fields,field_description:website_event_questions_free_text.field_event_answer_free__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nom a mostrar"
 
 #. module: website_event_questions_free_text
 #: model:ir.model,name:website_event_questions_free_text.model_event_answer_free
 msgid "Event Answer Free Text"
-msgstr ""
+msgstr "Resposta d'esdeveniment de text lliure"
 
 #. module: website_event_questions_free_text
 #: model:ir.model,name:website_event_questions_free_text.model_event_question
 msgid "Event Question"
-msgstr ""
+msgstr "Pregunta d'esdeveniment"
 
 #. module: website_event_questions_free_text
 #: model:ir.model,name:website_event_questions_free_text.model_event_registration
 msgid "Event Registration"
-msgstr ""
+msgstr "Registre d'esdeveniment"
 
 #. module: website_event_questions_free_text
 #: model:ir.model.fields,field_description:website_event_questions_free_text.field_event_registration__free_answer_ids
 msgid "Free Answers"
-msgstr ""
+msgstr "Respostes lliures"
 
 #. module: website_event_questions_free_text
 #: model:ir.model.fields,field_description:website_event_questions_free_text.field_event_question__free_text
 msgid "Free Text"
-msgstr ""
+msgstr "Text lliure"
 
 #. module: website_event_questions_free_text
 #: model:ir.model.fields,field_description:website_event_questions_free_text.field_event_answer_free__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: website_event_questions_free_text
 #: model:ir.model.fields,field_description:website_event_questions_free_text.field_event_answer_free____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Darrera modificació el"
 
 #. module: website_event_questions_free_text
 #: model:ir.model.fields,field_description:website_event_questions_free_text.field_event_answer_free__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Darrera modificació per"
 
 #. module: website_event_questions_free_text
 #: model:ir.model.fields,field_description:website_event_questions_free_text.field_event_answer_free__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Darrera modificació el"
 
 #. module: website_event_questions_free_text
 #: model:ir.model.fields,field_description:website_event_questions_free_text.field_event_answer_free__question_id
 msgid "Question"
-msgstr ""
+msgstr "Pregunta"
 
 #. module: website_event_questions_free_text
 #: model:ir.model.fields,field_description:website_event_questions_free_text.field_event_answer_free__registration_id
 msgid "Registration"
-msgstr ""
+msgstr "Registre"
 
 #. module: website_event_questions_free_text
 #: model:ir.model.constraint,message:website_event_questions_free_text.constraint_event_answer_free_unique_registration_question
 msgid "You can't answer the same question 2 times"
-msgstr ""
+msgstr "No pot respondre la mateixa pregunta 2 cops"
