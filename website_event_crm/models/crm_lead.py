@@ -141,6 +141,14 @@ class CRMLead(models.Model):
             raise UserError(_("Select one event type with published events."))
         compose_form_id = self.env.ref("mail.email_compose_message_wizard_form").id
         template_id = self.env.ref("website_event_crm.crm_lead_event_type_tpl").id
+        # When manually sending the invitation we won't have the proper context and
+        # get_base_url isn't very smart in this Odoo version
+        base_url_object = (
+            fields.first(
+                self.env["website"].search([("company_id", "=", self.company_id.id)])
+            )
+            or self
+        )
         return {
             "context": {
                 "auto_advance_stage": True,
@@ -150,7 +158,9 @@ class CRMLead(models.Model):
                 "default_template_id": template_id,
                 "default_use_template": True,
                 "force_email": True,
-                "base_url": self.env.context.get("base_url", self.get_base_url()),
+                "base_url": self.env.context.get(
+                    "base_url", base_url_object.get_base_url()
+                ),
             },
             "name": _("Invite to visit website"),
             "res_model": "mail.compose.message",
