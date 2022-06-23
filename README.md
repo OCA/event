@@ -43,7 +43,7 @@ addon | version | maintainers | summary
 [event_type_multi_company](event_type_multi_company/) | 13.0.1.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Event Type Multi-Company
 [partner_event](partner_event/) | 13.0.1.0.1 |  | Link partner to events
 [sale_crm_event_reservation](sale_crm_event_reservation/) | 13.0.1.0.1 | [![Yajo](https://github.com/Yajo.png?size=30px)](https://github.com/Yajo) | Combine event reservations, opportunities and quotations
-[website_event_crm](website_event_crm/) | 13.0.1.1.0 | [![Yajo](https://github.com/Yajo.png?size=30px)](https://github.com/Yajo) | Invite leads to event types on website
+[website_event_crm](website_event_crm/) | 13.0.1.1.1 | [![Yajo](https://github.com/Yajo.png?size=30px)](https://github.com/Yajo) | Invite leads to event types on website
 [website_event_filter_city](website_event_filter_city/) | 13.0.1.0.2 | [![Yajo](https://github.com/Yajo.png?size=30px)](https://github.com/Yajo) | Add a customizable top area to filter events with city
 [website_event_questions_by_ticket](website_event_questions_by_ticket/) | 13.0.1.0.1 |  | Events Questions conditional to the chosen ticket
 [website_event_questions_free_text](website_event_questions_free_text/) | 13.0.1.0.0 |  | Free Text Answers on Events Questions
