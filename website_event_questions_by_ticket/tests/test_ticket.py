@@ -38,7 +38,6 @@ class TestTicket(HttpCase):
                 "title": "Question Two",
                 "event_id": self.event_1.id,
                 "restricted_ticket_ids": [(6, 0, self.ticket_1.ids)],
-                "is_individual": True,
             }
         )
 
