@@ -370,6 +370,11 @@ ul.auto-toc {
 <p><a class="reference external" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/licence-AGPL--3-blue.png" /></a> <a class="reference external" href="https://github.com/OCA/event/tree/14.0/event_registration_partner_unique"><img alt="OCA/event" src="https://img.shields.io/badge/github-OCA%2Fevent-lightgray.png?logo=github" /></a> <a class="reference external" href="https://translation.odoo-community.org/projects/event-14-0/event-14-0-event_registration_partner_unique"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external" href="https://runbot.odoo-community.org/runbot/199/14.0"><img alt="Try me on Runbot" src="https://img.shields.io/badge/runbot-Try%20me-875A7B.png" /></a></p>
 <p>This module is intended for backend use only, and extends the functionality
 of events to avoid duplicating attendees.</p>
+<p>It is designed to work alongside <em>partner_event</em> (which is a dependency), and
+it is advisable to enable it by clicking on <strong>Create Partners in
+registration</strong>; this way it will create new partners or will match existing
+ones, but at the same time will avoid creating duplicates from partners
+already existing.</p>
 <p><strong>Table of contents</strong></p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
@@ -390,11 +395,10 @@ of events to avoid duplicating attendees.</p>
 <li>Go to <strong>Events</strong> and choose an event or create a new one.</li>
 <li>Enable <strong>Forbid Duplicates</strong>.</li>
 <li>Go to <strong>Attendees</strong>.</li>
-<li>Create a new attendee, starting with <strong>Booked by</strong>.</li>
-<li>Several attendees can have the same <em>Booked by</em> person or company, but if
-you try to register an attendee by <strong>Attendee Name</strong> or by
-<strong>Attendee Partner</strong> more than once for the same event, the system won’t
-allow it and will show a <em>Validation Error</em>.</li>
+<li>Create a new attendee.</li>
+<li>If you try to fill successive attendees with the same contact filled out in
+the “Attendee Partner” field, the system won’t allow it. That can
+happen for example if the same email is used several times.</li>
 </ol>
 </div>
 <div class="section" id="known-issues-roadmap">
