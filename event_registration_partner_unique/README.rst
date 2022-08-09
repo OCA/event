@@ -28,6 +28,12 @@ Unique Partner per Event
 This module is intended for backend use only, and extends the functionality
 of events to avoid duplicating attendees.
 
+It is designed to work alongside *partner_event* (which is a dependency), and
+it is advisable to enable it by clicking on **Create Partners in
+registration**; this way it will create new partners or will match existing
+ones, but at the same time will avoid creating duplicates from partners
+already existing.
+
 **Table of contents**
 
 .. contents::
@@ -39,11 +45,10 @@ Usage
 #. Go to **Events** and choose an event or create a new one.
 #. Enable **Forbid Duplicates**.
 #. Go to **Attendees**.
-#. Create a new attendee, starting with **Booked by**.
-#. Several attendees can have the same *Booked by* person or company, but if
-   you try to register an attendee by **Attendee Name** or by
-   **Attendee Partner** more than once for the same event, the system won't
-   allow it and will show a *Validation Error*.
+#. Create a new attendee.
+#. If you try to fill successive attendees with the same contact filled out in
+   the "Attendee Partner" field, the system won't allow it. That can
+   happen for example if the same email is used several times.
 
 Known issues / Roadmap
 ======================
