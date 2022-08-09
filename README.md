@@ -26,6 +26,7 @@ addon | version | maintainers | summary
 [event_registration_cancel_reason](event_registration_cancel_reason/) | 14.0.1.0.0 |  | Reasons for event registrations cancellations
 [event_registration_mass_mailing](event_registration_mass_mailing/) | 14.0.1.0.0 |  | Put event registrations emails into mailing lists
 [event_registration_multi_qty](event_registration_multi_qty/) | 14.0.1.0.0 |  | Allow registration grouped by quantities
+[event_registration_partner_unique](event_registration_partner_unique/) | 14.0.1.0.0 |  | Enforces 1 registration per partner and event
 [event_sale_registration_multi_qty](event_sale_registration_multi_qty/) | 14.0.1.0.0 |  | Allows sell registrations with more than one attendee
 [event_sale_session](event_sale_session/) | 14.0.1.0.1 |  | Sessions sales in events
 [event_session](event_session/) | 14.0.1.0.1 |  | Sessions in events
