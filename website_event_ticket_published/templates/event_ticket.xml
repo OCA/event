@@ -2,7 +2,7 @@
 <odoo>
     <template
         id="registration_template"
-        inherit_id="website_event_sale.registration_template"
+        inherit_id="website_event.registration_template"
     >
         <xpath expr="//t[@t-set='tickets']" position="attributes">
             <attribute
