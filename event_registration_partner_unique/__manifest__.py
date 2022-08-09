@@ -6,7 +6,7 @@
 {
     "name": "Unique Partner per Event",
     "summary": "Enforces 1 registration per partner and event",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.0.1",
     "category": "Marketing",
     "website": "https://github.com/OCA/event",
     "author": "Tecnativa, Odoo Community Association (OCA)",
