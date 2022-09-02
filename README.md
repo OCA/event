@@ -1,14 +1,15 @@
 
 [![Runboat](https://img.shields.io/badge/runboat-Try%20me-875A7B.png)](https://runboat.odoo-community.org/builds?repo=OCA/event&target_branch=14.0)
-[![Build Status](https://travis-ci.com/OCA/event.svg?branch=14.0)](https://travis-ci.com/OCA/event)
+[![Pre-commit Status](https://github.com/OCA/event/actions/workflows/pre-commit.yml/badge.svg?branch=14.0)](https://github.com/OCA/event/actions/workflows/pre-commit.yml?query=branch%3A14.0)
+[![Build Status](https://github.com/OCA/event/actions/workflows/test.yml/badge.svg?branch=14.0)](https://github.com/OCA/event/actions/workflows/test.yml?query=branch%3A14.0)
 [![codecov](https://codecov.io/gh/OCA/event/branch/14.0/graph/badge.svg)](https://codecov.io/gh/OCA/event)
 [![Translation Status](https://translation.odoo-community.org/widgets/event-14-0/-/svg-badge.svg)](https://translation.odoo-community.org/engage/event-14-0/?utm_source=widget)
 
 <!-- /!\ do not modify above this line -->
 
-# event
+# Event management addons for Odoo
 
-TODO: add repo description.
+This repository includes all modules relative to event management that extends current functionality in Odoo: - Link with projects and plan them. - Add images to events. - Allow nested events. - ...
 
 <!-- /!\ do not modify below this line -->
 
