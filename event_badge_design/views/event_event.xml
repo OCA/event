@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 Hunki Enterprises BV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+<record id="view_event_form" model="ir.ui.view">
+    <field name="model">event.event</field>
+    <field name="inherit_id" ref="event.view_event_form" />
+    <field name="arch" type="xml">
+        <notebook position="inside">
+            <page name="event_logo" string="Logo">
+                <field name="event_logo" />
+            </page>
+            <page name="badge_front" string="Badge front">
+                <field name="badge_front" />
+            </page>
+            <page name="badge_back" string="Badge back">
+                <field name="badge_back" />
+            </page>
+            <page name="badge_innerleft" string="Badge inner (left)">
+                <field name="badge_innerleft" />
+            </page>
+            <page name="badge_innerright" string="Badge inner (right)">
+                <field name="badge_innerright" />
+            </page>
+        </notebook>
+    </field>
+</record>
+
+</odoo>
