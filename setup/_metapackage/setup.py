@@ -8,6 +8,7 @@ setuptools.setup(
     description="Meta package for oca-event Odoo addons",
     version=version,
     install_requires=[
+        'odoo14-addon-event_badge_design',
         'odoo14-addon-event_contact',
         'odoo14-addon-event_mail',
         'odoo14-addon-event_project',
