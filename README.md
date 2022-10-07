@@ -21,7 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[event_badge_design](event_badge_design/) | 14.0.1.0.0 |  | Allows you to customize event badges
+[event_badge_design](event_badge_design/) | 14.0.1.0.1 |  | Allows you to customize event badges
 [event_contact](event_contact/) | 14.0.1.0.0 |  | Add contacts to event and event type
 [event_mail](event_mail/) | 14.0.1.0.0 |  | Mail settings in events
 [event_project](event_project/) | 14.0.1.0.0 |  | Event project
