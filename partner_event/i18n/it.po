@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2022-10-08 23:35+0000\n"
+"Last-Translator: Sergio Zanchetta <primes2h@gmail.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner__registration_count
@@ -38,17 +40,17 @@ msgstr ""
 #. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
 msgid "Cancel"
-msgstr ""
+msgstr "Annulla"
 
 #. module: partner_event
 #: model:ir.model,name:partner_event.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Contatto"
 
 #. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.view_partner_form_registrations
 msgid "Count of events with confirmed registrations."
-msgstr ""
+msgstr "Numero di eventi con registrazioni confermate."
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_event_event__create_partner
@@ -76,29 +78,29 @@ msgstr ""
 #: model:ir.model.fields,field_description:partner_event.field_res_partner__display_name
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__errors
 msgid "Errors"
-msgstr ""
+msgstr "Errori"
 
 #. module: partner_event
 #: model:ir.model,name:partner_event.model_event_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__event
 msgid "Event"
-msgstr ""
+msgstr "Evento"
 
 #. module: partner_event
 #: model:ir.model,name:partner_event.model_event_registration
 msgid "Event Registration"
-msgstr ""
+msgstr "Registrazione evento"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner__event_registration_ids
 #: model:ir.model.fields,field_description:partner_event.field_res_users__event_registration_ids
 msgid "Event registrations"
-msgstr ""
+msgstr "Registrazioni evento"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_event_event__id
@@ -106,7 +108,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:partner_event.field_res_partner__id
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_event_event____last_update
@@ -114,17 +116,17 @@ msgstr ""
 #: model:ir.model.fields,field_description:partner_event.field_res_partner____last_update
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultimo aggiornamento di"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento il"
 
 #. module: partner_event
 #: model:ir.actions.act_window,name:partner_event.action_partner_register_event
@@ -139,7 +141,7 @@ msgstr ""
 #. module: partner_event
 #: model:ir.actions.act_window,name:partner_event.act_partner_registration
 msgid "Registrations"
-msgstr ""
+msgstr "Registrazioni"
 
 #. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
