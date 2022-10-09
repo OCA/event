@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-10-08 23:35+0000\n"
+"PO-Revision-Date: 2022-10-09 21:34+0000\n"
 "Last-Translator: Sergio Zanchetta <primes2h@gmail.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -35,7 +35,7 @@ msgstr ""
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_event_registration__partner_id
 msgid "Booked by"
-msgstr ""
+msgstr "Prenotato da"
 
 #. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
