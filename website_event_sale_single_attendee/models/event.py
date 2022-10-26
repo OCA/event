@@ -8,14 +8,15 @@ class EventEvent(models.Model):
     _inherit = "event.event"
 
     single_attendee_registration = fields.Boolean(
-        help="Check this box to ask for a single attendee at registration"
+        compute="_compute_single_attendee_registration",
+        readonly=False,
+        store=True,
+        help="Check this box to ask for a single attendee at registration",
     )
 
-    @api.onchange("event_type_id")
-    def _onchange_type(self):
-        res = super()._onchange_type()
-        if self.event_type_id and self.event_type_id.single_attendee_registration:
-            self.single_attendee_registration = (
-                self.event_type_id.single_attendee_registration
+    @api.depends("event_type_id")
+    def _compute_single_attendee_registration(self):
+        for event in self:
+            event.single_attendee_registration = (
+                event.event_type_id.single_attendee_registration
             )
-        return res

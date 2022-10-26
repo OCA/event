@@ -7,27 +7,26 @@ from odoo.addons.website_event_sale.controllers.main import WebsiteEventSaleCont
 
 
 class WebsiteEventSaleControllerSingleAttendee(WebsiteEventSaleController):
-    def _process_registration_details(self, details):
+    def _process_attendees_form(self, event, form_details):
         """Multiply single attendee registration according to ticket qties"""
-        registrations = super()._process_registration_details(details)
-        if len(registrations) == 1 and "ticket_id" not in registrations[0]:
+        registrations = super()._process_attendees_form(event, form_details)
+        if len(registrations) == 1 and "event_ticket_id" not in registrations[0]:
             # Get the quantities for each ticket_id
-            registration_details = {}
             ticket_ids_quantities = {}
-            for key, value in registrations[0].items():
+            for key, value in form_details.items():
                 if key.startswith("ticket_id_qty-"):
                     ticket_id = key.split("-", 1)[1]
                     ticket_ids_quantities[ticket_id] = value
-                else:
-                    registration_details[key] = value
+
             # Multiply registration details for each ticket according to the
             # quantities
             if ticket_ids_quantities:
+                registration_details = registrations[0]
                 registrations = []
                 for ticket_id, qty in ticket_ids_quantities.items():
-                    for _cnt in range(0, int(qty)):
+                    for _ in range(int(qty)):
                         reg = registration_details.copy()
-                        reg["ticket_id"] = ticket_id
+                        reg["event_ticket_id"] = int(ticket_id) or False
                         registrations.append(reg)
         return registrations
 
@@ -42,9 +41,9 @@ class WebsiteEventSaleControllerSingleAttendee(WebsiteEventSaleController):
         if not event.single_attendee_registration:
             return super().registration_new(event, **post)
         # Reimplementation of super method with change of rendered template
-        tickets = self._process_tickets_details(post)
+        tickets = self._process_tickets_form(event, post)
         availability_check = True
-        if event.seats_availability == "limited":
+        if event.seats_limited:
             ordered_seats = 0
             for ticket in tickets:
                 ordered_seats += ticket["quantity"]
@@ -52,11 +51,27 @@ class WebsiteEventSaleControllerSingleAttendee(WebsiteEventSaleController):
                 availability_check = False
         if not tickets:
             return False
-        return request.env["ir.ui.view"].render_template(
+        default_first_attendee = {}
+        if not request.env.user._is_public():
+            default_first_attendee = {
+                "name": request.env.user.name,
+                "email": request.env.user.email,
+                "phone": request.env.user.mobile or request.env.user.phone,
+            }
+        else:
+            visitor = request.env["website.visitor"]._get_visitor_from_request()
+            if visitor.email:
+                default_first_attendee = {
+                    "name": visitor.name,
+                    "email": visitor.email,
+                    "phone": visitor.mobile,
+                }
+        return request.env["ir.ui.view"]._render_template(
             "website_event_sale_single_attendee.registration_attendee_details_single",
             {
                 "tickets": tickets,
                 "event": event,
                 "availability_check": availability_check,
+                "default_first_attendee": default_first_attendee,
             },
         )
