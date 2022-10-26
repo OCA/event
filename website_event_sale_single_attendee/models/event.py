@@ -11,9 +11,11 @@ class EventEvent(models.Model):
         help="Check this box to ask for a single attendee at registration"
     )
 
-    @api.onchange('event_type_id')
+    @api.onchange("event_type_id")
     def _onchange_type(self):
         res = super()._onchange_type()
         if self.event_type_id and self.event_type_id.single_attendee_registration:
-            self.single_attendee_registration = self.event_type_id.single_attendee_registration
+            self.single_attendee_registration = (
+                self.event_type_id.single_attendee_registration
+            )
         return res

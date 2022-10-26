@@ -5,7 +5,7 @@ from odoo import fields, models
 
 class EventType(models.Model):
 
-    _inherit = 'event.type'
+    _inherit = "event.type"
 
     single_attendee_registration = fields.Boolean(
         help="Ask for a single attendee at registration on the website"
