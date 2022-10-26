@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-10-18 10:43+0000\n"
+"PO-Revision-Date: 2022-10-26 10:44+0000\n"
 "Last-Translator: Sergio Zanchetta <primes2h@gmail.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -58,7 +58,7 @@ msgstr "Nome visualizzato"
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__sequence
 msgid "Display order"
-msgstr ""
+msgstr "Ordine visualizzazione"
 
 #. module: event_mail
 #: model_terms:ir.ui.view,arch_db:event_mail.view_event_mail_template_form
@@ -137,12 +137,12 @@ msgstr "Registrazione e-mail"
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_template__scheduler_template_ids
 msgid "Mail Schedule"
-msgstr ""
+msgstr "Programmazione e-mail"
 
 #. module: event_mail
 #: model_terms:ir.ui.view,arch_db:event_mail.view_event_mail_template_form
 msgid "Mail Scheduler"
-msgstr ""
+msgstr "Pianificatore e-mail"
 
 #. module: event_mail
 #: model:ir.actions.act_window,name:event_mail.act_event_mail_template
@@ -152,7 +152,7 @@ msgstr ""
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__mail_sent
 msgid "Mail Sent on Event"
-msgstr ""
+msgstr "E-mail dell'evento inviata"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_res_company__event_mail_template_id
@@ -188,7 +188,7 @@ msgstr "Modello SMS"
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__scheduled_date
 msgid "Scheduled Sent Mail"
-msgstr ""
+msgstr "E-mail inviata programmata"
 
 #. module: event_mail
 #: model:ir.model,name:event_mail.model_event_mail_template
@@ -198,12 +198,12 @@ msgstr ""
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__notification_type
 msgid "Send"
-msgstr ""
+msgstr "Invio"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__done
 msgid "Sent"
-msgstr ""
+msgstr "Inviato"
 
 #. module: event_mail
 #: model_terms:ir.ui.view,arch_db:event_mail.res_config_settings_view_form
@@ -219,21 +219,18 @@ msgstr ""
 #: model:ir.model.fields,help:event_mail.field_event_mail_scheduler_template__sms_template_id
 msgid ""
 "This field contains the template of the SMS that will be automatically sent"
-msgstr ""
-"Questo campo contiene il modello di SMS che verrà inviato in modo automatico"
+msgstr "Campo contenente il modello SMS che viene inviato in modo automatico"
 
 #. module: event_mail
 #: model:ir.model.fields,help:event_mail.field_event_mail_scheduler_template__template_id
 msgid ""
 "This field contains the template of the mail that will be automatically sent"
-msgstr ""
-"Questo campo contiene il modello di e-mail che verrà inviato in modo "
-"automatico"
+msgstr "Campo contenente il modello e-mail che viene inviato in modo automatico"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__interval_type
 msgid "Trigger "
-msgstr ""
+msgstr "Attivazione "
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__interval_unit
