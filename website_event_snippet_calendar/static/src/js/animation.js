@@ -2,7 +2,7 @@
    Copyright 2018 Tecnativa - Alexandre Díaz
  * License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). */
 
-odoo.define("website_event_snippet_calendar.animation", function(require) {
+odoo.define("website_event_snippet_calendar.animation", function (require) {
     "use strict";
 
     var animation = require("website.content.snippets.animation");
@@ -21,7 +21,7 @@ odoo.define("website_event_snippet_calendar.animation", function(require) {
             "/website_event_snippet_calendar/static/src/xml/snippets.xml",
         ],
 
-        init: function() {
+        init: function () {
             this.datepicker_options = {
                 inline: true,
                 minDate: moment().subtract(100, "years"),
@@ -37,7 +37,7 @@ odoo.define("website_event_snippet_calendar.animation", function(require) {
             return this._super.apply(this, arguments);
         },
 
-        start: function(editable_mode) {
+        start: function (editable_mode) {
             this._super.apply(this, arguments);
 
             if (editable_mode) {
@@ -64,13 +64,13 @@ odoo.define("website_event_snippet_calendar.animation", function(require) {
             this.preload_dates(moment()).then($.proxy(this, "render_calendar"));
         },
 
-        day_selected: function(event) {
+        day_selected: function (event) {
             this.load_events(event.date.format(DATE_FORMAT)).then(
                 $.proxy(this, "render_list")
             );
         },
 
-        calendar_moved: function(event) {
+        calendar_moved: function (event) {
             if (event.change !== "M") {
                 // We only care when months are displayed
                 return;
@@ -79,7 +79,7 @@ odoo.define("website_event_snippet_calendar.animation", function(require) {
             this.preload_dates(event.viewDate);
         },
 
-        preload_dates: function(when) {
+        preload_dates: function (when) {
             var margin = moment.duration(4, "months");
             // Don't preload if we have up to 4 months of margin
             if (
@@ -105,7 +105,7 @@ odoo.define("website_event_snippet_calendar.animation", function(require) {
             return this.load_dates(start, end);
         },
 
-        load_dates: function(start, end) {
+        load_dates: function (start, end) {
             return ajax
                 .rpc("/website_event_snippet_calendar/days_with_events", {
                     start: start.format(DATE_FORMAT),
@@ -114,7 +114,7 @@ odoo.define("website_event_snippet_calendar.animation", function(require) {
                 .then($.proxy(this, "_update_dates_cache", start, end));
         },
 
-        _update_dates_cache: function(start, end, dates) {
+        _update_dates_cache: function (start, end, dates) {
             if (!this._dates.min || this._dates.min > start) {
                 this._dates.min = start;
             }
@@ -124,7 +124,7 @@ odoo.define("website_event_snippet_calendar.animation", function(require) {
             this._dates.matches = _.union(this._dates.matches, dates);
         },
 
-        load_events: function(day, limit) {
+        load_events: function (day, limit) {
             var searches = $("ul.o_wevent_index_topbar_filters>li>div>a.active");
             if (searches.length) {
                 searches = searches[0].search;
@@ -139,8 +139,8 @@ odoo.define("website_event_snippet_calendar.animation", function(require) {
             });
         },
 
-        render_calendar: function() {
-            var enabledDates = _.map(this._dates.matches, function(ndate) {
+        render_calendar: function () {
+            var enabledDates = _.map(this._dates.matches, function (ndate) {
                 return moment(ndate, DATE_FORMAT);
             });
             this.$calendar
@@ -150,10 +150,10 @@ odoo.define("website_event_snippet_calendar.animation", function(require) {
                 );
         },
 
-        render_list: function(events) {
+        render_list: function (events) {
             _.each(
                 events,
-                function(element) {
+                function (element) {
                     var date_begin_located = moment(
                         element.date_begin_pred_located,
                         DATETIME_FORMAT

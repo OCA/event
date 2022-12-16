@@ -11,7 +11,8 @@ class EventEvent(models.Model):
 
     # Located with predictable format
     date_begin_pred_located = fields.Char(
-        compute="_compute_date_begin_pred_located", store=True,
+        compute="_compute_date_begin_pred_located",
+        store=True,
     )
 
     @api.depends("date_begin", "date_tz")
