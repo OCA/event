@@ -2,8 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo import api, fields, models
-
-from odoo.addons.mail.models.mail_template import format_datetime
+from odoo.tools.misc import format_datetime
 
 
 class EventEvent(models.Model):

@@ -2,7 +2,6 @@
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 
 from datetime import date, timedelta
-from urllib.parse import parse_qsl
 
 from odoo.fields import Date
 from odoo.http import Controller, request, route
@@ -15,7 +14,7 @@ class EventCalendar(Controller):
         type="json",
         website=True,
     )
-    def days_with_events(self, start, end):
+    def days_with_events(self, start, end, parameters=None):
         """Let visitors know when are there going to be any events.
 
         :param start string:
@@ -24,9 +23,13 @@ class EventCalendar(Controller):
         :param end string:
             Search events until that date.
         """
-        events = request.env["event.event"].search(
-            ["|", ("date_begin", "<=", end), ("date_end", ">=", start)]
-        )
+        events_domain = ["|", ("date_begin", "<=", end), ("date_end", ">=", start)]
+
+        event_type = self.get_event_type_from_parameters(parameters)
+        if event_type:
+            events_domain.append(("event_type_id", "=", event_type))
+
+        events = request.env["event.event"].search(events_domain)
         days = set()
         one_day = timedelta(days=1)
         start = Date.from_string(start)
@@ -39,13 +42,24 @@ class EventCalendar(Controller):
                 now += one_day
         return [Date.to_string(day) for day in days]
 
+    def get_event_type_from_parameters(self, parameters=None):
+        if not parameters:
+            return None
+        event_type = parameters.get("type", None)
+        if event_type:
+            try:
+                event_type = int(event_type)
+            except ValueError:
+                event_type = None
+        return event_type
+
     @route(
         "/website_event_snippet_calendar/events_for_day",
         auth="public",
         type="json",
         website=True,
     )
-    def events_for_day(self, day=None, limit=None, searches=None):
+    def events_for_day(self, day=None, limit=None, parameters=None):
         """List events for a given day.
 
         :param day string:
@@ -56,7 +70,6 @@ class EventCalendar(Controller):
             How many results to return.
         """
 
-        searches = parse_qsl(searches[1:])
         ref = day or Date.to_string(date.today())
         domain = [
             ("date_end", ">=", ref),
@@ -64,14 +77,10 @@ class EventCalendar(Controller):
         if day:
             domain.append(("date_begin", "<=", ref))
 
-        for search in searches:
-            if search[0] == "type":
-                try:
-                    value = int(search[1])
-                except ValueError:
-                    value = 0
-                if value:
-                    domain.append(("event_type_id", "=", int(search[1])))
+        event_type = self.get_event_type_from_parameters(parameters)
+        if event_type:
+            domain.append(("event_type_id", "=", event_type))
+
         return request.env["event.event"].search_read(
             domain=domain,
             limit=limit,

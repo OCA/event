@@ -110,8 +110,21 @@ odoo.define("website_event_snippet_calendar.animation", function (require) {
                 .rpc("/website_event_snippet_calendar/days_with_events", {
                     start: start.format(DATE_FORMAT),
                     end: end.format(DATE_FORMAT),
+                    parameters: this.get_url_parameters_as_dict(),
                 })
                 .then($.proxy(this, "_update_dates_cache", start, end));
+        },
+
+        get_url_parameters_as_dict: function () {
+            const paramString = $("ul.o_wevent_index_topbar_filters>li>div>a.active");
+            var parameters = {};
+            if (paramString.length) {
+                const queryString = new URLSearchParams(paramString[0].search);
+                for (const pair of queryString.entries()) {
+                    parameters[pair[0]] = pair[1];
+                }
+            }
+            return parameters;
         },
 
         _update_dates_cache: function (start, end, dates) {
@@ -125,17 +138,10 @@ odoo.define("website_event_snippet_calendar.animation", function (require) {
         },
 
         load_events: function (day, limit) {
-            var searches = $("ul.o_wevent_index_topbar_filters>li>div>a.active");
-            if (searches.length) {
-                searches = searches[0].search;
-            } else {
-                searches = "";
-            }
-
             return ajax.rpc("/website_event_snippet_calendar/events_for_day", {
                 day: day,
                 limit: limit,
-                searches: searches,
+                parameters: this.get_url_parameters_as_dict(),
             });
         },
 
@@ -143,6 +149,11 @@ odoo.define("website_event_snippet_calendar.animation", function (require) {
             var enabledDates = _.map(this._dates.matches, function (ndate) {
                 return moment(ndate, DATE_FORMAT);
             });
+            // If enabledDates is empty, everything is displayed as enabled, instead of disabled;
+            // we try to avoid it by displaying only one day a year ago as enabled
+            if (!enabledDates.length) {
+                enabledDates = [moment().subtract(1, "years")];
+            }
             this.$calendar
                 .empty()
                 .datetimepicker(

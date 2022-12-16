@@ -73,11 +73,14 @@
                 data-js="website_event_snippet_calendar_list"
                 data-selector=".s_event_calendar_list"
             >
-                <we-button data-increase="" data-no-preview="true">Add event</we-button>
+                <we-button
+                    data-increase=""
+                    data-no-preview="true"
+                >Increase events list size</we-button>
                 <we-button
                     data-decrease=""
                     data-no-preview="true"
-                >Remove event</we-button>
+                >Decrease events list size</we-button>
             </div>
         </xpath>
     </template>

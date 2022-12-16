@@ -17,7 +17,7 @@ odoo.define("website_event_snippet_calendar.snippets", function (require) {
             this.$amount = this.$(".js_amount");
             var current = parseInt(this.$amount.html(), 10) || 4;
             current -= 1;
-            this.$amount.html(current);
+            this.$amount.html(current || 1);
         },
     });
 });
