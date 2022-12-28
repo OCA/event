@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 Camptocamp SA - Damien Crier
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_event_event_add_quick_registration_form" model="ir.ui.view">
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_form" />
+        <field name="arch" type="xml">
+            <field name="stage_id" position="before">
+                <button
+                    string="Add attendees"
+                    name="%(event_quick_registration.action_event_quick_registration)d"
+                    type="action"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>
