@@ -1,0 +1,120 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_quick_registration
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: event_quick_registration
+#: model_terms:ir.ui.view,arch_db:event_quick_registration.view_event_event_add_quick_registration_form
+msgid "Add attendees"
+msgstr ""
+
+#. module: event_quick_registration
+#: model_terms:ir.ui.view,arch_db:event_quick_registration.view_event_quick_registration_form
+msgid "Apply"
+msgstr ""
+
+#. module: event_quick_registration
+#: model:ir.model.fields,field_description:event_quick_registration.field_event_quick_registration__confirm_registration
+msgid "Confirm Registration"
+msgstr ""
+
+#. module: event_quick_registration
+#: model:ir.model.fields,field_description:event_quick_registration.field_event_quick_registration__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: event_quick_registration
+#: model:ir.model.fields,field_description:event_quick_registration.field_event_quick_registration__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: event_quick_registration
+#: model:ir.model.fields,field_description:event_quick_registration.field_event_quick_registration__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: event_quick_registration
+#: model:ir.model.fields,field_description:event_quick_registration.field_event_quick_registration__email
+msgid "Email"
+msgstr ""
+
+#. module: event_quick_registration
+#: model:ir.model.fields,field_description:event_quick_registration.field_event_quick_registration__event_id
+msgid "Event"
+msgstr ""
+
+#. module: event_quick_registration
+#: model:ir.actions.act_window,name:event_quick_registration.action_event_quick_registration
+msgid "Event Quick Registrations"
+msgstr ""
+
+#. module: event_quick_registration
+#: model:ir.model.fields,field_description:event_quick_registration.field_event_quick_registration__event_ticket_id
+msgid "Event Ticket"
+msgstr ""
+
+#. module: event_quick_registration
+#: model:ir.model.fields,field_description:event_quick_registration.field_event_quick_registration__id
+msgid "ID"
+msgstr ""
+
+#. module: event_quick_registration
+#: model:ir.model.fields,field_description:event_quick_registration.field_event_quick_registration____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: event_quick_registration
+#: model:ir.model.fields,field_description:event_quick_registration.field_event_quick_registration__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: event_quick_registration
+#: model:ir.model.fields,field_description:event_quick_registration.field_event_quick_registration__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: event_quick_registration
+#: model:ir.model.fields,field_description:event_quick_registration.field_event_quick_registration__name
+msgid "Name"
+msgstr ""
+
+#. module: event_quick_registration
+#: model:ir.model.fields,field_description:event_quick_registration.field_event_quick_registration__phone
+msgid "Phone"
+msgstr ""
+
+#. module: event_quick_registration
+#: model:ir.model.fields,field_description:event_quick_registration.field_event_quick_registration__qty
+msgid "Qty"
+msgstr ""
+
+#. module: event_quick_registration
+#: code:addons/event_quick_registration/wizard/event_quick_registration.py:0
+#, python-format
+msgid "Quick creation"
+msgstr ""
+
+#. module: event_quick_registration
+#: model_terms:ir.ui.view,arch_db:event_quick_registration.view_event_quick_registration_form
+msgid "Registration"
+msgstr ""
+
+#. module: event_quick_registration
+#: model_terms:ir.ui.view,arch_db:event_quick_registration.view_event_quick_registration_form
+msgid "Skip"
+msgstr ""
+
+#. module: event_quick_registration
+#: model:ir.model,name:event_quick_registration.model_event_quick_registration
+msgid "event.quick.registration"
+msgstr ""
