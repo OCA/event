@@ -33,7 +33,7 @@ class EventSession(models.Model):
             )
 
     def button_open_unconfirmed_event_order(self):
-        action = self.env.ref("sale.action_quotations").read()[0]
+        action = self.env["ir.actions.act_window"]._for_xml_id("sale.action_quotations")
         sales = (
             self.env["sale.order.line"]
             .search([("event_id", "in", self.ids)])
