@@ -3,7 +3,7 @@
 {
     "name": "Event Sale Sessions",
     "summary": "Sessions sales in events",
-    "version": "14.0.1.0.1",
+    "version": "14.0.1.0.2",
     "author": "Tecnativa, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "website": "https://github.com/OCA/event",
