@@ -47,7 +47,6 @@ class EventType(models.Model):
             # events when clicking on it, so it seems more user-friendly to
             # include these events, even if they finished earlier today.
             ("date_end", ">=", fields.Date.today()),
-            ("state", "!=", "cancel"),
         ]
 
     def _compute_event_totals(self):
@@ -56,7 +55,7 @@ class EventType(models.Model):
         types_with_unlimited_seats = (
             self.env["event.event"]
             .search(
-                domain + [("seats_availability", "=", "unlimited")],
+                domain + [("seats_limited", "=", False)],
             )
             .mapped("event_type_id")
         )
@@ -65,17 +64,12 @@ class EventType(models.Model):
             fields=["seats_available"],
             groupby=["event_type_id"],
         )
-        translated_unlimited = dict(
-            self.env["event.event"].fields_get(["seats_availability"])[
-                "seats_availability"
-            ]["selection"]
-        )["unlimited"]
         totals = {group["event_type_id"][0]: group for group in results}
         for one in self:
             totals_item = totals.get(one.id, {})
             event_count = totals_item.get("event_type_id_count", 0)
             seats_sum = (
-                translated_unlimited
+                _("Unlimited")
                 if one in types_with_unlimited_seats
                 else totals_item.get("seats_available", "0")
             )

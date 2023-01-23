@@ -48,8 +48,8 @@ class EventTypeReport(models.Model):
             ("events_available_count", "COUNT(ee.*)"),
             (
                 "event_seats_availability",
-                """CASE WHEN 'unlimited' = ANY(ARRAY_AGG(seats_availability))
-                   THEN 'unlimited' ELSE 'limited' END""",
+                """CASE WHEN ee.seats_limited
+                   THEN 'limited' ELSE 'unlimited' END""",
             ),
             ("seats_limited_available", "COALESCE(SUM(ee.seats_available), 0)"),
             ("open_opportunities_count", "et.open_opportunities_count"),
@@ -80,10 +80,7 @@ class EventTypeReport(models.Model):
         Arguments:
             clauses: `("mt.field >= 10 OR mt.field < 0", ...)`
         """
-        clauses += (
-            "ee.state IS NULL OR ee.state != 'cancel'",
-            "ee.date_end IS NULL OR ee.date_end >= CURRENT_DATE",
-        )
+        clauses += ("ee.date_end IS NULL OR ee.date_end >= CURRENT_DATE",)
         result = sql.Composed(map(sql.SQL, clauses)).join(" AND ")
         return result
 
@@ -93,7 +90,7 @@ class EventTypeReport(models.Model):
         Arguments:
             clauses: `("mt.field", ...)`
         """
-        clauses += ("et.id",)
+        clauses += ("et.id", "ee.seats_limited")
         result = sql.Composed(map(sql.SQL, clauses)).join(", ")
         return result
 

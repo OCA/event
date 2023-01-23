@@ -32,7 +32,7 @@
                 <t t-if="record.event_type_id.raw_value">
                     <div class="o_kanban_record_body text-info">
                         <field name="seats_wanted" class="oe_inline" nolabel="1" />
-                        <i class="fa fa-ticket" />
+                        <i class="fa fa-ticket" title="Ticket" />
                         <field name="event_type_id" class="oe_inline" nolabel="1" />
                     </div>
                 </t>
