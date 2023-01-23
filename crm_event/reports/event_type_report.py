@@ -30,7 +30,10 @@ class EventTypeReport(models.Model):
     def _query(self):
         """Composed view."""
         return sql.SQL("SELECT {} FROM {} WHERE {} GROUP BY {}").format(
-            self._select(), self._from(), self._where(), self._groupby(),
+            self._select(),
+            self._from(),
+            self._where(),
+            self._groupby(),
         )
 
     def _select(self, fields_=()):
@@ -100,6 +103,7 @@ class EventTypeReport(models.Model):
         # pylint: disable=sql-injection
         self.env.cr.execute(
             sql.SQL("CREATE OR REPLACE VIEW {} AS ({})").format(
-                sql.Identifier(self._table), self._query(),
+                sql.Identifier(self._table),
+                self._query(),
             ),
         )
