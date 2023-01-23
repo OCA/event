@@ -71,6 +71,8 @@ class EventEvent(models.Model):
                 for user in events.mapped("user_id"):
                     events = events.filtered(lambda x: x.user_id == user)
                     self._send_event_template(
-                        events, template, user.partner_id.ids,
+                        events,
+                        template,
+                        user.partner_id.ids,
                     )
         return True
