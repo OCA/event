@@ -126,7 +126,8 @@ class TestEventEmailReminder(SavepointCase):
             }
         )
         self.env["event.event"].run_event_email_reminder(
-            8, partner_ids=user.partner_id.ids,
+            8,
+            partner_ids=user.partner_id.ids,
         )
         mails_to_send = self.mail.search(
             [
