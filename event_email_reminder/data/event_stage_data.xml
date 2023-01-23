@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+    <record id="event.event_stage_new" model="event.stage">
+        <field name="exclude_from_email_reminder" eval="True" />
+    </record>
+</odoo>

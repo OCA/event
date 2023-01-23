@@ -6,7 +6,7 @@
 {
     "name": "Event Email Reminder",
     "summary": "Send an email before an event start",
-    "version": "13.0.1.0.0",
+    "version": "15.0.1.0.0",
     "category": "Event Management",
     "website": "https://github.com/OCA/event",
     "author": "Tecnativa, Odoo Community Association (OCA)",
@@ -14,5 +14,10 @@
     "application": False,
     "installable": True,
     "depends": ["event"],
-    "data": ["data/event_email_reminder_data.xml"],
+    "data": [
+        "data/event_stage_data.xml",
+        "data/ir_cron_data.xml",
+        "data/mail_template_data.xml",
+        "views/event_stage_views.xml",
+    ],
 }
