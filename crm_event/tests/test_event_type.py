@@ -3,10 +3,10 @@
 
 from datetime import datetime, timedelta
 
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
-class CrmEventCase(SavepointCase):
+class CrmEventCase(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -21,7 +21,7 @@ class CrmEventCase(SavepointCase):
                     "date_begin": datetime.now() - timedelta(days=1),
                     "date_end": datetime.now() - timedelta(minutes=1),
                     "name": "Today's past event",
-                    "seats_availability": "limited",
+                    "seats_limited": True,
                     "seats_max": 1,
                 },
                 {
@@ -29,7 +29,7 @@ class CrmEventCase(SavepointCase):
                     "date_begin": datetime.now() - timedelta(days=2),
                     "date_end": datetime.now() - timedelta(days=1),
                     "name": "Yesterday's past event",
-                    "seats_availability": "limited",
+                    "seats_limited": True,
                     "seats_max": 10,
                 },
                 {
@@ -37,7 +37,7 @@ class CrmEventCase(SavepointCase):
                     "date_begin": datetime.now() - timedelta(days=1),
                     "date_end": datetime.now() + timedelta(days=1),
                     "name": "Present event",
-                    "seats_availability": "limited",
+                    "seats_limited": True,
                     "seats_max": 100,
                 },
                 {
@@ -45,7 +45,7 @@ class CrmEventCase(SavepointCase):
                     "date_begin": datetime.now() + timedelta(days=1),
                     "date_end": datetime.now() + timedelta(days=2),
                     "name": "Future event",
-                    "seats_availability": "limited",
+                    "seats_limited": True,
                     "seats_max": 1000,
                 },
             ]
@@ -55,7 +55,7 @@ class CrmEventCase(SavepointCase):
         cls.b_events = cls.env["event.event"]
         for event in cls.a_events:
             cls.b_events |= event.copy({"event_type_id": cls.type_b.id})
-        cls.b_events[0].seats_availability = "unlimited"
+        cls.b_events[0].seats_limited = False
         # Leads and opportunities test data
         cls.opportunities = cls.env["crm.lead"].create(
             [
