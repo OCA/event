@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="event_email_reminder_template" model="mail.template">
+        <field
+            name="email_from"
+        >{{object.company_id.name}}&lt;{{object.company_id.email}}&gt;</field>
+        <field name="email_to">{{object.email}}</field>
+        <field name="lang">{{object.lang}}</field>
+        <field name="body_html" type="html">
+            <p>Hello <t t-out="object.name" />,</p>
+            <p>This is a event's summary: </p>
+            <table>
+                <thead>
+                    <tr
+                        style="height: 15px; background-color: #d8d8d8;font-size: 13px;font-weight:bold;"
+                        align="center"
+                        valign="middle"
+                    >
+                        <td>Date Begin</td>
+                        <td>Event Name</td>
+                        <td>Date End</td>
+                        <td>State</td>
+                    </tr>
+                </thead>
+                <tr t-foreach="ctx['events']" t-as="event">
+                    <td><span t-out="event.date_begin" /></td>
+                    <td><span t-out="event.name" /></td>
+                    <td><span t-out="event.date_end" /></td>
+                    <td><span
+                            t-out="event.stage_id.name"
+                            style="font-weight:bold;"
+                        /></td>
+                </tr>
+            </table>
+        </field>
+    </record>
+</odoo>

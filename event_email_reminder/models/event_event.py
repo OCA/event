@@ -13,13 +13,12 @@ class EventEvent(models.Model):
 
     @api.model
     def _send_event_template(self, events, template, partner_ids):
-        ctx = self.env.context.copy()
-        ctx.update({"events": events.sorted(lambda x: x.date_begin)})
+        ctx = {"events": events.sorted(lambda x: x.date_begin)}
         for partner_id in partner_ids:
             lang = self.env["res.partner"].browse(partner_id).lang
             # Set the contexts with the partner's language
             ctx.update({"events": ctx["events"].with_context(lang=lang), "lang": lang})
-            template.with_context(ctx).send_mail(partner_id)
+            template.with_context(**ctx).send_mail(partner_id)
 
     @api.model
     def run_event_email_reminder(
@@ -44,9 +43,9 @@ class EventEvent(models.Model):
         today = fields.Date.context_today(self)
         limit_date = today + timedelta(days=days)
         if draft_events:
-            domain = [("state", "in", ["draft", "confirm"])]
+            domain = [("stage_id.exclude_from_email_reminder", "=", True)]
         else:
-            domain = [("state", "=", "confirm")]
+            domain = []
         if not near_events:
             domain.extend(
                 [("date_begin", ">=", limit_date), ("date_begin", "<=", limit_date)]
