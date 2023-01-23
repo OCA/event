@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2016 Tecnativa - Sergio Teruel
+     Copyright 2016 Tecnativa - Vicent Cubells
+     Copyright 2023 Tecnativa - Víctor Martínez
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo noupdate="1">
+    <record id="ir_cron_event_email_reminder_action" model="ir.cron">
+        <field name="name">Event Email Reminder</field>
+        <field name="active" eval="True" />
+        <field name="model_id" ref="event.model_event_event" />
+        <field name="code">model.run_event_email_reminder(7, False, False, None)</field>
+        <field name="doall" eval="False" />
+        <field name="interval_number">7</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+    </record>
+</odoo>

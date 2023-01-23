@@ -1,6 +1,7 @@
 * Tecnativa <https://www.tecnativa.com>:
 
-  * Sergio Teruel <sergio.teruel@tecnativa.com>
-  * Vicent Cubells <vicent.cubells@tecnativa.com>
+  * Sergio Teruel
+  * Vicent Cubells
   * Pedro M. Baeza
   * Jairo Llopis
+  * Víctor Martínez
