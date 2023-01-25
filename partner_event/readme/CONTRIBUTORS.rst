@@ -7,6 +7,7 @@
   * David Vidal
   * Rafael Blasco
   * Víctor Martínez
+  * Stefan Ungureanu
 
 * `Antiun <https://antiun.com/>`__:
 
