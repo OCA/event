@@ -13,7 +13,7 @@ from odoo import fields
 from odoo.tests import common
 
 
-class TestEventRegistration(common.SavepointCase):
+class TestEventRegistration(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super(TestEventRegistration, cls).setUpClass()
@@ -75,7 +75,7 @@ class TestEventRegistration(common.SavepointCase):
         event_1 = self.event_0.copy()
         wizard = self.env["res.partner.register.event"].create({"event": event_1.id})
         active_ids = [self.partner_01.id, self.registration_02.attendee_partner_id.id]
-        wizard.with_context({"active_ids": active_ids}).button_register()
+        wizard.with_context(active_ids=active_ids).button_register()
 
     def test_data_update(self):
         event_2 = self.event_0.copy()
