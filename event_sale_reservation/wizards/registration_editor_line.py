@@ -8,5 +8,6 @@ class RegistrationEditorLine(models.TransientModel):
     _inherit = "registration.editor.line"
 
     event_reservation_type_id = fields.Many2one(
-        related="sale_order_line_id.event_reservation_type_id", readonly=True,
+        related="sale_order_line_id.event_reservation_type_id",
+        readonly=True,
     )
