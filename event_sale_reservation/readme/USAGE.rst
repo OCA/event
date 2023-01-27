@@ -1,6 +1,6 @@
 To know how many reservations exist for a given event type:
 
-#. Go to *Events > Configuration > Event Categories* and pick or create one.
+#. Go to *Events > Configuration > Event Templates* and pick or create one.
 #. There's a new smart button called *Reserved seats* with that count.
 #. Click on it to get to the sales orders where the seats got reserved.
 
@@ -10,9 +10,7 @@ increase it.
 To create an event reservation product:
 
 #. Go to *Sales > Products > Products*.
-#. Create one.
-#. Set its basic info (name, price...) and go to *Sales* tab.
-#. Under *Events*, tick *Is an event reservation*.
+#. Create one and set *Product Type* to *Event Reservation*.
 #. Select one *Event type for reservations*.
 #. Save.
 
@@ -55,6 +53,6 @@ At this point, the sales order lines will be modified to include the ticket
 product instead of the reservation product, and the event reservations have
 been created, linked to those lines.
 
-If the ticket was free, the registrations are confirmed. Otherwise, they are
+If the event is set to autoconfirmation, the registrations are confirmed., otherwise, they are
 kept as draft until an invoice is created for the sales order, and paid. But
 that is just upstream ``event_sale`` module in action.
