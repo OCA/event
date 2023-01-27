@@ -6,21 +6,12 @@
         <field name="name">Allow products that are event registrations</field>
         <field name="model">product.template</field>
         <field name="groups_id" eval="[(4, ref('event.group_event_user'))]" />
-        <field name="inherit_id" ref="event_sale.event_sale_product_template_form" />
+        <field name="inherit_id" ref="product.product_template_form_view" />
         <field name="arch" type="xml">
-            <field name="event_ok" position="attributes">
-                <attribute
-                    name="attrs"
-                >{'readonly': [('event_reservation_ok', '=', True)]}</attribute>
-            </field>
-            <field name="event_ok" position="after">
-                <field
-                    name="event_reservation_ok"
-                    attrs="{'readonly': [('event_ok', '=', True)]}"
-                />
+            <field name="detailed_type" position="after">
                 <field
                     name="event_reservation_type_id"
-                    attrs="{'invisible': [('event_reservation_ok', '=', False)], 'required': [('event_reservation_ok', '=', True)]}"
+                    attrs="{'invisible': [('detailed_type', '!=', 'event_reservation')], 'required': [('detailed_type', '=', 'event_reservation')]}"
                 />
             </field>
         </field>
