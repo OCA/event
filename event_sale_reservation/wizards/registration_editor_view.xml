@@ -7,7 +7,7 @@
         <field name="name">Convert reservation into registrations</field>
         <field name="model">registration.editor</field>
         <field name="arch" type="xml">
-            <form string="Register reservations">
+            <form>
                 <sheet>
                     <p>
                         Convert pending event reservations into registrations for
@@ -21,12 +21,12 @@
                     </p>
                 </sheet>
                 <field name="event_registration_ids">
-                    <tree string="Registrations" editable="top" create="false">
+                    <tree editable="top" create="false">
                         <field name="sale_order_line_id" invisible="1" />
                         <field name="event_reservation_type_id" force_save="1" />
                         <field
                             name="event_id"
-                            domain="[('event_type_id', '=', event_reservation_type_id), ('date_end', '>=', datetime.date.today().strftime('%Y-%m-%d')), ('state', '!=', 'cancel'), '|', ('seats_availability', '=', 'unlimited'), ('seats_available', '>', 0)]"
+                            domain="[('event_type_id', '=', event_reservation_type_id), ('date_end', '>=', datetime.date.today().strftime('%Y-%m-%d')), '|', ('seats_limited', '=', False), ('seats_max', '>', 0)]"
                             context="{'default_event_type_id': event_reservation_type_id}"
                         />
                         <field

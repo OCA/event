@@ -1,13 +1,14 @@
 # Copyright 2021 Tecnativa - Jairo Llopis
+# Copyright 2023 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from datetime import datetime, timedelta
 
-from odoo.tests.common import Form, SavepointCase
+from odoo.tests.common import Form, TransactionCase
 
-from ..exceptions import ReservationWithoutEventTypeError, TicketAndReservationError
+from ..exceptions import ReservationWithoutEventTypeError
 
 
-class EventSaleCase(SavepointCase):
+class EventSaleCase(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -18,7 +19,7 @@ class EventSaleCase(SavepointCase):
         cls.products = cls.env["product.product"].create(
             [
                 {
-                    "event_reservation_ok": True,
+                    "detailed_type": "event_reservation",
                     "event_reservation_type_id": cls.event_types[num].id,
                     "list_price": num,
                     "name": "product reservation for event type %d" % num,
@@ -99,29 +100,16 @@ class EventSaleCase(SavepointCase):
         # Get form from 2nd chained action
         action = multi_action["actions"][1]
         return Form(
-            self.env[action["res_model"]].with_context(action["context"]),
+            self.env[action["res_model"]].with_context(**action["context"]),
             view=action["view_id"],
         )
-
-    def test_wrong_product_event_and_reservation(self):
-        """A product cannot be both an event and a reservation."""
-        with self.assertRaises(TicketAndReservationError):
-            self.env["product.product"].create(
-                {
-                    "event_reservation_ok": True,
-                    "event_ok": True,
-                    "event_reservation_type_id": self.event_types[0].id,
-                    "list_price": 10,
-                    "name": "event and reservation fails",
-                }
-            )
 
     def test_wrong_product_reservation_without_type(self):
         """Event reservation products require the type."""
         with self.assertRaises(ReservationWithoutEventTypeError):
             self.env["product.product"].create(
                 {
-                    "event_reservation_ok": True,
+                    "detailed_type": "event_reservation",
                     "list_price": 10,
                     "name": "event reservation without event type fails",
                 }

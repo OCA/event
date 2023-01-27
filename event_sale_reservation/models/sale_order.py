@@ -26,7 +26,7 @@ class SaleOrder(models.Model):
         """Know how many pending event reservations are linked to this SO."""
         for one in self:
             reservation_lines = one.order_line.filtered(
-                "product_id.event_reservation_ok"
+                lambda x: x.product_id.detailed_type == "event_reservation"
             )
             reserved = sum(reservation_lines.mapped("product_uom_qty"))
             registered = sum(reservation_lines.mapped("event_registration_count"))

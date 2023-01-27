@@ -1,21 +1,20 @@
 # Copyright 2021 Tecnativa - Jairo Llopis
+# Copyright 2023 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import _, api, fields, models
 
-from ..exceptions import ReservationWithoutEventTypeError, TicketAndReservationError
+from ..exceptions import ReservationWithoutEventTypeError
 
 
-class Product(models.Model):
+class ProductTemplate(models.Model):
     _inherit = "product.template"
 
-    event_reservation_ok = fields.Boolean(
-        index=True,
-        string="Is an event reservation",
-        help=(
-            "If checked, this product enables selling event reservations "
-            "even before an event of the specified type has been scheduled."
-        ),
+    detailed_type = fields.Selection(
+        selection_add=[
+            ("event_reservation", "Event Resevation"),
+        ],
+        ondelete={"event_reservation": "set service"},
     )
     event_reservation_type_id = fields.Many2one(
         comodel_name="event.type",
@@ -24,7 +23,12 @@ class Product(models.Model):
         help="Type of events that can be reserved by buying this product",
     )
 
-    @api.constrains("event_ok", "event_reservation_ok")
+    def _detailed_type_mapping(self):
+        type_mapping = super()._detailed_type_mapping()
+        type_mapping["event_reservation"] = "service"
+        return type_mapping
+
+    @api.constrains("detailed_type")
     def _check_event_reservation(self):
         """Event reservation products checks.
 
@@ -32,16 +36,8 @@ class Product(models.Model):
         - An event reservation must have an event type attached.
         """
         for one in self:
-            if not one.event_reservation_ok:
+            if one.detailed_type != "event_reservation":
                 continue
-            if one.event_ok:
-                raise TicketAndReservationError(
-                    _(
-                        "Product %(name)s cannot be both an event ticket and "
-                        "an event reservation."
-                    )
-                    % {"name": one.display_name}
-                )
             if not one.event_reservation_type_id:
                 raise ReservationWithoutEventTypeError(
                     _("You must indicate event type for %(name)s.")

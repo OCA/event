@@ -24,14 +24,14 @@ class EventType(models.Model):
         return [
             ("event_reservation_type_id", "in", self.ids),
             ("order_id.state", "in", ("sale", "done")),
-            ("product_id.event_reservation_ok", "=", True),
+            ("product_id.detailed_type", "=", "event_reservation"),
         ]
 
     @api.depends(
         "reserved_sale_order_line_ids.event_registration_count",
         "reserved_sale_order_line_ids.event_reservation_type_id",
         "reserved_sale_order_line_ids.order_id.state",
-        "reserved_sale_order_line_ids.product_id.event_reservation_ok",
+        "reserved_sale_order_line_ids.product_id.detailed_type",
         "reserved_sale_order_line_ids.product_uom_qty",
     )
     def _compute_reservations_total(self):
@@ -53,6 +53,6 @@ class EventType(models.Model):
         sol = self.env["sale.order.line"].search(
             self._seats_reservation_domain(),
         )
-        result = self.env["ir.actions.act_window"].for_xml_id("sale", "action_orders")
+        result = self.env["ir.actions.act_window"]._for_xml_id("sale.action_orders")
         result["domain"] = [("order_line", "in", sol.ids)]
         return result

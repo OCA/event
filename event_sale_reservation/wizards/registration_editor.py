@@ -15,7 +15,7 @@ class RegistrationEditor(models.TransientModel):
             order = self.env["sale.order"].browse(result["sale_order_id"])
             result["event_registration_ids"] = []
             for sol in order.order_line:
-                if not sol.product_id.event_reservation_ok:
+                if sol.product_id.detailed_type != "event_reservation":
                     continue
                 sol_type = sol.event_reservation_type_id
                 result["event_registration_ids"] += [
