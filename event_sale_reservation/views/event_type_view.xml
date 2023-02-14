@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Tecnativa - Jairo Llopis
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<data>
+    <record id="view_event_type_form" model="ir.ui.view">
+        <field name="name">Link to reservations from type</field>
+        <field name="model">event.type</field>
+        <field name="groups_id" eval="[(4, ref('sales_team.group_sale_salesman'))]" />
+        <field name="inherit_id" ref="event.view_event_type_form" />
+        <field name="arch" type="xml">
+            <div position="before">
+                <!-- HACK Add .oe_inline to button box to avoid broken UI with
+                     other modules that also need to add the button box, such as
+                     crm_event -->
+                <div class="oe_button_box oe_inline" name="button_box">
+                    <!-- Use same iconography as in contact form -->
+                    <button
+                        class="oe_stat_button"
+                        type="object"
+                        name="action_open_sale_orders"
+                        icon="fa-usd"
+                    >
+                        <field name="seats_reservation_total" widget="statinfo" />
+                    </button>
+                </div>
+            </div>
+        </field>
+    </record>
+    <record id="view_event_type_tree" model="ir.ui.view">
+        <field name="name">Rerservations info from event category tree</field>
+        <field name="model">event.type</field>
+        <field name="groups_id" eval="[(4, ref('sales_team.group_sale_salesman'))]" />
+        <field name="inherit_id" ref="event.view_event_type_tree" />
+        <field name="arch" type="xml">
+            <tree>
+                <field name="seats_reservation_total" />
+            </tree>
+        </field>
+    </record>
+</data>

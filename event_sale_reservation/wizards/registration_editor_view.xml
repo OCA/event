@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Tecnativa - Jairo Llopis
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<data>
+    <!-- Use an alternate view for registration editor -->
+    <record id="registration_editor_reservations_view_form" model="ir.ui.view">
+        <field name="name">Convert reservation into registrations</field>
+        <field name="model">registration.editor</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <p>
+                        Convert pending event reservations into registrations for
+                        <field name="sale_order_id" class="oe_inline" readonly="1" />
+                    </p>
+                    <p>
+                        If there is any line from that order that you still do
+                        not want to convert into real event registrations, you
+                        can remove it from the list below. You will be able to
+                        repeat this process later for those lines.
+                    </p>
+                </sheet>
+                <field name="event_registration_ids">
+                    <tree editable="top" create="false">
+                        <field name="sale_order_line_id" invisible="1" />
+                        <field name="event_reservation_type_id" force_save="1" />
+                        <field
+                            name="event_id"
+                            domain="[('event_type_id', '=', event_reservation_type_id), ('date_end', '>=', datetime.date.today().strftime('%Y-%m-%d')), '|', ('seats_limited', '=', False), ('seats_max', '>', 0)]"
+                            context="{'default_event_type_id': event_reservation_type_id}"
+                        />
+                        <field
+                            name="event_ticket_id"
+                            domain="[('event_id', '=', event_id)]"
+                            required="1"
+                        />
+                    </tree>
+                </field>
+                <footer>
+                    <button
+                        string="Next"
+                        name="action_convert_to_registration"
+                        type="object"
+                        class="btn-primary"
+                        help="Configure registrations"
+                    />
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_registration_editor_reservations" model="ir.actions.act_window">
+        <field name="name">Register in event</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">registration.editor</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="registration_editor_reservations_view_form" />
+        <field name="target">new</field>
+        <field name="context">{'registering_reservations': True}</field>
+    </record>
+</data>
