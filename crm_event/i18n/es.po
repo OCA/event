@@ -149,7 +149,6 @@ msgstr "Iniciativa/Oportunidad"
 #. module: crm_event
 #: model:ir.model.fields,field_description:crm_event.field_event_type__crm_lead_ids
 #, fuzzy
-#| msgid "Lead/Opportunity"
 msgid "Leads/Opportunities"
 msgstr "Iniciativa/Oportunidad"
 
@@ -167,7 +166,6 @@ msgstr "Eventos limitados"
 #: model:ir.model.fields,field_description:crm_event.field_event_type__open_opportunities_count
 #: model:ir.model.fields,field_description:crm_event.field_event_type_report__open_opportunities_count
 #, fuzzy
-#| msgid "Opportunities"
 msgid "Open Opportunities Count"
 msgstr "Oportunidades"
 
