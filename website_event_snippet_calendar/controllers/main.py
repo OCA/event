@@ -53,6 +53,18 @@ class EventCalendar(Controller):
                 event_type = None
         return event_type
 
+    def _get_events_domain(self, day=None, parameters=None):
+        ref = day or Date.to_string(date.today())
+        domain = [
+            ("date_end", ">=", ref),
+        ]
+        if day:
+            domain.append(("date_begin", "<=", ref))
+        event_type = self.get_event_type_from_parameters(parameters)
+        if event_type:
+            domain.append(("event_type_id", "=", event_type))
+        return domain
+
     @route(
         "/website_event_snippet_calendar/events_for_day",
         auth="public",
@@ -70,17 +82,7 @@ class EventCalendar(Controller):
             How many results to return.
         """
 
-        ref = day or Date.to_string(date.today())
-        domain = [
-            ("date_end", ">=", ref),
-        ]
-        if day:
-            domain.append(("date_begin", "<=", ref))
-
-        event_type = self.get_event_type_from_parameters(parameters)
-        if event_type:
-            domain.append(("event_type_id", "=", event_type))
-
+        domain = self._get_events_domain(day, parameters)
         return request.env["event.event"].search_read(
             domain=domain,
             limit=limit,
