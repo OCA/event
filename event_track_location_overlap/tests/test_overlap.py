@@ -7,7 +7,10 @@ from odoo import _
 from odoo.exceptions import ValidationError
 from odoo.tests.common import SavepointCase
 
-Sample = namedtuple("Sample", ("a_start", "a_duration", "b_start", "b_duration"),)
+Sample = namedtuple(
+    "Sample",
+    ("a_start", "a_duration", "b_start", "b_duration"),
+)
 
 
 class OverlappingCase(SavepointCase):
