@@ -27,6 +27,7 @@ addon | version | maintainers | summary
 [event_registration_mail_compose](event_registration_mail_compose/) | 15.0.1.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Compose and send mails to event attendees
 [event_registration_qr_code](event_registration_qr_code/) | 15.0.1.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Automatically generate unique QR Codes for each registration
 [event_sale_reservation](event_sale_reservation/) | 15.0.1.0.0 | [![Yajo](https://github.com/Yajo.png?size=30px)](https://github.com/Yajo) | Allow selling event registrations before the event exists
+[event_track_location_overlap](event_track_location_overlap/) | 15.0.1.0.0 |  | Restrict event track location overlapping
 [partner_event](partner_event/) | 15.0.1.0.0 |  | Link partner to events
 [website_event_sale_cart_quantity_readonly](website_event_sale_cart_quantity_readonly/) | 15.0.1.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Prevent the user to change the quantity of an event in the cart
 [website_event_ticket_published](website_event_ticket_published/) | 15.0.1.0.0 |  | Allow to unpublish event ticket from the website
