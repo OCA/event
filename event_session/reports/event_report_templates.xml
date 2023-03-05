@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright 2021 Moka Tourisme (https://www.mokatourisme.fr)
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+
+    <!--
+        What is this?
+
+        Core Odoo's event registration report templates are wrapped with a loop
+        that iterates all records. This loop sets the `event` variable that gets
+        passed onto the single-page report for rendering.
+
+        See `event.event_registration_report_template_foldable_badge`, for example.
+
+        We're leveraging that, and the fact that sessions inherit from events the
+        same way than product.product inherits from product.template, so all event
+        fields are accessible from the session, except for those that are specific
+        to the session itself (date_begin, etc..)
+    -->
+
+    <template
+        id="event_registration_report_template_foldable_badge"
+        inherit_id="event.event_registration_report_template_foldable_badge"
+    >
+        <xpath expr="//t[@t-foreach='docs']//t[@t-set='event']" position="after">
+            <t
+                t-if="attendee.session_id"
+                t-set="event"
+                t-value="attendee.session_id._set_tz_context()"
+            />
+        </xpath>
+    </template>
+
+    <template
+        id="event_registration_report_template_full_page_ticket"
+        inherit_id="event.event_registration_report_template_full_page_ticket"
+    >
+        <xpath expr="//t[@t-foreach='docs']//t[@t-set='event']" position="after">
+            <t
+                t-if="attendee.session_id"
+                t-set="event"
+                t-value="attendee.session_id._set_tz_context()"
+            />
+        </xpath>
+    </template>
+
+</odoo>

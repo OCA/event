@@ -1,0 +1,115 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="act_wizard_event_session" model="ir.actions.act_window">
+        <field name="name">Create Sessions</field>
+        <field name="res_model">wizard.event.session</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <record id="view_event_form_create_sessions" model="ir.ui.view">
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_form" />
+        <field name="arch" type="xml">
+            <header position="inside">
+                <button
+                    string="Create Sessions"
+                    name="%(act_wizard_event_session)d"
+                    class="oe_highlight"
+                    attrs="{'invisible': [('use_sessions', '=', False)]}"
+                    type="action"
+                />
+            </header>
+        </field>
+    </record>
+    <record id="view_wizard_event_session_form" model="ir.ui.view">
+        <field name="model">wizard.event.session</field>
+        <field name="arch" type="xml">
+            <form>
+                <group name="schedule" string="Schedule">
+                    <group name="rrule">
+                        <label string="From" for="start" />
+                        <div class="o_row">
+                            <field
+                                name="start"
+                                widget="daterange"
+                                nolabel="1"
+                                class="oe_inline"
+                                options="{'related_end_date': 'until'}"
+                            />
+                            <i
+                                class="fa fa-long-arrow-right mx-2"
+                                aria-label="Arrow icon"
+                                title="Arrow"
+                            />
+                            <field
+                                name="until"
+                                widget="daterange"
+                                nolabel="1"
+                                class="oe_inline"
+                                options="{'related_start_date': 'start'}"
+                            />
+                        </div>
+                        <label for="interval" string="Repeat Every" />
+                        <div class="o_col">
+                            <div class="o_row">
+                                <field name="interval" />
+                                <field name="rrule_type" />
+                            </div>
+                            <widget
+                                name="week_days"
+                                attrs="{'invisible': [('rrule_type', '!=', 'weekly')]}"
+                            />
+                        </div>
+                        <label
+                            string="Day of Month"
+                            for="month_by"
+                            attrs="{'invisible': [('rrule_type', '!=', 'monthly')]}"
+                        />
+                        <div
+                            class="o_row"
+                            attrs="{'invisible': [('rrule_type', '!=', 'monthly')]}"
+                        >
+                            <field name="month_by" />
+                            <field
+                                name="day"
+                                attrs="{'required': [('month_by', '=', 'date'), ('rrule_type', '=', 'monthly')],
+                                        'invisible': [('month_by', '!=', 'date')]}"
+                            />
+                            <field
+                                name="byday"
+                                string="The"
+                                attrs="{'required': [('month_by', '=', 'day'), ('rrule_type', '=', 'monthly')],
+                                        'invisible': [('month_by', '!=', 'day')]}"
+                            />
+                            <field
+                                name="weekday"
+                                nolabel="1"
+                                attrs="{'required': [('month_by', '=', 'day'), ('rrule_type', '=', 'monthly')],
+                                        'invisible': [('month_by', '!=', 'day')]}"
+                            />
+                        </div>
+                    </group>
+                    <group name="time">
+                        <field name="event_id" invisible="1" />
+                        <field name="date_tz" />
+                        <field
+                            name="timeslot_ids"
+                            string="At"
+                            widget="many2many_tags"
+                        />
+                        <field name="duration" widget="float_time" />
+                    </group>
+                </group>
+                <footer>
+                    <button
+                        name="action_create_sessions"
+                        type="object"
+                        string="Create Sessions"
+                        class="oe_highlight"
+                    />
+                    <button special="cancel" string="Cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
