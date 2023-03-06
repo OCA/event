@@ -543,7 +543,7 @@ msgstr ""
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__sale_order_lines_ids
-msgid "All sale order lines pointing to this event"
+msgid "All sale order lines pointing to this session"
 msgstr ""
 
 #. module: event_session
