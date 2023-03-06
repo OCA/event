@@ -18,7 +18,8 @@ class CRMLeadEventSale(models.TransientModel):
         string="Opportunity",
     )
     event_type_id = fields.Many2one(
-        readonly=True, related="opportunity_id.event_type_id",
+        readonly=True,
+        related="opportunity_id.event_type_id",
     )
     mode = fields.Selection(
         required=True,
@@ -28,7 +29,10 @@ class CRMLeadEventSale(models.TransientModel):
         ],
         help="How to create the event quotation?",
     )
-    seats_wanted = fields.Integer(readonly=True, related="opportunity_id.seats_wanted",)
+    seats_wanted = fields.Integer(
+        readonly=True,
+        related="opportunity_id.seats_wanted",
+    )
     product_id = fields.Many2one(
         comodel_name="product.product",
         domain="""
