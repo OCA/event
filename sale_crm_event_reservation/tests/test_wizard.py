@@ -88,7 +88,9 @@ class OpportunityCase(SavepointCase):
         )
         self.assertTrue(so.order_line.event_ok)
         self.assertEqual(
-            so.order_line.product_uom_qty, 3, "SO line qty = opportunity.seats_wanted",
+            so.order_line.product_uom_qty,
+            3,
+            "SO line qty = opportunity.seats_wanted",
         )
         self.assertAlmostEqual(
             so.amount_untaxed,
@@ -114,7 +116,9 @@ class OpportunityCase(SavepointCase):
         self.assertFalse(so.order_line.event_ticket_id)
         self.assertFalse(so.order_line.event_ok)
         self.assertEqual(
-            so.order_line.product_uom_qty, 3, "SO line qty = opportunity.seats_wanted",
+            so.order_line.product_uom_qty,
+            3,
+            "SO line qty = opportunity.seats_wanted",
         )
         self.assertAlmostEqual(
             so.amount_untaxed,
