@@ -30,8 +30,9 @@ class EventRegistration(models.Model):
         }
 
     def action_set_draft(self):
-        super().action_set_draft()
+        result = super().action_set_draft()
         self.write({"cancel_reason_id": False})
+        return result
 
 
 class EventRegistrationCancelReason(models.Model):
