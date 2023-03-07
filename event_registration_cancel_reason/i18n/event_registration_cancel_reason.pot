@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -41,7 +41,6 @@ msgid "Created on"
 msgstr ""
 
 #. module: event_registration_cancel_reason
-#: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration__display_name
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_log_reason__display_name
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_reason__display_name
 msgid "Display Name"
@@ -73,14 +72,12 @@ msgid "Event types"
 msgstr ""
 
 #. module: event_registration_cancel_reason
-#: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration__id
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_log_reason__id
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_reason__id
 msgid "ID"
 msgstr ""
 
 #. module: event_registration_cancel_reason
-#: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration____last_update
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_log_reason____last_update
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_reason____last_update
 msgid "Last Modified on"

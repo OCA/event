@@ -7,7 +7,7 @@ from odoo import exceptions, fields
 from odoo.tests import common
 
 
-class TestEventRegistrationCancelReason(common.SavepointCase):
+class TestEventRegistrationCancelReason(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
