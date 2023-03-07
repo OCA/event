@@ -2,10 +2,10 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from datetime import datetime, timedelta
 
-from odoo.tests.common import Form, SavepointCase
+from odoo.tests.common import Form, TransactionCase
 
 
-class OpportunityCase(SavepointCase):
+class OpportunityCase(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -32,14 +32,15 @@ class OpportunityCase(SavepointCase):
         cls.event_type_1 = cls.env["event.type"].create({"name": "Ev. Type 1"})
         cls.product_reservation_1 = cls.env["product.product"].create(
             {
-                "event_reservation_ok": True,
+                "sale_ok": True,
+                "detailed_type": "event_reservation",
                 "event_reservation_type_id": cls.event_type_1.id,
                 "lst_price": 11,
                 "name": "reservation for ev. type 1",
             }
         )
         cls.product_ticket_1 = cls.env["product.product"].create(
-            {"name": "events ticket", "event_ok": True, "lst_price": 10}
+            {"name": "events ticket", "detailed_type": "event", "lst_price": 10}
         )
         cls.event_1 = cls.env["event.event"].create(
             {

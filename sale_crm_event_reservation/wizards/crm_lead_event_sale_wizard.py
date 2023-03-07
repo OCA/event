@@ -37,7 +37,7 @@ class CRMLeadEventSale(models.TransientModel):
         comodel_name="product.product",
         domain="""
             [
-                ("event_reservation_ok", "=", True),
+                ("sale_ok", "=", True),
                 ("event_reservation_type_id", "=", event_type_id),
             ]
         """,
@@ -57,9 +57,9 @@ class CRMLeadEventSale(models.TransientModel):
             [
                 ("event_type_id", "=", event_type_id),
                 ("date_end", ">=", datetime.date.today().strftime("%Y-%m-%d")),
-                ("state", "!=", "cancel"),
+                ("is_finished", "!=", True),
                 "|",
-                ("seats_availability", "=", "unlimited"),
+                ("seats_limited", "=", "False"),
                 ("seats_available", ">=", seats_wanted),
             ]
         """,
@@ -78,10 +78,10 @@ class CRMLeadEventSale(models.TransientModel):
             [
                 ("event_id", "=", event_id),
                 "|",
-                ("deadline", "=", False),
-                ("deadline", ">=", datetime.date.today().strftime("%Y-%m-%d")),
+                ("end_sale_datetime", "=", False),
+                ("end_sale_datetime", ">=", datetime.date.today().strftime("%Y-%m-%d")),
                 "|",
-                ("seats_availability", "=", "unlimited"),
+                ("seats_limited", "=", "False"),
                 ("seats_available", ">=", seats_wanted),
             ]
         """,
