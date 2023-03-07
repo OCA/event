@@ -87,12 +87,16 @@ class UICase(HttpCase):
         """Test frontend b2b tour."""
         UICase._switch_tax_mode(self, "tax_excluded")
         self.start_tour(
-            "/event", "website_event_sale_b2x_alt_price_b2b", login="admin",
+            "/event",
+            "website_event_sale_b2x_alt_price_b2b",
+            login="admin",
         )
 
     def test_ui_website_b2c(self):
         """Test frontend b2c tour."""
         self._switch_tax_mode("tax_included")
         self.start_tour(
-            "/event", "website_event_sale_b2x_alt_price_b2c", login="admin",
+            "/event",
+            "website_event_sale_b2x_alt_price_b2c",
+            login="admin",
         )
