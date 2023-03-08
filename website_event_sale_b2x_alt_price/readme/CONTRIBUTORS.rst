@@ -2,3 +2,4 @@
 
   * Jairo Llopis
   * Carlos Roca
+  * David Vidal
