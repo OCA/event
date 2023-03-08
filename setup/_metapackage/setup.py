@@ -12,6 +12,7 @@ setuptools.setup(
         'odoo-addon-event_email_reminder>=15.0dev,<15.1dev',
         'odoo-addon-event_quick_registration>=15.0dev,<15.1dev',
         'odoo-addon-event_registration_mail_compose>=15.0dev,<15.1dev',
+        'odoo-addon-event_registration_partner_unique>=15.0dev,<15.1dev',
         'odoo-addon-event_registration_qr_code>=15.0dev,<15.1dev',
         'odoo-addon-event_sale_reservation>=15.0dev,<15.1dev',
         'odoo-addon-event_sale_session>=15.0dev,<15.1dev',
