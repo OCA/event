@@ -11,6 +11,7 @@ setuptools.setup(
         'odoo-addon-crm_event>=15.0dev,<15.1dev',
         'odoo-addon-event_email_reminder>=15.0dev,<15.1dev',
         'odoo-addon-event_quick_registration>=15.0dev,<15.1dev',
+        'odoo-addon-event_registration_cancel_reason>=15.0dev,<15.1dev',
         'odoo-addon-event_registration_mail_compose>=15.0dev,<15.1dev',
         'odoo-addon-event_registration_partner_unique>=15.0dev,<15.1dev',
         'odoo-addon-event_registration_qr_code>=15.0dev,<15.1dev',
