@@ -20,6 +20,7 @@ setuptools.setup(
         'odoo-addon-event_session>=15.0dev,<15.1dev',
         'odoo-addon-event_track_location_overlap>=15.0dev,<15.1dev',
         'odoo-addon-partner_event>=15.0dev,<15.1dev',
+        'odoo-addon-sale_crm_event_reservation>=15.0dev,<15.1dev',
         'odoo-addon-website_event_sale_cart_quantity_readonly>=15.0dev,<15.1dev',
         'odoo-addon-website_event_ticket_published>=15.0dev,<15.1dev',
     ],
