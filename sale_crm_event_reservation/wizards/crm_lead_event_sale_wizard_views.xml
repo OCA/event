@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Tecnativa - Jairo Llopis
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="crm_lead_event_sale_wizard_view_form" model="ir.ui.view">
+        <field
+            name="name"
+        >Wizard to generate event quotation from event opportunity</field>
+        <field name="model">crm.lead.event.sale.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="opportunity_id" />
+                        <field name="event_type_id" />
+                        <field name="seats_wanted" />
+                        <field name="mode" widget="radio" />
+                    </group>
+                    <group
+                        name="register"
+                        attrs="{'invisible': [('mode', '!=', 'register')]}"
+                    >
+                        <field
+                            name="event_id"
+                            attrs="{'required': [('mode', '=', 'register')]}"
+                        />
+                        <field
+                            name="event_ticket_id"
+                            attrs="{'required': [('mode', '=', 'register')]}"
+                        />
+                    </group>
+                    <group
+                        name="reserve"
+                        attrs="{'invisible': [('mode', '!=', 'reserve')]}"
+                    >
+                        <field
+                            name="product_id"
+                            attrs="{'required': [('mode', '=', 'reserve')]}"
+                        />
+                    </group>
+                </sheet>
+                <footer>
+                    <button
+                        name="action_generate"
+                        type="object"
+                        string="Generate quotation"
+                        class="oe_highlight"
+                    />
+                    <button special="cancel" string="Cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="crm_lead_event_sale_wizard_action" model="ir.actions.act_window">
+        <field name="name">Generate event quotation</field>
+        <field name="res_model">crm.lead.event.sale.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

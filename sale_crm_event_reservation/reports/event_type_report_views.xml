@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Tecnativa - Jairo Llopis
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<data>
+    <record id="view_event_type_report_pivot" model="ir.ui.view">
+        <field name="name">Add reservations to event category pivot</field>
+        <field name="model">event.type.report</field>
+        <field name="inherit_id" ref="crm_event.view_event_type_report_pivot" />
+        <field name="arch" type="xml">
+            <pivot>
+                <field name="seats_reservation_total" type="measure" />
+            </pivot>
+        </field>
+    </record>
+    <record id="view_event_type_report_graph" model="ir.ui.view">
+        <field name="name">Add reservations to event category graph</field>
+        <field name="model">event.type.report</field>
+        <field name="inherit_id" ref="crm_event.view_event_type_report_graph" />
+        <field name="arch" type="xml">
+            <graph>
+                <field name="seats_reservation_total" />
+            </graph>
+        </field>
+    </record>
+</data>

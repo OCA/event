@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Tecnativa - Jairo Llopis
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<data>
+    <record id="crm_case_form_view_oppor" model="ir.ui.view">
+        <field name="name">Add button to create event quotation</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="sale_crm.crm_case_form_view_oppor" />
+        <field name="groups_id" eval="[(4, ref('event.group_event_user'))]" />
+        <field name="arch" type="xml">
+            <button name="action_set_won_rainbowman" position="before">
+                <button
+                    string="New Event Quotation"
+                    name="%(crm_lead_event_sale_wizard_action)d"
+                    type="action"
+                    class="oe_highlight"
+                    attrs="{'invisible': ['|', '|', '|', ('partner_id', '=', False), ('event_type_id', '=', False), ('seats_wanted', '=', 0), '&amp;', ('probability', '=', 0), ('active', '=', False)]}"
+                    context="{'default_opportunity_id': id, 'default_event_type_id': event_type_id, 'default_seats_wanted': seats_wanted}"
+                />
+            </button>
+        </field>
+    </record>
+</data>
