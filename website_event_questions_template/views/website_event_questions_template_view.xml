@@ -29,7 +29,7 @@
                             nolabel="1"
                             context="{'default_template_id': active_id}"
                         >
-                        <tree string="Questions">
+                        <tree>
                             <field name="sequence" widget="handle" />
                             <field name="title" />
                             <field name="once_per_order" />

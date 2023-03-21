@@ -2,10 +2,10 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 from odoo.exceptions import UserError
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
-class EventQuestionTemplate(SavepointCase):
+class EventQuestionTemplate(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super(EventQuestionTemplate, cls).setUpClass()
