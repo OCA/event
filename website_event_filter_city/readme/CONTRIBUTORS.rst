@@ -7,3 +7,4 @@
     * Pedro Baeza
     * Jairo Llopis
     * Víctor Martínez
+    * David Vidal
