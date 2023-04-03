@@ -11,7 +11,7 @@
         name="Filter by City"
     >
         <xpath expr="//ul[hasclass('o_wevent_index_topbar_filters')]" position="inside">
-            <li class="nav-item dropdown mr-2 my-1 my-lg-0">
+            <li class="nav-item dropdown mr-2 my-1">
                 <a
                     href="#"
                     role="button"
@@ -19,7 +19,7 @@
                     data-toggle="dropdown"
                 >
                     <i class="fa fa-folder-open" />
-                    <t t-if="current_city" t-esc="current_city" />
+                    <t t-if="current_city" t-out="current_city" />
                     <t t-else="">All Cities</t>
                 </a>
                 <div class="dropdown-menu">
@@ -29,9 +29,9 @@
                                 t-att-href="keep('/event', city=city['city'])"
                                 t-attf-class="dropdown-item d-flex align-items-center justify-content-between #{searches.get('city') == city['city'] and 'active'}"
                             >
-                                <t t-esc="city['city']" />
+                                <t t-out="city['city']" />
                                 <span
-                                    t-esc="city['city_count']"
+                                    t-out="city['city_count']"
                                     class="badge badge-pill badge-primary ml-3"
                                 />
                             </a>
