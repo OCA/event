@@ -20,19 +20,28 @@
         <field name="name">Hotel Aceite de Jerez</field>
         <field name="street">C/ Alquería</field>
     </record>
-    <record id="event_type_code_sprint" model="event.type">
+    <record id="event_type_code_sprint" model="event.tag">
         <field name="name">Code Sprint</field>
+        <field name="sequence">30</field>
+        <field name="category_id" ref="event.event_tag_category_3" />
+        <field name="color">10</field>
     </record>
-    <record id="event_type_breakfast" model="event.type">
+    <record id="event_type_breakfast" model="event.tag">
         <field name="name">Breakfast</field>
+        <field name="sequence">40</field>
+        <field name="category_id" ref="event.event_tag_category_3" />
+        <field name="color">11</field>
     </record>
     <record id="event_barcelona" model="event.event">
         <field name="address_id" ref="partner_barcelona" />
         <field name="date_begin">2017-05-29 09:00:00</field>
         <field name="date_end">2017-05-31 19:00:00</field>
-        <field name="event_type_id" ref="event_type_code_sprint" />
+        <field
+            name="tag_ids"
+            eval="[(4, ref('website_event_filter_city.event_type_code_sprint'))]"
+        />
         <field name="name">Barcelona Days 2017</field>
-        <field name="seats_availability">limited</field>
+        <field name="seats_limited" eval="True" />
         <field name="seats_max">500</field>
         <field name="user_id" ref="base.user_admin" />
         <field name="website_published" eval="True" />
@@ -41,9 +50,12 @@
         <field name="address_id" ref="partner_sevilla" />
         <field name="date_begin">2018-06-11 09:00:00</field>
         <field name="date_end">2018-06-13 19:00:00</field>
-        <field name="event_type_id" ref="event_type_code_sprint" />
+        <field
+            name="tag_ids"
+            eval="[(4, ref('website_event_filter_city.event_type_code_sprint'))]"
+        />
         <field name="name">Sevilla Code Sprint 2018</field>
-        <field name="seats_availability">limited</field>
+        <field name="seats_limited" eval="True" />
         <field name="seats_max">200</field>
         <field name="user_id" ref="base.user_admin" />
         <field name="website_published" eval="True" />
@@ -52,9 +64,12 @@
         <field name="address_id" ref="partner_sevilla" />
         <field name="date_begin">2018-06-11 08:00:00</field>
         <field name="date_end">2018-06-11 09:00:00</field>
-        <field name="event_type_id" ref="event_type_breakfast" />
+        <field
+            name="tag_ids"
+            eval="[(4, ref('website_event_filter_city.event_type_breakfast'))]"
+        />
         <field name="name">Sevilla Awesome Breakfast 2018</field>
-        <field name="seats_availability">limited</field>
+        <field name="seats_limited" eval="True" />
         <field name="seats_max">10</field>
         <field name="user_id" ref="base.user_admin" />
         <field name="website_published" eval="True" />
@@ -63,10 +78,12 @@
         <field name="address_id" eval="False" />
         <field name="date_begin">2018-04-18 09:00:00</field>
         <field name="date_end">2018-04-20 19:00:00</field>
-        <field name="event_type_id" ref="event_type_code_sprint" />
-        <field name="is_online" eval="True" />
+        <field
+            name="tag_ids"
+            eval="[(4, ref('website_event_filter_city.event_type_breakfast'))]"
+        />
         <field name="name">Online Code Sprint 2018</field>
-        <field name="seats_availability">unlimited</field>
+        <field name="seats_limited" eval="False" />
         <field name="user_id" ref="base.user_admin" />
         <field name="website_published" eval="True" />
     </record>
