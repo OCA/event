@@ -14,7 +14,7 @@ Event Registration Mail Compose
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fevent-lightgray.png?logo=github
-    :target: https://github.com/OCA/event/tree/15.0/event_registration_mail_compose
+    :target: https://github.com/OCA/event/tree/16.0/event_registration_mail_compose
     :alt: OCA/event
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
     :target: https://translation.odoo-community.org/projects/event-15-0/event-15-0-event_registration_mail_compose
@@ -57,6 +57,10 @@ Contributors
 
     * Iván Todorovich <ivan.todorovich@gmail.com>
 
+* `InitOS <https://www.initos.com>`__:
+
+  * Dhara Solanki <dhara.solanki@initos.com>
+
 Maintainers
 ~~~~~~~~~~~
 
@@ -78,6 +82,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-ivantodorovich| 
 
-This module is part of the `OCA/event <https://github.com/OCA/event/tree/15.0/event_registration_mail_compose>`_ project on GitHub.
+This module is part of the `OCA/event <https://github.com/OCA/event/tree/16.0/event_registration_mail_compose>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
