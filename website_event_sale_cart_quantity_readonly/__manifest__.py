@@ -5,7 +5,7 @@
 {
     "name": "Website Event Sale: Cart Quantity Readonly",
     "summary": "Prevent the user to change the quantity of an event in the cart",
-    "version": "15.0.1.0.0",
+    "version": "16.0.1.0.0",
     "author": "Moka Tourisme, Odoo Community Association (OCA)",
     "maintainers": ["ivantodorovich"],
     "website": "https://github.com/OCA/event",
