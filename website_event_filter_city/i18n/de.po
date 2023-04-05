@@ -29,17 +29,26 @@ msgid "Barcelona Days 2017"
 msgstr ""
 
 #. module: website_event_filter_city
-#: model:event.type,name:website_event_filter_city.event_type_breakfast
+#: model:event.event,legend_blocked:website_event_filter_city.event_barcelona
+#: model:event.event,legend_blocked:website_event_filter_city.event_online
+#: model:event.event,legend_blocked:website_event_filter_city.event_sevilla_bf
+#: model:event.event,legend_blocked:website_event_filter_city.event_sevilla_cs
+msgid "Blocked"
+msgstr ""
+
+#. module: website_event_filter_city
+#: model:event.tag,name:website_event_filter_city.event_type_breakfast
 msgid "Breakfast"
 msgstr ""
 
 #. module: website_event_filter_city
 #: model:ir.model.fields,field_description:website_event_filter_city.field_event_event__city
+#: model:ir.model.fields,field_description:website_event_filter_city.field_event_session__city
 msgid "City"
 msgstr "Stadt"
 
 #. module: website_event_filter_city
-#: model:event.type,name:website_event_filter_city.event_type_code_sprint
+#: model:event.tag,name:website_event_filter_city.event_type_code_sprint
 msgid "Code Sprint"
 msgstr ""
 
@@ -49,8 +58,47 @@ msgid "Event"
 msgstr "Veranstaltung"
 
 #. module: website_event_filter_city
+#: model_terms:event.event,description:website_event_filter_city.event_barcelona
+#: model_terms:event.event,description:website_event_filter_city.event_online
+#: model_terms:event.event,description:website_event_filter_city.event_sevilla_bf
+#: model_terms:event.event,description:website_event_filter_city.event_sevilla_cs
+msgid ""
+"Every year we invite our community, partners and end-users to come and meet "
+"us! It's the ideal event to get together and present new features, roadmap "
+"of future versions, achievements of the software, workshops, training "
+"sessions, etc....\n"
+"            This event is also an opportunity to showcase our partners' case "
+"studies, methodology or developments. Be there and see directly from the "
+"source the features of the new version!"
+msgstr ""
+
+#. module: website_event_filter_city
+#: model:event.event,legend_normal:website_event_filter_city.event_barcelona
+#: model:event.event,legend_normal:website_event_filter_city.event_online
+#: model:event.event,legend_normal:website_event_filter_city.event_sevilla_bf
+#: model:event.event,legend_normal:website_event_filter_city.event_sevilla_cs
+msgid "In Progress"
+msgstr ""
+
+#. module: website_event_filter_city
+#: model_terms:event.event,description:website_event_filter_city.event_barcelona
+#: model_terms:event.event,description:website_event_filter_city.event_online
+#: model_terms:event.event,description:website_event_filter_city.event_sevilla_bf
+#: model_terms:event.event,description:website_event_filter_city.event_sevilla_cs
+msgid "Join us for this 24 hours Event"
+msgstr ""
+
+#. module: website_event_filter_city
 #: model:event.event,name:website_event_filter_city.event_online
 msgid "Online Code Sprint 2018"
+msgstr ""
+
+#. module: website_event_filter_city
+#: model:event.event,legend_done:website_event_filter_city.event_barcelona
+#: model:event.event,legend_done:website_event_filter_city.event_online
+#: model:event.event,legend_done:website_event_filter_city.event_sevilla_bf
+#: model:event.event,legend_done:website_event_filter_city.event_sevilla_cs
+msgid "Ready for Next Stage"
 msgstr ""
 
 #. module: website_event_filter_city
