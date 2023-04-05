@@ -34,6 +34,7 @@ addon | version | maintainers | summary
 [event_track_location_overlap](event_track_location_overlap/) | 15.0.1.0.0 |  | Restrict event track location overlapping
 [partner_event](partner_event/) | 15.0.1.0.0 |  | Link partner to events
 [sale_crm_event_reservation](sale_crm_event_reservation/) | 15.0.1.0.0 | [![Yajo](https://github.com/Yajo.png?size=30px)](https://github.com/Yajo) | Combine event reservations, opportunities and quotations
+[website_event_filter_city](website_event_filter_city/) | 15.0.1.0.0 | [![Yajo](https://github.com/Yajo.png?size=30px)](https://github.com/Yajo) | Add a customizable top area to filter events with city
 [website_event_sale_cart_quantity_readonly](website_event_sale_cart_quantity_readonly/) | 15.0.1.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Prevent the user to change the quantity of an event in the cart
 [website_event_ticket_published](website_event_ticket_published/) | 15.0.1.0.0 |  | Allow to unpublish event ticket from the website
 
