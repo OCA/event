@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 Le Filament (https://le-filament.com)
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+     <record id="event_registration_view_form_inherit_question" model="ir.ui.view">
+        <field name="name">event.registration.view.form.inherit.question</field>
+        <field name="model">event.registration</field>
+        <field
+            name="inherit_id"
+            ref="website_event_questions.event_registration_view_form_inherit_question"
+        />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//notebook//page//field[@name='registration_answer_ids']//tree//field[@name='value_answer_id']"
+                position="attributes"
+            >
+                <attribute name="attrs">{}</attribute>
+            </xpath>
+            <xpath
+                expr="//notebook//page//field[@name='registration_answer_ids']//tree//field[@name='value_text_box']"
+                position="attributes"
+            >
+                <attribute name="attrs">{}</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
