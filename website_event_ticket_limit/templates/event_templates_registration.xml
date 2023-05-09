@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 Le Filament (https://le-filament.com)
+License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <!-- Registration template -->
+    <template
+        id="registration_template"
+        inherit_id="website_event.registration_template"
+        name="Events Registration Ticket Limit"
+    >
+        <!-- Multi tickets option -->
+        <xpath
+            expr="//div[@id='o_wevent_tickets_collapse']/div/div/div/select"
+            position="attributes"
+        >
+            <attribute
+                name="t-if"
+            >not ticket.is_expired and ticket.sale_available and ticket.max_ticket_per_order == 0</attribute>
+        </xpath>
+        <xpath
+            expr="//div[@id='o_wevent_tickets_collapse']/div/div/div/select"
+            position="after"
+        >
+            <select
+                t-elif="not ticket.is_expired and ticket.sale_available and ticket.max_ticket_per_order &gt;= 1"
+                t-attf-name="nb_register-#{ticket.id}"
+                class="form-select"
+            >
+                <t
+                    t-set="seats_max_ticket"
+                    t-value="(not ticket.seats_limited or ticket.seats_available &gt; ticket.max_ticket_per_order) and ticket.max_ticket_per_order or ticket.seats_available"
+                />
+                <t
+                    t-set="seats_max_event"
+                    t-value="(not event.seats_limited or event.seats_available &gt; ticket.max_ticket_per_order) and ticket.max_ticket_per_order or event.seats_available"
+                />
+                <t t-set="seats_max" t-value="min(seats_max_ticket, seats_max_event)" />
+                <t t-foreach="range(0, seats_max + 1)" t-as="nb">
+                    <option
+                        t-out="nb"
+                        t-att-selected="len(ticket) == 0 and nb == 0 and 'selected'"
+                    />
+                </t>
+            </select>
+        </xpath>
+
+        <!-- Single ticket -->
+        <xpath
+            expr="//div[hasclass('o_wevent_registration_single')]/div/div/div/t/select"
+            position="attributes"
+        >
+            <attribute name="t-if">tickets.max_ticket_per_order == 0</attribute>
+        </xpath>
+        <xpath
+            expr="//div[hasclass('o_wevent_registration_single')]/div/div/div/t/select"
+            position="after"
+        >
+            <select
+                t-elif="tickets.max_ticket_per_order &gt;= 1"
+                t-att-name="'nb_register-%s' % (tickets.id if tickets else 0)"
+                class="d-inline w-auto form-select"
+            >
+                <t
+                    t-set="seats_max_ticket"
+                    t-value="(not tickets or not tickets.seats_limited or tickets.seats_available &gt; tickets.max_ticket_per_order) and tickets.max_ticket_per_order or tickets.seats_available"
+                />
+                <t
+                    t-set="seats_max_event"
+                    t-value="(not event.seats_limited or event.seats_available &gt; tickets.max_ticket_per_order) and tickets.max_ticket_per_order or event.seats_available"
+                />
+                <t
+                    t-set="seats_max"
+                    t-value="min(seats_max_ticket, seats_max_event) if tickets else event.seats_available"
+                />
+                <t t-foreach="range(0, seats_max + 1)" t-as="nb">
+                    <option t-out="nb" t-att-selected="nb == 1 and 'selected'" />
+                </t>
+            </select>
+        </xpath>
+    </template>
+</odoo>
