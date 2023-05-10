@@ -6,4 +6,4 @@ To use this module, you need to:
    "Template Mail Scheduler" field.
 #. Go to *Events > Events* and create one. All mails schedulers has been
    created. Also you can select other template in "Mail Template Scheduler"
-   field on "Email Schedule" tab.
+   field on "Communication" tab.
