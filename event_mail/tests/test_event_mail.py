@@ -1,10 +1,10 @@
 # Copyright 2017 Tecnativa - Sergio Teruel <sergio.teruel@tecnativa.com>
 # Copyright 2020 Studio73 - Pablo Fuentes <pablo@studio73.es>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
-class EventMailCase(SavepointCase):
+class EventMailCase(TransactionCase):
     @classmethod
     def setUpClass(cls):
         """Add some defaults to let the test run without an accounts chart."""
@@ -12,6 +12,7 @@ class EventMailCase(SavepointCase):
         cls.template1 = cls.env["event.mail.template"].create(
             {"name": "Template test 01"}
         )
+        event_reminder = cls.env.ref("event.event_reminder")
         cls.template2 = cls.env["event.mail.template"].create(
             {
                 "name": "Template test 01",
@@ -23,7 +24,7 @@ class EventMailCase(SavepointCase):
                             "interval_nbr": 15,
                             "interval_unit": "days",
                             "interval_type": "before_event",
-                            "template_id": cls.env.ref("event.event_reminder").id,
+                            "template_ref": f"mail.template, {event_reminder.id}",
                         },
                     )
                 ],
@@ -86,7 +87,7 @@ class EventMailCase(SavepointCase):
         event = self.env["event.event"].create(vals)
         self.assertEqual(
             len(event.event_mail_ids),
-            0,
+            3,
             "Event Mail: mails scheduler no created for this event",
         )
 
@@ -97,9 +98,7 @@ class EventMailCase(SavepointCase):
             .create({"event_mail_template_id": self.template2.id})
         )
         event_config.execute()
-        event_type = self.env["event.type"].create(
-            {"name": "Physical", "use_mail_schedule": "False"}
-        )
+        event_type = self.env["event.type"].create({"name": "Physical"})
         self.assertTrue(
             event_type.event_type_mail_ids.exists(),
             "Must be 'Mail Schedule'",
