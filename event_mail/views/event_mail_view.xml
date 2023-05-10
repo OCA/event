@@ -13,9 +13,9 @@
                     </group>
                     <group string="Mail Scheduler">
                         <field name="scheduler_template_ids" nolabel="1">
-                            <tree string="Email Schedule" editable="bottom">
+                            <tree editable="bottom">
                                 <field name="sequence" widget="handle" />
-                                <field name="template_id" />
+                                <field name="template_ref" />
                                 <field
                                     name="interval_nbr"
                                     attrs="{'readonly':[('interval_unit','=','now')]}"
