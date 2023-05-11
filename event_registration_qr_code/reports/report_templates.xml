@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template
+        id="event_registration_report_template_badge"
+        inherit_id="event.event_registration_report_template_badge"
+    >
+        <xpath expr="//div[@id='o_event_name']/.." position="after">
+            <div class="col-12 text-center o_event_qr_code">
+                    <div class="mt-2">
+                        <img
+                        t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;humanreadable=0' % ('QR', o.qr_code, 96, 96)"
+                    />
+                    </div>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>
