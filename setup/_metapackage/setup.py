@@ -16,6 +16,7 @@ setuptools.setup(
         'odoo14-addon-event_registration_mass_mailing',
         'odoo14-addon-event_registration_multi_qty',
         'odoo14-addon-event_registration_partner_unique',
+        'odoo14-addon-event_registration_qr_code',
         'odoo14-addon-event_sale_registration_multi_qty',
         'odoo14-addon-event_sale_session',
         'odoo14-addon-event_session',
