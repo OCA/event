@@ -17,19 +17,24 @@ msgstr ""
 "X-Generator: Weblate 4.3.2\n"
 
 #. module: event_registration_qr_code
-#: model_terms:ir.ui.view,arch_db:event_registration_qr_code.event_report_template_foldable_badge
-#: model_terms:ir.ui.view,arch_db:event_registration_qr_code.event_report_template_full_page_ticket
-msgid ""
-"<i class=\"fa-2x fa fa-qrcode\" title=\"QR Code\" role=\"img\" aria-"
-"label=\"QR Code\"/>"
+#: model:ir.model.fields,field_description:event_registration_qr_code.field_event_registration__display_name
+msgid "Display Name"
 msgstr ""
-"<i class=\"fa-2x fa fa-qrcode\" title=\"Codi QR\" role=\"img\" aria-label="
-"\"Codi QR\"/>"
 
 #. module: event_registration_qr_code
 #: model:ir.model,name:event_registration_qr_code.model_event_registration
 msgid "Event Registration"
 msgstr "Registre esdeveniment"
+
+#. module: event_registration_qr_code
+#: model:ir.model.fields,field_description:event_registration_qr_code.field_event_registration__id
+msgid "ID"
+msgstr ""
+
+#. module: event_registration_qr_code
+#: model:ir.model.fields,field_description:event_registration_qr_code.field_event_registration____last_update
+msgid "Last Modified on"
+msgstr ""
 
 #. module: event_registration_qr_code
 #: model:ir.model.constraint,message:event_registration_qr_code.constraint_event_registration_qr_code_unique
@@ -40,3 +45,10 @@ msgstr "El codi QR ha d'ésser únic"
 #: model:ir.model.fields,field_description:event_registration_qr_code.field_event_registration__qr_code
 msgid "Qr Code"
 msgstr "Codi QR"
+
+#~ msgid ""
+#~ "<i class=\"fa-2x fa fa-qrcode\" title=\"QR Code\" role=\"img\" aria-label="
+#~ "\"QR Code\"/>"
+#~ msgstr ""
+#~ "<i class=\"fa-2x fa fa-qrcode\" title=\"Codi QR\" role=\"img\" aria-label="
+#~ "\"Codi QR\"/>"
