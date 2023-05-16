@@ -35,6 +35,7 @@ addon | version | maintainers | summary
 [partner_event](partner_event/) | 15.0.1.0.0 |  | Link partner to events
 [sale_crm_event_reservation](sale_crm_event_reservation/) | 15.0.1.0.0 | [![Yajo](https://github.com/Yajo.png?size=30px)](https://github.com/Yajo) | Combine event reservations, opportunities and quotations
 [website_event_filter_city](website_event_filter_city/) | 15.0.1.0.0 | [![Yajo](https://github.com/Yajo.png?size=30px)](https://github.com/Yajo) | Add a customizable top area to filter events with city
+[website_event_require_login](website_event_require_login/) | 15.0.1.0.0 |  | Website Event Require Login
 [website_event_sale_b2x_alt_price](website_event_sale_b2x_alt_price/) | 15.0.1.0.0 | [![Yajo](https://github.com/Yajo.png?size=30px)](https://github.com/Yajo) | Display alt. price (B2B for B2C websites, and viceversa)
 [website_event_sale_cart_quantity_readonly](website_event_sale_cart_quantity_readonly/) | 15.0.1.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Prevent the user to change the quantity of an event in the cart
 [website_event_ticket_published](website_event_ticket_published/) | 15.0.1.0.0 |  | Allow to unpublish event ticket from the website
