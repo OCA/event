@@ -27,31 +27,17 @@ msgid "Close"
 msgstr "Chiudi"
 
 #. module: website_event_require_login
-#: model:ir.model.fields,field_description:website_event_require_login.field_event_event__display_name
-msgid "Display Name"
-msgstr "Nome visualizzato"
-
-#. module: website_event_require_login
 #: model:ir.model,name:website_event_require_login.model_event_event
 msgid "Event"
 msgstr "Evento"
 
 #. module: website_event_require_login
-#: model:ir.model.fields,field_description:website_event_require_login.field_event_event__id
-msgid "ID"
-msgstr "ID"
-
-#. module: website_event_require_login
 #: model:ir.model.fields,help:website_event_require_login.field_event_event__website_require_login
+#: model:ir.model.fields,help:website_event_require_login.field_event_session__website_require_login
 msgid ""
 "If set, a user must be logged in to be able to register attendees from the "
 "website."
 msgstr ""
-
-#. module: website_event_require_login
-#: model:ir.model.fields,field_description:website_event_require_login.field_event_event____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
 
 #. module: website_event_require_login
 #: model_terms:ir.ui.view,arch_db:website_event_require_login.modal_attendees_registration_login_required
@@ -65,6 +51,7 @@ msgstr ""
 
 #. module: website_event_require_login
 #: model:ir.model.fields,field_description:website_event_require_login.field_event_event__website_require_login
+#: model:ir.model.fields,field_description:website_event_require_login.field_event_session__website_require_login
 msgid "Require login for website registrations"
 msgstr ""
 
@@ -72,3 +59,12 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:website_event_require_login.modal_attendees_registration_login_required
 msgid "You must be logged in to be able to register to this event."
 msgstr ""
+
+#~ msgid "Display Name"
+#~ msgstr "Nome visualizzato"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"

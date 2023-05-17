@@ -27,33 +27,19 @@ msgid "Close"
 msgstr "Fechar"
 
 #. module: website_event_require_login
-#: model:ir.model.fields,field_description:website_event_require_login.field_event_event__display_name
-msgid "Display Name"
-msgstr "Nome a Apresentar"
-
-#. module: website_event_require_login
 #: model:ir.model,name:website_event_require_login.model_event_event
 msgid "Event"
 msgstr "Evento"
 
 #. module: website_event_require_login
-#: model:ir.model.fields,field_description:website_event_require_login.field_event_event__id
-msgid "ID"
-msgstr "ID"
-
-#. module: website_event_require_login
 #: model:ir.model.fields,help:website_event_require_login.field_event_event__website_require_login
+#: model:ir.model.fields,help:website_event_require_login.field_event_session__website_require_login
 msgid ""
 "If set, a user must be logged in to be able to register attendees from the "
 "website."
 msgstr ""
 "Se definido, um utilizador deve ter sessão iniciada para poder registar os "
 "participantes através do website."
-
-#. module: website_event_require_login
-#: model:ir.model.fields,field_description:website_event_require_login.field_event_event____last_update
-msgid "Last Modified on"
-msgstr "Última Modificação em"
 
 #. module: website_event_require_login
 #: model_terms:ir.ui.view,arch_db:website_event_require_login.modal_attendees_registration_login_required
@@ -67,6 +53,7 @@ msgstr "Login Obrigatório"
 
 #. module: website_event_require_login
 #: model:ir.model.fields,field_description:website_event_require_login.field_event_event__website_require_login
+#: model:ir.model.fields,field_description:website_event_require_login.field_event_session__website_require_login
 msgid "Require login for website registrations"
 msgstr "Exigir login para registos através do website"
 
@@ -74,3 +61,12 @@ msgstr "Exigir login para registos através do website"
 #: model_terms:ir.ui.view,arch_db:website_event_require_login.modal_attendees_registration_login_required
 msgid "You must be logged in to be able to register to this event."
 msgstr "Tem que ter sessão iniciada para se poder registar neste evento."
+
+#~ msgid "Display Name"
+#~ msgstr "Nome a Apresentar"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última Modificação em"
