@@ -1,0 +1,1 @@
+* Some of the checks are not especially related to events. The module could be split in two: e-commerce/website_sale_check_before_payment and event/website_event_sale_check_before_payment, the later depending on the other (cf. [this comment](https://github.com/OCA/event/pull/314#discussion_r1223085409)

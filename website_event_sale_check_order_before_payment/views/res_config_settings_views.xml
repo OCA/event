@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="res_config_settings_view_form" model="ir.ui.view">
+            <field
+                name="name"
+            >res.config.settings.view.form.inherit.event.sale.check</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="event.res_config_settings_view_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='event_settings_website']" position="inside">
+                    <div
+                        attrs="{'invisible': [('module_website_event_sale', '=', False)]}"
+                    >
+                        <div
+                            class="row mt16 o_settings_container"
+                            id="payment_issue_messages"
+                        >
+                            <div class="o_setting_box">
+                                <div class="text-muted">
+                                    Set error messages if the payment can't be processed.
+                                    <span
+                                        class="fa fa-lg fa-building-o"
+                                        title="Values set here are company-specific."
+                                        groups="base.group_multi_company"
+                                    />
+                                </div>
+                                <label for="cancelled_order_message" />
+                                <field name='cancelled_order_message' />
+                                <label for="no_more_seats_on_event_message" />
+                                <field name='no_more_seats_on_event_message' />
+                                <label for="no_more_ticket_message" />
+                                <field name='no_more_ticket_message' />
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

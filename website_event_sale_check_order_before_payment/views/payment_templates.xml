@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="payment_tokens_list" inherit_id="payment.payment_tokens_list">
+        <button id="o_payment_form_pay" position="attributes">
+            <attribute name="id">o_payment_form_check_order_and_pay</attribute>
+        </button>
+    </template>
+</odoo>
