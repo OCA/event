@@ -10,6 +10,7 @@ setuptools.setup(
     install_requires=[
         'odoo-addon-crm_event>=15.0dev,<15.1dev',
         'odoo-addon-event_email_reminder>=15.0dev,<15.1dev',
+        'odoo-addon-event_mail>=15.0dev,<15.1dev',
         'odoo-addon-event_quick_registration>=15.0dev,<15.1dev',
         'odoo-addon-event_registration_cancel_reason>=15.0dev,<15.1dev',
         'odoo-addon-event_registration_mail_compose>=15.0dev,<15.1dev',
