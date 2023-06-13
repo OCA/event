@@ -23,6 +23,7 @@ addon | version | maintainers | summary
 --- | --- | --- | ---
 [crm_event](crm_event/) | 15.0.1.0.0 | [![Yajo](https://github.com/Yajo.png?size=30px)](https://github.com/Yajo) | Link opportunities to event categories
 [event_email_reminder](event_email_reminder/) | 15.0.1.0.0 |  | Send an email before an event start
+[event_mail](event_mail/) | 15.0.1.0.0 |  | Mail settings in events
 [event_quick_registration](event_quick_registration/) | 15.0.1.0.0 |  | Create registration quickly
 [event_registration_cancel_reason](event_registration_cancel_reason/) | 15.0.1.0.0 |  | Reasons for event registrations cancellations
 [event_registration_mail_compose](event_registration_mail_compose/) | 15.0.1.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Compose and send mails to event attendees
