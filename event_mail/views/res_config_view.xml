@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2017 Tecnativa - Sergio Teruel <sergio.teruel@tecnativa.com>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="event.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@data-key='event']" position="inside">
+                <h2>Mail options</h2>
+                <div class="row mt16 o_settings_container">
+                    <div
+                        class="col-12 col-lg-6 o_setting_box"
+                        title="Template Mail Scheduler"
+                    >
+                        <div class="o_setting_right_pane">
+                            <span class="o_form_label">Template Mail Scheduler</span>
+                            <span
+                                class="fa fa-lg fa-envelope"
+                                title="Values set here are company-specific."
+                                aria-label="Values set here are company-specific."
+                                groups="base.group_multi_company"
+                                role="img"
+                            />
+                            <div class="text-muted">
+                            Template Mail Scheduler
+                        </div>
+                            <div class="content-group">
+                                <div class="mt16 row">
+                                    <label
+                                        for="event_mail_template_id"
+                                        string="Template"
+                                        class="col-3 col-lg-3 o_light_label"
+                                    />
+                                    <field
+                                        name="event_mail_template_id"
+                                        class="oe_inline"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
