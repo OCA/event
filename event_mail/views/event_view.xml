@@ -9,6 +9,7 @@
             <xpath expr="//field[@name='event_mail_ids']" position="before">
                 <field
                     name="event_mail_template_id"
+                    groups="base.group_user"
                     attrs="{'readonly': [('seats_expected', '>', 0)]}"
                 />
             </xpath>
