@@ -140,6 +140,10 @@ msgid "Delete Existing Sessions"
 msgstr "Verwijder bestaande sessies"
 
 #. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_event__display_name
+#: model:ir.model.fields,field_description:event_session.field_event_mail__display_name
+#: model:ir.model.fields,field_description:event_session.field_event_mail_registration__display_name
+#: model:ir.model.fields,field_description:event_session.field_event_registration__display_name
 #: model:ir.model.fields,field_description:event_session.field_event_session__display_name
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__display_name
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session_hours__display_name
@@ -162,13 +166,18 @@ msgid "End Date Located"
 msgstr "Einddatum locatie"
 
 #. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_event__generate_sessions_button_hide
+msgid "End Stage"
+msgstr ""
+
+#. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session_hours__end_time
 #, fuzzy
 msgid "End Time"
 msgstr "Eindtijd"
 
 #. module: event_session
-#: code:addons/event_session/models/event_session.py:323
+#: code:addons/event_session/models/event_session.py:0
 #, python-format
 msgid "Ending and starting time can't be the same!"
 msgstr "Eind- en begintijd kunnen niet hetzelfde zijn!"
@@ -217,6 +226,13 @@ msgid "Event session"
 msgstr "Evenementsessie"
 
 #. module: event_session
+#: model:ir.model.fields,help:event_session.field_event_event__generate_sessions_button_hide
+msgid ""
+"Events will automatically be moved into this stage when they are finished. "
+"The event moved into this stage will automatically be set as green."
+msgstr ""
+
+#. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__fridays
 msgid "Fridays"
 msgstr "Vrijdag"
@@ -258,6 +274,10 @@ msgid "Hours in wich the sessions will run"
 msgstr ""
 
 #. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_event__id
+#: model:ir.model.fields,field_description:event_session.field_event_mail__id
+#: model:ir.model.fields,field_description:event_session.field_event_mail_registration__id
+#: model:ir.model.fields,field_description:event_session.field_event_registration__id
 #: model:ir.model.fields,field_description:event_session.field_event_session__id
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__id
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session_hours__id
@@ -270,6 +290,10 @@ msgid "It will be generated according to given parameters"
 msgstr "Het zal worden gegenereerd door de gekozen parameters"
 
 #. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_event____last_update
+#: model:ir.model.fields,field_description:event_session.field_event_mail____last_update
+#: model:ir.model.fields,field_description:event_session.field_event_mail_registration____last_update
+#: model:ir.model.fields,field_description:event_session.field_event_registration____last_update
 #: model:ir.model.fields,field_description:event_session.field_event_session____last_update
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session____last_update
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session_hours____last_update
@@ -291,18 +315,13 @@ msgid "Last Updated on"
 msgstr "Laatst bijgewerkt op"
 
 #. module: event_session
-#: selection:event.session,seats_availability:0
-msgid "Limited"
-msgstr "Gelimiteerd"
-
-#. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__event_mail_ids
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__event_mail_template_id
 msgid "Mail Schedule"
 msgstr "Mail planner"
 
 #. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__seats_availability
+#: model:ir.model.fields,field_description:event_session.field_event_session__seats_limited
 msgid "Maximum Attendees"
 msgstr "Maximaal aantal deelnemers"
 
@@ -312,23 +331,18 @@ msgid "Maximum seats"
 msgstr "Maximaal aantal plaatsen"
 
 #. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__seats_min
-msgid "Minimum seats"
-msgstr "Minimaal aantal plaatsen"
-
-#. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__mondays
 msgid "Mondays"
 msgstr "Maandag"
 
 #. module: event_session
-#: code:addons/event_session/models/event_session.py:303
+#: code:addons/event_session/models/event_session.py:0
 #, python-format
 msgid "No more available seats for this session."
 msgstr "Geen plaatsen meer beschikbaar voor deze sessie."
 
 #. module: event_session
-#: code:addons/event_session/models/event.py:99
+#: code:addons/event_session/models/event.py:0
 #, python-format
 msgid "No more seats available for this event."
 msgstr "Er zijn geen plaatsen meer beschikbaar voor dit evenement."
@@ -342,11 +356,6 @@ msgstr "Aantal verwachtte deelnemers"
 #: model:ir.model.fields,field_description:event_session.field_event_session__seats_used
 msgid "Number of Participants"
 msgstr "Aantal deelnemers"
-
-#. module: event_session
-#: model_terms:ir.ui.view,arch_db:event_session.view_event_session_form
-msgid "Origin"
-msgstr "Bron"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.generator_view_form
@@ -399,7 +408,7 @@ msgid "Session date end"
 msgstr "Sessie einddatum"
 
 #. module: event_session
-#: code:addons/event_session/models/event_session.py:314
+#: code:addons/event_session/models/event_session.py:0
 #, python-format
 msgid "Session date is out of this event dates range"
 msgstr "Sessiedatum is niet in hetzelfde bereik als de evenementdatum"
@@ -474,14 +483,13 @@ msgid "Sundays"
 msgstr "Zondag"
 
 #. module: event_session
-#: code:addons/event_session/wizards/wizard_event_session.py:86
-#: code:addons/event_session/wizards/wizard_event_session.py:91
+#: code:addons/event_session/wizards/wizard_event_session.py:0
 #, python-format
 msgid "There are overlapping hours!"
 msgstr "Er zijn overlappende uren!"
 
 #. module: event_session
-#: code:addons/event_session/wizards/wizard_event_session.py:201
+#: code:addons/event_session/wizards/wizard_event_session.py:0
 #, python-format
 msgid "There are sessions with no duration!"
 msgstr "Er zijn sessies zonder tijdsduur!"
@@ -544,11 +552,6 @@ msgid "Unconfirmed Seat Reservations"
 msgstr "Onbevestigd gereserveerde plaatsen"
 
 #. module: event_session
-#: selection:event.session,seats_availability:0
-msgid "Unlimited"
-msgstr "Onbeperkt"
-
-#. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__wednesdays
 msgid "Wednesdays"
 msgstr "Woensdag"
@@ -571,15 +574,8 @@ msgid "Wizard for ease sessions creation"
 msgstr "Wizard evenementensessie id"
 
 #. module: event_session
-#: code:addons/event_session/models/event_session.py:224
-#, python-format
-msgid ""
-"You are trying to delete one or more                 sessions with active "
-"registrations"
-msgstr ""
-
-#. module: event_session
-#: code:addons/event_session/tests/test_session.py:179
+#: code:addons/event_session/models/event_session.py:0
+#: code:addons/event_session/tests/test_session.py:0
 #, python-format
 msgid ""
 "You are trying to delete one or more             sessions with active "
@@ -587,16 +583,28 @@ msgid ""
 msgstr ""
 
 #. module: event_session
-#: code:addons/event_session/wizards/wizard_event_session.py:177
+#: code:addons/event_session/wizards/wizard_event_session.py:0
 #, python-format
 msgid "You must select at least one weekday"
 msgstr "U moet minstens één weekdag selecteren"
 
 #. module: event_session
-#: code:addons/event_session/wizards/wizard_event_session.py:210
+#: code:addons/event_session/wizards/wizard_event_session.py:0
 #, python-format
 msgid "You've entered invalid hours!"
 msgstr "U heeft ongeldig uren ingevoerd!"
+
+#~ msgid "Limited"
+#~ msgstr "Gelimiteerd"
+
+#~ msgid "Minimum seats"
+#~ msgstr "Minimaal aantal plaatsen"
+
+#~ msgid "Origin"
+#~ msgstr "Bron"
+
+#~ msgid "Unlimited"
+#~ msgstr "Onbeperkt"
 
 #~ msgid "# of Event Sessions"
 #~ msgstr "# of evenementsessies"

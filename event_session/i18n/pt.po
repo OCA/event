@@ -161,7 +161,7 @@ msgid "End Date Located"
 msgstr ""
 
 #. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_event__generate_sessions_button_visible
+#: model:ir.model.fields,field_description:event_session.field_event_event__generate_sessions_button_hide
 msgid "End Stage"
 msgstr ""
 
@@ -218,7 +218,7 @@ msgid "Event session"
 msgstr ""
 
 #. module: event_session
-#: model:ir.model.fields,help:event_session.field_event_event__generate_sessions_button_visible
+#: model:ir.model.fields,help:event_session.field_event_event__generate_sessions_button_hide
 msgid ""
 "Events will automatically be moved into this stage when they are finished. "
 "The event moved into this stage will automatically be set as green."
@@ -433,8 +433,7 @@ msgstr ""
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_wizard_event_session__event_date_begin
 msgid ""
-"Set it up in the event configurationSessions will be generated from this "
-"date"
+"Set it up in the event configurationSessions will be generated from this date"
 msgstr ""
 
 #. module: event_session
@@ -471,7 +470,6 @@ msgid "Sundays"
 msgstr ""
 
 #. module: event_session
-#: code:addons/event_session/wizards/wizard_event_session.py:0
 #: code:addons/event_session/wizards/wizard_event_session.py:0
 #, python-format
 msgid "There are overlapping hours!"
