@@ -12,12 +12,12 @@
         <field name="inherit_id" ref="event.view_event_form" />
         <field name="arch" type="xml">
             <field name="stage_id" position="before">
-                <field name="generate_sessions_button_visible" invisible="1" />
+                <field name="generate_sessions_button_hide" invisible="1" />
                 <button
                     string="Generate Sessions"
                     name="%(act_wizard_event_session)d"
                     type="action"
-                    attrs="{'invisible': [('generate_sessions_button_visible', '=', False)]}"
+                    attrs="{'invisible': [('generate_sessions_button_hide', '=', True)]}"
                 />
             </field>
         </field>
