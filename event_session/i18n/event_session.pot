@@ -160,7 +160,7 @@ msgid "End Date Located"
 msgstr ""
 
 #. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_event__generate_sessions_button_visible
+#: model:ir.model.fields,field_description:event_session.field_event_event__generate_sessions_button_hide
 msgid "End Stage"
 msgstr ""
 
@@ -217,7 +217,7 @@ msgid "Event session"
 msgstr ""
 
 #. module: event_session
-#: model:ir.model.fields,help:event_session.field_event_event__generate_sessions_button_visible
+#: model:ir.model.fields,help:event_session.field_event_event__generate_sessions_button_hide
 msgid ""
 "Events will automatically be moved into this stage when they are finished. "
 "The event moved into this stage will automatically be set as green."
