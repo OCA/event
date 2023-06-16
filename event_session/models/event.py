@@ -39,7 +39,7 @@ class EventEvent(models.Model):
         string=" # No of Confirmed Registrations",
         store=True,
     )
-    generate_sessions_button_visible = fields.Boolean(related="stage_id.pipe_end")
+    generate_sessions_button_hide = fields.Boolean(related="stage_id.pipe_end")
 
     @api.depends("session_ids")
     def _compute_sessions_count(self):
