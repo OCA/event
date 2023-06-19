@@ -47,14 +47,14 @@ class EventEvent(models.Model):
             )
             event.update(vals)
         rest = self - multi_qty_events
-        super(EventEvent, rest)._compute_seats()
+        return super(EventEvent, rest)._compute_seats()
 
     @api.constrains("registration_multi_qty")
     def _check_attendees_qty(self):
         for event in self:
             if (
                 not event.registration_multi_qty
-                and max(event.registration_ids.mapped("qty") or [0]) > 1
+                and max(event.registration_ids.mapped("qty"), default=0) > 1
             ):
                 raise ValidationError(
                     _(
