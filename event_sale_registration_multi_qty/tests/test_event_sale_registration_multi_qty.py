@@ -3,7 +3,7 @@
 from odoo.tests import Form, common
 
 
-class TestEventSaleRegistrationMultiQty(common.SavepointCase):
+class TestEventSaleRegistrationMultiQty(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super(TestEventSaleRegistrationMultiQty, cls).setUpClass()
@@ -12,7 +12,7 @@ class TestEventSaleRegistrationMultiQty(common.SavepointCase):
             {
                 "name": "Test product event",
                 "type": "service",
-                "event_ok": True,
+                "detailed_type": "event",
                 "lst_price": 10.0,
                 "categ_id": cls.product_category.id,
             }
