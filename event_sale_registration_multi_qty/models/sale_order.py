@@ -10,7 +10,7 @@ class SaleOrder(models.Model):
 
     def _compute_attendee_count(self):
         """Adapt registrations counter to multi quantity"""
-        super()._compute_attendee_count()
+        res = super()._compute_attendee_count()
         event = self.env["event.event"].search(
             [
                 ("sale_order_lines_ids", "in", self.order_line.ids),
@@ -34,6 +34,7 @@ class SaleOrder(models.Model):
             )
         for sale_order in self:
             sale_order.attendee_count += attendee_count_data.get(sale_order.id, 0)
+        return res
 
 
 class SaleOrderLine(models.Model):
