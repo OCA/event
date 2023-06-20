@@ -108,10 +108,9 @@ msgstr "Ultima modifica il"
 
 #. module: event_sale_session
 #: code:addons/event_sale_session/models/sale_order.py:0
-#: code:addons/event_sale_session/models/sale_order.py:0
 #, python-format
-msgid "Not enough seats. Change quantity or session"
-msgstr "Posti non sufficienti. Cambiare quantità o sessione"
+msgid "Not enough seats in session %(session)s. Change quantity or session"
+msgstr ""
 
 #. module: event_sale_session
 #: model:ir.model.fields,field_description:event_sale_session.field_sale_report__event_session_count
@@ -183,3 +182,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:event_sale_session.view_event_form
 msgid "Unconfirmed orders seats"
 msgstr ""
+
+#, python-format
+#~ msgid "Not enough seats. Change quantity or session"
+#~ msgstr "Posti non sufficienti. Cambiare quantità o sessione"
