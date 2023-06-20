@@ -25,16 +25,25 @@ class SaleOrder(models.Model):
         for sale in self:
             sale.event_ids = sale.order_line.event_id
 
-    def _session_seats_available(self):
+    @api.constrains("order_line")
+    def _check_session_seats_available(self):
         """Check if there are lines that could do session overbooking"""
-        sessions = {}
-        for line in self.mapped("order_line").filtered("event_session_seats_limited"):
-            sessions.setdefault(line.session_id, line.event_session_seats_available)
-            sessions[line.session_id] -= line.product_uom_qty
-            # Break if any session can't allocate seats
-            if sessions[line.session_id] < 0:
-                return False
-        return True
+        for order in self:
+            for session in order.order_line.filtered(
+                "event_session_seats_limited"
+            ).session_id:
+                if session.seats_available < sum(
+                    order.order_line.filtered(lambda x: x.session_id == session).mapped(
+                        "product_uom_qty"
+                    )
+                ):
+                    raise ValidationError(
+                        _(
+                            "Not enough seats in session %(session)s. "
+                            "Change quantity or session",
+                            session=session.display_name,
+                        )
+                    )
 
 
 class SaleOrderLine(models.Model):
@@ -62,19 +71,6 @@ class SaleOrderLine(models.Model):
         string="Attendees",
         readonly=True,
     )
-
-    @api.onchange("session_id")
-    def onchange_session_id(self):
-        """Don't allow to book seats if there aren't enough"""
-        if not self.order_id._session_seats_available():
-            raise ValidationError(_("Not enough seats. Change quantity or session"))
-
-    @api.onchange("product_uom", "product_uom_qty")
-    def product_uom_change(self):
-        """Don't allow to book seats if there aren't enough"""
-        if not self.order_id._session_seats_available():
-            raise ValidationError(_("Not enough seats. Change quantity or session"))
-        return super().product_uom_change()
 
     @api.onchange("event_id")
     def _onchange_event_id(self):

@@ -108,7 +108,6 @@ class EventSaleSession(common.SavepointCase):
             line.event_ticket_id = self.event.event_ticket_ids[:1]
             line.product_uom_qty = 60
         sale = sale_form.save()
-        self.assertTrue(sale._session_seats_available())
         sale_form = Form(sale)
         with sale_form.order_line.new() as line:
             line.product_id = self.product
@@ -118,13 +117,14 @@ class EventSaleSession(common.SavepointCase):
             line.product_uom_qty = 40
         sale_form.save()
         # We can order up to the limit of 100 for this session
-        self.assertTrue(sale._session_seats_available())
         # If we try to book another seat, an error will raise
+        with sale_form.order_line.edit(1) as line_2:
+            line_2.product_uom_qty += 1
         with self.assertRaises(ValidationError):
-            sale.order_line[1].product_uom_qty += 1
-            sale.order_line[1].product_uom_change()
+            sale_form.save()
         # It's not allowed to overbook in a session with not enough seats
         self.session_alt_1.seats_max = 50
+        with sale_form.order_line.edit(0) as line_1:
+            line_1.session_id = self.session_alt_1
         with self.assertRaises(ValidationError):
-            sale.order_line[0].session_id = self.session_alt_1
-            sale.order_line[0].onchange_session_id()
+            sale_form.save()
