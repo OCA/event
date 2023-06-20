@@ -4,18 +4,16 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.0\n"
+"Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-14 11:31+0000\n"
-"PO-Revision-Date: 2017-06-14 14:10+0200\n"
-"Last-Translator: David <david.vidal@tecnativa.com>\n"
+"POT-Creation-Date: 2023-06-20 13:22+0000\n"
+"PO-Revision-Date: 2023-06-20 13:22+0000\n"
+"Last-Translator: \n"
 "Language-Team: \n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.7.1\n"
 
 #. module: event_sale_session
 #: model:ir.model.fields,field_description:event_sale_session.field_sale_order__registration_ids
@@ -40,17 +38,17 @@ msgstr "Plazas disponibles"
 #: model:ir.model.fields,field_description:event_sale_session.field_sale_order_line__display_name
 #: model:ir.model.fields,field_description:event_sale_session.field_sale_report__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nombre mostrado"
 
 #. module: event_sale_session
 #: model:ir.model,name:event_sale_session.model_registration_editor
 msgid "Edit Attendee Details on Sales Confirmation"
-msgstr ""
+msgstr "Editar detalles del asistente en la confirmación de ventas"
 
 #. module: event_sale_session
 #: model:ir.model,name:event_sale_session.model_registration_editor_line
 msgid "Edit Attendee Line on Sales Confirmation"
-msgstr ""
+msgstr "Editar línea de asistente en confirmación de ventas"
 
 #. module: event_sale_session
 #: model:ir.model,name:event_sale_session.model_event_event
@@ -62,11 +60,10 @@ msgstr "Evento"
 #. module: event_sale_session
 #: model:ir.model,name:event_sale_session.model_event_event_configurator
 msgid "Event Configurator"
-msgstr ""
+msgstr "Configurador de eventos"
 
 #. module: event_sale_session
 #: model:ir.model,name:event_sale_session.model_event_registration
-#, fuzzy
 msgid "Event Registration"
 msgstr "Sesión"
 
@@ -92,7 +89,7 @@ msgstr ""
 #. module: event_sale_session
 #: model:ir.model,name:event_sale_session.model_account_move
 msgid "Journal Entry"
-msgstr ""
+msgstr "Asiento contable"
 
 #. module: event_sale_session
 #: model:ir.model.fields,field_description:event_sale_session.field_account_move____last_update
@@ -106,29 +103,28 @@ msgstr ""
 #: model:ir.model.fields,field_description:event_sale_session.field_sale_order_line____last_update
 #: model:ir.model.fields,field_description:event_sale_session.field_sale_report____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última modificación el"
 
 #. module: event_sale_session
 #: code:addons/event_sale_session/models/sale_order.py:0
-#, fuzzy, python-format
-msgid "Not enough seats. Change quantity or session"
-msgstr "No hay plazas suficientes. Cambia la cantidad o escoge otra sesión."
+#, python-format
+msgid "Not enough seats in session %(session)s. Change quantity or session"
+msgstr "No ha plazas suficientes en la sesión %(session)s. Cambie la cantidad o la sesión"
 
 #. module: event_sale_session
 #: model:ir.model.fields,field_description:event_sale_session.field_sale_report__event_session_count
-#, fuzzy
 msgid "Number of event sessions"
 msgstr "Sesiones de evento totales"
 
 #. module: event_sale_session
 #: model:ir.model,name:event_sale_session.model_sale_report
 msgid "Sales Analysis Report"
-msgstr ""
+msgstr "Informe de análisis de ventas"
 
 #. module: event_sale_session
 #: model:ir.model,name:event_sale_session.model_sale_order
 msgid "Sales Order"
-msgstr ""
+msgstr "Pedido de venta"
 
 #. module: event_sale_session
 #: model:ir.model,name:event_sale_session.model_sale_order_line
@@ -157,7 +153,7 @@ msgstr "Sesión"
 #. module: event_sale_session
 #: model_terms:ir.ui.view,arch_db:event_sale_session.view_event_session_form
 msgid "Ticket"
-msgstr "Ticket"
+msgstr ""
 
 #. module: event_sale_session
 #: model:ir.model.fields,field_description:event_sale_session.field_event_event_configurator__event_sessions_count
@@ -185,10 +181,3 @@ msgstr "Plazas en pedidos sin confirmar"
 #: model_terms:ir.ui.view,arch_db:event_sale_session.view_event_form
 msgid "Unconfirmed orders seats"
 msgstr "Plazas en pedidos sin confirmar"
-
-#~ msgid "Invoice"
-#~ msgstr "Factura"
-
-#, fuzzy
-#~ msgid "Sale Order"
-#~ msgstr "Pedido de venta"
