@@ -15,7 +15,7 @@
     "website": "https://github.com/OCA/event",
     "development_status": "Production/Stable",
     "license": "AGPL-3",
-    "depends": ["event"],
+    "depends": ["base", "event", "website"],
     "data": [
         "security/ir.model.access.csv",
         "views/res_partner_view.xml",

@@ -63,12 +63,12 @@ class TestEventRegistration(common.TransactionCase):
         event_1 = self.event_0.copy()
         self.assertEqual(self.partner_01.registration_count, 0)
         self.registration_01.state = "open"
-        self.partner_01.invalidate_cache()
+        self.partner_01.invalidate_recordset()
         self.assertEqual(self.partner_01.registration_count, 1)
         self.registration_02.state = "done"
         self.registration_02.attendee_partner_id = self.partner_01
         self.registration_02.event_id = event_1
-        self.partner_01.invalidate_cache()
+        self.partner_01.invalidate_recordset()
         self.assertEqual(self.partner_01.registration_count, 2)
 
     def test_button_register(self):
@@ -81,16 +81,16 @@ class TestEventRegistration(common.TransactionCase):
         event_2 = self.event_0.copy()
         self.yesterday = datetime.now() - timedelta(days=1)
         self.tomorrow = datetime.now() + timedelta(days=1)
-        self.last_moth = datetime.now() - timedelta(days=30)
+        self.last_month = datetime.now() - timedelta(days=30)
         # Set an old event
-        event_2.write({"date_begin": self.last_moth})
+        event_2.write({"date_begin": self.last_month})
         event_2.write({"date_end": self.yesterday})
         self.registration_02.event_id = event_2
         self.registration_02.attendee_partner_id = self.partner_01
         # Update partner for an old event
         self.partner_01.write({"email": "new@test.com"})
         self.assertNotEqual(event_2.registration_ids.email, "new@test.com")
-        # Update partner for an current event
+        # Update partner for a current event
         event_2.write({"date_end": self.tomorrow})
         self.partner_01.write({"email": "new@test.com"})
         self.assertEqual(event_2.registration_ids.email, "new@test.com")

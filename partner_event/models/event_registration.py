@@ -64,7 +64,5 @@ class EventRegistration(models.Model):
             get_attendee_partner_address = {
                 "get_attendee_partner_address": self.attendee_partner_id,
             }
-            return super(
-                EventRegistration, self.with_context(**get_attendee_partner_address)
-            )._onchange_partner_id()
-        return super(EventRegistration, self)._onchange_partner_id()
+            self = self.with_context(**get_attendee_partner_address)
+        return {}
