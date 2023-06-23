@@ -64,7 +64,13 @@ class EventRegistration(models.Model):
             get_attendee_partner_address = {
                 "get_attendee_partner_address": self.attendee_partner_id,
             }
-            return super(
-                EventRegistration, self.with_context(**get_attendee_partner_address)
-            )._onchange_partner_id()
-        return super(EventRegistration, self)._onchange_partner_id()
+            # onchange for partner_id removed in v16 core - including functionality here
+            self = self.with_context(**get_attendee_partner_address)
+            for registration in self:
+                if registration.partner_id:
+                    registration.update(
+                        registration._synchronize_partner_values(
+                            registration.partner_id
+                        )
+                    )
+        return {}
