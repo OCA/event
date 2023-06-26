@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="modal_attendees_registration_login_required" name="Login Required">
+        <div id="modal_attendees_registration_login_required" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-hidden="true"
+                        >&amp;times;</button>
+                        <h4 class="modal-title">Login required</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            You must be logged in to register for this event.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <a
+                            t-attf-href="/web/login?redirect=#{event_url}#registration_form"
+                            class="btn btn-primary"
+                        >Login</a>
+                        <a
+                            href="#"
+                            class="btn btn-default"
+                            data-dismiss="modal"
+                        >Close</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</odoo>
