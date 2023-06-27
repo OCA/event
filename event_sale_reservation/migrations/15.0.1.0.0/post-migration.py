@@ -7,6 +7,6 @@ from openupgradelib import openupgrade
 def migrate(env, version):
     openupgrade.logged_query(
         env.cr,
-        """UPDATE product_product SET detailed_type = 'event_reservation'
+        """UPDATE product_template SET detailed_type = 'event_reservation'
         WHERE event_reservation_ok IS TRUE""",
     )
