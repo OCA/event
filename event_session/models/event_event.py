@@ -102,12 +102,14 @@ class EventEvent(models.Model):
             if data.get(rec.id):
                 rec.date_end = data.get(rec.id)
 
-    def _check_seats_limit(self):  # pragma: no cover
+    def _check_seats_availability(self, minimal_availability=0):  # pragma: no cover
         # OVERRIDE to ignore this constraint for event with sessions
         # Seat availability is checked on each session, not here.
         session_records = self.filtered("use_sessions")
         regular_records = self - session_records
-        return super(EventEvent, regular_records)._check_seats_limit()
+        return super(EventEvent, regular_records)._check_seats_availability(
+            minimal_availability=minimal_availability
+        )
 
     @api.model_create_multi
     def create(self, vals_list):

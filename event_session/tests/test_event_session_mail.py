@@ -123,7 +123,7 @@ class TestEventSession(CommonEventSessionCase):
         mail_registration = session_mail._create_missing_mail_registrations(
             session_mail._get_new_event_registrations()
         )
-        expected = mail_registration.registration_id.date_open
+        expected = mail_registration.registration_id.create_date
         self.assertEqual(mail_registration.scheduled_date, expected)
 
     @freeze_time("2017-05-16")

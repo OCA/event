@@ -105,17 +105,6 @@ class TestEventSession(CommonEventSessionCase):
         )
         self.assertEqual(event.use_sessions, True)
 
-    def test_event_event_form(self):
-        """Test UX on the event.event form"""
-        event_form = Form(self.env["event.event"])
-        event_form.name = "Test event sessions"
-        # Case 1: Changing to a session event will fill dates automatically
-        self.assertFalse(event_form.use_sessions)
-        self.assertFalse(event_form.date_begin)
-        event_form.use_sessions = True
-        self.assertTrue(event_form.date_begin)
-        self.assertTrue(event_form.date_end)
-
     def test_event_session_form(self):
         # Test workaround for this Odoo bug: https://github.com/odoo/odoo/pull/91373
         session_form = Form(
@@ -186,7 +175,7 @@ class TestEventSession(CommonEventSessionCase):
         self.env["event.registration"].create([vals] * self.session.seats_available)
         # Try to create another one
         with self.assertRaisesRegex(
-            ValidationError, "No more available seats."
+            ValidationError, r"There are not enough seats available for:"
         ), self.cr.savepoint():
             self.env["event.registration"].create(vals)
         # Attempt to create a draft registration on a full session
@@ -199,10 +188,10 @@ class TestEventSession(CommonEventSessionCase):
         registration = self.env["event.registration"].create(dict(vals, state="draft"))
         self.event.seats_limited = True
         with self.assertRaisesRegex(
-            ValidationError, "No more available seats."
+            ValidationError, r"There are not enough seats available for:"
         ), self.cr.savepoint():
             registration.action_confirm()
-            registration.flush()
+            registration.flush_recordset()
 
     def test_event_seats(self):
         """Test that event.event seats constraints do not apply to sessions"""
@@ -225,15 +214,15 @@ class TestEventSession(CommonEventSessionCase):
         self.env["event.registration"].create([vals] * 5)
         # Now attempt to move one registration to another session
         with self.assertRaisesRegex(
-            ValidationError, "No more available seats."
+            ValidationError, r"There are not enough seats available for:"
         ), self.cr.savepoint():
             self.session.registration_ids[0].session_id = session2
         # Attempt to decrease the event seats limit below the existing registrations
         with self.assertRaisesRegex(
-            ValidationError, "No more available seats."
+            ValidationError, r"There are not enough seats available for:"
         ), self.cr.savepoint():
             self.event.seats_max = 2
-            self.event.flush()
+            self.event.flush_recordset()
 
     def test_session_seats_count(self):
         session_1, session_2 = self.env["event.session"].create(
@@ -356,10 +345,10 @@ class TestEventSession(CommonEventSessionCase):
 
     def test_event_session_registrations_open(self):
         with freeze_time("2017-05-26 20:30:00"):
-            self.session.invalidate_cache(["event_registrations_open"])
+            self.session.invalidate_recordset(["event_registrations_open"])
             self.assertTrue(self.session.event_registrations_open)
         with freeze_time("2017-05-30 20:00:00"):
-            self.session.invalidate_cache(["event_registrations_open"])
+            self.session.invalidate_recordset(["event_registrations_open"])
             self.assertFalse(self.session.event_registrations_open)
 
     def test_event_session_action_set_done(self):

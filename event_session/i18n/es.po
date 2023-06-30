@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-14 11:25+0000\n"
-"PO-Revision-Date: 2017-06-14 13:27+0200\n"
+"POT-Creation-Date: 2023-07-07 10:31+0000\n"
+"PO-Revision-Date: 2023-07-07 13:02+0200\n"
 "Last-Translator: David <david.vidal@tecnativa.com>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -15,27 +15,22 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 1.8.7.1\n"
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__lead_count
-msgid "# Leads"
-msgstr ""
+"X-Generator: Poedit 3.0.1\n"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__mail_count_done
 msgid "# Sent"
+msgstr "# Enviado por"
+
+#. module: event_session
+#. odoo-python
+#: code:addons/event_session/models/event_session.py:0
+#, python-format
+msgid "- \"%(event_name)s\": Missing %(nb_too_many)i seats."
 msgstr ""
 
 #. module: event_session
 #: model:event.event,name:event_session.event_event_007
-#: model:event.session,name:event_session.event_session_007_1_16_00
-#: model:event.session,name:event_session.event_session_007_1_18_00
-#: model:event.session,name:event_session.event_session_007_1_20_00
-#: model:event.session,name:event_session.event_session_007_2_16_00
-#: model:event.session,name:event_session.event_session_007_2_18_00
-#: model:event.session,name:event_session.event_session_007_2_20_00
-#: model:event.session,name:event_session.event_session_007_3_20_00
 msgid "007: No Time to Die"
 msgstr ""
 
@@ -43,17 +38,17 @@ msgstr ""
 #: model:mail.template,body_html:event_session.event_session_registration_mail_template_badge
 msgid ""
 "<div>\n"
-"    Dear <t t-out=\"object.name or ''\">Oscar Morgan</t>,<br/>\n"
-"    Thank you for your inquiry.<br/>\n"
+"    Dear <t t-out=\"object.name or ''\">Oscar Morgan</t>,<br>\n"
+"    Thank you for your inquiry.<br>\n"
 "    Here is your badge for the event <t t-out=\"object.session_id.name or "
-"''\">OpenWood Collection Online Reveal</t>.<br/>\n"
+"''\">OpenWood Collection Online Reveal</t>.<br>\n"
 "    If you have any questions, please let us know.\n"
-"    <br/><br/>\n"
+"    <br><br>\n"
 "    Thank you,\n"
 "    <t t-if=\"object.session_id.user_id.signature\">\n"
-"        <br/>\n"
-"        <t t-out=\"object.session_id.user_id.signature or ''\">--<br/"
-">Mitchell Admin</t>\n"
+"        <br>\n"
+"        <t t-out=\"object.session_id.user_id.signature or ''\">--"
+"<br>Mitchell Admin</t>\n"
 "    </t>\n"
 "</div>"
 msgstr ""
@@ -73,8 +68,8 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_form_quick_create
 #: model_terms:ir.ui.view,arch_db:event_session.view_wizard_event_session_form
 msgid ""
-"<i class=\"fa fa-long-arrow-right mx-2\" aria-label=\"Arrow icon\" title="
-"\"Arrow\"/>"
+"<i class=\"fa fa-long-arrow-right mx-2\" aria-label=\"Arrow icon\" "
+"title=\"Arrow\"/>"
 msgstr ""
 
 #. module: event_session
@@ -87,29 +82,30 @@ msgstr ""
 msgid ""
 "<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"padding-top: "
 "16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; "
-"color: #454748; width: 100%; border-collapse:separate;\"><tr><td align="
-"\"center\">\n"
+"color: #454748; width: 100%; border-collapse:separate;\"><tr><td "
+"align=\"center\">\n"
 "<t t-set=\"date_begin\" t-value=\"format_datetime(object.session_id."
-"date_begin, tz='UTC', dt_format=&quot;yyyyMMdd'T'HHmmss'Z'&quot;)\"/>\n"
+"date_begin, tz='UTC', dt_format=&quot;yyyyMMdd'T'HHmmss'Z'&quot;)\"></t>\n"
 "<t t-set=\"date_end\" t-value=\"format_datetime(object.session_id.date_end, "
-"tz='UTC', dt_format=&quot;yyyyMMdd'T'HHmmss'Z'&quot;)\"/>\n"
+"tz='UTC', dt_format=&quot;yyyyMMdd'T'HHmmss'Z'&quot;)\"></t>\n"
 "<t t-set=\"is_online\" t-value=\"'is_published' in object.session_id and "
-"object.session_id.is_published\"/>\n"
-"<t t-set=\"event_organizer\" t-value=\"object.session_id.organizer_id\"/>\n"
-"<t t-set=\"event_address\" t-value=\"object.session_id.address_id\"/>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style="
-"\"padding: 16px; background-color: white; color: #454748; border-collapse:"
-"separate;\">\n"
+"object.session_id.is_published\"></t>\n"
+"<t t-set=\"event_organizer\" t-value=\"object.session_id.organizer_id\"></"
+"t>\n"
+"<t t-set=\"event_address\" t-value=\"object.session_id.address_id\"></t>\n"
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" "
+"style=\"padding: 16px; background-color: white; color: #454748; border-"
+"collapse:separate;\">\n"
 "<tbody>\n"
 "    <!-- HEADER -->\n"
 "    <tr>\n"
 "        <td align=\"center\" style=\"min-width: 590px;\">\n"
-"            <table width=\"590\" border=\"0\" cellpadding=\"0\" cellspacing="
-"\"0\" style=\"min-width: 590px; background-color: white; padding: 0px 8px "
-"0px 8px; border-collapse:separate;\">\n"
+"            <table width=\"590\" border=\"0\" cellpadding=\"0\" "
+"cellspacing=\"0\" style=\"min-width: 590px; background-color: white; "
+"padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
 "                <tr><td valign=\"middle\">\n"
 "                    <span style=\"font-size: 10px;\">Your registration</"
-"span><br/>\n"
+"span><br>\n"
 "                    <span style=\"font-size: 20px; font-weight: bold;\" t-"
 "out=\"object.name or ''\">Oscar Morgan</span>\n"
 "                </td><td valign=\"middle\" align=\"right\">\n"
@@ -124,13 +120,13 @@ msgid ""
 "                    <t t-else=\"\">\n"
 "                        <img t-att-src=\"'/logo.png?company=%s' % object."
 "company_id.id\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;"
-"\" t-att-alt=\"'%s' % object.company_id.name\"/>\n"
+"\" t-att-alt=\"'%s' % object.company_id.name\">\n"
 "                    </t>\n"
 "                </td></tr>\n"
 "                <tr><td colspan=\"2\" style=\"text-align:center;\">\n"
 "                  <hr width=\"100%\" style=\"background-color:"
 "rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;"
-"min-height:1px;line-height:0; margin:16px 0px 16px 0px;\"/>\n"
+"min-height:1px;line-height:0; margin:16px 0px 16px 0px;\">\n"
 "                </td></tr>\n"
 "            </table>\n"
 "        </td>\n"
@@ -138,13 +134,13 @@ msgid ""
 "    <!-- EVENT DESCRIPTION -->\n"
 "    <tr>\n"
 "        <td align=\"center\" style=\"min-width: 590px;\">\n"
-"            <table width=\"590\" border=\"0\" cellpadding=\"0\" cellspacing="
-"\"0\" style=\"min-width: 590px; background-color: white; padding: 0px 8px "
-"0px 8px; border-collapse:separate;\">\n"
+"            <table width=\"590\" border=\"0\" cellpadding=\"0\" "
+"cellspacing=\"0\" style=\"min-width: 590px; background-color: white; "
+"padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
 "                <tr><td valign=\"top\" style=\"font-size: 14px;\">\n"
 "                    <div>\n"
 "                        Hello <t t-out=\"object.name or ''\">Oscar Morgan</"
-"t>,<br/>\n"
+"t>,<br>\n"
 "                        We are excited to remind you that the event\n"
 "                        <t t-if=\"is_online\">\n"
 "                            <a t-att-href=\"object.session_id.website_url\" "
@@ -159,39 +155,39 @@ msgid ""
 "get_date_range_str() or ''\">today</strong>.\n"
 "                    </div>\n"
 "                    <div>\n"
-"                        <br/>\n"
+"                        <br>\n"
 "                        <strong>Add this event to your calendar</strong>\n"
 "                        <a t-attf-href=\"https://www.google.com/calendar/"
 "render?action=TEMPLATE&amp;text={{ object.session_id.name }}&amp;"
-"dates={{ date_begin }}/{{ date_end }}&amp;location={{ location }}\" style="
-"\"padding:3px 5px;border:1px solid #875A7B;color:#875A7B;text-decoration:"
-"none;border-radius:3px;\" target=\"new\"><img src=\"/web_editor/"
+"dates={{ date_begin }}/{{ date_end }}&amp;location={{ location }}\" "
+"style=\"padding:3px 5px;border:1px solid #875A7B;color:#875A7B;text-"
+"decoration:none;border-radius:3px;\" target=\"new\"><img src=\"/web_editor/"
 "font_to_img/61525/rgb(135,90,123)/16\" style=\"vertical-align:middle;\" "
-"height=\"16\" alt=\"\"/> Google</a>\n"
+"height=\"16\" alt=\"\"> Google</a>\n"
 "                        <a t-attf-href=\"/event/session/{{ slug(object."
 "session_id) }}/ics\" style=\"padding:3px 5px;border:1px solid #875A7B;color:"
 "#875A7B;text-decoration:none;border-radius:3px;\"><img src=\"/web_editor/"
 "font_to_img/61525/rgb(135,90,123)/16\" style=\"vertical-align:middle;\" "
-"height=\"16\" alt=\"\"/> iCal/Outlook</a>\n"
+"height=\"16\" alt=\"\"> iCal/Outlook</a>\n"
 "                        <a t-attf-href=\"https://calendar.yahoo.com/?"
 "v=60&amp;view=d&amp;type=20&amp;title={{ object.session_id.name }}&amp;"
 "in_loc={{ location }}&amp;st={{ format_datetime(object.session_id."
 "date_begin, tz='UTC', dt_format='yyyyMMdd\\'T\\'HHmmss') }}&amp;"
 "et={{ format_datetime(object.session_id.date_end, tz='UTC', "
 "dt_format='yyyyMMdd\\'T\\'HHmmss') }}\" style=\"padding:3px 5px;border:1px "
-"solid #875A7B;color:#875A7B;text-decoration:none;border-radius:3px;\" target="
-"\"new\">\n"
+"solid #875A7B;color:#875A7B;text-decoration:none;border-radius:3px;\" "
+"target=\"new\">\n"
 "                            <img src=\"/web_editor/font_to_img/61525/"
-"rgb(135,90,123)/16\" style=\"vertical-align:middle;\" height=\"16\" alt=\"\"/"
-"> Yahoo\n"
+"rgb(135,90,123)/16\" style=\"vertical-align:middle;\" height=\"16\" "
+"alt=\"\"> Yahoo\n"
 "                        </a>\n"
-"                        <br/><br/>\n"
+"                        <br><br>\n"
 "                    </div>\n"
 "                    <div>\n"
 "                        We confirm your registration and hope to meet you "
-"there,<br/>\n"
+"there,<br>\n"
 "                        <span style=\"color: #454748;\">\n"
-"                        -- <br/>\n"
+"                        -- <br>\n"
 "                        <t t-if=\"event_organizer\">\n"
 "                            <t t-out=\"event_organizer.name or "
 "''\">YourCompany</t>\n"
@@ -206,7 +202,7 @@ msgid ""
 "                <tr><td style=\"text-align:center;\">\n"
 "                  <hr width=\"100%\" style=\"background-color:"
 "rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;"
-"min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\"/>\n"
+"min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\">\n"
 "                </td></tr>\n"
 "            </table>\n"
 "        </td>\n"
@@ -214,16 +210,16 @@ msgid ""
 "    <!-- DETAILS -->\n"
 "    <tr>\n"
 "        <td align=\"center\" style=\"min-width: 590px;\">\n"
-"            <table width=\"590\" border=\"0\" cellpadding=\"0\" cellspacing="
-"\"0\" style=\"min-width: 590px; background-color: white; padding: 0px 8px "
-"0px 8px; border-collapse:separate;\">\n"
+"            <table width=\"590\" border=\"0\" cellpadding=\"0\" "
+"cellspacing=\"0\" style=\"min-width: 590px; background-color: white; "
+"padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
 "                <tr><td valign=\"top\" style=\"font-size: 14px;\">\n"
 "                    <table style=\"width:100%;\">\n"
 "                        <tr>\n"
 "                            <td style=\"vertical-align:top;\">\n"
 "                                <img src=\"/web_editor/font_to_img/61555/"
 "rgb(81,81,102)/34\" style=\"padding:4px;max-width:inherit;\" height=\"34\" "
-"alt=\"\"/>\n"
+"alt=\"\">\n"
 "                            </td>\n"
 "                            <td style=\"padding: 0px 10px 0px 10px;width:50%;"
 "line-height:20px;vertical-align:top;\">\n"
@@ -231,21 +227,22 @@ msgid ""
 "session_id.date_begin_located or ''\">May 4, 2021, 7:00:00 AM</t></div>\n"
 "                                <div><strong>To</strong> <t t-out=\"object."
 "session_id.date_end_located or ''\">May 6, 2021, 5:00:00 PM</t></div>\n"
-"                                <div style=\"font-size:12px;color:#9e9e9e"
-"\"><i><strong>TZ</strong> <t t-out=\"object.session_id.date_tz or "
+"                                <div style=\"font-size:12px;color:"
+"#9e9e9e\"><i><strong>TZ</strong> <t t-out=\"object.session_id.date_tz or "
 "''\">Europe/Brussels</t></i></div>\n"
 "                            </td>\n"
 "                            <td style=\"vertical-align:top;\">\n"
 "                                <t t-if=\"event_address\">\n"
 "                                    <img src=\"/web_editor/font_to_img/61505/"
 "rgb(81,81,102)/34\" style=\"padding:4px;max-width:inherit;\" height=\"34\" "
-"alt=\"\"/>\n"
+"alt=\"\">\n"
 "                                </t>\n"
 "                            </td>\n"
 "                            <td style=\"padding: 0px 10px 0px 10px;width:50%;"
 "vertical-align:top;\">\n"
 "                                <t t-if=\"event_address\">\n"
-"                                    <t t-set=\"location\" t-value=\"''\"/>\n"
+"                                    <t t-set=\"location\" t-value=\"''\"></"
+"t>\n"
 "                                    <t t-if=\"object.session_id.address_id."
 "name\">\n"
 "                                        <div t-out=\"object.session_id."
@@ -255,15 +252,15 @@ msgid ""
 "street\">\n"
 "                                        <div t-out=\"object.session_id."
 "address_id.street or ''\">Puerto Madero 9710</div>\n"
-"                                        <t t-set=\"location\" t-value="
-"\"object.session_id.address_id.street\"/>\n"
+"                                        <t t-set=\"location\" t-"
+"value=\"object.session_id.address_id.street\"></t>\n"
 "                                    </t>\n"
 "                                    <t t-if=\"object.session_id.address_id."
 "street2\">\n"
 "                                        <div t-out=\"object.session_id."
 "address_id.street2 or ''\">Of A15, Santiago (RM)</div>\n"
 "                                        <t t-set=\"location\" t-value=\"'%s, "
-"%s' % (location, object.session_id.address_id.street2)\"/>\n"
+"%s' % (location, object.session_id.address_id.street2)\"></t>\n"
 "                                    </t>\n"
 "                                    <div>\n"
 "                                    <t t-if=\"object.session_id.address_id."
@@ -271,21 +268,21 @@ msgid ""
 "                                        <t t-out=\"object.session_id."
 "address_id.city or ''\">Pudahuel</t>,\n"
 "                                        <t t-set=\"location\" t-value=\"'%s, "
-"%s' % (location, object.session_id.address_id.city)\"/>\n"
+"%s' % (location, object.session_id.address_id.city)\"></t>\n"
 "                                    </t>\n"
 "                                    <t t-if=\"object.session_id.address_id."
 "state_id.name\">\n"
 "                                        <t t-out=\"object.session_id."
 "address_id.state_id.name or ''\">C1</t>,\n"
 "                                        <t t-set=\"location\" t-value=\"'%s, "
-"%s' % (location, object.session_id.address_id.state_id.name)\"/>\n"
+"%s' % (location, object.session_id.address_id.state_id.name)\"></t>\n"
 "                                    </t>\n"
 "                                    <t t-if=\"object.session_id.address_id."
 "zip\">\n"
 "                                        <t t-out=\"object.session_id."
 "address_id.zip or ''\">98450</t>\n"
 "                                        <t t-set=\"location\" t-value=\"'%s, "
-"%s' % (location, object.session_id.address_id.zip)\"/>\n"
+"%s' % (location, object.session_id.address_id.zip)\"></t>\n"
 "                                    </t>\n"
 "                                    </div>\n"
 "                                    <t t-if=\"object.session_id.address_id."
@@ -293,7 +290,7 @@ msgid ""
 "                                        <div t-out=\"object.session_id."
 "address_id.country_id.name or ''\">Argentina</div>\n"
 "                                        <t t-set=\"location\" t-value=\"'%s, "
-"%s' % (location, object.session_id.address_id.country_id.name)\"/>\n"
+"%s' % (location, object.session_id.address_id.country_id.name)\"></t>\n"
 "                                    </t>\n"
 "                                </t>\n"
 "                            </td>\n"
@@ -304,7 +301,7 @@ msgid ""
 "                    <t t-if=\"event_organizer\">\n"
 "                        <hr width=\"100%\" style=\"background-color:"
 "rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;"
-"min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\"/>\n"
+"min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\">\n"
 "                    </t>\n"
 "                </td></tr>\n"
 "\n"
@@ -312,8 +309,8 @@ msgid ""
 "                    <!-- CONTACT ORGANIZER -->\n"
 "                    <t t-if=\"event_organizer\">\n"
 "                        <div>\n"
-"                            <span style=\"font-weight:300;margin:10px 0px"
-"\">Questions about this event?</span>\n"
+"                            <span style=\"font-weight:300;margin:10px "
+"0px\">Questions about this event?</span>\n"
 "                            <div>Please contact the organizer:</div>\n"
 "                            <ul>\n"
 "                                <li t-out=\"event_organizer.name or "
@@ -321,11 +318,11 @@ msgid ""
 "                                <t t-if=\"event_organizer.email\">\n"
 "                                    <li>Mail: <a t-attf-href=\"mailto:"
 "{{ event_organizer.email }}\" style=\"text-decoration:none;color:#875A7B;\" "
-"t-out=\"event_organizer.email or ''\"/></li>\n"
+"t-out=\"event_organizer.email or ''\"></a></li>\n"
 "                                </t>\n"
 "                                <t t-if=\"event_organizer.phone\">\n"
 "                                    <li>Phone: <t t-out=\"event_organizer."
-"phone or ''\"/></li>\n"
+"phone or ''\"></t></li>\n"
 "                                </t>\n"
 "                            </ul>\n"
 "                        </div>\n"
@@ -336,7 +333,7 @@ msgid ""
 "                    <hr t-if=\"is_online or event_address\" width=\"100%\" "
 "style=\"background-color:rgb(204,204,204);border:medium none;clear:both;"
 "display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px "
-"16px 0px;\"/>\n"
+"16px 0px;\">\n"
 "                </td></tr>\n"
 "\n"
 "                <tr><td valign=\"top\" style=\"font-size: 14px;\">\n"
@@ -351,7 +348,7 @@ msgid ""
 "                    <hr t-if=\"is_online and event_address\" width=\"100%\" "
 "style=\"background-color:rgb(204,204,204);border:medium none;clear:both;"
 "display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px "
-"16px 0px;\"/>\n"
+"16px 0px;\">\n"
 "                </td></tr>\n"
 "\n"
 "                <tr><td valign=\"top\" style=\"font-size: 14px;\">\n"
@@ -363,9 +360,9 @@ msgid ""
 "q={{ location }}\" target=\"new\">\n"
 "                                <img t-attf-src=\"http://maps.googleapis.com/"
 "maps/api/staticmap?autoscale=1&amp;size=598x200&amp;maptype=roadmap&amp;"
-"format=png&amp;visual_refresh=true&amp;markers=size:mid%7Ccolor:0xa5117d"
-"%7Clabel:%7C{{ location }}\" style=\"vertical-align:bottom; width: 100%;\" "
-"alt=\"Google Maps\"/>\n"
+"format=png&amp;visual_refresh=true&amp;markers=size:"
+"mid%7Ccolor:0xa5117d%7Clabel:%7C{{ location }}\" style=\"vertical-align:"
+"bottom; width: 100%;\" alt=\"Google Maps\">\n"
 "                            </a>\n"
 "                        </div>\n"
 "                    </td></tr></table>\n"
@@ -378,16 +375,16 @@ msgid ""
 "</td></tr>\n"
 "<!-- FOOTER BY -->\n"
 "<tr><td align=\"center\" style=\"min-width: 590px;\">\n"
-"    <table t-if=\"object.company_id\" width=\"590\" border=\"0\" cellpadding="
-"\"0\" cellspacing=\"0\" style=\"min-width: 590px; background-color: #F1F1F1; "
-"color: #454748; padding: 8px; border-collapse:separate;\">\n"
+"    <table t-if=\"object.company_id\" width=\"590\" border=\"0\" "
+"cellpadding=\"0\" cellspacing=\"0\" style=\"min-width: 590px; background-"
+"color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;\">\n"
 "      <tr><td style=\"text-align: center; font-size: 14px;\">\n"
 "        Sent by <a target=\"_blank\" t-attf-href=\"{{ object.company_id."
 "website }}\" style=\"color: #875A7B;\" t-out=\"object.company_id.name or "
 "''\">YourCompany</a>\n"
 "        <t t-if=\"'website_url' in object.session_id and object.session_id."
 "website_url\">\n"
-"            <br/>\n"
+"            <br>\n"
 "            Discover <a href=\"/event\" style=\"color:#875A7B;\">all our "
 "events</a>.\n"
 "        </t>\n"
@@ -403,29 +400,30 @@ msgstr ""
 msgid ""
 "<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"padding-top: "
 "16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; "
-"color: #454748; width: 100%; border-collapse:separate;\"><tr><td align="
-"\"center\">\n"
+"color: #454748; width: 100%; border-collapse:separate;\"><tr><td "
+"align=\"center\">\n"
 "<t t-set=\"date_begin\" t-value=\"format_datetime(object.session_id."
-"date_begin, tz='UTC', dt_format=&quot;yyyyMMdd'T'HHmmss'Z'&quot;)\"/>\n"
+"date_begin, tz='UTC', dt_format=&quot;yyyyMMdd'T'HHmmss'Z'&quot;)\"></t>\n"
 "<t t-set=\"date_end\" t-value=\"format_datetime(object.session_id.date_end, "
-"tz='UTC', dt_format=&quot;yyyyMMdd'T'HHmmss'Z'&quot;)\"/>\n"
+"tz='UTC', dt_format=&quot;yyyyMMdd'T'HHmmss'Z'&quot;)\"></t>\n"
 "<t t-set=\"is_online\" t-value=\"'is_published' in object.session_id and "
-"object.session_id.is_published\"/>\n"
-"<t t-set=\"event_organizer\" t-value=\"object.session_id.organizer_id\"/>\n"
-"<t t-set=\"event_address\" t-value=\"object.session_id.address_id\"/>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style="
-"\"padding: 16px; background-color: white; color: #454748; border-collapse:"
-"separate;\">\n"
+"object.session_id.is_published\"></t>\n"
+"<t t-set=\"event_organizer\" t-value=\"object.session_id.organizer_id\"></"
+"t>\n"
+"<t t-set=\"event_address\" t-value=\"object.session_id.address_id\"></t>\n"
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" "
+"style=\"padding: 16px; background-color: white; color: #454748; border-"
+"collapse:separate;\">\n"
 "<tbody>\n"
 "    <!-- HEADER -->\n"
 "    <tr>\n"
 "        <td align=\"center\" style=\"min-width: 590px;\">\n"
-"            <table width=\"590\" border=\"0\" cellpadding=\"0\" cellspacing="
-"\"0\" style=\"min-width: 590px; background-color: white; padding: 0px 8px "
-"0px 8px; border-collapse:separate;\">\n"
+"            <table width=\"590\" border=\"0\" cellpadding=\"0\" "
+"cellspacing=\"0\" style=\"min-width: 590px; background-color: white; "
+"padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
 "                <tr><td valign=\"middle\">\n"
 "                    <span style=\"font-size: 10px;\">Your registration</"
-"span><br/>\n"
+"span><br>\n"
 "                    <span style=\"font-size: 20px; font-weight: bold;\">\n"
 "                        <t t-out=\"object.name or ''\">Oscar Morgan</t>\n"
 "                    </span>\n"
@@ -441,13 +439,13 @@ msgid ""
 "                    <t t-else=\"\">\n"
 "                        <img t-att-src=\"'/logo.png?company=%s' % object."
 "company_id.id\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;"
-"\" t-att-alt=\"'%s' % object.company_id.name\"/>\n"
+"\" t-att-alt=\"'%s' % object.company_id.name\">\n"
 "                    </t>\n"
 "                </td></tr>\n"
 "                <tr><td colspan=\"2\" style=\"text-align:center;\">\n"
 "                  <hr width=\"100%\" style=\"background-color:"
 "rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;"
-"min-height:1px;line-height:0; margin:16px 0px 16px 0px;\"/>\n"
+"min-height:1px;line-height:0; margin:16px 0px 16px 0px;\">\n"
 "                </td></tr>\n"
 "            </table>\n"
 "        </td>\n"
@@ -455,13 +453,13 @@ msgid ""
 "    <!-- EVENT DESCRIPTION -->\n"
 "    <tr>\n"
 "        <td align=\"center\" style=\"min-width: 590px;\">\n"
-"            <table width=\"590\" border=\"0\" cellpadding=\"0\" cellspacing="
-"\"0\" style=\"min-width: 590px; background-color: white; padding: 0px 8px "
-"0px 8px; border-collapse:separate;\">\n"
+"            <table width=\"590\" border=\"0\" cellpadding=\"0\" "
+"cellspacing=\"0\" style=\"min-width: 590px; background-color: white; "
+"padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
 "                <tr><td valign=\"top\" style=\"font-size: 14px;\">\n"
 "                    <div>\n"
 "                        Hello <t t-out=\"object.name or ''\">Oscar Morgan</"
-"t>,<br/>\n"
+"t>,<br>\n"
 "                        We are happy to confirm your registration to the "
 "event\n"
 "                        <t t-if=\"is_online\">\n"
@@ -477,38 +475,38 @@ msgid ""
 "Morgan</t>.\n"
 "                    </div>\n"
 "                    <div>\n"
-"                        <br/>\n"
+"                        <br>\n"
 "                        <strong>Add this event to your calendar</strong>\n"
 "                        <a t-attf-href=\"https://www.google.com/calendar/"
 "render?action=TEMPLATE&amp;text={{ object.session_id.name }}&amp;"
-"dates={{ date_begin }}/{{ date_end }}&amp;location={{ location }}\" style="
-"\"padding:3px 5px;border:1px solid #875A7B;color:#875A7B;text-decoration:"
-"none;border-radius:3px;\" target=\"new\"><img src=\"/web_editor/"
+"dates={{ date_begin }}/{{ date_end }}&amp;location={{ location }}\" "
+"style=\"padding:3px 5px;border:1px solid #875A7B;color:#875A7B;text-"
+"decoration:none;border-radius:3px;\" target=\"new\"><img src=\"/web_editor/"
 "font_to_img/61525/rgb(135,90,123)/16\" style=\"vertical-align:middle;\" "
-"height=\"16\" alt=\"\"/> Google</a>\n"
+"height=\"16\" alt=\"\"> Google</a>\n"
 "                        <a t-attf-href=\"/event/session/{{ slug(object."
 "session_id) }}/ics\" style=\"padding:3px 5px;border:1px solid #875A7B;color:"
 "#875A7B;text-decoration:none;border-radius:3px;\"><img src=\"/web_editor/"
 "font_to_img/61525/rgb(135,90,123)/16\" style=\"vertical-align:middle;\" "
-"height=\"16\" alt=\"\"/> iCal/Outlook</a>\n"
+"height=\"16\" alt=\"\"> iCal/Outlook</a>\n"
 "                        <a t-attf-href=\"https://calendar.yahoo.com/?"
 "v=60&amp;view=d&amp;type=20&amp;title={{ object.session_id.name }}&amp;"
 "in_loc={{ location }}&amp;st={{ format_datetime(object.session_id."
 "date_begin, tz='UTC', dt_format='yyyyMMdd\\'T\\'HHmmss') }}&amp;"
 "et={{ format_datetime(object.session_id.date_end, tz='UTC', "
 "dt_format='yyyyMMdd\\'T\\'HHmmss') }}\" style=\"padding:3px 5px;border:1px "
-"solid #875A7B;color:#875A7B;text-decoration:none;border-radius:3px;\" target="
-"\"new\">\n"
+"solid #875A7B;color:#875A7B;text-decoration:none;border-radius:3px;\" "
+"target=\"new\">\n"
 "                            <img src=\"/web_editor/font_to_img/61525/"
-"rgb(135,90,123)/16\" style=\"vertical-align:middle;\" height=\"16\" alt=\"\"/"
-"> Yahoo\n"
+"rgb(135,90,123)/16\" style=\"vertical-align:middle;\" height=\"16\" "
+"alt=\"\"> Yahoo\n"
 "                        </a>\n"
-"                        <br/><br/>\n"
+"                        <br><br>\n"
 "                    </div>\n"
 "                    <div>\n"
-"                        See you soon,<br/>\n"
+"                        See you soon,<br>\n"
 "                        <span style=\"color: #454748;\">\n"
-"                        -- <br/>\n"
+"                        -- <br>\n"
 "                        <t t-if=\"event_organizer\">\n"
 "                            <t t-out=\"event_organizer.name or "
 "''\">YourCompany</t>\n"
@@ -523,7 +521,7 @@ msgid ""
 "                <tr><td style=\"text-align:center;\">\n"
 "                  <hr width=\"100%\" style=\"background-color:"
 "rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;"
-"min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\"/>\n"
+"min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\">\n"
 "                </td></tr>\n"
 "            </table>\n"
 "        </td>\n"
@@ -531,16 +529,16 @@ msgid ""
 "    <!-- DETAILS -->\n"
 "    <tr>\n"
 "        <td align=\"center\" style=\"min-width: 590px;\">\n"
-"            <table width=\"590\" border=\"0\" cellpadding=\"0\" cellspacing="
-"\"0\" style=\"min-width: 590px; background-color: white; padding: 0px 8px "
-"0px 8px; border-collapse:separate;\">\n"
+"            <table width=\"590\" border=\"0\" cellpadding=\"0\" "
+"cellspacing=\"0\" style=\"min-width: 590px; background-color: white; "
+"padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
 "                <tr><td valign=\"top\" style=\"font-size: 14px;\">\n"
 "                    <table style=\"width:100%;\">\n"
 "                        <tr>\n"
 "                            <td style=\"vertical-align:top;\">\n"
 "                                <img src=\"/web_editor/font_to_img/61555/"
 "rgb(81,81,102)/34\" style=\"padding:4px;max-width:inherit;\" height=\"34\" "
-"alt=\"\"/>\n"
+"alt=\"\">\n"
 "                            </td>\n"
 "                            <td style=\"padding: 0px 10px 0px 10px;width:50%;"
 "line-height:20px;vertical-align:top;\">\n"
@@ -548,21 +546,22 @@ msgid ""
 "session_id.date_begin_located or ''\">May 4, 2021, 7:00:00 AM</t></div>\n"
 "                                <div><strong>To</strong> <t t-out=\"object."
 "session_id.date_end_located or ''\">May 6, 2021, 5:00:00 PM</t></div>\n"
-"                                <div style=\"font-size:12px;color:#9e9e9e"
-"\"><i><strong>TZ</strong> <t t-out=\"object.session_id.date_tz or "
+"                                <div style=\"font-size:12px;color:"
+"#9e9e9e\"><i><strong>TZ</strong> <t t-out=\"object.session_id.date_tz or "
 "''\">Europe/Brussels</t></i></div>\n"
 "                            </td>\n"
 "                            <td style=\"vertical-align:top;\">\n"
 "                                <t t-if=\"event_address\">\n"
 "                                    <img src=\"/web_editor/font_to_img/61505/"
 "rgb(81,81,102)/34\" style=\"padding:4px;max-width:inherit;\" height=\"34\" "
-"alt=\"\"/>\n"
+"alt=\"\">\n"
 "                                </t>\n"
 "                            </td>\n"
 "                            <td style=\"padding: 0px 10px 0px 10px;width:50%;"
 "vertical-align:top;\">\n"
 "                                <t t-if=\"event_address\">\n"
-"                                    <t t-set=\"location\" t-value=\"''\"/>\n"
+"                                    <t t-set=\"location\" t-value=\"''\"></"
+"t>\n"
 "                                    <t t-if=\"object.session_id.address_id."
 "name\">\n"
 "                                        <div t-out=\"object.session_id."
@@ -572,15 +571,15 @@ msgid ""
 "street\">\n"
 "                                        <div t-out=\"object.session_id."
 "address_id.street or ''\">Puerto Madero 9710</div>\n"
-"                                        <t t-set=\"location\" t-value="
-"\"object.session_id.address_id.street\"/>\n"
+"                                        <t t-set=\"location\" t-"
+"value=\"object.session_id.address_id.street\"></t>\n"
 "                                    </t>\n"
 "                                    <t t-if=\"object.session_id.address_id."
 "street2\">\n"
 "                                        <div t-out=\"object.session_id."
 "address_id.street2 or ''\">Of A15, Santiago (RM)</div>\n"
 "                                        <t t-set=\"location\" t-value=\"'%s, "
-"%s' % (location, object.session_id.address_id.street2)\"/>\n"
+"%s' % (location, object.session_id.address_id.street2)\"></t>\n"
 "                                    </t>\n"
 "                                    <div>\n"
 "                                    <t t-if=\"object.session_id.address_id."
@@ -588,21 +587,21 @@ msgid ""
 "                                        <t t-out=\"object.session_id."
 "address_id.city or ''\">Pudahuel</t>,\n"
 "                                        <t t-set=\"location\" t-value=\"'%s, "
-"%s' % (location, object.session_id.address_id.city)\"/>\n"
+"%s' % (location, object.session_id.address_id.city)\"></t>\n"
 "                                    </t>\n"
 "                                    <t t-if=\"object.session_id.address_id."
 "state_id.name\">\n"
 "                                        <t t-out=\"object.session_id."
 "address_id.state_id.name or ''\">C1</t>,\n"
 "                                        <t t-set=\"location\" t-value=\"'%s, "
-"%s' % (location, object.session_id.address_id.state_id.name)\"/>\n"
+"%s' % (location, object.session_id.address_id.state_id.name)\"></t>\n"
 "                                    </t>\n"
 "                                    <t t-if=\"object.session_id.address_id."
 "zip\">\n"
 "                                        <t t-out=\"object.session_id."
 "address_id.zip or ''\">98450</t>\n"
 "                                        <t t-set=\"location\" t-value=\"'%s, "
-"%s' % (location, object.session_id.address_id.zip)\"/>\n"
+"%s' % (location, object.session_id.address_id.zip)\"></t>\n"
 "                                    </t>\n"
 "                                    </div>\n"
 "                                    <t t-if=\"object.session_id.address_id."
@@ -610,7 +609,7 @@ msgid ""
 "                                        <div t-out=\"object.session_id."
 "address_id.country_id.name or ''\">Argentina</div>\n"
 "                                        <t t-set=\"location\" t-value=\"'%s, "
-"%s' % (location, object.session_id.address_id.country_id.name)\"/>\n"
+"%s' % (location, object.session_id.address_id.country_id.name)\"></t>\n"
 "                                    </t>\n"
 "                                </t>\n"
 "                            </td>\n"
@@ -621,7 +620,7 @@ msgid ""
 "                    <t t-if=\"event_organizer\">\n"
 "                        <hr width=\"100%\" style=\"background-color:"
 "rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;"
-"min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\"/>\n"
+"min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\">\n"
 "                    </t>\n"
 "                </td></tr>\n"
 "\n"
@@ -629,8 +628,8 @@ msgid ""
 "                    <!-- CONTACT ORGANIZER -->\n"
 "                    <t t-if=\"event_organizer\">\n"
 "                        <div>\n"
-"                            <span style=\"font-weight:300;margin:10px 0px"
-"\">Questions about this event?</span>\n"
+"                            <span style=\"font-weight:300;margin:10px "
+"0px\">Questions about this event?</span>\n"
 "                            <div>Please contact the organizer:</div>\n"
 "                            <ul>\n"
 "                                <li><t t-out=\"event_organizer.name or "
@@ -653,7 +652,7 @@ msgid ""
 "                    <t t-if=\"is_online or event_address\">\n"
 "                        <hr width=\"100%\" style=\"background-color:"
 "rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;"
-"min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\"/>\n"
+"min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\">\n"
 "                    </t>\n"
 "                </td></tr>\n"
 "\n"
@@ -672,7 +671,7 @@ msgid ""
 "                    <t t-if=\"is_online and event_address\">\n"
 "                        <hr width=\"100%\" style=\"background-color:"
 "rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;"
-"min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\"/>\n"
+"min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\">\n"
 "                    </t>\n"
 "                </td></tr>\n"
 "\n"
@@ -685,9 +684,9 @@ msgid ""
 "maps?q={{ location }}\" target=\"new\">\n"
 "                                    <img t-attf-src=\"http://maps.googleapis."
 "com/maps/api/staticmap?autoscale=1&amp;size=598x200&amp;maptype=roadmap&amp;"
-"format=png&amp;visual_refresh=true&amp;markers=size:mid%7Ccolor:0xa5117d"
-"%7Clabel:%7C{{ location }}\" style=\"vertical-align:bottom; width: 100%;\" "
-"alt=\"Google Maps\"/>\n"
+"format=png&amp;visual_refresh=true&amp;markers=size:"
+"mid%7Ccolor:0xa5117d%7Clabel:%7C{{ location }}\" style=\"vertical-align:"
+"bottom; width: 100%;\" alt=\"Google Maps\">\n"
 "                                </a>\n"
 "                            </div>\n"
 "                        </td></tr></table>\n"
@@ -702,15 +701,15 @@ msgid ""
 "<!-- FOOTER BY -->\n"
 "<tr><td align=\"center\" style=\"min-width: 590px;\">\n"
 "    <t t-if=\"object.company_id\">\n"
-"        <table width=\"590\" border=\"0\" cellpadding=\"0\" cellspacing="
-"\"0\" style=\"min-width: 590px; background-color: #F1F1F1; color: #454748; "
-"padding: 8px; border-collapse:separate;\">\n"
+"        <table width=\"590\" border=\"0\" cellpadding=\"0\" "
+"cellspacing=\"0\" style=\"min-width: 590px; background-color: #F1F1F1; "
+"color: #454748; padding: 8px; border-collapse:separate;\">\n"
 "        <tr><td style=\"text-align: center; font-size: 14px;\">\n"
 "            Sent by <a target=\"_blank\" t-attf-href=\"{{ object.company_id."
 "website }}\" style=\"color: #875A7B;\" t-out=\"object.company_id.name or "
 "''\">YourCompany</a>\n"
 "            <t t-if=\"is_online\">\n"
-"                <br/>\n"
+"                <br>\n"
 "                Discover <a href=\"/event\" style=\"color:#875A7B;\">all our "
 "events</a>.\n"
 "            </t>\n"
@@ -725,7 +724,7 @@ msgstr ""
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__message_needaction
 msgid "Action Needed"
-msgstr ""
+msgstr "Acción requerida"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__active
@@ -735,47 +734,42 @@ msgstr "Activo"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__activity_ids
 msgid "Activities"
-msgstr ""
+msgstr "Actividades"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__activity_exception_decoration
 msgid "Activity Exception Decoration"
-msgstr ""
+msgstr "Decoración de Actividad de Excepción"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__activity_state
 msgid "Activity State"
-msgstr ""
+msgstr "Estado de la actividad"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__activity_type_icon
 msgid "Activity Type Icon"
-msgstr ""
+msgstr "Ícono de tipo de actividad"
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__address_search
+msgid "Address"
+msgstr "Dirección"
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__event_session__session_update__all
 msgid "All event sessions"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__sale_order_lines_ids
-msgid "All sale order lines pointing to this session"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,help:event_session.field_event_session__website_menu
-msgid "Allows to display and manage event-specific menus on website."
-msgstr ""
+msgstr "Sesiones del evento"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_form
 msgid "Applies to the following fields:"
-msgstr ""
+msgstr "Aplica a los siguientes campos:"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_search
 msgid "Archived"
-msgstr ""
+msgstr "Archivado"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_wizard_event_session_form
@@ -785,7 +779,7 @@ msgstr ""
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__message_attachment_count
 msgid "Attachment Count"
-msgstr ""
+msgstr "Nº de archivos adjuntos"
 
 #. module: event_session
 #: model:ir.actions.act_window,name:event_session.act_event_registration_from_event_session
@@ -800,43 +794,23 @@ msgid ""
 "Autoconfirm Registrations. Registrations will automatically be confirmed "
 "upon creation."
 msgstr ""
+"Confirmar automáticamente las inscripciones. Las inscripciones se "
+"confirmarán automáticamente cuando se creen."
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__auto_confirm
 msgid "Autoconfirmation"
-msgstr ""
+msgstr "Confirmación automática"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__seats_available
 msgid "Available Seats"
-msgstr "Plazas disponibles"
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__allowed_track_tag_ids
-msgid "Available Track Tags"
-msgstr ""
-
-#. module: event_session
-#: model:event.event,legend_blocked:event_session.event_event_007
-#: model:event.session,legend_blocked:event_session.event_session_007_1_16_00
-#: model:event.session,legend_blocked:event_session.event_session_007_1_18_00
-#: model:event.session,legend_blocked:event_session.event_session_007_1_20_00
-#: model:event.session,legend_blocked:event_session.event_session_007_2_16_00
-#: model:event.session,legend_blocked:event_session.event_session_007_2_18_00
-#: model:event.session,legend_blocked:event_session.event_session_007_2_20_00
-#: model:event.session,legend_blocked:event_session.event_session_007_3_20_00
-msgid "Blocked"
-msgstr ""
+msgstr "Asientos disponibles"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__byday
 msgid "By day"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__can_publish
-msgid "Can Publish"
-msgstr ""
+msgstr "Día"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_wizard_event_session_form
@@ -846,17 +820,12 @@ msgstr "Cancelar"
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__session_update
 msgid "Choose what to do with other event sessions"
-msgstr ""
+msgstr "Elige qué hacer con otras sesiones del evento"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_form
 msgid "Communication"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__community_menu
-msgid "Community Menu"
-msgstr ""
+msgstr "Comunicación"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__company_id
@@ -866,29 +835,19 @@ msgstr "Compañía"
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_kanban
 msgid "Confirmed"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,help:event_session.field_event_session__lead_count
-msgid "Counter for the leads linked to this event"
-msgstr ""
+msgstr "Confirmado"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__country_id
 msgid "Country"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__cover_properties
-msgid "Cover Properties"
-msgstr ""
+msgstr "País"
 
 #. module: event_session
 #: model:ir.actions.act_window,name:event_session.act_wizard_event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_form_create_sessions
 #: model_terms:ir.ui.view,arch_db:event_session.view_wizard_event_session_form
 msgid "Create Sessions"
-msgstr ""
+msgstr "Crear sesión"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__create_uid
@@ -907,40 +866,35 @@ msgid "Created on"
 msgstr "Creado el"
 
 #. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__currency_id
-msgid "Currency"
-msgstr ""
-
-#. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_form
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_form_quick_create
 msgid "Date"
-msgstr ""
+msgstr "Fecha"
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__month_by__date
 msgid "Date of month"
-msgstr ""
+msgstr "Día del mes"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__day
 msgid "Day"
-msgstr ""
+msgstr "Día"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_wizard_event_session_form
 msgid "Day of Month"
-msgstr ""
+msgstr "Día del mes"
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__month_by__day
 msgid "Day of month"
-msgstr ""
+msgstr "Día del mes"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__description
 msgid "Description"
-msgstr ""
+msgstr "Descripción"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__display_name
@@ -951,35 +905,31 @@ msgid "Display Name"
 msgstr "Nombre a mostrar"
 
 #. module: event_session
-#: model:ir.model.fields,help:event_session.field_event_session__community_menu
-msgid "Display community tab on website"
-msgstr ""
-
-#. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__sequence
 msgid "Display order"
-msgstr ""
+msgstr "Orden de visualización"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__duration
 msgid "Duration"
-msgstr ""
+msgstr "Duración"
 
 #. module: event_session
+#. odoo-python
 #: code:addons/event_session/wizards/wizard_event_session.py:0
 #, python-format
 msgid "Duration is required."
-msgstr ""
+msgstr "La duración es requerida"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_wizard_event_session__duration
 msgid "Duration of the sessions in hours"
-msgstr ""
+msgstr "Horas de duración de la sesión"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_form
 msgid "Edit sessions"
-msgstr ""
+msgstr "Editar sesiones"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_event__date_end
@@ -1004,99 +954,72 @@ msgstr "Evento"
 #. module: event_session
 #: model:ir.model,name:event_session.model_event_mail
 msgid "Event Automated Mailing"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__community_menu_ids
-msgid "Event Community Menus"
-msgstr ""
+msgstr "Mailing automatizado de eventos"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_registration__event_end_date
 msgid "Event End Date"
-msgstr ""
+msgstr "Fecha final del evento"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__scheduler_id
 msgid "Event Mail Scheduler"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__menu_id
-msgid "Event Menu"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__track_proposal_menu_ids
-msgid "Event Proposals Menus"
-msgstr ""
+msgstr "Planificador de correo de eventos"
 
 #. module: event_session
 #: model:ir.model,name:event_session.model_event_registration
-#, fuzzy
 msgid "Event Registration"
-msgstr "Registros"
+msgstr "Registro de eventos"
 
 #. module: event_session
 #: model:ir.model,name:event_session.model_event_mail_session
 msgid "Event Session Automated Mailing"
-msgstr ""
+msgstr "Mailing automático de la sesión del evento"
 
 #. module: event_session
 #: model:ir.model,name:event_session.model_event_session_timeslot
 msgid "Event Session Timeslot"
-msgstr ""
+msgstr "Horario de la sesión"
 
 #. module: event_session
 #: model:mail.template,name:event_session.event_session_subscription
 msgid "Event Session: Registration"
-msgstr ""
+msgstr "Sesión del evento: Registro"
 
 #. module: event_session
 #: model:mail.template,name:event_session.event_session_registration_mail_template_badge
 msgid "Event Session: Registration Badge"
-msgstr ""
+msgstr "Sesión del evento: Insignia de registro"
 
 #. module: event_session
 #: model:mail.template,name:event_session.event_session_reminder
 msgid "Event Session: Reminder"
-msgstr ""
+msgstr "Sesión del evento: Recordatorio"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_event__use_sessions
 #: model:ir.model.fields,field_description:event_session.field_event_mail__use_sessions
-#: model:ir.model.fields,field_description:event_session.field_event_mail_scheduler_template__use_sessions
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__use_sessions
 #: model:ir.model.fields,field_description:event_session.field_event_registration__use_sessions
 #: model:ir.model.fields,field_description:event_session.field_event_session__use_sessions
 #: model:ir.model.fields,field_description:event_session.field_event_type__use_sessions
 msgid "Event Sessions"
-msgstr ""
+msgstr "Sesiones del evento"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_registration__event_begin_date
 msgid "Event Start Date"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__subtitle
-msgid "Event Subtitle"
-msgstr ""
+msgstr "Fecha inicial del evento"
 
 #. module: event_session
 #: model:ir.model,name:event_session.model_event_type
 msgid "Event Template"
-msgstr ""
+msgstr "Plantilla del evento"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__event_ticket_ids
 msgid "Event Ticket"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__track_menu_ids
-msgid "Event Tracks Menus"
-msgstr ""
+msgstr "Ticket del evento"
 
 #. module: event_session
 #: model:ir.model,name:event_session.model_event_session
@@ -1105,18 +1028,11 @@ msgstr "Sesión"
 
 #. module: event_session
 #: model_terms:event.event,description:event_session.event_event_007
-#: model_terms:event.session,description:event_session.event_session_007_1_16_00
-#: model_terms:event.session,description:event_session.event_session_007_1_18_00
-#: model_terms:event.session,description:event_session.event_session_007_1_20_00
-#: model_terms:event.session,description:event_session.event_session_007_2_16_00
-#: model_terms:event.session,description:event_session.event_session_007_2_18_00
-#: model_terms:event.session,description:event_session.event_session_007_2_20_00
-#: model_terms:event.session,description:event_session.event_session_007_3_20_00
 msgid ""
 "Every year we invite our community, partners and end-users to come and meet "
 "us! It's the ideal event to get together and present new features, roadmap "
 "of future versions, achievements of the software, workshops, training "
-"sessions, etc....\n"
+"sessions, etc...\n"
 "            This event is also an opportunity to showcase our partners' case "
 "studies, methodology or developments. Be there and see directly from the "
 "source the features of the new version!"
@@ -1125,22 +1041,17 @@ msgstr ""
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_tree
 msgid "Expected Attendees"
-msgstr ""
+msgstr "Asistentes previstos"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_kanban
 msgid "Expected attendees"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__menu_register_cta
-msgid "Extra Register Button"
-msgstr ""
+msgstr "Asistentes previstos"
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__byday__1
 msgid "First"
-msgstr ""
+msgstr "Primero"
 
 #. module: event_session
 #: model:mail.template,report_name:event_session.event_session_registration_mail_template_badge
@@ -1151,17 +1062,17 @@ msgstr ""
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__message_follower_ids
 msgid "Followers"
-msgstr ""
+msgstr "Seguidores"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__message_partner_ids
 msgid "Followers (Partners)"
-msgstr ""
+msgstr "Seguidores (Contactos)"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__activity_type_icon
 msgid "Font awesome icon e.g. fa-tasks"
-msgstr ""
+msgstr "Icono de Font Awesome ej. fa-tasks"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__seats_max
@@ -1169,26 +1080,28 @@ msgid ""
 "For each event you can define a maximum registration of seats(number of "
 "attendees), above this numbers the registrations are not accepted."
 msgstr ""
+"Para cada evento puede definir un número máximo de asientos(número de "
+"asistentes), por encima de este número las inscripciones no son aceptadas."
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__byday__4
 msgid "Fourth"
-msgstr ""
+msgstr "Cuarto"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__fri
 msgid "Fri"
-msgstr ""
+msgstr "Vier"
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__weekday__fri
 msgid "Friday"
-msgstr ""
+msgstr "Viernes"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_wizard_event_session_form
 msgid "From"
-msgstr ""
+msgstr "Desde"
 
 #. module: event_session
 #: model:mail.template,report_name:event_session.event_session_subscription
@@ -1199,12 +1112,12 @@ msgstr ""
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_search
 msgid "Future Activities"
-msgstr ""
+msgstr "Actividades futuras"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__mail_state
 msgid "Global communication Status"
-msgstr ""
+msgstr "Status de comunicación global"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_search
@@ -1214,7 +1127,7 @@ msgstr "Agrupar por"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__has_message
 msgid "Has Message"
-msgstr ""
+msgstr "Tiene un mensaje"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__id
@@ -1227,135 +1140,92 @@ msgstr "ID"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__activity_exception_icon
 msgid "Icon"
-msgstr ""
+msgstr "Icono"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__activity_exception_icon
 msgid "Icon to indicate an exception activity."
-msgstr ""
+msgstr "Icono para indicar una actividad de excepción."
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__message_needaction
-#: model:ir.model.fields,help:event_session.field_event_session__message_unread
 msgid "If checked, new messages require your attention."
 msgstr ""
+"Si se encuentra seleccionado, hay nuevos mensajes que requieren tu atención."
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__message_has_error
-#: model:ir.model.fields,help:event_session.field_event_session__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "Si se encuentra seleccionado, algunos mensajes tienen error de envío."
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__start_sale_datetime
 msgid ""
 "If ticketing is used, contains the earliest starting sale date of tickets."
 msgstr ""
-
-#. module: event_session
-#: model:event.event,legend_normal:event_session.event_event_007
-#: model:event.session,legend_normal:event_session.event_session_007_1_16_00
-#: model:event.session,legend_normal:event_session.event_session_007_1_18_00
-#: model:event.session,legend_normal:event_session.event_session_007_1_20_00
-#: model:event.session,legend_normal:event_session.event_session_007_2_16_00
-#: model:event.session,legend_normal:event_session.event_session_007_2_18_00
-#: model:event.session,legend_normal:event_session.event_session_007_2_20_00
-#: model:event.session,legend_normal:event_session.event_session_007_3_20_00
-msgid "In Progress"
-msgstr ""
+"Si se utiliza la venta de entradas, contiene la fecha más temprana de inicio "
+"de venta"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__interval_nbr
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__interval
 msgid "Interval"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__introduction_menu
-msgid "Introduction Menu"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__introduction_menu_ids
-msgid "Introduction Menus"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__is_done
-msgid "Is Done"
-msgstr ""
+msgstr "Intervalo"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__is_finished
 msgid "Is Finished"
-msgstr ""
+msgstr "Terminado"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__message_is_follower
 msgid "Is Follower"
-msgstr ""
+msgstr "Es un seguidor"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__is_one_day
 msgid "Is One Day"
-msgstr ""
+msgstr "Un solo día"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__is_ongoing
 msgid "Is Ongoing"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__is_participating
-msgid "Is Participating"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__is_published
-msgid "Is Published"
-msgstr ""
+msgstr "Está en curso"
 
 #. module: event_session
 #: model_terms:event.event,description:event_session.event_event_007
-#: model_terms:event.session,description:event_session.event_session_007_1_16_00
-#: model_terms:event.session,description:event_session.event_session_007_1_18_00
-#: model_terms:event.session,description:event_session.event_session_007_1_20_00
-#: model_terms:event.session,description:event_session.event_session_007_2_16_00
-#: model_terms:event.session,description:event_session.event_session_007_2_18_00
-#: model_terms:event.session,description:event_session.event_session_007_2_20_00
-#: model_terms:event.session,description:event_session.event_session_007_3_20_00
 msgid "Join us for this 24 hours Event"
-msgstr ""
+msgstr "Únase a nosotros en este evento de 24 horas"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__legend_blocked
 msgid "Kanban Blocked Explanation"
-msgstr ""
+msgstr "Kanban Bloqueado Explicación"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__legend_normal
 msgid "Kanban Ongoing Explanation"
-msgstr ""
+msgstr "Kanban Explicación en curso"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__kanban_state
 msgid "Kanban State"
-msgstr ""
+msgstr "Estado Kanban"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__kanban_state_label
 msgid "Kanban State Label"
-msgstr ""
+msgstr "Etiqueta de estado Kanban"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__legend_done
 msgid "Kanban Valid Explanation"
-msgstr ""
+msgstr "Explicación válida Kanban"
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__byday__-1
 msgid "Last"
-msgstr ""
+msgstr "Último"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session____last_update
@@ -1384,32 +1254,17 @@ msgstr "Última actualización el"
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_search
 msgid "Late Activities"
-msgstr ""
+msgstr "Actividades tardías"
 
 #. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__lead_ids
-msgid "Leads"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,help:event_session.field_event_session__lead_ids
-msgid "Leads generated from this event"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__location_menu
-msgid "Location Menu"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__location_menu_ids
-msgid "Location Menus"
-msgstr ""
+#: model:ir.model.fields,field_description:event_session.field_event_session__seats_limited
+msgid "Limit Attendees"
+msgstr "Límite de asistentes"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__mail_registration_ids
 msgid "Mail Registration"
-msgstr ""
+msgstr "Registro por correo"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__event_mail_ids
@@ -1417,70 +1272,59 @@ msgid "Mail Schedule"
 msgstr "Programación de correo"
 
 #. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__event_mail_template_id
-msgid "Mail Template Scheduler"
-msgstr ""
-
-#. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__message_main_attachment_id
 msgid "Main Attachment"
-msgstr ""
+msgstr "Adjunto de correo"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_event__use_sessions
 #: model:ir.model.fields,help:event_session.field_event_mail__use_sessions
-#: model:ir.model.fields,help:event_session.field_event_mail_scheduler_template__use_sessions
 #: model:ir.model.fields,help:event_session.field_event_mail_session__use_sessions
 #: model:ir.model.fields,help:event_session.field_event_registration__use_sessions
 #: model:ir.model.fields,help:event_session.field_event_session__use_sessions
 #: model:ir.model.fields,help:event_session.field_event_type__use_sessions
 msgid "Manage multiple sessions per event"
-msgstr ""
+msgstr "Gestione varias sesiones por evento"
 
 #. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__seats_limited
+#: model:ir.model.fields,field_description:event_session.field_event_session__seats_max
 msgid "Maximum Attendees"
 msgstr "Asistentes máximos"
 
 #. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__seats_max
-msgid "Maximum Attendees Number"
-msgstr ""
-
-#. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_tree
 msgid "Maximum Seats"
-msgstr ""
+msgstr "Asientos máximos"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "Error de Envío de Mensaje"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__message_ids
 msgid "Messages"
-msgstr ""
+msgstr "Mensajes"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__mon
 msgid "Mon"
-msgstr ""
+msgstr "Lun"
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__weekday__mon
 msgid "Monday"
-msgstr ""
+msgstr "Lunes"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__month_by
 msgid "Month By"
-msgstr ""
+msgstr "Mes"
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__rrule_type__monthly
 msgid "Months"
-msgstr ""
+msgstr "Meses"
 
 #. module: event_session
 #: model:event.tag,name:event_session.event_tag_movie
@@ -1490,64 +1334,54 @@ msgstr ""
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__my_activity_date_deadline
 msgid "My Activity Deadline"
-msgstr ""
+msgstr "Mi fecha límite de actividad"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_search
 msgid "My Events"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__activity_calendar_event_id
-msgid "Next Activity Calendar Event"
-msgstr ""
+msgstr "Mis eventos"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__activity_date_deadline
 msgid "Next Activity Deadline"
-msgstr ""
+msgstr "Fecha límite de siguiente actividad"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__activity_summary
 msgid "Next Activity Summary"
-msgstr ""
+msgstr "Resumen de la siguiente actividad"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__activity_type_id
 msgid "Next Activity Type"
-msgstr ""
+msgstr "Siguiente tipo de actividad"
 
 #. module: event_session
 #: model_terms:ir.actions.act_window,help:event_session.act_event_registration_from_event_session
 msgid "No Attendees yet!"
-msgstr ""
+msgstr "¡Todavía no hay asistentes!"
 
 #. module: event_session
 #: model_terms:ir.actions.act_window,help:event_session.action_event_session_pivot
 msgid "No Sessions data yet!"
-msgstr ""
+msgstr "¡Todavía no hay fecha!"
 
 #. module: event_session
-#: code:addons/event_session/models/event_session.py:0
-#, python-format
-msgid "No more available seats."
-msgstr ""
-
-#. module: event_session
+#. odoo-python
 #: code:addons/event_session/models/event_registration.py:0
 #, python-format
 msgid "No more seats available for this session."
-msgstr ""
+msgstr "No hay más asientos disponibles para esta sesión"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__note
 msgid "Note"
-msgstr ""
+msgstr "Nota"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__message_needaction_counter
 msgid "Number of Actions"
-msgstr ""
+msgstr "Número de acciones"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__seats_expected
@@ -1562,27 +1396,22 @@ msgstr "Número de asistentes"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__message_has_error_counter
 msgid "Number of errors"
-msgstr ""
+msgstr "Numero de errores"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__message_needaction_counter
 msgid "Number of messages which requires an action"
-msgstr ""
+msgstr "Número de mensajes que requieren una acción"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,help:event_session.field_event_session__message_unread_counter
-msgid "Number of unread messages"
-msgstr ""
+msgstr "Número de mensajes con error de envío"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__organizer_id
 msgid "Organizer"
-msgstr ""
+msgstr "Organizador"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__legend_blocked
@@ -1607,38 +1436,11 @@ msgstr ""
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__event_id
 msgid "Parent Event"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__website_track_proposal
-msgid "Proposals on Website"
-msgstr ""
-
-#. module: event_session
-#: model:event.event,legend_done:event_session.event_event_007
-#: model:event.session,legend_done:event_session.event_session_007_1_16_00
-#: model:event.session,legend_done:event_session.event_session_007_1_18_00
-#: model:event.session,legend_done:event_session.event_session_007_1_20_00
-#: model:event.session,legend_done:event_session.event_session_007_2_16_00
-#: model:event.session,legend_done:event_session.event_session_007_2_18_00
-#: model:event.session,legend_done:event_session.event_session_007_2_20_00
-#: model:event.session,legend_done:event_session.event_session_007_3_20_00
-msgid "Ready for Next Stage"
-msgstr ""
+msgstr "Evento padre"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__rrule_type
 msgid "Recurrence"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__register_menu
-msgid "Register Menu"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__register_menu_ids
-msgid "Register Menus"
 msgstr ""
 
 #. module: event_session
@@ -1649,27 +1451,17 @@ msgstr "Registro de Programador de Correo Electrónico"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__event_registrations_open
 msgid "Registration open"
-msgstr ""
+msgstr "Inscripciones abiertas"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__event_registrations_started
 msgid "Registrations started"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__start_remaining
-msgid "Remaining before start"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,help:event_session.field_event_session__start_remaining
-msgid "Remaining time before event starts (minutes)"
-msgstr ""
+msgstr "Inscripciones iniciadas"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_wizard_event_session_form
 msgid "Repeat Every"
-msgstr ""
+msgstr "Repetir cada"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__seats_reserved
@@ -1680,42 +1472,22 @@ msgstr "Plazas reservadas"
 #: model:ir.model.fields,field_description:event_session.field_event_session__user_id
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_search
 msgid "Responsible"
-msgstr ""
+msgstr "Responsable"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__activity_user_id
 msgid "Responsible User"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,help:event_session.field_event_session__website_id
-msgid "Restrict publishing to this website."
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__is_seo_optimized
-msgid "SEO optimized"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__message_has_sms_error
-msgid "SMS Delivery error"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__sale_price_subtotal
-msgid "Sales (Tax Excluded)"
-msgstr ""
+msgstr "Usuario responsable"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__sat
 msgid "Sat"
-msgstr ""
+msgstr "Sáb"
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__weekday__sat
 msgid "Saturday"
-msgstr ""
+msgstr "Sábado"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_wizard_event_session_form
@@ -1725,27 +1497,22 @@ msgstr "Programar"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__scheduled_date
 msgid "Scheduled Date"
-msgstr ""
+msgstr "Fecha programada"
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__byday__2
 msgid "Second"
-msgstr ""
+msgstr "Segundo"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__notification_type
 msgid "Send"
-msgstr ""
+msgstr "Enviar"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__mail_done
 msgid "Sent"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__seo_name
-msgid "Seo name"
-msgstr ""
+msgstr "Enviado"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__session_id
@@ -1757,24 +1524,23 @@ msgstr "Sesión"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_registration__session_scheduler_id
 msgid "Session Mail"
-msgstr ""
+msgstr "Correo de la sesión"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail__session_scheduler_ids
-#: model:ir.model.fields,field_description:event_session.field_event_mail_scheduler_template__session_scheduler_ids
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__session_scheduler_ids
 msgid "Session Mails"
-msgstr ""
+msgstr "Correos de la sesión"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__session_update
 msgid "Session Update"
-msgstr ""
+msgstr "Actualización de la sesión"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__session_update_message
 msgid "Session Update Message"
-msgstr ""
+msgstr "Mensaje de actualización de la sesión"
 
 #. module: event_session
 #: model:ir.actions.act_window,name:event_session.act_event_session_event_form
@@ -1791,18 +1557,18 @@ msgstr "Sesiones"
 #. module: event_session
 #: model:ir.actions.act_window,name:event_session.action_event_session_pivot
 msgid "Sessions Analysis"
-msgstr ""
+msgstr "Análisis de sesión"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_event__session_count
 #: model:ir.model.fields,field_description:event_session.field_event_session__session_count
 msgid "Sessions Count"
-msgstr ""
+msgstr "Recuento de sesiones"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_form
 msgid "Sessions available for this event"
-msgstr ""
+msgstr "Sesiones disponibles para este evento"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_wizard_event_session__date_tz
@@ -1810,28 +1576,30 @@ msgid ""
 "Set it up in the event configurationSessions will be generated up to this "
 "date"
 msgstr ""
-"Establécela en la configuración del evento. Se generarán sesiones a hasta "
-"esta fecha."
+"Establécela en la configuración del evento. Se generarán sesiones hasta esta "
+"fecha."
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_search
 msgid "Show all records which has next action date is before today"
 msgstr ""
+"Mostrar todos los registros que tienen la próxima fecha de acción antes que "
+"hoy"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__event_registrations_sold_out
 msgid "Sold Out"
-msgstr ""
+msgstr "Vendido"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__stage_id
 msgid "Stage"
-msgstr ""
+msgstr "Etapa"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__start
 msgid "Start"
-msgstr ""
+msgstr "Iniciar"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_event__date_begin
@@ -1846,14 +1614,9 @@ msgid "Start Date Located"
 msgstr "Fecha de inicio localizada"
 
 #. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__start_today
-msgid "Start Today"
-msgstr ""
-
-#. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__start_sale_datetime
 msgid "Start sale date"
-msgstr ""
+msgstr "Fecha de inicio"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__activity_state
@@ -1863,33 +1626,37 @@ msgid ""
 "Today: Activity date is today\n"
 "Planned: Future activities."
 msgstr ""
+"Estado basado en actividades\n"
+"Vencida: la fecha tope ya ha pasado\n"
+"Hoy: La fecha tope es hoy\n"
+"Planificada: futuras actividades."
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__sun
 msgid "Sun"
-msgstr ""
+msgstr "Dom"
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__weekday__sun
 msgid "Sunday"
-msgstr ""
+msgstr "Domingo"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__tag_ids
 msgid "Tags"
-msgstr ""
+msgstr "Categorías"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__template_ref
 #: model:ir.model.fields,field_description:event_session.field_event_session__event_type_id
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_search
 msgid "Template"
-msgstr ""
+msgstr "Plantilla"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__template_model_id
 msgid "Template Model"
-msgstr ""
+msgstr "Modelo de plantilla"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_wizard_event_session_form
@@ -1897,83 +1664,89 @@ msgid "The"
 msgstr ""
 
 #. module: event_session
+#. odoo-python
 #: code:addons/event_session/models/event_session.py:0
 #, python-format
 msgid "The closing date cannot be earlier than the beginning date."
 msgstr ""
 
 #. module: event_session
-#: model:ir.model.fields,help:event_session.field_event_session__website_url
-msgid "The full URL to access the document through the website."
-msgstr ""
-
-#. module: event_session
+#. odoo-python
 #: code:addons/event_session/wizards/wizard_event_session.py:0
 #, python-format
 msgid "The interval cannot be negative."
-msgstr ""
+msgstr "El intervalo no puede ser negativo"
 
 #. module: event_session
+#. odoo-python
 #: code:addons/event_session/models/event_session_timeslot.py:0
 #, python-format
 msgid "The timeslot has to be defined in HH:MM format"
-msgstr ""
+msgstr "La franja horaria debe definirse en formato HH:MM"
 
 #. module: event_session
 #: model:ir.model.constraint,message:event_session.constraint_event_session_timeslot_unique_time
 msgid "The timeslot has to be unique"
-msgstr ""
+msgstr "La franja horaria debe ser única"
 
 #. module: event_session
 #: model:event.type,name:event_session.event_type_theater
 msgid "Theater"
-msgstr ""
+msgstr "Teatro"
+
+#. module: event_session
+#. odoo-python
+#: code:addons/event_session/models/event_session.py:0
+#, python-format
+msgid "There are not enough seats available for:"
+msgstr "No hay suficientes asientos disponibles para:"
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__byday__3
 msgid "Third"
-msgstr ""
+msgstr "Tercero"
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__event_session__session_update__subsequent
 msgid "This and following event sessions"
-msgstr ""
+msgstr "Esta y las siguientes sesiones de evento"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__ticket_instructions
 msgid "This information will be printed on your tickets."
-msgstr ""
+msgstr "Esta información estará impresa en sus billetes."
 
 #. module: event_session
+#. odoo-python
 #: code:addons/event_session/models/event_session.py:0
 #, python-format
 msgid "This operator is not supported"
-msgstr ""
+msgstr "Este operador no es "
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__event_session__session_update__this
 msgid "This session"
-msgstr ""
+msgstr "Esta sesión"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__thu
 msgid "Thu"
-msgstr ""
+msgstr "Jue"
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__weekday__thu
 msgid "Thursday"
-msgstr ""
+msgstr "Jueves"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__ticket_instructions
 msgid "Ticket Instructions"
-msgstr ""
+msgstr "Instrucciones del billete"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session_timeslot__time
 msgid "Time"
-msgstr ""
+msgstr "Tiempo"
 
 #. module: event_session
 #: model:ir.model.constraint,message:event_session.constraint_event_session_timeslot_valid_time
@@ -1983,7 +1756,7 @@ msgstr ""
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__timeslot_ids
 msgid "Time slots"
-msgstr ""
+msgstr "Horarios"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__date_tz
@@ -1994,57 +1767,37 @@ msgstr "Zona horaria"
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_search
 msgid "Today Activities"
-msgstr ""
+msgstr "Actividades de hoy"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_tree
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_form
 msgid "Total Registrations for this Session"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__track_count
-msgid "Track Count"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__tracks_tag_ids
-msgid "Track Tags"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__track_ids
-msgid "Tracks"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__website_track
-msgid "Tracks on Website"
-msgstr ""
+msgstr "Inscripciones totales para esta sesión"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__interval_type
 msgid "Trigger "
-msgstr ""
+msgstr "Activador"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__tue
 msgid "Tue"
-msgstr ""
+msgstr "Mar"
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__weekday__tue
 msgid "Tuesday"
-msgstr ""
+msgstr "Martes"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__activity_exception_decoration
 msgid "Type of the exception activity on record."
-msgstr ""
+msgstr "Tipo de actividad de excepción registrada."
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__seats_unconfirmed
@@ -2054,49 +1807,45 @@ msgstr "Reservas de plazas no confirmadas"
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_tree
 msgid "Unconfirmed Seats"
-msgstr ""
+msgstr "Asientos no confirmados"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__interval_unit
 msgid "Unit"
-msgstr ""
+msgstr "Unidad"
 
 #. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__message_unread
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_search
 msgid "Unread Messages"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__message_unread_counter
-msgid "Unread Messages Counter"
-msgstr ""
+msgstr "Mensajes sin leer"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__until
 msgid "Until"
-msgstr ""
+msgstr "Hasta"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_search
 msgid "Upcoming events from today"
-msgstr ""
+msgstr "Eventos próximos a partir de hoy"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_search
 msgid "Upcoming/Running"
-msgstr ""
+msgstr "Próximamente"
 
 #. module: event_session
 #: model_terms:ir.actions.act_window,help:event_session.action_event_session_pivot
 msgid "Use this report to compare or aggregate sessions performances."
 msgstr ""
+"Utilice este informe para comparar o agregar los resultados de las sesiones."
 
 #. module: event_session
+#. odoo-python
 #: code:addons/event_session/models/event_session.py:0
 #, python-format
 msgid "Value should be True or False (not %s)"
-msgstr ""
+msgstr "El valor debe ser Verdadero o Falso (no %s)"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__address_id
@@ -2104,8 +1853,8 @@ msgid "Venue"
 msgstr ""
 
 #. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__website_published
-msgid "Visible on current website"
+#: model:ir.model.fields,field_description:event_session.field_event_session__address_inline
+msgid "Venue (formatted for one line uses)"
 msgstr ""
 
 #. module: event_session
@@ -2114,120 +1863,79 @@ msgid ""
 "Wait until Attendees register to your Event or create their registrations "
 "manually."
 msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__website_id
-msgid "Website"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__website_menu
-msgid "Website Menu"
-msgstr ""
+"Espere a que los asistentes se registren en su evento o creen sus registros "
+"manualmente."
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__website_message_ids
 msgid "Website Messages"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__website_url
-msgid "Website URL"
-msgstr ""
+msgstr "Mensajes del sitio web"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__website_message_ids
 msgid "Website communication history"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__website_meta_description
-msgid "Website meta description"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__website_meta_keywords
-msgid "Website meta keywords"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__website_meta_title
-msgid "Website meta title"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__website_meta_og_img
-msgid "Website opengraph image"
-msgstr ""
+msgstr "Historial de comunicaciones del sitio web"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__wed
 msgid "Wed"
-msgstr ""
+msgstr "Mie"
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__weekday__wed
 msgid "Wednesday"
-msgstr ""
+msgstr "Miércoles"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__weekday
 msgid "Weekday"
-msgstr ""
+msgstr "Fin de semana"
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__rrule_type__weekly
 msgid "Weeks"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,help:event_session.field_event_session__is_done
-msgid "Whether event is finished"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,help:event_session.field_event_session__start_today
-msgid "Whether event is going to start today if still not ongoing"
-msgstr ""
+msgstr "Semanas"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_search
 msgid "With sessions"
-msgstr ""
+msgstr "Usa sesiones"
 
 #. module: event_session
 #: model:ir.model,name:event_session.model_wizard_event_session
-#, fuzzy
 msgid "Wizard for ease sessions creation"
-msgstr "Wizard event session id"
+msgstr "Asistente de creación de sesiones"
 
 #. module: event_session
+#. odoo-python
 #: code:addons/event_session/models/event_event.py:0
 #, python-format
 msgid "You can't enable/disable sessions on events with registrations."
-msgstr ""
+msgstr "No se pueden activar/desactivar sesiones en eventos con inscripciones."
 
 #. module: event_session
+#. odoo-python
 #: code:addons/event_session/models/event_session.py:0
 #, python-format
 msgid "You cannot use session_update when writing on recordsets"
-msgstr ""
+msgstr "No se puede utilizar session_update cuando se escribe en recordsets"
 
 #. module: event_session
+#. odoo-python
 #: code:addons/event_session/wizards/wizard_event_session.py:0
 #, python-format
 msgid "You have to choose at least one day in the week"
-msgstr ""
+msgstr "Tienes que elegir al menos un día de la semana"
 
 #. module: event_session
 #: model:mail.template,subject:event_session.event_session_registration_mail_template_badge
 msgid "Your badge for {{ object.session_id.name }}"
-msgstr ""
+msgstr "Su insignia para {{ object.session_id.name }}"
 
 #. module: event_session
 #: model:mail.template,subject:event_session.event_session_subscription
 msgid "Your registration at {{ object.session_id.name }}"
-msgstr ""
+msgstr "Su inscripción para {{ object.user_id.company_id.name }}"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__event_registrations_started
@@ -2235,6 +1943,8 @@ msgid ""
 "registrations have started if the current datetime is after the earliest "
 "starting date of tickets."
 msgstr ""
+"las inscripciones han comenzado si la fecha y hora actuales son posteriores "
+"a la fecha de inicio más temprana de las entradas."
 
 #. module: event_session
 #: model:mail.template,subject:event_session.event_session_reminder

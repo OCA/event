@@ -42,9 +42,9 @@ class EventRegistration(models.Model):
 
     @api.constrains("session_id")
     def _check_seats_limit(self):
-        # OVERRIDE to handle limits per session
+        # Needed to check if the registration can be created
+        # when we try to save it.
         session_records = self.filtered("session_id")
-        regular_records = self - session_records
         for rec in session_records:
             session = rec.session_id
             if (
@@ -53,7 +53,6 @@ class EventRegistration(models.Model):
                 and session.seats_available < (1 if rec.state == "draft" else 0)
             ):
                 raise ValidationError(_("No more seats available for this session."))
-        return super(EventRegistration, regular_records)._check_seats_limit()
 
     def _update_mail_schedulers(self):
         # OVERRIDE to handle sessions' mail scheduler, not event ones.
