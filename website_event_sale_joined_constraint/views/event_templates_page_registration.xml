@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 Camptocamp SA (https://www.camptocamp.com).-->
+<!-- License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).-->
+<odoo>
+    <!-- Event - Registration -->
+    <template
+        id="registration_template"
+        inherit_id="website_event.registration_template"
+    >
+        <!-- Adding new class on displayed tickets -->
+        <xpath expr="//select[hasclass('custom-select')]" position="attributes">
+            <attribute
+                name="t-attf-class"
+            >custom-select {{ticket.is_child_ticket and 'child_ticket_select' or 'parent_ticket_select'}}</attribute>
+        </xpath>
+        <xpath
+            expr="//select[hasclass('w-auto','custom-select')]"
+            position="attributes"
+        >
+            <attribute
+                name="t-attf-class"
+            >w-auto custom-select {{tickets.is_child_ticket and 'child_ticket_select' or 'parent_ticket_select'}}</attribute>
+        </xpath>
+        <!-- Adding explanation message -->
+        <div t-foreach="tickets" position="after">
+            <div class="text-right p-2 event_sale_constraint_message" hidden="True">
+                <em
+                    class="text-info"
+                    t-field="website.website_event_sale_constraint_message"
+                />
+            </div>
+        </div>
+        <xpath
+            expr="//div[hasclass('o_wevent_registration_single')]/div/div[1]"
+            position="after"
+        >
+            <div class="text-right p-2 event_sale_constraint_message" hidden="True">
+                <em
+                    class="text-info"
+                    t-field="website.website_event_sale_constraint_message"
+                />
+            </div>
+        </xpath>
+    </template>
+</odoo>
