@@ -26,7 +26,7 @@ class EventMailRegistration(models.Model):
         regular_records = self - session_records
         for rec in session_records:
             if rec.registration_id:
-                date_open = rec.registration_id.date_open or fields.Datetime.now()
+                date_open = rec.registration_id.create_date or fields.Datetime.now()
                 scheduler = rec.session_scheduler_id
                 delta = _INTERVALS[scheduler.interval_unit](scheduler.interval_nbr)
                 rec.scheduled_date = date_open + delta

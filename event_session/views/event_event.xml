@@ -90,7 +90,7 @@
                 <field name="session_count" />
             </templates>
             <xpath
-                expr="//templates//a[@name='%(event.act_event_registration_from_event)d']/parent::*"
+                expr="//templates//a[@name='%(event.event_registration_action_stats_from_event)d']/parent::*"
                 position="attributes"
             >
                 <attribute name="attrs">
@@ -116,7 +116,7 @@
         <field name="model">event.event</field>
         <field name="inherit_id" ref="event.view_event_search" />
         <field name="arch" type="xml">
-            <filter name="inactive" position="before">
+            <filter name="filter_inactive" position="before">
                 <filter
                     string="With sessions"
                     name="sessions"

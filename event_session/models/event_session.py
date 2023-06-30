@@ -206,7 +206,9 @@ class EventSession(models.Model):
                 AND state IN %s
                 GROUP BY session_id, state
             """
-            self.env["event.registration"].flush(["session_id", "state"])
+            self.env["event.registration"].flush_model(
+                ["session_id", "state", "active"]
+            )
             self.env.cr.execute(query, (tuple(self.ids), tuple(state_field.keys())))
             for session_id, state, num in self.env.cr.fetchall():
                 results[session_id][state_field[state]] = num
@@ -329,7 +331,7 @@ class EventSession(models.Model):
             rec.event_registrations_open = (
                 rec.event_registrations_started
                 and (not rec.date_end or rec.date_end >= now)
-                and (not rec.seats_limited or rec.seats_available)
+                and (not rec.seats_limited or not rec.seats_max or rec.seats_available)
                 and (
                     not rec.event_ticket_ids
                     or any(ticket.sale_available for ticket in rec.event_ticket_ids)
@@ -344,15 +346,12 @@ class EventSession(models.Model):
     def _compute_event_registrations_sold_out(self):
         """Similar to core's :meth:`event_event._compute_event_registrations_sold_out`"""
         for rec in self:
-            if rec.seats_limited and not rec.seats_available:
-                rec.event_registrations_sold_out = True
-            elif rec.event_ticket_ids:
-                rec.event_registrations_sold_out = not any(
-                    ticket.seats_available > 0 if ticket.seats_limited else True
-                    for ticket in rec.event_ticket_ids
-                )
-            else:
-                rec.event_registrations_sold_out = False
+            rec.event_registrations_sold_out = (
+                rec.seats_limited and rec.seats_max and not rec.seats_available
+            ) or (
+                rec.event_ticket_ids
+                and all(ticket.is_sold_out for ticket in rec.event_ticket_ids)
+            )
 
     @api.depends("event_id.event_mail_ids")
     def _compute_event_mail_ids(self):
@@ -392,12 +391,26 @@ class EventSession(models.Model):
         return self.env["event.event"]._read_group_stage_ids(stages, domain, order)
 
     @api.constrains("seats_max", "seats_available", "seats_limited")
-    def _check_seats_limit(self):
-        if any(
-            rec.seats_limited and rec.seats_max and rec.seats_available < 0
-            for rec in self
-        ):
-            raise ValidationError(_("No more available seats."))
+    def _check_seats_availability(self, minimal_availability=0):
+        sold_out_events = []
+        for session in self:
+            if (
+                session.seats_limited
+                and session.seats_max
+                and session.seats_available < minimal_availability
+            ):
+                sold_out_events.append(
+                    _(
+                        '- "%(event_name)s": Missing %(nb_too_many)i seats.',
+                        event_name=session.name,
+                        nb_too_many=-session.seats_available,
+                    )
+                )
+        if sold_out_events:
+            raise ValidationError(
+                _("There are not enough seats available for:")
+                + "\n%s\n" % "\n".join(sold_out_events)
+            )
 
     @api.constrains("date_begin", "date_end")
     def _check_closing_date(self):

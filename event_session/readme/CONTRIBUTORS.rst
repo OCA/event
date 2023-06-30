@@ -3,6 +3,7 @@
   * Sergio Teruel
   * David Vidal
   * Carlos Roca
+  * Stefan Ungureanu
 
 * Nikos Tsirintanis <ntsirintanis@therp.nl>
 * David Alonso <david.alonso@solvos.es>

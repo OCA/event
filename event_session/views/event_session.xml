@@ -341,32 +341,29 @@
                                 class="o_kanban_content p-0 m-0 position-relative row d-flex flex-fill"
                             >
                                 <div
-                                    class="col-3 bg-primary p-2 text-center d-flex flex-column justify-content-center"
+                                    class="col-3 text-bg-primary p-2 text-center d-flex flex-column justify-content-center"
                                 >
                                     <div
-                                        t-esc="record.date_begin.raw_value.getDate()"
+                                        t-esc="luxon.DateTime.fromISO(record.date_begin.raw_value).toFormat('d')"
                                         class="o_event_fontsize_20"
                                     />
                                     <div>
                                         <t
-                                            t-esc="moment(record.date_begin.raw_value).format('MMM')"
-                                        />
-                                        <t
-                                            t-esc="record.date_begin.raw_value.getFullYear()"
+                                            t-esc="luxon.DateTime.fromISO(record.date_begin.raw_value).toFormat('MMM yyyy')"
                                         />
                                     </div>
                                     <div><t
-                                            t-esc="moment(record.date_begin.raw_value).format('LT')"
+                                            t-esc="luxon.DateTime.fromISO(record.date_begin.raw_value).toFormat('t')"
                                         /></div>
                                     <div
-                                        t-if="moment(record.date_begin.raw_value).dayOfYear() !== moment(record.date_end.raw_value).dayOfYear()"
+                                        t-if="record.date_begin.raw_value !== record.date_end.raw_value"
                                     >
                                         <i
                                             class="fa fa-arrow-right o_event_fontsize_09"
                                             title="End date"
                                         />
                                         <t
-                                            t-esc="moment(record.date_end.raw_value).format('D MMM')"
+                                            t-esc="luxon.DateTime.fromISO(record.date_end.raw_value).toFormat('d MMM')"
                                         />
                                         </div>
                                 </div>
