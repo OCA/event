@@ -1,0 +1,1 @@
+Glue module to be able to use both website_event_sale_joined_constraint and website_event_sale_single_attendee modules
