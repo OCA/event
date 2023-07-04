@@ -8,6 +8,7 @@ setuptools.setup(
     description="Meta package for oca-event Odoo addons",
     version=version,
     install_requires=[
+        'odoo-addon-event_registration_multi_qty>=16.0dev,<16.1dev',
         'odoo-addon-website_event_require_login>=16.0dev,<16.1dev',
     ],
     classifiers=[
