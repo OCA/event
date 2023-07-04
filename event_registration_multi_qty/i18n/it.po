@@ -22,12 +22,6 @@ msgid "Allow multiple attendees per registration"
 msgstr ""
 
 #. module: event_registration_multi_qty
-#: model:ir.model.fields,field_description:event_registration_multi_qty.field_event_event__display_name
-#: model:ir.model.fields,field_description:event_registration_multi_qty.field_event_registration__display_name
-msgid "Display Name"
-msgstr "Nome visualizzato"
-
-#. module: event_registration_multi_qty
 #: model:ir.model,name:event_registration_multi_qty.model_event_event
 msgid "Event"
 msgstr "Evento"
@@ -38,23 +32,12 @@ msgid "Event Registration"
 msgstr "Registrazione evento"
 
 #. module: event_registration_multi_qty
-#: model:ir.model.fields,field_description:event_registration_multi_qty.field_event_event__id
-#: model:ir.model.fields,field_description:event_registration_multi_qty.field_event_registration__id
-msgid "ID"
-msgstr "ID"
-
-#. module: event_registration_multi_qty
-#: model:ir.model.fields,field_description:event_registration_multi_qty.field_event_event____last_update
-#: model:ir.model.fields,field_description:event_registration_multi_qty.field_event_registration____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
-
-#. module: event_registration_multi_qty
 #: model:ir.model.fields,field_description:event_registration_multi_qty.field_event_registration__qty
 msgid "Quantity"
 msgstr "Quantità"
 
 #. module: event_registration_multi_qty
+#. odoo-python
 #: code:addons/event_registration_multi_qty/models/event.py:0
 #, python-format
 msgid ""
@@ -63,9 +46,19 @@ msgid ""
 msgstr ""
 
 #. module: event_registration_multi_qty
+#. odoo-python
 #: code:addons/event_registration_multi_qty/models/event.py:0
 #, python-format
 msgid ""
 "You can not disable this option if there are registrations with quantities "
 "greater than one."
 msgstr ""
+
+#~ msgid "Display Name"
+#~ msgstr "Nome visualizzato"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
