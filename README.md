@@ -21,6 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
+[event_registration_multi_qty](event_registration_multi_qty/) | 16.0.1.0.0 |  | Allow registration grouped by quantities
 [website_event_require_login](website_event_require_login/) | 16.0.1.0.0 |  | Website Event Require Login
 
 [//]: # (end addons)
