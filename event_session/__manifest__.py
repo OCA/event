@@ -4,7 +4,7 @@
 {
     "name": "Event Sessions",
     "summary": "Sessions in events",
-    "version": "15.0.1.0.0",
+    "version": "15.0.1.0.1",
     "author": "Tecnativa, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "website": "https://github.com/OCA/event",
