@@ -16,8 +16,6 @@ class EventSession(models.Model):
                 "seats_reserved": 0,
                 "seats_used": 0,
                 "seats_available": 0,
-                "seats_available_expected": 0,
-                "seats_available_pc": 0,
             }
             registrations = self.env["event.registration"].read_group(
                 [
@@ -40,11 +38,5 @@ class EventSession(models.Model):
             if session.seats_max > 0:
                 vals["seats_available"] = session.seats_max - (
                     vals["seats_reserved"] + vals["seats_used"]
-                )
-                vals["seats_available_expected"] = (
-                    session.seats_max - vals["seats_expected"]
-                )
-                vals["seats_available_pc"] = (
-                    vals["seats_expected"] * 100 / float(session.seats_max)
                 )
             session.update(vals)

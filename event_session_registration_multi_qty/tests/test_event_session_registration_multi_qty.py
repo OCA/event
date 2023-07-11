@@ -1,12 +1,16 @@
 # Copyright 2017-19 Tecnativa - David Vidal
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl-3.0).
+from freezegun import freeze_time
+
 from odoo.tests import common
 
 
-class EventSessionRegistrationMultiQty(common.SavepointCase):
+@freeze_time("2023-06-01 09:00:00", tick=True)
+class EventSessionRegistrationMultiQty(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.mail_template_reminder = cls.env.ref("event_session.event_session_reminder")
         cls.event = cls.env["event.event"].create(
             {
                 "name": "Test event",
@@ -61,32 +65,25 @@ class EventSessionRegistrationMultiQty(common.SavepointCase):
         cls.wizard = cls.env["wizard.event.session"].create(
             {
                 "event_id": cls.event.id,
-                "mondays": True,
-                "tuesdays": True,
-                "wednesdays": True,
-                "thursdays": True,
-                "fridays": True,
-                "sundays": True,
-                "saturdays": True,
-                "delete_existing_sessions": False,
-                "session_hour_ids": [(0, 0, {"start_time": 20.0, "end_time": 21.0})],
+                "mon": True,
+                "tue": True,
+                "wed": True,
+                "thu": True,
+                "fri": True,
+                "sat": True,
+                "sun": True,
+                "duration": 2,
+                "start": "2023-06-07 09:00:00",
+                "until": "2023-06-15 09:00:00",
             }
         )
-        cls.template = cls.env["event.mail.template"].create(
+        cls.event_mail = cls.env["event.mail"].create(
             {
-                "name": "Template test 01",
-                "scheduler_template_ids": [
-                    (
-                        0,
-                        0,
-                        {
-                            "interval_nbr": 15,
-                            "interval_unit": "days",
-                            "interval_type": "before_event",
-                            "template_id": cls.env.ref("event.event_reminder").id,
-                        },
-                    )
-                ],
+                "event_id": cls.event.id,
+                "interval_nbr": 15,
+                "interval_unit": "days",
+                "interval_type": "before_event",
+                "template_ref": f"mail.template,{cls.mail_template_reminder.id}",
             }
         )
 
@@ -100,14 +97,11 @@ class EventSessionRegistrationMultiQty(common.SavepointCase):
         self.assertEqual(self.session.seats_used, 1)
         self.assertEqual(self.session.seats_expected, 26)
         self.assertEqual(self.session.seats_available, 229)
-        self.assertEqual(self.session.seats_available_expected, 224)
         self.attendee_cancel.state = "draft"
         self.assertEqual(self.session.seats_unconfirmed, 15)
         self.assertEqual(self.session.seats_expected, 36)
         self.assertEqual(self.session.seats_available, 229)
-        self.assertEqual(self.session.seats_available_expected, 214)
         self.attendee_cancel.state = "open"
         self.assertEqual(self.session.seats_unconfirmed, 5)
         self.assertEqual(self.session.seats_expected, 36)
         self.assertEqual(self.session.seats_available, 219)
-        self.assertEqual(self.session.seats_available_expected, 214)
