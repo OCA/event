@@ -3,6 +3,7 @@
   * Sergio Teruel
   * David Vidal
   * Carlos Roca
+  * Stefan Ungureanu
 
 * `Moka Tourisme <https://www.mokatourisme.fr>`_
 
