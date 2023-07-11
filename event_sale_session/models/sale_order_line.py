@@ -13,28 +13,36 @@ class SaleOrderLine(models.Model):
     event_session_id = fields.Many2one(
         string="Session",
         comodel_name="event.session",
+        compute="_compute_event_session_id",
         domain="[('event_id', '=', event_id)]",
+        store=True,
+        readonly=False,
+        precompute=True,
     )
 
-    @api.onchange("event_id")
-    def _onchange_event_id(self):
-        # OVERRIDE to automatically set the session, if there's only one available
-        # and also to clear event_session_id if it's inconsistent with the event
-        event = self.event_id
-        if event.session_count == 1:
-            self.event_session_id = event.session_ids[0]
-        elif not event.use_sessions or event != self.event_session_id.event_id:
-            self.event_session_id = False
-        return super()._onchange_event_id()
+    @api.depends("event_id")
+    def _compute_event_session_id(self):
+        event_lines = self.filtered("event_id")
+        (self - event_lines).event_session_id = False
+        for line in event_lines:
+            if (
+                not line.event_id.use_sessions
+                or line.event_id != line.event_session_id.event_id
+            ):
+                line.event_session_id = False
+            if line.event_id.session_count == 1:
+                line.event_session_id = line.event_id.session_ids[0]
 
-    @api.onchange("event_session_id")
-    def _onchange_event_session_id(self):
-        # We call this to force update the default name
-        # Simliar to :meth:`~_onchange_event_ticket_id` in core.
-        self.product_id_change()
+    @api.depends("event_session_id")
+    def _compute_name(self):
+        # OVERRIDE to add the compute method dependency.
+        #
+        # Simliar to what's done in core for the `event_ticket_id` field.
+        # See :meth:`~_get_sale_order_line_multiline_description_sale`
+        return super()._compute_name()
 
-    def get_sale_order_line_multiline_description_sale(self, product):
-        res = super().get_sale_order_line_multiline_description_sale(product)
+    def _get_sale_order_line_multiline_description_sale(self):
+        res = super()._get_sale_order_line_multiline_description_sale()
         if self.event_session_id:
             lang = self.order_id.partner_id.lang
             session = self.event_session_id.with_context(lang=lang)

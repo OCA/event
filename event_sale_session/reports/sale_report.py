@@ -27,10 +27,15 @@ class SaleReport(models.Model):
         readonly=True,
     )
 
-    def _query(self, with_clause="", fields=None, groupby="", from_clause=""):
-        fields = fields or {}
-        fields["event_id"] = ", l.event_id as event_id"
-        fields["event_ticket_id"] = ", l.event_ticket_id as event_ticket_id"
-        fields["event_session_id"] = ", l.event_session_id as event_session_id"
-        groupby += ", l.event_id, l.event_ticket_id, l.event_session_id"
-        return super()._query(with_clause, fields, groupby, from_clause)
+    def _select_sale(self):
+        select = super(SaleReport, self)._select_sale()
+        select += (
+            ", l.event_id as event_id, l.event_ticket_id as event_ticket_id, "
+            "l.event_session_id as event_session_id"
+        )
+        return select
+
+    def _group_by_sale(self):
+        group_by = super(SaleReport, self)._group_by_sale()
+        group_by += ", l.event_id, l.event_ticket_id, l.event_session_id"
+        return group_by

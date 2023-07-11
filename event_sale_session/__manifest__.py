@@ -6,7 +6,7 @@
 {
     "name": "Event Sale Sessions",
     "summary": "Sell Event Sessions",
-    "version": "15.0.1.0.0",
+    "version": "16.0.1.0.0",
     "author": "Tecnativa, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "website": "https://github.com/OCA/event",
@@ -22,7 +22,7 @@
     "demo": ["demo/event_session.xml"],
     "assets": {
         "web.assets_backend": [
-            "event_sale_session/static/src/js/EventConfiguratorFormController.js",
+            "event_sale_session/static/src/js/*.esm.js",
         ],
     },
     "auto_install": True,
