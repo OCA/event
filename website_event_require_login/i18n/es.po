@@ -33,6 +33,7 @@ msgstr "Evento"
 
 #. module: website_event_require_login
 #: model:ir.model.fields,help:website_event_require_login.field_event_event__website_require_login
+#: model:ir.model.fields,help:website_event_require_login.field_event_session__website_require_login
 msgid ""
 "If set, a user must be logged in to be able to register attendees from the "
 "website."
@@ -52,6 +53,7 @@ msgstr "Inicio de sesión requerido"
 
 #. module: website_event_require_login
 #: model:ir.model.fields,field_description:website_event_require_login.field_event_event__website_require_login
+#: model:ir.model.fields,field_description:website_event_require_login.field_event_session__website_require_login
 msgid "Require login for website registrations"
 msgstr "Requerir inicio de sesión para registros desde la página web"
 
