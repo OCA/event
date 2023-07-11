@@ -6,8 +6,6 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-07 10:31+0000\n"
-"PO-Revision-Date: 2023-07-07 10:31+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -544,6 +542,16 @@ msgid "All event sessions"
 msgstr ""
 
 #. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__registration_multi_qty
+msgid "Allow multiple attendees per registration"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,help:event_session.field_event_session__website_menu
+msgid "Allows to display and manage event-specific menus on website."
+msgstr ""
+
+#. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_form
 msgid "Applies to the following fields:"
 msgstr ""
@@ -593,6 +601,11 @@ msgid "By day"
 msgstr ""
 
 #. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__can_publish
+msgid "Can Publish"
+msgstr ""
+
+#. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_wizard_event_session_form
 msgid "Cancel"
 msgstr ""
@@ -608,6 +621,11 @@ msgid "Communication"
 msgstr ""
 
 #. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__community_menu
+msgid "Community Menu"
+msgstr ""
+
+#. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__company_id
 msgid "Company"
 msgstr ""
@@ -620,6 +638,11 @@ msgstr ""
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__country_id
 msgid "Country"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__cover_properties
+msgid "Cover Properties"
 msgstr ""
 
 #. module: event_session
@@ -685,6 +708,11 @@ msgid "Display Name"
 msgstr ""
 
 #. module: event_session
+#: model:ir.model.fields,help:event_session.field_event_session__community_menu
+msgid "Display community tab on website"
+msgstr ""
+
+#. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__sequence
 msgid "Display order"
 msgstr ""
@@ -737,6 +765,11 @@ msgid "Event Automated Mailing"
 msgstr ""
 
 #. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__community_menu_ids
+msgid "Event Community Menus"
+msgstr ""
+
+#. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_registration__event_end_date
 msgid "Event End Date"
 msgstr ""
@@ -744,6 +777,11 @@ msgstr ""
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__scheduler_id
 msgid "Event Mail Scheduler"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__menu_id
+msgid "Event Menu"
 msgstr ""
 
 #. module: event_session
@@ -792,6 +830,11 @@ msgid "Event Start Date"
 msgstr ""
 
 #. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__subtitle
+msgid "Event Subtitle"
+msgstr ""
+
+#. module: event_session
 #: model:ir.model,name:event_session.model_event_type
 msgid "Event Template"
 msgstr ""
@@ -821,6 +864,11 @@ msgstr ""
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_kanban
 msgid "Expected attendees"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__menu_register_cta
+msgid "Extra Register Button"
 msgstr ""
 
 #. module: event_session
@@ -927,6 +975,7 @@ msgstr ""
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__message_has_error
+#: model:ir.model.fields,help:event_session.field_event_session__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
 
@@ -940,6 +989,21 @@ msgstr ""
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__interval_nbr
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__interval
 msgid "Interval"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__introduction_menu
+msgid "Introduction Menu"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__introduction_menu_ids
+msgid "Introduction Menus"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__is_done
+msgid "Is Done"
 msgstr ""
 
 #. module: event_session
@@ -960,6 +1024,16 @@ msgstr ""
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__is_ongoing
 msgid "Is Ongoing"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__is_participating
+msgid "Is Participating"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__is_published
+msgid "Is Published"
 msgstr ""
 
 #. module: event_session
@@ -1029,6 +1103,16 @@ msgstr ""
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__seats_limited
 msgid "Limit Attendees"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__location_menu
+msgid "Location Menu"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__location_menu_ids
+msgid "Location Menus"
 msgstr ""
 
 #. module: event_session
@@ -1215,6 +1299,16 @@ msgid "Recurrence"
 msgstr ""
 
 #. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__register_menu
+msgid "Register Menu"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__register_menu_ids
+msgid "Register Menus"
+msgstr ""
+
+#. module: event_session
 #: model:ir.model,name:event_session.model_event_mail_registration
 msgid "Registration Mail Scheduler"
 msgstr ""
@@ -1227,6 +1321,16 @@ msgstr ""
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__event_registrations_started
 msgid "Registrations started"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__start_remaining
+msgid "Remaining before start"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,help:event_session.field_event_session__start_remaining
+msgid "Remaining time before event starts (minutes)"
 msgstr ""
 
 #. module: event_session
@@ -1248,6 +1352,21 @@ msgstr ""
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__activity_user_id
 msgid "Responsible User"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,help:event_session.field_event_session__website_id
+msgid "Restrict publishing to this website."
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__is_seo_optimized
+msgid "SEO optimized"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__message_has_sms_error
+msgid "SMS Delivery error"
 msgstr ""
 
 #. module: event_session
@@ -1283,6 +1402,11 @@ msgstr ""
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__mail_done
 msgid "Sent"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__seo_name
+msgid "Seo name"
 msgstr ""
 
 #. module: event_session
@@ -1381,6 +1505,11 @@ msgid "Start Date Located"
 msgstr ""
 
 #. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__start_today
+msgid "Start Today"
+msgstr ""
+
+#. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__start_sale_datetime
 msgid "Start sale date"
 msgstr ""
@@ -1431,6 +1560,11 @@ msgstr ""
 #: code:addons/event_session/models/event_session.py:0
 #, python-format
 msgid "The closing date cannot be earlier than the beginning date."
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,help:event_session.field_event_session__website_url
+msgid "The full URL to access the document through the website."
 msgstr ""
 
 #. module: event_session
@@ -1622,10 +1756,25 @@ msgid "Venue (formatted for one line uses)"
 msgstr ""
 
 #. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__website_published
+msgid "Visible on current website"
+msgstr ""
+
+#. module: event_session
 #: model_terms:ir.actions.act_window,help:event_session.act_event_registration_from_event_session
 msgid ""
 "Wait until Attendees register to your Event or create their registrations "
 "manually."
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__website_id
+msgid "Website"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__website_menu
+msgid "Website Menu"
 msgstr ""
 
 #. module: event_session
@@ -1634,8 +1783,33 @@ msgid "Website Messages"
 msgstr ""
 
 #. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__website_url
+msgid "Website URL"
+msgstr ""
+
+#. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__website_message_ids
 msgid "Website communication history"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__website_meta_description
+msgid "Website meta description"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__website_meta_keywords
+msgid "Website meta keywords"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__website_meta_title
+msgid "Website meta title"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__website_meta_og_img
+msgid "Website opengraph image"
 msgstr ""
 
 #. module: event_session
@@ -1656,6 +1830,11 @@ msgstr ""
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__rrule_type__weekly
 msgid "Weeks"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,help:event_session.field_event_session__start_today
+msgid "Whether event is going to start today if still not ongoing"
 msgstr ""
 
 #. module: event_session
