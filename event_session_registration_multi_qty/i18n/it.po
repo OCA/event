@@ -17,21 +17,15 @@ msgstr ""
 "X-Generator: Weblate 4.3.2\n"
 
 #. module: event_session_registration_multi_qty
-#: model:ir.model.fields,field_description:event_session_registration_multi_qty.field_event_session__display_name
-msgid "Display Name"
-msgstr "Nome visualizzato"
-
-#. module: event_session_registration_multi_qty
 #: model:ir.model,name:event_session_registration_multi_qty.model_event_session
 msgid "Event session"
 msgstr "Sessione evento"
 
-#. module: event_session_registration_multi_qty
-#: model:ir.model.fields,field_description:event_session_registration_multi_qty.field_event_session__id
-msgid "ID"
-msgstr "ID"
+#~ msgid "Display Name"
+#~ msgstr "Nome visualizzato"
 
-#. module: event_session_registration_multi_qty
-#: model:ir.model.fields,field_description:event_session_registration_multi_qty.field_event_session____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
