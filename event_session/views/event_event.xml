@@ -1,0 +1,129 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="act_event_session_event_form" model="ir.actions.act_window">
+        <field name="res_model">event.session</field>
+        <field name="name">Sessions</field>
+        <field name="view_mode">kanban,tree,form,calendar,pivot</field>
+        <field name="context">
+            {
+                'search_default_event_id': active_id,
+                'default_event_id': active_id,
+            }
+        </field>
+    </record>
+    <record id="view_event_form" model="ir.ui.view">
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_form" />
+        <field name="priority">5</field>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button
+                    name="%(act_event_session_event_form)d"
+                    type="action"
+                    class="oe_stat_button"
+                    icon="fa-calendar"
+                    help="Sessions available for this event"
+                    attrs="{'invisible': [('use_sessions', '=', False)]}"
+                >
+                    <field name="session_count" widget="statinfo" string="Sessions" />
+                </button>
+            </div>
+            <label for="date_begin" position="before">
+                <field name="use_sessions" />
+            </label>
+            <label for="date_begin" position="attributes">
+                <attribute name="attrs">
+                    {
+                        'invisible': [('use_sessions', '=', True)],
+                    }
+                </attribute>
+            </label>
+            <xpath
+                expr="//field[@name='date_begin']/parent::div[hasclass('o_row')]"
+                position="attributes"
+            >
+                <attribute name="attrs">
+                    {
+                        'invisible': [('use_sessions', '=', True)],
+                    }
+                </attribute>
+            </xpath>
+            <!-- Hide not relevant columns in event.mail -->
+            <xpath
+                expr="//field[@name='event_mail_ids']/tree/field[@name='scheduled_date']"
+                position="attributes"
+            >
+                <attribute name="attrs">
+                    {
+                        'column_invisible': [('parent.use_sessions', '=', True)],
+                    }
+                </attribute>
+            </xpath>
+            <xpath
+                expr="//field[@name='event_mail_ids']/tree/field[@name='mail_count_done']"
+                position="attributes"
+            >
+                <attribute name="attrs">
+                    {
+                        'column_invisible': [('parent.use_sessions', '=', True)],
+                    }
+                </attribute>
+            </xpath>
+            <xpath
+                expr="//field[@name='event_mail_ids']/tree/field[@name='mail_state']"
+                position="attributes"
+            >
+                <attribute name="attrs">
+                    {
+                        'column_invisible': [('parent.use_sessions', '=', True)],
+                    }
+                </attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_event_kanban" model="ir.ui.view">
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_kanban" />
+        <field name="arch" type="xml">
+            <templates position="before">
+                <field name="use_sessions" />
+                <field name="session_count" />
+            </templates>
+            <xpath
+                expr="//templates//a[@name='%(event.event_registration_action_stats_from_event)d']/parent::*"
+                position="attributes"
+            >
+                <attribute name="attrs">
+                    {
+                        'invisible': [('use_sessions', '=', True)],
+                    }
+                </attribute>
+            </xpath>
+            <div class="o_kanban_record_bottom" position="before">
+                <h5
+                    name="sessions"
+                    class="o_event_fontsize_11 p-0"
+                    attrs="{'invisible': [('use_sessions', '=', False)]}"
+                >
+                    <a name="%(act_event_session_event_form)d" type="action">
+                        <t t-esc="record.session_count.raw_value" /> Sessions
+                    </a>
+                </h5>
+            </div>
+        </field>
+    </record>
+    <record id="view_event_search" model="ir.ui.view">
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_search" />
+        <field name="arch" type="xml">
+            <filter name="filter_inactive" position="before">
+                <filter
+                    string="With sessions"
+                    name="sessions"
+                    domain="[('use_sessions', '=', True)]"
+                />
+                <separator />
+            </filter>
+        </field>
+    </record>
+</odoo>

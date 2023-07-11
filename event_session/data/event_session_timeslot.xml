@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright 2021 Moka Tourisme (https://www.mokatourisme.fr)
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<odoo noupdate="1">
+
+    <record id="timeslot_10_00" model="event.session.timeslot">
+        <field name="time">10</field>
+    </record>
+
+    <record id="timeslot_11_00" model="event.session.timeslot">
+        <field name="time">11</field>
+    </record>
+
+    <record id="timeslot_12_00" model="event.session.timeslot">
+        <field name="time">12</field>
+    </record>
+
+    <record id="timeslot_13_00" model="event.session.timeslot">
+        <field name="time">13</field>
+    </record>
+
+    <record id="timeslot_14_00" model="event.session.timeslot">
+        <field name="time">14</field>
+    </record>
+
+    <record id="timeslot_15_00" model="event.session.timeslot">
+        <field name="time">15</field>
+    </record>
+
+    <record id="timeslot_16_00" model="event.session.timeslot">
+        <field name="time">16</field>
+    </record>
+
+    <record id="timeslot_17_00" model="event.session.timeslot">
+        <field name="time">17</field>
+    </record>
+
+    <record id="timeslot_18_00" model="event.session.timeslot">
+        <field name="time">18</field>
+    </record>
+
+    <record id="timeslot_19_00" model="event.session.timeslot">
+        <field name="time">19</field>
+    </record>
+
+    <record id="timeslot_20_00" model="event.session.timeslot">
+        <field name="time">20</field>
+    </record>
+
+    <record id="timeslot_21_00" model="event.session.timeslot">
+        <field name="time">21</field>
+    </record>
+
+    <record id="timeslot_22_00" model="event.session.timeslot">
+        <field name="time">22</field>
+    </record>
+
+</odoo>
