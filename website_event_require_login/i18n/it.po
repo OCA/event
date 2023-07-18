@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-07-17 08:10+0000\n"
+"PO-Revision-Date: 2023-07-18 14:11+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -38,6 +38,8 @@ msgid ""
 "If set, a user must be logged in to be able to register attendees from the "
 "website."
 msgstr ""
+"Se selezionata, un utente deve accedere per poter iscrivere partecipanti dal "
+"sito web."
 
 #. module: website_event_require_login
 #: model_terms:ir.ui.view,arch_db:website_event_require_login.modal_attendees_registration_login_required
@@ -47,18 +49,18 @@ msgstr "Nome utente"
 #. module: website_event_require_login
 #: model_terms:ir.ui.view,arch_db:website_event_require_login.modal_attendees_registration_login_required
 msgid "Login required"
-msgstr ""
+msgstr "Richiesto il login"
 
 #. module: website_event_require_login
 #: model:ir.model.fields,field_description:website_event_require_login.field_event_event__website_require_login
 #: model:ir.model.fields,field_description:website_event_require_login.field_event_session__website_require_login
 msgid "Require login for website registrations"
-msgstr ""
+msgstr "Richiede login per le iscrizioni dal sito web"
 
 #. module: website_event_require_login
 #: model_terms:ir.ui.view,arch_db:website_event_require_login.modal_attendees_registration_login_required
 msgid "You must be logged in to be able to register to this event."
-msgstr ""
+msgstr "Bisogna aver effettuato il login per registrarsi all'evento."
 
 #~ msgid "Display Name"
 #~ msgstr "Nome visualizzato"
