@@ -16,6 +16,7 @@
         "views/event_session.xml",
         "views/sale_order.xml",
         "reports/sale_report.xml",
+        "reports/event_sale_report.xml",
         "wizard/event_configurator.xml",
         "wizard/event_edit_registration.xml",
     ],
