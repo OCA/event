@@ -6,50 +6,54 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-07-19 17:09+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: website_event_require_login
 #: model_terms:ir.ui.view,arch_db:website_event_require_login.modal_attendees_registration_login_required
 msgid "&amp;times;"
-msgstr ""
+msgstr "&amp;volte;"
 
 #. module: website_event_require_login
 #: model_terms:ir.ui.view,arch_db:website_event_require_login.modal_attendees_registration_login_required
 msgid "Close"
-msgstr ""
+msgstr "Chiudi"
 
 #. module: website_event_require_login
 #: model:ir.model,name:website_event_require_login.model_event_event
 msgid "Event"
-msgstr ""
+msgstr "Evento"
 
 #. module: website_event_require_login
 #: model:ir.model.fields,help:website_event_require_login.field_event_event__website_require_login
 msgid "If set, a user must be logged in to be able to register attendees from the website."
 msgstr ""
+"Se selezionata, un utente deve accedere per poter iscrivere partecipanti dal "
+"sito web."
 
 #. module: website_event_require_login
 #: model_terms:ir.ui.view,arch_db:website_event_require_login.modal_attendees_registration_login_required
 msgid "Login"
-msgstr ""
+msgstr "Login"
 
 #. module: website_event_require_login
 #: model_terms:ir.ui.view,arch_db:website_event_require_login.modal_attendees_registration_login_required
 msgid "Login required"
-msgstr ""
+msgstr "Richiesto il login"
 
 #. module: website_event_require_login
 #: model:ir.model.fields,field_description:website_event_require_login.field_event_event__website_require_login
 msgid "Require login for website registrations"
-msgstr ""
+msgstr "Richiede login per le iscrizioni dal sito web"
 
 #. module: website_event_require_login
 #: model_terms:ir.ui.view,arch_db:website_event_require_login.modal_attendees_registration_login_required
 msgid "You must be logged in to be able to register to this event."
-msgstr ""
+msgstr "Bisogna aver effettuato il login per registrarsi all'evento."
