@@ -542,6 +542,11 @@ msgid "All event sessions"
 msgstr ""
 
 #. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__sale_order_lines_ids
+msgid "All sale order lines pointing to this session"
+msgstr ""
+
+#. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__registration_multi_qty
 msgid "Allow multiple attendees per registration"
 msgstr ""
@@ -666,6 +671,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:event_session.field_event_session_timeslot__create_date
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__create_date
 msgid "Created on"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__currency_id
+msgid "Currency"
 msgstr ""
 
 #. module: event_session
@@ -1367,6 +1377,11 @@ msgstr ""
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__message_has_sms_error
 msgid "SMS Delivery error"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__sale_price_subtotal
+msgid "Sales (Tax Excluded)"
 msgstr ""
 
 #. module: event_session
