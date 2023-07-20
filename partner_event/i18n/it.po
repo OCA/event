@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-01-02 11:45+0000\n"
-"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"PO-Revision-Date: 2023-07-20 08:09+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner__registration_count
@@ -30,7 +30,7 @@ msgstr "Presente"
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_event_registration__attendee_partner_id
 msgid "Attendee Partner"
-msgstr ""
+msgstr "Partner partecipante"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_event_registration__partner_id
@@ -55,12 +55,12 @@ msgstr "Numero di eventi con registrazioni confermate."
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_event_event__create_partner
 msgid "Create Partners in registration"
-msgstr ""
+msgstr "Crea partner alla registrazione"
 
 #. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
 msgid "Create registrations"
-msgstr ""
+msgstr "Crea registrazione"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__create_uid
@@ -131,12 +131,12 @@ msgstr "Ultimo aggiornamento il"
 #. module: partner_event
 #: model:ir.actions.act_window,name:partner_event.action_partner_register_event
 msgid "Register in an event"
-msgstr ""
+msgstr "Registrare in un evento"
 
 #. module: partner_event
 #: model:ir.model,name:partner_event.model_res_partner_register_event
 msgid "Register partner for event"
-msgstr ""
+msgstr "Registrare partner per l'evento"
 
 #. module: partner_event
 #: model:ir.actions.act_window,name:partner_event.act_partner_registration
@@ -146,7 +146,7 @@ msgstr "Registrazioni"
 #. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
 msgid "Select event to register"
-msgstr ""
+msgstr "Selezionare evento da registrare"
 
 #. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
@@ -154,3 +154,5 @@ msgid ""
 "These partners haven't been registered because they\\'re already"
 "                        registered or other error occurred"
 msgstr ""
+"Questi partner non sono stati registrati perché sono "
+"già                        registrati o si sono presentati altri errori"
