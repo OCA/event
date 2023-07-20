@@ -6,116 +6,118 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-07-20 10:12+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: event_quick_registration
 #: model_terms:ir.ui.view,arch_db:event_quick_registration.view_event_event_add_quick_registration_form
 msgid "Add attendees"
-msgstr ""
+msgstr "Aggiungere partecipanti"
 
 #. module: event_quick_registration
 #: model_terms:ir.ui.view,arch_db:event_quick_registration.view_event_quick_registration_form
 msgid "Apply"
-msgstr ""
+msgstr "Applica"
 
 #. module: event_quick_registration
 #: model:ir.model.fields,field_description:event_quick_registration.field_event_quick_registration__confirm_registration
 msgid "Confirm Registration"
-msgstr ""
+msgstr "Confermare registrazione"
 
 #. module: event_quick_registration
 #: model:ir.model.fields,field_description:event_quick_registration.field_event_quick_registration__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: event_quick_registration
 #: model:ir.model.fields,field_description:event_quick_registration.field_event_quick_registration__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: event_quick_registration
 #: model:ir.model.fields,field_description:event_quick_registration.field_event_quick_registration__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: event_quick_registration
 #: model:ir.model.fields,field_description:event_quick_registration.field_event_quick_registration__email
 msgid "Email"
-msgstr ""
+msgstr "E-mail"
 
 #. module: event_quick_registration
 #: model:ir.model.fields,field_description:event_quick_registration.field_event_quick_registration__event_id
 msgid "Event"
-msgstr ""
+msgstr "Evento"
 
 #. module: event_quick_registration
 #: model:ir.actions.act_window,name:event_quick_registration.action_event_quick_registration
 msgid "Event Quick Registrations"
-msgstr ""
+msgstr "Registrazioni evento rapide"
 
 #. module: event_quick_registration
 #: model:ir.model.fields,field_description:event_quick_registration.field_event_quick_registration__event_ticket_id
 msgid "Event Ticket"
-msgstr ""
+msgstr "Biglietto evento"
 
 #. module: event_quick_registration
 #: model:ir.model.fields,field_description:event_quick_registration.field_event_quick_registration__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: event_quick_registration
 #: model:ir.model.fields,field_description:event_quick_registration.field_event_quick_registration____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: event_quick_registration
 #: model:ir.model.fields,field_description:event_quick_registration.field_event_quick_registration__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultimo aggiornamento di"
 
 #. module: event_quick_registration
 #: model:ir.model.fields,field_description:event_quick_registration.field_event_quick_registration__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento il"
 
 #. module: event_quick_registration
 #: model:ir.model.fields,field_description:event_quick_registration.field_event_quick_registration__name
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: event_quick_registration
 #: model:ir.model.fields,field_description:event_quick_registration.field_event_quick_registration__phone
 msgid "Phone"
-msgstr ""
+msgstr "Telefono"
 
 #. module: event_quick_registration
 #: model:ir.model.fields,field_description:event_quick_registration.field_event_quick_registration__qty
 msgid "Qty"
-msgstr ""
+msgstr "Qta."
 
 #. module: event_quick_registration
 #: code:addons/event_quick_registration/wizard/event_quick_registration.py:0
 #, python-format
 msgid "Quick creation"
-msgstr ""
+msgstr "Creazione rapida"
 
 #. module: event_quick_registration
 #: model_terms:ir.ui.view,arch_db:event_quick_registration.view_event_quick_registration_form
 msgid "Registration"
-msgstr ""
+msgstr "Registrazione"
 
 #. module: event_quick_registration
 #: model_terms:ir.ui.view,arch_db:event_quick_registration.view_event_quick_registration_form
 msgid "Skip"
-msgstr ""
+msgstr "Salta"
 
 #. module: event_quick_registration
 #: model:ir.model,name:event_quick_registration.model_event_quick_registration
 msgid "event.quick.registration"
-msgstr ""
+msgstr "event.quick.registration"
