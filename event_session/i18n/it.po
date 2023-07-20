@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-07-18 14:11+0000\n"
+"PO-Revision-Date: 2023-07-20 07:13+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -1419,7 +1419,7 @@ msgstr "Tutte le sessioni dell'evento"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__sale_order_lines_ids
 msgid "All sale order lines pointing to this session"
-msgstr ""
+msgstr "Tutte le righe ordine che puntano a questa sessione"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__registration_multi_qty
@@ -1554,7 +1554,7 @@ msgstr "Creato il"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__currency_id
 msgid "Currency"
-msgstr ""
+msgstr "Valuta"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_form
@@ -2283,7 +2283,7 @@ msgstr "Errore consegna SMS"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__sale_price_subtotal
 msgid "Sales (Tax Excluded)"
-msgstr ""
+msgstr "Vendite (tasse escluse)"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__sat
@@ -2387,7 +2387,7 @@ msgid ""
 "Set it up in the event configurationSessions will be generated up to this "
 "date"
 msgstr ""
-"Impostare nella configurazione evento. Le sessioni verranno generate da "
+"Impostare nella configurazione evento. Le sessioni verranno generate fino a "
 "questa data"
 
 #. module: event_session
