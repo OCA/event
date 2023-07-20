@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-07-18 13:08+0000\n"
+"PO-Revision-Date: 2023-07-20 08:09+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -34,7 +34,7 @@ msgstr " N. di registrazioni in bozza"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__active
 msgid "Active"
-msgstr ""
+msgstr "Attiva"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__registration_ids
@@ -80,37 +80,37 @@ msgstr "Azienda"
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_wizard_event_session__fridays
 msgid "Create sessions on Fridays"
-msgstr ""
+msgstr "Crea sessioni i venerdì"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_wizard_event_session__mondays
 msgid "Create sessions on Mondays"
-msgstr ""
+msgstr "Crea sessioni i lunedì"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_wizard_event_session__saturdays
 msgid "Create sessions on Saturdays"
-msgstr ""
+msgstr "Crea sessioni i sabati"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_wizard_event_session__sundays
 msgid "Create sessions on Sundays"
-msgstr ""
+msgstr "Crea sessioni le domeniche"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_wizard_event_session__thursdays
 msgid "Create sessions on Thursdays"
-msgstr ""
+msgstr "Crea sessioni i giovedì"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_wizard_event_session__tuesdays
 msgid "Create sessions on Tuesdays"
-msgstr ""
+msgstr "Crea sessioni i martedì"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_wizard_event_session__wednesdays
 msgid "Create sessions on Wednesdays"
-msgstr ""
+msgstr "Crea sessioni i mercoledì"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__create_uid
@@ -134,7 +134,7 @@ msgstr "Dati evento e date"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__delete_existing_sessions
 msgid "Delete Existing Sessions"
-msgstr ""
+msgstr "Cancella le sessioni esistenti"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_event__display_name
@@ -150,7 +150,7 @@ msgstr "Nome visualizzato"
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_form
 msgid "Email Schedule"
-msgstr ""
+msgstr "Programmazione e-mail"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__event_date_end
@@ -170,13 +170,13 @@ msgstr "Fase finale"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session_hours__end_time
 msgid "End Time"
-msgstr ""
+msgstr "Ora termine"
 
 #. module: event_session
 #: code:addons/event_session/models/event_session.py:0
 #, python-format
 msgid "Ending and starting time can't be the same!"
-msgstr ""
+msgstr "L'ora di inizio e di fine non possono essere uguali!"
 
 #. module: event_session
 #: model:ir.model,name:event_session.model_event_event
@@ -236,22 +236,22 @@ msgstr "Venerdì"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__seats_available_pc
 msgid "Full %"
-msgstr ""
+msgstr "Completi %"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.session_view_event_form
 msgid "Generate Sessions"
-msgstr ""
+msgstr "Genera sessioni"
 
 #. module: event_session
 #: model:ir.actions.act_window,name:event_session.act_wizard_event_session
 msgid "Generate Sessions Wizard"
-msgstr ""
+msgstr "Procedura guidata generazione sessioni"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.generator_view_form
 msgid "Generate sessions"
-msgstr ""
+msgstr "Genera sessioni"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_session_search
@@ -267,7 +267,7 @@ msgstr "Ore"
 #. module: event_session
 #: model:ir.model,name:event_session.model_wizard_event_session_hours
 msgid "Hours in wich the sessions will run"
-msgstr ""
+msgstr "Ore in cui si tengono le sessioni"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_event__id
@@ -283,7 +283,7 @@ msgstr "ID"
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_wizard_event_session__name
 msgid "It will be generated according to given parameters"
-msgstr ""
+msgstr "Verrà generato in funzione dei parametri forniti"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_event____last_update
@@ -335,7 +335,7 @@ msgstr "Lunedì"
 #: code:addons/event_session/models/event_session.py:0
 #, python-format
 msgid "No more available seats for this session."
-msgstr ""
+msgstr "Non ci sono posti disponibili per questa sessione."
 
 #. module: event_session
 #: code:addons/event_session/models/event.py:0
@@ -401,13 +401,13 @@ msgstr "Sessione"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__date_end
 msgid "Session date end"
-msgstr ""
+msgstr "Data fine sessione"
 
 #. module: event_session
 #: code:addons/event_session/models/event_session.py:0
 #, python-format
 msgid "Session date is out of this event dates range"
-msgstr ""
+msgstr "La data sessione è fuori dal periodo di questo evento"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__name
@@ -417,7 +417,7 @@ msgstr "Informazioni sessione"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__date_begin
 msgid "Session start date"
-msgstr ""
+msgstr "Data inizio sessione"
 
 #. module: event_session
 #: model:ir.actions.act_window,name:event_session.act_event_session_event_form
@@ -439,6 +439,8 @@ msgstr "Sessioni disponibili per l'evento"
 msgid ""
 "Set it up in the event configurationSessions will be generated from this date"
 msgstr ""
+"Impostare nella configurazione evento. Le sessioni verranno generate da "
+"questa data"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_wizard_event_session__event_date_end
@@ -447,6 +449,8 @@ msgid ""
 "Set it up in the event configurationSessions will be generated up to this "
 "date"
 msgstr ""
+"Impostare nella configurazione evento. Le sessioni verranno generate fino a "
+"questa data"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__event_date_begin
@@ -477,13 +481,13 @@ msgstr "Domeniche"
 #: code:addons/event_session/wizards/wizard_event_session.py:0
 #, python-format
 msgid "There are overlapping hours!"
-msgstr ""
+msgstr "Ci sono ore che si sovrappongono!"
 
 #. module: event_session
 #: code:addons/event_session/wizards/wizard_event_session.py:0
 #, python-format
 msgid "There are sessions with no duration!"
-msgstr ""
+msgstr "Ci sono sessioni senza durata!"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__thursdays
@@ -550,17 +554,17 @@ msgstr "Mercoledì"
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.generator_view_form
 msgid "Weekdays"
-msgstr ""
+msgstr "Giorni della settimana"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session_hours__wizard_event_session_id
 msgid "Wizard Event Session"
-msgstr ""
+msgstr "Procedura guidata sessione evento"
 
 #. module: event_session
 #: model:ir.model,name:event_session.model_wizard_event_session
 msgid "Wizard for ease sessions creation"
-msgstr ""
+msgstr "Procedura guidata per la semplice creazione di sessioni"
 
 #. module: event_session
 #: code:addons/event_session/models/event_session.py:0
@@ -570,15 +574,17 @@ msgid ""
 "You are trying to delete one or more             sessions with active "
 "registrations"
 msgstr ""
+"Si sta cercando di cancellare una o più             sessioni con "
+"registrazioni attive"
 
 #. module: event_session
 #: code:addons/event_session/wizards/wizard_event_session.py:0
 #, python-format
 msgid "You must select at least one weekday"
-msgstr ""
+msgstr "Bisogna selezionare almeno un giorno della settimana"
 
 #. module: event_session
 #: code:addons/event_session/wizards/wizard_event_session.py:0
 #, python-format
 msgid "You've entered invalid hours!"
-msgstr ""
+msgstr "Sono state inserite ore non valide!"
