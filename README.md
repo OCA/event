@@ -24,6 +24,7 @@ addon | version | maintainers | summary
 [event_registration_multi_qty](event_registration_multi_qty/) | 16.0.1.0.0 |  | Allow registration grouped by quantities
 [event_sale_session](event_sale_session/) | 16.0.1.0.0 |  | Sell Event Sessions
 [event_session](event_session/) | 16.0.1.0.0 |  | Sessions in events
+[event_session_registration_multi_qty](event_session_registration_multi_qty/) | 16.0.1.0.0 |  | Allow registration grouped by quantities in sessions
 [website_event_require_login](website_event_require_login/) | 16.0.1.0.0 |  | Website Event Require Login
 
 [//]: # (end addons)
