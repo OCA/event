@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-07-18 14:11+0000\n"
+"PO-Revision-Date: 2023-07-20 10:17+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -54,7 +54,7 @@ msgstr ""
 "<div>\n"
 "    Egregio<t t-out=\"object.name or ''\">Oscar Morgan</t>,<br>\n"
 "    grazie per la sua richiesta.<br>\n"
-"    Questo è il suo badge pe rl'evento <t t-out=\"object.session_id.name or "
+"    Questo è il suo badge per l'evento <t t-out=\"object.session_id.name or "
 "''\">OpenWood Collection Online Reveal</t>.<br>\n"
 "    Se ha domande non esiti a contattarci.\n"
 "    <br><br>\n"
@@ -1419,7 +1419,7 @@ msgstr "Tutte le sessioni dell'evento"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__sale_order_lines_ids
 msgid "All sale order lines pointing to this session"
-msgstr ""
+msgstr "Tutte le righe ordine che puntano a questa sessione"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__registration_multi_qty
@@ -1554,7 +1554,7 @@ msgstr "Creato il"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__currency_id
 msgid "Currency"
-msgstr ""
+msgstr "Valuta"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_form
@@ -1749,9 +1749,9 @@ msgid ""
 "source the features of the new version!"
 msgstr ""
 "Ogni anno invitiamo la nostra comunità, i partner e gli utenti finali ad "
-"incontrarci! È l'evento ideale per stare insieme presentare il futuro, i "
-"percorsi delle versioni future, i risultati del software, workshop, sessioni "
-"di addestramento, ecc...\n"
+"incontrarci! È l'evento ideale per stare insieme presentare le nuove "
+"funzionalità, i percorsi delle versioni future, i risultati del software, "
+"workshop, sessioni di addestramento, ecc...\n"
 "            Questo evento inoltre è un'opportunità per mostrare i casi "
 "studio dei nostri partner, la metodologia o lo sviluppo. Partecipa e vedi "
 "direttamente dalla fonte le caratteristiche della nuova versione!"
@@ -2283,7 +2283,7 @@ msgstr "Errore consegna SMS"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__sale_price_subtotal
 msgid "Sales (Tax Excluded)"
-msgstr ""
+msgstr "Vendite (tasse escluse)"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__sat
@@ -2387,7 +2387,7 @@ msgid ""
 "Set it up in the event configurationSessions will be generated up to this "
 "date"
 msgstr ""
-"Impostare nella configurazione evento. Le sessioni verranno generate da "
+"Impostare nella configurazione evento. Le sessioni verranno generate fino a "
 "questa data"
 
 #. module: event_session
