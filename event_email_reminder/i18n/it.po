@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-07-21 11:09+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: event_email_reminder
 #: model:mail.template,body_html:event_email_reminder.event_email_reminder_template
@@ -46,20 +48,49 @@ msgid ""
 "</pre>\n"
 "    "
 msgstr ""
+"\n"
+"        \n"
+"<p>Salve ${object.name},&nbsp;</p>\n"
+"<p>Questo è il riepilogo dell'evento: </p>\n"
+"<table>\n"
+"    <thead>\n"
+"        <tr style=\"height: 15px; background-color: #d8d8d8;font-size: 13px"
+";font-weight:bold;\" align=\"center\" valign=\"middle\">\n"
+"            <td>Data inizio</td>\n"
+"            <td>Nome vento</td>\n"
+"            <td>Data fine</td>\n"
+"            <td>Stato</td>\n"
+"        </tr>\n"
+"    </thead>\n"
+"    % for event in ctx[\"events\"]:\n"
+"    <tr>\n"
+"        <td><span>${event.date_begin}</span></td>\n"
+"        <td><span>${event.name}</span></td>\n"
+"        <td><span>${event.date_end}</td>\n"
+"        <td><span style=\"font-weight:bold;\">${event.state}</td>\n"
+"    </tr>\n"
+"    % endfor\n"
+"</table>\n"
+"<pre>\n"
+"--\n"
+"Email automatica.\n"
+"${object.company_id.name or ''}\n"
+"</pre>\n"
+"    "
 
 #. module: event_email_reminder
 #: model:ir.model,name:event_email_reminder.model_event_event
 msgid "Event"
-msgstr ""
+msgstr "Evento"
 
 #. module: event_email_reminder
 #: model:ir.actions.server,name:event_email_reminder.ir_cron_event_email_reminder_action_ir_actions_server
 #: model:ir.cron,cron_name:event_email_reminder.ir_cron_event_email_reminder_action
 #: model:ir.cron,name:event_email_reminder.ir_cron_event_email_reminder_action
 msgid "Event Email Reminder"
-msgstr ""
+msgstr "E-mail promemoria evento"
 
 #. module: event_email_reminder
 #: model:mail.template,subject:event_email_reminder.event_email_reminder_template
 msgid "The events will be started soon"
-msgstr ""
+msgstr "L'evento inizierà a breve"
