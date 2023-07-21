@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-07-21 11:09+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: website_event_filter_city
 #: code:addons/website_event_filter_city/controllers/main.py:0
@@ -21,44 +23,44 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:website_event_filter_city.event_city
 #, python-format
 msgid "All Cities"
-msgstr ""
+msgstr "Tutte le città"
 
 #. module: website_event_filter_city
 #: model:event.event,name:website_event_filter_city.event_barcelona
 msgid "Barcelona Days 2017"
-msgstr ""
+msgstr "Barcellona days 2017"
 
 #. module: website_event_filter_city
 #: model:event.type,name:website_event_filter_city.event_type_breakfast
 msgid "Breakfast"
-msgstr ""
+msgstr "Colazione"
 
 #. module: website_event_filter_city
 #: model:ir.model.fields,field_description:website_event_filter_city.field_event_event__city
 msgid "City"
-msgstr ""
+msgstr "Città"
 
 #. module: website_event_filter_city
 #: model:event.type,name:website_event_filter_city.event_type_code_sprint
 msgid "Code Sprint"
-msgstr ""
+msgstr "Code Sprint"
 
 #. module: website_event_filter_city
 #: model:ir.model,name:website_event_filter_city.model_event_event
 msgid "Event"
-msgstr ""
+msgstr "Evento"
 
 #. module: website_event_filter_city
 #: model:event.event,name:website_event_filter_city.event_online
 msgid "Online Code Sprint 2018"
-msgstr ""
+msgstr "Code sprint online 2018"
 
 #. module: website_event_filter_city
 #: model:event.event,name:website_event_filter_city.event_sevilla_bf
 msgid "Sevilla Awesome Breakfast 2018"
-msgstr ""
+msgstr "Awesome Breakfast Siviglia 2018"
 
 #. module: website_event_filter_city
 #: model:event.event,name:website_event_filter_city.event_sevilla_cs
 msgid "Sevilla Code Sprint 2018"
-msgstr ""
+msgstr "Code sprint Siviglia 2018"
