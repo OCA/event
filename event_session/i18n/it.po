@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-07-20 18:11+0000\n"
+"PO-Revision-Date: 2023-07-21 10:11+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -2212,7 +2212,7 @@ msgstr "Ricorrenza"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__register_menu
 msgid "Register Menu"
-msgstr "Menu iscrizione"
+msgstr "Menu registrazione"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__register_menu_ids
@@ -2252,7 +2252,7 @@ msgstr "Ripeti ogni"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__seats_reserved
 msgid "Reserved Seats"
-msgstr "Posti riservati"
+msgstr "Posti prenotati"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__user_id
@@ -2623,7 +2623,7 @@ msgstr "Tipo di attività eccezione sul record."
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__seats_unconfirmed
 msgid "Unconfirmed Seat Reservations"
-msgstr "Prenotazioni posti non confermati"
+msgstr "Prenotazioni posti non confermate"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_tree
