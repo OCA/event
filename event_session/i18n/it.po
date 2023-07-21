@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-07-20 18:10+0000\n"
+"PO-Revision-Date: 2023-07-21 09:10+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -1294,49 +1294,49 @@ msgstr "Annulla"
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__session_update
 msgid "Choose what to do with other event sessions"
-msgstr ""
+msgstr "Scegliere cosa fare con le altre sessioni dell'evento"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_form
 msgid "Communication"
-msgstr ""
+msgstr "Comunicazione"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__community_menu
 msgid "Community Menu"
-msgstr ""
+msgstr "Menu comunità"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__company_id
 msgid "Company"
-msgstr ""
+msgstr "Azienda"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_kanban
 msgid "Confirmed"
-msgstr ""
+msgstr "Confermata"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__lead_count
 msgid "Counter for the leads linked to this event"
-msgstr ""
+msgstr "Contatore per i contatti collegati a questo evento"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__country_id
 msgid "Country"
-msgstr ""
+msgstr "Paese"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__cover_properties
 msgid "Cover Properties"
-msgstr ""
+msgstr "Proprietà copertina"
 
 #. module: event_session
 #: model:ir.actions.act_window,name:event_session.act_wizard_event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_form_create_sessions
 #: model_terms:ir.ui.view,arch_db:event_session.view_wizard_event_session_form
 msgid "Create Sessions"
-msgstr ""
+msgstr "Crea sessioni"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__create_uid
@@ -1344,7 +1344,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:event_session.field_event_session_timeslot__create_uid
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__create_date
@@ -1352,43 +1352,43 @@ msgstr ""
 #: model:ir.model.fields,field_description:event_session.field_event_session_timeslot__create_date
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__currency_id
 msgid "Currency"
-msgstr ""
+msgstr "Valuta"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_form
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_form_quick_create
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__month_by__date
 msgid "Date of month"
-msgstr ""
+msgstr "Giorno del mese"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__day
 msgid "Day"
-msgstr ""
+msgstr "Giorno"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_wizard_event_session_form
 msgid "Day of Month"
-msgstr ""
+msgstr "Giorno del mese"
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__month_by__day
 msgid "Day of month"
-msgstr ""
+msgstr "Giorno del mese"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__description
 msgid "Description"
-msgstr ""
+msgstr "Descrizione"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__display_name
@@ -1396,22 +1396,22 @@ msgstr ""
 #: model:ir.model.fields,field_description:event_session.field_event_session_timeslot__display_name
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__community_menu
 msgid "Display community tab on website"
-msgstr ""
+msgstr "Visualizza linguetta comunità nel sito web"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__sequence
 msgid "Display order"
-msgstr ""
+msgstr "Mostra ordine"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__duration
 msgid "Duration"
-msgstr ""
+msgstr "Durata"
 
 #. module: event_session
 #: code:addons/event_session/wizards/wizard_event_session.py:0
@@ -1965,84 +1965,84 @@ msgstr "Evento calendario attività successiva"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__activity_date_deadline
 msgid "Next Activity Deadline"
-msgstr ""
+msgstr "Scadenza prossima attività"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__activity_summary
 msgid "Next Activity Summary"
-msgstr ""
+msgstr "Riepilogo prossima attività"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__activity_type_id
 msgid "Next Activity Type"
-msgstr ""
+msgstr "Tipo prossima attività"
 
 #. module: event_session
 #: model_terms:ir.actions.act_window,help:event_session.act_event_registration_from_event_session
 msgid "No Attendees yet!"
-msgstr ""
+msgstr "Ancora nessun partecipante!"
 
 #. module: event_session
 #: model_terms:ir.actions.act_window,help:event_session.action_event_session_pivot
 msgid "No Sessions data yet!"
-msgstr ""
+msgstr "Ancora nessuna data sessioni!"
 
 #. module: event_session
 #: code:addons/event_session/models/event_session.py:0
 #, python-format
 msgid "No more available seats."
-msgstr ""
+msgstr "Non ci sono posti disponibili."
 
 #. module: event_session
 #: code:addons/event_session/models/event_registration.py:0
 #, python-format
 msgid "No more seats available for this session."
-msgstr ""
+msgstr "Non ci sono più posti per questa sessione."
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__note
 msgid "Note"
-msgstr ""
+msgstr "Nota"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__message_needaction_counter
 msgid "Number of Actions"
-msgstr ""
+msgstr "Numero di azioni"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__seats_expected
 msgid "Number of Expected Attendees"
-msgstr ""
+msgstr "Numero di partecipanti attesi"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__seats_used
 msgid "Number of Participants"
-msgstr ""
+msgstr "Numero di partecipanti"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__message_has_error_counter
 msgid "Number of errors"
-msgstr ""
+msgstr "Numero di errori"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__message_needaction_counter
 msgid "Number of messages which requires an action"
-msgstr ""
+msgstr "Numero di messaggi che richiedono un'azione"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "Numero di messaggi con errore di consegna"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__message_unread_counter
 msgid "Number of unread messages"
-msgstr ""
+msgstr "Numero di messaggi non letti"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__organizer_id
 msgid "Organizer"
-msgstr ""
+msgstr "Organizzatore"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__legend_blocked
@@ -2050,6 +2050,8 @@ msgid ""
 "Override the default value displayed for the blocked state for kanban "
 "selection."
 msgstr ""
+"Forza il valore predefinito visualizzato per lo stato bloccato per la "
+"selezione Kanban."
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__legend_done
@@ -2057,6 +2059,8 @@ msgid ""
 "Override the default value displayed for the done state for kanban "
 "selection."
 msgstr ""
+"Forza il valore predefinito visualizzato per lo stato eseguito per la "
+"selezione Kanban."
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__legend_normal
@@ -2064,21 +2068,23 @@ msgid ""
 "Override the default value displayed for the normal state for kanban "
 "selection."
 msgstr ""
+"Forza il valore predefinito visualizzato per lo stato normale per la "
+"selezione Kanban."
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__event_id
 msgid "Parent Event"
-msgstr ""
+msgstr "Evento padre"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__website_track_proposal
 msgid "Proposals on Website"
-msgstr ""
+msgstr "Offerte sul sito web"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__question_ids
 msgid "Questions"
-msgstr ""
+msgstr "Domande"
 
 #. module: event_session
 #: model:event.event,legend_done:event_session.event_event_007
@@ -2090,157 +2096,157 @@ msgstr ""
 #: model:event.session,legend_done:event_session.event_session_007_2_20_00
 #: model:event.session,legend_done:event_session.event_session_007_3_20_00
 msgid "Ready for Next Stage"
-msgstr ""
+msgstr "Pronta per la fase successiva"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__rrule_type
 msgid "Recurrence"
-msgstr ""
+msgstr "Ricorrenza"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__register_menu
 msgid "Register Menu"
-msgstr ""
+msgstr "Menu registrazione"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__register_menu_ids
 msgid "Register Menus"
-msgstr ""
+msgstr "Menu registrazione"
 
 #. module: event_session
 #: model:ir.model,name:event_session.model_event_mail_registration
 msgid "Registration Mail Scheduler"
-msgstr ""
+msgstr "Pianificatore e-mail di registrazione"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__event_registrations_open
 msgid "Registration open"
-msgstr ""
+msgstr "Registrazione aperta"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__event_registrations_started
 msgid "Registrations started"
-msgstr ""
+msgstr "Registrazione iniziata"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__start_remaining
 msgid "Remaining before start"
-msgstr ""
+msgstr "Residuo prima della partenza"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__start_remaining
 msgid "Remaining time before event starts (minutes)"
-msgstr ""
+msgstr "Tempo rimanente prima dell'inizio dell'evento (minuti)"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_wizard_event_session_form
 msgid "Repeat Every"
-msgstr ""
+msgstr "Ripeti ogni"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__seats_reserved
 msgid "Reserved Seats"
-msgstr ""
+msgstr "Posti prenotati"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__user_id
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_search
 msgid "Responsible"
-msgstr ""
+msgstr "Responsabile"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__activity_user_id
 msgid "Responsible User"
-msgstr ""
+msgstr "Utente responsabile"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__website_id
 msgid "Restrict publishing to this website."
-msgstr ""
+msgstr "Limitare la pubblicazione a questo sito web."
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__is_seo_optimized
 msgid "SEO optimized"
-msgstr ""
+msgstr "Ottimizzato SEO"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__message_has_sms_error
 msgid "SMS Delivery error"
-msgstr ""
+msgstr "Errore consegna SMS"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__sale_price_subtotal
 msgid "Sales (Tax Excluded)"
-msgstr ""
+msgstr "Vendite (tasse escluse)"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__sat
 msgid "Sat"
-msgstr ""
+msgstr "Sab"
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__weekday__sat
 msgid "Saturday"
-msgstr ""
+msgstr "Sabato"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_wizard_event_session_form
 msgid "Schedule"
-msgstr ""
+msgstr "Schedula"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__scheduled_date
 msgid "Scheduled Date"
-msgstr ""
+msgstr "Data programmata"
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__byday__2
 msgid "Second"
-msgstr ""
+msgstr "Secondo"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__notification_type
 msgid "Send"
-msgstr ""
+msgstr "Invia"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__mail_done
 msgid "Sent"
-msgstr ""
+msgstr "Inviata"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__seo_name
 msgid "Seo name"
-msgstr ""
+msgstr "Nome SEO"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__session_id
 #: model:ir.model.fields,field_description:event_session.field_event_registration__session_id
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_search
 msgid "Session"
-msgstr ""
+msgstr "Sessione"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_registration__session_scheduler_id
 msgid "Session Mail"
-msgstr ""
+msgstr "E-mail sessione"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail__session_scheduler_ids
 #: model:ir.model.fields,field_description:event_session.field_event_mail_scheduler_template__session_scheduler_ids
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__session_scheduler_ids
 msgid "Session Mails"
-msgstr ""
+msgstr "E-mail sessione"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__session_update
 msgid "Session Update"
-msgstr ""
+msgstr "Aggiornamento sessione"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__session_update_message
 msgid "Session Update Message"
-msgstr ""
+msgstr "Messaggio aggiornamento sessione"
 
 #. module: event_session
 #: model:ir.actions.act_window,name:event_session.act_event_session_event_form
@@ -2252,23 +2258,23 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_form
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_kanban
 msgid "Sessions"
-msgstr ""
+msgstr "Sessioni"
 
 #. module: event_session
 #: model:ir.actions.act_window,name:event_session.action_event_session_pivot
 msgid "Sessions Analysis"
-msgstr ""
+msgstr "Analisi sessioni"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_event__session_count
 #: model:ir.model.fields,field_description:event_session.field_event_session__session_count
 msgid "Sessions Count"
-msgstr ""
+msgstr "Conteggio sessioni"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_form
 msgid "Sessions available for this event"
-msgstr ""
+msgstr "Sessioni disponibili per l'evento"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_wizard_event_session__date_tz
@@ -2276,53 +2282,55 @@ msgid ""
 "Set it up in the event configurationSessions will be generated up to this "
 "date"
 msgstr ""
+"Impostare nella configurazione evento. Le sessioni verranno generate fino a "
+"questa data"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_search
 msgid "Show all records which has next action date is before today"
-msgstr ""
+msgstr "Visualizza tutte le righe con l'azione successiva antecedente ad oggi"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__event_registrations_sold_out
 msgid "Sold Out"
-msgstr ""
+msgstr "Esaurito"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__specific_question_ids
 msgid "Specific Questions"
-msgstr ""
+msgstr "Domanda specifica"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__stage_id
 msgid "Stage"
-msgstr ""
+msgstr "Fase"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__start
 msgid "Start"
-msgstr ""
+msgstr "Avvia"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_event__date_begin
 #: model:ir.model.fields,field_description:event_session.field_event_session__date_begin
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_search
 msgid "Start Date"
-msgstr ""
+msgstr "Data inizio"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__date_begin_located
 msgid "Start Date Located"
-msgstr ""
+msgstr "Data inizio localizzata"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__start_today
 msgid "Start Today"
-msgstr ""
+msgstr "Inizia oggi"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__start_sale_datetime
 msgid "Start sale date"
-msgstr ""
+msgstr "Data inizio vendita"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__activity_state
@@ -2332,252 +2340,258 @@ msgid ""
 "Today: Activity date is today\n"
 "Planned: Future activities."
 msgstr ""
+"Stato in base alle attività\n"
+"Scaduto: la data richiesta è trascorsa\n"
+"Oggi: la data attività è oggi\n"
+"Pianificato: attività future."
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__sun
 msgid "Sun"
-msgstr ""
+msgstr "Dom"
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__weekday__sun
 msgid "Sunday"
-msgstr ""
+msgstr "Domenica"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__tag_ids
 msgid "Tags"
-msgstr ""
+msgstr "Etichette"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__template_ref
 #: model:ir.model.fields,field_description:event_session.field_event_session__event_type_id
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_search
 msgid "Template"
-msgstr ""
+msgstr "Modello"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__template_model_id
 msgid "Template Model"
-msgstr ""
+msgstr "Esempio modello"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_wizard_event_session_form
 msgid "The"
-msgstr ""
+msgstr "Il"
 
 #. module: event_session
 #: code:addons/event_session/models/event_session.py:0
 #, python-format
 msgid "The closing date cannot be earlier than the beginning date."
-msgstr ""
+msgstr "La data di chiusura non può essere antecedente alla data di apertura."
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__website_url
 msgid "The full URL to access the document through the website."
-msgstr ""
+msgstr "L'URL completo per accedere al documento attraverso il sito web."
 
 #. module: event_session
 #: code:addons/event_session/wizards/wizard_event_session.py:0
 #, python-format
 msgid "The interval cannot be negative."
-msgstr ""
+msgstr "L'intervallo non può essere negativo."
 
 #. module: event_session
 #: code:addons/event_session/models/event_session_timeslot.py:0
 #, python-format
 msgid "The timeslot has to be defined in HH:MM format"
-msgstr ""
+msgstr "L'intervallo deve essere definito nel formato HH:MM"
 
 #. module: event_session
 #: model:ir.model.constraint,message:event_session.constraint_event_session_timeslot_unique_time
 msgid "The timeslot has to be unique"
-msgstr ""
+msgstr "L'intervallo deve essere univoco"
 
 #. module: event_session
 #: model:event.type,name:event_session.event_type_theater
 msgid "Theater"
-msgstr ""
+msgstr "Teatro"
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__byday__3
 msgid "Third"
-msgstr ""
+msgstr "Terzo"
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__event_session__session_update__subsequent
 msgid "This and following event sessions"
-msgstr ""
+msgstr "Sessioni dell'evento presente e successivo"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__ticket_instructions
 msgid "This information will be printed on your tickets."
-msgstr ""
+msgstr "Questa informazione verrà stampata sul suo biglietto."
 
 #. module: event_session
 #: code:addons/event_session/models/event_session.py:0
 #: code:addons/event_session/models/event_session.py:0
 #, python-format
 msgid "This operator is not supported"
-msgstr ""
+msgstr "Questo operatore non è supportato"
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__event_session__session_update__this
 msgid "This session"
-msgstr ""
+msgstr "Questa sessione"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__thu
 msgid "Thu"
-msgstr ""
+msgstr "Gio"
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__weekday__thu
 msgid "Thursday"
-msgstr ""
+msgstr "Giovedì"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__ticket_instructions
 msgid "Ticket Instructions"
-msgstr ""
+msgstr "Istruzioni biglietto"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session_timeslot__time
 msgid "Time"
-msgstr ""
+msgstr "Orario"
 
 #. module: event_session
 #: model:ir.model.constraint,message:event_session.constraint_event_session_timeslot_valid_time
 msgid "Time has to be between 0:00 and 23:59"
-msgstr ""
+msgstr "L'ora deve essere tra 0:00 e 23:59"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__timeslot_ids
 msgid "Time slots"
-msgstr ""
+msgstr "Intervalli orario"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__date_tz
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__date_tz
 msgid "Timezone"
-msgstr ""
+msgstr "Fuso orario"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_search
 msgid "Today Activities"
-msgstr ""
+msgstr "Attività odierne"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_tree
 msgid "Total"
-msgstr ""
+msgstr "Totale"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_form
 msgid "Total Registrations for this Session"
-msgstr ""
+msgstr "Totale registrazioni per questa sessione"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__track_count
 msgid "Track Count"
-msgstr ""
+msgstr "Conteggio percorsi"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__tracks_tag_ids
 msgid "Track Tags"
-msgstr ""
+msgstr "Etichette percorsi"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__track_ids
 msgid "Tracks"
-msgstr ""
+msgstr "Percorsi"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__website_track
 msgid "Tracks on Website"
-msgstr ""
+msgstr "Percorsi sul sito web"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__interval_type
 msgid "Trigger "
-msgstr ""
+msgstr "Trigger "
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__tue
 msgid "Tue"
-msgstr ""
+msgstr "Mar"
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__weekday__tue
 msgid "Tuesday"
-msgstr ""
+msgstr "Martedì"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__activity_exception_decoration
 msgid "Type of the exception activity on record."
-msgstr ""
+msgstr "Tipo di attività eccezione sul record."
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__seats_unconfirmed
 msgid "Unconfirmed Seat Reservations"
-msgstr ""
+msgstr "Prenotazioni posti non confermate"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_tree
 msgid "Unconfirmed Seats"
-msgstr ""
+msgstr "Posti non confermati"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__interval_unit
 msgid "Unit"
-msgstr ""
+msgstr "Unità"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__message_unread
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_search
 msgid "Unread Messages"
-msgstr ""
+msgstr "Messaggi non letti"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__message_unread_counter
 msgid "Unread Messages Counter"
-msgstr ""
+msgstr "Contatore messaggi non letti"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__until
 msgid "Until"
-msgstr ""
+msgstr "Fino a"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_search
 msgid "Upcoming events from today"
-msgstr ""
+msgstr "Eventi imminenti di oggi"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_search
 msgid "Upcoming/Running"
-msgstr ""
+msgstr "Imminenti/In corso"
 
 #. module: event_session
 #: model_terms:ir.actions.act_window,help:event_session.action_event_session_pivot
 msgid "Use this report to compare or aggregate sessions performances."
 msgstr ""
+"Utilizzare questo resoconto per comparare o aggregare i risultati delle "
+"sessioni."
 
 #. module: event_session
 #: code:addons/event_session/models/event_session.py:0
 #: code:addons/event_session/models/event_session.py:0
 #, python-format
 msgid "Value should be True or False (not %s)"
-msgstr ""
+msgstr "Il valore deve essere True o False (non %s)"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__address_id
 msgid "Venue"
-msgstr ""
+msgstr "Sede"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__website_published
 msgid "Visible on current website"
-msgstr ""
+msgstr "Visibile sul sito web attuale"
 
 #. module: event_session
 #: model_terms:ir.actions.act_window,help:event_session.act_event_registration_from_event_session
@@ -2585,119 +2599,124 @@ msgid ""
 "Wait until Attendees register to your Event or create their registrations "
 "manually."
 msgstr ""
+"Attendere finché i partecipanti si registrano sull'evento o creare le "
+"registrazioni manualmente."
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__website_id
 msgid "Website"
-msgstr ""
+msgstr "Sito web"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__website_menu
 msgid "Website Menu"
-msgstr ""
+msgstr "Menu sito web"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__website_message_ids
 msgid "Website Messages"
-msgstr ""
+msgstr "Messaggi sito web"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__website_url
 msgid "Website URL"
-msgstr ""
+msgstr "URL sito web"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__website_message_ids
 msgid "Website communication history"
-msgstr ""
+msgstr "Cronologia comunicazioni sito web"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__website_meta_description
 msgid "Website meta description"
-msgstr ""
+msgstr "Meta descrizione sito web"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__website_meta_keywords
 msgid "Website meta keywords"
-msgstr ""
+msgstr "Parole chiave sito web"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__website_meta_title
 msgid "Website meta title"
-msgstr ""
+msgstr "Meta titolo sito web"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__website_meta_og_img
 msgid "Website opengraph image"
-msgstr ""
+msgstr "Immagine opengraph sito web"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__wed
 msgid "Wed"
-msgstr ""
+msgstr "Mer"
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__weekday__wed
 msgid "Wednesday"
-msgstr ""
+msgstr "Mercoledì"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__weekday
 msgid "Weekday"
-msgstr ""
+msgstr "Giorno della settimana"
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__rrule_type__weekly
 msgid "Weeks"
-msgstr ""
+msgstr "Settimane"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__is_done
 msgid "Whether event is finished"
-msgstr ""
+msgstr "Se l'evento è terminato"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__start_today
 msgid "Whether event is going to start today if still not ongoing"
-msgstr ""
+msgstr "Se l'evento sta per iniziare oggi se non già iniziato"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_search
 msgid "With sessions"
-msgstr ""
+msgstr "Con sessioni"
 
 #. module: event_session
 #: model:ir.model,name:event_session.model_wizard_event_session
 msgid "Wizard for ease sessions creation"
-msgstr ""
+msgstr "Procedura guidata per la semplice creazione di sessioni"
 
 #. module: event_session
 #: code:addons/event_session/models/event_event.py:0
 #, python-format
 msgid "You can't enable/disable sessions on events with registrations."
 msgstr ""
+"Non si possono abilitare/disabilitare sessioni in un evento con "
+"registrazioni."
 
 #. module: event_session
 #: code:addons/event_session/models/event_session.py:0
 #, python-format
 msgid "You cannot use session_update when writing on recordsets"
 msgstr ""
+"Non si può utilizzare session_update durante la scrittura nel recordsets"
 
 #. module: event_session
 #: code:addons/event_session/wizards/wizard_event_session.py:0
 #, python-format
 msgid "You have to choose at least one day in the week"
-msgstr ""
+msgstr "Bisogna scegliere almeno un giorno nella settimana"
 
 #. module: event_session
 #: model:mail.template,subject:event_session.event_session_registration_mail_template_badge
 msgid "Your badge for {{ object.session_id.name }}"
-msgstr ""
+msgstr "Il suo badge per {{ object.session_id.name }}"
 
 #. module: event_session
 #: model:mail.template,subject:event_session.event_session_subscription
 msgid "Your registration at {{ object.session_id.name }}"
-msgstr ""
+msgstr "La sua registrazione a {{ object.session_id.name }}"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__event_registrations_started
@@ -2705,8 +2724,10 @@ msgid ""
 "registrations have started if the current datetime is after the earliest "
 "starting date of tickets."
 msgstr ""
+"la registrazione è iniziata se la data attuale è dopo la prima data inizio "
+"sul biglietto."
 
 #. module: event_session
 #: model:mail.template,subject:event_session.event_session_reminder
 msgid "{{ object.session_id.name }}: {{ object.get_date_range_str() }}"
-msgstr ""
+msgstr "{{ object.session_id.name }}: {{ object.get_date_range_str() }}"
