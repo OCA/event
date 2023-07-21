@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-07-20 10:12+0000\n"
+"PO-Revision-Date: 2023-07-21 09:10+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -137,7 +137,7 @@ msgstr "Prenota prossimo evento"
 #. module: sale_crm_event_reservation
 #: model:ir.model.fields,field_description:sale_crm_event_reservation.field_event_type_report__seats_reservation_total
 msgid "Reserved seats"
-msgstr "Posti riservati"
+msgstr "Posti prenotati"
 
 #. module: sale_crm_event_reservation
 #: model:ir.model.fields,field_description:sale_crm_event_reservation.field_crm_lead_event_sale_wizard__seats_wanted
