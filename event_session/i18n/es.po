@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-07 10:31+0000\n"
-"PO-Revision-Date: 2023-07-20 18:11+0000\n"
+"PO-Revision-Date: 2023-07-21 13:11+0000\n"
 "Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -27,12 +27,12 @@ msgstr "# Enviado por"
 #: code:addons/event_session/models/event_session.py:0
 #, python-format
 msgid "- \"%(event_name)s\": Missing %(nb_too_many)i seats."
-msgstr ""
+msgstr "- \"%(event_name)s\": faltan %(nb_too_many)i asientos."
 
 #. module: event_session
 #: model:event.event,name:event_session.event_event_007
 msgid "007: No Time to Die"
-msgstr ""
+msgstr "007: Sin tiempo para morir"
 
 #. module: event_session
 #: model:mail.template,body_html:event_session.event_session_registration_mail_template_badge
@@ -52,16 +52,30 @@ msgid ""
 "    </t>\n"
 "</div>"
 msgstr ""
+"<div>\n"
+"    Estimado <t t-out=\"objeto.nombre o ''\">Oscar Morgan</t>,<br>\n"
+"    Gracias por su consulta.<br>\n"
+"    Aquí está su insignia para el evento <t t-out=\"object.session_id.name "
+"or ''\">OpenWood Collection Online Reveal</t>.<br>\n"
+"    Si tiene alguna duda, por favor póngase en contacto con nosotros.\n"
+"    <br><br>\n"
+"    Gracias,\n"
+"    <t t-if=\"objeto.sesión_id.usuario_id.firma\">\n"
+"        <br>\n"
+"        <t t-out=\"object.session_id.user_id.signature or ''\">--"
+"<br>Mitchell Admin</t>\n"
+"    </t>\n"
+"</div>"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_kanban
 msgid "<i class=\"fa fa-arrow-right o_event_fontsize_09\" title=\"End date\"/>"
-msgstr ""
+msgstr "<i class=\"fa fa-arrow-right o_event_fontsize_09\" title=\"End date\"/>"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_kanban
 msgid "<i class=\"fa fa-level-up fa-rotate-90\" title=\"Confirmed\"/>"
-msgstr ""
+msgstr "<i class=\"fa fa-level-up fa-rotate-90\" title=\"Confirmed\"/>"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_form
@@ -71,11 +85,13 @@ msgid ""
 "<i class=\"fa fa-long-arrow-right mx-2\" aria-label=\"Arrow icon\" title="
 "\"Arrow\"/>"
 msgstr ""
+"<i class=\"fa fa-long-arrow-right mx-2\" aria-label=\"Arrow icon\" title="
+"\"Arrow\"/>"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_kanban
 msgid "<i class=\"fa fa-map-marker\" title=\"Location\"/>"
-msgstr ""
+msgstr "<i class=\"fa fa-map-marker\" title=\"Location\"/>"
 
 #. module: event_session
 #: model:mail.template,body_html:event_session.event_session_reminder
