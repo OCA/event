@@ -6,58 +6,60 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-07-24 13:09+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: crm_event
 #: model:ir.model.fields,field_description:crm_event.field_event_type_report__events_available_count
 msgid "Available events count"
-msgstr ""
+msgstr "Conteggio eventi disponibili"
 
 #. module: crm_event
 #: model:ir.model.fields,field_description:crm_event.field_event_type_report__seats_limited_available
 msgid "Available seats in limited events"
-msgstr ""
+msgstr "Posti disponibili in eventi limitati"
 
 #. module: crm_event
 #: model:ir.ui.menu,name:crm_event.menu_event_type_report
 msgid "Categories"
-msgstr ""
+msgstr "Categorie"
 
 #. module: crm_event
 #: model:ir.model.fields,field_description:crm_event.field_event_type_report__name
 msgid "Category name"
-msgstr ""
+msgstr "Nome categoria"
 
 #. module: crm_event
 #: model:ir.model.fields,field_description:crm_event.field_event_type_report__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: crm_event
 #: model_terms:ir.ui.view,arch_db:crm_event.crm_opportunity_report_view_search
 msgid "Event"
-msgstr ""
+msgstr "Evento"
 
 #. module: crm_event
 #: model:ir.model,name:crm_event.model_event_type
 msgid "Event Category"
-msgstr ""
+msgstr "Categoria evento"
 
 #. module: crm_event
 #: model:ir.model,name:crm_event.model_event_type_report
 msgid "Event categories analysis report"
-msgstr ""
+msgstr "Resoconto analisi categorie evento"
 
 #. module: crm_event
 #: model:ir.model.fields,field_description:crm_event.field_crm_lead__event_type_id
 msgid "Event category"
-msgstr ""
+msgstr "Categoria evento"
 
 #. module: crm_event
 #: model:ir.actions.act_window,name:crm_event.action_event_type_report
@@ -65,50 +67,50 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:crm_event.view_event_type_report_pivot
 #: model_terms:ir.ui.view,arch_db:crm_event.view_event_type_report_search
 msgid "Event category analysis"
-msgstr ""
+msgstr "Analisi categoria evento"
 
 #. module: crm_event
 #: model_terms:ir.ui.view,arch_db:crm_event.view_event_type_report_search
 msgid "Event seats availability"
-msgstr ""
+msgstr "Disponibilità posti evento"
 
 #. module: crm_event
 #: model_terms:ir.ui.view,arch_db:crm_event.crm_opportunity_report_view_search
 #: model_terms:ir.ui.view,arch_db:crm_event.view_crm_case_leads_filter
 #: model_terms:ir.ui.view,arch_db:crm_event.view_crm_case_opportunities_filter
 msgid "Event type"
-msgstr ""
+msgstr "Tipo evento"
 
 #. module: crm_event
 #: code:addons/crm_event/models/event_type.py:0
 #, python-format
 msgid "Events"
-msgstr ""
+msgstr "Eventi"
 
 #. module: crm_event
 #: model_terms:ir.ui.view,arch_db:crm_event.view_event_type_form
 msgid "Events (seats)"
-msgstr ""
+msgstr "Eventi (posti)"
 
 #. module: crm_event
 #: model:ir.model.fields,field_description:crm_event.field_event_type__seats_available_total
 msgid "Events available (and seats)"
-msgstr ""
+msgstr "Eventi disponibili (e posti)"
 
 #. module: crm_event
 #: model_terms:ir.ui.view,arch_db:crm_event.view_event_type_report_search
 msgid "Extended Filters"
-msgstr ""
+msgstr "Filtri estesi"
 
 #. module: crm_event
 #: model_terms:ir.ui.view,arch_db:crm_event.view_event_type_report_search
 msgid "Group By"
-msgstr ""
+msgstr "Raggruppa per"
 
 #. module: crm_event
 #: model:ir.model.fields,field_description:crm_event.field_event_type_report__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: crm_event
 #: model:ir.model.fields,help:crm_event.field_crm_lead__seats_wanted
@@ -116,6 +118,8 @@ msgid ""
 "If this lead/opportunity is related to a specific event category, indicate "
 "how many seats would you sell if won."
 msgstr ""
+"Se questo contatto/opportunità è relativo ad una specifica categoria evento, "
+"indica quanti posti verranno venduti in caso di vincita."
 
 #. module: crm_event
 #: model:ir.model.fields,help:crm_event.field_crm_lead__event_type_id
@@ -123,58 +127,60 @@ msgid ""
 "If this lead/opportunity is related to a specific event category, indicate "
 "it here."
 msgstr ""
+"Se questo contatto/opportunità è relativa ad una specifica categoria evento, "
+"indicarla qui."
 
 #. module: crm_event
 #: model:ir.model.fields,field_description:crm_event.field_event_type_report____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: crm_event
 #: model:ir.model,name:crm_event.model_crm_lead
 msgid "Lead/Opportunity"
-msgstr ""
+msgstr "Contatto/Opportunità"
 
 #. module: crm_event
 #: model:ir.model.fields,field_description:crm_event.field_event_type__crm_lead_ids
 msgid "Leads/Opportunities"
-msgstr ""
+msgstr "Contatti/Opportunità"
 
 #. module: crm_event
 #: model:ir.model.fields.selection,name:crm_event.selection__event_type_report__event_seats_availability__limited
 msgid "Limited"
-msgstr ""
+msgstr "Limitati"
 
 #. module: crm_event
 #: model_terms:ir.ui.view,arch_db:crm_event.view_event_type_report_search
 msgid "Limited events"
-msgstr ""
+msgstr "Eventi limitati"
 
 #. module: crm_event
 #: model:ir.model.fields,field_description:crm_event.field_event_type__open_opportunities_count
 #: model:ir.model.fields,field_description:crm_event.field_event_type_report__open_opportunities_count
 msgid "Open Opportunities Count"
-msgstr ""
+msgstr "Conteggio opportunità aperte"
 
 #. module: crm_event
 #: model:ir.model.fields,help:crm_event.field_event_type__seats_wanted_total
 msgid "Open opportunities for events of this category (and wanted seats)."
-msgstr ""
+msgstr "Opportunità aperte per eventi di questa categoria (e posti richiesti)."
 
 #. module: crm_event
 #: model:ir.model.fields,help:crm_event.field_event_type__open_opportunities_count
 msgid "Open opportunities for events of this category."
-msgstr ""
+msgstr "Opportunità aperte per eventi di questa categoria."
 
 #. module: crm_event
 #: code:addons/crm_event/models/event_type.py:0
 #, python-format
 msgid "Opportunities"
-msgstr ""
+msgstr "Opportunità"
 
 #. module: crm_event
 #: model:ir.model.fields,field_description:crm_event.field_event_type__seats_wanted_total
 msgid "Opportunities (seats)"
-msgstr ""
+msgstr "Opportunità (posti)"
 
 #. module: crm_event
 #: model_terms:ir.actions.act_window,help:crm_event.action_event_type_report
@@ -182,44 +188,47 @@ msgid ""
 "Report to analyze interest and status of event categories, taking into "
 "account upcoming or running events and potential sale information."
 msgstr ""
+"Resoconto per analizzare interesse e stati delle categorie evento, "
+"considerando eventi prossimi e in corso e informazioni di potenziali vendite."
 
 #. module: crm_event
 #: model:ir.model.fields,field_description:crm_event.field_crm_lead__seats_wanted
 msgid "Seats Wanted"
-msgstr ""
+msgstr "Posti richiesti"
 
 #. module: crm_event
 #: model:ir.model.fields,field_description:crm_event.field_event_type_report__event_seats_availability
 msgid "Seats availability"
-msgstr ""
+msgstr "Disponibilità posti"
 
 #. module: crm_event
 #: model:ir.model.fields,help:crm_event.field_event_type__seats_wanted_sum
 msgid "Sum of wanted seats in opportunities for events of this category."
 msgstr ""
+"Somma dei posti richiesti nelle opportunità per eventi di questa categoria."
 
 #. module: crm_event
 #: model_terms:ir.ui.view,arch_db:crm_event.crm_case_tree_view_oppor
 msgid "Total seats wanted"
-msgstr ""
+msgstr "Totale posti richiesti"
 
 #. module: crm_event
 #: model:ir.model.fields.selection,name:crm_event.selection__event_type_report__event_seats_availability__unlimited
 msgid "Unlimited"
-msgstr ""
+msgstr "Illimitati"
 
 #. module: crm_event
 #: model_terms:ir.ui.view,arch_db:crm_event.view_event_type_report_search
 msgid "Unlimited events"
-msgstr ""
+msgstr "Eventi illimitati"
 
 #. module: crm_event
 #: model:ir.model.fields,help:crm_event.field_event_type__seats_available_total
 msgid "Upcoming/running events of this category (and available seats)."
-msgstr ""
+msgstr "Eventi prossimi/in corso di questa categoria (e posti disponibili)."
 
 #. module: crm_event
 #: model:ir.model.fields,field_description:crm_event.field_event_type__seats_wanted_sum
 #: model:ir.model.fields,field_description:crm_event.field_event_type_report__seats_wanted
 msgid "Wanted seats"
-msgstr ""
+msgstr "Posti richiesti"
