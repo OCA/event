@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-07-21 10:11+0000\n"
+"PO-Revision-Date: 2023-07-24 18:11+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -1631,7 +1631,7 @@ msgstr "Modifica sessione"
 #: model:ir.model.fields,field_description:event_session.field_event_event__date_end
 #: model:ir.model.fields,field_description:event_session.field_event_session__date_end
 msgid "End Date"
-msgstr "Data di fine"
+msgstr "Data fine"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__date_end_located
@@ -2393,9 +2393,7 @@ msgstr ""
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_search
 msgid "Show all records which has next action date is before today"
-msgstr ""
-"Visualizza tutte le righe che hanno una data azione successiva antecedente "
-"ad oggi"
+msgstr "Visualizza tutte le righe con l'azione successiva antecedente ad oggi"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__event_registrations_sold_out
