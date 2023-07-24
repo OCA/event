@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-07-24 10:09+0000\n"
+"PO-Revision-Date: 2023-07-24 13:09+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -102,54 +102,56 @@ msgstr "Ultimo aggiornamento di"
 #. module: sale_crm_event_reservation
 #: model:ir.model.fields,field_description:sale_crm_event_reservation.field_crm_lead_event_sale_wizard__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento il"
 
 #. module: sale_crm_event_reservation
 #: model:ir.model.fields,field_description:sale_crm_event_reservation.field_crm_lead_event_sale_wizard__mode
 msgid "Mode"
-msgstr ""
+msgstr "Modo"
 
 #. module: sale_crm_event_reservation
 #: model_terms:ir.ui.view,arch_db:sale_crm_event_reservation.crm_case_form_view_oppor
 msgid "New Event Quotation"
-msgstr ""
+msgstr "Nuovo preventivo evento"
 
 #. module: sale_crm_event_reservation
 #: model:ir.model.fields,field_description:sale_crm_event_reservation.field_crm_lead_event_sale_wizard__opportunity_id
 msgid "Opportunity"
-msgstr ""
+msgstr "Opportunità"
 
 #. module: sale_crm_event_reservation
 #: model:ir.model.fields,field_description:sale_crm_event_reservation.field_crm_lead_event_sale_wizard__product_id
 msgid "Product"
-msgstr ""
+msgstr "Prodotto"
 
 #. module: sale_crm_event_reservation
 #: model:ir.model.fields.selection,name:sale_crm_event_reservation.selection__crm_lead_event_sale_wizard__mode__register
 msgid "Register in scheduled event"
-msgstr ""
+msgstr "Registrare in evento schedulato"
 
 #. module: sale_crm_event_reservation
 #: model:ir.model.fields.selection,name:sale_crm_event_reservation.selection__crm_lead_event_sale_wizard__mode__reserve
 msgid "Reserve upcoming event"
-msgstr ""
+msgstr "Prenota prossimo evento"
 
 #. module: sale_crm_event_reservation
 #: model:ir.model.fields,field_description:sale_crm_event_reservation.field_event_type_report__seats_reservation_total
 msgid "Reserved seats"
-msgstr ""
+msgstr "Posti prenotati"
 
 #. module: sale_crm_event_reservation
 #: model:ir.model.fields,field_description:sale_crm_event_reservation.field_crm_lead_event_sale_wizard__seats_wanted
 msgid "Seats Wanted"
-msgstr ""
+msgstr "Posti richiesti"
 
 #. module: sale_crm_event_reservation
 #: model:ir.model.fields,field_description:sale_crm_event_reservation.field_crm_lead_event_sale_wizard__event_ticket_id
 msgid "Ticket"
-msgstr ""
+msgstr "Biglietto"
 
 #. module: sale_crm_event_reservation
 #: model:ir.model,name:sale_crm_event_reservation.model_crm_lead_event_sale_wizard
 msgid "Wizard to generate event quotation from event opportunity"
 msgstr ""
+"Procedura guidata per generare una preventivo evento da una opportunità "
+"evento"
