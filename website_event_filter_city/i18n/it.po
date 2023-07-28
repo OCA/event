@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-07-20 10:12+0000\n"
+"PO-Revision-Date: 2023-07-28 13:09+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -52,7 +52,7 @@ msgstr "Città"
 #. module: website_event_filter_city
 #: model:event.tag,name:website_event_filter_city.event_type_code_sprint
 msgid "Code Sprint"
-msgstr "Code Sprint"
+msgstr "Code sprint"
 
 #. module: website_event_filter_city
 #: model:ir.model,name:website_event_filter_city.model_event_event
