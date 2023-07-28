@@ -6,125 +6,127 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-07-28 13:10+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: crm_lead_to_event_registration
 #: model_terms:ir.ui.view,arch_db:crm_lead_to_event_registration.event_pick_view
 msgid "Accept"
-msgstr ""
+msgstr "Accetta"
 
 #. module: crm_lead_to_event_registration
 #: model_terms:ir.ui.view,arch_db:crm_lead_to_event_registration.event_pick_view
 msgid "Cancel"
-msgstr ""
+msgstr "Annulla"
 
 #. module: crm_lead_to_event_registration
 #: model:ir.model,name:crm_lead_to_event_registration.model_crm_lead2opportunity_partner
 msgid "Convert Lead to Opportunity (not in mass)"
-msgstr ""
+msgstr "Converte contatti in opportunità (non in massa)"
 
 #. module: crm_lead_to_event_registration
 #: model:ir.model.fields,field_description:crm_lead_to_event_registration.field_crm_lead2opportunity_partner__event_id
 #: model:ir.model.fields,field_description:crm_lead_to_event_registration.field_crm_lead2opportunity_partner_mass__event_id
 msgid "Create registration in this event"
-msgstr ""
+msgstr "Crea registrazione in questo evento"
 
 #. module: crm_lead_to_event_registration
 #: model:ir.model.fields,field_description:crm_lead_to_event_registration.field_crm_lead_event_pick__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: crm_lead_to_event_registration
 #: model:ir.model.fields,field_description:crm_lead_to_event_registration.field_crm_lead_event_pick__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: crm_lead_to_event_registration
 #: model:ir.model,name:crm_lead_to_event_registration.model_crm_lead_event_pick
 msgid "Crm Lead Event Pick"
-msgstr ""
+msgstr "Selezione evento contatto CRM"
 
 #. module: crm_lead_to_event_registration
 #: model:ir.model.fields,field_description:crm_lead_to_event_registration.field_crm_lead_event_pick__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: crm_lead_to_event_registration
 #: model:ir.model.fields,field_description:crm_lead_to_event_registration.field_crm_lead_event_pick__event_id
 msgid "Event"
-msgstr ""
+msgstr "Evento"
 
 #. module: crm_lead_to_event_registration
 #: model:ir.model.fields,field_description:crm_lead_to_event_registration.field_crm_lead__event_registration_id
 #: model_terms:ir.ui.view,arch_db:crm_lead_to_event_registration.view_crm_lead2opportunity_partner
 msgid "Event registration"
-msgstr ""
+msgstr "Registrazione evento"
 
 #. module: crm_lead_to_event_registration
 #: model:ir.model.fields,help:crm_lead_to_event_registration.field_crm_lead_event_pick__event_id
 msgid "Event where the registration will be created."
-msgstr ""
+msgstr "Evento in qui verrà creata la registrazione."
 
 #. module: crm_lead_to_event_registration
 #: model_terms:ir.ui.view,arch_db:crm_lead_to_event_registration.view_crm_lead_form
 #: model_terms:ir.ui.view,arch_db:crm_lead_to_event_registration.view_crm_opportunity_form
 msgid "Generate registration"
-msgstr ""
+msgstr "Crea registrazione"
 
 #. module: crm_lead_to_event_registration
 #: model:ir.model.fields,field_description:crm_lead_to_event_registration.field_crm_lead_event_pick__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: crm_lead_to_event_registration
 #: model:ir.model.fields,field_description:crm_lead_to_event_registration.field_crm_lead_event_pick____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: crm_lead_to_event_registration
 #: model:ir.model.fields,field_description:crm_lead_to_event_registration.field_crm_lead_event_pick__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultimo aggiornamento di"
 
 #. module: crm_lead_to_event_registration
 #: model:ir.model.fields,field_description:crm_lead_to_event_registration.field_crm_lead_event_pick__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento il"
 
 #. module: crm_lead_to_event_registration
 #: model:ir.model,name:crm_lead_to_event_registration.model_crm_lead
 #: model:ir.model.fields,field_description:crm_lead_to_event_registration.field_crm_lead_event_pick__lead_id
 msgid "Lead/Opportunity"
-msgstr ""
+msgstr "Contatto/opportunità"
 
 #. module: crm_lead_to_event_registration
 #: model:ir.model.fields,help:crm_lead_to_event_registration.field_crm_lead_event_pick__lead_id
 msgid "Lead/Opportunity from where to get contact information."
-msgstr ""
+msgstr "Contatto/opportunità da cui ottenere le informazioni di contatto."
 
 #. module: crm_lead_to_event_registration
 #: model:ir.actions.act_window,name:crm_lead_to_event_registration.event_pick_action
 msgid "Pick an event"
-msgstr ""
+msgstr "Selezionare un evento"
 
 #. module: crm_lead_to_event_registration
 #: model:ir.model.fields,help:crm_lead_to_event_registration.field_crm_lead__event_registration_id
 msgid "Registration generated by this lead/opportunity."
-msgstr ""
+msgstr "Registrazione generata da questo contatto/opportunità."
 
 #. module: crm_lead_to_event_registration
 #: model_terms:ir.ui.view,arch_db:crm_lead_to_event_registration.event_pick_view
 msgid "Select event to register"
-msgstr ""
+msgstr "Selezionare evento da registrare"
 
 #. module: crm_lead_to_event_registration
 #: code:addons/crm_lead_to_event_registration/models/crm_lead.py:26
 #, python-format
 msgid "You must set a name before generating a registration."
-msgstr ""
+msgstr "Bisogna impostare un nome prima di generare la registrazione."
