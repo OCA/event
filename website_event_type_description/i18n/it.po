@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-07-24 18:09+0000\n"
+"PO-Revision-Date: 2023-07-28 13:10+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -25,7 +25,7 @@ msgstr "Descrizione"
 #. module: website_event_type_description
 #: model:ir.model.fields,help:website_event_type_description.field_event_type__description
 msgid "Description for this type of event, as showing in the website."
-msgstr ""
+msgstr "Descrizione per questo tipo di evento, come visualizzato nel sito web."
 
 #. module: website_event_type_description
 #: model:ir.model,name:website_event_type_description.model_event_type
