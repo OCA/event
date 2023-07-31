@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-07-28 13:10+0000\n"
+"PO-Revision-Date: 2023-07-31 12:09+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -89,7 +89,7 @@ msgstr "Ultimo aggiornamento il"
 #. module: website_event_questions_free_text
 #: model:ir.model.fields,field_description:website_event_questions_free_text.field_event_answer_free__question_id
 msgid "Question"
-msgstr "Domenda"
+msgstr "Domanda"
 
 #. module: website_event_questions_free_text
 #: model:ir.model.fields,field_description:website_event_questions_free_text.field_event_answer_free__registration_id
