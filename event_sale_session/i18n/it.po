@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-07-24 12:09+0000\n"
+"PO-Revision-Date: 2023-07-31 12:10+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -167,7 +167,7 @@ msgstr "Sessioni evento totali"
 #. module: event_sale_session
 #: model_terms:ir.ui.view,arch_db:event_sale_session.view_event_session_tree
 msgid "Total unconfirmed seats in orders"
-msgstr "Totale posti non confermati nell'ordine"
+msgstr "Totale posti non confermati negli ordini"
 
 #. module: event_sale_session
 #: model:ir.model.fields,field_description:event_sale_session.field_event_event__unconfirmed_qty
