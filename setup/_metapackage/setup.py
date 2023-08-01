@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo-addon-event_registration_multi_qty>=16.0dev,<16.1dev',
+        'odoo-addon-event_sale_registration_multi_qty>=16.0dev,<16.1dev',
         'odoo-addon-event_sale_session>=16.0dev,<16.1dev',
         'odoo-addon-event_session>=16.0dev,<16.1dev',
         'odoo-addon-event_session_registration_multi_qty>=16.0dev,<16.1dev',
