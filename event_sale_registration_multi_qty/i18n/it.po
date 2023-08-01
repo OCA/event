@@ -17,15 +17,6 @@ msgstr ""
 "X-Generator: Weblate 4.14.1\n"
 
 #. module: event_sale_registration_multi_qty
-#: model:ir.model.fields,field_description:event_sale_registration_multi_qty.field_event_registration__display_name
-#: model:ir.model.fields,field_description:event_sale_registration_multi_qty.field_registration_editor__display_name
-#: model:ir.model.fields,field_description:event_sale_registration_multi_qty.field_registration_editor_line__display_name
-#: model:ir.model.fields,field_description:event_sale_registration_multi_qty.field_sale_order__display_name
-#: model:ir.model.fields,field_description:event_sale_registration_multi_qty.field_sale_order_line__display_name
-msgid "Display Name"
-msgstr "Nome visualizzato"
-
-#. module: event_sale_registration_multi_qty
 #: model:ir.model,name:event_sale_registration_multi_qty.model_registration_editor
 msgid "Edit Attendee Details on Sales Confirmation"
 msgstr "Modifica dettagli partecipante alla conferma di vendita"
@@ -41,24 +32,6 @@ msgid "Event Registration"
 msgstr "Registrazione evento"
 
 #. module: event_sale_registration_multi_qty
-#: model:ir.model.fields,field_description:event_sale_registration_multi_qty.field_event_registration__id
-#: model:ir.model.fields,field_description:event_sale_registration_multi_qty.field_registration_editor__id
-#: model:ir.model.fields,field_description:event_sale_registration_multi_qty.field_registration_editor_line__id
-#: model:ir.model.fields,field_description:event_sale_registration_multi_qty.field_sale_order__id
-#: model:ir.model.fields,field_description:event_sale_registration_multi_qty.field_sale_order_line__id
-msgid "ID"
-msgstr "ID"
-
-#. module: event_sale_registration_multi_qty
-#: model:ir.model.fields,field_description:event_sale_registration_multi_qty.field_event_registration____last_update
-#: model:ir.model.fields,field_description:event_sale_registration_multi_qty.field_registration_editor____last_update
-#: model:ir.model.fields,field_description:event_sale_registration_multi_qty.field_registration_editor_line____last_update
-#: model:ir.model.fields,field_description:event_sale_registration_multi_qty.field_sale_order____last_update
-#: model:ir.model.fields,field_description:event_sale_registration_multi_qty.field_sale_order_line____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
-
-#. module: event_sale_registration_multi_qty
 #: model:ir.model.fields,field_description:event_sale_registration_multi_qty.field_registration_editor_line__qty
 msgid "Quantity"
 msgstr "Quantità"
@@ -72,3 +45,12 @@ msgstr "Ordine di vendita"
 #: model:ir.model,name:event_sale_registration_multi_qty.model_sale_order_line
 msgid "Sales Order Line"
 msgstr "Riga ordine di vendita"
+
+#~ msgid "Display Name"
+#~ msgstr "Nome visualizzato"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
