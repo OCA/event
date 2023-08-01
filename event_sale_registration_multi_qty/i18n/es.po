@@ -1,0 +1,48 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_sale_registration_multi_qty
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-19 10:46+0000\n"
+"PO-Revision-Date: 2023-07-05 14:22+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. module: event_sale_registration_multi_qty
+#: model:ir.model,name:event_sale_registration_multi_qty.model_registration_editor
+msgid "Edit Attendee Details on Sales Confirmation"
+msgstr "Editar los datos del asistente en la confirmación de venta"
+
+#. module: event_sale_registration_multi_qty
+#: model:ir.model,name:event_sale_registration_multi_qty.model_registration_editor_line
+msgid "Edit Attendee Line on Sales Confirmation"
+msgstr "Editar línea de participante en la confirmación de venta"
+
+#. module: event_sale_registration_multi_qty
+#: model:ir.model,name:event_sale_registration_multi_qty.model_event_registration
+msgid "Event Registration"
+msgstr "Registro de eventos"
+
+#. module: event_sale_registration_multi_qty
+#: model:ir.model.fields,field_description:event_sale_registration_multi_qty.field_registration_editor_line__qty
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: event_sale_registration_multi_qty
+#: model:ir.model,name:event_sale_registration_multi_qty.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: event_sale_registration_multi_qty
+#: model:ir.model,name:event_sale_registration_multi_qty.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Línea de pedido de venta"
