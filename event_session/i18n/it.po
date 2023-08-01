@@ -1705,6 +1705,7 @@ msgstr "Sessione evento: promemoria"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_event__use_sessions
 #: model:ir.model.fields,field_description:event_session.field_event_mail__use_sessions
+#: model:ir.model.fields,field_description:event_session.field_event_mail_scheduler_template__use_sessions
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__use_sessions
 #: model:ir.model.fields,field_description:event_session.field_event_registration__use_sessions
 #: model:ir.model.fields,field_description:event_session.field_event_session__use_sessions
@@ -2032,6 +2033,11 @@ msgid "Mail Schedule"
 msgstr "Programmazione e-mail"
 
 #. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__event_mail_template_id
+msgid "Mail Template Scheduler"
+msgstr ""
+
+#. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__message_main_attachment_id
 msgid "Main Attachment"
 msgstr "Allegato principale"
@@ -2039,6 +2045,7 @@ msgstr "Allegato principale"
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_event__use_sessions
 #: model:ir.model.fields,help:event_session.field_event_mail__use_sessions
+#: model:ir.model.fields,help:event_session.field_event_mail_scheduler_template__use_sessions
 #: model:ir.model.fields,help:event_session.field_event_mail_session__use_sessions
 #: model:ir.model.fields,help:event_session.field_event_registration__use_sessions
 #: model:ir.model.fields,help:event_session.field_event_session__use_sessions
@@ -2339,6 +2346,7 @@ msgstr "E-mail sessione"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail__session_scheduler_ids
+#: model:ir.model.fields,field_description:event_session.field_event_mail_scheduler_template__session_scheduler_ids
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__session_scheduler_ids
 msgid "Session Mails"
 msgstr "E-mail sessione"
