@@ -1,0 +1,16 @@
+<odoo>
+    <record model="ir.ui.view" id="view_event_type_form">
+        <field name="model">event.type</field>
+        <field name="inherit_id" ref="event.view_event_type_form" />
+        <field name="arch" type="xml">
+            <field name="has_seats_limitation" position="after">
+                <span
+                    attrs="{'invisible': [('has_seats_limitation', '=', False)], 'required': [('has_seats_limitation', '=', False)]}"
+                >
+                    from <field name="default_registration_min" class="oe_inline" />
+                    &amp;nbsp;
+                </span>
+            </field>
+        </field>
+    </record>
+</odoo>
