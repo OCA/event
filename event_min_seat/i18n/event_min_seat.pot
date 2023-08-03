@@ -1,0 +1,66 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_min_seat
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: event_min_seat
+#: model_terms:ir.ui.view,arch_db:event_min_seat.view_event_form
+#: model_terms:ir.ui.view,arch_db:event_min_seat.view_event_type_form
+msgid "&amp;nbsp;"
+msgstr ""
+
+#. module: event_min_seat
+#: model:ir.model,name:event_min_seat.model_event_event
+msgid "Event"
+msgstr ""
+
+#. module: event_min_seat
+#: model:ir.model,name:event_min_seat.model_event_type
+msgid "Event Template"
+msgstr ""
+
+#. module: event_min_seat
+#: model:ir.model.fields,help:event_min_seat.field_event_event__seats_min
+msgid ""
+"For each event you can define a minimum reserved seats (number of "
+"attendees). If it does not reach the mentioned registrations, the event is "
+"highlighted in the list."
+msgstr ""
+
+#. module: event_min_seat
+#: model:ir.model.fields,help:event_min_seat.field_event_type__default_registration_min
+msgid "It will select this default minimum value when you choose this event"
+msgstr ""
+
+#. module: event_min_seat
+#: code:addons/event_min_seat/models/event_event.py:0
+#, python-format
+msgid ""
+"Maximum attendees number should be greater than minimum attendees number."
+msgstr ""
+
+#. module: event_min_seat
+#: model:ir.model.fields,field_description:event_min_seat.field_event_type__default_registration_min
+msgid "Minimum Registrations"
+msgstr ""
+
+#. module: event_min_seat
+#: model:ir.model.fields,field_description:event_min_seat.field_event_event__seats_min
+msgid "Minimum Seats"
+msgstr ""
+
+#. module: event_min_seat
+#: model_terms:ir.ui.view,arch_db:event_min_seat.view_event_form
+#: model_terms:ir.ui.view,arch_db:event_min_seat.view_event_type_form
+msgid "from"
+msgstr ""
