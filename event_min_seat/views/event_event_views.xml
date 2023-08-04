@@ -1,0 +1,28 @@
+<odoo>
+    <record model="ir.ui.view" id="view_event_form">
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_form" />
+        <field name="arch" type="xml">
+            <field name="seats_limited" position="after">
+                <span
+                    attrs="{'invisible': [('seats_limited', '=', False)], 'required': [('seats_limited', '=', True)]}"
+                >from <field name="seats_min" class="oe_inline" /></span>
+                &amp;nbsp;
+            </field>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_event_tree">
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_tree" />
+        <field name="arch" type="xml">
+            <tree position="attributes">
+                <attribute
+                    name="decoration-danger"
+                >(seats_min and seats_min &gt; seats_reserved) or (seats_max and seats_max &lt; seats_reserved)</attribute>
+            </tree>
+            <field name="seats_max" position="before">
+                <field name="seats_min" optional="hide" />
+            </field>
+        </field>
+    </record>
+</odoo>
