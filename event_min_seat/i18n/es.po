@@ -18,6 +18,12 @@ msgstr ""
 "X-Generator: Poedit 3.0.1\n"
 
 #. module: event_min_seat
+#: model_terms:ir.ui.view,arch_db:event_min_seat.view_event_form
+#: model_terms:ir.ui.view,arch_db:event_min_seat.view_event_type_form
+msgid "&amp;nbsp;"
+msgstr ""
+
+#. module: event_min_seat
 #: model:ir.model,name:event_min_seat.model_event_event
 msgid "Event"
 msgstr "Evento"
