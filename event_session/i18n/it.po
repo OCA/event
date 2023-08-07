@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-07-21 09:10+0000\n"
+"PO-Revision-Date: 2023-08-07 09:11+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -24,7 +24,7 @@ msgstr "N° contatti"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__mail_count_done
 msgid "# Sent"
-msgstr "N° posti"
+msgstr "N° invii"
 
 #. module: event_session
 #: model:event.event,name:event_session.event_event_007
@@ -1844,6 +1844,9 @@ msgid ""
 "attendees). If it does not reach the mentioned registrations, the event is "
 "highlighted in the list."
 msgstr ""
+"Per ogni evento si può definire un numero minimo di posti prenotati (numero "
+"di partecipanti). Se non si raggiungono le registrazioni indicate, l'evento "
+"verrà evidenziato nell'elenco."
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__byday__4
@@ -2148,7 +2151,7 @@ msgstr "Messaggi"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__seats_min
 msgid "Minimum Seats"
-msgstr ""
+msgstr "Posti minimi"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__mon
