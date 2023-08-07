@@ -35,7 +35,7 @@ addon | version | maintainers | summary
 [event_session](event_session/) | 15.0.1.0.1 |  | Sessions in events
 [event_track_location_overlap](event_track_location_overlap/) | 15.0.1.0.0 |  | Restrict event track location overlapping
 [partner_event](partner_event/) | 15.0.1.0.0 |  | Link partner to events
-[sale_crm_event_reservation](sale_crm_event_reservation/) | 15.0.1.0.0 | [![Yajo](https://github.com/Yajo.png?size=30px)](https://github.com/Yajo) | Combine event reservations, opportunities and quotations
+[sale_crm_event_reservation](sale_crm_event_reservation/) | 15.0.1.0.1 | [![Yajo](https://github.com/Yajo.png?size=30px)](https://github.com/Yajo) | Combine event reservations, opportunities and quotations
 [website_event_filter_city](website_event_filter_city/) | 15.0.1.0.0 | [![Yajo](https://github.com/Yajo.png?size=30px)](https://github.com/Yajo) | Add a customizable top area to filter events with city
 [website_event_questions_by_ticket](website_event_questions_by_ticket/) | 15.0.1.0.0 |  | Events Questions conditional to the chosen ticket
 [website_event_require_login](website_event_require_login/) | 15.0.1.0.1 |  | Website Event Require Login
