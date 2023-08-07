@@ -59,7 +59,7 @@ class CRMLeadEventSale(models.TransientModel):
                 ("date_end", ">=", datetime.date.today().strftime("%Y-%m-%d")),
                 ("is_finished", "!=", True),
                 "|",
-                ("seats_limited", "=", "False"),
+                ("seats_limited", "=", False),
                 ("seats_available", ">=", seats_wanted),
             ]
         """,
@@ -81,7 +81,7 @@ class CRMLeadEventSale(models.TransientModel):
                 ("end_sale_datetime", "=", False),
                 ("end_sale_datetime", ">=", datetime.date.today().strftime("%Y-%m-%d")),
                 "|",
-                ("seats_limited", "=", "False"),
+                ("seats_limited", "=", False),
                 ("seats_available", ">=", seats_wanted),
             ]
         """,
