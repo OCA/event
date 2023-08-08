@@ -40,7 +40,12 @@
             expr="//div[hasclass('o_wevent_registration_single')]//t[@t-if='tickets.price']/.."
             position="attributes"
         >
-            <attribute name="class" separator=" " add="flex-column" />
+            <attribute
+                name="class"
+                separator=" "
+                add="flex-column"
+                remove="align-self-stretch"
+            />
         </xpath>
     </template>
 
