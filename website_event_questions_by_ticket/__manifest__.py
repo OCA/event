@@ -4,7 +4,7 @@
 {
     "name": "Conditional Events Questions",
     "summary": "Events Questions conditional to the chosen ticket",
-    "version": "15.0.1.0.0",
+    "version": "16.0.1.0.0",
     "category": "Website",
     "website": "https://github.com/OCA/event",
     "author": "Tecnativa, Odoo Community Association (OCA)",
