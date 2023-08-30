@@ -1,8 +1,8 @@
-# Copyright 2014 Tecnativa S.L. - Pedro M. Baeza
-# Copyright 2015 Tecnativa S.L. - Javier Iniesta
-# Copyright 2016 Tecnativa S.L. - Antonio Espinosa
-# Copyright 2016 Tecnativa S.L. - Vicent Cubells
-# Copyright 2020 Tecnativa S.L. - Víctor Martínez
+# Copyright 2015 Tecnativa - Javier Iniesta
+# Copyright 2016 Tecnativa - Antonio Espinosa
+# Copyright 2016 Tecnativa - Vicent Cubells
+# Copyright 2020 Tecnativa - Víctor Martínez
+# Copyright 2014-2023 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo import api, fields, models
@@ -17,6 +17,7 @@ class EventRegistration(models.Model):
         string="Attendee Partner",
         ondelete="restrict",
         copy=False,
+        index=True,
     )
 
     def _prepare_partner(self, vals):
