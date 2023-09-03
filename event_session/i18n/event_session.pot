@@ -1271,7 +1271,7 @@ msgstr ""
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__message_needaction_counter
-msgid "Number of messages which requires an action"
+msgid "Number of messages requiring action"
 msgstr ""
 
 #. module: event_session
