@@ -83,11 +83,6 @@ msgid "Display Name"
 msgstr ""
 
 #. module: partner_event
-#: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__errors
-msgid "Errors"
-msgstr ""
-
-#. module: partner_event
 #: model:ir.model,name:partner_event.model_event_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__event
 #, fuzzy
@@ -145,13 +140,6 @@ msgstr "Prijave"
 #. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
 msgid "Select event to register"
-msgstr ""
-
-#. module: partner_event
-#: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
-msgid ""
-"These partners haven't been registered because they\\'re "
-"already                        registered or other error occurred"
 msgstr ""
 
 #~ msgid "Attended registration number"
