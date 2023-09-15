@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#       * website_event_crm
+#       * website_event_crm_invitation
 #
 msgid ""
 msgstr ""
@@ -17,8 +17,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 2.4.2\n"
 
-#. module: website_event_crm
-#: model:mail.template,body_html:website_event_crm.crm_lead_event_type_tpl
+#. module: website_event_crm_invitation
+#: model:mail.template,body_html:website_event_crm_invitation.crm_lead_event_type_tpl
 msgid ""
 "<div style=\"margin: 0px; padding: 0px;\">\n"
 "                <p style=\"margin: 0px; padding: 0px; font-size: 13px;"
@@ -56,96 +56,96 @@ msgid ""
 "        "
 msgstr ""
 
-#. module: website_event_crm
-#: model_terms:ir.ui.view,arch_db:website_event_crm.crm_lead_view_form
+#. module: website_event_crm_invitation
+#: model_terms:ir.ui.view,arch_db:website_event_crm_invitation.crm_lead_view_form
 msgid ""
 "<i class=\"fa fa-info\"/> It's not possible to determine to propose events "
 "if the company isn't set or if the company has no websites. So no invitation "
 "will be sent for this lead"
 msgstr ""
 
-#. module: website_event_crm
-#: model:ir.model.fields,field_description:website_event_crm.field_crm_stage__auto_advance_stage_invite_website_event_type
+#. module: website_event_crm_invitation
+#: model:ir.model.fields,field_description:website_event_crm_invitation.field_crm_stage__auto_advance_stage_invite_website_event_type
 msgid "Advance stage automatically when inviting to website event category"
 msgstr ""
 "Avanzar etapa automáticamente al invitar a la categoría de eventos en el "
 "sitio web"
 
-#. module: website_event_crm
-#: model:ir.model.fields,field_description:website_event_crm.field_crm_lead__auto_invite_warning
+#. module: website_event_crm_invitation
+#: model:ir.model.fields,field_description:website_event_crm_invitation.field_crm_lead__auto_invite_warning
 msgid "Auto Invite Warning"
 msgstr ""
 
-#. module: website_event_crm
-#: model:ir.model,name:website_event_crm.model_crm_stage
+#. module: website_event_crm_invitation
+#: model:ir.model,name:website_event_crm_invitation.model_crm_stage
 msgid "CRM Stages"
 msgstr "Etapas CRM"
 
-#. module: website_event_crm
-#: model:ir.model,name:website_event_crm.model_mail_compose_message
+#. module: website_event_crm_invitation
+#: model:ir.model,name:website_event_crm_invitation.model_mail_compose_message
 msgid "Email composition wizard"
 msgstr "Asistente para componer correo electrónico"
 
-#. module: website_event_crm
-#: model_terms:ir.ui.view,arch_db:website_event_crm.crm_stage_form
+#. module: website_event_crm_invitation
+#: model_terms:ir.ui.view,arch_db:website_event_crm_invitation.crm_stage_form
 msgid "Event Categories"
 msgstr "Categorías de evento"
 
-#. module: website_event_crm
-#: model:ir.model,name:website_event_crm.model_event_type
+#. module: website_event_crm_invitation
+#: model:ir.model,name:website_event_crm_invitation.model_event_type
 msgid "Event Category"
 msgstr "Categoría de evento"
 
-#. module: website_event_crm
-#: model:ir.model.fields,field_description:website_event_crm.field_crm_lead__event_type_website_url
+#. module: website_event_crm_invitation
+#: model:ir.model.fields,field_description:website_event_crm_invitation.field_crm_lead__event_type_website_url
 msgid "Event Type Website Url"
 msgstr "URL en el sitio web de la categoría de evento"
 
-#. module: website_event_crm
-#: model:ir.model.fields,field_description:website_event_crm.field_crm_stage__auto_invite_website_event_type
+#. module: website_event_crm_invitation
+#: model:ir.model.fields,field_description:website_event_crm_invitation.field_crm_stage__auto_invite_website_event_type
 msgid "Invite automatically to website event category"
 msgstr "Invitar automáticamente a categorías de evento en el sitio web"
 
-#. module: website_event_crm
-#: code:addons/website_event_crm/models/crm_lead.py:0
+#. module: website_event_crm_invitation
+#: code:addons/website_event_crm_invitation/models/crm_lead.py:0
 #, python-format
 msgid "Invite to visit website"
 msgstr "Invitar a visitar el sitio web"
 
-#. module: website_event_crm
-#: model_terms:ir.ui.view,arch_db:website_event_crm.crm_lead_view_form
+#. module: website_event_crm_invitation
+#: model_terms:ir.ui.view,arch_db:website_event_crm_invitation.crm_lead_view_form
 msgid "Invite to website"
 msgstr "Invitar al sitio web"
 
-#. module: website_event_crm
-#: code:addons/website_event_crm/models/crm_lead.py:0
+#. module: website_event_crm_invitation
+#: code:addons/website_event_crm_invitation/models/crm_lead.py:0
 #, python-format
 msgid ""
 "It's not possible to determine to propose events if the company isn't set or "
 "if the company has no websites. So no invitation will be sent for this lead"
 msgstr ""
 
-#. module: website_event_crm
-#: model:ir.model,name:website_event_crm.model_crm_lead
+#. module: website_event_crm_invitation
+#: model:ir.model,name:website_event_crm_invitation.model_crm_lead
 msgid "Lead/Opportunity"
 msgstr "Iniciativa/Oportunidad"
 
-#. module: website_event_crm
-#: model:ir.actions.server,name:website_event_crm.cron_ir_actions_server
-#: model:ir.cron,cron_name:website_event_crm.cron
-#: model:ir.cron,name:website_event_crm.cron
+#. module: website_event_crm_invitation
+#: model:ir.actions.server,name:website_event_crm_invitation.cron_ir_actions_server
+#: model:ir.cron,cron_name:website_event_crm_invitation.cron
+#: model:ir.cron,name:website_event_crm_invitation.cron
 msgid "Notify all opportunities related to event categories"
 msgstr ""
 "Notificar a todas las oportunidades relacionadas a categorías de evento"
 
-#. module: website_event_crm
-#: code:addons/website_event_crm/models/crm_lead.py:0
+#. module: website_event_crm_invitation
+#: code:addons/website_event_crm_invitation/models/crm_lead.py:0
 #, python-format
 msgid "Select one event type with published events."
 msgstr "Seleccione una categoría de eventos con eventos publicados."
 
-#. module: website_event_crm
-#: model:ir.model.fields,help:website_event_crm.field_crm_stage__auto_advance_stage_invite_website_event_type
+#. module: website_event_crm_invitation
+#: model:ir.model.fields,help:website_event_crm_invitation.field_crm_stage__auto_advance_stage_invite_website_event_type
 msgid ""
 "When an opportunity in this stage is invited to a website event category, it "
 "will advance automatically to the next stage."
@@ -153,8 +153,8 @@ msgstr ""
 "Cuando se invite a ver la categoría de evento en el sitio web a oportunidad "
 "en esta etapa, avanzará automáticamente a la siguiente etapa."
 
-#. module: website_event_crm
-#: model:ir.model.fields,help:website_event_crm.field_crm_stage__auto_invite_website_event_type
+#. module: website_event_crm_invitation
+#: model:ir.model.fields,help:website_event_crm_invitation.field_crm_stage__auto_invite_website_event_type
 msgid ""
 "When an opportunity is in this stage and there is any new event published "
 "for its category with available seats, opportunities found in this stage "
