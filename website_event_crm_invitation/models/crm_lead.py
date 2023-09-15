@@ -120,7 +120,7 @@ class CRMLead(models.Model):
                     ),
                     action["view_id"],
                 )
-                composer.save().send_mail()
+                composer.save()._action_send_mail()
             except Exception:
                 _logger.exception("Failure trying to invite to website event type.")
 
@@ -140,7 +140,9 @@ class CRMLead(models.Model):
         if not self.event_type_id or not self.event_type_website_url:
             raise UserError(_("Select one event type with published events."))
         compose_form_id = self.env.ref("mail.email_compose_message_wizard_form").id
-        template_id = self.env.ref("website_event_crm.crm_lead_event_type_tpl").id
+        template_id = self.env.ref(
+            "website_event_crm_invitation.crm_lead_event_type_tpl"
+        ).id
         # When manually sending the invitation we won't have the proper context and
         # get_base_url isn't very smart in this Odoo version
         base_url_object = (

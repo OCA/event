@@ -7,9 +7,9 @@ from odoo import models
 class MailComposeMessage(models.TransientModel):
     _inherit = "mail.compose.message"
 
-    def send_mail(self, auto_commit=False):
+    def _action_send_mail(self, auto_commit=False):
         """Advance stage automatically if possible."""
-        result = super().send_mail(auto_commit)
+        result = super()._action_send_mail(auto_commit)
         if (
             not self.env.context.get("auto_advance_stage")
             or self.env.context.get("active_model") != "crm.lead"
