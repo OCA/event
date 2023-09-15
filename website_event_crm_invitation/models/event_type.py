@@ -14,7 +14,7 @@ class EventType(models.Model):
             ("date_begin", ">", fields.Datetime.now()),
             ("website_published", "=", True),
             "|",
-            ("seats_availability", "=", "unlimited"),
+            ("seats_limited", "=", False),
             ("seats_available", ">", 0),
         ]
         return domain
