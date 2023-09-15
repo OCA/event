@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Tecnativa - Jairo Llopis
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<data>
+    <record id="crm_stage_form" model="ir.ui.view">
+        <field name="name">Add auto_invite_website_event_type</field>
+        <field name="model">crm.stage</field>
+        <field name="inherit_id" ref="crm.crm_stage_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/group">
+                <group name="event_type" string="Event Categories">
+                    <field
+                        name="auto_invite_website_event_type"
+                        widget="boolean_toggle"
+                    />
+                    <field
+                        name="auto_advance_stage_invite_website_event_type"
+                        widget="boolean_toggle"
+                    />
+                </group>
+            </xpath>
+        </field>
+    </record>
+</data>
