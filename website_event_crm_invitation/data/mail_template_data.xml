@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Tecnativa - Jairo Llopis
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo noupdate="1">
+    <record id="crm_lead_event_type_tpl" model="mail.template">
+        <field name="name">Invite to event category</field>
+        <field name="auto_delete" eval="False" />
+        <field name="email_to">{{object.email_from or ''}}</field>
+        <field name="partner_to">{{object.partner_id.id or ''}}</field>
+        <field
+            name="lang"
+        >{{object.partner_id.lang or object.env.context.get("lang") or object.env.user.lang}}</field>
+        <field name="model_id" ref="crm.model_crm_lead" />
+        <field name="body_html" type="html">
+            <div style="margin: 0px; padding: 0px;">
+                <p style="margin: 0px; padding: 0px; font-size: 13px;">Dear <t
+                        t-out="object.partner_name or object.partner_id.name"
+                    />,</p>
+                <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                    You seem to be interested in registering into an event of category
+                    <strong t-out="object.event_type_id.name" />.
+                </p>
+                <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                    I just wanted to inform you that
+                    <b>we have currently some event(s) of that category published</b>
+                    in our website:
+                </p>
+                <p>
+                    <div style="margin: 16px 8px 16px 8px; text-align: center;">
+                        <a
+                            t-attf-href="#{ctx.get('base_url', '')}#{object.event_type_website_url}"
+                            style="background-color: #875a7b; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;"
+                        >
+                            View events of category
+                            <strong t-out="object.event_type_id.name" />
+                        </a>
+                    </div>
+                </p>
+                <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                    Please visit that link and register to any event you like.
+                </p>
+                <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                    Regards.
+                </p>
+            </div>
+        </field>
+    </record>
+</odoo>

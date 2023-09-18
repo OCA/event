@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Tecnativa - Jairo Llopis
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<data>
+    <record id="crm_lead_view_form" model="ir.ui.view">
+        <field name="name">Add button to invite to website of event type</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form" />
+        <field name="arch" type="xml">
+            <header>
+                <field name="event_type_website_url" invisible="1" />
+                <field name="auto_invite_warning" invisible="1" />
+                <button
+                    string="Invite to website"
+                    name="action_invite_to_website_event_type"
+                    type="object"
+                    attrs="{'invisible': ['|', ('event_type_website_url', '=', False), ('auto_invite_warning', '=', True)]}"
+                />
+            </header>
+            <xpath expr="//div[hasclass('oe_title')]" position="before">
+                <div
+                    class="alert alert-warning"
+                    role="alert"
+                    attrs="{'invisible': [('auto_invite_warning', '=', False)]}"
+                >
+                    <i
+                        class="fa fa-info"
+                    /> It's not possible to determine to propose events if the company isn't set or if the company has no websites. So no invitation will be sent for this lead
+                </div>
+            </xpath>
+        </field>
+    </record>
+</data>
