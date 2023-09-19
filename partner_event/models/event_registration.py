@@ -27,26 +27,34 @@ class EventRegistration(models.Model):
             "phone": vals.get("phone", False),
         }
 
+    def _update_attendee_partner_id(self, vals):
+        if not vals.get("attendee_partner_id") and vals.get("email"):
+            Partner = self.env["res.partner"]
+            Event = self.env["event.event"]
+            # Look for a partner with that email
+            email = vals.get("email").replace("%", "").replace("_", "\\_")
+            attendee_partner = Partner.search([("email", "=ilike", email)], limit=1)
+            event = Event.browse()
+            if vals.get("event_id"):
+                event = Event.browse(vals["event_id"])
+            if attendee_partner:
+                for field in {"name", "phone", "mobile"}:
+                    vals[field] = vals.get(field) or attendee_partner[field]
+            elif event and event.create_partner:
+                # Create partner
+                attendee_partner = Partner.sudo().create(self._prepare_partner(vals))
+            vals["attendee_partner_id"] = attendee_partner.id
+        return vals
+
     @api.model_create_multi
     def create(self, vals_list):
-        for values in vals_list:
-            if not values.get("attendee_partner_id") and values.get("email"):
-                Partner = self.env["res.partner"]
-                Event = self.env["event.event"]
-                # Look for a partner with that email
-                email = values.get("email").replace("%", "").replace("_", "\\_")
-                attendee_partner = Partner.search([("email", "=ilike", email)], limit=1)
-                event = Event.browse(values["event_id"])
-                if attendee_partner:
-                    for field in {"name", "phone", "mobile"}:
-                        values[field] = values.get(field) or attendee_partner[field]
-                elif event.create_partner:
-                    # Create partner
-                    attendee_partner = Partner.sudo().create(
-                        self._prepare_partner(values)
-                    )
-                values["attendee_partner_id"] = attendee_partner.id
-        return super(EventRegistration, self).create(vals_list)
+        for vals in vals_list:
+            self._update_attendee_partner_id(vals)
+        return super().create(vals_list)
+
+    def write(self, vals):
+        self._update_attendee_partner_id(vals)
+        return super().write(vals)
 
     def partner_data_update(self, data):
         reg_data = {k: v for k, v in data.items() if k in ["name", "email", "phone"]}
