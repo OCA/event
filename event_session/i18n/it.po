@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-09-08 16:38+0000\n"
+"PO-Revision-Date: 2023-09-20 18:58+0000\n"
 "Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -1521,7 +1521,7 @@ msgstr "Confermato"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__country_id
 msgid "Country"
-msgstr "Paese"
+msgstr "Nazione"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__cover_properties
