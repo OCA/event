@@ -7,14 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-15 11:44+0000\n"
-"PO-Revision-Date: 2023-09-15 11:44+0000\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2024-04-04 11:34+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: website_event_crm_invitation
 #: model:mail.template,body_html:website_event_crm_invitation.crm_lead_event_type_tpl
@@ -54,6 +55,40 @@ msgid ""
 "            </div>\n"
 "        "
 msgstr ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;"
+"\">Dear <t t-out=\"object.partner_name or object.partner_id.name\"/>,</p>\n"
+"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                    Sembra che tu sia interessato ad iscriverti ad un evento "
+"della categoria\n"
+"                    <strong t-out=\"object.event_type_id.name\"/>.\n"
+"                </p>\n"
+"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                    Desideriamo informarti che\n"
+"                    <b>abbiamo alcuni eventi di questa categoria pubblicati</"
+"b>\n"
+"                    nel sotro sito web:\n"
+"                </p>\n"
+"                <p>\n"
+"                    <div style=\"margin: 16px 8px 16px 8px; text-align: "
+"center;\">\n"
+"                        <a t-attf-href=\"#{ctx.get('base_url', '')}#{object."
+"event_type_website_url}\" style=\"background-color: #875a7b; padding: 8px "
+"16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;\">\n"
+"                            Visualizza eventi della categoria\n"
+"                            <strong t-out=\"object.event_type_id.name\"/>\n"
+"                        </a>\n"
+"                    </div>\n"
+"                </p>\n"
+"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                    Visita il link e iscriviti ad ogni evento che ti "
+"interessa.\n"
+"                </p>\n"
+"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                    Cordalmente.\n"
+"                </p>\n"
+"            </div>\n"
+"        "
 
 #. module: website_event_crm_invitation
 #: model_terms:ir.ui.view,arch_db:website_event_crm_invitation.crm_lead_view_form
@@ -96,7 +131,7 @@ msgstr "Categorie evento"
 #. module: website_event_crm_invitation
 #: model:ir.model,name:website_event_crm_invitation.model_event_type
 msgid "Event Template"
-msgstr ""
+msgstr "Modello evento"
 
 #. module: website_event_crm_invitation
 #: model:ir.model.fields,field_description:website_event_crm_invitation.field_crm_lead__event_type_website_url
@@ -111,7 +146,7 @@ msgstr "Invito automatico alla categoria evento sito web"
 #. module: website_event_crm_invitation
 #: model:mail.template,name:website_event_crm_invitation.crm_lead_event_type_tpl
 msgid "Invite to event category"
-msgstr ""
+msgstr "Invto a categria evento"
 
 #. module: website_event_crm_invitation
 #: code:addons/website_event_crm_invitation/models/crm_lead.py:0
@@ -151,7 +186,7 @@ msgstr "Notifica tutte le opportunità relative alle categorie evento"
 #: code:addons/website_event_crm_invitation/models/crm_lead.py:0
 #, python-format
 msgid "Select one event type with published events."
-msgstr "Selezinare un tipo evento con eventi pubblicati."
+msgstr "Selezionare un tipo evento con eventi pubblicati."
 
 #. module: website_event_crm_invitation
 #: model:ir.model.fields,help:website_event_crm_invitation.field_crm_stage__auto_advance_stage_invite_website_event_type
