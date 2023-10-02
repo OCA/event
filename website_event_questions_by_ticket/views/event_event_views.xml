@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2019 Tecnativa - Pedro M. Baeza
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="view_event_question_form">
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="website_event_questions.event_event_view_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='question_ids']/form/sheet/notebook"
+                position="after"
+            >
+                <group>
+                    <field
+                        name="restricted_ticket_ids"
+                        widget="many2many_tags"
+                        placeholder="Leave it empty for being available for all tickets"
+                    />
+                </group>
+            </xpath>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="event_event_view_form">
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="website_event_questions.event_event_view_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='question_ids']/tree/field[@name='answer_ids']"
+                position="after"
+            >
+                <field name="restricted_ticket_ids" widget="many2many_tags" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2019 Tecnativa - Pedro M. Baeza
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <template
+        id="registration_attendee_details_questions"
+        inherit_id="website_event_questions.registration_attendee_details_questions"
+        priority="99999"
+    >
+        <xpath expr="//t[@t-if='event.specific_question_ids']" position="attributes">
+            <attribute
+                name="t-if"
+            >event._get_specific_questions(ticket['id'])</attribute>
+        </xpath>
+        <xpath
+            expr="//div[@t-foreach='event.specific_question_ids']"
+            position="attributes"
+        >
+            <attribute
+                name="t-foreach"
+            >event._get_specific_questions(ticket['id'])</attribute>
+        </xpath>
+        <xpath expr="//t[@t-if='event.general_question_ids']" position="attributes">
+            <attribute
+                name="t-if"
+            >event._get_general_questions([x['id'] for x in tickets])</attribute>
+        </xpath>
+        <xpath
+            expr="//div[@t-foreach='event.general_question_ids']"
+            position="attributes"
+        >
+            <attribute
+                name="t-foreach"
+            >event._get_general_questions([x['id'] for x in tickets])</attribute>
+        </xpath>
+    </template>
+</odoo>
