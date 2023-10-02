@@ -2,3 +2,4 @@
 
   * Pedro M. Baeza
   * Stefan Ungureanu
+  * Carolina Fernandez
