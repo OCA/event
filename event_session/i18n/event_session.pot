@@ -947,6 +947,11 @@ msgid "Future Activities"
 msgstr ""
 
 #. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__general_question_ids
+msgid "General Questions"
+msgstr ""
+
+#. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__mail_state
 msgid "Global communication Status"
 msgstr ""
@@ -1311,6 +1316,11 @@ msgid "Parent Event"
 msgstr ""
 
 #. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__question_ids
+msgid "Questions"
+msgstr ""
+
+#. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__rrule_type
 msgid "Recurrence"
 msgstr ""
@@ -1503,6 +1513,11 @@ msgstr ""
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__event_registrations_sold_out
 msgid "Sold Out"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__specific_question_ids
+msgid "Specific Questions"
 msgstr ""
 
 #. module: event_session
