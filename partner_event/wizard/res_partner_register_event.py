@@ -25,7 +25,6 @@ class ResPartnerRegisterEvent(models.TransientModel):
             "name": partner.name,
             "email": partner.email,
             "phone": partner.phone,
-            "date_open": fields.Datetime.now(),
         }
 
     def button_register(self):
