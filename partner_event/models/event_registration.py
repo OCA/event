@@ -1,10 +1,11 @@
 # Copyright 2015 Tecnativa - Javier Iniesta
 # Copyright 2016 Tecnativa - Antonio Espinosa
 # Copyright 2016 Tecnativa - Vicent Cubells
+# Copyright 2018 Jupical Technologies Pvt. Ltd. - Anil Kesariya
 # Copyright 2020 Tecnativa - Víctor Martínez
 # Copyright 2014-2023 Tecnativa - Pedro M. Baeza
+# Copyright 2023 Tecnativa - Carolina Fernandez
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-
 from odoo import api, fields, models
 
 
@@ -73,7 +74,12 @@ class EventRegistration(models.Model):
             get_attendee_partner_address = {
                 "get_attendee_partner_address": self.attendee_partner_id,
             }
-            return super(
-                EventRegistration, self.with_context(**get_attendee_partner_address)
-            )._onchange_partner_id()
-        return super(EventRegistration, self)._onchange_partner_id()
+            self = self.with_context(**get_attendee_partner_address)
+            for registration in self:
+                if registration.partner_id:
+                    registration.update(
+                        registration._synchronize_partner_values(
+                            registration.partner_id
+                        )
+                    )
+        return {}

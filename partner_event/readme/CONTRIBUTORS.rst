@@ -8,6 +8,7 @@
   * Rafael Blasco
   * Víctor Martínez
   * Stefan Ungureanu
+  * Carolina Fernandez
 
 * `Antiun <https://antiun.com/>`__:
 

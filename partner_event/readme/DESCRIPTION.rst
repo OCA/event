@@ -10,3 +10,4 @@ It also includes:
 * Action in partner tree view 'More' button, to register several partners
   to an event
 * Restricts partner deletion when event attendees are linked to it.
+* Onchange for partner_id removed in v16 core in Event Registration- including functionality here
