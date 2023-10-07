@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2016 Tecnativa - Vicent Cubells
+     Copyright 2023 Tecnativa - Pedro M. Baeza
+     Copyright 2018 Jupical Technologies Pvt. Ltd. - Anil kesariya
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+    <record id="res_partner_register_event_view" model="ir.ui.view">
+        <field name="name">Register in an event</field>
+        <field name="model">res.partner.register.event</field>
+        <field name="arch" type="xml">
+            <form string="Select event to register">
+                <group>
+                    <field
+                        name="event"
+                        options="{'no_create': True, 'no_create_edit':True}"
+                    />
+                </group>
+                <footer>
+                    <div>
+                        <button
+                            name="button_register"
+                            type="object"
+                            string="Create registrations"
+                            class="oe_highlight"
+                        />
+                        <button special="cancel" string="Cancel" />
+                    </div>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_partner_register_event" model="ir.actions.act_window">
+        <field name="name">Register in an event</field>
+        <field name="res_model">res.partner.register.event</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="res_partner_register_event_view" />
+        <field name="binding_model_id" ref="base.model_res_partner" />
+        <field name="target">new</field>
+    </record>
+</odoo>
