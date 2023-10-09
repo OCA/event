@@ -45,6 +45,7 @@ msgid "Created on"
 msgstr "Creado en"
 
 #. module: event_registration_cancel_reason
+#: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration__display_name
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_log_reason__display_name
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_reason__display_name
 msgid "Display Name"
@@ -77,12 +78,14 @@ msgid "Event types"
 msgstr "Tipos de evento"
 
 #. module: event_registration_cancel_reason
+#: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration__id
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_log_reason__id
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_reason__id
 msgid "ID"
 msgstr "ID"
 
 #. module: event_registration_cancel_reason
+#: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration____last_update
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_log_reason____last_update
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_reason____last_update
 msgid "Last Modified on"
