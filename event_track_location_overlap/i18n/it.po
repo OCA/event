@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* event_track_location_overlap
+# 	* event_track_location_overlap
 #
 msgid ""
 msgstr ""
@@ -39,8 +39,10 @@ msgstr "Sovrapponibile"
 #. module: event_track_location_overlap
 #: code:addons/event_track_location_overlap/models/event_track_location.py:44
 #, python-format
-msgid "Track %(one)s (from event %(one_event)s) and track %(other)s (from event %(other_event)s) would overlap in the same location %(location)s"
+msgid ""
+"Track %(one)s (from event %(one_event)s) and track %(other)s (from event "
+"%(other_event)s) would overlap in the same location %(location)s"
 msgstr ""
-"Il percorso %(one)s (dell'evento %(one_event)s) e il percorso %(other)s ("
-"dell'evento %(other_event)s) si sovrappongono nella stessa ubicazione "
+"Il percorso %(one)s (dell'evento %(one_event)s) e il percorso %(other)s "
+"(dell'evento %(other_event)s) si sovrappongono nella stessa ubicazione "
 "%(location)s"
