@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* event_registration_mass_mailing
+# 	* event_registration_mass_mailing
 #
 msgid ""
 msgstr ""
