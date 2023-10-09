@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* crm_event
+# 	* crm_event
 #
 msgid ""
 msgstr ""
@@ -114,14 +114,18 @@ msgstr "ID"
 
 #. module: crm_event
 #: model:ir.model.fields,help:crm_event.field_crm_lead__seats_wanted
-msgid "If this lead/opportunity is related to a specific event category, indicate how many seats would you sell if won."
+msgid ""
+"If this lead/opportunity is related to a specific event category, indicate "
+"how many seats would you sell if won."
 msgstr ""
 "Se questo contatto/opportunità è relativo ad una specifica categoria evento, "
 "indica quanti posti verranno venduti in caso di vincita."
 
 #. module: crm_event
 #: model:ir.model.fields,help:crm_event.field_crm_lead__event_type_id
-msgid "If this lead/opportunity is related to a specific event category, indicate it here."
+msgid ""
+"If this lead/opportunity is related to a specific event category, indicate "
+"it here."
 msgstr ""
 "Se questo contatto/opportunità è relativo ad una specifica categoria evento, "
 "indicarla qui."
@@ -180,7 +184,9 @@ msgstr "Opportunità (posti)"
 
 #. module: crm_event
 #: model_terms:ir.actions.act_window,help:crm_event.action_event_type_report
-msgid "Report to analyze interest and status of event categories, taking into account upcoming or running events and potential sale information."
+msgid ""
+"Report to analyze interest and status of event categories, taking into "
+"account upcoming or running events and potential sale information."
 msgstr ""
 "Resoconto per analizzare interesse e stati delle categorie evento, "
 "considerando eventi prossimi e in corso e informazioni di potenziali vendite."
