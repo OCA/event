@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* event_registration_cancel_reason
+# 	* event_registration_cancel_reason
 #
 msgid ""
 msgstr ""
@@ -112,7 +112,9 @@ msgstr "Motivi annullamento registrazione"
 
 #. module: event_registration_cancel_reason
 #: model:ir.model.fields,help:event_registration_cancel_reason.field_event_registration_cancel_reason__event_type_ids
-msgid "Select the event types where you want to use this cancellation reason. Leave it empty for using in all."
+msgid ""
+"Select the event types where you want to use this cancellation reason. Leave "
+"it empty for using in all."
 msgstr ""
 "Selezionare i tipi evento dove utilizzare questa causale annullamento. "
 "Lasciare vuoto per usarla in tutti."
