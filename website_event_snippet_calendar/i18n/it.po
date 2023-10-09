@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* website_event_snippet_calendar
+# 	* website_event_snippet_calendar
 #
 msgid ""
 msgstr ""
