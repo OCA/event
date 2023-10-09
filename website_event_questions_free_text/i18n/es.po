@@ -19,7 +19,8 @@ msgstr ""
 #. module: website_event_questions_free_text
 #: model:ir.model.fields,help:website_event_questions_free_text.field_event_question__free_text
 msgid "Allow user to introduce a free text as answer."
-msgstr "Permitir a los/as usuarios/as introducir un texto libre como respuesta."
+msgstr ""
+"Permitir a los/as usuarios/as introducir un texto libre como respuesta."
 
 #. module: website_event_questions_free_text
 #: model:ir.model.fields,field_description:website_event_questions_free_text.field_event_answer_free__answer
