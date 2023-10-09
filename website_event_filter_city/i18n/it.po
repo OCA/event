@@ -18,8 +18,6 @@ msgstr ""
 
 #. module: website_event_filter_city
 #: code:addons/website_event_filter_city/controllers/main.py:0
-#: code:addons/website_event_filter_city/controllers/main.py:0
-#: code:addons/website_event_filter_city/controllers/main.py:0
 #: model_terms:ir.ui.view,arch_db:website_event_filter_city.event_city
 #, python-format
 msgid "All Cities"
@@ -65,8 +63,13 @@ msgstr "Evento"
 #: model_terms:event.event,description:website_event_filter_city.event_sevilla_bf
 #: model_terms:event.event,description:website_event_filter_city.event_sevilla_cs
 msgid ""
-"Every year we invite our community, partners and end-users to come and meet us! It's the ideal event to get together and present new features, roadmap of future versions, achievements of the software, workshops, training sessions, etc....\n"
-"            This event is also an opportunity to showcase our partners' case studies, methodology or developments. Be there and see directly from the source the features of the new version!"
+"Every year we invite our community, partners and end-users to come and meet "
+"us! It's the ideal event to get together and present new features, roadmap "
+"of future versions, achievements of the software, workshops, training "
+"sessions, etc....\n"
+"            This event is also an opportunity to showcase our partners' case "
+"studies, methodology or developments. Be there and see directly from the "
+"source the features of the new version!"
 msgstr ""
 "Ogni anno invitiamo la nostra comunità, i partner e gli utenti finali ad "
 "incontrarci! È l'evento ideale per stare insieme presentare nuove "
