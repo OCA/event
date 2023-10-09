@@ -17,12 +17,6 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: website_event_questions_by_ticket
-#: model:ir.model.fields,field_description:website_event_questions_by_ticket.field_event_event__display_name
-#: model:ir.model.fields,field_description:website_event_questions_by_ticket.field_event_question__display_name
-msgid "Display Name"
-msgstr "Nome visualizzato"
-
-#. module: website_event_questions_by_ticket
 #: model:ir.model,name:website_event_questions_by_ticket.model_event_event
 msgid "Event"
 msgstr "Evento"
@@ -33,24 +27,20 @@ msgid "Event Question"
 msgstr "Domanda evento"
 
 #. module: website_event_questions_by_ticket
-#: model:ir.model.fields,field_description:website_event_questions_by_ticket.field_event_event__id
-#: model:ir.model.fields,field_description:website_event_questions_by_ticket.field_event_question__id
-msgid "ID"
-msgstr "ID"
-
-#. module: website_event_questions_by_ticket
-#: model:ir.model.fields,field_description:website_event_questions_by_ticket.field_event_event____last_update
-#: model:ir.model.fields,field_description:website_event_questions_by_ticket.field_event_question____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
-
-#. module: website_event_questions_by_ticket
 #: model_terms:ir.ui.view,arch_db:website_event_questions_by_ticket.view_event_question_form
 msgid "Leave it empty for being available for all tickets"
 msgstr "Lasciare vuoto per renderlo disponibile per tutti i biglietti"
 
 #. module: website_event_questions_by_ticket
 #: model:ir.model.fields,field_description:website_event_questions_by_ticket.field_event_question__restricted_ticket_ids
-#: model:ir.model.fields,field_description:website_event_questions_by_ticket.field_event_question_template_question__restricted_ticket_ids
 msgid "Limited to tickets"
 msgstr "Limitato ai biglietti"
+
+#~ msgid "Display Name"
+#~ msgstr "Nome visualizzato"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
