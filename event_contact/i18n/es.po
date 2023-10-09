@@ -23,13 +23,31 @@ msgid "Contacts"
 msgstr "Contactos"
 
 #. module: event_contact
+#: model:ir.model.fields,field_description:event_contact.field_event_event__display_name
+#: model:ir.model.fields,field_description:event_contact.field_event_type__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: event_contact
 #: model:ir.model,name:event_contact.model_event_event
 msgid "Event"
 msgstr "Evento"
 
 #. module: event_contact
 #: model:ir.model,name:event_contact.model_event_type
-msgid "Event Category"
+msgid "Event Template"
+msgstr ""
+
+#. module: event_contact
+#: model:ir.model.fields,field_description:event_contact.field_event_event__id
+#: model:ir.model.fields,field_description:event_contact.field_event_type__id
+msgid "ID"
+msgstr ""
+
+#. module: event_contact
+#: model:ir.model.fields,field_description:event_contact.field_event_event____last_update
+#: model:ir.model.fields,field_description:event_contact.field_event_type____last_update
+msgid "Last Modified on"
 msgstr ""
 
 #. module: event_contact
