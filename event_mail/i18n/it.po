@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* event_mail
+# 	* event_mail
 #
 msgid ""
 msgstr ""
@@ -18,14 +18,17 @@ msgstr ""
 
 #. module: event_mail
 #: model_terms:ir.ui.view,arch_db:event_mail.res_config_settings_view_form
-msgid "<span class=\"o_form_label\">Template Mail Scheduler</span>\n"
-"                        <span class=\"fa fa-lg fa-envelope\" title=\"Values set here are company-specific.\" aria-label=\"Values set here are company-specific.\" groups=\"base.group_multi_company\" role=\"img\"/>"
+msgid ""
+"<span class=\"o_form_label\">Template Mail Scheduler</span>\n"
+"                        <span class=\"fa fa-lg fa-envelope\" title=\"Values "
+"set here are company-specific.\" aria-label=\"Values set here are company-"
+"specific.\" groups=\"base.group_multi_company\" role=\"img\"/>"
 msgstr ""
 "<span class=\"o_form_label\">Schedulatore modello e-mail</span>\n"
 "                        <span class=\"fa fa-lg fa-envelope\" title=\"I "
 "valori impostati qui sono specifici per azienda.\" aria-label=\"I valori "
-"impostati qui sono specifici per azienda.\" groups=\"base."
-"group_multi_company\" role=\"img\"/>"
+"impostati qui sono specifici per azienda.\" groups=\"base.group_multi_company"
+"\" role=\"img\"/>"
 
 #. module: event_mail
 #: selection:event.mail.scheduler.template,interval_type:0
@@ -229,8 +232,10 @@ msgstr "Schedulatore modello e-mail"
 
 #. module: event_mail
 #: model:ir.model.fields,help:event_mail.field_event_mail_scheduler_template__template_id
-msgid "This field contains the template of the mail that will be automatically sent"
-msgstr "Campo contenente il modello e-mail che viene inviato in modo automatico"
+msgid ""
+"This field contains the template of the mail that will be automatically sent"
+msgstr ""
+"Campo contenente il modello e-mail che viene inviato in modo automatico"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__interval_type
