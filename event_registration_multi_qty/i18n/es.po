@@ -23,6 +23,12 @@ msgid "Allow multiple attendees per registration"
 msgstr "Permitir múltiples asistentes por registro"
 
 #. module: event_registration_multi_qty
+#: model:ir.model.fields,field_description:event_registration_multi_qty.field_event_event__display_name
+#: model:ir.model.fields,field_description:event_registration_multi_qty.field_event_registration__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: event_registration_multi_qty
 #: model:ir.model,name:event_registration_multi_qty.model_event_event
 msgid "Event"
 msgstr "Evento"
@@ -34,12 +40,24 @@ msgid "Event Registration"
 msgstr "report.event.registration"
 
 #. module: event_registration_multi_qty
+#: model:ir.model.fields,field_description:event_registration_multi_qty.field_event_event__id
+#: model:ir.model.fields,field_description:event_registration_multi_qty.field_event_registration__id
+msgid "ID"
+msgstr ""
+
+#. module: event_registration_multi_qty
+#: model:ir.model.fields,field_description:event_registration_multi_qty.field_event_event____last_update
+#: model:ir.model.fields,field_description:event_registration_multi_qty.field_event_registration____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: event_registration_multi_qty
 #: model:ir.model.fields,field_description:event_registration_multi_qty.field_event_registration__qty
 msgid "Quantity"
 msgstr "Cantidad"
 
 #. module: event_registration_multi_qty
-#: code:addons/event_registration_multi_qty/models/event.py:77
+#: code:addons/event_registration_multi_qty/models/event.py:0
 #, python-format
 msgid ""
 "You can not add quantities if you not active the option \"Allow multiple "
@@ -49,7 +67,7 @@ msgstr ""
 "\"Permitir múltiples asistentes en el registro\" en el evento"
 
 #. module: event_registration_multi_qty
-#: code:addons/event_registration_multi_qty/models/event.py:57
+#: code:addons/event_registration_multi_qty/models/event.py:0
 #, python-format
 msgid ""
 "You can not disable this option if there are registrations with quantities "
