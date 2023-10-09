@@ -46,6 +46,11 @@ msgid "Event"
 msgstr "Evento"
 
 #. module: event_sale_session
+#: model:ir.model,name:event_sale_session.model_event_event_configurator
+msgid "Event Configurator"
+msgstr ""
+
+#. module: event_sale_session
 #: model:ir.model,name:event_sale_session.model_event_registration
 #, fuzzy
 msgid "Event Registration"
@@ -57,13 +62,12 @@ msgid "Event session"
 msgstr "Sesión"
 
 #. module: event_sale_session
-#: model:ir.model,name:event_sale_session.model_account_invoice
-msgid "Invoice"
-msgstr "Factura"
+#: model:ir.model,name:event_sale_session.model_account_move
+msgid "Journal Entries"
+msgstr ""
 
 #. module: event_sale_session
-#: code:addons/event_sale_session/models/sale_order.py:77
-#: code:addons/event_sale_session/models/sale_order.py:85
+#: code:addons/event_sale_session/models/sale_order.py:0
 #, fuzzy, python-format
 msgid "Not enough seats. Change quantity or session"
 msgstr "No hay plazas suficientes. Cambia la cantidad o escoge otra sesión."
@@ -75,14 +79,13 @@ msgid "Number of event sessions"
 msgstr "Sesiones de evento totales"
 
 #. module: event_sale_session
-#: model:ir.model,name:event_sale_session.model_sale_order
-#, fuzzy
-msgid "Sale Order"
-msgstr "Pedido de venta"
-
-#. module: event_sale_session
 #: model:ir.model,name:event_sale_session.model_sale_report
 msgid "Sales Analysis Report"
+msgstr ""
+
+#. module: event_sale_session
+#: model:ir.model,name:event_sale_session.model_sale_order
+msgid "Sales Order"
 msgstr ""
 
 #. module: event_sale_session
@@ -102,6 +105,7 @@ msgid "Seats Availavility"
 msgstr "Disponibilidad de plazas"
 
 #. module: event_sale_session
+#: model:ir.model.fields,field_description:event_sale_session.field_event_event_configurator__session_id
 #: model:ir.model.fields,field_description:event_sale_session.field_registration_editor_line__session_id
 #: model:ir.model.fields,field_description:event_sale_session.field_sale_order_line__session_id
 #: model:ir.model.fields,field_description:event_sale_session.field_sale_report__session_id
@@ -114,6 +118,7 @@ msgid "Ticket"
 msgstr "Ticket"
 
 #. module: event_sale_session
+#: model:ir.model.fields,field_description:event_sale_session.field_event_event_configurator__event_sessions_count
 #: model:ir.model.fields,field_description:event_sale_session.field_sale_order_line__event_sessions_count
 msgid "Total event sessions"
 msgstr "Sesiones de evento totales"
@@ -138,3 +143,10 @@ msgstr "Plazas en pedidos sin confirmar"
 #: model_terms:ir.ui.view,arch_db:event_sale_session.view_event_form
 msgid "Unconfirmed orders seats"
 msgstr "Plazas en pedidos sin confirmar"
+
+#~ msgid "Invoice"
+#~ msgstr "Factura"
+
+#, fuzzy
+#~ msgid "Sale Order"
+#~ msgstr "Pedido de venta"

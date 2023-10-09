@@ -66,7 +66,6 @@ msgstr "Registrazioni contabili"
 
 #. module: event_sale_session
 #: code:addons/event_sale_session/models/sale_order.py:0
-#: code:addons/event_sale_session/models/sale_order.py:0
 #, python-format
 msgid "Not enough seats. Change quantity or session"
 msgstr "Posti non sufficienti. Cambiare quantità o sessione"
