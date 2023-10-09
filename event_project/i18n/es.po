@@ -18,10 +18,31 @@ msgstr ""
 "X-Generator: Weblate 3.10\n"
 
 #. module: event_project
+#: model:ir.model.fields,field_description:event_project.field_event_event__display_name
+#: model:ir.model.fields,field_description:event_project.field_project_project__display_name
+#: model:ir.model.fields,field_description:event_project.field_project_task__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: event_project
 #: model:ir.model,name:event_project.model_event_event
 #: model_terms:ir.ui.view,arch_db:event_project.view_task_search_form
 msgid "Event"
 msgstr "Evento"
+
+#. module: event_project
+#: model:ir.model.fields,field_description:event_project.field_event_event__id
+#: model:ir.model.fields,field_description:event_project.field_project_project__id
+#: model:ir.model.fields,field_description:event_project.field_project_task__id
+msgid "ID"
+msgstr "ID"
+
+#. module: event_project
+#: model:ir.model.fields,field_description:event_project.field_event_event____last_update
+#: model:ir.model.fields,field_description:event_project.field_project_project____last_update
+#: model:ir.model.fields,field_description:event_project.field_project_task____last_update
+msgid "Last Modified on"
+msgstr ""
 
 #. module: event_project
 #: model:ir.model,name:event_project.model_project_project
@@ -79,9 +100,6 @@ msgstr "Tareas"
 
 #~ msgid "Event id"
 #~ msgstr "ID del evento"
-
-#~ msgid "ID"
-#~ msgstr "ID"
 
 #~ msgid "Last Updated by"
 #~ msgstr "Última actualización por"
