@@ -18,17 +18,12 @@ msgstr ""
 
 #. module: event_registration_partner_unique
 #: model:ir.model.fields,help:event_registration_partner_unique.field_event_event__forbid_duplicates
+#: model:ir.model.fields,help:event_registration_partner_unique.field_event_session__forbid_duplicates
 msgid ""
 "Check this to disallow duplicate attendees in this event's registrations"
 msgstr ""
 "Selezionare per impedire la duplicazione dei partecipanti nella "
 "registrazioni di questo evento"
-
-#. module: event_registration_partner_unique
-#: model:ir.model.fields,field_description:event_registration_partner_unique.field_event_event__display_name
-#: model:ir.model.fields,field_description:event_registration_partner_unique.field_event_registration__display_name
-msgid "Display Name"
-msgstr "Nome visualizzato"
 
 #. module: event_registration_partner_unique
 #: code:addons/event_registration_partner_unique/models/event.py:0
@@ -48,17 +43,15 @@ msgstr "Registrazione evento"
 
 #. module: event_registration_partner_unique
 #: model:ir.model.fields,field_description:event_registration_partner_unique.field_event_event__forbid_duplicates
+#: model:ir.model.fields,field_description:event_registration_partner_unique.field_event_session__forbid_duplicates
 msgid "Forbid Duplicates"
 msgstr "Impedisci duplicati"
 
-#. module: event_registration_partner_unique
-#: model:ir.model.fields,field_description:event_registration_partner_unique.field_event_event__id
-#: model:ir.model.fields,field_description:event_registration_partner_unique.field_event_registration__id
-msgid "ID"
-msgstr "ID"
+#~ msgid "Display Name"
+#~ msgstr "Nome visualizzato"
 
-#. module: event_registration_partner_unique
-#: model:ir.model.fields,field_description:event_registration_partner_unique.field_event_event____last_update
-#: model:ir.model.fields,field_description:event_registration_partner_unique.field_event_registration____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
