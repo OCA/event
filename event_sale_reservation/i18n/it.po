@@ -106,8 +106,10 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:event_sale_reservation.registration_editor_reservations_view_form
 msgid ""
 "If there is any line from that order that you still do\n"
-"                        not want to convert into real event registrations, you\n"
-"                        can remove it from the list below. You will be able to\n"
+"                        not want to convert into real event registrations, "
+"you\n"
+"                        can remove it from the list below. You will be able "
+"to\n"
 "                        repeat this process later for those lines."
 msgstr ""
 "Se esiste una riga di quell'ordine di vendita che non si\n"
@@ -213,7 +215,8 @@ msgstr "Posti prenotati per eventi di questo tipo."
 #: model:ir.model.fields,help:event_sale_reservation.field_registration_editor_line__event_reservation_type_id
 #: model:ir.model.fields,help:event_sale_reservation.field_sale_order_line__event_reservation_type_id
 msgid "Type of events that can be reserved by buying this product"
-msgstr "Tipi di eventi che possono essere prenotati acquistando questo prodotto"
+msgstr ""
+"Tipi di eventi che possono essere prenotati acquistando questo prodotto"
 
 #. module: event_sale_reservation
 #: code:addons/event_sale_reservation/models/product_template.py:0
