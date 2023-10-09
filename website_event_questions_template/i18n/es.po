@@ -18,11 +18,6 @@ msgstr ""
 "X-Generator: Weblate 3.4\n"
 
 #. module: website_event_questions_template
-#: model:ir.model.fields,help:website_event_questions_template.field_event_question_template_question__free_text
-msgid "Allow user to introduce a free text as answer."
-msgstr ""
-
-#. module: website_event_questions_template
 #: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_answer__name
 #, fuzzy
 msgid "Answer"
@@ -39,8 +34,8 @@ msgid "Answers for question template"
 msgstr "Respuestas de la plantilla del evento"
 
 #. module: website_event_questions_template
-#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_question__is_individual
-msgid "Ask each attendee"
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_question__once_per_order
+msgid "Ask only once per order"
 msgstr ""
 
 #. module: website_event_questions_template
@@ -58,6 +53,7 @@ msgid "Created on"
 msgstr "Creado el"
 
 #. module: website_event_questions_template
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_event__display_name
 #: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template__display_name
 #: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_answer__display_name
 #: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_question__display_name
@@ -89,11 +85,7 @@ msgid "Event questions template"
 msgstr "Plantilla de preguntas del evento"
 
 #. module: website_event_questions_template
-#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_question__free_text
-msgid "Free Text"
-msgstr ""
-
-#. module: website_event_questions_template
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_event__id
 #: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template__id
 #: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_answer__id
 #: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_question__id
@@ -101,13 +93,15 @@ msgid "ID"
 msgstr "ID (identificación)"
 
 #. module: website_event_questions_template
-#: model:ir.model.fields,help:website_event_questions_template.field_event_question_template_question__is_individual
+#: model:ir.model.fields,help:website_event_questions_template.field_event_question_template_question__once_per_order
 msgid ""
-"If True, this question will be asked for every attendee of a reservation. If "
-"not it will be asked only once and its value propagated to every attendees."
+"If True, this question will be asked only once and its value will be "
+"propagated to every attendees.If not it will be asked for every attendee of "
+"a reservation."
 msgstr ""
 
 #. module: website_event_questions_template
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_event____last_update
 #: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template____last_update
 #: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_answer____last_update
 #: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_question____last_update
@@ -129,11 +123,6 @@ msgid "Last Updated on"
 msgstr "Última actualización en"
 
 #. module: website_event_questions_template
-#: model_terms:ir.ui.view,arch_db:website_event_questions_template.view_event_form
-msgid "Load Questions Template"
-msgstr "Cargar plantilla de preguntas"
-
-#. module: website_event_questions_template
 #: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template__name
 msgid "Name"
 msgstr "Nombre"
@@ -143,6 +132,11 @@ msgstr "Nombre"
 #, fuzzy
 msgid "Question"
 msgstr "Preguntas"
+
+#. module: website_event_questions_template
+#: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template_question__question_type
+msgid "Question Type"
+msgstr ""
 
 #. module: website_event_questions_template
 #: model:ir.model.fields,field_description:website_event_questions_template.field_event_question_template__question_ids
@@ -177,11 +171,14 @@ msgid "Title"
 msgstr ""
 
 #. module: website_event_questions_template
-#: code:addons/website_event_questions_template/models/event.py:22
+#: code:addons/website_event_questions_template/models/event.py:0
 #, python-format
 msgid "You can not load a template if there are defined questions"
 msgstr ""
 "No puedes cargar una plantilla si el evento ya tiene preguntas definidas"
+
+#~ msgid "Load Questions Template"
+#~ msgstr "Cargar plantilla de preguntas"
 
 #~ msgid "Question id"
 #~ msgstr "Id de pregunta"
