@@ -34,13 +34,17 @@ msgid "Attendee Partner"
 msgstr "Empresa asistente"
 
 #. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_event_registration__partner_id
+msgid "Booked by"
+msgstr ""
+
+#. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
 msgid "Cancel"
 msgstr "Cancelar"
 
 #. module: partner_event
 #: model:ir.model,name:partner_event.model_res_partner
-#: model:ir.model.fields,field_description:partner_event.field_event_registration__partner_id
 msgid "Contact"
 msgstr "Contacto"
 
@@ -70,6 +74,9 @@ msgid "Created on"
 msgstr "Creado el"
 
 #. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_event_event__display_name
+#: model:ir.model.fields,field_description:partner_event.field_event_registration__display_name
+#: model:ir.model.fields,field_description:partner_event.field_res_partner__display_name
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__display_name
 msgid "Display Name"
 msgstr "Nombre mostrado"
@@ -97,11 +104,17 @@ msgid "Event registrations"
 msgstr "Registros a eventos"
 
 #. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_event_event__id
+#: model:ir.model.fields,field_description:partner_event.field_event_registration__id
+#: model:ir.model.fields,field_description:partner_event.field_res_partner__id
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__id
 msgid "ID"
 msgstr "ID"
 
 #. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_event_event____last_update
+#: model:ir.model.fields,field_description:partner_event.field_event_registration____last_update
+#: model:ir.model.fields,field_description:partner_event.field_res_partner____last_update
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event____last_update
 msgid "Last Modified on"
 msgstr "Última modificación el"
@@ -118,7 +131,6 @@ msgstr "Última actualización el"
 
 #. module: partner_event
 #: model:ir.actions.act_window,name:partner_event.action_partner_register_event
-#: model:ir.actions.act_window,name:partner_event.partner_register_event
 msgid "Register in an event"
 msgstr "Registrar en un evento"
 
