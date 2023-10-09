@@ -39,7 +39,7 @@ msgid "Overlappable"
 msgstr "Solapable"
 
 #. module: event_track_location_overlap
-#: code:addons/event_track_location_overlap/models/event_track_location.py:44
+#: code:addons/event_track_location_overlap/models/event_track_location.py:0
 #, python-format
 msgid ""
 "Track %(one)s (from event %(one_event)s) and track %(other)s (from event "
@@ -47,3 +47,9 @@ msgid ""
 msgstr ""
 "La sesión %(one)s (del evento %(one_event)s) y la sesión %(other)s (del "
 "evento %(other_event)s) se solaparían en la misma ubicación %(location)s"
+
+#. module: event_track_location_overlap
+#: code:addons/event_track_location_overlap/tests/test_overlap.py:0
+#, python-format
+msgid "{} worked!"
+msgstr ""

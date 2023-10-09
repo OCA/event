@@ -43,8 +43,8 @@ msgid ""
 "Track %(one)s (from event %(one_event)s) and track %(other)s (from event "
 "%(other_event)s) would overlap in the same location %(location)s"
 msgstr ""
-"Il percorso %(one)s (dell'evento %(one_event)s) e il percorso %(other)s ("
-"dell'evento %(other_event)s) si sovrappongono nella stessa ubicazione "
+"Il percorso %(one)s (dell'evento %(one_event)s) e il percorso %(other)s "
+"(dell'evento %(other_event)s) si sovrappongono nella stessa ubicazione "
 "%(location)s"
 
 #. module: event_track_location_overlap
