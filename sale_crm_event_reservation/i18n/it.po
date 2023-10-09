@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* sale_crm_event_reservation
+# 	* sale_crm_event_reservation
 #
 msgid ""
 msgstr ""
@@ -73,14 +73,18 @@ msgstr "ID"
 
 #. module: sale_crm_event_reservation
 #: model:ir.model.fields,help:sale_crm_event_reservation.field_crm_lead_event_sale_wizard__seats_wanted
-msgid "If this lead/opportunity is related to a specific event category, indicate how many seats would you sell if won."
+msgid ""
+"If this lead/opportunity is related to a specific event category, indicate "
+"how many seats would you sell if won."
 msgstr ""
 "Se questo contatto/opportunità è relativo ad una specifica categoria evento, "
 "indica quanti posti verranno venduti in caso di vincita."
 
 #. module: sale_crm_event_reservation
 #: model:ir.model.fields,help:sale_crm_event_reservation.field_crm_lead_event_sale_wizard__event_type_id
-msgid "If this lead/opportunity is related to a specific event category, indicate it here."
+msgid ""
+"If this lead/opportunity is related to a specific event category, indicate "
+"it here."
 msgstr ""
 "Se questo contatto/opportunità è relativo ad una specifica categoria evento, "
 "indicarla qui."

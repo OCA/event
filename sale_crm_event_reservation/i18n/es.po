@@ -43,9 +43,14 @@ msgid "Event"
 msgstr "Evento"
 
 #. module: sale_crm_event_reservation
+#: model:ir.model,name:sale_crm_event_reservation.model_event_type_report
+msgid "Event categories analysis report"
+msgstr ""
+
+#. module: sale_crm_event_reservation
 #: model:ir.model.fields,field_description:sale_crm_event_reservation.field_crm_lead_event_sale_wizard__event_type_id
-msgid "Event type"
-msgstr "Categoría de evento"
+msgid "Event category"
+msgstr ""
 
 #. module: sale_crm_event_reservation
 #: model:ir.actions.act_window,name:sale_crm_event_reservation.crm_lead_event_sale_wizard_action
@@ -70,20 +75,16 @@ msgstr "ID"
 #. module: sale_crm_event_reservation
 #: model:ir.model.fields,help:sale_crm_event_reservation.field_crm_lead_event_sale_wizard__seats_wanted
 msgid ""
-"If this lead/opportunity is related to a specific event type, indicate how "
-"many seats would you sell if won."
+"If this lead/opportunity is related to a specific event category, indicate "
+"how many seats would you sell if won."
 msgstr ""
-"Si esta iniciativa u oportunidad está relacionada con una categoría "
-"específica de evento, indique cuántas plazas vendería si se gana."
 
 #. module: sale_crm_event_reservation
 #: model:ir.model.fields,help:sale_crm_event_reservation.field_crm_lead_event_sale_wizard__event_type_id
 msgid ""
-"If this lead/opportunity is related to a specific event type, indicate it "
-"here."
+"If this lead/opportunity is related to a specific event category, indicate "
+"it here."
 msgstr ""
-"Si esta iniciativa u oportunidad está relacionada con una categoría "
-"específica de evento, indíquelo aquí."
 
 #. module: sale_crm_event_reservation
 #: model:ir.model.fields,field_description:sale_crm_event_reservation.field_crm_lead_event_sale_wizard____last_update
@@ -131,6 +132,11 @@ msgid "Reserve upcoming event"
 msgstr "Reservar un evento futuro"
 
 #. module: sale_crm_event_reservation
+#: model:ir.model.fields,field_description:sale_crm_event_reservation.field_event_type_report__seats_reservation_total
+msgid "Reserved seats"
+msgstr ""
+
+#. module: sale_crm_event_reservation
 #: model:ir.model.fields,field_description:sale_crm_event_reservation.field_crm_lead_event_sale_wizard__seats_wanted
 msgid "Seats Wanted"
 msgstr "Asientos deseados"
@@ -144,3 +150,20 @@ msgstr "Ticket"
 #: model:ir.model,name:sale_crm_event_reservation.model_crm_lead_event_sale_wizard
 msgid "Wizard to generate event quotation from event opportunity"
 msgstr "Asistente para presupuestar eventos desde una oportunidad de evento"
+
+#~ msgid "Event type"
+#~ msgstr "Categoría de evento"
+
+#~ msgid ""
+#~ "If this lead/opportunity is related to a specific event type, indicate "
+#~ "how many seats would you sell if won."
+#~ msgstr ""
+#~ "Si esta iniciativa u oportunidad está relacionada con una categoría "
+#~ "específica de evento, indique cuántas plazas vendería si se gana."
+
+#~ msgid ""
+#~ "If this lead/opportunity is related to a specific event type, indicate it "
+#~ "here."
+#~ msgstr ""
+#~ "Si esta iniciativa u oportunidad está relacionada con una categoría "
+#~ "específica de evento, indíquelo aquí."
