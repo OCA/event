@@ -18,8 +18,6 @@ msgstr ""
 
 #. module: website_event_filter_city
 #: code:addons/website_event_filter_city/controllers/main.py:0
-#: code:addons/website_event_filter_city/controllers/main.py:0
-#: code:addons/website_event_filter_city/controllers/main.py:0
 #: model_terms:ir.ui.view,arch_db:website_event_filter_city.event_city
 #, python-format
 msgid "All Cities"
