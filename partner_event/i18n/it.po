@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* partner_event
+# 	* partner_event
 #
 msgid ""
 msgstr ""
@@ -138,7 +138,9 @@ msgstr "Selezionare evento da registrare"
 
 #. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
-msgid "These partners haven't been registered because they\\'re already                        registered or other error occurred"
+msgid ""
+"These partners haven't been registered because they\\'re "
+"already                        registered or other error occurred"
 msgstr ""
 "Questi partner non sono stati registrati perché sono "
 "già                        registrati o si sono presentati altri errori"
