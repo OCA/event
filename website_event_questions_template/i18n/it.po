@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* website_event_questions_template
+# 	* website_event_questions_template
 #
 msgid ""
 msgstr ""
@@ -99,7 +99,9 @@ msgstr "ID"
 
 #. module: website_event_questions_template
 #: model:ir.model.fields,help:website_event_questions_template.field_event_question_template_question__is_individual
-msgid "If True, this question will be asked for every attendee of a reservation. If not it will be asked only once and its value propagated to every attendees."
+msgid ""
+"If True, this question will be asked for every attendee of a reservation. If "
+"not it will be asked only once and its value propagated to every attendees."
 msgstr ""
 "Se vero, questa domanda verrà fatta a tutti i partecipanti di una "
 "prenotazione. Altrimenti verrà chiesta solo una volta è il valore propagato "
