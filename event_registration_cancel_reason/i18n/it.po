@@ -113,8 +113,8 @@ msgstr "Motivi annullamento registrazione"
 #. module: event_registration_cancel_reason
 #: model:ir.model.fields,help:event_registration_cancel_reason.field_event_registration_cancel_reason__event_type_ids
 msgid ""
-"Select the event types where you want to use this cancellation reason. Leave"
-" it empty for using in all."
+"Select the event types where you want to use this cancellation reason. Leave "
+"it empty for using in all."
 msgstr ""
 "Selezionare i tipi evento dove utilizzare questa causale annullamento. "
 "Lasciare vuoto per usarla in tutti."
@@ -127,8 +127,7 @@ msgstr "Selezionare la causale per l'annullamento registrazione:"
 #. module: event_registration_cancel_reason
 #: code:addons/event_registration_cancel_reason/wizard/event_registration_cancel_log_reason.py:0
 #, python-format
-msgid ""
-"You cannot cancel registrations from events of different types at once."
+msgid "You cannot cancel registrations from events of different types at once."
 msgstr ""
 "Non si possono annullare contemporaneamente registrazioni per eventi di tipo "
 "diverso."
