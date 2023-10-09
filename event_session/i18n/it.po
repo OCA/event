@@ -426,8 +426,7 @@ msgstr "Sessioni disponibili per l'evento"
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_wizard_event_session__event_date_begin
 msgid ""
-"Set it up in the event configurationSessions will be generated from this "
-"date"
+"Set it up in the event configurationSessions will be generated from this date"
 msgstr ""
 "Impostare nella configurazione evento. Le sessioni verranno generate da "
 "questa data"
@@ -468,7 +467,6 @@ msgid "Sundays"
 msgstr "Domeniche"
 
 #. module: event_session
-#: code:addons/event_session/wizards/wizard_event_session.py:0
 #: code:addons/event_session/wizards/wizard_event_session.py:0
 #, python-format
 msgid "There are overlapping hours!"
