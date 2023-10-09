@@ -18,7 +18,8 @@ msgstr ""
 "X-Generator: Poedit 2.4.2\n"
 
 #. module: event_sale_reservation
-#: model:ir.actions.act_window,name:event_sale_reservation.act_event_registration_from_so
+#: code:addons/event_sale_reservation/models/sale_order.py:47
+#, python-format
 msgid "Attendees"
 msgstr "Asistentes"
 
@@ -177,6 +178,11 @@ msgstr "Registrar reservas"
 #: model_terms:ir.ui.view,arch_db:event_sale_reservation.registration_editor_reservations_view_form
 msgid "Registrations"
 msgstr "Registros"
+
+#. module: event_sale_reservation
+#: model:ir.model.fields,field_description:event_sale_reservation.field_event_type__reserved_sale_order_line_ids
+msgid "Reserved sale order lines"
+msgstr ""
 
 #. module: event_sale_reservation
 #: model:ir.model.fields,field_description:event_sale_reservation.field_event_type__seats_reservation_total
