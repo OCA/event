@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* event_session
+# 	* event_session
 #
 msgid ""
 msgstr ""
@@ -425,7 +425,8 @@ msgstr "Sessioni disponibili per l'evento"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_wizard_event_session__event_date_begin
-msgid "Set it up in the event configurationSessions will be generated from this date"
+msgid ""
+"Set it up in the event configurationSessions will be generated from this date"
 msgstr ""
 "Impostare nella configurazione evento. Le sessioni verranno generate da "
 "questa data"
@@ -433,7 +434,9 @@ msgstr ""
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_wizard_event_session__event_date_end
 #: model:ir.model.fields,help:event_session.field_wizard_event_session__event_date_tz
-msgid "Set it up in the event configurationSessions will be generated up to this date"
+msgid ""
+"Set it up in the event configurationSessions will be generated up to this "
+"date"
 msgstr ""
 "Impostare nella configurazione evento. Le sessioni verranno generate fino a "
 "questa data"
@@ -561,7 +564,9 @@ msgstr "Procedura guidata per la semplice creazione di sessioni"
 #. module: event_session
 #: code:addons/event_session/models/event_session.py:224
 #, python-format
-msgid "You are trying to delete one or more                 sessions with active registrations"
+msgid ""
+"You are trying to delete one or more                 sessions with active "
+"registrations"
 msgstr ""
 "Si sta cercando di cancellare una o più             sessioni con "
 "registrazioni attive"
@@ -569,7 +574,9 @@ msgstr ""
 #. module: event_session
 #: code:addons/event_session/tests/test_session.py:179
 #, python-format
-msgid "You are trying to delete one or more             sessions with active registrations"
+msgid ""
+"You are trying to delete one or more             sessions with active "
+"registrations"
 msgstr ""
 "Si sta cercando di cancellare una o più             sessioni con "
 "registrazioni attive"
