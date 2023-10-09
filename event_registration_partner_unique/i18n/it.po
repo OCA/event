@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* event_registration_partner_unique
+# 	* event_registration_partner_unique
 #
 msgid ""
 msgstr ""
@@ -18,7 +18,8 @@ msgstr ""
 
 #. module: event_registration_partner_unique
 #: model:ir.model.fields,help:event_registration_partner_unique.field_event_event__forbid_duplicates
-msgid "Check this to disallow duplicate attendees in this event's registrations"
+msgid ""
+"Check this to disallow duplicate attendees in this event's registrations"
 msgstr ""
 "Selezionare per impedire la duplicazione dei partecipanti nella "
 "registrazioni di questo evento"
