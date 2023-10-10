@@ -17,27 +17,22 @@ msgstr ""
 "X-Generator: Weblate 3.2.2\n"
 
 #. module: event_mail
+#: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__mail_count_done
+msgid "# Sent"
+msgstr ""
+
+#. module: event_mail
 #: model_terms:ir.ui.view,arch_db:event_mail.res_config_settings_view_form
 msgid ""
 "<span class=\"o_form_label\">Template Mail Scheduler</span>\n"
-"                        <span class=\"fa fa-lg fa-envelope\" title=\"Values "
-"set here are company-specific.\" aria-label=\"Values set here are company-"
-"specific.\" groups=\"base.group_multi_company\" role=\"img\"/>"
+"                            <span class=\"fa fa-lg fa-envelope\" title="
+"\"Values set here are company-specific.\" aria-label=\"Values set here are "
+"company-specific.\" groups=\"base.group_multi_company\" role=\"img\"/>"
 msgstr ""
 
 #. module: event_mail
-#: selection:event.mail.scheduler.template,interval_type:0
-msgid "After each registration"
-msgstr ""
-
-#. module: event_mail
-#: selection:event.mail.scheduler.template,interval_type:0
-msgid "After the event"
-msgstr ""
-
-#. module: event_mail
-#: selection:event.mail.scheduler.template,interval_type:0
-msgid "Before the event"
+#: model:ir.model.fields,help:event_mail.field_event_mail_scheduler_template__mail_registration_ids
+msgid "Communication related to event registrations"
 msgstr ""
 
 #. module: event_mail
@@ -64,11 +59,6 @@ msgid "Created on"
 msgstr "Créé le"
 
 #. module: event_mail
-#: selection:event.mail.scheduler.template,interval_unit:0
-msgid "Day(s)"
-msgstr ""
-
-#. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__display_name
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_template__display_name
 msgid "Display Name"
@@ -81,26 +71,10 @@ msgid "Display order"
 msgstr "Nom affiché"
 
 #. module: event_mail
-#: model_terms:ir.ui.view,arch_db:event_mail.view_event_mail_template_form
-msgid "Email Schedule"
-msgstr "Planification email"
-
-#. module: event_mail
-#: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__template_id
-#, fuzzy
-msgid "Email Template"
-msgstr "Modèle d'email"
-
-#. module: event_mail
 #: model:ir.model,name:event_mail.model_event_event
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__event_id
 msgid "Event"
 msgstr "Événement"
-
-#. module: event_mail
-#: model:ir.model,name:event_mail.model_event_type
-msgid "Event Category"
-msgstr ""
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__event_mail_template_id
@@ -109,8 +83,18 @@ msgid "Event Mail Template"
 msgstr "Modèle mail événement"
 
 #. module: event_mail
-#: selection:event.mail.scheduler.template,interval_unit:0
-msgid "Hour(s)"
+#: model:ir.model,name:event_mail.model_event_type
+msgid "Event Template"
+msgstr ""
+
+#. module: event_mail
+#: model:ir.model,name:event_mail.model_event_mail_scheduler_template
+msgid "Event mail scheduler template"
+msgstr ""
+
+#. module: event_mail
+#: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__mail_state
+msgid "Global communication Status"
 msgstr ""
 
 #. module: event_mail
@@ -118,11 +102,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_template__id
 msgid "ID"
 msgstr "ID"
-
-#. module: event_mail
-#: selection:event.mail.scheduler.template,interval_unit:0
-msgid "Immediately"
-msgstr ""
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__interval_nbr
@@ -169,11 +148,6 @@ msgid "Mail Scheduler Template"
 msgstr "Modèle planificateur email"
 
 #. module: event_mail
-#: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__mail_sent
-msgid "Mail Sent on Event"
-msgstr ""
-
-#. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_res_company__event_mail_template_id
 #: model:ir.model.fields,field_description:event_mail.field_res_config_settings__event_mail_template_id
 msgid "Mail Template"
@@ -195,18 +169,13 @@ msgid "Mail options"
 msgstr "Options e-mail"
 
 #. module: event_mail
-#: selection:event.mail.scheduler.template,interval_unit:0
-msgid "Month(s)"
-msgstr ""
-
-#. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_template__name
 msgid "Name"
 msgstr "Nom"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__scheduled_date
-msgid "Scheduled Sent Mail"
+msgid "Schedule Date"
 msgstr ""
 
 #. module: event_mail
@@ -215,11 +184,17 @@ msgid "Scheduling templates for events"
 msgstr ""
 
 #. module: event_mail
-#: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__done
+#: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__notification_type
+msgid "Send"
+msgstr ""
+
+#. module: event_mail
+#: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__mail_done
 msgid "Sent"
 msgstr ""
 
 #. module: event_mail
+#: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__template_ref
 #: model_terms:ir.ui.view,arch_db:event_mail.res_config_settings_view_form
 #, fuzzy
 msgid "Template"
@@ -231,9 +206,8 @@ msgid "Template Mail Scheduler"
 msgstr "Modèle de planificateur email"
 
 #. module: event_mail
-#: model:ir.model.fields,help:event_mail.field_event_mail_scheduler_template__template_id
-msgid ""
-"This field contains the template of the mail that will be automatically sent"
+#: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__template_model_id
+msgid "Template Model"
 msgstr ""
 
 #. module: event_mail
@@ -246,15 +220,15 @@ msgstr ""
 msgid "Unit"
 msgstr ""
 
-#. module: event_mail
-#: selection:event.mail.scheduler.template,interval_unit:0
-msgid "Week(s)"
-msgstr ""
+#~ msgid "Email Schedule"
+#~ msgstr "Planification email"
 
-#. module: event_mail
-#: model:ir.model,name:event_mail.model_event_mail_scheduler_template
-msgid "event.mail.scheduler.template"
-msgstr "event.mail.scheduler.template"
+#, fuzzy
+#~ msgid "Email Template"
+#~ msgstr "Modèle d'email"
+
+#~ msgid "event.mail.scheduler.template"
+#~ msgstr "event.mail.scheduler.template"
 
 #~ msgid "event.mail.template"
 #~ msgstr "event.mail.template"
