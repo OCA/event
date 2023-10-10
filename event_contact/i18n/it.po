@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* event_contact
+# 	* event_contact
 #
 msgid ""
 msgstr ""
@@ -34,7 +34,9 @@ msgstr "Categoria evento"
 
 #. module: event_contact
 #: model:ir.model.fields,help:event_contact.field_event_type__contact_ids
-msgid "Partners available to attend attendees requests by default for events of this type."
+msgid ""
+"Partners available to attend attendees requests by default for events of "
+"this type."
 msgstr ""
 "Partner disponibili in modo predefinito ad iscrivere partecipanti per eventi "
 "di questo tipo."
