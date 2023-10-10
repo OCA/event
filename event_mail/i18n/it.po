@@ -32,8 +32,8 @@ msgstr ""
 "<span class=\"o_form_label\">Schedulatore modello e-mail</span>\n"
 "                            <span class=\"fa fa-lg fa-envelope\" title=\"I "
 "valori impostati qui sono specifici per azienda.\" aria-label=\"I valori "
-"impostati qui sono specifici per azienda.\" groups=\"base."
-"group_multi_company\" role=\"img\"/>"
+"impostati qui sono specifici per azienda.\" groups=\"base.group_multi_company"
+"\" role=\"img\"/>"
 
 #. module: event_mail
 #: model:ir.model.fields,help:event_mail.field_event_mail_scheduler_template__mail_registration_ids
