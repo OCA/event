@@ -27,9 +27,19 @@ msgid "Close"
 msgstr "Cerrar"
 
 #. module: website_event_require_login
+#: model:ir.model.fields,field_description:website_event_require_login.field_event_event__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: website_event_require_login
 #: model:ir.model,name:website_event_require_login.model_event_event
 msgid "Event"
 msgstr "Evento"
+
+#. module: website_event_require_login
+#: model:ir.model.fields,field_description:website_event_require_login.field_event_event__id
+msgid "ID"
+msgstr ""
 
 #. module: website_event_require_login
 #: model:ir.model.fields,help:website_event_require_login.field_event_event__website_require_login
@@ -39,6 +49,11 @@ msgid ""
 msgstr ""
 "Si está establecido, el usuario deberá iniciar sesión para registrar "
 "asistentes desde el sito web."
+
+#. module: website_event_require_login
+#: model:ir.model.fields,field_description:website_event_require_login.field_event_event____last_update
+msgid "Last Modified on"
+msgstr ""
 
 #. module: website_event_require_login
 #: model_terms:ir.ui.view,arch_db:website_event_require_login.modal_attendees_registration_login_required
