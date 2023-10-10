@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* website_event_require_login
+# 	* website_event_require_login
 #
 msgid ""
 msgstr ""
@@ -33,7 +33,9 @@ msgstr "Évènement"
 
 #. module: website_event_require_login
 #: model:ir.model.fields,help:website_event_require_login.field_event_event__website_require_login
-msgid "If set, a user must be logged in to be able to register attendees from the website."
+msgid ""
+"If set, a user must be logged in to be able to register attendees from the "
+"website."
 msgstr ""
 "Si coché, l'utilisateur doit être connecté pour inscrire des participant "
 "depuis le site web."
