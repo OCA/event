@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-07 10:31+0000\n"
-"PO-Revision-Date: 2023-09-20 18:57+0000\n"
+"PO-Revision-Date: 2023-10-12 11:38+0000\n"
 "Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -1841,7 +1841,7 @@ msgstr "Actividades futuras"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__general_question_ids
 msgid "General Questions"
-msgstr ""
+msgstr "Opciones Generales"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__mail_state
@@ -2218,7 +2218,7 @@ msgstr "Evento padre"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__question_ids
 msgid "Questions"
-msgstr ""
+msgstr "Preguntas"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__rrule_type
@@ -2422,7 +2422,7 @@ msgstr "Vendido"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__specific_question_ids
 msgid "Specific Questions"
-msgstr ""
+msgstr "Cuestiones Específicas"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__stage_id
