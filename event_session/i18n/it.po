@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-10-13 09:37+0000\n"
+"PO-Revision-Date: 2023-10-13 16:38+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -1844,7 +1844,7 @@ msgstr "Attività future"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__general_question_ids
 msgid "General Questions"
-msgstr ""
+msgstr "Domande generali"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__mail_state
@@ -2219,7 +2219,7 @@ msgstr "Evento padre"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__question_ids
 msgid "Questions"
-msgstr ""
+msgstr "Domande"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__rrule_type
@@ -2421,7 +2421,7 @@ msgstr "Esaurito"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__specific_question_ids
 msgid "Specific Questions"
-msgstr ""
+msgstr "Domanda specifica"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__stage_id
