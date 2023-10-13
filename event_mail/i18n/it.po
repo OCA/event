@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-09-08 16:38+0000\n"
-"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"PO-Revision-Date: 2023-10-13 09:36+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__mail_count_done
 msgid "# Sent"
-msgstr ""
+msgstr "N° invii"
 
 #. module: event_mail
 #: model_terms:ir.ui.view,arch_db:event_mail.res_config_settings_view_form
@@ -38,7 +38,7 @@ msgstr ""
 #. module: event_mail
 #: model:ir.model.fields,help:event_mail.field_event_mail_scheduler_template__mail_registration_ids
 msgid "Communication related to event registrations"
-msgstr ""
+msgstr "Comunicazione relativa alle registrazioni evento"
 
 #. module: event_mail
 #: model:ir.model,name:event_mail.model_res_company
@@ -98,7 +98,7 @@ msgstr "Modello schedulatore e-mail evento"
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__mail_state
 msgid "Global communication Status"
-msgstr ""
+msgstr "Stato comunicazione globale"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__id
@@ -178,7 +178,7 @@ msgstr "Nome"
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__scheduled_date
 msgid "Schedule Date"
-msgstr ""
+msgstr "Schedula data"
 
 #. module: event_mail
 #: model:ir.model,name:event_mail.model_event_mail_template
@@ -209,7 +209,7 @@ msgstr "Schedulatore modello e-mail"
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__template_model_id
 msgid "Template Model"
-msgstr ""
+msgstr "Modello esempio"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__interval_type
