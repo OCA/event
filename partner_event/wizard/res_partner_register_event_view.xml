@@ -37,4 +37,12 @@
         <field name="binding_model_id" ref="base.model_res_partner" />
         <field name="target">new</field>
     </record>
+    <record id="action_attendee_register_event" model="ir.actions.act_window">
+        <field name="name">Register in an event</field>
+        <field name="res_model">res.partner.register.event</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="res_partner_register_event_view" />
+        <field name="binding_model_id" ref="partner_event.model_event_registration" />
+        <field name="target">new</field>
+    </record>
 </odoo>

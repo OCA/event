@@ -31,13 +31,24 @@ class ResPartnerRegisterEvent(models.TransientModel):
     def button_register(self):
         vals_list = []
         Registration = self.env["event.registration"]
-        for partner in self.env["res.partner"].browse(
-            self.env.context.get("active_ids", [])
-        ):
+        active_ids = self.env.context.get("active_ids", [])
+        if self.env.context.get("active_model", "") == "event.registration":
+            registrations = self.env["event.registration"].browse(active_ids)
+            partners = registrations.attendee_partner_id
+            partners += registrations.filtered(
+                lambda x: not x.attendee_partner_id
+            ).partner_id
+        else:
+            partners = self.env["res.partner"].browse(active_ids)
+        for partner in partners:
             if not Registration.search(
                 [
                     ("event_id", "=", self.event.id),
+                    "|",
                     ("attendee_partner_id", "=", partner.id),
+                    "&",
+                    ("attendee_partner_id", "=", False),
+                    ("partner_id", "=", partner.id),
                 ]
             ):
                 vals_list.append(self._prepare_registration(partner))
