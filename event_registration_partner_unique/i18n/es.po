@@ -29,8 +29,8 @@ msgstr ""
 #. module: event_registration_partner_unique
 #: code:addons/event_registration_partner_unique/models/event.py:0
 #, python-format
-msgid "Duplicated partners found in event {0}: {1}."
-msgstr "Empresas duplicadas encontradas en el evento {0}: {1}."
+msgid "Duplicated partners found in event %(name)s: %(partners)s."
+msgstr "Empresas duplicadas encontradas en el evento %(name)s: %(partners)s."
 
 #. module: event_registration_partner_unique
 #: model:ir.model,name:event_registration_partner_unique.model_event_event
