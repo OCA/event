@@ -8,6 +8,7 @@
         name="Events Calendar and List"
         inherit_id="website.layout"
         primary="True"
+        priority="999"
     >
         <!-- Replace the whole page to include only the snippet -->
         <xpath expr="//div[@id='wrapwrap']" position="replace">
