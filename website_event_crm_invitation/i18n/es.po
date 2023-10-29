@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-15 11:34+0000\n"
-"PO-Revision-Date: 2023-09-15 13:42+0200\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2023-10-29 23:38+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: \n"
-"X-Generator: Poedit 3.3.1\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: website_event_crm_invitation
 #: model:mail.template,body_html:website_event_crm_invitation.crm_lead_event_type_tpl
@@ -100,7 +100,7 @@ msgid ""
 msgstr ""
 "<i class=\"fa fa-info\"/> No es posible proponer eventos si la compañía no "
 "está establecida o si la compañía no tiene sitios web configurados. De modo "
-"que no se invitará invitación para esta iniciativa/oportunidad."
+"que no se invitará invitación para esta iniciativa/oportunidad"
 
 #. module: website_event_crm_invitation
 #: model:ir.model.fields,field_description:website_event_crm_invitation.field_crm_stage__auto_advance_stage_invite_website_event_type
@@ -132,7 +132,7 @@ msgstr "Categorías de evento"
 #. module: website_event_crm_invitation
 #: model:ir.model,name:website_event_crm_invitation.model_event_type
 msgid "Event Template"
-msgstr ""
+msgstr "Plantilla de Evento"
 
 #. module: website_event_crm_invitation
 #: model:ir.model.fields,field_description:website_event_crm_invitation.field_crm_lead__event_type_website_url
@@ -169,7 +169,7 @@ msgid ""
 msgstr ""
 "No es posible proponer eventos si la compañía no está establecida o si la "
 "compañía no tiene sitios web configurados. De modo que no se invitará "
-"invitación para esta iniciativa/oportunidad."
+"invitación para esta iniciativa/oportunidad"
 
 #. module: website_event_crm_invitation
 #: model:ir.model,name:website_event_crm_invitation.model_crm_lead
