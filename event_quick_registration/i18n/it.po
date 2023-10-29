@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-07-20 10:12+0000\n"
+"PO-Revision-Date: 2023-10-29 17:37+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -99,7 +99,7 @@ msgstr "Telefono"
 #. module: event_quick_registration
 #: model:ir.model.fields,field_description:event_quick_registration.field_event_quick_registration__qty
 msgid "Qty"
-msgstr "Qta."
+msgstr "Q.tà"
 
 #. module: event_quick_registration
 #: code:addons/event_quick_registration/wizard/event_quick_registration.py:0
