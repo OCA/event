@@ -27,7 +27,7 @@ class ResPartner(models.Model):
                 self.env["event.registration"]
                 .search(
                     [
-                        ("attendee_partner_id", "child_of", partner.id),
+                        ("attendee_partner_id", "child_of", partner.ids),
                         ("state", "not in", ("cancel", "draft")),
                     ]
                 )
