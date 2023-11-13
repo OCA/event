@@ -18,6 +18,8 @@ class EventEvent(models.Model):
     @api.constrains("forbid_duplicates", "registration_ids")
     def _check_forbid_duplicates(self):
         """Ensure no duplicated attendee are found in the event."""
+        if self.env.context.get("skip_registration_partner_unique"):
+            return
         return self.filtered(
             "forbid_duplicates"
         ).registration_ids._check_forbid_duplicates()
@@ -29,19 +31,28 @@ class EventRegistration(models.Model):
     @api.constrains("event_id", "attendee_partner_id")
     def _check_forbid_duplicates(self):
         """Ensure no duplicated attendees are found in the event."""
+        if self.env.context.get("skip_registration_partner_unique"):
+            return
+        for event_reg, dupes in self._find_duplicated_attendees():
+            if not dupes:
+                continue
+            raise ValidationError(
+                _("Duplicated partners found in event %(name)s: %(partners)s.")
+                % {
+                    "name": event_reg.event_id.display_name,
+                    "partners": ", ".join(
+                        partner_id.display_name
+                        for partner_id in dupes.mapped("attendee_partner_id")
+                    ),
+                }
+            )
+
+    def _find_duplicated_attendees(self):
         for event_reg in self.filtered("event_id.forbid_duplicates"):
-            dupes = self.search(event_reg._duplicate_search_domain())
-            if dupes:
-                raise ValidationError(
-                    _("Duplicated partners found in event %(name)s: %(partners)s.")
-                    % {
-                        "name": event_reg.event_id.display_name,
-                        "partners": ", ".join(
-                            partner_id.display_name
-                            for partner_id in dupes.mapped("attendee_partner_id")
-                        ),
-                    }
-                )
+            dupes = self.search(
+                event_reg._duplicate_search_domain(), order="create_date desc"
+            )
+            yield event_reg, dupes
 
     def _duplicate_search_domain(self):
         """What to look for when searching duplicates."""

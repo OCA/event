@@ -14,5 +14,5 @@
     "application": False,
     "installable": True,
     "depends": ["event", "partner_event"],
-    "data": ["views/event_event_view.xml"],
+    "data": ["views/event_event_view.xml", "wizards/base_partner_merge_views.xml"],
 }
