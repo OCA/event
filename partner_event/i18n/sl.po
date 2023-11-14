@@ -122,6 +122,7 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: partner_event
+#: model:ir.actions.act_window,name:partner_event.action_attendee_register_event
 #: model:ir.actions.act_window,name:partner_event.action_partner_register_event
 #, fuzzy
 msgid "Register in an event"

@@ -116,6 +116,7 @@ msgid "Last Updated on"
 msgstr "Senast uppdaterad den"
 
 #. module: partner_event
+#: model:ir.actions.act_window,name:partner_event.action_attendee_register_event
 #: model:ir.actions.act_window,name:partner_event.action_partner_register_event
 msgid "Register in an event"
 msgstr "Anmäl dig till ett evenemang"
