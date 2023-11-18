@@ -1,0 +1,49 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_registration_partner_unique
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2023-11-18 20:35+0000\n"
+"Last-Translator: pere-aquarian <pere@aquarian.tech>\n"
+"Language-Team: none\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: event_registration_partner_unique
+#: model:ir.model.fields,help:event_registration_partner_unique.field_event_event__forbid_duplicates
+#: model:ir.model.fields,help:event_registration_partner_unique.field_event_session__forbid_duplicates
+msgid ""
+"Check this to disallow duplicate attendees in this event's registrations"
+msgstr ""
+"Marqueu-ho per no permetre els assistents duplicats en les inscripcions "
+"d'aquest esdeveniment"
+
+#. module: event_registration_partner_unique
+#. odoo-python
+#: code:addons/event_registration_partner_unique/models/event.py:0
+#, python-format
+msgid "Duplicated partners found in event {0}: {1}."
+msgstr "S'han trobat contactes duplicats a l'esdeveniment {0}: {1}."
+
+#. module: event_registration_partner_unique
+#: model:ir.model,name:event_registration_partner_unique.model_event_event
+msgid "Event"
+msgstr "Esdeveniment"
+
+#. module: event_registration_partner_unique
+#: model:ir.model,name:event_registration_partner_unique.model_event_registration
+msgid "Event Registration"
+msgstr "Registre d'esdeveniment"
+
+#. module: event_registration_partner_unique
+#: model:ir.model.fields,field_description:event_registration_partner_unique.field_event_event__forbid_duplicates
+#: model:ir.model.fields,field_description:event_registration_partner_unique.field_event_session__forbid_duplicates
+msgid "Forbid Duplicates"
+msgstr "Prohibir duplicats"
