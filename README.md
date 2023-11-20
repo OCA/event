@@ -28,7 +28,7 @@ addon | version | maintainers | summary
 [event_quick_registration](event_quick_registration/) | 15.0.1.0.0 |  | Create registration quickly
 [event_registration_cancel_reason](event_registration_cancel_reason/) | 15.0.1.0.0 |  | Reasons for event registrations cancellations
 [event_registration_mail_compose](event_registration_mail_compose/) | 15.0.1.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Compose and send mails to event attendees
-[event_registration_partner_unique](event_registration_partner_unique/) | 15.0.1.0.0 |  | Enforces 1 registration per partner and event
+[event_registration_partner_unique](event_registration_partner_unique/) | 15.0.1.0.1 |  | Enforces 1 registration per partner and event
 [event_registration_qr_code](event_registration_qr_code/) | 15.0.1.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Automatically generate unique QR Codes for each registration
 [event_sale_reservation](event_sale_reservation/) | 15.0.1.0.0 | [![Yajo](https://github.com/Yajo.png?size=30px)](https://github.com/Yajo) | Allow selling event registrations before the event exists
 [event_sale_session](event_sale_session/) | 15.0.1.0.0 |  | Sell Event Sessions
