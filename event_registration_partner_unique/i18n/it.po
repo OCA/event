@@ -47,6 +47,23 @@ msgstr "Registrazione evento"
 msgid "Forbid Duplicates"
 msgstr "Impedisci duplicati"
 
+#. module: event_registration_partner_unique
+#: model:ir.model.fields,help:event_registration_partner_unique.field_base_partner_merge_automatic_wizard__merge_duplicated_registrations
+msgid ""
+"If the merged partners were linked to registrations in an event that had "
+"unique attendees flag we'll take only the oldest one"
+msgstr ""
+
+#. module: event_registration_partner_unique
+#: model:ir.model.fields,field_description:event_registration_partner_unique.field_base_partner_merge_automatic_wizard__merge_duplicated_registrations
+msgid "Merge Duplicated Registrations"
+msgstr ""
+
+#. module: event_registration_partner_unique
+#: model:ir.model,name:event_registration_partner_unique.model_base_partner_merge_automatic_wizard
+msgid "Merge Partner Wizard"
+msgstr ""
+
 #~ msgid "Display Name"
 #~ msgstr "Nome visualizzato"
 
