@@ -2,21 +2,39 @@
 # Copyright 2020 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
+from odoo import fields
 from odoo.exceptions import ValidationError
 from odoo.tests.common import TransactionCase
 
 
 class DuplicatedPartnerCase(TransactionCase):
-    def setUp(self):
-        super().setUp()
-        self.event = self.env.ref("event.event_0")
-        self.event.forbid_duplicates = False
-        self.partner = self.env.ref("base.res_partner_1")
-        self.registration = self.env["event.registration"].create(
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        # Remove this variable in v16 and put instead:
+        # from odoo.addons.base.tests.common import DISABLED_MAIL_CONTEXT
+        DISABLED_MAIL_CONTEXT = {
+            "tracking_disable": True,
+            "mail_create_nolog": True,
+            "mail_create_nosubscribe": True,
+            "mail_notrack": True,
+            "no_reset_password": True,
+        }
+        cls.env = cls.env(context=dict(cls.env.context, **DISABLED_MAIL_CONTEXT))
+        cls.event = cls.env["event.event"].create(
             {
-                "event_id": self.event.id,
-                "partner_id": self.partner.id,
-                "attendee_partner_id": self.partner.id,
+                "name": "Test event",
+                "date_begin": fields.Datetime.now(),
+                "date_end": fields.Datetime.now(),
+            }
+        )
+        cls.event.forbid_duplicates = False
+        cls.partner = cls.env["res.partner"].create({"name": "Mr. Odoo"})
+        cls.registration = cls.env["event.registration"].create(
+            {
+                "event_id": cls.event.id,
+                "partner_id": cls.partner.id,
+                "attendee_partner_id": cls.partner.id,
             }
         )
 
