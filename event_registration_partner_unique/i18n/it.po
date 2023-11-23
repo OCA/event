@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-07-18 14:11+0000\n"
+"PO-Revision-Date: 2023-11-23 16:35+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -53,6 +53,8 @@ msgid ""
 "If the merged partners were linked to registrations in an event that had "
 "unique attendees flag we'll take only the oldest one"
 msgstr ""
+"Se i partner uniti erano collegati alle registrazIoni in un evento che aveva "
+"un'unica opzione partecipanti, verrà presa solo la più vecchia"
 
 #. module: event_registration_partner_unique
 #: model:ir.model.fields,field_description:event_registration_partner_unique.field_base_partner_merge_automatic_wizard__merge_duplicated_registrations
