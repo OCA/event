@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 Le Filament (https://le-filament.com)
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record id="view_restrict_event_session_form" model="ir.ui.view">
+        <field name="model">event.event</field>
+        <field name="name">event session restrict</field>
+        <field name="inherit_id" ref="event_session.view_event_form_create_sessions" />
+        <field name="priority">50</field>
+        <field name="arch" type="xml">
+            <xpath expr="//label[@for='website_menu']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='website_menu']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//label[@for='date_begin']" position="before">
+                <field name="website_menu" />
+            </xpath>
+            <xpath expr="//header" position="inside">
+                <button
+                    name="action_dup_event_and_web"
+                    type="object"
+                    string="Duplicate with website"
+                    class="btn-outline-primary"
+                    attrs="{'invisible':[('website_menu','=',False)]}"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
