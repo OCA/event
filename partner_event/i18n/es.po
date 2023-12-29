@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-03 16:30+0000\n"
-"PO-Revision-Date: 2019-08-20 14:44+0000\n"
-"Last-Translator: Jairo Llopis <jairo.llopis@tecnativa.com>\n"
+"PO-Revision-Date: 2023-12-29 13:34+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner__registration_count
@@ -36,7 +36,7 @@ msgstr "Empresa asistente"
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_event_registration__partner_id
 msgid "Booked by"
-msgstr ""
+msgstr "Reservado por"
 
 #. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
