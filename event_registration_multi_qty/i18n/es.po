@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-02 16:29+0200\n"
-"PO-Revision-Date: 2019-02-01 14:03+0000\n"
-"Last-Translator: Marta Vázquez Rodríguez <vazrodmar@gmail.com>\n"
+"PO-Revision-Date: 2023-12-29 10:33+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.4\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: event_registration_multi_qty
 #: model:ir.model.fields,field_description:event_registration_multi_qty.field_event_event__registration_multi_qty
@@ -26,7 +26,7 @@ msgstr "Permitir múltiples asistentes por registro"
 #: model:ir.model.fields,field_description:event_registration_multi_qty.field_event_event__display_name
 #: model:ir.model.fields,field_description:event_registration_multi_qty.field_event_registration__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Mostrar Nombre"
 
 #. module: event_registration_multi_qty
 #: model:ir.model,name:event_registration_multi_qty.model_event_event
@@ -35,21 +35,20 @@ msgstr "Evento"
 
 #. module: event_registration_multi_qty
 #: model:ir.model,name:event_registration_multi_qty.model_event_registration
-#, fuzzy
 msgid "Event Registration"
-msgstr "report.event.registration"
+msgstr "Registro de Evento"
 
 #. module: event_registration_multi_qty
 #: model:ir.model.fields,field_description:event_registration_multi_qty.field_event_event__id
 #: model:ir.model.fields,field_description:event_registration_multi_qty.field_event_registration__id
 msgid "ID"
-msgstr ""
+msgstr "ID (identificación)"
 
 #. module: event_registration_multi_qty
 #: model:ir.model.fields,field_description:event_registration_multi_qty.field_event_event____last_update
 #: model:ir.model.fields,field_description:event_registration_multi_qty.field_event_registration____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última Modificación el"
 
 #. module: event_registration_multi_qty
 #: model:ir.model.fields,field_description:event_registration_multi_qty.field_event_registration__qty
