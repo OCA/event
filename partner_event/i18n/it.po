@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-07-24 12:09+0000\n"
+"PO-Revision-Date: 2024-01-02 11:33+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -118,7 +118,7 @@ msgstr "Ultimo aggiornamento il"
 #. module: partner_event
 #: model:ir.model,name:partner_event.model_base_partner_merge_automatic_wizard
 msgid "Merge Partner Wizard"
-msgstr ""
+msgstr "Procedura guidata unione partner"
 
 #. module: partner_event
 #: model:ir.actions.act_window,name:partner_event.action_attendee_register_event
