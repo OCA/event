@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-07 10:31+0000\n"
-"PO-Revision-Date: 2023-10-12 11:38+0000\n"
+"PO-Revision-Date: 2024-01-09 19:36+0000\n"
 "Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: \n"
 "Language: es\n"
@@ -2167,7 +2167,7 @@ msgstr "Número de asistentes"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__message_has_error_counter
 msgid "Number of errors"
-msgstr "Numero de errores"
+msgstr "Número de Errores"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__message_needaction_counter
