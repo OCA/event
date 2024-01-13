@@ -1216,7 +1216,6 @@ msgstr ""
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__message_has_error
-#: model:ir.model.fields,help:event_session.field_event_session__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
 
@@ -1613,11 +1612,6 @@ msgstr ""
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__is_seo_optimized
 msgid "SEO optimized"
-msgstr ""
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__message_has_sms_error
-msgid "SMS Delivery error"
 msgstr ""
 
 #. module: event_session

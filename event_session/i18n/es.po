@@ -1884,7 +1884,6 @@ msgstr ""
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__message_has_error
-#: model:ir.model.fields,help:event_session.field_event_session__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr "Si se encuentra seleccionado, algunos mensajes tienen error de envío."
 
@@ -2290,11 +2289,6 @@ msgstr "Restringir la publicación a este sitio web."
 #: model:ir.model.fields,field_description:event_session.field_event_session__is_seo_optimized
 msgid "SEO optimized"
 msgstr "Optimizado para SEO"
-
-#. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__message_has_sms_error
-msgid "SMS Delivery error"
-msgstr "Error de entrega del SMS"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__sale_price_subtotal
@@ -2838,6 +2832,9 @@ msgstr ""
 #: model:mail.template,subject:event_session.event_session_reminder
 msgid "{{ object.session_id.name }}: {{ object.get_date_range_str() }}"
 msgstr "{{ object.session_id.name }}: {{ object.get_date_range_str() }}"
+
+#~ msgid "SMS Delivery error"
+#~ msgstr "Error de entrega del SMS"
 
 #~ msgid "Number of messages which requires an action"
 #~ msgstr "Número de mensajes que requieren una acción"
