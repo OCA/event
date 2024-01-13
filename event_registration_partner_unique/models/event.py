@@ -32,6 +32,7 @@ class EventRegistration(models.Model):
         for event_reg in self.filtered("event_id.forbid_duplicates"):
             dupes = self.search(event_reg._duplicate_search_domain())
             if dupes:
+                # pylint: disable=W8120
                 raise ValidationError(
                     _("Duplicated partners found in event {0}: {1}.").format(
                         event_reg.event_id.display_name,
