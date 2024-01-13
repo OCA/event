@@ -113,6 +113,11 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: partner_event
+#: model:ir.model,name:partner_event.model_base_partner_merge_automatic_wizard
+msgid "Merge Partner Wizard"
+msgstr ""
+
+#. module: partner_event
 #: model:ir.actions.act_window,name:partner_event.action_partner_register_event
 msgid "Register in an event"
 msgstr ""
