@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-10-13 16:38+0000\n"
+"PO-Revision-Date: 2024-01-25 16:36+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -1925,7 +1925,7 @@ msgstr "Completata"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__message_is_follower
 msgid "Is Follower"
-msgstr "Sta seguendo"
+msgstr "Segue"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__is_one_day
@@ -2314,7 +2314,7 @@ msgstr "Schedula"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__scheduled_date
 msgid "Scheduled Date"
-msgstr "Data programmata"
+msgstr "Data schedulata"
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__byday__2
