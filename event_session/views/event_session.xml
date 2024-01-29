@@ -248,10 +248,11 @@
         <field name="model">event.session</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="event_id" />
+                <field name="event_id" optional="show" />
                 <field name="date_begin" />
                 <field name="date_end" />
-                <field name="date_tz" />
+                <field name="date_tz" optional="hide" />
+                <field name="seats_limited" optional="hide" />
                 <field
                     name="seats_expected"
                     string="Expected Attendees"
