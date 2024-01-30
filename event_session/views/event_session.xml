@@ -147,7 +147,7 @@
                     <field name="active" invisible="1" />
                     <widget
                         name="web_ribbon"
-                        text="Archived"
+                        title="Archived"
                         bg_color="bg-danger"
                         attrs="{'invisible': [('active', '=', True)]}"
                     />
