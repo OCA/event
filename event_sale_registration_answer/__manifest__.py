@@ -2,7 +2,7 @@
 
 {
     "name": "Event Sale Registration Answer",
-    "summary": "Event Sale Registration Answer",
+    "summary": "Enter Answers to event Questions from the Sales Order",
     "version": "16.0.1.0.0",
     "author": "Open Source Integrators, Odoo Community Association (OCA)",
     "maintainers": ["dreispt"],

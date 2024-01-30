@@ -1,7 +1,4 @@
-* `Moka Tourisme <https://www.mokatourisme.fr>`_
+* `Open Source Integrators <https://opensourceintegrators.com>`_:
 
-    * Iván Todorovich <ivan.todorovich@gmail.com>
-
-* `InitOS <https://www.initos.com>`_:
-
-    * Dhara Solanki <dhara.solanki@initos.com>
+    * Daniel Reis <dreis@opensourceintegrators.com>
+    * Murtuza Saleh <murtuza.saleh@serpentcs.com>

@@ -2,20 +2,21 @@
 <odoo>
 
     <record id="event_registration_answer_view_tree_so" model="ir.ui.view">
-        <field name="name">event.registration.answer.view.tree.so</field>
         <field name="model">event.registration.answer</field>
         <field name="arch" type="xml">
-            <tree editable="bottom">
-                <field name="event_id" invisible="1" />
-                <field name="registration_id" invisible="1" />
+            <tree editable="top" create="false" delete="false">
+                <field name="event_id" optional="hide" />
+                <field name="registration_id" optional="show" />
                 <field
                     name="question_id"
+                    optional="show"
                     domain="[('event_id', '=', event_id)]"
                     options="{'no_create': True}"
                 />
                 <field name="question_type" string="Type" />
                 <field
                     name="value_answer_id"
+                    string="Selection Value"
                     attrs="{'invisible': [('question_type', '!=', 'simple_choice')]}"
                     domain="[('question_id', '=', question_id)]"
                     options="{'no_create': True}"
@@ -29,7 +30,6 @@
     </record>
 
     <record id="event_registration_answer_view_search_inherit_event" model="ir.ui.view">
-        <field name="name">event.registration.answer.view.search.event</field>
         <field name="model">event.registration.answer</field>
         <field
             name="inherit_id"
@@ -44,6 +44,12 @@
                         name="group_by_registration"
                         domain="[]"
                         context="{'group_by':'registration_id'}"
+                    />
+                    <filter
+                        string="Per Order"
+                        name="group_by_once_per_order"
+                        domain="[]"
+                        context="{'group_by':'once_per_order'}"
                     />
                 </group>
             </field>

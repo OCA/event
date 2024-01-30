@@ -1,9 +1,10 @@
-This module makes the cart line quantity readonly for event tickets sold on website.
+Odoo allows to collect answers to questions when buying tickets on the Website.
 
-If the website customer wants to change the ticket quantity, (s)he has to remove the
-line instead, and add new registrations from the event page.
+But in some cases we might collect the answers through another way,
+and would like to enter them when completing the sale.
 
-This module is created to overcome these issues in the core workflow:
+This feature adds a smart button on the Sales Order
+to open a list with the answers for each registration.
 
-* https://github.com/odoo/odoo/issues/73058
-* https://github.com/odoo/odoo/issues/84947
+The answer lines are prepopulated, and the user only needs to enter the answer in each
+line.
