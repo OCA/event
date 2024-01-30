@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="event_registration_answer_view_tree_so" model="ir.ui.view">
+        <field name="name">event.registration.answer.view.tree.so</field>
+        <field name="model">event.registration.answer</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="event_id" invisible="1" />
+                <field name="registration_id" invisible="1" />
+                <field
+                    name="question_id"
+                    domain="[('event_id', '=', event_id)]"
+                    options="{'no_create': True}"
+                />
+                <field name="question_type" string="Type" />
+                <field
+                    name="value_answer_id"
+                    attrs="{'invisible': [('question_type', '!=', 'simple_choice')]}"
+                    domain="[('question_id', '=', question_id)]"
+                    options="{'no_create': True}"
+                />
+                <field
+                    name="value_text_box"
+                    attrs="{'invisible': [('question_type', '!=', 'text_box')]}"
+                />
+            </tree>
+        </field>
+    </record>
+
+    <record id="event_registration_answer_view_search_inherit_event" model="ir.ui.view">
+        <field name="name">event.registration.answer.view.search.event</field>
+        <field name="model">event.registration.answer</field>
+        <field
+            name="inherit_id"
+            ref="website_event_questions.event_registration_answer_view_search"
+        />
+        <field name="arch" type="xml">
+            <field name="question_id" position="after">
+                <field name="registration_id" />
+                <group expand="0" string="Group By">
+                    <filter
+                        string="Registration"
+                        name="group_by_registration"
+                        domain="[]"
+                        context="{'group_by':'registration_id'}"
+                    />
+                </group>
+            </field>
+        </field>
+    </record>
+
+</odoo>
