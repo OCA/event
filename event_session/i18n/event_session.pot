@@ -562,6 +562,7 @@ msgid "Applies to the following fields:"
 msgstr ""
 
 #. module: event_session
+#: model_terms:ir.ui.view,arch_db:event_session.view_event_session_form
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_search
 msgid "Archived"
 msgstr ""
