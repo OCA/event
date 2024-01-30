@@ -1434,6 +1434,7 @@ msgid "Applies to the following fields:"
 msgstr "Aplica a los siguientes campos:"
 
 #. module: event_session
+#: model_terms:ir.ui.view,arch_db:event_session.view_event_session_form
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_search
 msgid "Archived"
 msgstr "Archivado"
@@ -1513,6 +1514,11 @@ msgstr "Compañía"
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_kanban
 msgid "Confirmed"
 msgstr "Confirmado"
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__contact_ids
+msgid "Contacts"
+msgstr ""
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__country_id
@@ -2213,6 +2219,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:event_session.field_event_session__event_id
 msgid "Parent Event"
 msgstr "Evento padre"
+
+#. module: event_session
+#: model:ir.model.fields,help:event_session.field_event_session__contact_ids
+msgid "Partners available to attend attendees requests for this event."
+msgstr ""
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__question_ids
