@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="view_event_form">
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_form" />
+        <field name="arch" type="xml">
+            <header position="inside">
+                <field name="show_cancel_button" invisible="1" />
+                <button
+                    string="Cancel Event"
+                    name="button_cancel"
+                    type="object"
+                    confirm="Are you sure you want to cancel this event? All the linked attendees will be cancelled as well."
+                    attrs="{'invisible': [('show_cancel_button', '=', False)]}"
+                />
+            </header>
+        </field>
+    </record>
+</odoo>
