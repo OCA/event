@@ -10,6 +10,7 @@
     "depends": ["event"],
     "data": [
         "data/event_data.xml",
+        "data/mail_template_data.xml",
         "views/event_stage_views.xml",
         "views/event_event_views.xml",
     ],
