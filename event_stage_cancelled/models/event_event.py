@@ -28,4 +28,8 @@ class EventEvent(models.Model):
         )
         if stage_id:
             self.stage_id = stage_id
-            self.registration_ids.action_cancel()
+            self.registration_ids.filtered(lambda x: x.state != "cancel").with_context(
+                cancelled_from_event=True,
+                # Compatibility with event_registration_cancel_reason
+                bypass_reason=True,
+            ).action_cancel()
