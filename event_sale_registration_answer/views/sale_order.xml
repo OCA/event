@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="sale_order_view_form_inherit_event_sr_answer" model="ir.ui.view">
+        <field name="name">sale.order.view.form.inherit.event.sr.answer</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="event_sale.sale_order_view_form" />
+        <field name="arch" type="xml">
+            <button name="action_view_attendee_list" position="after">
+                <button
+                    name="action_view_questions_list"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-pencil-square-o"
+                    attrs="{'invisible': [('state', '!=', 'sale'), ('attendee_count', '=', 0)]}"
+                    string="Questions"
+                />
+            </button>
+        </field>
+    </record>
+
+</odoo>
