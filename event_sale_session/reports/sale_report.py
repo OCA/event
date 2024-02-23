@@ -27,13 +27,12 @@ class SaleReport(models.Model):
         readonly=True,
     )
 
-    def _select_sale(self):
-        select = super(SaleReport, self)._select_sale()
-        select += (
-            ", l.event_id as event_id, l.event_ticket_id as event_ticket_id, "
-            "l.event_session_id as event_session_id"
-        )
-        return select
+    def _select_additional_fields(self):
+        res = super()._select_additional_fields()
+        res["event_id"] = "l.event_id"
+        res["event_ticket_id"] = "l.event_ticket_id"
+        res["event_session_id"] = "l.event_session_id"
+        return res
 
     def _group_by_sale(self):
         group_by = super(SaleReport, self)._group_by_sale()
