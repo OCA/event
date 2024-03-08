@@ -5,7 +5,7 @@
 {
     "name": "Put event registrations emails into mailing lists",
     "category": "Marketing",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.1",
     "depends": ["event", "mass_mailing"],
     "data": [
         "security/ir.model.access.csv",
