@@ -5,7 +5,7 @@
 {
     "name": "Put event registrations emails into mailing lists",
     "category": "Marketing",
-    "version": "14.0.1.0.0",
+    "version": "16.0.1.0.0",
     "depends": ["event", "mass_mailing"],
     "data": [
         "security/ir.model.access.csv",
@@ -14,6 +14,7 @@
     ],
     "author": "Tecnativa, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/event",
+    "maintainers": ["rafaelbn", "edlopen"],
     "license": "AGPL-3",
     "installable": True,
     "auto_install": False,
