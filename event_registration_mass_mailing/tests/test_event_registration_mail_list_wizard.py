@@ -2,10 +2,10 @@
 # Copyright 2020 Tecnativa - David Vidal
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 from odoo import fields
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
-class TestEventRegistrationMailListWizard(SavepointCase):
+class TestEventRegistrationMailListWizard(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -46,6 +46,6 @@ class TestEventRegistrationMailListWizard(SavepointCase):
             {"mail_list": self.mail_list.id}
         )
         wizard.with_context(
-            {"active_ids": [self.registration_01.id, self.registration_02.id]}
+            **{"active_ids": [self.registration_01.id, self.registration_02.id]}
         ).add_to_mail_list()
         self.assertEqual(len(self.mail_list.contact_ids), 2)

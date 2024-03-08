@@ -4,3 +4,6 @@
 
   * Vicent Cubells <vicent.cubells@tecnativa.com>
   * David Vidal <david.vidal@tecnativa.com>
+
+
+* Eduardo López (`Moduon <https://www.moduon.es/>`__)
