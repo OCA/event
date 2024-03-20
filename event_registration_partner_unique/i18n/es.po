@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-07 18:44+0100\n"
-"PO-Revision-Date: 2021-03-17 14:45+0000\n"
-"Last-Translator: Ana Suárez <ana.suarez@qubiq.es>\n"
+"PO-Revision-Date: 2024-03-20 21:34+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3.2\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: event_registration_partner_unique
 #: model:ir.model.fields,help:event_registration_partner_unique.field_event_event__forbid_duplicates
@@ -54,13 +54,15 @@ msgid ""
 "If the merged partners were linked to registrations in an event that had "
 "unique attendees flag we'll take only the oldest one"
 msgstr ""
+"Si los socios fusionados estaban vinculados a inscripciones en un evento que "
+"tenía un único indicador de asistentes, sólo tomaremos el más antiguo"
 
 #. module: event_registration_partner_unique
 #: model:ir.model.fields,field_description:event_registration_partner_unique.field_base_partner_merge_automatic_wizard__merge_duplicated_registrations
 msgid "Merge Duplicated Registrations"
-msgstr ""
+msgstr "Fusionar Registros Duplicados"
 
 #. module: event_registration_partner_unique
 #: model:ir.model,name:event_registration_partner_unique.model_base_partner_merge_automatic_wizard
 msgid "Merge Partner Wizard"
-msgstr ""
+msgstr "Asistente para la Fusión de Socios"
