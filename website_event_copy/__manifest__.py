@@ -1,5 +1,5 @@
 {
-    "name": "Le Filament - Website event copy",
+    "name": "Website event copy",
     "summary": "Allow website linked to an event to be copied "
     "when the event is duplicated",
     "author": "Le Filament, Odoo Community Association (OCA)",
