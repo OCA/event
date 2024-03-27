@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="event.stage" id="event.event_stage_cancelled">
+        <field name="is_cancelled" eval="True" />
+    </record>
+</odoo>
