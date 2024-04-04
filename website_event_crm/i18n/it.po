@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-07-28 13:09+0000\n"
+"PO-Revision-Date: 2024-04-04 11:38+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -180,7 +180,7 @@ msgstr "Notifica tutte le opportunità relative alle categorie evento"
 #: code:addons/website_event_crm/models/crm_lead.py:0
 #, python-format
 msgid "Select one event type with published events."
-msgstr "Selezinare un tipo evento con eventi pubblicati."
+msgstr "Selezionare un tipo evento con eventi pubblicati."
 
 #. module: website_event_crm
 #: model:ir.model.fields,help:website_event_crm.field_crm_stage__auto_advance_stage_invite_website_event_type
