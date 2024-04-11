@@ -42,4 +42,4 @@ class TestEventRegistrationQrCode(TransactionCase):
             UniqueViolation, "event_registration_qr_code_unique"
         ):
             registration_1.qr_code = registration_2.qr_code
-            registration_1.flush()
+            registration_1.flush_recordset()

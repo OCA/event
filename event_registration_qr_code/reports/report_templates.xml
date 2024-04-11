@@ -13,7 +13,7 @@
                 <t t-if="attendee">
                     <div class="mt-2">
                         <img
-                            t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;humanreadable=0' % ('QR', attendee.qr_code, 96, 96)"
+                            t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;humanreadable=0' % ('QR', attendee.qr_code, 96, 96)"
                         />
                     </div>
                 </t>
@@ -42,7 +42,7 @@
             <t t-if="attendee">
                 <div class="mt-2">
                     <img
-                        t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;humanreadable=0' % ('QR', attendee.qr_code, 64, 64)"
+                        t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;humanreadable=0' % ('QR', attendee.qr_code, 64, 64)"
                     />
                 </div>
             </t>
