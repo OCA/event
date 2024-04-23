@@ -5,3 +5,4 @@
   * Jairo Llopis
   * Alexandre Díaz
   * Ernesto Tejeda
+* Eduardo López <elp@moduon.team>
