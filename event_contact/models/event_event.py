@@ -19,4 +19,5 @@ class EventEvent(models.Model):
 
     @api.depends("event_type_id")
     def _compute_contact_ids(self):
-        self.contact_ids |= self.event_type_id.contact_ids
+        for one in self:
+            one.contact_ids |= one.event_type_id.contact_ids
