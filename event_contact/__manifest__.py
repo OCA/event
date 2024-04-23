@@ -5,7 +5,7 @@
 
 {
     "name": "Event Contacts",
-    "version": "14.0.1.0.0",
+    "version": "16.0.1.0.0",
     "summary": "Add contacts to event and event type",
     "author": "OpenSynergy Indonesia, "
     "Tecnativa, "
@@ -13,6 +13,7 @@
     "website": "https://github.com/OCA/event",
     "category": "Marketing",
     "depends": ["event"],
+    "maintainers": ["rafaelbn", "edlopen"],
     "data": ["views/event_event_view.xml", "views/event_type_view.xml"],
     "installable": True,
     "license": "AGPL-3",
