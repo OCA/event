@@ -189,11 +189,6 @@ msgid "Name"
 msgstr "Nombre"
 
 #. module: event_mail
-#: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__sms_template_id
-msgid "SMS Template"
-msgstr "Plantilla SMS"
-
-#. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__scheduled_date
 msgid "Scheduled Sent Mail"
 msgstr "Correo Enviado Programado"
@@ -224,12 +219,6 @@ msgid "Template Mail Scheduler"
 msgstr "Plantilla de programación de correo"
 
 #. module: event_mail
-#: model:ir.model.fields,help:event_mail.field_event_mail_scheduler_template__sms_template_id
-msgid ""
-"This field contains the template of the SMS that will be automatically sent"
-msgstr "Este campo contiene la plantilla del SMS que se enviará automáticamente"
-
-#. module: event_mail
 #: model:ir.model.fields,help:event_mail.field_event_mail_scheduler_template__template_id
 msgid ""
 "This field contains the template of the mail that will be automatically sent"
@@ -245,6 +234,15 @@ msgstr "Activador "
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__interval_unit
 msgid "Unit"
 msgstr "Unidad"
+
+#~ msgid "SMS Template"
+#~ msgstr "Plantilla SMS"
+
+#~ msgid ""
+#~ "This field contains the template of the SMS that will be automatically "
+#~ "sent"
+#~ msgstr ""
+#~ "Este campo contiene la plantilla del SMS que se enviará automáticamente"
 
 #~ msgid "event.mail.scheduler.template"
 #~ msgstr "event.mail.scheduler.template"
