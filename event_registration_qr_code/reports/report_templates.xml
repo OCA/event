@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template
+        id="event_report_template_foldable_badge"
+        inherit_id="event.event_report_template_foldable_badge"
+    >
+        <xpath
+            expr="//div[hasclass('o_event_foldable_badge_barcode_container')]"
+            position="inside"
+        >
+            <div class="col-12 text-center o_event_qr_code">
+                <t t-if="attendee">
+                    <div class="mt-2">
+                        <img
+                            t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;humanreadable=0' % ('QR', attendee.qr_code, 96, 96)"
+                        />
+                    </div>
+                </t>
+                <t t-else="">
+                    <h1 class="text-center mt-2">
+                        <i
+                            class="fa-2x fa fa-qrcode"
+                            title="QR Code"
+                            role="img"
+                            aria-label="QR Code"
+                        />
+                    </h1>
+                </t>
+            </div>
+        </xpath>
+    </template>
+
+    <template
+        id="event_report_template_full_page_ticket"
+        inherit_id="event.event_report_template_full_page_ticket"
+    >
+        <xpath
+            expr="//div[hasclass('o_event_full_page_ticket_barcode_container')]"
+            position="inside"
+        >
+            <t t-if="attendee">
+                <div class="mt-2">
+                    <img
+                        t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;humanreadable=0' % ('QR', attendee.qr_code, 64, 64)"
+                    />
+                </div>
+            </t>
+            <t t-else="">
+                <h1 class="text-center mt-2">
+                    <i
+                        class="fa-2x fa fa-qrcode"
+                        title="QR Code"
+                        role="img"
+                        aria-label="QR Code"
+                    />
+                </h1>
+            </t>
+        </xpath>
+    </template>
+
+</odoo>

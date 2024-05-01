@@ -1,0 +1,42 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_registration_qr_code
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2022-11-14 17:44+0000\n"
+"Last-Translator: Grégory Moka Tourisme <gregory@mokatourisme.fr>\n"
+"Language-Team: none\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.14.1\n"
+
+#. module: event_registration_qr_code
+#: model_terms:ir.ui.view,arch_db:event_registration_qr_code.event_report_template_foldable_badge
+#: model_terms:ir.ui.view,arch_db:event_registration_qr_code.event_report_template_full_page_ticket
+msgid ""
+"<i class=\"fa-2x fa fa-qrcode\" title=\"QR Code\" role=\"img\" aria-label="
+"\"QR Code\"/>"
+msgstr ""
+"<i class=\"fa-2x fa fa-qrcode\" title=\"QR Code\" role=\"img\" aria-label="
+"\"QR Code\"/>"
+
+#. module: event_registration_qr_code
+#: model:ir.model,name:event_registration_qr_code.model_event_registration
+msgid "Event Registration"
+msgstr "Inscription"
+
+#. module: event_registration_qr_code
+#: model:ir.model.constraint,message:event_registration_qr_code.constraint_event_registration_qr_code_unique
+msgid "QR Code should be unique"
+msgstr "Le QR code doit être unique"
+
+#. module: event_registration_qr_code
+#: model:ir.model.fields,field_description:event_registration_qr_code.field_event_registration__qr_code
+msgid "Qr Code"
+msgstr "QR Code"
