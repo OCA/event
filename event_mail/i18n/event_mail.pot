@@ -178,11 +178,6 @@ msgid "Name"
 msgstr ""
 
 #. module: event_mail
-#: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__sms_template_id
-msgid "SMS Template"
-msgstr ""
-
-#. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__scheduled_date
 msgid "Scheduled Sent Mail"
 msgstr ""
@@ -210,12 +205,6 @@ msgstr ""
 #. module: event_mail
 #: model_terms:ir.ui.view,arch_db:event_mail.res_config_settings_view_form
 msgid "Template Mail Scheduler"
-msgstr ""
-
-#. module: event_mail
-#: model:ir.model.fields,help:event_mail.field_event_mail_scheduler_template__sms_template_id
-msgid ""
-"This field contains the template of the SMS that will be automatically sent"
 msgstr ""
 
 #. module: event_mail
