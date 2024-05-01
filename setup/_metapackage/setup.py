@@ -12,6 +12,7 @@ setuptools.setup(
         'odoo-addon-event_registration_mass_mailing>=16.0dev,<16.1dev',
         'odoo-addon-event_registration_multi_qty>=16.0dev,<16.1dev',
         'odoo-addon-event_registration_partner_unique>=16.0dev,<16.1dev',
+        'odoo-addon-event_registration_qr_code>=16.0dev,<16.1dev',
         'odoo-addon-event_sale_registration_multi_qty>=16.0dev,<16.1dev',
         'odoo-addon-event_sale_session>=16.0dev,<16.1dev',
         'odoo-addon-event_session>=16.0dev,<16.1dev',

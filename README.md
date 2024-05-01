@@ -25,6 +25,7 @@ addon | version | maintainers | summary
 [event_registration_mass_mailing](event_registration_mass_mailing/) | 16.0.1.0.1 | [![rafaelbn](https://github.com/rafaelbn.png?size=30px)](https://github.com/rafaelbn) [![edlopen](https://github.com/edlopen.png?size=30px)](https://github.com/edlopen) | Put event registrations emails into mailing lists
 [event_registration_multi_qty](event_registration_multi_qty/) | 16.0.1.0.0 |  | Allow registration grouped by quantities
 [event_registration_partner_unique](event_registration_partner_unique/) | 16.0.1.0.0 |  | Enforces 1 registration per partner and event
+[event_registration_qr_code](event_registration_qr_code/) | 16.0.1.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Automatically generate unique QR Codes for each registration
 [event_sale_registration_multi_qty](event_sale_registration_multi_qty/) | 16.0.1.0.0 |  | Allows sell registrations with more than one attendee
 [event_sale_session](event_sale_session/) | 16.0.1.0.2 |  | Sell Event Sessions
 [event_session](event_session/) | 16.0.1.2.0 |  | Sessions in events
