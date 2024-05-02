@@ -20,8 +20,8 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:event_registration_qr_code.event_report_template_foldable_badge
 #: model_terms:ir.ui.view,arch_db:event_registration_qr_code.event_report_template_full_page_ticket
 msgid ""
-"<i class=\"fa-2x fa fa-qrcode\" title=\"QR Code\" role=\"img\" aria-"
-"label=\"QR Code\"/>"
+"<i class=\"fa-2x fa fa-qrcode\" title=\"QR Code\" role=\"img\" aria-label="
+"\"QR Code\"/>"
 msgstr ""
 "<i class=\"fa-2x fa fa-qrcode\" title=\"QR Code\" role=\"img\" aria-label="
 "\"QR Code\"/>"
