@@ -24,12 +24,6 @@ msgid "Contacts"
 msgstr "Contactos"
 
 #. module: event_contact
-#: model:ir.model.fields,field_description:event_contact.field_event_event__display_name
-#: model:ir.model.fields,field_description:event_contact.field_event_type__display_name
-msgid "Display Name"
-msgstr "Mostrar Nombre"
-
-#. module: event_contact
 #: model:ir.model,name:event_contact.model_event_event
 msgid "Event"
 msgstr "Evento"
@@ -38,18 +32,6 @@ msgstr "Evento"
 #: model:ir.model,name:event_contact.model_event_type
 msgid "Event Template"
 msgstr "Plantilla del Evento"
-
-#. module: event_contact
-#: model:ir.model.fields,field_description:event_contact.field_event_event__id
-#: model:ir.model.fields,field_description:event_contact.field_event_type__id
-msgid "ID"
-msgstr "ID"
-
-#. module: event_contact
-#: model:ir.model.fields,field_description:event_contact.field_event_event____last_update
-#: model:ir.model.fields,field_description:event_contact.field_event_type____last_update
-msgid "Last Modified on"
-msgstr "Última Modificación el"
 
 #. module: event_contact
 #: model:ir.model.fields,help:event_contact.field_event_type__contact_ids
@@ -66,6 +48,15 @@ msgid "Partners available to attend attendees requests for this event."
 msgstr ""
 "Contactos disponibles para atender las peticiones de los asistentes para "
 "este evento."
+
+#~ msgid "Display Name"
+#~ msgstr "Mostrar Nombre"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última Modificación el"
 
 #~ msgid "Event Type"
 #~ msgstr "Tipo de evento"
