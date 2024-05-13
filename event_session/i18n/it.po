@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-01-25 16:36+0000\n"
+"PO-Revision-Date: 2024-05-13 07:39+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -1522,7 +1522,7 @@ msgstr "Confermato"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__contact_ids
 msgid "Contacts"
-msgstr ""
+msgstr "Contatti"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__country_id
@@ -2224,7 +2224,7 @@ msgstr "Evento padre"
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__contact_ids
 msgid "Partners available to attend attendees requests for this event."
-msgstr ""
+msgstr "Partner disponibili ad iscrivere partecipanti per questo evento."
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__question_ids
