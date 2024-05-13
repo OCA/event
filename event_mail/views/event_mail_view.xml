@@ -12,7 +12,7 @@
                         <field name="name" />
                     </group>
                     <group string="Mail Scheduler">
-                        <field name="scheduler_template_ids" nolabel="1">
+                        <field name="scheduler_template_ids" nolabel="1" colspan="2">
                             <tree editable="bottom">
                                 <field name="sequence" widget="handle" />
                                 <field name="template_ref" />
