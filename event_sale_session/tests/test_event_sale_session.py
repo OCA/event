@@ -1,5 +1,6 @@
 # Copyright 2017 Tecnativa - David Vidal
 # Copyright 2022 Moka Tourisme (https://www.mokatourisme.fr).
+# Copyright 2024 Tecnativa - Carolina Fernandez
 # @author Iván Todorovich <ivan.todorovich@gmail.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl-3.0).
 from odoo import Command
@@ -35,7 +36,9 @@ class EventSaleSession(BaseCommon):
 
     def test_sale_session(self):
         """Sell an event with session"""
+        self.assertEqual(self.session.unconfirmed_qty, 5)
         self.order.action_confirm()
+        self.assertEqual(self.session.unconfirmed_qty, 0)
         regs = self.env["event.registration"].search(
             [("sale_order_id", "=", self.order.id)]
         )
