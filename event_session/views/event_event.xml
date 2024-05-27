@@ -89,16 +89,6 @@
                 <field name="use_sessions" />
                 <field name="session_count" />
             </templates>
-            <xpath
-                expr="//templates//a[@name='%(event.event_registration_action_stats_from_event)d']/parent::*"
-                position="attributes"
-            >
-                <attribute name="attrs">
-                    {
-                        'invisible': [('use_sessions', '=', True)],
-                    }
-                </attribute>
-            </xpath>
             <div class="o_kanban_record_bottom" position="before">
                 <h5
                     name="sessions"
