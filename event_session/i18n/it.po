@@ -1480,6 +1480,11 @@ msgid "Available Seats"
 msgstr "Posti disponibili"
 
 #. module: event_session
+#: model_terms:ir.ui.view,arch_db:event_session.view_event_session_tree
+msgid "Available seats not expected"
+msgstr ""
+
+#. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__byday
 msgid "By day"
 msgstr "Di giorno"
@@ -2151,6 +2156,11 @@ msgid "No more seats available for this session."
 msgstr "Non ci sono più posti per questa sessione."
 
 #. module: event_session
+#: model_terms:ir.ui.view,arch_db:event_session.view_event_session_tree
+msgid "Not allocated seats"
+msgstr ""
+
+#. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__note
 msgid "Note"
 msgstr "Nota"
@@ -2184,6 +2194,11 @@ msgstr "Numero di messaggi che richiedono un'azione"
 #: model:ir.model.fields,help:event_session.field_event_session__message_has_error_counter
 msgid "Number of messages with delivery error"
 msgstr "Numero di messaggi con errore di consegna"
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__seats_available_unexpected
+msgid "Number of seats non allocated by an attendee of any kind"
+msgstr ""
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__organizer_id
