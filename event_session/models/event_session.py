@@ -91,6 +91,11 @@ class EventSession(models.Model):
         compute="_compute_seats_expected",
         compute_sudo=True,
     )
+    seats_available_unexpected = fields.Integer(
+        string="Number of seats non allocated by an attendee of any kind",
+        compute="_compute_seats_available_unexpected",
+        compute_sudo=True,
+    )
     event_registrations_open = fields.Boolean(
         string="Registration open",
         compute="_compute_event_registrations_open",
@@ -236,6 +241,12 @@ class EventSession(models.Model):
             rec.seats_expected = (
                 rec.seats_unconfirmed + rec.seats_reserved + rec.seats_used
             )
+
+    @api.depends("seats_max", "seats_expected")
+    def _compute_seats_available_unexpected(self):
+        """How many non allocated free seats we've got?"""
+        for rec in self:
+            rec.seats_available_unexpected = rec.seats_max - rec.seats_expected
 
     @api.depends("date_tz", "date_begin")
     def _compute_date_begin_located(self):

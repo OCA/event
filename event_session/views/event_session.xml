@@ -267,6 +267,12 @@
                     readonly="1"
                     optional="hide"
                 />
+                <field
+                    name="seats_available_unexpected"
+                    string="Not allocated seats"
+                    sum="Available seats not expected"
+                    attrs="{'invisible': [('seats_limited','=',False)]}"
+                />
                 <field name="seats_reserved" sum="Total" readonly="1" optional="hide" />
                 <field
                     name="seats_unconfirmed"
