@@ -114,6 +114,11 @@ msgid "Sales Order Line"
 msgstr "Línea de pedido de venta"
 
 #. module: event_sale_session
+#: model:ir.model.fields,field_description:event_sale_session.field_event_session__order_line_ids
+msgid "Sales Order Lines"
+msgstr "Líneas de pedido de venta"
+
+#. module: event_sale_session
 #: model:ir.model.fields,field_description:event_sale_session.field_event_event_configurator__event_session_id
 #: model:ir.model.fields,field_description:event_sale_session.field_registration_editor_line__session_id
 #: model:ir.model.fields,field_description:event_sale_session.field_sale_order_line__event_session_id
@@ -135,6 +140,26 @@ msgstr "Evento estándar + catering"
 #: model_terms:ir.ui.view,arch_db:event_sale_session.view_event_session_form
 msgid "Total sales for this session"
 msgstr "Total de ventas para esta sesión"
+
+#. module: event_sale_session
+#: model_terms:ir.ui.view,arch_db:event_sale_session.view_event_session_tree
+msgid "Total unconfirmed seats in orders"
+msgstr "Total plazas de pedidos no confirmados"
+
+#. module: event_sale_session
+#: model:ir.model.fields,field_description:event_sale_session.field_event_session__unconfirmed_qty
+msgid "Unconfirmed Qty"
+msgstr "Cantidad sin asignar"
+
+#. module: event_sale_session
+#: model_terms:ir.ui.view,arch_db:event_sale_session.view_event_session_form
+msgid "Unconfirmed order seats"
+msgstr "Plazas en pedidos sin confirmar"
+
+#. module: event_sale_session
+#: model_terms:ir.ui.view,arch_db:event_sale_session.view_event_session_form
+msgid "Unconfirmed orders seats"
+msgstr "Plazas en pedidos sin confirmar"
 
 #. module: event_sale_session
 #: model:event.event.ticket,name:event_sale_session.event_ticket_007_vip
