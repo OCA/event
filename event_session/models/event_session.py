@@ -450,7 +450,9 @@ class EventSession(models.Model):
     def action_open_registrations(self):
         """Open session registrations"""
         self.ensure_one()
-        action = self.env.ref("event.act_event_registration_from_event").read()[0]
+        action = self.env["ir.actions.actions"]._for_xml_id(
+            "event.act_event_registration_from_event"
+        )
         action["domain"] = [("id", "in", self.registration_ids.ids)]
         action["context"] = {
             "default_event_id": self.event_id.id,
