@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-05-13 07:39+0000\n"
+"PO-Revision-Date: 2024-05-28 10:34+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -1482,7 +1482,7 @@ msgstr "Posti disponibili"
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_tree
 msgid "Available seats not expected"
-msgstr ""
+msgstr "Posti disponibili non previsti"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__byday
@@ -2158,7 +2158,7 @@ msgstr "Non ci sono più posti per questa sessione."
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_tree
 msgid "Not allocated seats"
-msgstr ""
+msgstr "Posti non assegnati"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__note
@@ -2198,7 +2198,7 @@ msgstr "Numero di messaggi con errore di consegna"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__seats_available_unexpected
 msgid "Number of seats non allocated by an attendee of any kind"
-msgstr ""
+msgstr "Numero di posti non assegnati ad alcun partecipante di qualsiasi tipo"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__organizer_id
