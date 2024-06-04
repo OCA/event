@@ -37,6 +37,7 @@ msgstr ""
 
 #. module: website_event_membership_restriction
 #: model:ir.model.fields,help:website_event_membership_restriction.field_event_event__registration_membership_only
+#: model:ir.model.fields,help:website_event_membership_restriction.field_event_session__registration_membership_only
 msgid "Allow registration only to members"
 msgstr "Permitir registro solo a socios"
 
@@ -67,6 +68,7 @@ msgstr "Registro"
 
 #. module: website_event_membership_restriction
 #: model:ir.model.fields,field_description:website_event_membership_restriction.field_event_event__registration_membership_only
+#: model:ir.model.fields,field_description:website_event_membership_restriction.field_event_session__registration_membership_only
 msgid "Registration Membership Only"
 msgstr "Registro sólo para socios"
 
