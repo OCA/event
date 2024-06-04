@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 Tecnativa - Pilar Vargas
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <template
+        id="registration_template"
+        inherit_id="website_event.registration_template"
+        priority="999"
+    >
+        <xpath
+            expr="//form//div[@id='o_wevent_tickets_collapse']//button"
+            position="attributes"
+        >
+            <attribute name="class">d-none</attribute>
+        </xpath>
+        <xpath
+            expr="//form//div[@id='o_wevent_tickets_collapse']//button"
+            position="after"
+        >
+            <button
+                type="submit"
+                t-att-class="'btn btn-primary o_wait_lazy_js a-submit ' + (event.registration_membership_only and (not request.env.user._is_public() and (request.env.user.partner_id.commercial_partner_id.membership_state not in ['paid', 'free'] or request.env.user.partner_id.membership_state not in ['paid', 'free']) and 'disabled' or ''))"
+                t-attf-id="#{event.id}"
+            >
+                Register
+                <t
+                    t-if="event.seats_limited and event.seats_max and event.seats_available &lt;= (event.seats_max * 0.2)"
+                >
+                    (only <t t-out="event.seats_available" /> available)
+                </t>
+            </button>
+            <t
+                t-if="event.registration_membership_only and (not request.env.user._is_public() and (request.env.user.partner_id.commercial_partner_id.membership_state not in ['paid', 'free'] or request.env.user.partner_id.membership_state not in ['paid', 'free']))"
+            >
+                <a class="text-center small" href="/membership-info">Members only</a>
+            </t>
+        </xpath>
+        <xpath expr="//form//div[@t-else='']//button" position="attributes">
+            <attribute name="class">d-none</attribute>
+        </xpath>
+        <xpath expr="//form//div[@t-else='']//button" position="after">
+            <button
+                type="submit"
+                t-att-class="'btn btn-primary o_wait_lazy_js a-submit ' + (event.registration_membership_only and (not request.env.user._is_public() and (request.env.user.partner_id.commercial_partner_id.membership_state not in ['paid', 'free'] or request.env.user.partner_id.membership_state not in ['paid', 'free']) and 'disabled' or ''))"
+                t-attf-id="#{event.id}"
+            >
+                Register
+                <t
+                    t-if="event.seats_limited and event.seats_max and event.seats_available &lt;= (event.seats_max * 0.2)"
+                >
+                    (only <t t-out="event.seats_available" /> available)
+                </t>
+            </button>
+            <t
+                t-if="event.registration_membership_only and (not request.env.user._is_public() and (request.env.user.partner_id.commercial_partner_id.membership_state not in ['paid', 'free'] or request.env.user.partner_id.membership_state not in ['paid', 'free']))"
+            >
+                <a class="text-center small" href="/membership-info">Members only</a>
+            </t>
+        </xpath>
+    </template>
+</odoo>
