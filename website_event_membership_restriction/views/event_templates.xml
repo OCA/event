@@ -7,6 +7,15 @@
         inherit_id="website_event.registration_template"
         priority="999"
     >
+        <!-- Put this evaluation at the very beginning -->
+        <xpath expr="//div[@t-if='toast_message']" position="before">
+            <t t-set="user" t-value="request.env.user" />
+            <t t-set="partner" t-value="user.partner_id" />
+            <t
+                t-set="is_disabled_for_non_members"
+                t-value="event.registration_membership_only and (not user or (partner.commercial_partner_id.membership_state not in ['paid', 'free'] and partner.membership_state not in ['paid', 'free']))"
+            />
+        </xpath>
         <!-- Hide the existing element and recreate it as both class and t-att-class can't coexist -->
         <xpath
             expr="//form//div[@id='o_wevent_tickets_collapse']//button"
@@ -18,10 +27,6 @@
             expr="//form//div[@id='o_wevent_tickets_collapse']//button"
             position="after"
         >
-            <t
-                t-set="is_disabled_for_non_members"
-                t-value="event.registration_membership_only and (not request.env.user or request.env.user.partner_id.commercial_partner_id.membership_state not in ['paid', 'free'] or request.env.user.partner_id.membership_state not in ['paid', 'free'])"
-            />
             <button
                 type="submit"
                 t-att-class="'btn btn-primary o_wait_lazy_js a-submit ' + ('disabled' if is_disabled_for_non_members else '')"
@@ -43,10 +48,6 @@
             <attribute name="class">d-none</attribute>
         </xpath>
         <xpath expr="//form//div[@t-else='']//button" position="after">
-            <t
-                t-set="is_disabled_for_non_members"
-                t-value="event.registration_membership_only and (not request.env.user or request.env.user.partner_id.commercial_partner_id.membership_state not in ['paid', 'free'] or request.env.user.partner_id.membership_state not in ['paid', 'free'])"
-            />
             <button
                 type="submit"
                 t-att-class="'btn btn-primary o_wait_lazy_js a-submit ' + ('disabled' if is_disabled_for_non_members else '')"
