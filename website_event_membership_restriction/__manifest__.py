@@ -3,7 +3,7 @@
 {
     "name": "Website Event Membership Restriction",
     "summary": "Restrict event registration to members only",
-    "version": "16.0.1.1.0",
+    "version": "16.0.1.2.0",
     "category": "Website",
     "website": "https://github.com/OCA/event",
     "author": "Tecnativa, Odoo Community Association (OCA)",
