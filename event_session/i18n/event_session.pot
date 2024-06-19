@@ -729,6 +729,12 @@ msgid "Display Name"
 msgstr ""
 
 #. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__date_tz
+#: model:ir.model.fields,field_description:event_session.field_wizard_event_session__date_tz
+msgid "Display Timezone"
+msgstr ""
+
+#. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__community_menu
 msgid "Display community tab on website"
 msgstr ""
@@ -1009,6 +1015,13 @@ msgstr ""
 #: model:ir.model.fields,help:event_session.field_event_session__start_sale_datetime
 msgid ""
 "If ticketing is used, contains the earliest starting sale date of tickets."
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,help:event_session.field_event_session__date_tz
+msgid ""
+"Indicates the timezone in which the event dates/times will be displayed on "
+"the website."
 msgstr ""
 
 #. module: event_session
@@ -1715,12 +1728,6 @@ msgid "Time slots"
 msgstr ""
 
 #. module: event_session
-#: model:ir.model.fields,field_description:event_session.field_event_session__date_tz
-#: model:ir.model.fields,field_description:event_session.field_wizard_event_session__date_tz
-msgid "Timezone"
-msgstr ""
-
-#. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_search
 msgid "Today Activities"
 msgstr ""
@@ -1888,6 +1895,13 @@ msgstr ""
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__rrule_type__weekly
 msgid "Weeks"
+msgstr ""
+
+#. module: event_session
+#: model:ir.model.fields,help:event_session.field_event_event__date_begin
+msgid ""
+"When the event is scheduled to take place (expressed in your local timezone "
+"on the form view)."
 msgstr ""
 
 #. module: event_session
