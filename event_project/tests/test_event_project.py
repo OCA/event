@@ -1,17 +1,19 @@
 # Copyright 2016 Pedro M. Baeza <pedro.baeza@tecnativa.com>
 # Copyright 2017 David Vidal <david.vidal@tecnativa.com>
+# Copyright 2024 Moduon Team S.L.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from datetime import date, timedelta
 
 from odoo import fields
-from odoo.tests import common
+from odoo.tests import TransactionCase
 
 
-class TestEventProject(common.SavepointCase):
+class TestEventProject(TransactionCase):
     @classmethod
     def setUpClass(cls):
-        super(TestEventProject, cls).setUpClass()
+        super().setUpClass()
+        cls.organizer = cls.env["res.partner"].create({"name": "Organizer"})
         cls.date = {
             "begin": fields.Date.to_string(date.today()),
             "end": fields.Date.to_string(date.today() + timedelta(days=7)),
@@ -43,24 +45,37 @@ class TestEventProject(common.SavepointCase):
             }
         )
 
-    def test_01_defaults(self):
-        self.assertEqual(self.event.project_id.calculation_type, "date_end")
-        self.assertEqual(self.event.project_id.date, self.event.date_begin.date())
-        self.assertEqual(self.event.display_name, self.event.project_id.name)
+    def _link_project_to_event(self, event, project):
+        """Set project in event"""
+        event.write({"project_id": project.id})
 
-    def test_02_project_recalculation(self):
+    def _assert_event_project(self, event, project):
+        """Assert a bunch of fields between event and project."""
+        self.assertEqual(project.date, event.date_end.date())
+        self.assertEqual(project.date_start, event.date_begin.date())
+        self.assertEqual(project.name, event.display_name)
+        self.assertEqual(project.partner_id, event.organizer_id)
+        self.assertEqual(project.description, event.note)
+        self.assertEqual(event.task_ids, project.task_ids)
+
+    def test_initial_project(self):
+        """Test when a project is linked to an event"""
+        self._link_project_to_event(self.event, self.project)
+        self._assert_event_project(self.event, self.project)
+
+    def test_event_udpates(self):
+        """Test project changes when event is updated"""
+        self._link_project_to_event(self.event, self.project)
         self.event.date_begin = self.date["begin2"]
         self.event.date_end = self.date["end2"]
         self.event.name = "Event name changed"
-        self.assertEqual(self.event.project_id.date, self.event.date_begin.date())
-        self.assertEqual(self.event.display_name, self.event.project_id.name)
+        self.event.organizer_id = self.organizer
+        self.event.note = "<p>Test note</p>"
+        self._assert_event_project(self.event, self.project)
 
-    def test_03_project_change(self):
+    def test_project_change(self):
+        """Test project change in event"""
+        self._link_project_to_event(self.event, self.project)
+        self._assert_event_project(self.event, self.project)
         self.event.project_id = self.project_2
-        self.event.refresh()
-        self.assertTrue(self.event.project_id)
-        self.assertNotEqual(self.event.project_id, self.project_2)
-        self.assertEqual(self.event.project_id.calculation_type, "date_end")
-        self.assertEqual(self.event.project_id.date, self.event.date_begin.date())
-        self.assertEqual(self.event.display_name, self.event.project_id.name)
-        self.assertEqual(self.event.count_tasks, 1)
+        self._assert_event_project(self.event, self.project_2)

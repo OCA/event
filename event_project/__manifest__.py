@@ -6,12 +6,12 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     "name": "Event project",
-    "version": "14.0.1.0.0",
-    "author": "Tecnativa, Odoo Community Association (OCA)",
+    "version": "16.0.1.0.1",
+    "author": "Tecnativa, Moduon, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/event",
     "license": "AGPL-3",
     "category": "Event Management",
-    "depends": ["event", "project_recalculate"],
+    "depends": ["event", "project"],
     "data": [
         "views/event_event_view.xml",
         "views/project_project_view.xml",
@@ -19,4 +19,5 @@
         "security/ir.model.access.csv",
     ],
     "installable": True,
+    "maintainers": ["Shide", "rafaelbn"],
 }
