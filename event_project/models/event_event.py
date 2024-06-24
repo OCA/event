@@ -1,4 +1,5 @@
 # Copyright 2017 Tecnativa - David Vidal
+# Copyright 2024 Moduon Team S.L.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo import api, fields, models
@@ -31,46 +32,42 @@ class EventEvent(models.Model):
     def project_data_update(self, vals):
         """Update data in the linked project. To be called after calling
         create/write super."""
-        recalculate = False
-        if self.project_id:
-            project_vals = {}
-            if vals.get("name"):
-                project_vals["name"] = self.display_name
-            if vals.get("date_begin"):
-                project_vals["date"] = self.date_begin
-                project_vals["name"] = self.display_name
-                recalculate = True
-            if vals.get("project_id"):
-                project_vals["event_id"] = self.id
-                project_vals["calculation_type"] = "date_end"
-                project_vals["date"] = self.date_begin
-                project_vals["name"] = self.display_name
-                recalculate = True
-            if project_vals:
-                self.project_id.write(project_vals)
-        return recalculate
 
-    def _check_new_project(self, vals):
-        if vals.get("project_id"):
-            vals["project_id"] = (
-                self.env["project.project"].browse(vals["project_id"]).copy().id
-            )
+        def _get_project_vals(event):
+            return {
+                "name": event.display_name,
+                "date_start": event.date_begin,
+                "date": event.date_end,
+                "event_id": event.id,
+                "partner_id": event.organizer_id.id,
+                "description": event.note,
+            }
+
+        fields_to_check = {
+            "name",
+            "date_begin",
+            "date_end",
+            "project_id",
+            "organizer_id",
+            "note",
+        }
+        if not any([f in vals for f in fields_to_check]):
+            return
+
+        for event in self:
+            if not event.project_id:
+                continue
+            event.project_id.write(_get_project_vals(event))
 
     @api.model
     def create(self, vals):
-        self._check_new_project(vals)
-        event = super().create(vals)
-        recalculate = event.project_data_update(vals)
-        if recalculate and not self.env.context.get("no_recalculate"):
-            event.project_id.project_recalculate()
-        return event
+        events = super().create(vals)
+        events.project_data_update(vals)
+        return events
 
     def write(self, vals):
-        if vals.get("project_id") is not None and not vals.get("project_id"):
+        if vals.get("project_id") is False:
             self.mapped("project_id").write({"event_id": False})
-        self._check_new_project(vals)
         res = super().write(vals)
-        recalculate = self.project_data_update(vals)
-        if recalculate and not self.env.context.get("no_recalculate"):
-            self.project_id.project_recalculate()
+        self.project_data_update(vals)
         return res

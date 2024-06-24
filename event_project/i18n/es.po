@@ -35,7 +35,7 @@ msgstr "Evento"
 #: model:ir.model.fields,field_description:event_project.field_project_project__id
 #: model:ir.model.fields,field_description:event_project.field_project_task__id
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: event_project
 #: model:ir.model.fields,field_description:event_project.field_event_event____last_update
