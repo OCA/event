@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Allows to search by event and group by event -->
+    <record id="view_task_search_form" model="ir.ui.view">
+        <field name="name">Filter and group tasks by event</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_search_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="event_id" />
+            </xpath>
+            <xpath expr="//group" position="inside">
+                <filter
+                    string="Event"
+                    name="event"
+                    context="{'group_by': 'event_id'}"
+                />
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Add related event to task form view -->
+    <record id="view_task_form2" model="ir.ui.view">
+        <field name="name">Add related event to task</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="before">
+                <field
+                    name="event_id"
+                    attrs="{'invisible': [('event_id', '=', False)]}"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
