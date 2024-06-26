@@ -10,6 +10,7 @@ setuptools.setup(
     install_requires=[
         'odoo-addon-event_contact>=16.0dev,<16.1dev',
         'odoo-addon-event_mail>=16.0dev,<16.1dev',
+        'odoo-addon-event_project>=16.0dev,<16.1dev',
         'odoo-addon-event_registration_mass_mailing>=16.0dev,<16.1dev',
         'odoo-addon-event_registration_multi_qty>=16.0dev,<16.1dev',
         'odoo-addon-event_registration_partner_unique>=16.0dev,<16.1dev',
