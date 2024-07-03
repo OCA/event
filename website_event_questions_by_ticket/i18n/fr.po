@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-09-03 13:40+0000\n"
-"Last-Translator: Grégory Moka Tourisme <gregory@mokatourisme.fr>\n"
+"PO-Revision-Date: 2024-07-03 16:47+0000\n"
+"Last-Translator: Rémi <remi@le-filament.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 #. module: website_event_questions_by_ticket
 #: model:ir.model,name:website_event_questions_by_ticket.model_event_event
 msgid "Event"
-msgstr "Événement"
+msgstr "Évènement"
 
 #. module: website_event_questions_by_ticket
 #: model:ir.model,name:website_event_questions_by_ticket.model_event_question
@@ -34,4 +34,4 @@ msgstr "Laisser vide pour activer sur tous les billets"
 #. module: website_event_questions_by_ticket
 #: model:ir.model.fields,field_description:website_event_questions_by_ticket.field_event_question__restricted_ticket_ids
 msgid "Limited to tickets"
-msgstr "Restreindre aux billets"
+msgstr "Restreindre aux tickets"
