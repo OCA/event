@@ -17,13 +17,13 @@ Link partner to events
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fevent-lightgray.png?logo=github
-    :target: https://github.com/OCA/event/tree/16.0/partner_event
+    :target: https://github.com/OCA/event/tree/17.0/partner_event
     :alt: OCA/event
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/event-16-0/event-16-0-partner_event
+    :target: https://translation.odoo-community.org/projects/event-17-0/event-17-0-partner_event
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/event&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/event&target_branch=17.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
@@ -33,14 +33,16 @@ smart button.
 
 It also includes:
 
-* Search partners by their event attendees.
-* Search partners by number of events attendees.
-* Search partners by number of events attended.
-* Partner column is visible on registration one2many list inside the event.
-* Action in partner tree view 'More' button, to register several partners
-  to an event
-* Restricts partner deletion when event attendees are linked to it.
-* Onchange for partner_id removed in v16 core in Event Registration- including functionality here
+-  Search partners by their event attendees.
+-  Search partners by number of events attendees.
+-  Search partners by number of events attended.
+-  Partner column is visible on registration one2many list inside the
+   event.
+-  Action in partner tree view 'More' button, to register several
+   partners to an event
+-  Restricts partner deletion when event attendees are linked to it.
+-  Onchange for partner_id removed in v16 core in Event Registration-
+   including functionality here
 
 **Table of contents**
 
@@ -50,15 +52,17 @@ It also includes:
 Configuration
 =============
 
-There is a new option in event form view, "Create Partners in registration". If
-this option is checked, when you add registrations to this event, partners will
-be created automatically with name, email, phone and mobile fields.
+There is a new option in event form view, "Create Partners in
+registration". If this option is checked, when you add registrations to
+this event, partners will be created automatically with name, email,
+phone and mobile fields.
 
-If partner already exists and user only fills email, name, phone and mobile fields will
-be filled with partner's data.
+If partner already exists and user only fills email, name, phone and
+mobile fields will be filled with partner's data.
 
-The event registration values email, name, phone and mobile will be changed if the
-related partner values are changed and the event end date hasn't passed yet.
+The event registration values email, name, phone and mobile will be
+changed if the related partner values are changed and the event end date
+hasn't passed yet.
 
 Bug Tracker
 ===========
@@ -66,7 +70,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/event/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/event/issues/new?body=module:%20partner_event%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/event/issues/new?body=module:%20partner_event%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -74,33 +78,33 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Tecnativa
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* `Tecnativa <https://www.tecnativa.com>`__:
+-  `Tecnativa <https://www.tecnativa.com>`__:
 
-  * Pedro M. Baeza
-  * Antonio Espinosa
-  * Jairo Llopis
-  * Vicent Cubells
-  * David Vidal
-  * Rafael Blasco
-  * Víctor Martínez
-  * Stefan Ungureanu
-  * Carolina Fernandez
+   -  Pedro M. Baeza
+   -  Antonio Espinosa
+   -  Jairo Llopis
+   -  Vicent Cubells
+   -  David Vidal
+   -  Rafael Blasco
+   -  Víctor Martínez
+   -  Stefan Ungureanu
+   -  Carolina Fernandez
 
-* `Antiun <https://antiun.com/>`__:
+-  `Antiun <https://antiun.com/>`__:
 
-  * Javier Iniesta
+   -  Javier Iniesta
 
-* `Anil Kesariya`
+-  Anil Kesariya
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -112,6 +116,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/event <https://github.com/OCA/event/tree/16.0/partner_event>`_ project on GitHub.
+This module is part of the `OCA/event <https://github.com/OCA/event/tree/17.0/partner_event>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
