@@ -20,22 +20,18 @@ class ResPartner(models.Model):
         string="Attendances", compute="_compute_registration_count", store=False
     )
 
-    @api.depends("event_registration_ids")
+    @api.depends("event_registration_ids", "event_registration_ids.state")
     def _compute_registration_count(self):
         for partner in self:
-            partner.registration_count = len(
-                self.env["event.registration"]
-                .search(
-                    [
-                        ("attendee_partner_id", "child_of", partner.id),
-                        ("state", "not in", ("cancel", "draft")),
-                    ]
-                )
-                .mapped("event_id")
+            partner.registration_count = self.env["event.registration"].search_count(
+                [
+                    ("attendee_partner_id", "child_of", partner.id),
+                    ("state", "not in", ("cancel", "draft")),
+                ]
             )
 
     def write(self, data):
-        res = super(ResPartner, self).write(data)
+        res = super().write(data)
         self.mapped("event_registration_ids").partner_data_update(data)
         return res
 
@@ -43,4 +39,4 @@ class ResPartner(models.Model):
         attendee_partner = self.env.context.get("get_attendee_partner_address", False)
         if attendee_partner:
             return super(ResPartner, attendee_partner).address_get(adr_pref)
-        return super(ResPartner, self).address_get(adr_pref)
+        return super().address_get(adr_pref)

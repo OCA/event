@@ -26,7 +26,7 @@
         <field name="model">event.registration</field>
         <field name="inherit_id" ref="event.view_registration_search" />
         <field name="arch" type="xml">
-            <filter name="expected" position="after">
+            <filter name="taken" position="after">
                 <filter
                     name="done"
                     domain="[('state', '=', 'done')]"
