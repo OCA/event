@@ -11,12 +11,13 @@ from psycopg2 import IntegrityError
 
 from odoo import fields
 from odoo.tests import common
+from odoo.tools import mute_logger
 
 
 class TestEventRegistration(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
-        super(TestEventRegistration, cls).setUpClass()
+        super().setUpClass()
         cls.event_0 = cls.env["event.event"].create(
             {
                 "name": "Test event",
@@ -61,15 +62,19 @@ class TestEventRegistration(common.TransactionCase):
 
     def test_count_registrations(self):
         event_1 = self.event_0.copy()
+        self.registration_01.state = "draft"
+        self.registration_02.state = "draft"
         self.assertEqual(self.partner_01.registration_count, 0)
         self.registration_01.state = "open"
-        self.partner_01.invalidate_recordset()
         self.assertEqual(self.partner_01.registration_count, 1)
-        self.registration_02.state = "done"
+        self.registration_02.state = "open"
         self.registration_02.attendee_partner_id = self.partner_01
         self.registration_02.event_id = event_1
-        self.partner_01.invalidate_recordset()
         self.assertEqual(self.partner_01.registration_count, 2)
+        self.registration_01.state = "cancel"
+        self.assertEqual(self.partner_01.registration_count, 1)
+        self.registration_02.state = "done"
+        self.assertEqual(self.partner_01.registration_count, 1)
 
     def test_button_register(self):
         event_1 = self.event_0.copy()
@@ -97,8 +102,9 @@ class TestEventRegistration(common.TransactionCase):
 
     def test_delete_registered_partner(self):
         # We can't delete a partner with registrations
-        with self.assertRaises(IntegrityError), self.cr.savepoint():
-            self.cr._default_log_exceptions = False
+        with self.assertRaises(IntegrityError), self.cr.savepoint(), mute_logger(
+            "odoo.sql_db"
+        ):
             self.partner_01.unlink()
         # Create a brand new partner and delete it
         partner3 = self.env["res.partner"].create({"name": "unregistered partner"})

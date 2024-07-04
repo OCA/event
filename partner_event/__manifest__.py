@@ -6,11 +6,12 @@
 # Copyright 2018 Jupical Technologies Pvt. Ltd. - Anil Kesariya
 # Copyright 2020 Tecnativa S.L. - Víctor Martínez
 # Copyright 2023 Tecnativa S.L. - Carolina Fernandez
+# Copyright 2024 Tecnativa S.L. - Juan José Seguí
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 {
     "name": "Link partner to events",
-    "version": "16.0.1.0.1",
+    "version": "17.0.1.0.0",
     "category": "Marketing",
     "author": "Tecnativa," "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/event",
