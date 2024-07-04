@@ -1,12 +1,10 @@
 # Copyright 2019 David Vidal
 # License AGPL-3 - See https://www.gnu.org/licenses/agpl-3.0.html
-from odoo import SUPERUSER_ID, api
 
 
-def post_init_hook(cr, registry):
+def post_init_hook(env):
     """Preload proper attendee partner for existing registrations using
     the same rules the module does"""
-    env = api.Environment(cr, SUPERUSER_ID, {})
     attendees_emails = env["event.registration"].read_group(
         [("email", "!=", False)], ["email"], groupby="email"
     )

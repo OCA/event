@@ -54,7 +54,6 @@ msgstr "Numero di eventi con registrazioni confermate."
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_event_event__create_partner
-#: model:ir.model.fields,field_description:partner_event.field_event_session__create_partner
 msgid "Create Partners in registration"
 msgstr "Crea partner alla registrazione"
 
@@ -101,11 +100,6 @@ msgid "ID"
 msgstr "ID"
 
 #. module: partner_event
-#: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
-
-#. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__write_uid
 msgid "Last Updated by"
 msgstr "Ultimo aggiornamento di"
@@ -139,6 +133,9 @@ msgstr "Registrazioni"
 #: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
 msgid "Select event to register"
 msgstr "Selezionare evento da registrare"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
 
 #~ msgid "Errors"
 #~ msgstr "Errori"
