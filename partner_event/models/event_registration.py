@@ -5,6 +5,7 @@
 # Copyright 2020 Tecnativa - Víctor Martínez
 # Copyright 2014-2023 Tecnativa - Pedro M. Baeza
 # Copyright 2023 Tecnativa - Carolina Fernandez
+# Copyright 2024 Tecnativa - Juan José Seguí
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from odoo import api, fields, models
 
@@ -44,7 +45,7 @@ class EventRegistration(models.Model):
             if vals.get("event_id"):
                 event = Event.browse(vals["event_id"])
             if attendee_partner:
-                for field in {"name", "phone", "mobile"}:
+                for field in {"name", "phone"}:
                     vals[field] = vals.get(field) or attendee_partner[field]
             elif event and event.create_partner:
                 # Create partner

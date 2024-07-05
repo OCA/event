@@ -16,7 +16,7 @@ from odoo.tests import common
 class TestEventRegistration(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
-        super(TestEventRegistration, cls).setUpClass()
+        super().setUpClass()
         cls.event_0 = cls.env["event.event"].create(
             {
                 "name": "Test event",

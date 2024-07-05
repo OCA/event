@@ -35,7 +35,7 @@ class ResPartner(models.Model):
             )
 
     def write(self, data):
-        res = super(ResPartner, self).write(data)
+        res = super().write(data)
         self.mapped("event_registration_ids").partner_data_update(data)
         return res
 
@@ -43,4 +43,4 @@ class ResPartner(models.Model):
         attendee_partner = self.env.context.get("get_attendee_partner_address", False)
         if attendee_partner:
             return super(ResPartner, attendee_partner).address_get(adr_pref)
-        return super(ResPartner, self).address_get(adr_pref)
+        return super().address_get(adr_pref)
