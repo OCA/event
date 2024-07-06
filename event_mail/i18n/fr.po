@@ -6,20 +6,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2018-11-06 13:26+0000\n"
-"Last-Translator: William Olhasque <william.olhasque@scopea.fr>\n"
+"PO-Revision-Date: 2024-07-06 12:16+0000\n"
+"Last-Translator: Rémi <remi@le-filament.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.2.2\n"
+"X-Generator: Weblate 5.0.2\n"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__mail_count_done
 msgid "# Sent"
-msgstr ""
+msgstr "# Envoyé(s)"
 
 #. module: event_mail
 #: model_terms:ir.ui.view,arch_db:event_mail.res_config_settings_view_form
@@ -33,18 +33,17 @@ msgstr ""
 #. module: event_mail
 #: model:ir.model.fields,help:event_mail.field_event_mail_scheduler_template__mail_registration_ids
 msgid "Communication related to event registrations"
-msgstr ""
+msgstr "Communication liée aux inscriptions aux événements"
 
 #. module: event_mail
 #: model:ir.model,name:event_mail.model_res_company
 msgid "Companies"
-msgstr ""
+msgstr "Sociétés"
 
 #. module: event_mail
 #: model:ir.model,name:event_mail.model_res_config_settings
-#, fuzzy
 msgid "Config Settings"
-msgstr "event.config.settings"
+msgstr "Paramètres de config"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__create_uid
@@ -66,9 +65,8 @@ msgstr "Nom affiché"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__sequence
-#, fuzzy
 msgid "Display order"
-msgstr "Nom affiché"
+msgstr "Ordre d'affichage"
 
 #. module: event_mail
 #: model:ir.model,name:event_mail.model_event_event
@@ -85,7 +83,7 @@ msgstr "Modèle mail événement"
 #. module: event_mail
 #: model:ir.model,name:event_mail.model_event_type
 msgid "Event Template"
-msgstr ""
+msgstr "Modèle d'évènement"
 
 #. module: event_mail
 #: model:ir.model,name:event_mail.model_event_mail_scheduler_template
@@ -95,7 +93,7 @@ msgstr ""
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__mail_state
 msgid "Global communication Status"
-msgstr ""
+msgstr "Status de communication global"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__id
@@ -106,7 +104,7 @@ msgstr "ID"
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__interval_nbr
 msgid "Interval"
-msgstr ""
+msgstr "Intervalle"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template____last_update
@@ -128,9 +126,8 @@ msgstr "Dernière modification le"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__mail_registration_ids
-#, fuzzy
 msgid "Mail Registration"
-msgstr "Options e-mail"
+msgstr "Mail d'inscription"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_template__scheduler_template_ids
@@ -176,7 +173,7 @@ msgstr "Nom"
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__scheduled_date
 msgid "Schedule Date"
-msgstr ""
+msgstr "Date planifiée"
 
 #. module: event_mail
 #: model:ir.model,name:event_mail.model_event_mail_template
@@ -186,19 +183,18 @@ msgstr ""
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__notification_type
 msgid "Send"
-msgstr ""
+msgstr "Envoyer"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__mail_done
 msgid "Sent"
-msgstr ""
+msgstr "Envoyé"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__template_ref
 #: model_terms:ir.ui.view,arch_db:event_mail.res_config_settings_view_form
-#, fuzzy
 msgid "Template"
-msgstr "Modèle d'email"
+msgstr "Modèle de mail"
 
 #. module: event_mail
 #: model_terms:ir.ui.view,arch_db:event_mail.res_config_settings_view_form
@@ -213,12 +209,12 @@ msgstr ""
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__interval_type
 msgid "Trigger "
-msgstr ""
+msgstr "Déclencheur - "
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__interval_unit
 msgid "Unit"
-msgstr ""
+msgstr "Unité"
 
 #~ msgid "Email Schedule"
 #~ msgstr "Planification email"
