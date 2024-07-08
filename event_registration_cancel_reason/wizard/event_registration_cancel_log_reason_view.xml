@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="event_registration_cancel_log_reason_view">
+        <field name="name">Logging registration cancellation wizard</field>
+        <field name="model">event.registration.cancel.log.reason</field>
+        <field name="arch" type="xml">
+            <form name="">
+                <field name="event_type_id" invisible="1" />
+                <label
+                    for="reason_id"
+                    string="Select the reason for cancelling the registration:"
+                />
+                <field name="reason_id" />
+                <footer>
+                    <button
+                        name="button_log"
+                        string="Cancel registration"
+                        class="oe_highlight"
+                        type="object"
+                    />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
