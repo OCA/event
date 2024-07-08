@@ -18,11 +18,6 @@ msgstr ""
 
 #. module: website_event_require_login
 #: model_terms:ir.ui.view,arch_db:website_event_require_login.modal_attendees_registration_login_required
-msgid "&amp;times;"
-msgstr "&amp;times;"
-
-#. module: website_event_require_login
-#: model_terms:ir.ui.view,arch_db:website_event_require_login.modal_attendees_registration_login_required
 msgid "Close"
 msgstr "Schließen"
 
@@ -60,4 +55,8 @@ msgstr "Anmeldung für Website-Registrierungen erforderlich"
 #. module: website_event_require_login
 #: model_terms:ir.ui.view,arch_db:website_event_require_login.modal_attendees_registration_login_required
 msgid "You must be logged in to register for this event."
-msgstr "Sie müssen eingeloggt sein, um sich für diese Veranstaltung anzumelden."
+msgstr ""
+"Sie müssen eingeloggt sein, um sich für diese Veranstaltung anzumelden."
+
+#~ msgid "&amp;times;"
+#~ msgstr "&amp;times;"
