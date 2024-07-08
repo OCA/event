@@ -82,12 +82,6 @@ msgid "ID"
 msgstr "ID"
 
 #. module: event_registration_cancel_reason
-#: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_log_reason____last_update
-#: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_reason____last_update
-msgid "Last Modified on"
-msgstr "Última modificación el"
-
-#. module: event_registration_cancel_reason
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_log_reason__write_uid
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_reason__write_uid
 msgid "Last Updated by"
@@ -126,10 +120,14 @@ msgid "Select the reason for cancelling the registration:"
 msgstr "Seleccione la razón para cancelar el registro:"
 
 #. module: event_registration_cancel_reason
+#. odoo-python
 #: code:addons/event_registration_cancel_reason/wizard/event_registration_cancel_log_reason.py:0
 #, python-format
 msgid "You cannot cancel registrations from events of different types at once."
 msgstr "No puede cancelar registros de eventos de distintos tipos a la vez."
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última modificación el"
 
 #~ msgid "Abort"
 #~ msgstr "Abortar"
