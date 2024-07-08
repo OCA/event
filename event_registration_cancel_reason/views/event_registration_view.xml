@@ -10,8 +10,8 @@
                     <field
                         name="cancel_reason_id"
                         class="oe_inline"
-                        options="{'no_open':True'}"
-                        attrs="{'invisible':[('cancel_reason_id','=',False)]}"
+                        options="{'no_open': True}"
+                        invisible="not cancel_reason_id"
                     />
                 </xpath>
             </data>

@@ -21,7 +21,7 @@ class EventRegistrationCancelLogReason(models.TransientModel):
 
     @api.model
     def default_get(self, var_fields):
-        res = super(EventRegistrationCancelLogReason, self).default_get(var_fields)
+        res = super().default_get(var_fields)
         registrations = self.env["event.registration"].browse(
             self.env.context["active_ids"]
         )

@@ -3,11 +3,12 @@
 # Copyright 2017 Tecnativa - Vicent Cubells
 # Copyright 2018 Tecnativa - Cristina Martin
 # Copyright 2020 Tecnativa - Víctor Martínez
+# Copyright 2024 Tecnativa - Carolina Fernandez
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 {
     "name": "Reasons for event registrations cancellations",
-    "version": "15.0.1.0.0",
+    "version": "17.0.1.0.0",
     "license": "AGPL-3",
     "author": "Tecnativa, " "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/event",
