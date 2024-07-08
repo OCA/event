@@ -1,33 +1,39 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <template id="modal_attendees_registration_login_required" name="Login Required">
-        <div id="modal_attendees_registration_login_required" class="modal fade">
-            <div class="modal-dialog">
+        <div
+            id="modal_attendees_registration_login_required"
+            class="modal fade"
+            tabindex="-1"
+            role="dialog"
+        >
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header align-items-center">
+                        <h4 class="modal-title">Login required</h4>
                         <button
                             type="button"
-                            class="close"
-                            data-dismiss="modal"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
                             aria-hidden="true"
-                        >&amp;times;</button>
-                        <h4 class="modal-title">Login required</h4>
+                            aria-label="Close"
+                        />
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body border-bottom">
                         <p>
                             You must be logged in to register for this event.
                         </p>
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer border-0 justify-content-between">
                         <a
                             t-attf-href="/web/login?redirect=#{event_url}#registration_form"
                             class="btn btn-primary"
                         >Login</a>
-                        <a
-                            href="#"
-                            class="btn btn-default"
-                            data-dismiss="modal"
-                        >Close</a>
+                        <button
+                            type="button"
+                            class="btn btn-secondary js_goto_event"
+                            data-bs-dismiss="modal"
+                        >Close</button>
                     </div>
                 </div>
             </div>
