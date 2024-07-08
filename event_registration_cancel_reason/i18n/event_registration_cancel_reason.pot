@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -78,12 +78,6 @@ msgid "ID"
 msgstr ""
 
 #. module: event_registration_cancel_reason
-#: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_log_reason____last_update
-#: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_reason____last_update
-msgid "Last Modified on"
-msgstr ""
-
-#. module: event_registration_cancel_reason
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_log_reason__write_uid
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_reason__write_uid
 msgid "Last Updated by"
@@ -120,6 +114,7 @@ msgid "Select the reason for cancelling the registration:"
 msgstr ""
 
 #. module: event_registration_cancel_reason
+#. odoo-python
 #: code:addons/event_registration_cancel_reason/wizard/event_registration_cancel_log_reason.py:0
 #, python-format
 msgid ""
