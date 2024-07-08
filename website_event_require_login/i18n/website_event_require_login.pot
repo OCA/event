@@ -15,11 +15,6 @@ msgstr ""
 
 #. module: website_event_require_login
 #: model_terms:ir.ui.view,arch_db:website_event_require_login.modal_attendees_registration_login_required
-msgid "&amp;times;"
-msgstr ""
-
-#. module: website_event_require_login
-#: model_terms:ir.ui.view,arch_db:website_event_require_login.modal_attendees_registration_login_required
 msgid "Close"
 msgstr ""
 
