@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-07-17 11:09+0000\n"
+"PO-Revision-Date: 2024-07-08 08:59+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #. module: event_project
 #: model:ir.model,name:event_project.model_event_event
@@ -29,11 +29,15 @@ msgid ""
 "                Collaborate efficiently by chatting in real-time or via "
 "email."
 msgstr ""
+"Tiene traccia dell'avanzamento dei propri lavori dalla creazione al "
+"completamento.<br>\n"
+"                Collabora efficentemente dialogando in tempo reale o per "
+"e-mail."
 
 #. module: event_project
 #: model_terms:ir.actions.act_window,help:event_project.act_event_task_list
 msgid "No tasks found. Let's create one!"
-msgstr ""
+msgstr "Nessun lavoro traovato! Creiamone uno!"
 
 #. module: event_project
 #: model:ir.model,name:event_project.model_project_project
