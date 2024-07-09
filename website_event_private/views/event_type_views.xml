@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+<!-- Copyright 2023 Le Filament (https://le-filament.com)
+License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+        <record model="ir.ui.view" id="view_event_type_form">
+            <field name="name">event.type.form.inherit</field>
+            <field name="model">event.type</field>
+            <field name="inherit_id" ref="event.view_event_type_form" />
+            <field name="arch" type="xml">
+                <field name="default_timezone" position="before">
+                    <field name="event_privacy" />
+                </field>
+            </field>
+        </record>
+
+</odoo>

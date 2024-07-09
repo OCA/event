@@ -1,0 +1,65 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_event_private
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-14 13:05+0000\n"
+"PO-Revision-Date: 2024-08-14 13:05+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_event_private
+#: model_terms:ir.ui.view,arch_db:website_event_private.events_private_list
+msgid "<i class=\"fa fa-user-secret me-2\"/>Private"
+msgstr ""
+
+#. module: website_event_private
+#: model:ir.model,name:website_event_private.model_event_event
+msgid "Event"
+msgstr ""
+
+#. module: website_event_private
+#: model:ir.model,name:website_event_private.model_event_type
+msgid "Event Template"
+msgstr ""
+
+#. module: website_event_private
+#: model:ir.model.fields,field_description:website_event_private.field_event_event__event_share_link
+msgid "Event link"
+msgstr ""
+
+#. module: website_event_private
+#: model:ir.model.fields,field_description:website_event_private.field_event_event__event_privacy
+#: model:ir.model.fields,field_description:website_event_private.field_event_type__event_privacy
+msgid "Event privacy"
+msgstr ""
+
+#. module: website_event_private
+#: model:ir.model.fields.selection,name:website_event_private.selection__event_event__event_privacy__private_displayed
+#: model:ir.model.fields.selection,name:website_event_private.selection__event_type__event_privacy__private_displayed
+msgid "Private displayed"
+msgstr ""
+
+#. module: website_event_private
+#: model:ir.model.fields.selection,name:website_event_private.selection__event_event__event_privacy__private_hidden
+#: model:ir.model.fields.selection,name:website_event_private.selection__event_type__event_privacy__private_hidden
+msgid "Private hidden"
+msgstr ""
+
+#. module: website_event_private
+#: model:ir.model.fields.selection,name:website_event_private.selection__event_event__event_privacy__public
+#: model:ir.model.fields.selection,name:website_event_private.selection__event_type__event_privacy__public
+msgid "Public"
+msgstr ""
+
+#. module: website_event_private
+#: model:ir.model.fields,field_description:website_event_private.field_event_event__access_token
+msgid "Security Token"
+msgstr ""

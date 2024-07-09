@@ -1,0 +1,14 @@
+// Index
+.o_wevent_index {
+    // Events List
+    .o_wevent_events_list {
+        .o_wevent_private {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 0px $card-spacer-x;
+            text-align: left;
+            opacity: 0.8;
+        }
+    }
+}
