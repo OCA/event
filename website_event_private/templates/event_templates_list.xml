@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+<!-- Copyright 2023 Le Filament (https://le-filament.com)
+License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+    <!-- Index - Events list -->
+    <template
+        id="events_private_list"
+        inherit_id="website_event.events_list"
+        name="Events list"
+    >
+        <xpath expr="//t[@t-call='website.record_cover']" position="inside">
+            <!-- Private -->
+            <small
+                t-if="event.event_privacy != 'public'"
+                class="o_wevent_private text-bg-warning"
+            >
+                <i class="fa fa-user-secret me-2" />Private
+            </small>
+        </xpath>
+    </template>
+</odoo>
