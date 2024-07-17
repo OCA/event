@@ -37,6 +37,7 @@ addon | version | maintainers | summary
 [website_event_questions_by_ticket](website_event_questions_by_ticket/) | 16.0.1.0.0 |  | Events Questions conditional to the chosen ticket
 [website_event_require_login](website_event_require_login/) | 16.0.1.1.0 |  | Website Event Require Login
 [website_event_sale_cart_quantity_readonly](website_event_sale_cart_quantity_readonly/) | 16.0.1.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Prevent the user to change the quantity of an event in the cart
+[website_event_ticket_limit](website_event_ticket_limit/) | 16.0.1.0.0 |  | Website Event Ticket Limit
 
 [//]: # (end addons)
 

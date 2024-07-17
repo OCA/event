@@ -24,6 +24,7 @@ setuptools.setup(
         'odoo-addon-website_event_questions_by_ticket>=16.0dev,<16.1dev',
         'odoo-addon-website_event_require_login>=16.0dev,<16.1dev',
         'odoo-addon-website_event_sale_cart_quantity_readonly>=16.0dev,<16.1dev',
+        'odoo-addon-website_event_ticket_limit>=16.0dev,<16.1dev',
     ],
     classifiers=[
         'Programming Language :: Python',
