@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="website_event_online_ui_form_inherit" model="ir.ui.view">
+        <field name="name">event.website_event_oneline_ui.form</field>
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_form" />
+        <field name="priority" eval="8" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='address_id']" position="attributes">
+                <attribute name="placeholder">Online if not set</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="website_event_online_ui_kanban_inherit" model="ir.ui.view">
+        <field name="name">event.website_event_oneline_ui.kanban</field>
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_kanban" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//div[@t-if='record.address_id.value']/span"
+                position="attributes"
+            >
+                <attribute name="t-esc" />
+                <attribute name="t-if">record.address_id.value</attribute>
+                <attribute name="t-out">record.address_id.value</attribute>
+            </xpath>
+            <xpath expr="//div[@t-if='record.address_id.value']/span" position="after">
+                <span t-else="" class="ms-1">Online Event</span>
+            </xpath>
+            <xpath expr="//div[@t-if='record.address_id.value']" position="attributes">
+                <attribute name="t-if" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="website_event_online_ui_search_inherit" model="ir.ui.view">
+        <field name="name">event.website_event_oneline_ui.search</field>
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_search" />
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='activities_upcoming_all']" position="after">
+                <filter
+                    string="Online"
+                    name="filter_online"
+                    domain="[('address_id', '=', False)]"
+                />
+            </xpath>
+            <xpath expr="//group" position="inside">
+                <filter
+                    string="Venue"
+                    name="venue"
+                    context="{'group_by': 'address_id'}"
+                />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
