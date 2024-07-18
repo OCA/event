@@ -56,7 +56,6 @@ msgstr ""
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_event_event__create_partner
-#: model:ir.model.fields,field_description:partner_event.field_event_session__create_partner
 #, fuzzy
 msgid "Create Partners in registration"
 msgstr "Prijave na dogodek"
@@ -104,11 +103,6 @@ msgstr "Prijave na dogodek"
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__id
 msgid "ID"
-msgstr ""
-
-#. module: partner_event
-#: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event____last_update
-msgid "Last Modified on"
 msgstr ""
 
 #. module: partner_event
