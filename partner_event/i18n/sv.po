@@ -1,0 +1,152 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* partner_event
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-06-19 14:36+0000\n"
+"Last-Translator: jakobkrabbe <jakob@syscare.se>\n"
+"Language-Team: none\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_res_partner__registration_count
+#: model:ir.model.fields,field_description:partner_event.field_res_users__registration_count
+msgid "Attendances"
+msgstr "Deltaganden"
+
+#. module: partner_event
+#: model_terms:ir.ui.view,arch_db:partner_event.view_registration_search
+msgid "Attended"
+msgstr "Deltog"
+
+#. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_event_registration__attendee_partner_id
+msgid "Attendee Partner"
+msgstr "Partner till deltagare"
+
+#. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_event_registration__partner_id
+msgid "Booked by"
+msgstr "Bokad av"
+
+#. module: partner_event
+#: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
+msgid "Cancel"
+msgstr "Avbryt"
+
+#. module: partner_event
+#: model:ir.model,name:partner_event.model_res_partner
+msgid "Contact"
+msgstr "Kontakt"
+
+#. module: partner_event
+#: model_terms:ir.ui.view,arch_db:partner_event.view_partner_form_registrations
+msgid "Count of events with confirmed registrations."
+msgstr "Antal evenemang med bekräftade anmälningar."
+
+#. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_event_event__create_partner
+#: model:ir.model.fields,field_description:partner_event.field_event_session__create_partner
+msgid "Create Partners in registration"
+msgstr "Skapa partners vid anmälning"
+
+#. module: partner_event
+#: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
+msgid "Create registrations"
+msgstr "Skapa anmälningar"
+
+#. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__create_uid
+msgid "Created by"
+msgstr "Skapad av"
+
+#. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__create_date
+msgid "Created on"
+msgstr "Skapad den"
+
+#. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__display_name
+msgid "Display Name"
+msgstr "Visningsnamn"
+
+#. module: partner_event
+#: model:ir.model,name:partner_event.model_event_event
+#: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__event
+msgid "Event"
+msgstr "Evenemang"
+
+#. module: partner_event
+#: model:ir.model,name:partner_event.model_event_registration
+msgid "Event Registration"
+msgstr "Evenemangsanmälning"
+
+#. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_res_partner__event_registration_ids
+#: model:ir.model.fields,field_description:partner_event.field_res_users__event_registration_ids
+msgid "Event registrations"
+msgstr "Evenemangsanmälningar"
+
+#. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__id
+msgid "ID"
+msgstr "ID"
+
+#. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event____last_update
+msgid "Last Modified on"
+msgstr "Senast ändrad den"
+
+#. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__write_uid
+msgid "Last Updated by"
+msgstr "Senast uppdaterad av"
+
+#. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__write_date
+msgid "Last Updated on"
+msgstr "Senast uppdaterad den"
+
+#. module: partner_event
+#: model:ir.model,name:partner_event.model_base_partner_merge_automatic_wizard
+msgid "Merge Partner Wizard"
+msgstr "Slå samman kontakter guide"
+
+#. module: partner_event
+#: model:ir.actions.act_window,name:partner_event.action_partner_register_event
+msgid "Register in an event"
+msgstr "Anmäl dig till ett evenemang"
+
+#. module: partner_event
+#: model:ir.model,name:partner_event.model_res_partner_register_event
+msgid "Register partner for event"
+msgstr "Anmäl partner till evenemanget"
+
+#. module: partner_event
+#: model:ir.actions.act_window,name:partner_event.act_partner_registration
+msgid "Registrations"
+msgstr "Anmälningar"
+
+#. module: partner_event
+#: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
+msgid "Select event to register"
+msgstr "Välj evenemang att anmäla"
+
+#~ msgid "Errors"
+#~ msgstr "Fel"
+
+#~ msgid ""
+#~ "These partners haven't been registered because they\\'re "
+#~ "already                        registered or other error occurred"
+#~ msgstr ""
+#~ "Dessa partners har inte anmälts eftersom de redan "
+#~ "är                        anmälda eller på grund av att ett annat fel "
+#~ "uppstod"
