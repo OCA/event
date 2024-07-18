@@ -1,8 +1,9 @@
 [project]
 name = "odoo-addons-oca-event"
-version = "17.0.20240708.0"
+version = "17.0.20240718.0"
 dependencies = [
     "odoo-addon-event_registration_cancel_reason>=17.0dev,<17.1dev",
+    "odoo-addon-partner_event>=17.0dev,<17.1dev",
 ]
 classifiers=[
     "Programming Language :: Python",
