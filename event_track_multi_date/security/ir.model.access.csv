@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_event_track_date,event.track.date.user,event_track_multi_date.model_event_track_date,event.group_event_user,1,1,1,1
