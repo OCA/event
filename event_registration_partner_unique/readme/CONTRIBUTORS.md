@@ -7,3 +7,5 @@
   > - Victor M.M. Torres
   > - Víctor Martínez
   > - Carolina Fernandez
+  > - Juan José Seguí
+
