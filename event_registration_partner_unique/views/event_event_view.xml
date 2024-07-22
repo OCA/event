@@ -10,7 +10,7 @@
         <field name="priority" eval="99" />
         <field name="inherit_id" ref="event.view_event_form" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='auto_confirm']" position="after">
+            <xpath expr="//field[@name='create_partner']" position="after">
                 <field name="forbid_duplicates" />
             </xpath>
         </field>
