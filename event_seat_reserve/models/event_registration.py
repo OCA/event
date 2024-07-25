@@ -11,6 +11,9 @@ class EventRegistration(models.Model):
         selection_add=[("reserved", "Reserved")], ondelete={"reserved": "set default"}
     )
 
+    def _need_pre_reservation(self):
+        return False
+
     def action_set_reserved(self):
         self.write({"state": "reserved"})
         self.event_id._check_seats_availability()

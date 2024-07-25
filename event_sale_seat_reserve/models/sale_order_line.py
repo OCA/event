@@ -24,7 +24,9 @@ class SaleOrderLine(models.Model):
         registrations = RegistrationSudo.search(
             [("sale_order_line_id", "in", self.ids), ("state", "=", "draft")]
         )
-        registrations.action_set_reserved()
+        for registration in registrations:
+            if registration._need_pre_reservation():
+                registration.action_set_reserved()
         return res
 
     def _set_draft_associated_registrations(self):
