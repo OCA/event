@@ -1,7 +1,11 @@
 # Copyright 2024 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl-3.0).
+import logging
 
 from odoo import models
+from odoo.tools import config
+
+_logger = logging.getLogger(__name__)
 
 
 class SaleOrderLine(models.Model):
@@ -24,6 +28,11 @@ class SaleOrderLine(models.Model):
         registrations = RegistrationSudo.search(
             [("sale_order_line_id", "in", self.ids), ("state", "=", "draft")]
         )
+        if config["test_enable"] and not self.env.context.get(
+            "test_event_seat_reserve"
+        ):
+            _logger.info("Test mode is enabled, skipping the reservation of the seats")
+            return res
         registrations.action_set_reserved()
         return res
 
