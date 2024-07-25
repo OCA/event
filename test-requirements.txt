@@ -1,0 +1,2 @@
+odoo-addon-event_seat_reserve @ git+https://github.com/OCA/event.git@refs/pull/394/head#subdirectory=event_seat_reserve
+odoo-addon-event_sale_seat_reserve @ git+https://github.com/OCA/event.git@refs/pull/395/head#subdirectory=event_sale_seat_reserve
