@@ -18,7 +18,6 @@ msgstr ""
 
 #. module: event_registration_partner_unique
 #: model:ir.model.fields,help:event_registration_partner_unique.field_event_event__forbid_duplicates
-#: model:ir.model.fields,help:event_registration_partner_unique.field_event_session__forbid_duplicates
 msgid ""
 "Check this to disallow duplicate attendees in this event's registrations"
 msgstr ""
@@ -44,6 +43,5 @@ msgstr "Registre d'esdeveniment"
 
 #. module: event_registration_partner_unique
 #: model:ir.model.fields,field_description:event_registration_partner_unique.field_event_event__forbid_duplicates
-#: model:ir.model.fields,field_description:event_registration_partner_unique.field_event_session__forbid_duplicates
 msgid "Forbid Duplicates"
 msgstr "Prohibir duplicats"
