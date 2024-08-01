@@ -9,6 +9,9 @@ class TestEventSeatReserve(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        test_context = cls.env.context.copy()
+        test_context["test_event_seat_reserve"] = True
+        cls.env = cls.env(context=dict(test_context, tracking_disable=True))
         # ../event/data/event_demo.xml
         # using this demo data, we have a max_seats = 4
         # and 3 registrations
