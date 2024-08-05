@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<odoo>
+
+        <record model="ir.ui.view" id="view_event_track_speaker_form">
+        <field name="name">event.track.speaker.form</field>
+        <field name="model">event.track.speaker</field>
+        <field name="arch" type="xml">
+            <form string="Track Speaker">
+                <header>
+                    <field
+                        name="status"
+                        widget="statusbar"
+                        options="{'clickable': '1'}"
+                    />
+                </header>
+                <sheet string="Speaker">
+                    <group>
+                        <group>
+                            <field name="partner_id" />
+                            <field name="email" />
+                            <field name="phone" />
+                            <field name="biography" />
+                            <field name="function" />
+                            <field name="image" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Tracks" name="tracks">
+                            <field name="track_ids">
+                                <tree editable="bottom">
+                                    <field name="name" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" />
+                    <field name="activity_ids" />
+                    <field
+                        name="message_ids"
+                        options="{'post_refresh': 'recipients'}"
+                    />
+                </div>
+            </form>
+        </field>
+    </record>
+
+</odoo>

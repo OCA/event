@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record model="ir.actions.act_window" id="action_event_speakers">
+        <field name="name">Event Speakers</field>
+        <field name="res_model">event.track.speaker</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem
+        id="menu_event_speaker"
+        name="Track Speakers"
+        sequence="40"
+        action="action_event_speakers"
+        parent="event.menu_event_configuration"
+        groups="base.group_no_one"
+    />
+</odoo>
