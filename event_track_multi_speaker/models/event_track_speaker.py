@@ -2,7 +2,8 @@
 # Copyright 2017 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models
+from odoo import _, api, fields, models
+from odoo.exceptions import UserError
 
 
 class EventTrackSpeaker(models.Model):
@@ -19,7 +20,7 @@ class EventTrackSpeaker(models.Model):
     partner_id = fields.Many2one("res.partner", string="Contact")
     track_ids = fields.Many2many(
         comodel_name="event.track",
-        string="Speakers",
+        string="Tracks",
     )
     status = fields.Selection(
         selection=[
@@ -28,11 +29,16 @@ class EventTrackSpeaker(models.Model):
             ("validated", "Validated"),
         ]
     )
+    event_id = fields.Many2one(
+        "event.event", compute="_compute_event", string="Event", store=True
+    )
 
-    # @api.depends("track_ids.speaker_ids")
-    # def compute_tracks(self):
-    #     tracks = self.env["event.track"].search([]).filtered(
-    #             lambda : self in
-    #         )
-    #     for track in self.track_ids:
-    #         speakers += track.speaker_ids
+    @api.depends("track_ids.event_id")
+    def _compute_event(self):
+        self.event_id = self.track_ids[0].event_id
+
+    @api.constrains("track_ids")
+    def _check_unique_event(self):
+        for speaker in self:
+            if len(speaker.mapped("track_ids").mapped("event_id")) > 1:
+                raise UserError(_("Speakers should belong to only one event."))

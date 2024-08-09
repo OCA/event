@@ -12,7 +12,6 @@
     <field name="name">event.event.view.from.inherit.track</field>
     <field name="inherit_id" ref="website_event.event_event_view_form" />
     <field name="model">event.event</field>
-    <field name="priority" eval="3" />
     <field name="arch" type="xml">
         <xpath expr="//field[@name='is_published']" position="before">
             <button
