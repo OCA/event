@@ -45,6 +45,7 @@ addon | version | maintainers | summary
 [website_event_sale_cart_quantity_readonly](website_event_sale_cart_quantity_readonly/) | 15.0.1.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Prevent the user to change the quantity of an event in the cart
 [website_event_snippet_calendar](website_event_snippet_calendar/) | 15.0.1.0.0 |  | Browsable calendar with events list for your website
 [website_event_ticket_published](website_event_ticket_published/) | 15.0.1.0.0 |  | Allow to unpublish event ticket from the website
+[website_event_track_stage_cancelled](website_event_track_stage_cancelled/) | 15.0.1.0.0 |  | Event session cancellation workflows
 
 [//]: # (end addons)
 

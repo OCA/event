@@ -32,6 +32,7 @@ setuptools.setup(
         'odoo-addon-website_event_sale_cart_quantity_readonly>=15.0dev,<15.1dev',
         'odoo-addon-website_event_snippet_calendar>=15.0dev,<15.1dev',
         'odoo-addon-website_event_ticket_published>=15.0dev,<15.1dev',
+        'odoo-addon-website_event_track_stage_cancelled>=15.0dev,<15.1dev',
     ],
     classifiers=[
         'Programming Language :: Python',
