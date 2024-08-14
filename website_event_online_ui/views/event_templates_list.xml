@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+
+    <template
+        inherit_id="website_event.events_list"
+        id="website_event_online_ui_lists"
+        name="Event list inherit"
+    >
+        <xpath expr="//main/div[@itemprop='location']" position="attributes">
+            <attribute name="t-if">event.address_id</attribute>
+        </xpath>
+        <xpath expr="//main/div[@itemprop='location']" position="after">
+            <div
+                t-else=""
+                class="o_not_editable fw-bold"
+                itemprop="location"
+            >Online event</div>
+        </xpath>
+    </template>
+
+</odoo>

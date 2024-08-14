@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template
+        inherit_id="website_event.event_description_full"
+        id="website_event_online_ui_page_registration"
+        name="event_description_full_inherit"
+    >
+        <xpath expr="//div[@t-if='event.address_id']" position="after">
+            <div t-else="" class="o_wevent_sidebar_block">
+                <h6 class="o_wevent_sidebar_title">Location</h6>
+                <h4 itemprop="location">
+                    <i class="fa fa-map-marker" title="Location" />
+                    Online event
+                </h4>
+            </div>
+        </xpath>
+    </template>
+</odoo>
