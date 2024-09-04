@@ -36,7 +36,8 @@ class EventTrackSpeaker(models.Model):
 
     @api.depends("track_ids.event_id")
     def _compute_event(self):
-        self.event_id = self.track_ids[0].event_id
+        if self.track_ids:
+            self.event_id = self.track_ids[0].event_id
 
     @api.constrains("track_ids")
     def _check_unique_event(self):
