@@ -1,6 +1,35 @@
 <?xml version="1.0" ?>
 <odoo>
 
+    <record id="view_event_track_speaker_tree" model="ir.ui.view">
+        <field name="name">event.track.speaker.tree</field>
+        <field name="model">event.track.speaker</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="event_id" />
+                <field name="status" />
+            </tree>
+        </field>
+    </record>
+    <record id="view_event_track_speaker_search" model="ir.ui.view">
+        <field name="name">event.track.speaker.search</field>
+        <field name="model">event.track.speaker</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <field name="event_id" />
+                <separator />
+                <group expand="0" name="group_by" string="Group By">
+                    <filter
+                        name="event_id"
+                        string="Event"
+                        context="{'group_by' : 'event_id'}"
+                    />
+                </group>
+            </search>
+        </field>
+    </record>
         <record model="ir.ui.view" id="view_event_track_speaker_form">
         <field name="name">event.track.speaker.form</field>
         <field name="model">event.track.speaker</field>
