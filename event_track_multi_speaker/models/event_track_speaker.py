@@ -27,7 +27,8 @@ class EventTrackSpeaker(models.Model):
             ("draft", "Draft"),
             ("waiting", "Waiting"),
             ("validated", "Validated"),
-        ]
+        ],
+        default="draft",
     )
     event_id = fields.Many2one(
         "event.event", compute="_compute_event", string="Event", store=True
