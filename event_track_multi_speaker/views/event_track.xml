@@ -7,7 +7,7 @@
             <xpath expr="//notebook" position="inside">
                 <page name="speakers" string="Speakers">
                     <field name="speaker_ids">
-                        <tree editable="bottom">
+                        <tree>
                             <field name="name" />
                             <field name="status" />
                         </tree>
