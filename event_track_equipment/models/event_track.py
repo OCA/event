@@ -8,4 +8,6 @@ from odoo import fields, models
 class EventTrackSession(models.Model):
     _inherit = "event.track"
 
-    equipment_line_ids = fields.Many2many("event.track.equipment", string="Equipments")
+    equipment_line_ids = fields.Many2many(
+        "event.track.equipment.line", string="Equipments"
+    )

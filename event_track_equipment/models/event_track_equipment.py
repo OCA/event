@@ -5,7 +5,7 @@
 from odoo import fields, models
 
 
-class EventTrackDate(models.Model):
+class EventTrackEquipment(models.Model):
     _name = "event.track.equipment"
     _description = "Track Equipments"
 
