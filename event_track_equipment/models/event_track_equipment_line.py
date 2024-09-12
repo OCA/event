@@ -9,5 +9,6 @@ class EventTrackEquipmentLine(models.Model):
     _name = "event.track.equipment.line"
     _description = "Track Equipments Line"
 
+    track_id = fields.Many2one("event.track", string="Track")
     equipment_id = fields.Many2one("event.track.equipment", string="Equipment")
-    quantity = fields.Integer()
+    quantity = fields.Integer(default=1)
