@@ -7,7 +7,7 @@
     "summary": """
         Allow for several speaker on event tracks""",
     "version": "16.0.1.0.0",
-    "category": "Uncategorized",
+    "category": "Event",
     "website": "https://github.com/OCA/event",
     "author": "Coop IT Easy SC, Odoo Community Association (OCA)",
     "maintainers": ["victor-champonnois"],
