@@ -19,6 +19,11 @@
             <search>
                 <field name="name" />
                 <field name="event_id" />
+                <filter
+                    string="My Speakers"
+                    name="my_speakers"
+                    domain="[('track_ids.user_id', '=', uid)]"
+                />
                 <separator />
                 <group expand="0" name="group_by" string="Group By">
                     <filter
