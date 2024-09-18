@@ -9,12 +9,19 @@
             <xpath expr="//notebook" position="inside">
 
             <page name="equipments" string="Equipments">
-                <field name="equipment_line_ids">
-                    <tree editable="bottom">
-                        <field name="quantity" />
-                        <field name="equipment_id" options="{'no_create': True}" />
-                    </tree>
-                </field>
+                <group>
+                    <group>
+                        <field name="equipment_line_ids">
+                            <tree editable="bottom">
+                                <field name="quantity" />
+                                <field
+                                        name="equipment_id"
+                                        options="{'no_create': True}"
+                                    />
+                            </tree>
+                        </field>
+                    </group>
+                </group>
             </page>
         </xpath>
         </field>
