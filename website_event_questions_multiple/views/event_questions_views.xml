@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 Le Filament (https://le-filament.com)
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="event_question_view_form" model="ir.ui.view">
+        <field name="name">event.question.view.form.multiple</field>
+        <field name="model">event.question</field>
+        <field
+            name="inherit_id"
+            ref="website_event_questions.event_question_view_form"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="/form/sheet/notebook" position="attributes">
+                <attribute
+                    name="attrs"
+                >{'invisible': ['&amp;', ('question_type', '!=', 'simple_choice'), ('question_type', '!=', 'multiple_choice')]}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="event_event_view_form" model="ir.ui.view">
+        <field name="name">event.event.view.form.inherit.multiple</field>
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="website_event_questions.event_event_view_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='question_ids']/form/sheet/notebook"
+                position="attributes"
+            >
+                <attribute
+                    name="attrs"
+                >{'invisible': ['&amp;', ('question_type', '!=', 'simple_choice'), ('question_type', '!=', 'multiple_choice')]}</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
