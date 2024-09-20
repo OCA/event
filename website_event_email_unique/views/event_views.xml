@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023- Le Filament (https://le-filament.com)
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="event_event_view_form" model="ir.ui.view">
+        <field name="name">event.event.view.form.inherit.website.private</field>
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="website_event.event_event_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='tag_ids']" position="after">
+                <field name="unique_attendee_email" widget="boolean_toggle" />
+                <field
+                    name="email_duplication_behaviour"
+                    attrs="{'invisible': [('unique_attendee_email', '!=', True)], 'required': [('unique_attendee_email', '=', True)]}"
+                />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
