@@ -1,0 +1,97 @@
+<?xml version="1.0" ?>
+<!--
+    Copyright 2024 Camptocamp SA
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <record id="view_event_registration_form" model="ir.ui.view">
+        <field name="model">event.registration</field>
+        <field name="inherit_id" ref="event.view_event_registration_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_set_draft']" position="after">
+                <button
+                    name="action_set_reserved"
+                    string="Set To Reserved"
+                    type="object"
+                    attrs="{'invisible': ['|', ('active', '=', False), ('state', '!=', 'draft')]}"
+                />
+            </xpath>
+            <xpath expr="//button[@name='action_confirm']" position="attributes">
+                <!-- original attrs: {'invisible': ['|', ('active', '=', False), ('state', '!=', 'draft')]} -->
+                <attribute
+                    name="attrs"
+                >{'invisible': ['|', ('active', '=', False), ('state', 'not in', ('draft', 'reserved'))]}</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_set_draft']" position="attributes">
+                <!-- original attrs: {'invisible': ['|', ('active', '=', False), '&amp;', ('state', '!=', 'cancel'), ('state', '!=', 'done')]} -->
+                <attribute
+                    name="attrs"
+                >{'invisible': ['|', ('active', '=', False), ('state', 'not in', ('done', 'cancel', 'reserved'))]}</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_cancel']" position="attributes">
+                <!-- original attrs: {'invisible': ['|', ('active', '=', False), '&amp;', ('state', '!=', 'open'), ('state', '!=', 'draft')]} -->
+                <attribute
+                    name="attrs"
+                >{'invisible': ['|', ('active', '=', False), ('state', 'not in', ('draft', 'open', 'reserved'))]}</attribute>
+            </xpath>
+            <field name="state" position="attributes">
+                <attribute name="statusbar_visible">draft,reserved,open,done</attribute>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_event_registration_tree" model="ir.ui.view">
+        <field name="model">event.registration</field>
+        <field name="inherit_id" ref="event.view_event_registration_tree" />
+        <field name="arch" type="xml">
+            <field name="state" position="attributes">
+                <attribute
+                    name="decoration-info"
+                >state in ('draft', 'reserved', 'open')</attribute>
+            </field>
+            <xpath expr="//button[@name='action_confirm']" position="before">
+                <button
+                    name="action_set_reserved"
+                    string="Set To Reserved"
+                    type="object"
+                    icon="fa-cart-plus"
+                    attrs="{'invisible': ['|', ('active', '=', False), ('state', '!=', 'draft')]}"
+                />
+            </xpath>
+            <xpath expr="//button[@name='action_cancel']" position="attributes">
+                <!-- original attrs: {'invisible': ['|', ('active', '=', False), '&amp;', ('state', '!=', 'open'), ('state', '!=', 'draft')]} -->
+                <attribute
+                    name="attrs"
+                >{'invisible': ['|', ('active', '=', False), ('state', 'not in', ('draft', 'open', 'reserved'))]}</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_confirm']" position="attributes">
+                <!-- original attrs: {'invisible': ['|', ('active', '=', False), ('state', '!=', 'draft')]} -->
+                <attribute
+                    name="attrs"
+                >{'invisible': ['|', ('active', '=', False), ('state', 'not in', ('draft', 'reserved'))]}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record
+        id="view_event_regview_registration_searchistration_form"
+        model="ir.ui.view"
+    >
+        <field name="model">event.registration</field>
+        <field name="inherit_id" ref="event.view_registration_search" />
+        <field name="arch" type="xml">
+            <filter name="expected" position="attributes">
+                <attribute
+                    name="domain"
+                >[('state', 'in', ['draft', 'reserved', 'open', 'done'])]</attribute>
+            </filter>
+            <filter name="unconfirmed" position="after">
+                <filter
+                    name="filter_reserved"
+                    string="Reserved"
+                    domain="[('state', '=', 'reserved')]"
+                />
+            </filter>
+        </field>
+    </record>
+</odoo>
