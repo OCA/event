@@ -1,0 +1,119 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_event_filter_city
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2023-07-28 13:09+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: website_event_filter_city
+#: code:addons/website_event_filter_city/controllers/main.py:0
+#: model_terms:ir.ui.view,arch_db:website_event_filter_city.event_city
+#, python-format
+msgid "All Cities"
+msgstr "Tutte le città"
+
+#. module: website_event_filter_city
+#: model:event.event,name:website_event_filter_city.event_barcelona
+msgid "Barcelona Days 2017"
+msgstr "Barcellona days 2017"
+
+#. module: website_event_filter_city
+#: model:event.event,legend_blocked:website_event_filter_city.event_barcelona
+#: model:event.event,legend_blocked:website_event_filter_city.event_online
+#: model:event.event,legend_blocked:website_event_filter_city.event_sevilla_bf
+#: model:event.event,legend_blocked:website_event_filter_city.event_sevilla_cs
+msgid "Blocked"
+msgstr "Bloccato"
+
+#. module: website_event_filter_city
+#: model:event.tag,name:website_event_filter_city.event_type_breakfast
+msgid "Breakfast"
+msgstr "Colazione"
+
+#. module: website_event_filter_city
+#: model:ir.model.fields,field_description:website_event_filter_city.field_event_event__city
+#: model:ir.model.fields,field_description:website_event_filter_city.field_event_session__city
+msgid "City"
+msgstr "Città"
+
+#. module: website_event_filter_city
+#: model:event.tag,name:website_event_filter_city.event_type_code_sprint
+msgid "Code Sprint"
+msgstr "Code sprint"
+
+#. module: website_event_filter_city
+#: model:ir.model,name:website_event_filter_city.model_event_event
+msgid "Event"
+msgstr "Evento"
+
+#. module: website_event_filter_city
+#: model_terms:event.event,description:website_event_filter_city.event_barcelona
+#: model_terms:event.event,description:website_event_filter_city.event_online
+#: model_terms:event.event,description:website_event_filter_city.event_sevilla_bf
+#: model_terms:event.event,description:website_event_filter_city.event_sevilla_cs
+msgid ""
+"Every year we invite our community, partners and end-users to come and meet "
+"us! It's the ideal event to get together and present new features, roadmap "
+"of future versions, achievements of the software, workshops, training "
+"sessions, etc....\n"
+"            This event is also an opportunity to showcase our partners' case "
+"studies, methodology or developments. Be there and see directly from the "
+"source the features of the new version!"
+msgstr ""
+"Ogni anno invitiamo la nostra comunità, i partner e gli utenti finali ad "
+"incontrarci! È l'evento ideale per stare insieme presentare nuove "
+"funzionalità, i percorsi delle versioni future, i risultati del software, "
+"workshop, sessioni di addestramento, ecc...\n"
+"            Questo evento inoltre è un'opportunità per mostrare i casi "
+"studio dei nostri partner, la metodologia o lo sviluppo. Partecipa e vedi "
+"direttamente dalla fonte le caratteristiche della nuova versione!"
+
+#. module: website_event_filter_city
+#: model:event.event,legend_normal:website_event_filter_city.event_barcelona
+#: model:event.event,legend_normal:website_event_filter_city.event_online
+#: model:event.event,legend_normal:website_event_filter_city.event_sevilla_bf
+#: model:event.event,legend_normal:website_event_filter_city.event_sevilla_cs
+msgid "In Progress"
+msgstr "In corso"
+
+#. module: website_event_filter_city
+#: model_terms:event.event,description:website_event_filter_city.event_barcelona
+#: model_terms:event.event,description:website_event_filter_city.event_online
+#: model_terms:event.event,description:website_event_filter_city.event_sevilla_bf
+#: model_terms:event.event,description:website_event_filter_city.event_sevilla_cs
+msgid "Join us for this 24 hours Event"
+msgstr "Unisciti a noi per questo evento di 24 ore"
+
+#. module: website_event_filter_city
+#: model:event.event,name:website_event_filter_city.event_online
+msgid "Online Code Sprint 2018"
+msgstr "Code sprint online 2018"
+
+#. module: website_event_filter_city
+#: model:event.event,legend_done:website_event_filter_city.event_barcelona
+#: model:event.event,legend_done:website_event_filter_city.event_online
+#: model:event.event,legend_done:website_event_filter_city.event_sevilla_bf
+#: model:event.event,legend_done:website_event_filter_city.event_sevilla_cs
+msgid "Ready for Next Stage"
+msgstr "Pronto per la prossima fase"
+
+#. module: website_event_filter_city
+#: model:event.event,name:website_event_filter_city.event_sevilla_bf
+msgid "Sevilla Awesome Breakfast 2018"
+msgstr "Awesome Breakfast Siviglia 2018"
+
+#. module: website_event_filter_city
+#: model:event.event,name:website_event_filter_city.event_sevilla_cs
+msgid "Sevilla Code Sprint 2018"
+msgstr "Code sprint Siviglia 2018"
