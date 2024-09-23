@@ -5,7 +5,7 @@
     "name": "Event Quick Registration",
     "summary": "Create registration quickly",
     "version": "15.0.1.0.0",
-    "author": "Camptocamp SA, Odoo Community Association (OCA)",
+    "author": "Camptocamp, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "website": "https://github.com/OCA/event",
     "category": "Event",
