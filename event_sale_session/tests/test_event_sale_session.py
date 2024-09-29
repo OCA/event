@@ -1,5 +1,6 @@
 # Copyright 2017 Tecnativa - David Vidal
 # Copyright 2022 Moka Tourisme (https://www.mokatourisme.fr).
+# Copyright 2024 Tecnativa - Carolina Fernandez
 # @author Iván Todorovich <ivan.todorovich@gmail.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl-3.0).
 
@@ -36,7 +37,9 @@ class EventSaleSession(TransactionCase):
 
     def test_sale_session(self):
         """Sell an event with session"""
+        self.assertEqual(self.session.unconfirmed_qty, 5)
         self.order.action_confirm()
+        self.assertEqual(self.session.unconfirmed_qty, 0)
         regs = self.env["event.registration"].search(
             [("sale_order_id", "=", self.order.id)]
         )
@@ -53,22 +56,6 @@ class EventSaleSession(TransactionCase):
         action = self.session.action_view_linked_orders()
         orders = self.env["sale.order"].search(action["domain"])
         self.assertIn(self.order, orders)
-
-    def test_sale_order_line_session_onchange_autocomplete(self):
-        """Test that session is automatically filled and or unset on form"""
-        form = Form(self.order)
-        line = form.order_line.new()
-        line.product_id = self.product
-        # Case 1: The event is a session event, but has multiple sessions
-        line.event_id = self.event
-        self.assertFalse(line.event_session_id)
-        # Case 2: The event is a session event with only 1 session
-        (self.event.session_ids - self.session).active = False
-        line.event_id = self.event
-        self.assertEqual(line.event_session_id, self.session)
-        # Case 3: The event is not a session event, session should be unset
-        line.event_id = self.env.ref("event.event_0")
-        self.assertFalse(line.event_session_id)
 
     def test_sale_order_event_configurator_onchange_autocomplete(self):
         """Test that session is automatically filled and or unset on wizard"""

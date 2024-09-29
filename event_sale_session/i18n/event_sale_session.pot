@@ -110,6 +110,11 @@ msgid "Sales Order Line"
 msgstr ""
 
 #. module: event_sale_session
+#: model:ir.model.fields,field_description:event_sale_session.field_event_session__order_line_ids
+msgid "Sales Order Lines"
+msgstr ""
+
+#. module: event_sale_session
 #: model:ir.model.fields,field_description:event_sale_session.field_event_event_configurator__event_session_id
 #: model:ir.model.fields,field_description:event_sale_session.field_registration_editor_line__session_id
 #: model:ir.model.fields,field_description:event_sale_session.field_sale_order_line__event_session_id
@@ -130,6 +135,26 @@ msgstr ""
 #. module: event_sale_session
 #: model_terms:ir.ui.view,arch_db:event_sale_session.view_event_session_form
 msgid "Total sales for this session"
+msgstr ""
+
+#. module: event_sale_session
+#: model_terms:ir.ui.view,arch_db:event_sale_session.view_event_session_tree
+msgid "Total unconfirmed seats in orders"
+msgstr ""
+
+#. module: event_sale_session
+#: model:ir.model.fields,field_description:event_sale_session.field_event_session__unconfirmed_qty
+msgid "Unconfirmed Qty"
+msgstr ""
+
+#. module: event_sale_session
+#: model_terms:ir.ui.view,arch_db:event_sale_session.view_event_session_form
+msgid "Unconfirmed order seats"
+msgstr ""
+
+#. module: event_sale_session
+#: model_terms:ir.ui.view,arch_db:event_sale_session.view_event_session_form
+msgid "Unconfirmed orders seats"
 msgstr ""
 
 #. module: event_sale_session

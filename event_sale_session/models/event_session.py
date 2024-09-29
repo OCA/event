@@ -22,6 +22,37 @@ class EventSession(models.Model):
         compute="_compute_sale_price_subtotal",
         groups="sales_team.group_sale_salesman",
     )
+    unconfirmed_qty = fields.Integer(
+        compute="_compute_unconfirmed_qty",
+        store=True,
+    )
+
+    @api.depends(
+        "sale_order_lines_ids",
+        "sale_order_lines_ids.product_uom_qty",
+        "sale_order_lines_ids.order_id.state",
+    )
+    def _compute_unconfirmed_qty(self):
+        for session in self:
+            session.unconfirmed_qty = int(
+                sum(
+                    session.sale_order_lines_ids.filtered(
+                        lambda x: x.order_id.state in ("draft", "sent")
+                    ).mapped("product_uom_qty")
+                )
+            )
+
+    def button_open_unconfirmed_event_order(self):
+        action = self.env["ir.actions.act_window"]._for_xml_id("sale.action_quotations")
+        sales = (
+            self.env["sale.order.line"]
+            .search([("event_id", "in", self.ids)])
+            .mapped("order_id")
+            .ids
+        )
+        action["domain"] = [("id", "in", sales), ("state", "in", ("draft", "sent"))]
+        action["context"] = {}
+        return action
 
     @api.depends(
         "currency_id",
