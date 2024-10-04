@@ -13,6 +13,9 @@ class EventEvent(models.Model):
     forbid_duplicates = fields.Boolean(
         help="Check this to disallow duplicate attendees in this event's "
         "registrations",
+        compute="_compute_forbid_duplicates",
+        store=True,
+        readonly=False,
     )
 
     @api.constrains("forbid_duplicates", "registration_ids")
@@ -21,6 +24,15 @@ class EventEvent(models.Model):
         return self.filtered(
             "forbid_duplicates"
         ).registration_ids._check_forbid_duplicates()
+
+    @api.depends("event_type_id")
+    def _compute_forbid_duplicates(self):
+        """Update event configuration from its event type. Depends are set only
+        on event_type_id itself, not its sub fields. Purpose is to emulate an
+        onchange: if event type is changed, update event configuration. Changing
+        event type content itself should not trigger this method."""
+        for event in self:
+            event.forbid_duplicates = event.event_type_id.forbid_duplicates
 
 
 class EventRegistration(models.Model):
@@ -51,3 +63,11 @@ class EventRegistration(models.Model):
             ("attendee_partner_id", "=", self.attendee_partner_id.id),
             ("attendee_partner_id", "!=", False),
         ]
+
+
+class EventType(models.Model):
+    _inherit = "event.type"
+    forbid_duplicates = fields.Boolean(
+        help="Check this to disallow duplicate attendees in this event's "
+        "registrations"
+    )
