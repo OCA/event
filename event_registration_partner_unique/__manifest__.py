@@ -15,5 +15,5 @@
     "application": False,
     "installable": True,
     "depends": ["event", "partner_event"],
-    "data": ["views/event_event_view.xml"],
+    "data": ["views/event_event_view.xml", "views/event_type_view.xml"],
 }
