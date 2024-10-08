@@ -1,0 +1,83 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <record id="view_event_track_speaker_tree" model="ir.ui.view">
+        <field name="name">event.track.speaker.tree</field>
+        <field name="model">event.track.speaker</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="event_id" />
+                <field name="status" />
+            </tree>
+        </field>
+    </record>
+    <record id="view_event_track_speaker_search" model="ir.ui.view">
+        <field name="name">event.track.speaker.search</field>
+        <field name="model">event.track.speaker</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <field name="event_id" />
+                <filter
+                    string="My Speakers"
+                    name="my_speakers"
+                    domain="[('track_ids.user_id', '=', uid)]"
+                />
+                <separator />
+                <group expand="0" name="group_by" string="Group By">
+                    <filter
+                        name="event_id"
+                        string="Event"
+                        context="{'group_by' : 'event_id'}"
+                    />
+                </group>
+            </search>
+        </field>
+    </record>
+        <record model="ir.ui.view" id="view_event_track_speaker_form">
+        <field name="name">event.track.speaker.form</field>
+        <field name="model">event.track.speaker</field>
+        <field name="arch" type="xml">
+            <form string="Track Speaker">
+                <header>
+                    <field
+                        name="status"
+                        widget="statusbar"
+                        options="{'clickable': '1'}"
+                    />
+                </header>
+                <sheet string="Speaker">
+                    <group>
+                        <group>
+                            <field name="partner_id" />
+                            <field name="email" />
+                            <field name="phone" />
+                            <field name="biography" />
+                            <field name="function" />
+                            <field name="image" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Tracks" name="tracks">
+                            <field name="track_ids">
+                                <tree>
+                                    <field name="name" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" />
+                    <field name="activity_ids" />
+                    <field
+                        name="message_ids"
+                        options="{'post_refresh': 'recipients'}"
+                    />
+                </div>
+            </form>
+        </field>
+    </record>
+
+</odoo>
