@@ -11,6 +11,6 @@
         sequence="40"
         action="action_event_speakers"
         parent="event.menu_event_configuration"
-        groups="base.group_no_one"
+        groups="event.group_event_registration_desk"
     />
 </odoo>
