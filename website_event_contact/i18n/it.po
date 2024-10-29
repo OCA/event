@@ -1,0 +1,32 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_event_contact
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-10-31 01:06+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.6.2\n"
+
+#. module: website_event_contact
+#: model_terms:ir.ui.view,arch_db:website_event_contact.website_event_contact_details
+msgid "Contact"
+msgstr "Contatto"
+
+#. module: website_event_contact
+#: model_terms:ir.ui.view,arch_db:website_event_contact.snippet_options
+msgid "Event Page"
+msgstr "Pagina evento"
+
+#. module: website_event_contact
+#: model_terms:ir.ui.view,arch_db:website_event_contact.snippet_options
+msgid "Show Contact"
+msgstr "Mostra contatto"

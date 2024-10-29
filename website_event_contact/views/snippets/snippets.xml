@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="snippet_options" inherit_id="website.snippet_options" priority="99">
+        <xpath expr="." position="inside">
+            <!-- Event page  -->
+            <div
+                data-selector="main:has(.o_wevent_event_title)"
+                data-page-options="true"
+                groups="website.group_website_designer"
+                data-no-check="true"
+                string="Event Page"
+            >
+                <we-checkbox
+                    string="Show Contact"
+                    data-customize-website-views="website_event_contact.website_event_contact_details"
+                    data-no-preview="true"
+                    data-reload="/"
+                />
+            </div>
+        </xpath>
+    </template>
+</odoo>
