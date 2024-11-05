@@ -8,7 +8,7 @@
         name="Show Contact Details"
     >
         <xpath expr="//div[@id='o_wevent_event_main_col']" position="inside">
-            <div t-if="event.contact_ids" id="wevent_contact_col">
+            <div t-if="event.sudo().contact_ids" id="wevent_contact_col">
                 <h2 contenteditable="false">Contact</h2>
                 <section class="s_company_team pb48">
                     <div class="container">
