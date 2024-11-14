@@ -22,20 +22,6 @@ msgid "# Sent"
 msgstr ""
 
 #. module: event_mail
-#: model_terms:ir.ui.view,arch_db:event_mail.res_config_settings_view_form
-msgid ""
-"<span class=\"o_form_label\">Template Mail Scheduler</span>\n"
-"                            <span class=\"fa fa-lg fa-envelope\" title="
-"\"Values set here are company-specific.\" aria-label=\"Values set here are "
-"company-specific.\" groups=\"base.group_multi_company\" role=\"img\"/>"
-msgstr ""
-"<span class=\"o_form_label\">Agendador de Modelos de Correio</span>\n"
-"                            <span class=\"fa fa-lg fa-envelope\" title=\"Os "
-"valores aqui indicados são específicos para esta empresa.\" aria-label=\"Os "
-"valores aqui indicados são específicos para esta empresa.\" groups=\"base."
-"group_multi_company\" role=\"img\"/>"
-
-#. module: event_mail
 #: model:ir.model.fields,help:event_mail.field_event_mail_scheduler_template__mail_registration_ids
 msgid "Communication related to event registrations"
 msgstr ""
@@ -110,12 +96,6 @@ msgstr "ID"
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__interval_nbr
 msgid "Interval"
 msgstr "Intervalo"
-
-#. module: event_mail
-#: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template____last_update
-#: model:ir.model.fields,field_description:event_mail.field_event_mail_template____last_update
-msgid "Last Modified on"
-msgstr "Última Modificação em"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__write_uid
@@ -197,7 +177,6 @@ msgstr "Enviado(a)"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__template_ref
-#: model_terms:ir.ui.view,arch_db:event_mail.res_config_settings_view_form
 msgid "Template"
 msgstr "Modelo"
 
@@ -220,3 +199,19 @@ msgstr "Acionador "
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__interval_unit
 msgid "Unit"
 msgstr "Unidade"
+
+#~ msgid ""
+#~ "<span class=\"o_form_label\">Template Mail Scheduler</span>\n"
+#~ "                            <span class=\"fa fa-lg fa-envelope\" "
+#~ "title=\"Values set here are company-specific.\" aria-label=\"Values set "
+#~ "here are company-specific.\" groups=\"base.group_multi_company\" "
+#~ "role=\"img\"/>"
+#~ msgstr ""
+#~ "<span class=\"o_form_label\">Agendador de Modelos de Correio</span>\n"
+#~ "                            <span class=\"fa fa-lg fa-envelope\" "
+#~ "title=\"Os valores aqui indicados são específicos para esta empresa.\" "
+#~ "aria-label=\"Os valores aqui indicados são específicos para esta empresa."
+#~ "\" groups=\"base.group_multi_company\" role=\"img\"/>"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última Modificação em"

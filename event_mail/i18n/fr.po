@@ -22,15 +22,6 @@ msgid "# Sent"
 msgstr "# Envoyé(s)"
 
 #. module: event_mail
-#: model_terms:ir.ui.view,arch_db:event_mail.res_config_settings_view_form
-msgid ""
-"<span class=\"o_form_label\">Template Mail Scheduler</span>\n"
-"                            <span class=\"fa fa-lg fa-envelope\" title="
-"\"Values set here are company-specific.\" aria-label=\"Values set here are "
-"company-specific.\" groups=\"base.group_multi_company\" role=\"img\"/>"
-msgstr ""
-
-#. module: event_mail
 #: model:ir.model.fields,help:event_mail.field_event_mail_scheduler_template__mail_registration_ids
 msgid "Communication related to event registrations"
 msgstr "Communication liée aux inscriptions aux événements"
@@ -105,12 +96,6 @@ msgstr "ID"
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__interval_nbr
 msgid "Interval"
 msgstr "Intervalle"
-
-#. module: event_mail
-#: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template____last_update
-#: model:ir.model.fields,field_description:event_mail.field_event_mail_template____last_update
-msgid "Last Modified on"
-msgstr "Dernière modification le"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__write_uid
@@ -192,7 +177,6 @@ msgstr "Envoyé"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__template_ref
-#: model_terms:ir.ui.view,arch_db:event_mail.res_config_settings_view_form
 msgid "Template"
 msgstr "Modèle de mail"
 
@@ -215,3 +199,6 @@ msgstr "Déclencheur - "
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__interval_unit
 msgid "Unit"
 msgstr "Unité"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Dernière modification le"
