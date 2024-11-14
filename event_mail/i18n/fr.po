@@ -215,16 +215,3 @@ msgstr "D??clencheur - "
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__interval_unit
 msgid "Unit"
 msgstr "Unit??"
-
-#~ msgid "Email Schedule"
-#~ msgstr "Planification email"
-
-#, fuzzy
-#~ msgid "Email Template"
-#~ msgstr "Mod??le d'email"
-
-#~ msgid "event.mail.scheduler.template"
-#~ msgstr "event.mail.scheduler.template"
-
-#~ msgid "event.mail.template"
-#~ msgstr "event.mail.template"
