@@ -221,16 +221,3 @@ msgstr "Activador "
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__interval_unit
 msgid "Unit"
 msgstr "Unidad"
-
-#~ msgid "Email Schedule"
-#~ msgstr "Programación de Correo Electrónico"
-
-#, fuzzy
-#~ msgid "Email Template"
-#~ msgstr "Plantilla de mail"
-
-#~ msgid "event.mail.scheduler.template"
-#~ msgstr "event.mail.scheduler.template"
-
-#~ msgid "event.mail.template"
-#~ msgstr "event.mail.template"

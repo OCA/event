@@ -1,4 +1,4 @@
-# Copyright 2017 Tecnativa - Sergio Teruel <sergio.teruel@tecnativa.com>
+# Copyright 2017 Tecnativa - Sergio Teruel
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 from odoo import api, fields, models
 
@@ -33,19 +33,21 @@ class EventMailTemplate(models.Model):
 
     @api.model
     def _default_scheduler_template_ids(self):
+        subscription_template = self.env.ref("event.event_subscription")
+        reminder_template = self.env.ref("event.event_reminder")
         return [
             {
                 "notification_type": "mail",
                 "interval_unit": "now",
                 "interval_type": "after_sub",
-                "template_ref": f"mail.template, {self.env.ref('event.event_subscription').id}",
+                "template_ref": f"mail.template, {subscription_template.id}",
             },
             {
                 "notification_type": "mail",
                 "interval_nbr": 10,
                 "interval_unit": "days",
                 "interval_type": "before_event",
-                "template_ref": f"mail.template, {self.env.ref('event.event_reminder').id}",
+                "template_ref": f"mail.template, {reminder_template.id}",
             },
         ]
 

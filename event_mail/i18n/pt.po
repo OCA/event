@@ -220,28 +220,3 @@ msgstr "Acionador "
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__interval_unit
 msgid "Unit"
 msgstr "Unidade"
-
-#~ msgid "Email Schedule"
-#~ msgstr "Agendamento do Email"
-
-#~ msgid "Email Template"
-#~ msgstr "Modelo de Email"
-
-#~ msgid "Mail Sent on Event"
-#~ msgstr "Email Enviado no Evento"
-
-#~ msgid "SMS Template"
-#~ msgstr "Modelo de SMS"
-
-#~ msgid "Scheduled Sent Mail"
-#~ msgstr "Email Agendado Enviado"
-
-#~ msgid ""
-#~ "This field contains the template of the SMS that will be automatically "
-#~ "sent"
-#~ msgstr "Este campo contém o modelo do SMS que será enviado automaticamente"
-
-#~ msgid ""
-#~ "This field contains the template of the mail that will be automatically "
-#~ "sent"
-#~ msgstr "Este campo contém o modelo do mail que será automaticamente enviado"

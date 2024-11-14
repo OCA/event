@@ -220,27 +220,3 @@ msgstr "Attivazione "
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__interval_unit
 msgid "Unit"
 msgstr "Unità"
-
-#~ msgid "Email Template"
-#~ msgstr "Modello e-mail"
-
-#~ msgid "Mail Sent on Event"
-#~ msgstr "E-mail dell'evento inviata"
-
-#~ msgid "SMS Template"
-#~ msgstr "Modello SMS"
-
-#~ msgid "Scheduled Sent Mail"
-#~ msgstr "E-mail inviata programmata"
-
-#~ msgid ""
-#~ "This field contains the template of the SMS that will be automatically "
-#~ "sent"
-#~ msgstr ""
-#~ "Campo contenente il modello SMS che viene inviato in modo automatico"
-
-#~ msgid ""
-#~ "This field contains the template of the mail that will be automatically "
-#~ "sent"
-#~ msgstr ""
-#~ "Campo contenente il modello e-mail che viene inviato in modo automatico"
