@@ -1,10 +1,10 @@
-# Copyright 2017 Tecnativa - Sergio Teruel <sergio.teruel@tecnativa.com>
+# Copyright 2017 Tecnativa - Sergio Teruel
 # Copyright 2020 Studio73 - Pablo Fuentes <pablo@studio73.es>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-from odoo.tests.common import TransactionCase
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class EventMailCase(TransactionCase):
+class EventMailCase(BaseCommon):
     @classmethod
     def setUpClass(cls):
         """Add some defaults to let the test run without an accounts chart."""
@@ -49,7 +49,6 @@ class EventMailCase(TransactionCase):
             "name": "Event test",
             "date_begin": "2017-05-01",
             "date_end": "2017-06-01",
-            "auto_confirm": False,
             "event_mail_template_id": self.template1.id,
         }
         event = self.env["event.event"].create(vals)
@@ -82,7 +81,6 @@ class EventMailCase(TransactionCase):
             "name": "Event test",
             "date_begin": "2017-05-01",
             "date_end": "2017-06-01",
-            "auto_confirm": False,
         }
         event = self.env["event.event"].create(vals)
         self.assertEqual(
