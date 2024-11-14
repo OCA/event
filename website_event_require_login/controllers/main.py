@@ -16,4 +16,4 @@ class RequireLoginToRegister(WebsiteEventController):
                 ".modal_attendees_registration_login_required",
                 {"event_url": event.website_url},
             )
-        return super(RequireLoginToRegister, self).registration_new(event, **post)
+        return super().registration_new(event, **post)
