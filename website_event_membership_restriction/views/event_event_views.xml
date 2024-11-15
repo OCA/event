@@ -7,7 +7,7 @@
         <field name="priority" eval="20" />
         <field name="inherit_id" ref="website_event.event_event_view_form" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='auto_confirm']" position="after">
+            <xpath expr="//field[@name='user_id']" position="before">
                 <field name="registration_membership_only" />
             </xpath>
         </field>

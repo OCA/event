@@ -8,7 +8,7 @@
         priority="999"
     >
         <!-- Put this evaluation at the very beginning -->
-        <xpath expr="//div[@t-if='toast_message']" position="before">
+        <xpath expr="//h4" position="before">
             <t t-set="user" t-value="request.env.user" />
             <t t-set="partner" t-value="user.partner_id" />
             <t
@@ -18,39 +18,21 @@
         </xpath>
         <!-- Hide the existing element and recreate it as both class and t-att-class can't coexist -->
         <xpath
-            expr="//form//div[@id='o_wevent_tickets_collapse']//button"
+            expr="//button[@data-bs-target='#modal_ticket_registration']"
             position="attributes"
         >
             <attribute name="class">d-none</attribute>
         </xpath>
         <xpath
-            expr="//form//div[@id='o_wevent_tickets_collapse']//button"
+            expr="//button[@data-bs-target='#modal_ticket_registration']"
             position="after"
         >
             <button
-                type="submit"
-                t-att-class="'btn btn-primary o_wait_lazy_js a-submit ' + ('disabled' if is_disabled_for_non_members else '')"
-                t-attf-id="#{event.id}"
-            >
-                Register
-                <t
-                    t-if="event.seats_limited and event.seats_max and event.seats_available &lt;= (event.seats_max * 0.2)"
-                >
-                    (only <t t-out="event.seats_available" /> available)
-                </t>
-            </button>
-            <t t-if="is_disabled_for_non_members">
-                <a class="text-center small" href="/membership-info">Members only</a>
-            </t>
-        </xpath>
-        <!-- Hide the existing element and recreate it as both class and t-att-class can't coexist -->
-        <xpath expr="//form//div[@t-else='']//button" position="attributes">
-            <attribute name="class">d-none</attribute>
-        </xpath>
-        <xpath expr="//form//div[@t-else='']//button" position="after">
-            <button
-                type="submit"
-                t-att-class="'btn btn-primary o_wait_lazy_js a-submit ' + ('disabled' if is_disabled_for_non_members else '')"
+                t-if="event.event_registrations_open"
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#modal_ticket_registration"
+                t-att-class="'btn btn-primary w-100 ' + ('disabled' if is_disabled_for_non_members else '')"
                 t-attf-id="#{event.id}"
             >
                 Register
