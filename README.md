@@ -38,6 +38,7 @@ addon | version | maintainers | summary
 [website_event_membership_restriction](website_event_membership_restriction/) | 18.0.1.0.0 |  | Restrict event registration to members only
 [website_event_questions_by_ticket](website_event_questions_by_ticket/) | 18.0.1.0.0 |  | Events Questions conditional to the chosen ticket
 [website_event_require_legal](website_event_require_legal/) | 18.0.1.0.0 |  | Website Event Require Legal
+[website_event_require_login](website_event_require_login/) | 17.0.1.0.0 |  | Website Event Require Login
 
 [//]: # (end addons)
 
