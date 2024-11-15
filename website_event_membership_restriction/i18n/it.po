@@ -25,17 +25,17 @@ msgstr "(solo"
 #: model_terms:ir.ui.view,arch_db:website_event_membership_restriction.website_event_membership_info
 msgid ""
 "<font style=\"font-size: 62px;\" class=\"o_default_snippet_text\">\n"
-"                                <span style=\"font-size: 48px;\">Membership Information</span>\n"
+"                                <span style=\"font-size: 48px;\">Membership "
+"Information</span>\n"
 "                            </font>"
 msgstr ""
 "<font style=\"font-size: 62px;\" class=\"o_default_snippet_text\">\n"
-"                                <span style=\"font-size: 48px;\""
-">Informazioni iscrizione</span>\n"
+"                                <span style=\"font-size: 48px;"
+"\">Informazioni iscrizione</span>\n"
 "                            </font>"
 
 #. module: website_event_membership_restriction
 #: model:ir.model.fields,help:website_event_membership_restriction.field_event_event__registration_membership_only
-#: model:ir.model.fields,help:website_event_membership_restriction.field_event_session__registration_membership_only
 msgid "Allow registration only to members"
 msgstr "Consente registrazione solo ai membri"
 
@@ -65,7 +65,6 @@ msgstr "Registro"
 
 #. module: website_event_membership_restriction
 #: model:ir.model.fields,field_description:website_event_membership_restriction.field_event_event__registration_membership_only
-#: model:ir.model.fields,field_description:website_event_membership_restriction.field_event_session__registration_membership_only
 msgid "Registration Membership Only"
 msgstr "Solo registrazione iscrizione"
 
