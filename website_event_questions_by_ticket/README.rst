@@ -17,23 +17,23 @@ Conditional Events Questions
     :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fevent-lightgray.png?logo=github
-    :target: https://github.com/OCA/event/tree/16.0/website_event_questions_by_ticket
+    :target: https://github.com/OCA/event/tree/17.0/website_event_questions_by_ticket
     :alt: OCA/event
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/event-16-0/event-16-0-website_event_questions_by_ticket
+    :target: https://translation.odoo-community.org/projects/event-17-0/event-17-0-website_event_questions_by_ticket
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/event&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/event&target_branch=17.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module allows to set that an event question is only asked for certain
-tickets.
+This module allows to set that an event question is only asked for
+certain tickets.
 
-If the question is general, then having one of the allowed tickets will serve
-for showing it. If the question is specific to each attendee, then the
-evaluation will be done for each of the tickets.
+If the question is general, then having one of the allowed tickets will
+serve for showing it. If the question is specific to each attendee, then
+the evaluation will be done for each of the tickets.
 
 **Table of contents**
 
@@ -43,26 +43,26 @@ evaluation will be done for each of the tickets.
 Configuration
 =============
 
-#. Go to *Events > Events*
-#. Create or select one event.
-#. On the "Questions" page, create a new question or edit an existing one.
-#. Fill the field "Limited to tickets" for restricting the question to that
-   ticket. Leave it blank for making it available for all tickets.
+1. Go to *Events > Events*
+2. Create or select one event.
+3. On the "Questions" page, create a new question or edit an existing
+   one.
+4. Fill the field "Limited to tickets" for restricting the question to
+   that ticket. Leave it blank for making it available for all tickets.
 
 Usage
 =====
 
-
-#. Go to the website.
-#. Go to "Events" section and select one of them.
-#. Select ticket quantity and click on "Register".
-#. On the popup dialog, the questions linked to that ticket and those without
-   restrictions will be shown.
+1. Go to the website.
+2. Go to "Events" section and select one of them.
+3. Select ticket quantity and click on "Register".
+4. On the popup dialog, the questions linked to that ticket and those
+   without restrictions will be shown.
 
 Known issues / Roadmap
 ======================
 
-* Add tests (tour) to the module.
+-  Add tests (tour) to the module.
 
 Bug Tracker
 ===========
@@ -70,7 +70,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/event/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/event/issues/new?body=module:%20website_event_questions_by_ticket%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/event/issues/new?body=module:%20website_event_questions_by_ticket%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -78,21 +78,21 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Tecnativa
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* `Tecnativa <https://www.tecnativa.com>`_:
+-  `Tecnativa <https://www.tecnativa.com>`__:
 
-  * Pedro M. Baeza
-  * Stefan Ungureanu
-  * Carolina Fernandez
+   -  Pedro M. Baeza
+   -  Stefan Ungureanu
+   -  Carolina Fernandez
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -104,6 +104,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/event <https://github.com/OCA/event/tree/16.0/website_event_questions_by_ticket>`_ project on GitHub.
+This module is part of the `OCA/event <https://github.com/OCA/event/tree/17.0/website_event_questions_by_ticket>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
