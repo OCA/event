@@ -25,7 +25,6 @@ class TestTicket(HttpCase):
                 "event_type_id": cls.env.ref("event.event_type_1").id,
                 "website_published": True,
                 "description": "Test",
-                "auto_confirm": True,
                 "website_id": cls.website.id,
             }
         )
