@@ -17,20 +17,20 @@ CRM Event Category
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fevent-lightgray.png?logo=github
-    :target: https://github.com/OCA/event/tree/15.0/crm_event
+    :target: https://github.com/OCA/event/tree/17.0/crm_event
     :alt: OCA/event
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/event-15-0/event-15-0-crm_event
+    :target: https://translation.odoo-community.org/projects/event-17-0/event-17-0-crm_event
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/event&target_branch=15.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/event&target_branch=17.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module extends the functionality of CRM opportunities (and leads, if
-enabled) to support linking them to event categories and to allow you to keep
-track of leads interested in an upcoming event of some category.
+This module extends the functionality of CRM opportunities (and leads,
+if enabled) to support linking them to event categories and to allow you
+to keep track of leads interested in an upcoming event of some category.
 
 This is useful if you organize your events based on the amount of people
 interested in a certain category of event.
@@ -45,33 +45,35 @@ Configuration
 
 To make use of this module, a user needs these minimal permissions:
 
-- Sales / User: Own Documents Only
-- Events / User
+-  Sales / User: Own Documents Only
+-  Events / User
 
 Usage
 =====
 
 To link a lead or opportunity to an event category:
 
-#. Go to *CRM > Pipeline* and pick one lead.
-#. Go to the lead form.
-#. Use the new field *Event category*.
+1. Go to *CRM > Pipeline* and pick one lead.
+2. Go to the lead form.
+3. Use the new field *Event category*.
 
 To know if there are events planned of a certain category:
 
-#. Go to *Events > Configuration > Event Categories* and pick one.
-#. Use the new *Events* smart button.
+1. Go to *Events > Configuration > Event Categories* and pick one.
+2. Use the new *Events* smart button.
 
-   * It only counts those that are upcoming or running.
-   * The number between parenthesis is the available seats sum of all those events.
+   -  It only counts those that are upcoming or running.
+   -  The number between parenthesis is the available seats sum of all
+      those events.
 
 To know if there is people interested in a certain category of event:
 
-#. Go to *Events > Configuration > Event Categories* and pick one.
-#. Use the new *Opportunities* smart button.
+1. Go to *Events > Configuration > Event Categories* and pick one.
+2. Use the new *Opportunities* smart button.
 
-   * It only counts opportunities that aren't won or lost.
-   * The number between parenthesis is the wanted seats sum of all those events.
+   -  It only counts opportunities that aren't won or lost.
+   -  The number between parenthesis is the wanted seats sum of all
+      those events.
 
 Bug Tracker
 ===========
@@ -79,7 +81,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/event/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/event/issues/new?body=module:%20crm_event%0Aversion:%2015.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/event/issues/new?body=module:%20crm_event%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -87,20 +89,20 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Tecnativa
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* `Tecnativa <https://www.tecnativa.com>`__:
+-  `Tecnativa <https://www.tecnativa.com>`__:
 
-  * Jairo Llopis
-  * Stefan Ungureanu
+   -  Jairo Llopis
+   -  Stefan Ungureanu
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -120,6 +122,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-Yajo| 
 
-This module is part of the `OCA/event <https://github.com/OCA/event/tree/15.0/crm_event>`_ project on GitHub.
+This module is part of the `OCA/event <https://github.com/OCA/event/tree/17.0/crm_event>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
