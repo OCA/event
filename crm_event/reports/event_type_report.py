@@ -12,7 +12,7 @@ class EventTypeReport(models.Model):
     _auto = False
     _order = "name"
 
-    name = fields.Char("Category name", readonly=True)
+    name = fields.Char("Category name", readonly=True, translate=True)
     events_available_count = fields.Integer(
         string="Available events count", readonly=True
     )
@@ -51,7 +51,18 @@ class EventTypeReport(models.Model):
                 """CASE WHEN ee.seats_limited
                    THEN 'limited' ELSE 'unlimited' END""",
             ),
-            ("seats_limited_available", "COALESCE(SUM(ee.seats_available), 0)"),
+            (
+                "seats_limited_available",
+                """COALESCE(SUM(
+                    ee.seats_max - (
+                        SELECT COUNT(er.id)
+                        FROM event_registration er
+                        WHERE er.event_id = ee.id
+                        AND er.state IN ('open', 'done')
+                        AND er.active = true
+                    )
+                ), 0)""",
+            ),
             ("open_opportunities_count", "et.open_opportunities_count"),
             ("seats_wanted", "et.seats_wanted_sum"),
         )

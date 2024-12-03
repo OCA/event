@@ -6,7 +6,7 @@ To link a lead or opportunity to an event category:
 
 To know if there are events planned of a certain category:
 
-1.  Go to *Events \> Configuration \> Event Categories* and pick one.
+1.  Go to *Events \> Configuration \> Event Templates* and pick one.
 2.  Use the new *Events* smart button.
     - It only counts those that are upcoming or running.
     - The number between parenthesis is the available seats sum of all
