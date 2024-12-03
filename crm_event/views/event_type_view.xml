@@ -7,14 +7,17 @@
             name="name"
         >Link to events and opportunities from event category form</field>
         <field name="model">event.type</field>
-        <field name="groups_id" eval="[(4, ref('sales_team.group_sale_salesman'))]" />
         <field name="inherit_id" ref="event.view_event_type_form" />
         <field name="arch" type="xml">
             <div position="before">
                 <!-- HACK Add .oe_inline to button box to avoid broken UI with
                     other modules that also need to add the button box, such as
                     event_sale_reservation -->
-                <div class="oe_button_box oe_inline" name="button_box">
+                <div
+                    class="oe_button_box oe_inline"
+                    name="button_box"
+                    groups="sales_team.group_sale_salesman"
+                >
                     <!-- Use same iconography as in contact form -->
                     <button
                         class="oe_stat_button"
@@ -43,13 +46,21 @@
     <record id="view_event_type_tree" model="ir.ui.view">
         <field name="name">Opportunities info from event category tree</field>
         <field name="model">event.type</field>
-        <field name="groups_id" eval="[(4, ref('sales_team.group_sale_salesman'))]" />
         <field name="inherit_id" ref="event.view_event_type_tree" />
         <field name="arch" type="xml">
             <tree>
-                <field name="seats_available_total" />
-                <field name="open_opportunities_count" />
-                <field name="seats_wanted_sum" />
+                <field
+                    name="seats_available_total"
+                    groups="sales_team.group_sale_salesman"
+                />
+                <field
+                    name="open_opportunities_count"
+                    groups="sales_team.group_sale_salesman"
+                />
+                <field
+                    name="seats_wanted_sum"
+                    groups="sales_team.group_sale_salesman"
+                />
             </tree>
         </field>
     </record>

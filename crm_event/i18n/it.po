@@ -87,6 +87,7 @@ msgid "Event type"
 msgstr "Tipo evento"
 
 #. module: crm_event
+#. odoo-python
 #: code:addons/crm_event/models/event_type.py:0
 #, python-format
 msgid "Events"
@@ -136,11 +137,6 @@ msgstr ""
 "indicarla qui."
 
 #. module: crm_event
-#: model:ir.model.fields,field_description:crm_event.field_event_type_report____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
-
-#. module: crm_event
 #: model:ir.model,name:crm_event.model_crm_lead
 msgid "Lead/Opportunity"
 msgstr "Contatto/Opportunità"
@@ -177,6 +173,7 @@ msgid "Open opportunities for events of this category."
 msgstr "Opportunità aperte per eventi di questa categoria."
 
 #. module: crm_event
+#. odoo-python
 #: code:addons/crm_event/models/event_type.py:0
 #, python-format
 msgid "Opportunities"
@@ -218,6 +215,7 @@ msgid "Total seats wanted"
 msgstr "Totale posti richiesti"
 
 #. module: crm_event
+#. odoo-python
 #: code:addons/crm_event/models/event_type.py:0
 #: model:ir.model.fields.selection,name:crm_event.selection__event_type_report__event_seats_availability__unlimited
 #, python-format
@@ -239,3 +237,6 @@ msgstr "Eventi prossimi/in corso di questa categoria (e posti disponibili)."
 #: model:ir.model.fields,field_description:crm_event.field_event_type_report__seats_wanted
 msgid "Wanted seats"
 msgstr "Posti richiesti"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"

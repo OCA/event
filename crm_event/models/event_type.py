@@ -54,16 +54,28 @@ class EventType(models.Model):
         domain = self._events_domain()
         types_with_unlimited_seats = (
             self.env["event.event"]
-            .search(
-                domain + [("seats_limited", "=", False)],
-            )
+            .search(domain + [("seats_limited", "=", False)])
             .mapped("event_type_id")
         )
-        results = self.env["event.event"].read_group(
-            domain=domain,
-            fields=["seats_available"],
-            groupby=["event_type_id"],
-        )
+        event_seats = {}
+        event_counts = {}
+        events = self.env["event.event"].search(domain, order="event_type_id asc")
+        for event in events:
+            event_type_id = event.event_type_id.id
+            event_seats[event_type_id] = event_seats.get(event_type_id, 0) + (
+                event.seats_available or 0
+            )
+            event_counts[event_type_id] = event_counts.get(event_type_id, 0) + 1
+        results = []
+        for event_type_id in event_seats.keys():
+            event_type = self.env["event.type"].browse(event_type_id)
+            results.append(
+                {
+                    "event_type_id": (event_type_id, event_type.name),
+                    "seats_available": event_seats[event_type_id],
+                    "event_type_id_count": event_counts.get(event_type_id, 0),
+                }
+            )
         totals = {group["event_type_id"][0]: group for group in results}
         for one in self:
             totals_item = totals.get(one.id, {})
@@ -93,7 +105,6 @@ class EventType(models.Model):
             ],
             fields=["seats_wanted"],
             groupby="event_type_id",
-            orderby="id",
         )
         totals = {group["event_type_id"][0]: group for group in results}
         for one in self:

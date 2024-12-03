@@ -3,10 +3,10 @@
 
 from datetime import datetime, timedelta
 
-from odoo.tests.common import TransactionCase
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class CrmEventCase(TransactionCase):
+class CrmEventCase(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
