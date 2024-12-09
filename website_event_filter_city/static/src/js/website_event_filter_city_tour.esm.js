@@ -1,17 +1,15 @@
 /** @odoo-module */
+
 /* Copyright 2016-2017 Tecnativa - Jairo Llopis
  * Copyright 2021 Tecnativa - Víctor Martínez
  * Copyright 2023 Tecnativa - David Vidal
  * License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). */
-import tour from "web_tour.tour";
+import {registry} from "@web/core/registry";
 
-tour.register(
-    "website_event_filter_city",
-    {
-        test: true,
-        url: "/event",
-    },
-    [
+registry.category("web_tour.tours").add("website_event_filter_city", {
+    test: true,
+    url: "/event",
+    steps: () => [
         {
             trigger: "a.dropdown-toggle:contains('Upcoming Events')",
         },
@@ -66,5 +64,5 @@ tour.register(
                 ":not(:contains('Sevilla Awesome Breakfast 2018'))",
             trigger: "a:contains('Sevilla Code Sprint 2018')",
         },
-    ]
-);
+    ],
+});

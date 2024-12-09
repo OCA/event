@@ -9,3 +9,4 @@
   > - Jairo Llopis
   > - Víctor Martínez
   > - David Vidal
+  > - Pilar Vargas

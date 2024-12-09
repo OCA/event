@@ -110,12 +110,3 @@ msgstr ""
 #: model:event.event,name:website_event_filter_city.event_sevilla_cs
 msgid "Sevilla Code Sprint 2018"
 msgstr ""
-
-#~ msgid "Country"
-#~ msgstr "Land"
-
-#~ msgid "Event Type"
-#~ msgstr "Veranstaltungsart"
-
-#~ msgid "When"
-#~ msgstr "Wann"
