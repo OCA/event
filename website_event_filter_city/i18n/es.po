@@ -118,12 +118,3 @@ msgstr "Desayuno Impresionante de Sevilla 2018"
 #: model:event.event,name:website_event_filter_city.event_sevilla_cs
 msgid "Sevilla Code Sprint 2018"
 msgstr "Código Sevilla Sprint 2018"
-
-#~ msgid "Country"
-#~ msgstr "País"
-
-#~ msgid "Event Type"
-#~ msgstr "Tipo de evento"
-
-#~ msgid "When"
-#~ msgstr "Cuándo"

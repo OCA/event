@@ -10,20 +10,24 @@
         customize_show="True"
         name="Filter by City"
     >
-        <xpath expr="//ul[hasclass('o_wevent_index_topbar_filters')]" position="inside">
-            <li class="nav-item dropdown mr-2 my-1">
+        <xpath expr="//div[hasclass('o_wevent_search')]" position="before">
+            <div class="dropdown d-none d-lg-block">
                 <a
                     href="#"
                     role="button"
-                    class="btn dropdown-toggle"
-                    data-toggle="dropdown"
+                    class="btn btn-light dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    title="Filter by City"
                 >
-                    <i class="fa fa-folder-open" />
                     <t t-if="current_city" t-out="current_city" />
                     <t t-else="">All Cities</t>
                 </a>
                 <div class="dropdown-menu">
                     <t t-foreach="cities" t-as="city">
+                        <t
+                            t-set="is_city_active"
+                            t-value="searches.get('city') == city.get('city')"
+                        />
                         <t t-if="city['city']">
                             <a
                                 t-att-href="keep('/event', city=city['city'])"
@@ -32,13 +36,74 @@
                                 <t t-out="city['city']" />
                                 <span
                                     t-out="city['city_count']"
-                                    class="badge badge-pill badge-primary ml-3"
+                                    t-attf-class="badge rounded-pill ms-3 #{is_city_active and 'text-bg-light' or 'text-bg-primary'}"
                                 />
                             </a>
                         </t>
                     </t>
                 </div>
-            </li>
+            </div>
+        </xpath>
+        <xpath expr="//span[hasclass('o_wevent_offcanvas_country')]" position="after">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target=".o_wevent_offcanvas_city"
+                        aria-expanded="false"
+                        aria-controls="o_wevent_offcanvas_city"
+                    >
+                        City
+                    </button>
+                </h2>
+                <div
+                    id="o_wevent_offcanvas_city"
+                    class="o_wevent_offcanvas_city accordion-collapse collapse"
+                    aria-labelledby="offcanvas_city"
+                >
+                    <div class="accordion-body pt-0">
+                        <ul class="list-group list-group-flush">
+                            <t t-foreach="cities" t-as="city">
+                                <li
+                                    t-if="city['city']"
+                                    class="list-group-item px-0 border-0"
+                                >
+                                    <t
+                                        t-set="is_city_active"
+                                        t-value="searches.get('city') == city.get('city')"
+                                    />
+                                    <a
+                                        t-att-href="keep('/event', city=city['city'])"
+                                        class="d-flex align-items-center justify-content-between text-reset text-decoration-none"
+                                        t-att-title="date[1]"
+                                    >
+                                        <div class="form-check flex-basis-100">
+                                            <input
+                                                class="form-check-input pe-none"
+                                                type="radio"
+                                                t-attf-name="#city['city']"
+                                                t-att-checked="is_city_active"
+                                            />
+                                            <label
+                                                class="form-check-label"
+                                                t-attf-for="#{city['city']}"
+                                                t-out="city['city']"
+                                            />
+                                        </div>
+                                        <span
+                                            t-if="city['city_count']"
+                                            t-out="city['city_count']"
+                                            class="badge rounded-pill text-bg-light"
+                                        />
+                                    </a>
+                                </li>
+                            </t>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </xpath>
     </template>
 </odoo>
