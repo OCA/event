@@ -50,6 +50,7 @@ msgid "It will select this default minimum value when you choose this event"
 msgstr "Seleccionará este valor mínimo por defecto cuando escoja este evento"
 
 #. module: event_min_seat
+#. odoo-python
 #: code:addons/event_min_seat/models/event_event.py:0
 #, python-format
 msgid ""

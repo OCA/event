@@ -5,7 +5,8 @@
         <field name="arch" type="xml">
             <field name="has_seats_limitation" position="after">
                 <span
-                    attrs="{'invisible': [('has_seats_limitation', '=', False)], 'required': [('has_seats_limitation', '=', False)]}"
+                    invisible="not has_seats_limitation"
+                    required="not has_seats_limitation"
                 >
                     from <field name="default_registration_min" class="oe_inline" />
                     &amp;nbsp;

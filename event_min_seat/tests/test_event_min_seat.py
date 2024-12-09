@@ -16,10 +16,13 @@ class TestEventMinSeat(TransactionCase):
                 "seats_max": 10,
             }
         )
+        cls.event_type_default = cls.env["event.type"].create(
+            {"name": "Test event type default"}
+        )
         cls.event = cls.env["event.event"].create(
             {
                 "name": "Test event",
-                "event_type_id": cls.env.ref("event.event_type_data_ticket").id,
+                "event_type_id": cls.event_type_default.id,
                 "date_begin": "2023-01-01",
                 "date_end": "2023-01-01",
             }

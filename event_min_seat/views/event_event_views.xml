@@ -4,9 +4,10 @@
         <field name="inherit_id" ref="event.view_event_form" />
         <field name="arch" type="xml">
             <field name="seats_limited" position="after">
-                <span
-                    attrs="{'invisible': [('seats_limited', '=', False)], 'required': [('seats_limited', '=', True)]}"
-                >from <field name="seats_min" class="oe_inline" /></span>
+                <span invisible="not seats_limited" required="seats_limited">from <field
+                        name="seats_min"
+                        class="oe_inline"
+                    /></span>
                 &amp;nbsp;
             </field>
         </field>
