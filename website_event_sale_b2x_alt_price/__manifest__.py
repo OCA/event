@@ -3,7 +3,7 @@
 {
     "name": "Online event ticket sales with alternative prices",
     "summary": "Display alt. price (B2B for B2C websites, and viceversa)",
-    "version": "15.0.1.1.0",
+    "version": "17.0.1.0.0",
     "development_status": "Beta",
     "category": "Website",
     "website": "https://github.com/OCA/event",
@@ -14,9 +14,14 @@
     "depends": ["website_event_sale", "website_sale_b2x_alt_price"],
     "data": ["templates/website_event_sale.xml"],
     "assets": {
+        "web.assets_frontend": [
+            "/website_event_sale_b2x_alt_price/static/src/scss/website_event.scss",
+        ],
         "web.assets_tests": [
+            "/website_event_sale_b2x_alt_price/static/src/js/b2b_with_discount.esm.js",
             "/website_event_sale_b2x_alt_price/static/src/js/b2b.esm.js",
+            "/website_event_sale_b2x_alt_price/static/src/js/b2c_with_discount.esm.js",
             "/website_event_sale_b2x_alt_price/static/src/js/b2c.esm.js",
-        ]
+        ],
     },
 }

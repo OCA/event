@@ -6,46 +6,61 @@
 <data>
     <template
         id="registration_template"
-        inherit_id="website_event_sale.registration_template"
+        inherit_id="website_event_sale.modal_ticket_registration"
     >
         <!-- Add the website_sale_b2x_alt_price.alt_price when more than 1 types of tickets -->
         <xpath
             expr="//div[hasclass('o_wevent_registration_multi_select')]//span[@itemprop='price']"
             position="before"
         >
-            <p class="text-muted small" t-call="website_sale_b2x_alt_price.alt_price">
+            <br />
+            <span
+                class="text-muted small"
+                t-call="website_sale_b2x_alt_price.alt_price"
+            >
                 <t
                     t-set="combination_info"
                     t-value="ticket._get_ticket_combination_info()"
                 />
-            </p>
+                <t t-set="price" t-value="combination_info['price']" />
+                <t t-set="alt_price" t-value="combination_info['alt_price']" />
+                <t
+                    t-set="alt_list_price"
+                    t-value="combination_info['alt_list_price']"
+                />
+                <t
+                    t-set="has_discounted_price"
+                    t-value="combination_info['has_discounted_price']"
+                />
+                <t t-set="alt_field" t-value="combination_info['alt_field']" />
+            </span>
         </xpath>
         <!-- Add the website_sale_b2x_alt_price.alt_price when only 1 ticket -->
         <xpath
             expr="//div[hasclass('o_wevent_registration_single')]//span[@itemprop='price']"
             position="before"
         >
-            <p
-                class="text-muted small mb-0"
+            <br />
+            <span
+                class="text-muted small"
                 t-call="website_sale_b2x_alt_price.alt_price"
             >
                 <t
                     t-set="combination_info"
                     t-value="tickets._get_ticket_combination_info()"
                 />
-            </p>
-        </xpath>
-        <!-- Display correctly on website -->
-        <xpath
-            expr="//div[hasclass('o_wevent_registration_single')]//t[@t-if='tickets.price']/.."
-            position="attributes"
-        >
-            <attribute
-                name="class"
-                separator=" "
-                add="flex-column"
-                remove="align-self-stretch"
-            />
+                <t t-set="price" t-value="combination_info['price']" />
+                <t t-set="alt_price" t-value="combination_info['alt_price']" />
+                <t
+                    t-set="alt_list_price"
+                    t-value="combination_info['alt_list_price']"
+                />
+                <t
+                    t-set="has_discounted_price"
+                    t-value="combination_info['has_discounted_price']"
+                />
+                <t t-set="alt_field" t-value="combination_info['alt_field']" />
+            </span>
         </xpath>
     </template>
 

@@ -9,10 +9,11 @@ class EventEventTicket(models.Model):
 
     def _get_ticket_combination_info(self):
         """Imitate product.template's _get_combination_info()."""
+        website = self.env["website"].get_current_website(fallback=False)
         # Obtain the inverse field of the normal b2b/b2c behavior
         alt_field = (
             "total_included"
-            if self.env.user.has_group("account.group_show_line_subtotals_tax_excluded")
+            if website.show_line_subtotals_tax_selection == "tax_excluded"
             else "total_excluded"
         )
         price, alt_price = self.price_reduce, self.price_reduce_taxinc
