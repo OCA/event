@@ -18,6 +18,7 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: website_event_filter_city
+#. odoo-python
 #: code:addons/website_event_filter_city/controllers/main.py:0
 #: model_terms:ir.ui.view,arch_db:website_event_filter_city.event_city
 #, python-format
@@ -30,21 +31,13 @@ msgid "Barcelona Days 2017"
 msgstr "Días de Barcelona 2017"
 
 #. module: website_event_filter_city
-#: model:event.event,legend_blocked:website_event_filter_city.event_barcelona
-#: model:event.event,legend_blocked:website_event_filter_city.event_online
-#: model:event.event,legend_blocked:website_event_filter_city.event_sevilla_bf
-#: model:event.event,legend_blocked:website_event_filter_city.event_sevilla_cs
-msgid "Blocked"
-msgstr "Bloqueado"
-
-#. module: website_event_filter_city
 #: model:event.tag,name:website_event_filter_city.event_type_breakfast
 msgid "Breakfast"
 msgstr "Desayuno"
 
 #. module: website_event_filter_city
 #: model:ir.model.fields,field_description:website_event_filter_city.field_event_event__city
-#: model:ir.model.fields,field_description:website_event_filter_city.field_event_session__city
+#: model_terms:ir.ui.view,arch_db:website_event_filter_city.event_city
 msgid "City"
 msgstr "Población"
 
@@ -67,26 +60,16 @@ msgid ""
 "Every year we invite our community, partners and end-users to come and meet "
 "us! It's the ideal event to get together and present new features, roadmap "
 "of future versions, achievements of the software, workshops, training "
-"sessions, etc....\n"
+"sessions, etc...\n"
 "            This event is also an opportunity to showcase our partners' case "
 "studies, methodology or developments. Be there and see directly from the "
 "source the features of the new version!"
 msgstr ""
-"Todos los años invitamos a nuestra comunidad, socios y usuarios finales a "
-"reunirse con nosotros. Es el evento ideal para reunirnos y presentar las "
-"nuevas funcionalidades, la hoja de ruta de futuras versiones, los logros del "
-"software, talleres, sesiones de formación, etc.....\n"
-"            Este evento es también una oportunidad para mostrar los estudios "
-"de casos, la metodología o los desarrollos de nuestros socios.¡ Asista y vea "
-"directamente desde la fuente las características de la nueva versión!"
 
 #. module: website_event_filter_city
-#: model:event.event,legend_normal:website_event_filter_city.event_barcelona
-#: model:event.event,legend_normal:website_event_filter_city.event_online
-#: model:event.event,legend_normal:website_event_filter_city.event_sevilla_bf
-#: model:event.event,legend_normal:website_event_filter_city.event_sevilla_cs
-msgid "In Progress"
-msgstr "En Curso"
+#: model_terms:ir.ui.view,arch_db:website_event_filter_city.event_city
+msgid "Filter by City"
+msgstr ""
 
 #. module: website_event_filter_city
 #: model_terms:event.event,description:website_event_filter_city.event_barcelona
@@ -102,14 +85,6 @@ msgid "Online Code Sprint 2018"
 msgstr "Sprint de código en línea 2018"
 
 #. module: website_event_filter_city
-#: model:event.event,legend_done:website_event_filter_city.event_barcelona
-#: model:event.event,legend_done:website_event_filter_city.event_online
-#: model:event.event,legend_done:website_event_filter_city.event_sevilla_bf
-#: model:event.event,legend_done:website_event_filter_city.event_sevilla_cs
-msgid "Ready for Next Stage"
-msgstr "Listo para la Siguiente Etapa"
-
-#. module: website_event_filter_city
 #: model:event.event,name:website_event_filter_city.event_sevilla_bf
 msgid "Sevilla Awesome Breakfast 2018"
 msgstr "Desayuno Impresionante de Sevilla 2018"
@@ -118,3 +93,30 @@ msgstr "Desayuno Impresionante de Sevilla 2018"
 #: model:event.event,name:website_event_filter_city.event_sevilla_cs
 msgid "Sevilla Code Sprint 2018"
 msgstr "Código Sevilla Sprint 2018"
+
+#~ msgid "Blocked"
+#~ msgstr "Bloqueado"
+
+#~ msgid ""
+#~ "Every year we invite our community, partners and end-users to come and "
+#~ "meet us! It's the ideal event to get together and present new features, "
+#~ "roadmap of future versions, achievements of the software, workshops, "
+#~ "training sessions, etc....\n"
+#~ "            This event is also an opportunity to showcase our partners' "
+#~ "case studies, methodology or developments. Be there and see directly from "
+#~ "the source the features of the new version!"
+#~ msgstr ""
+#~ "Todos los años invitamos a nuestra comunidad, socios y usuarios finales a "
+#~ "reunirse con nosotros. Es el evento ideal para reunirnos y presentar las "
+#~ "nuevas funcionalidades, la hoja de ruta de futuras versiones, los logros "
+#~ "del software, talleres, sesiones de formación, etc.....\n"
+#~ "            Este evento es también una oportunidad para mostrar los "
+#~ "estudios de casos, la metodología o los desarrollos de nuestros socios."
+#~ "¡ Asista y vea directamente desde la fuente las características de la "
+#~ "nueva versión!"
+
+#~ msgid "In Progress"
+#~ msgstr "En Curso"
+
+#~ msgid "Ready for Next Stage"
+#~ msgstr "Listo para la Siguiente Etapa"
