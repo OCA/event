@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -43,6 +43,7 @@ msgid "It will select this default minimum value when you choose this event"
 msgstr ""
 
 #. module: event_min_seat
+#. odoo-python
 #: code:addons/event_min_seat/models/event_event.py:0
 #, python-format
 msgid ""
