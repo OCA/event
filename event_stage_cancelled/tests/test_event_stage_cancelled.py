@@ -1,9 +1,9 @@
 # Copyright 2024 Tecnativa S.L. - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
-from odoo.tests import TransactionCase
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestEventCancelCase(TransactionCase):
+class TestEventCancelCase(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -65,7 +65,8 @@ class TestEventCancelCase(TransactionCase):
         self.assertFalse(bool(self.event_mail.mail_registration_ids))
         self.assertFalse(self.event_mail.scheduled_date)
         self.assertEqual(self.event_mail.mail_state, "running")
-        # Inject bypass_reason for test compatibility with event_registration_cancel_reason
+        # Inject bypass_reason for test compatibility
+        # with event_registration_cancel_reason
         self.event.button_cancel()
         self.assertTrue(
             all([a.state == "cancel" for a in self.attendees]),

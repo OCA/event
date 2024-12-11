@@ -79,20 +79,19 @@ class EventMailRegistration(models.Model):
         for reg_mail in todo:
             organizer = reg_mail.scheduler_id.event_id.organizer_id
             company = self.env.company
-            author = self.env.ref("base.user_root")
+            author = self.env.ref("base.user_root").partner_id
             if organizer.email:
                 author = organizer
             elif company.email:
                 author = company.partner_id
             elif self.env.user.email:
-                author = self.env.user
+                author = self.env.user.partner_id
             email_values = {
                 "author_id": author.id,
             }
-            if not reg_mail.scheduler_id.template_ref.email_from:
+            template = reg_mail.scheduler_id.template_ref
+            if not template.email_from:
                 email_values["email_from"] = author.email_formatted
-            reg_mail.scheduler_id.template_ref.send_mail(
-                reg_mail.registration_id.id, email_values=email_values
-            )
+            template.send_mail(reg_mail.registration_id.id, email_values=email_values)
         todo.write({"mail_sent": True})
         return res
