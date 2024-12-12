@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-07-28 13:09+0000\n"
+"PO-Revision-Date: 2024-12-12 10:06+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #. module: website_event_filter_city
 #. odoo-python
@@ -64,11 +64,18 @@ msgid ""
 "studies, methodology or developments. Be there and see directly from the "
 "source the features of the new version!"
 msgstr ""
+"Ogni anno invitiamo la nostra comunità, i partner e gli utenti finali ad "
+"incontrarci! È l'evento ideale per stare insieme presentare le nuove "
+"funzionalità, i percorsi delle versioni future, i risultati del software, "
+"workshop, sessioni di addestramento, ecc...\n"
+"            Questo evento inoltre è un'opportunità per mostrare i casi "
+"studio dei nostri partner, la metodologia o lo sviluppo. Partecipa e vedi "
+"direttamente dalla fonte le caratteristiche della nuova versione!"
 
 #. module: website_event_filter_city
 #: model_terms:ir.ui.view,arch_db:website_event_filter_city.event_city
 msgid "Filter by City"
-msgstr ""
+msgstr "Filtro per città"
 
 #. module: website_event_filter_city
 #: model_terms:event.event,description:website_event_filter_city.event_barcelona
