@@ -11,7 +11,7 @@
     "Tecnativa, "
     "Onestein, "
     "Odoo Community Association (OCA)",
-    "maintainers": ["Yajo"],
+    "maintainers": ["pilarvargas-tecnativa"],
     "license": "LGPL-3",
     "installable": True,
     "depends": ["website_event"],
