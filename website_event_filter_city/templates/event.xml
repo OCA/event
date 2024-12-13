@@ -44,7 +44,7 @@
                 </div>
             </div>
         </xpath>
-        <xpath expr="//span[hasclass('o_wevent_offcanvas_country')]" position="after">
+        <xpath expr="//*[hasclass('o_wevent_offcanvas_country')]/.." position="after">
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button

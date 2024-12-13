@@ -48,8 +48,8 @@ To configure this module, you need to:
 Known issues / Roadmap
 ======================
 
-- You cannot run the tests unless you are in a bare database with demo
-  data.
+-  You cannot run the tests unless you are in a bare database with demo
+   data.
 
 Bug Tracker
 ===========
@@ -74,18 +74,18 @@ Authors
 Contributors
 ------------
 
-- Dennis Sluijk <d.sluijk@onestein.nl>
+-  Dennis Sluijk <d.sluijk@onestein.nl>
 
-- Cristina Martin R.
+-  Cristina Martin R.
 
-- `Tecnativa <https://www.tecnativa.com>`__:
+-  `Tecnativa <https://www.tecnativa.com>`__:
 
-     - Rafael Blasco
-     - Pedro Baeza
-     - Jairo Llopis
-     - Víctor Martínez
-     - David Vidal
-     - Pilar Vargas
+      -  Rafael Blasco
+      -  Pedro Baeza
+      -  Jairo Llopis
+      -  Víctor Martínez
+      -  David Vidal
+      -  Pilar Vargas
 
 Maintainers
 -----------
@@ -100,13 +100,13 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-.. |maintainer-Yajo| image:: https://github.com/Yajo.png?size=40px
-    :target: https://github.com/Yajo
-    :alt: Yajo
+.. |maintainer-pilarvargas-tecnativa| image:: https://github.com/pilarvargas-tecnativa.png?size=40px
+    :target: https://github.com/pilarvargas-tecnativa
+    :alt: pilarvargas-tecnativa
 
 Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
-|maintainer-Yajo| 
+|maintainer-pilarvargas-tecnativa| 
 
 This module is part of the `OCA/event <https://github.com/OCA/event/tree/17.0/website_event_filter_city>`_ project on GitHub.
 
