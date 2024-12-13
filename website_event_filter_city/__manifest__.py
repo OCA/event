@@ -4,14 +4,14 @@
 {
     "name": "Website Event Filter City",
     "summary": "Add a customizable top area to filter events with city",
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.1.0",
     "category": "Website",
     "website": "https://github.com/OCA/event",
     "author": "Antiun Ingeniería S.L., "
     "Tecnativa, "
     "Onestein, "
     "Odoo Community Association (OCA)",
-    "maintainers": ["Yajo"],
+    "maintainers": ["pilarvargas-tecnativa"],
     "license": "LGPL-3",
     "installable": True,
     "depends": ["website_event"],
