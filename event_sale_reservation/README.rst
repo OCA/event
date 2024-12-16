@@ -17,20 +17,21 @@ Sell event reservations
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fevent-lightgray.png?logo=github
-    :target: https://github.com/OCA/event/tree/15.0/event_sale_reservation
+    :target: https://github.com/OCA/event/tree/17.0/event_sale_reservation
     :alt: OCA/event
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/event-15-0/event-15-0-event_sale_reservation
+    :target: https://translation.odoo-community.org/projects/event-17-0/event-17-0-event_sale_reservation
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/event&target_branch=15.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/event&target_branch=17.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
 This module extends the functionality of event_sale to support selling
-reservations of events that still don't exist and to allow you to schedule the
-creation of events based on how many reservations already exist.
+reservations of events that still don't exist and to allow you to
+schedule the creation of events based on how many reservations already
+exist.
 
 **Table of contents**
 
@@ -42,86 +43,90 @@ Installation
 
 To install this module, you need to:
 
-#. Install ``web_ir_actions_act_multi`` from https://github.com/OCA/web
-#. Install ``web_ir_actions_act_view_reload`` from https://github.com/OCA/web
+1. Install ``web_ir_actions_act_multi`` from https://github.com/OCA/web
+2. Install ``web_ir_actions_act_view_reload`` from
+   https://github.com/OCA/web
 
 Configuration
 =============
 
-
 To make use of this module, a user needs these minimal permissions:
 
-- Sales / User: Own Documents Only
-- Events / User
+-  Sales / User: Own Documents Only
+-  Events / User
 
 Usage
 =====
 
 To know how many reservations exist for a given event type:
 
-#. Go to *Events > Configuration > Event Templates* and pick or create one.
-#. There's a new smart button called *Reserved seats* with that count.
-#. Click on it to get to the sales orders where the seats got reserved.
+1. Go to *Events > Configuration > Event Templates* and pick or create
+   one.
+2. There's a new smart button called *Reserved seats* with that count.
+3. Click on it to get to the sales orders where the seats got reserved.
 
-But that counter will be probably zero when you install, so let's see how to
-increase it.
+But that counter will be probably zero when you install, so let's see
+how to increase it.
 
 To create an event reservation product:
 
-#. Go to *Sales > Products > Products*.
-#. Create one and set *Product Type* to *Event Reservation*.
-#. Select one *Event type for reservations*.
-#. Save.
+1. Go to *Sales > Products > Products*.
+2. Create one and set *Product Type* to *Event Reservation*.
+3. Select one *Event type for reservations*.
+4. Save.
 
-From now on, you can sell event reservations for that event type. To do it:
+From now on, you can sell event reservations for that event type. To do
+it:
 
-#. Go to *Sales > Orders > Quotations*.
-#. Create one.
-#. Set its basic info (customer, date...) and go to *Order lines* tab.
-#. Click *Add a product*.
-#. Select the event reservation product you created above.
-#. Set its info (quantity, price...).
-#. Save that line and the quotation.
+1. Go to *Sales > Orders > Quotations*.
+2. Create one.
+3. Set its basic info (customer, date...) and go to *Order lines* tab.
+4. Click *Add a product*.
+5. Select the event reservation product you created above.
+6. Set its info (quantity, price...).
+7. Save that line and the quotation.
 
-At this point, the reservation is not yet confirmed, so if you go to the event
-type, the smart button will still count zero.
+At this point, the reservation is not yet confirmed, so if you go to the
+event type, the smart button will still count zero.
 
 To confirm those reservations:
 
-#. Go to the quotation you just created (if you are not there yet).
-#. Click on *Confirm*.
+1. Go to the quotation you just created (if you are not there yet).
+2. Click on *Confirm*.
 
-Now, if you go to the event type form, the smart button will indicate how many
-reserved seats exist.
+Now, if you go to the event type form, the smart button will indicate
+how many reserved seats exist.
 
 If you want to convert those reservations into real event registrations:
 
-#. Go to the quotation you just created (if you are not there yet).
-#. Click on *Register in event*.
-#. In the wizard you see, set the *Event* and *Event Ticket* for all the order
-   lines you want to convert into registrations.
-#. If there is any line you still don't want to convert, remove it from the
-   wizard.
-#. Click on *Next*.
-#. A new wizard will appear, where you will be able to specify the name, email
-   and phone of each one of the attendees. If you don't do it, they will get
-   that info from the sales order customer.
-#. After that's done, click on *Apply*.
+1. Go to the quotation you just created (if you are not there yet).
+2. Click on *Register in event*.
+3. In the wizard you see, set the *Event* and *Event Ticket* for all the
+   order lines you want to convert into registrations.
+4. If there is any line you still don't want to convert, remove it from
+   the wizard.
+5. Click on *Next*.
+6. A new wizard will appear, where you will be able to specify the name,
+   email and phone of each one of the attendees. If you don't do it,
+   they will get that info from the sales order customer.
+7. After that's done, click on *Apply*.
 
-At this point, the sales order lines will be modified to include the ticket
-product instead of the reservation product, and the event reservations have
-been created, linked to those lines.
+At this point, the sales order lines will be modified to include the
+ticket product instead of the reservation product, and the event
+reservations have been created, linked to those lines.
 
-If the event is set to autoconfirmation, the registrations are confirmed., otherwise, they are
-kept as draft until an invoice is created for the sales order, and paid. But
-that is just upstream ``event_sale`` module in action.
+If the event is set to autoconfirmation, the registrations are
+confirmed., otherwise, they are kept as draft until an invoice is
+created for the sales order, and paid. But that is just upstream
+``event_sale`` module in action.
 
 Known issues / Roadmap
 ======================
 
-Some addons (event_registration_multi_qty + event_sale_registration_multi_qty)
-makes totals wrong because they depend currently on count and not sum of qtys;
-integrating with them would require a glue module.
+Some addons (event_registration_multi_qty +
+event_sale_registration_multi_qty) makes totals wrong because they
+depend currently on count and not sum of qtys; integrating with them
+would require a glue module.
 
 Bug Tracker
 ===========
@@ -129,7 +134,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/event/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/event/issues/new?body=module:%20event_sale_reservation%0Aversion:%2015.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/event/issues/new?body=module:%20event_sale_reservation%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -137,19 +142,19 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Tecnativa
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* `Tecnativa <https://www.tecnativa.com>`_:
+-  `Tecnativa <https://www.tecnativa.com>`__:
 
-  * Jairo Llopis
+   -  Jairo Llopis
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -169,6 +174,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-Yajo| 
 
-This module is part of the `OCA/event <https://github.com/OCA/event/tree/15.0/event_sale_reservation>`_ project on GitHub.
+This module is part of the `OCA/event <https://github.com/OCA/event/tree/17.0/event_sale_reservation>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
