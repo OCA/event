@@ -8,21 +8,19 @@
         <field name="model">registration.editor</field>
         <field name="arch" type="xml">
             <form>
-                <sheet>
-                    <p>
-                        Convert pending event reservations into registrations for
-                        <field name="sale_order_id" class="oe_inline" readonly="1" />
-                    </p>
-                    <p>
-                        If there is any line from that order that you still do
-                        not want to convert into real event registrations, you
-                        can remove it from the list below. You will be able to
-                        repeat this process later for those lines.
-                    </p>
-                </sheet>
+                <p>
+                    Convert pending event reservations into registrations for
+                    <field name="sale_order_id" class="oe_inline" readonly="1" />
+                </p>
+                <p>
+                    If there is any line from that order that you still do
+                    not want to convert into real event registrations, you
+                    can remove it from the list below. You will be able to
+                    repeat this process later for those lines.
+                </p>
                 <field name="event_registration_ids">
                     <tree editable="top" create="false">
-                        <field name="sale_order_line_id" invisible="1" />
+                        <field name="sale_order_line_id" column_invisible="1" />
                         <field name="event_reservation_type_id" force_save="1" />
                         <field
                             name="event_id"

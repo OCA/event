@@ -5,13 +5,14 @@
     <record id="event_sale_product_template_form" model="ir.ui.view">
         <field name="name">Allow products that are event registrations</field>
         <field name="model">product.template</field>
-        <field name="groups_id" eval="[(4, ref('event.group_event_user'))]" />
         <field name="inherit_id" ref="product.product_template_form_view" />
         <field name="arch" type="xml">
             <field name="detailed_type" position="after">
                 <field
                     name="event_reservation_type_id"
-                    attrs="{'invisible': [('detailed_type', '!=', 'event_reservation')], 'required': [('detailed_type', '=', 'event_reservation')]}"
+                    invisible="detailed_type != 'event_reservation'"
+                    required="detailed_type == 'event_reservation'"
+                    groups="event.group_event_user"
                 />
             </field>
         </field>

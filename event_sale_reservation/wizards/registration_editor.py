@@ -42,34 +42,21 @@ class RegistrationEditor(models.TransientModel):
                     "event_id": line.event_id.id,
                     "event_ticket_id": line.event_ticket_id.id,
                     "product_id": line.event_ticket_id.product_id.id,
+                    "price_unit": line.sale_order_line_id.price_unit,
                 }
             )
         # Close current wizard and reopen normally to configure registrations
         upstream_view = self.env.ref("event_sale.view_event_registration_editor_form")
         return {
-            "type": "ir.actions.act_multi",
-            "actions": [
-                {"type": "ir.actions.act_window_close"},
-                {
-                    "context": dict(
-                        self.env.context,
-                        registering_reservations=False,
-                        skip_event_sale_registration_multi_qty=True,
-                    ),
-                    "res_model": self._name,
-                    "target": "new",
-                    "type": "ir.actions.act_window",
-                    "view_id": upstream_view.id,
-                    "view_mode": "form",
-                    "views": [[upstream_view.id, "form"]],
-                },
-            ],
-        }
-
-    def action_make_registration(self):
-        """Force main view reload after finishing."""
-        result = super().action_make_registration()
-        return {
-            "type": "ir.actions.act_multi",
-            "actions": [result, {"type": "ir.actions.act_view_reload"}],
+            "type": "ir.actions.act_window",
+            "context": dict(
+                self.env.context,
+                registering_reservations=False,
+                skip_event_sale_registration_multi_qty=True,
+            ),
+            "res_model": self._name,
+            "target": "new",
+            "view_id": upstream_view.id,
+            "view_mode": "form",
+            "views": [[upstream_view.id, "form"]],
         }

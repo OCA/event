@@ -1,2 +1,3 @@
 - [Tecnativa](https://www.tecnativa.com):
   - Jairo Llopis
+  - Pilar Vargas
