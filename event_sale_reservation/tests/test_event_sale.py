@@ -3,12 +3,14 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from datetime import datetime, timedelta
 
-from odoo.tests.common import Form, TransactionCase
+from odoo.tests.common import Form
+
+from odoo.addons.base.tests.common import BaseCommon
 
 from ..exceptions import ReservationWithoutEventTypeError
 
 
-class EventSaleCase(TransactionCase):
+class EventSaleCase(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -91,14 +93,14 @@ class EventSaleCase(TransactionCase):
 
     def wizard_step_2(self, wizard1):
         """Generate a step 2 wizard from the step 1 wizard."""
-        multi_action = wizard1.action_convert_to_registration()
-        # Ensure we first close the first wizard
-        self.assertEqual(multi_action["type"], "ir.actions.act_multi")
-        self.assertEqual(
-            multi_action["actions"][0]["type"], "ir.actions.act_window_close"
-        )
+        action = wizard1.action_convert_to_registration()
+        # Verify that the action type is open a window
+        self.assertEqual(action["type"], "ir.actions.act_window")
+        # Verify the model and context of the wizard
+        self.assertEqual(action["res_model"], wizard1._name)
+        self.assertIn("skip_event_sale_registration_multi_qty", action["context"])
+        self.assertFalse(action["context"]["registering_reservations"])
         # Get form from 2nd chained action
-        action = multi_action["actions"][1]
         return Form(
             self.env[action["res_model"]].with_context(**action["context"]),
             view=action["view_id"],
@@ -118,7 +120,7 @@ class EventSaleCase(TransactionCase):
     def test_event_type_open_orders(self):
         """Test the smart button that opens orders from an event type."""
         self.orders.action_confirm()
-        groups = zip(self.event_types, self.orders, (1, 10, 100))
+        groups = zip(self.event_types, self.orders, (1, 10, 100), strict=True)
         for ev_type, so, reservations in groups:
             self.assertEqual(ev_type.seats_reservation_total, reservations)
             action = ev_type.action_open_sale_orders()
@@ -127,12 +129,12 @@ class EventSaleCase(TransactionCase):
 
     def test_sale_workflow(self):
         # Start: orders are draft, all is pending, nothing is reserved
-        self.orders.invalidate_cache(["event_reservations_pending"])
+        self.orders.invalidate_recordset(["event_reservations_pending"])
         self.assertEqual(self.orders.mapped("event_reservations_pending"), [1, 10, 100])
         self.assertEqual(self.event_types.mapped("seats_reservation_total"), [0, 0, 0])
         # Confirm orders: all is pending, all is reserved
         self.orders.action_confirm()
-        self.orders.invalidate_cache(["event_reservations_pending"])
+        self.orders.invalidate_recordset(["event_reservations_pending"])
         self.assertEqual(self.orders.mapped("event_reservations_pending"), [1, 10, 100])
         self.assertEqual(
             self.event_types.mapped("seats_reservation_total"), [1, 10, 100]
@@ -155,7 +157,7 @@ class EventSaleCase(TransactionCase):
             wiz2_line.save()
         wiz2.save().action_make_registration()
         # 1st and 3rd SO are pending and reserved
-        self.orders.invalidate_cache(["event_reservations_pending"])
+        self.orders.invalidate_recordset(["event_reservations_pending"])
         self.assertEqual(self.orders.mapped("event_reservations_pending"), [1, 0, 100])
         self.assertEqual(
             self.event_types.mapped("seats_reservation_total"), [1, 0, 100]

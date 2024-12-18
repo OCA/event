@@ -70,7 +70,7 @@ msgstr ""
 
 #. module: event_sale_reservation
 #: model:ir.model.fields.selection,name:event_sale_reservation.selection__product_template__detailed_type__event_reservation
-msgid "Event Resevation"
+msgid "Event Reservation"
 msgstr ""
 
 #. module: event_sale_reservation

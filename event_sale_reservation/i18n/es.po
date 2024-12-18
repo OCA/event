@@ -81,8 +81,8 @@ msgstr "Categoría de evento de la reserva"
 
 #. module: event_sale_reservation
 #: model:ir.model.fields.selection,name:event_sale_reservation.selection__product_template__detailed_type__event_reservation
-msgid "Event Resevation"
-msgstr "Reseva de Evento"
+msgid "Event Reservation"
+msgstr "Reserva de Evento"
 
 #. module: event_sale_reservation
 #: model:ir.model,name:event_sale_reservation.model_event_type

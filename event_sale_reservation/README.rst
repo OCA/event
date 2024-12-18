@@ -38,15 +38,6 @@ exist.
 .. contents::
    :local:
 
-Installation
-============
-
-To install this module, you need to:
-
-1. Install ``web_ir_actions_act_multi`` from https://github.com/OCA/web
-2. Install ``web_ir_actions_act_view_reload`` from
-   https://github.com/OCA/web
-
 Configuration
 =============
 
@@ -152,6 +143,7 @@ Contributors
 -  `Tecnativa <https://www.tecnativa.com>`__:
 
    -  Jairo Llopis
+   -  Pilar Vargas
 
 Maintainers
 -----------
@@ -166,13 +158,13 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-.. |maintainer-Yajo| image:: https://github.com/Yajo.png?size=40px
-    :target: https://github.com/Yajo
-    :alt: Yajo
+.. |maintainer-pilarvargas-tecnativa| image:: https://github.com/pilarvargas-tecnativa.png?size=40px
+    :target: https://github.com/pilarvargas-tecnativa
+    :alt: pilarvargas-tecnativa
 
 Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
-|maintainer-Yajo| 
+|maintainer-pilarvargas-tecnativa| 
 
 This module is part of the `OCA/event <https://github.com/OCA/event/tree/17.0/event_sale_reservation>`_ project on GitHub.
 

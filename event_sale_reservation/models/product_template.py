@@ -12,7 +12,7 @@ class ProductTemplate(models.Model):
 
     detailed_type = fields.Selection(
         selection_add=[
-            ("event_reservation", "Event Resevation"),
+            ("event_reservation", "Event Reservation"),
         ],
         ondelete={"event_reservation": "set service"},
     )
