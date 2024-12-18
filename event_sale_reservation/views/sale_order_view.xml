@@ -14,7 +14,7 @@
                     type="action"
                     string="Register in event"
                     class="btn-primary"
-                    attrs="{'invisible': ['|', ('event_reservations_pending', '=', 0), ('state', 'not in', ('sale', 'done'))]}"
+                    invisible="event_reservations_pending == 0 or state not in ['sale', 'done']"
                 />
             </button>
             <div class="oe_button_box" name="button_box" position="inside">
@@ -23,14 +23,14 @@
                     type="object"
                     class="oe_stat_button"
                     icon="fa-users"
-                    attrs="{'invisible': [('event_registration_count', '=', 0)]}"
+                    invisible="event_registration_count == 0"
                 >
                     <field name="event_registration_count" widget="statinfo" />
                 </button>
             </div>
             <xpath
-                expr="//field[@name='order_line']//form//field[@name='event_ok']"
-                position="after"
+                expr="//field[@name='order_line']//form//field[@name='event_id']"
+                position="before"
             >
                 <field name="event_registration_ids" invisible="1" />
             </xpath>

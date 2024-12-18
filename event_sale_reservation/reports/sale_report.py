@@ -13,17 +13,12 @@ class SaleReport(models.Model):
         string="Event reservation type",
     )
 
-    def _query(self, with_clause="", fields=None, groupby="", from_clause=""):
-        if fields is None:
-            fields = {}
-        select_str = """ ,
-            t.event_reservation_type_id as event_reservation_type_id
-        """
-        fields.update({"event_reservation_type_id": select_str})
-        groupby += ", t.event_reservation_type_id"
-        return super()._query(
-            with_clause=with_clause,
-            fields=fields,
-            groupby=groupby,
-            from_clause=from_clause,
-        )
+    def _select_additional_fields(self):
+        res = super()._select_additional_fields()
+        res["event_reservation_type_id"] = "t.event_reservation_type_id"
+        return res
+
+    def _group_by_sale(self):
+        res = super()._group_by_sale()
+        res += """, t.event_reservation_type_id"""
+        return res

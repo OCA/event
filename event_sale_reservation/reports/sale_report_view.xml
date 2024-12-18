@@ -7,7 +7,7 @@
         <field name="model">sale.report</field>
         <field name="inherit_id" ref="sale.view_order_product_search" />
         <field name="arch" type="xml">
-            <filter name="Product" position="after">
+            <filter name="product_id" position="after">
                 <filter
                     name="groupby_event_reservation_type_id"
                     string="Event Reservation Type"
