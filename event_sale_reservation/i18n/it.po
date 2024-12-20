@@ -32,6 +32,7 @@ msgstr ""
 "Un servizio è un prodotto non materiale che viene fornito."
 
 #. module: event_sale_reservation
+#. odoo-python
 #: code:addons/event_sale_reservation/models/sale_order.py:0
 #, python-format
 msgid "Attendees"
@@ -74,14 +75,14 @@ msgid "Event Registration Count"
 msgstr "Conteggio iscrizione evento"
 
 #. module: event_sale_reservation
-#: model_terms:ir.ui.view,arch_db:event_sale_reservation.view_order_product_search
-msgid "Event Reservation Type"
-msgstr "Tipo prenotazione evento"
-
-#. module: event_sale_reservation
 #: model:ir.model.fields.selection,name:event_sale_reservation.selection__product_template__detailed_type__event_reservation
 msgid "Event Reservation"
 msgstr "Prenotazione evento"
+
+#. module: event_sale_reservation
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.view_order_product_search
+msgid "Event Reservation Type"
+msgstr "Tipo prenotazione evento"
 
 #. module: event_sale_reservation
 #: model:ir.model,name:event_sale_reservation.model_event_type
@@ -116,18 +117,10 @@ msgstr "Tipo evento per prenotazioni"
 #: model_terms:ir.ui.view,arch_db:event_sale_reservation.registration_editor_reservations_view_form
 msgid ""
 "If there is any line from that order that you still do\n"
-"                        not want to convert into real event registrations, "
-"you\n"
-"                        can remove it from the list below. You will be able "
-"to\n"
-"                        repeat this process later for those lines."
+"                    not want to convert into real event registrations, you\n"
+"                    can remove it from the list below. You will be able to\n"
+"                    repeat this process later for those lines."
 msgstr ""
-"Se esiste una riga di quell'ordine di vendita che non si\n"
-"                        vuole ancora convertire in una reale registrazione "
-"evento,\n"
-"                        la si può rimuovere dall'elenco seguente. Si potrà "
-"ripetere\n"
-"                        successivamente questo processo per quelle righe."
 
 #. module: event_sale_reservation
 #: model:ir.model.fields,help:event_sale_reservation.field_sale_order__event_registration_count
@@ -155,8 +148,8 @@ msgstr "Prenotazioni evento in attesa"
 
 #. module: event_sale_reservation
 #: model:ir.model,name:event_sale_reservation.model_product_template
-msgid "Product Template"
-msgstr "Modello prodotto"
+msgid "Product"
+msgstr ""
 
 #. module: event_sale_reservation
 #: model:ir.model.fields,field_description:event_sale_reservation.field_product_product__detailed_type
@@ -210,7 +203,26 @@ msgstr ""
 "Tipi di eventi che possono essere prenotati acquistando questo prodotto"
 
 #. module: event_sale_reservation
+#. odoo-python
 #: code:addons/event_sale_reservation/models/product_template.py:0
 #, python-format
 msgid "You must indicate event type for %(name)s."
 msgstr "Bisogna indicare il tipo evento per %(name)s."
+
+#~ msgid ""
+#~ "If there is any line from that order that you still do\n"
+#~ "                        not want to convert into real event "
+#~ "registrations, you\n"
+#~ "                        can remove it from the list below. You will be "
+#~ "able to\n"
+#~ "                        repeat this process later for those lines."
+#~ msgstr ""
+#~ "Se esiste una riga di quell'ordine di vendita che non si\n"
+#~ "                        vuole ancora convertire in una reale "
+#~ "registrazione evento,\n"
+#~ "                        la si può rimuovere dall'elenco seguente. Si "
+#~ "potrà ripetere\n"
+#~ "                        successivamente questo processo per quelle righe."
+
+#~ msgid "Product Template"
+#~ msgstr "Modello prodotto"
