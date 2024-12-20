@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-07-21 09:10+0000\n"
+"PO-Revision-Date: 2024-12-20 18:06+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #. module: event_sale_reservation
 #: model:ir.model.fields,help:event_sale_reservation.field_product_product__detailed_type
@@ -121,6 +121,12 @@ msgid ""
 "                    can remove it from the list below. You will be able to\n"
 "                    repeat this process later for those lines."
 msgstr ""
+"Se esiste una riga di quell'ordine di vendita che non si\n"
+"                    vuole ancora convertire in una reale registrazione "
+"evento,\n"
+"                    la si può rimuovere dall'elenco seguente. Si potrà "
+"ripetere\n"
+"                    successivamente questo processo per quelle righe."
 
 #. module: event_sale_reservation
 #: model:ir.model.fields,help:event_sale_reservation.field_sale_order__event_registration_count
@@ -149,7 +155,7 @@ msgstr "Prenotazioni evento in attesa"
 #. module: event_sale_reservation
 #: model:ir.model,name:event_sale_reservation.model_product_template
 msgid "Product"
-msgstr ""
+msgstr "Prodotto"
 
 #. module: event_sale_reservation
 #: model:ir.model.fields,field_description:event_sale_reservation.field_product_product__detailed_type
