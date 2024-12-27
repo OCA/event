@@ -6,7 +6,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     "name": "Event project",
-    "version": "16.0.1.0.1",
+    "version": "17.0.1.0.0",
     "author": "Tecnativa, Moduon, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/event",
     "license": "AGPL-3",

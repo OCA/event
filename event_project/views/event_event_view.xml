@@ -1,24 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <!-- Action for smartbutton in event form view -->
-    <record id="act_event_task_list" model="ir.actions.act_window">
-        <field name="name">Tasks</field>
-        <field name="res_model">project.task</field>
-        <field name="view_mode">kanban,tree,form,calendar,pivot,graph,activity</field>
-        <field name="domain">[('event_id', '=', active_id)]</field>
-        <field name="search_view_id" ref="project.view_task_search_form" />
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-                No tasks found. Let's create one!
-            </p>
-            <p>
-                Keep track of the progress of your tasks from creation to completion.<br
-                />
-                Collaborate efficiently by chatting in real-time or via email.
-            </p>
-        </field>
-    </record>
-
     <!-- Add project fields and smartbutton in event form view -->
     <record id="view_event_form" model="ir.ui.view">
         <field name="name">Add project to event</field>
@@ -28,22 +9,42 @@
             <field name="date_tz" position="after">
                 <field
                     name="project_id"
-                    domain="[('event_id', '=', False), ('active', '!=', False)]"
+                    groups="event.group_event_manager"
                     context="{'default_name': name, 'default_date': date_begin}"
                 />
             </field>
             <div name="button_box" position="inside">
                 <button
-                    name="%(act_event_task_list)d"
+                    name="%(project.action_view_all_task)d"
                     type="action"
                     class="oe_stat_button"
                     icon="fa-tasks"
-                    attrs="{'invisible': [('project_id','=', False)]}"
-                    context="{'default_project_id': project_id}"
+                    invisible="not project_id"
+                    groups="event.group_event_manager"
+                    context="{'default_project_id': project_id, 'search_default_project_id': project_id}"
                 >
                     <field name="count_tasks" widget="statinfo" string="Tasks" />
                 </button>
             </div>
+        </field>
+    </record>
+
+    <record id="view_event_search" model="ir.ui.view">
+        <field name="name">Filter events by project</field>
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_search" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='stage_id']" position="after">
+                <field name="project_id" groups="event.group_event_manager" />
+            </xpath>
+            <xpath expr="//separator[last()]" position="after">
+                <filter
+                    string="Linked to a project"
+                    name="linked_to_a_prokect"
+                    domain="[('project_id', '!=', False)]"
+                    groups="event.group_event_manager"
+                />
+            </xpath>
         </field>
     </record>
 </odoo>

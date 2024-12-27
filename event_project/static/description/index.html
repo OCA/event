@@ -8,10 +8,11 @@
 
 /*
 :Author: David Goodger (goodger@python.org)
-:Id: $Id: html4css1.css 8954 2022-01-20 10:10:25Z milde $
+:Id: $Id: html4css1.css 9511 2024-01-13 09:50:07Z milde $
 :Copyright: This stylesheet has been placed in the public domain.
 
 Default cascading style sheet for the HTML output of Docutils.
+Despite the name, some widely supported CSS2 features are used.
 
 See https://docutils.sourceforge.io/docs/howto/html-stylesheets.html for how to
 customize this style sheet.
@@ -274,7 +275,7 @@ pre.literal-block, pre.doctest-block, pre.math, pre.code {
   margin-left: 2em ;
   margin-right: 2em }
 
-pre.code .ln { color: grey; } /* line numbers */
+pre.code .ln { color: gray; } /* line numbers */
 pre.code, code { background-color: #eeeeee }
 pre.code .comment, code .comment { color: #5C6576 }
 pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
@@ -300,7 +301,7 @@ span.option {
 span.pre {
   white-space: pre }
 
-span.problematic {
+span.problematic, pre.problematic {
   color: red }
 
 span.section-subtitle {
@@ -368,7 +369,7 @@ ul.auto-toc {
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !! source digest: sha256:43b55b332c7b2fa54fbf04e01e06798cf09891bb789deac6c53f9c35f247dde7
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/licence-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/event/tree/16.0/event_project"><img alt="OCA/event" src="https://img.shields.io/badge/github-OCA%2Fevent-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/event-16-0/event-16-0-event_project"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/event&amp;target_branch=16.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
+<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/licence-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/event/tree/17.0/event_project"><img alt="OCA/event" src="https://img.shields.io/badge/github-OCA%2Fevent-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/event-17-0/event-17-0-event_project"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/event&amp;target_branch=17.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
 <p>This module allows you to assign a project to an event. This project
 will inherit its event’s fields.</p>
 <p>Fields inherited from event:</p>
@@ -394,14 +395,15 @@ will inherit its event’s fields.</p>
 </div>
 <div class="section" id="usage">
 <h1><a class="toc-backref" href="#toc-entry-1">Usage</a></h1>
-<p>To use this module, you need to:</p>
+<p>To use this module, the logged-in user must be a member of the
+<strong>Administrator</strong> group for Events App:</p>
 <ol class="arabic simple">
-<li>Go to an event or create a brand new one and assign a project or
-create a new one.</li>
-<li>After saving, the event will be updated with the name of the event
-and date.</li>
-<li>Modify those fields and check propagation: Namem, Date begin, Date
-end, Organizer and Note</li>
+<li>Go to an event or create a new one, then assign a project or create a
+new one. <img alt="Event Form View" src="https://raw.githubusercontent.com/OCA/event/17.0/event_project/static/images/event_form_view.png" /></li>
+<li>After saving the event, some fields will be updated on the related
+project.</li>
+<li>Modify the following fields and check for propagation: Name, Start
+Date, End Date, Organizer, and Note.</li>
 </ol>
 </div>
 <div class="section" id="bug-tracker">
@@ -409,7 +411,7 @@ end, Organizer and Note</li>
 <p>Bugs are tracked on <a class="reference external" href="https://github.com/OCA/event/issues">GitHub Issues</a>.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-<a class="reference external" href="https://github.com/OCA/event/issues/new?body=module:%20event_project%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
+<a class="reference external" href="https://github.com/OCA/event/issues/new?body=module:%20event_project%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
 <p>Do not contact contributors directly about support or help with technical issues.</p>
 </div>
 <div class="section" id="credits">
@@ -435,18 +437,24 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 </ul>
 </li>
 <li>Eduardo de Miguel (<a class="reference external" href="https://www.moduon.team">Moduon</a>)</li>
+<li><a class="reference external" href="https://binhex.cloud">Binhex</a>:<ul>
+<li>Rolando Pérez &lt;<a class="reference external" href="mailto:rolando.perez&#64;binhex.cloud">rolando.perez&#64;binhex.cloud</a>&gt;</li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="section" id="maintainers">
 <h2><a class="toc-backref" href="#toc-entry-6">Maintainers</a></h2>
 <p>This module is maintained by the OCA.</p>
-<a class="reference external image-reference" href="https://odoo-community.org"><img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" /></a>
+<a class="reference external image-reference" href="https://odoo-community.org">
+<img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" />
+</a>
 <p>OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.</p>
 <p>Current <a class="reference external" href="https://odoo-community.org/page/maintainer-role">maintainers</a>:</p>
 <p><a class="reference external image-reference" href="https://github.com/Shide"><img alt="Shide" src="https://github.com/Shide.png?size=40px" /></a> <a class="reference external image-reference" href="https://github.com/rafaelbn"><img alt="rafaelbn" src="https://github.com/rafaelbn.png?size=40px" /></a></p>
-<p>This module is part of the <a class="reference external" href="https://github.com/OCA/event/tree/16.0/event_project">OCA/event</a> project on GitHub.</p>
+<p>This module is part of the <a class="reference external" href="https://github.com/OCA/event/tree/17.0/event_project">OCA/event</a> project on GitHub.</p>
 <p>You are welcome to contribute. To learn how please visit <a class="reference external" href="https://odoo-community.org/page/Contribute">https://odoo-community.org/page/Contribute</a>.</p>
 </div>
 </div>

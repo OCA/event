@@ -7,10 +7,7 @@
         <field name="inherit_id" ref="project.edit_project" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='partner_id']" position="after">
-                <field
-                    name="event_id"
-                    attrs="{'invisible': [('event_id', '=', False)]}"
-                />
+                <field name="event_id" invisible="not event_id" />
             </xpath>
         </field>
     </record>

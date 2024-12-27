@@ -11,14 +11,17 @@ class EventEvent(models.Model):
     project_id = fields.Many2one(
         comodel_name="project.project",
         string="Related project",
+        domain=[("event_id", "=", False)],
         help="Project end date will be updated with event start date.",
     )
+
     task_ids = fields.One2many(
         comodel_name="project.task",
         inverse_name="event_id",
         string="Tasks",
         readonly=True,
     )
+
     count_tasks = fields.Integer(
         string="Task number",
         compute="_compute_count_tasks",
@@ -29,45 +32,44 @@ class EventEvent(models.Model):
         for event in self:
             event.count_tasks = len(event.task_ids)
 
-    def project_data_update(self, vals):
-        """Update data in the linked project. To be called after calling
-        create/write super."""
+    def _set_event_to_linked_project(self):
+        for event in self.filtered("project_id"):
+            event.project_id.event_id = event.id
 
-        def _get_project_vals(event):
-            return {
-                "name": event.display_name,
-                "date_start": event.date_begin,
-                "date": event.date_end,
-                "event_id": event.id,
-                "partner_id": event.organizer_id.id,
-                "description": event.note,
-            }
+    _sql_constraints = [
+        (
+            "project_id_uniq",
+            "unique(project_id)",
+            "You can't link two events to the same project.",
+        ),
+    ]
 
+    @api.model_create_multi
+    def create(self, vals_list):
+        events = super().create(vals_list)
+        events._set_event_to_linked_project()
+        return events
+
+    def write(self, vals):
+        # If project is removed, remove event from project
+        if vals.get("project_id") is False:
+            self.mapped("project_id").update({"event_id": False})
+        res = super().write(vals)
+        # If project is set, set event to project
+        if vals.get("project_id"):
+            self._set_event_to_linked_project()
+        elif any([f in vals for f in self._fields_to_sync_to_project()]):
+            self.mapped("project_id")._sync_from_related_event()
+        return res
+
+    @api.model
+    def _fields_to_sync_to_project(self):
         fields_to_check = {
             "name",
             "date_begin",
             "date_end",
-            "project_id",
             "organizer_id",
             "note",
         }
-        if not any([f in vals for f in fields_to_check]):
-            return
 
-        for event in self:
-            if not event.project_id:
-                continue
-            event.project_id.write(_get_project_vals(event))
-
-    @api.model
-    def create(self, vals):
-        events = super().create(vals)
-        events.project_data_update(vals)
-        return events
-
-    def write(self, vals):
-        if vals.get("project_id") is False:
-            self.mapped("project_id").write({"event_id": False})
-        res = super().write(vals)
-        self.project_data_update(vals)
-        return res
+        return fields_to_check

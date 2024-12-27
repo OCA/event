@@ -10,3 +10,7 @@
   - Ernesto Tejeda
 
 - Eduardo de Miguel ([Moduon](https://www.moduon.team))
+
+- [Binhex](https://binhex.cloud):
+
+  - Rolando Pérez \<<rolando.perez@binhex.cloud>\>
