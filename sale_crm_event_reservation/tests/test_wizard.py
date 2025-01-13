@@ -87,7 +87,7 @@ class OpportunityCase(TransactionCase):
         self.assertEqual(
             so.order_line.event_ticket_id, self.event_1.event_ticket_ids[0]
         )
-        self.assertTrue(so.order_line.event_ok)
+        self.assertTrue(so.order_line.product_id.detailed_type == "event")
         self.assertEqual(
             so.order_line.product_uom_qty,
             3,
@@ -115,7 +115,7 @@ class OpportunityCase(TransactionCase):
         self.assertEqual(so.order_line.product_id, self.product_reservation_1)
         self.assertFalse(so.order_line.event_id)
         self.assertFalse(so.order_line.event_ticket_id)
-        self.assertFalse(so.order_line.event_ok)
+        self.assertFalse(so.order_line.product_id.detailed_type == "event")
         self.assertEqual(
             so.order_line.product_uom_qty,
             3,

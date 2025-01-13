@@ -10,9 +10,9 @@ Create event quotations from opportunities
    !! source digest: sha256:08a4d72558ab1cb7796630463d64cce3503eaa98283529e2132d7cd067fbc2b2
    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-.. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
+.. |badge1| image:: https://img.shields.io/badge/maturity-Mature-brightgreen.png
     :target: https://odoo-community.org/page/development-status
-    :alt: Beta
+    :alt: Mature
 .. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
@@ -122,13 +122,16 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-.. |maintainer-Yajo| image:: https://github.com/Yajo.png?size=40px
-    :target: https://github.com/Yajo
-    :alt: Yajo
+.. |maintainer-chienandalu| image:: https://github.com/chienandalu.png?size=40px
+    :target: https://github.com/chienandalu
+    :alt: chienandalu
+.. |maintainer-pilarvargas-tecnativa| image:: https://github.com/pilarvargas-tecnativa.png?size=40px
+    :target: https://github.com/pilarvargas-tecnativa
+    :alt: pilarvargas-tecnativa
 
-Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
+Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
 
-|maintainer-Yajo| 
+|maintainer-chienandalu| |maintainer-pilarvargas-tecnativa| 
 
 This module is part of the `OCA/event <https://github.com/OCA/event/tree/17.0/sale_crm_event_reservation>`_ project on GitHub.
 
