@@ -17,20 +17,21 @@ Create event quotations from opportunities
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fevent-lightgray.png?logo=github
-    :target: https://github.com/OCA/event/tree/15.0/sale_crm_event_reservation
+    :target: https://github.com/OCA/event/tree/17.0/sale_crm_event_reservation
     :alt: OCA/event
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/event-15-0/event-15-0-sale_crm_event_reservation
+    :target: https://translation.odoo-community.org/projects/event-17-0/event-17-0-sale_crm_event_reservation
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/event&target_branch=15.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/event&target_branch=17.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module extends the functionality of *crm_event*, *event_sale_reservation*
-and *sale_crm* to support fast generation of event quotations from
-opportunities and to allow you to sell events like a boss.
+This module extends the functionality of *crm_event*,
+*event_sale_reservation* and *sale_crm* to support fast generation of
+event quotations from opportunities and to allow you to sell events like
+a boss.
 
 **Table of contents**
 
@@ -42,7 +43,7 @@ Installation
 
 To install this module, you need to:
 
-#. Install *crm_event* and *event_sale_reservation* from
+1. Install *crm_event* and *event_sale_reservation* from
    https://github.com/OCA/event.
 
 Configuration
@@ -50,33 +51,37 @@ Configuration
 
 To make use of this module, a user needs these minimal permissions:
 
-- Sales / User: Own Documents Only
-- Events / User
+-  Sales / User: Own Documents Only
+-  Events / User
 
 Usage
 =====
 
 To use this module, you need to:
 
-#. Go to *CRM > My Pipeline*.
-#. Create one opportunity.
-#. Set basic fields.
-#. Set *Customer*, *Event type* and *Seats Wanted*.
-#. Click on *New Event Quotation*.
+1. Go to *CRM > My Pipeline*.
+2. Create one opportunity.
+3. Set basic fields.
+4. Set *Customer*, *Event type* and *Seats Wanted*.
+5. Click on *New Event Quotation*.
 
-A wizard will open. If you want to register the customer in an scheduled event:
+A wizard will open. If you want to register the customer in an scheduled
+event:
 
-#. Select *Mode = Register in scheduled event*.
-#. Select *Event* and *Ticket*
-#. Click on *Generate quotation*
+1. Select *Mode = Register in scheduled event*.
+2. Select *Event* and *Ticket*
+3. Click on *Generate quotation*
 
-Instead, if you want to reserve some seats for the customer in some upcoming event:
+Instead, if you want to reserve some seats for the customer in some
+upcoming event:
 
-#. Select *Mode = Reserve upcoming event*.
-#. Select *Product*, which must be a reservation product for the chosen event type.
-#. Click on *Generate quotation*
+1. Select *Mode = Reserve upcoming event*.
+2. Select *Product*, which must be a reservation product for the chosen
+   event type.
+3. Click on *Generate quotation*
 
-In either case, you will be presented with a sale order created just for you.
+In either case, you will be presented with a sale order created just for
+you.
 
 Bug Tracker
 ===========
@@ -84,7 +89,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/event/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/event/issues/new?body=module:%20sale_crm_event_reservation%0Aversion:%2015.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/event/issues/new?body=module:%20sale_crm_event_reservation%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -92,20 +97,20 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Tecnativa
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* `Tecnativa <https://www.tecnativa.com>`_:
+-  `Tecnativa <https://www.tecnativa.com>`__:
 
-  * Jairo Llopis
-  * Stefan Ungureanu
+   -  Jairo Llopis
+   -  Stefan Ungureanu
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -125,6 +130,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-Yajo| 
 
-This module is part of the `OCA/event <https://github.com/OCA/event/tree/15.0/sale_crm_event_reservation>`_ project on GitHub.
+This module is part of the `OCA/event <https://github.com/OCA/event/tree/17.0/sale_crm_event_reservation>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
