@@ -16,26 +16,28 @@
                         <field name="seats_wanted" />
                         <field name="mode" widget="radio" />
                     </group>
-                    <group
-                        name="register"
-                        attrs="{'invisible': [('mode', '!=', 'register')]}"
-                    >
+                    <group name="register" invisible="mode != 'register'">
+                        <field name="allowed_event_ids" invisible="1" />
+                        <field name="allowed_event_ticket_ids" invisible="1" />
                         <field
                             name="event_id"
-                            attrs="{'required': [('mode', '=', 'register')]}"
+                            required="mode == 'register'"
+                            context="{'default_event_type_id': event_type_id}"
                         />
                         <field
                             name="event_ticket_id"
-                            attrs="{'required': [('mode', '=', 'register')]}"
+                            required="mode == 'register'"
+                            context="{'default_event_id': event_id,}"
                         />
                     </group>
-                    <group
-                        name="reserve"
-                        attrs="{'invisible': [('mode', '!=', 'reserve')]}"
-                    >
+                    <group name="reserve" invisible="mode != 'reserve'">
                         <field
                             name="product_id"
-                            attrs="{'required': [('mode', '=', 'reserve')]}"
+                            required="mode == 'reserve'"
+                            context="{
+                                'default_event_reservation_ok': True,
+                                'default_event_reservation_type_id': event_type_id,
+                            }"
                         />
                     </group>
                 </sheet>

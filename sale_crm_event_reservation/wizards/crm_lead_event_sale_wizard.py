@@ -1,7 +1,7 @@
 # Copyright 2021 Tecnativa - Jairo Llopis
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models
+from odoo import api, fields, models
 from odoo.tests.common import Form
 
 
@@ -41,59 +41,66 @@ class CRMLeadEventSale(models.TransientModel):
                 ("event_reservation_type_id", "=", event_type_id),
             ]
         """,
-        context="""
-            {
-                "default_event_reservation_ok": True,
-                "default_event_reservation_type_id": event_type_id,
-            }
-        """,
         index=True,
         ondelete="cascade",
         string="Product",
     )
+    allowed_event_ids = fields.Many2many(
+        comodel_name="event.event",
+        compute="_compute_allowed_event_ids",
+        readonly=True,
+    )
     event_id = fields.Many2one(
         comodel_name="event.event",
-        domain="""
-            [
-                ("event_type_id", "=", event_type_id),
-                ("date_end", ">=", datetime.date.today().strftime("%Y-%m-%d")),
-                ("is_finished", "!=", True),
-                "|",
-                ("seats_limited", "=", False),
-                ("seats_available", ">=", seats_wanted),
-            ]
-        """,
-        context="""
-            {
-                "default_event_type_id": event_type_id,
-            }
-        """,
+        domain="[('id', 'in', allowed_event_ids)]",
         index=True,
         ondelete="cascade",
         string="Event",
     )
+    allowed_event_ticket_ids = fields.Many2many(
+        comodel_name="event.event.ticket",
+        compute="_compute_allowed_event_ticket_ids",
+        readonly=True,
+    )
     event_ticket_id = fields.Many2one(
         comodel_name="event.event.ticket",
-        domain="""
-            [
-                ("event_id", "=", event_id),
-                "|",
-                ("end_sale_datetime", "=", False),
-                ("end_sale_datetime", ">=", datetime.date.today().strftime("%Y-%m-%d")),
-                "|",
-                ("seats_limited", "=", False),
-                ("seats_available", ">=", seats_wanted),
-            ]
-        """,
-        context="""
-            {
-                "default_event_id": event_id,
-            }
-        """,
+        domain="[('id', 'in', allowed_event_ticket_ids)]",
         index=True,
         ondelete="cascade",
         string="Ticket",
     )
+
+    @api.depends("mode")
+    def _compute_allowed_event_ids(self):
+        for record in self:
+            events = self.env["event.event"].search(
+                [
+                    ("event_type_id", "=", record.event_type_id.id),
+                    ("date_end", ">=", fields.Date.context_today(self)),
+                    ("is_finished", "=", False),
+                ]
+            )
+            record.allowed_event_ids = events.filtered(
+                lambda event: not event.seats_limited
+                or event.seats_available >= self.seats_wanted
+            )
+
+    @api.depends("event_id")
+    def _compute_allowed_event_ticket_ids(self):
+        for record in self:
+            record.allowed_event_ticket_ids = []
+            if record.event_id:
+                tickets = record.event_id.event_ticket_ids.filtered(
+                    lambda ticket, record=record: (
+                        not ticket.end_sale_datetime
+                        or ticket.end_sale_datetime >= fields.Date.context_today(self)
+                    )
+                    and (
+                        not ticket.seats_limited
+                        or ticket.seats_available >= record.seats_wanted
+                    )
+                )
+                record.allowed_event_ticket_ids = tickets
 
     def action_generate(self):
         """Create an event reservation sales order."""
