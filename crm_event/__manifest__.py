@@ -3,8 +3,8 @@
 {
     "name": "CRM Event Category",
     "summary": "Link opportunities to event categories",
-    "version": "17.0.1.0.0",
-    "development_status": "Production/Stable",
+    "version": "17.0.1.0.1",
+    "development_status": "Mature",
     "category": "Event Management",
     "website": "https://github.com/OCA/event",
     "author": "Tecnativa, Odoo Community Association (OCA)",
