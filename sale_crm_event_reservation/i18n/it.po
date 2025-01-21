@@ -17,6 +17,16 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: sale_crm_event_reservation
+#: model:ir.model.fields,field_description:sale_crm_event_reservation.field_crm_lead_event_sale_wizard__allowed_event_ids
+msgid "Allowed Event"
+msgstr ""
+
+#. module: sale_crm_event_reservation
+#: model:ir.model.fields,field_description:sale_crm_event_reservation.field_crm_lead_event_sale_wizard__allowed_event_ticket_ids
+msgid "Allowed Event Ticket"
+msgstr ""
+
+#. module: sale_crm_event_reservation
 #: model_terms:ir.ui.view,arch_db:sale_crm_event_reservation.crm_lead_event_sale_wizard_view_form
 msgid "Cancel"
 msgstr "Annulla"
@@ -90,11 +100,6 @@ msgstr ""
 "indicarla qui."
 
 #. module: sale_crm_event_reservation
-#: model:ir.model.fields,field_description:sale_crm_event_reservation.field_crm_lead_event_sale_wizard____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
-
-#. module: sale_crm_event_reservation
 #: model:ir.model.fields,field_description:sale_crm_event_reservation.field_crm_lead_event_sale_wizard__write_uid
 msgid "Last Updated by"
 msgstr "Ultimo aggiornamento di"
@@ -155,3 +160,6 @@ msgid "Wizard to generate event quotation from event opportunity"
 msgstr ""
 "Procedura guidata per generare una preventivo evento da una opportunità "
 "evento"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
