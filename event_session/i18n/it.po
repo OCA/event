@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-05-28 10:34+0000\n"
+"PO-Revision-Date: 2025-01-31 20:06+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__mail_count_done
@@ -1610,7 +1610,7 @@ msgstr "Nome visualizzato"
 #: model:ir.model.fields,field_description:event_session.field_event_session__date_tz
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__date_tz
 msgid "Display Timezone"
-msgstr ""
+msgstr "Visualizza fuso orario"
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__community_menu
@@ -1919,6 +1919,8 @@ msgid ""
 "Indicates the timezone in which the event dates/times will be displayed on "
 "the website."
 msgstr ""
+"Indica il fuso orario nel quale la data/ora dell'evento verrà visualizzata "
+"nel sito web."
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__interval_nbr
@@ -2812,6 +2814,8 @@ msgid ""
 "When the event is scheduled to take place (expressed in your local timezone "
 "on the form view)."
 msgstr ""
+"Quando l'evento è schedulato è previsto (espresso nella maschera nel tuo "
+"fuso orario)."
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__start_today
