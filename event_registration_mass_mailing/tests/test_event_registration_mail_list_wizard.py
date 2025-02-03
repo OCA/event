@@ -1,11 +1,12 @@
 # Copyright 2016 Antiun Ingenieria S.L. - Javier Iniesta
 # Copyright 2020 Tecnativa - David Vidal
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-from odoo import fields
-from odoo.tests.common import TransactionCase
+from odoo import Command, fields
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestEventRegistrationMailListWizard(TransactionCase):
+class TestEventRegistrationMailListWizard(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -15,7 +16,7 @@ class TestEventRegistrationMailListWizard(TransactionCase):
             {
                 "name": "Test Contact 01",
                 "email": "email01@test.com",
-                "list_ids": [[6, 0, [cls.mail_list.id]]],
+                "list_ids": [Command.set([cls.mail_list.id])],
             }
         )
         cls.event = cls.env["event.event"].create(
