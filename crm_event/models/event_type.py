@@ -1,7 +1,7 @@
 # Copyright 2021 Tecnativa - Jairo Llopis
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 
 
 class EventType(models.Model):
@@ -81,7 +81,7 @@ class EventType(models.Model):
             totals_item = totals.get(one.id, {})
             event_count = totals_item.get("event_type_id_count", 0)
             seats_sum = (
-                _("Unlimited")
+                self.env._("Unlimited")
                 if one in types_with_unlimited_seats
                 else totals_item.get("seats_available", "0")
             )
@@ -122,10 +122,10 @@ class EventType(models.Model):
                 "search_default_upcoming": True,
             },
             "domain": [("event_type_id", "=", self.id)],
-            "name": _("Events"),
+            "name": self.env._("Events"),
             "res_model": "event.event",
             "type": "ir.actions.act_window",
-            "view_mode": "kanban,calendar,tree,form,pivot",
+            "view_mode": "kanban,calendar,list,form,pivot",
             "view_type": "form",
         }
 
@@ -137,9 +137,9 @@ class EventType(models.Model):
                 "search_default_open_opportunities": True,
             },
             "domain": [("event_type_id", "=", self.id)],
-            "name": _("Opportunities"),
+            "name": self.env._("Opportunities"),
             "res_model": "crm.lead",
             "type": "ir.actions.act_window",
-            "view_mode": "kanban,tree,graph,pivot,form,calendar,activity",
+            "view_mode": "kanban,list,graph,pivot,form,calendar,activity",
             "view_type": "form",
         }

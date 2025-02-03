@@ -27,7 +27,7 @@
         <field name="model">crm.lead</field>
         <field name="inherit_id" ref="crm.crm_case_kanban_view_leads" />
         <field name="arch" type="xml">
-            <xpath expr="//div[hasclass('o_kanban_record_bottom')]" position="before">
+            <xpath expr="//field[@name='lead_properties']" position="after">
                 <t
                     t-if="record.event_type_id.raw_value"
                     groups="event.group_event_user"

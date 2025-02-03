@@ -48,7 +48,7 @@
         <field name="model">event.type</field>
         <field name="inherit_id" ref="event.view_event_type_tree" />
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field
                     name="seats_available_total"
                     groups="sales_team.group_sale_salesman"
@@ -61,7 +61,7 @@
                     name="seats_wanted_sum"
                     groups="sales_team.group_sale_salesman"
                 />
-            </tree>
+            </list>
         </field>
     </record>
 </data>
