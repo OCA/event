@@ -1,6 +1,6 @@
 # Copyright 2023 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-from odoo import _, api, exceptions, fields, models
+from odoo import api, exceptions, fields, models
 
 
 class EventEvent(models.Model):
@@ -27,7 +27,7 @@ class EventEvent(models.Model):
             event.seats_limited and event.seats_min > event.seats_max for event in self
         ):
             raise exceptions.ValidationError(
-                _(
+                self.env._(
                     "Maximum attendees number should be greater than minimum attendees "
                     "number."
                 )

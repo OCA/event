@@ -16,11 +16,11 @@
         <field name="model">event.event</field>
         <field name="inherit_id" ref="event.view_event_tree" />
         <field name="arch" type="xml">
-            <tree position="attributes">
+            <list position="attributes">
                 <attribute
                     name="decoration-danger"
                 >(seats_min and seats_min &gt; seats_reserved) or (seats_max and seats_max &lt; seats_reserved)</attribute>
-            </tree>
+            </list>
             <field name="seats_max" position="before">
                 <field name="seats_min" optional="hide" />
             </field>
