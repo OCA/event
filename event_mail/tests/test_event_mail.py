@@ -1,6 +1,8 @@
 # Copyright 2017 Tecnativa - Sergio Teruel
 # Copyright 2020 Studio73 - Pablo Fuentes <pablo@studio73.es>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+from odoo import Command
+
 from odoo.addons.base.tests.common import BaseCommon
 
 
@@ -17,9 +19,7 @@ class EventMailCase(BaseCommon):
             {
                 "name": "Template test 01",
                 "scheduler_template_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "interval_nbr": 15,
                             "interval_unit": "days",
