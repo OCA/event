@@ -45,12 +45,3 @@ msgstr "Registrazione evento"
 #: model:ir.model.fields,field_description:event_registration_partner_unique.field_event_event__forbid_duplicates
 msgid "Forbid Duplicates"
 msgstr "Impedisci duplicati"
-
-#~ msgid "Display Name"
-#~ msgstr "Nome visualizzato"
-
-#~ msgid "ID"
-#~ msgstr "ID"
-
-#~ msgid "Last Modified on"
-#~ msgstr "Ultima modifica il"
