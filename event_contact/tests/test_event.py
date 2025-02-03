@@ -7,7 +7,7 @@ from openerp.tests.common import TransactionCase
 
 class EventCase(TransactionCase):
     def setUp(self, *args, **kwargs):
-        super(EventCase, self).setUp(*args, **kwargs)
+        super().setUp(*args, **kwargs)
 
         # Partners
         self.partner1 = self.env["res.partner"].create({"name": "Test Partner 1"})
