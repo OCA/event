@@ -5,9 +5,9 @@
         <field name="arch" type="xml">
             <field name="seats_limited" position="after">
                 <span invisible="not seats_limited" required="seats_limited">from <field
-                        name="seats_min"
-                        class="oe_inline"
-                    /></span>
+                name="seats_min"
+                class="oe_inline"
+            /></span>
                 &amp;nbsp;
             </field>
         </field>
