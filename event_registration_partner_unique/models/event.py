@@ -3,7 +3,7 @@
 # Copyright 2022 Tecnativa - Luis D. Lafaurie
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -34,7 +34,7 @@ class EventRegistration(models.Model):
             if dupes:
                 # pylint: disable=W8120
                 raise ValidationError(
-                    _("Duplicated partners found in event {0}: {1}.").format(
+                    self.env._("Duplicated partners found in event {0}: {1}.").format(
                         event_reg.event_id.display_name,
                         ", ".join(
                             partner_id.display_name
