@@ -1,0 +1,7 @@
+- Michael Viriyananda \<<viriyananda.michael@gmail.com>\>
+- David Alonso \<<david.alonso@solvos.es>\>
+- [Tecnativa](https://www.tecnativa.com):
+  - Jairo Llopis
+  - Alexandre Díaz
+  - Ernesto Tejeda
+- Eduardo López \<<elp@moduon.team>\>
