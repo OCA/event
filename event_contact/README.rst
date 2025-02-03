@@ -85,6 +85,9 @@ Contributors
   - Ernesto Tejeda
 
 - Eduardo L??pez <elp@moduon.team>
+- `Heliconia Solutions Pvt. Ltd. <https://www.heliconia.io>`__
+
+  - Bhavesh Heliconia
 
 Maintainers
 -----------
