@@ -2,18 +2,24 @@
 # Copyright 2020 Tecnativa - Víctor Martínez
 # Copyright 2023 Tecnativa - Carolina Fernandez
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-
+from odoo import fields
 from odoo.exceptions import ValidationError
-from odoo.tests.common import TransactionCase
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class DuplicatedPartnerCase(TransactionCase):
+class DuplicatedPartnerCase(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.event = cls.env.ref("event.event_0")
-        cls.event.forbid_duplicates = False
-        cls.partner = cls.env.ref("base.res_partner_1")
+        cls.event = cls.env["event.event"].create(
+            {
+                "name": "Test event",
+                "date_begin": fields.Datetime.now(),
+                "date_end": fields.Datetime.now(),
+                "forbid_duplicates": False,
+            }
+        )
         cls.registration = cls.env["event.registration"].create(
             {
                 "event_id": cls.event.id,

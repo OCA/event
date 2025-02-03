@@ -8,4 +8,3 @@
   > - Víctor Martínez
   > - Carolina Fernandez
   > - Juan José Seguí
-
