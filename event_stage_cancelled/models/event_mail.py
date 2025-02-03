@@ -31,6 +31,18 @@ class EventMail(models.Model):
             )
         return res
 
+    @api.depends("interval_type", "mail_done", "scheduled_date")
+    def _compute_mail_state(self):
+        todo = self.filtered(lambda x: x.interval_type == "after_cancel")
+        for scheduler in todo:
+            if scheduler.mail_done:
+                scheduler.mail_state = "sent"
+            elif scheduler.scheduled_date:
+                scheduler.mail_state = "scheduled"
+            else:
+                scheduler.mail_state = "running"
+        return super(EventMail, self - todo)._compute_mail_state()
+
     def execute(self):
         """Plan the mailings"""
         regular_schedulers = self.filtered(lambda x: x.interval_type != "after_cancel")
