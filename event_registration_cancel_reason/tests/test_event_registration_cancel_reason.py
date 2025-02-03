@@ -4,10 +4,11 @@
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 from odoo import exceptions, fields
-from odoo.tests import common
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestEventRegistrationCancelReason(common.TransactionCase):
+class TestEventRegistrationCancelReason(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -20,7 +21,6 @@ class TestEventRegistrationCancelReason(common.TransactionCase):
             }
         )
         cls.event2 = cls.event1.copy()
-        cls.partner = cls.env["res.partner"].create({"name": "Test partner"})
         cls.cancel_reason = cls.env["event.registration.cancel.reason"].create(
             {"name": "Test reason"}
         )
