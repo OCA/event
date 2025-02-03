@@ -76,6 +76,9 @@ Contributors
   - David Vidal <david.vidal@tecnativa.com>
 
 - Eduardo López (`Moduon <https://www.moduon.es/>`__)
+- `Heliconia Solutions Pvt. Ltd. <https://www.heliconia.io>`__
+
+  - Bhavesh Heliconia
 
 Maintainers
 -----------
