@@ -1,0 +1,1 @@
+odoo-addon-partner_event @ git+https://github.com/OCA/event.git@refs/pull/435/head#subdirectory=partner_event
