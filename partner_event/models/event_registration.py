@@ -85,9 +85,16 @@ class EventRegistration(models.Model):
             self = self.with_context(**get_attendee_partner_address)
             for registration in self:
                 if registration.partner_id:
-                    registration.update(
-                        registration._synchronize_partner_values(
-                            registration.partner_id
-                        )
+                    vals = registration._synchronize_partner_values(
+                        registration.partner_id
                     )
+                    # On Odoo 19.0 "mobile" field is removed
+                    # https://github.com/odoo/odoo/pull/189739
+                    # so this should not be ported to 19.0+
+                    if "mobile" not in registration._fields and "mobile" in vals:
+                        mobile = vals.pop("mobile")
+                        phone = vals.get("phone") or mobile
+                        if phone:
+                            vals["phone"] = phone
+                    registration.update(vals)
         return {}
