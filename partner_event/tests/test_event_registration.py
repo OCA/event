@@ -51,6 +51,26 @@ class TestEventRegistration(common.TransactionCase):
             }
         )
 
+        # On Odoo 19.0 "mobile" field is removed
+        # https://github.com/odoo/odoo/pull/189739
+        # so these example and related tests
+        # should not be ported to 19.0+
+        cls.partner_with_mobile = partner_model.create(
+            {
+                "name": "Test Partner with mobile",
+                "email": "email_with_mobile@test.com",
+                "mobile": "+1254728912",
+            }
+        )
+        cls.partner_with_phone_and_mobile = partner_model.create(
+            {
+                "name": "Test Partner with mobile and phone",
+                "email": "email_with_mobile_and_phone@test.com",
+                "phone": "254728913",
+                "mobile": "+1254728913",
+            }
+        )
+
     def test_create(self):
         self.assertEqual(self.partner_01.name, self.registration_01.name)
         self.assertEqual(self.partner_01.email, self.registration_01.email)
@@ -110,3 +130,28 @@ class TestEventRegistration(common.TransactionCase):
         partner3 = self.env["res.partner"].create({"name": "unregistered partner"})
         partner3.unlink()
         self.assertFalse(partner3.exists())
+
+    def test_partner_only_mobile(self):
+        reg = self.env["event.registration"].create(
+            {
+                "attendee_partner_id": self.partner_with_mobile.id,
+                "event_id": self.event_0.id,
+            }
+        )
+        reg._onchange_partner_id()
+        self.assertEqual(reg.phone, self.partner_with_mobile.mobile)
+
+    def test_partner_mobile_and_phone(self):
+        reg = self.env["event.registration"].create(
+            {
+                "attendee_partner_id": self.partner_with_phone_and_mobile.id,
+                "event_id": self.event_0.id,
+            }
+        )
+        reg._onchange_partner_id()
+        self.assertEqual(reg.phone, self.partner_with_phone_and_mobile.phone)
+        self.assertNotEqual(
+            reg.phone,
+            self.partner_with_phone_and_mobile.mobile,
+            "Incorrect test. Partners phone and mobile must differ",
+        )
