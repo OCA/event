@@ -45,9 +45,7 @@ class TestWebsiteEventRequireLegal(HttpCase):
             step_delay=100,
         )
         registration = self.env["event.registration"].search(
-            [
-                ("name", "=", "Super Mario"),
-            ]
+            [("name", "=", "Super Mario")]
         )
         # Assert that the registration have metadata logs
         self.assertTrue(

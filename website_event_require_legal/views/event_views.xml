@@ -8,6 +8,7 @@
                 <field name="website_require_legal" />
                 <field
                     name="website_description_legal"
+                    placeholder="Leave it empty for using the default text."
                     attrs="{'invisible': [('website_require_legal', '=', False)]}"
                 />
             </field>
