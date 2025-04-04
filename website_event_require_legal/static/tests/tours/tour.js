@@ -28,7 +28,7 @@ odoo.define("website_event_require_legal.tour", function (require) {
             trigger: 'button:contains("Continue")',
         },
         {
-            trigger: "input[name='1-name'], input[name='2-name'], input[name='3-name']",
+            trigger: ".o_wereg_confirmed_attendees",
         },
     ];
 
