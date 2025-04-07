@@ -5,10 +5,10 @@
         <field name="model">event.type</field>
         <field name="inherit_id" ref="event.view_event_type_form" />
         <field name="arch" type="xml">
-            <xpath
-                expr="//field[@name='has_seats_limitation']/parent::div"
-                position="before"
-            >
+            <xpath 
+                expr="//field[@name='auto_confirm']"
+                position="after"
+                >
                 <div colspan="2" class="o_checkbox_optional_field">
                     <label for="use_sessions" />
                     <field name="use_sessions" class="w-100" />
