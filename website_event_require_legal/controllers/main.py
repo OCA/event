@@ -2,6 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from odoo import _
 from odoo.http import request, route
+from odoo.tools import Markup
 
 from odoo.addons.website_event.controllers.main import WebsiteEventController
 
@@ -22,7 +23,6 @@ class RequireLegalToRegister(WebsiteEventController):
     def _log_acceptance_metadata(self, record):
         """Log legal terms acceptance metadata."""
         environ = request.httprequest.headers.environ
-        message = _("Website legal terms acceptance metadata: <br/>%s")
         metadata = "<br/>".join(
             f"{val}: {environ.get(val)}"
             for val in (
@@ -31,4 +31,7 @@ class RequireLegalToRegister(WebsiteEventController):
                 "HTTP_ACCEPT_LANGUAGE",
             )
         )
-        record.sudo().message_post(body=message % metadata, message_type="notification")
+        message = Markup(_("Website legal terms acceptance metadata: %s") % metadata)
+        record.sudo().message_post(
+            body=message, message_type="notification", subtype_xmlid="mail.mt_comment"
+        )
