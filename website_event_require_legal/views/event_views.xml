@@ -4,12 +4,12 @@
         <field name="model">event.event</field>
         <field name="inherit_id" ref="event.view_event_form" />
         <field name="arch" type="xml">
-            <field name="auto_confirm" position="after">
+            <field name="badge_format" position="before">
                 <field name="website_require_legal" />
                 <field
                     name="website_description_legal"
                     placeholder="Leave it empty for using the default text."
-                    attrs="{'invisible': [('website_require_legal', '=', False)]}"
+                    invisible="not website_require_legal"
                 />
             </field>
         </field>
