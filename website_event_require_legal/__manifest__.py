@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     "name": "Website Event Require Legal",
-    "version": "16.0.1.0.0",
+    "version": "17.0.1.0.0",
     "author": "Tecnativa, " "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/event",
     "category": "Event",
@@ -13,7 +13,7 @@
     ],
     "assets": {
         "web.assets_tests": [
-            "/website_event_require_legal/static/tests/tours/tour.js",
+            "/website_event_require_legal/static/tests/tours/*",
         ],
     },
     "installable": True,
