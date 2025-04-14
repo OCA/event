@@ -1,0 +1,69 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_event_require_legal
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_event_require_legal
+#: model:ir.model.fields,help:website_event_require_legal.field_event_event__website_description_legal
+#: model:ir.model.fields,help:website_event_require_legal.field_event_session__website_description_legal
+msgid ""
+"Custom text for the legal terms checkbox shown on the event registration "
+"page. Leave empty to use the default text."
+msgstr ""
+
+#. module: website_event_require_legal
+#: model:ir.model,name:website_event_require_legal.model_event_event
+msgid "Event"
+msgstr ""
+
+#. module: website_event_require_legal
+#: model_terms:ir.ui.view,arch_db:website_event_require_legal.accept_legal_input
+msgid "I agree to the"
+msgstr ""
+
+#. module: website_event_require_legal
+#: model:ir.model.fields,help:website_event_require_legal.field_event_event__website_require_legal
+#: model:ir.model.fields,help:website_event_require_legal.field_event_session__website_require_legal
+msgid ""
+"If set, the user must accept the terms in order to register in the event "
+"from the website."
+msgstr ""
+
+#. module: website_event_require_legal
+#: model_terms:ir.ui.view,arch_db:website_event_require_legal.view_event_form
+msgid "Leave it empty for using the default text."
+msgstr ""
+
+#. module: website_event_require_legal
+#: model:ir.model.fields,field_description:website_event_require_legal.field_event_event__website_description_legal
+#: model:ir.model.fields,field_description:website_event_require_legal.field_event_session__website_description_legal
+msgid "Legal Terms Description"
+msgstr ""
+
+#. module: website_event_require_legal
+#: model:ir.model.fields,field_description:website_event_require_legal.field_event_event__website_require_legal
+#: model:ir.model.fields,field_description:website_event_require_legal.field_event_session__website_require_legal
+msgid "Require legal terms"
+msgstr ""
+
+#. module: website_event_require_legal
+#. odoo-python
+#: code:addons/website_event_require_legal/controllers/main.py:0
+#, python-format
+msgid "Website legal terms acceptance metadata: <br/>%s"
+msgstr ""
+
+#. module: website_event_require_legal
+#: model_terms:ir.ui.view,arch_db:website_event_require_legal.accept_legal_input
+msgid "terms &amp; conditions"
+msgstr ""

@@ -1,0 +1,77 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_event_require_legal
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2025-04-05 12:06+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.2\n"
+
+#. module: website_event_require_legal
+#: model:ir.model.fields,help:website_event_require_legal.field_event_event__website_description_legal
+#: model:ir.model.fields,help:website_event_require_legal.field_event_session__website_description_legal
+msgid ""
+"Custom text for the legal terms checkbox shown on the event registration "
+"page. Leave empty to use the default text."
+msgstr ""
+"Testo personalizzato per la casella di controllo dei termini legali "
+"visualizzata nella pagina di registrazione dell'evento. Lasciare vuoto per "
+"usare il testo predefinito."
+
+#. module: website_event_require_legal
+#: model:ir.model,name:website_event_require_legal.model_event_event
+msgid "Event"
+msgstr "Evento"
+
+#. module: website_event_require_legal
+#: model_terms:ir.ui.view,arch_db:website_event_require_legal.accept_legal_input
+msgid "I agree to the"
+msgstr "Concordo con il"
+
+#. module: website_event_require_legal
+#: model:ir.model.fields,help:website_event_require_legal.field_event_event__website_require_legal
+#: model:ir.model.fields,help:website_event_require_legal.field_event_session__website_require_legal
+msgid ""
+"If set, the user must accept the terms in order to register in the event "
+"from the website."
+msgstr ""
+"Se impostata, l'utente deve accettare i termini per potersi registrare "
+"all'evento dal sito web."
+
+#. module: website_event_require_legal
+#: model_terms:ir.ui.view,arch_db:website_event_require_legal.view_event_form
+msgid "Leave it empty for using the default text."
+msgstr "Lasciare vuoto per usare il testo predefinito."
+
+#. module: website_event_require_legal
+#: model:ir.model.fields,field_description:website_event_require_legal.field_event_event__website_description_legal
+#: model:ir.model.fields,field_description:website_event_require_legal.field_event_session__website_description_legal
+msgid "Legal Terms Description"
+msgstr "Descrizione termini legali"
+
+#. module: website_event_require_legal
+#: model:ir.model.fields,field_description:website_event_require_legal.field_event_event__website_require_legal
+#: model:ir.model.fields,field_description:website_event_require_legal.field_event_session__website_require_legal
+msgid "Require legal terms"
+msgstr "Richiede termini legali"
+
+#. module: website_event_require_legal
+#. odoo-python
+#: code:addons/website_event_require_legal/controllers/main.py:0
+#, python-format
+msgid "Website legal terms acceptance metadata: <br/>%s"
+msgstr "Metadati accettazione termini legali sito web: <br/>%s"
+
+#. module: website_event_require_legal
+#: model_terms:ir.ui.view,arch_db:website_event_require_legal.accept_legal_input
+msgid "terms &amp; conditions"
+msgstr "termini e condizioni"
