@@ -50,7 +50,7 @@ class WebsiteEventCrmTests(CrmEventCase):
         return "\n".join(lead.message_ids.mapped("body"))
 
     def _test_event_type_invitation(self, lead):
-        return "/event?type={}".format(lead.event_type_id.id) in self._lead_msg(lead)
+        return f"/event?type={lead.event_type_id.id}" in self._lead_msg(lead)
 
     def test_event_crm_invite_cron(self):
         self.a_events.website_published = True
