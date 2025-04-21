@@ -17,21 +17,21 @@ Website, event and CRM integration
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fevent-lightgray.png?logo=github
-    :target: https://github.com/OCA/event/tree/15.0/website_event_crm_invitation
+    :target: https://github.com/OCA/event/tree/17.0/website_event_crm_invitation
     :alt: OCA/event
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/event-15-0/event-15-0-website_event_crm_invitation
+    :target: https://translation.odoo-community.org/projects/event-17-0/event-17-0-website_event_crm_invitation
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/event&target_branch=15.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/event&target_branch=17.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module extends the functionality of website events and CRM to support
-inviting customers to register to events of the selected category and to allow
-you to have less administrative work to do, mostly if they register by
-themselves.
+This module extends the functionality of website events and CRM to
+support inviting customers to register to events of the selected
+category and to allow you to have less administrative work to do, mostly
+if they register by themselves.
 
 **Table of contents**
 
@@ -43,61 +43,59 @@ Installation
 
 To install this module, you need to:
 
-#. Install crm_event from https://github.com/OCA/event
+1. Install crm_event from https://github.com/OCA/event
 
 Configuration
 =============
 
-This module allows you to configure opportunity stages to enable some automations.
+This module allows you to configure opportunity stages to enable some
+automations.
 
-To advance automatically to the next stage when the opportunity is invited to view an event category on the website:
+To advance automatically to the next stage when the opportunity is
+invited to view an event category on the website:
 
-#. Go to *CRM > Sales > My pipeline*.
+1. Go to *CRM > Sales > My pipeline*.
+2. Hover over one stage name and click on its cogs icon.
+3. Choose *Edit Stage*.
+4. Enable *Invite automatically to website event category* if you want
+   that opportunities in that stage, which are related to an event
+   category, get periodically checked to see if there's a new event
+   published in your website, belonging to that category, and, if so,
+   invited to check it out.
+5. Enable *Advance stage automatically when inviting to website event
+   category* if you want that, when one of the opportunities in that
+   stage is invited to check out events published on your website, it
+   advances automatically to the next stage.
 
-#. Hover over one stage name and click on its cogs icon.
-
-#. Choose *Edit Stage*.
-
-#. Enable *Invite automatically to website event category* if you want that
-   opportunities in that stage, which are related to an event category, get
-   periodically checked to see if there's a new event published in your website,
-   belonging to that category, and, if so, invited to check it out.
-
-#. Enable *Advance stage automatically when inviting to website event category*
-   if you want that, when one of the opportunities in that stage is invited to
-   check out events published on your website, it advances automatically to the
-   next stage.
-
-Important: If you don't want to invite automatically on loop, make sure to
-enable both options if you enable the 1st one, and make sure the next stage is
-not enabled to autonotify.
+Important: If you don't want to invite automatically on loop, make sure
+to enable both options if you enable the 1st one, and make sure the next
+stage is not enabled to autonotify.
 
 To configure the frequency of automated notifications:
 
-#. Go to *Settings > Technical > Automation > Scheduled Actions >
-   Notify all opportunities related to event categories*.
+1. Go to *Settings > Technical > Automation > Scheduled Actions > Notify
+   all opportunities related to event categories*.
+2. Edit *Execute Every*.
 
-#. Edit *Execute Every*.
-
-Important: That only schedules mails, but they will be sent later when the
-*Mail: Email Queue Manager* automated action is triggered. You can configure it
-the same way.
+Important: That only schedules mails, but they will be sent later when
+the *Mail: Email Queue Manager* automated action is triggered. You can
+configure it the same way.
 
 Usage
 =====
 
 To use this module, you need to:
 
-#. Go to *CRM > Sales > My pipeline* and create one opportunity.
+1. Go to *CRM > Sales > My pipeline* and create one opportunity.
+2. Assign an event type and a customer to it. The event type must:
 
-#. Assign an event type and a customer to it. The event type must:
+   -  Have at least one published event.
+   -  With available seats.
+   -  Which is upcoming.
 
-   * Have at least one published event.
-   * With available seats.
-   * Which is upcoming.
-
-#. Click on *Invite to website*. You will see a wizard to send an email to the
-   customer, inviting him/her to visit your website and register to an event.
+3. Click on *Invite to website*. You will see a wizard to send an email
+   to the customer, inviting him/her to visit your website and register
+   to an event.
 
 Bug Tracker
 ===========
@@ -105,7 +103,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/event/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/event/issues/new?body=module:%20website_event_crm_invitation%0Aversion:%2015.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/event/issues/new?body=module:%20website_event_crm_invitation%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -113,20 +111,20 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Tecnativa
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* `Tecnativa <https://www.tecnativa.com>`__:
+-  `Tecnativa <https://www.tecnativa.com>`__:
 
-  * Jairo Llopis
-  * David Vidal
+   -  Jairo Llopis
+   -  David Vidal
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -146,6 +144,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-Yajo| 
 
-This module is part of the `OCA/event <https://github.com/OCA/event/tree/15.0/website_event_crm_invitation>`_ project on GitHub.
+This module is part of the `OCA/event <https://github.com/OCA/event/tree/17.0/website_event_crm_invitation>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
