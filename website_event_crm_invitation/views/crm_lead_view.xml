@@ -14,14 +14,14 @@
                     string="Invite to website"
                     name="action_invite_to_website_event_type"
                     type="object"
-                    attrs="{'invisible': ['|', ('event_type_website_url', '=', False), ('auto_invite_warning', '=', True)]}"
+                    invisible="not event_type_website_url or auto_invite_warning"
                 />
             </header>
             <xpath expr="//div[hasclass('oe_title')]" position="before">
                 <div
                     class="alert alert-warning"
                     role="alert"
-                    attrs="{'invisible': [('auto_invite_warning', '=', False)]}"
+                    invisible="not auto_invite_warning"
                 >
                     <i
                         class="fa fa-info"

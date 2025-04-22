@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -17,10 +17,10 @@ msgstr ""
 #: model:mail.template,body_html:website_event_crm_invitation.crm_lead_event_type_tpl
 msgid ""
 "<div style=\"margin: 0px; padding: 0px;\">\n"
-"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">Dear <t t-out=\"object.partner_name or object.partner_id.name\"/>,</p>\n"
+"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">Dear <t t-out=\"object.partner_name or object.partner_id.name\"></t>,</p>\n"
 "                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
 "                    You seem to be interested in registering into an event of category\n"
-"                    <strong t-out=\"object.event_type_id.name\"/>.\n"
+"                    <strong t-out=\"object.event_type_id.name\"></strong>.\n"
 "                </p>\n"
 "                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
 "                    I just wanted to inform you that\n"
@@ -31,7 +31,7 @@ msgid ""
 "                    <div style=\"margin: 16px 8px 16px 8px; text-align: center;\">\n"
 "                        <a t-attf-href=\"#{ctx.get('base_url', '')}#{object.event_type_website_url}\" style=\"background-color: #875a7b; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;\">\n"
 "                            View events of category\n"
-"                            <strong t-out=\"object.event_type_id.name\"/>\n"
+"                            <strong t-out=\"object.event_type_id.name\"></strong>\n"
 "                        </a>\n"
 "                    </div>\n"
 "                </p>\n"
@@ -99,6 +99,7 @@ msgid "Invite to event category"
 msgstr ""
 
 #. module: website_event_crm_invitation
+#. odoo-python
 #: code:addons/website_event_crm_invitation/models/crm_lead.py:0
 #, python-format
 msgid "Invite to visit website"
@@ -110,6 +111,7 @@ msgid "Invite to website"
 msgstr ""
 
 #. module: website_event_crm_invitation
+#. odoo-python
 #: code:addons/website_event_crm_invitation/models/crm_lead.py:0
 #, python-format
 msgid ""
@@ -124,15 +126,21 @@ msgstr ""
 
 #. module: website_event_crm_invitation
 #: model:ir.actions.server,name:website_event_crm_invitation.cron_ir_actions_server
-#: model:ir.cron,cron_name:website_event_crm_invitation.cron
-#: model:ir.cron,name:website_event_crm_invitation.cron
 msgid "Notify all opportunities related to event categories"
 msgstr ""
 
 #. module: website_event_crm_invitation
+#. odoo-python
 #: code:addons/website_event_crm_invitation/models/crm_lead.py:0
 #, python-format
 msgid "Select one event type with published events."
+msgstr ""
+
+#. module: website_event_crm_invitation
+#: model:mail.template,description:website_event_crm_invitation.crm_lead_event_type_tpl
+msgid ""
+"Sent to customers for inviting to register to events of the selected "
+"category"
 msgstr ""
 
 #. module: website_event_crm_invitation
