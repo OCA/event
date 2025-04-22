@@ -71,9 +71,11 @@ class CRMLead(models.Model):
         )
         # Leads with falsy company won't get invitations. It's not usual anyway
         for company in leads.company_id:
-            company_leads = leads.filtered(lambda l: l.company_id == company)
+            company_leads = leads.filtered(
+                lambda lead, company=company: lead.company_id == company
+            )
             company_published_events = published_events.filtered(
-                lambda e: e.company_id == company
+                lambda e, company=company: e.company_id == company
             )
             if not company_published_events.event_type_id:
                 continue
@@ -97,7 +99,7 @@ class CRMLead(models.Model):
                     base_url=base_url
                 )._invite_to_website_event_type(
                     company_published_events.filtered(
-                        lambda x: x.website_id == website
+                        lambda x, website=website: x.website_id == website
                     ).event_type_id
                 )
 
@@ -151,19 +153,17 @@ class CRMLead(models.Model):
             )
             or self
         )
+        ctx = dict(
+            auto_advance_stage=True,
+            default_composition_mode="comment",
+            default_model="crm.lead",
+            default_res_ids=self.ids,
+            default_template_id=template_id,
+            default_use_template=True,
+            force_email=True,
+            base_url=self.env.context.get("base_url", base_url_object.get_base_url()),
+        )
         return {
-            "context": {
-                "auto_advance_stage": True,
-                "default_composition_mode": "comment",
-                "default_model": "crm.lead",
-                "default_res_id": self.id,
-                "default_template_id": template_id,
-                "default_use_template": True,
-                "force_email": True,
-                "base_url": self.env.context.get(
-                    "base_url", base_url_object.get_base_url()
-                ),
-            },
             "name": _("Invite to visit website"),
             "res_model": "mail.compose.message",
             "target": "new",
@@ -172,4 +172,5 @@ class CRMLead(models.Model):
             "view_mode": "form",
             "view_type": "form",
             "views": [(compose_form_id, "form")],
+            "context": ctx,
         }
