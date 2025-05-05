@@ -4,7 +4,7 @@
 {
     "name": "Event Track Location Overlap",
     "summary": "Restrict event track location overlapping",
-    "version": "15.0.1.0.0",
+    "version": "17.0.1.0.0",
     "category": "Marketing",
     "website": "https://github.com/OCA/event",
     "author": "Tecnativa, Odoo Community Association (OCA)",
