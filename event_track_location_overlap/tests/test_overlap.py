@@ -4,7 +4,8 @@
 from collections import namedtuple
 
 from odoo.exceptions import ValidationError
-from odoo.tests.common import TransactionCase
+
+from odoo.addons.base.tests.common import BaseCommon
 
 Sample = namedtuple(
     "Sample",
@@ -12,7 +13,7 @@ Sample = namedtuple(
 )
 
 
-class OverlappingCase(TransactionCase):
+class OverlappingCase(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -59,7 +60,7 @@ class OverlappingCase(TransactionCase):
             )
             if raise_always:
                 # This notifies good track creation but rolls it back
-                raise Exception(("%(sample)s worked!") % {"sample": sample})
+                raise Exception(f"{sample} worked!")
 
     def test_default(self):
         """Locations cannot overlap by default."""

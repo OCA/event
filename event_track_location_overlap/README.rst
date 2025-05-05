@@ -85,6 +85,7 @@ Contributors
   - Jairo Llopis
   - Cristina Martin R.
   - Víctor Martínez
+  - David Bañón Gil
 
 Maintainers
 -----------
