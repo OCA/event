@@ -4,3 +4,4 @@
   - Pedro M. Baeza
   - Jairo Llopis
   - Víctor Martínez
+  - Pilar Vargas

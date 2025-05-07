@@ -29,7 +29,9 @@ Event Email Reminder
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
 This module extends the functionality of event module to allow to send
-events reminder emails before an event start.
+events reminder emails before an event start. Adds a configurable
+scheduled action (cron) that looks for upcoming events and sends
+reminders by mail using a specified email template.
 
 **Table of contents**
 
@@ -38,6 +40,12 @@ events reminder emails before an event start.
 
 Configuration
 =============
+
+Make sure the scheduled action (ir.cron) is enabled or create a new one
+if you prefer.
+
+Adjust the arguments in the code field of the cron according to your
+reminder strategy.
 
 You can use cron arguments to modify three options in this position
 (days, near_events, template_id):
@@ -81,6 +89,7 @@ Contributors
    -  Pedro M. Baeza
    -  Jairo Llopis
    -  Víctor Martínez
+   -  Pilar Vargas
 
 Other credits
 -------------

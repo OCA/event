@@ -1,3 +1,7 @@
+Make sure the scheduled action (ir.cron) is enabled or create a new one if you prefer.
+
+Adjust the arguments in the code field of the cron according to your reminder strategy.
+
 You can use cron arguments to modify three options in this position
 (days, near_events, template_id):
 
