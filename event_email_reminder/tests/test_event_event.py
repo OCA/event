@@ -6,30 +6,24 @@
 
 from datetime import datetime, timedelta
 
-from odoo.tests import common, new_test_user
+from odoo.tests import new_test_user
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestEventEmailReminder(common.TransactionCase):
+class TestEventEmailReminder(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
         today = datetime.now()
         date_event_1 = today + timedelta(days=7)
-        ctx = {
-            "mail_create_nolog": True,
-            "mail_create_nosubscribe": True,
-            "mail_notrack": True,
-            "no_reset_password": True,
-        }
         cls.user_1 = new_test_user(
             cls.env,
             login="test01@test.com",
-            context=ctx,
         )
         cls.user_2 = new_test_user(
             cls.env,
             login="test02@test.com",
-            context=ctx,
         )
         stage = cls.env.ref("event.event_stage_booked")
         cls.event_model = cls.env["event.event"]
@@ -45,7 +39,7 @@ class TestEventEmailReminder(common.TransactionCase):
         date_event_2 = today + timedelta(days=8)
         cls.event_2 = cls.event_model.create(
             {
-                "name": "Test 01",
+                "name": "Test 02",
                 "date_begin": date_event_2,
                 "date_end": date_event_2,
                 "user_id": cls.user_2.id,
