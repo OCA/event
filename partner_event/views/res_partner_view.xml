@@ -21,6 +21,7 @@
                     name="%(partner_event.act_partner_registration)d"
                     type="action"
                     class="oe_stat_button oe_inline"
+                    groups="event.group_event_user"
                     help="Count of events with confirmed registrations."
                     icon="fa-id-card"
                 >
