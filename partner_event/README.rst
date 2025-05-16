@@ -33,16 +33,16 @@ smart button.
 
 It also includes:
 
-- Search partners by their event attendees.
-- Search partners by number of events attendees.
-- Search partners by number of events attended.
-- Partner column is visible on registration one2many list inside the
-  event.
-- Action in partner tree view 'More' button, to register several
-  partners to an event
-- Restricts partner deletion when event attendees are linked to it.
-- Onchange for partner_id removed in v16 core in Event Registration-
-  including functionality here
+-  Search partners by their event attendees.
+-  Search partners by number of events attendees.
+-  Search partners by number of events attended.
+-  Partner column is visible on registration one2many list inside the
+   event.
+-  Action in partner tree view 'More' button, to register several
+   partners to an event
+-  Restricts partner deletion when event attendees are linked to it.
+-  Onchange for partner_id removed in v16 core in Event Registration-
+   including functionality here
 
 **Table of contents**
 
@@ -85,23 +85,24 @@ Authors
 Contributors
 ------------
 
-- `Tecnativa <https://www.tecnativa.com>`__:
+-  `Tecnativa <https://www.tecnativa.com>`__:
 
-  - Pedro M. Baeza
-  - Antonio Espinosa
-  - Jairo Llopis
-  - Vicent Cubells
-  - David Vidal
-  - Rafael Blasco
-  - Víctor Martínez
-  - Stefan Ungureanu
-  - Carolina Fernandez
+   -  Pedro M. Baeza
+   -  Antonio Espinosa
+   -  Jairo Llopis
+   -  Vicent Cubells
+   -  David Vidal
+   -  Rafael Blasco
+   -  Víctor Martínez
+   -  Stefan Ungureanu
+   -  Carolina Fernandez
+   -  Pilar Vargas
 
-- `Antiun <https://antiun.com/>`__:
+-  `Antiun <https://antiun.com/>`__:
 
-  - Javier Iniesta
+   -  Javier Iniesta
 
-- Anil Kesariya
+-  Anil Kesariya
 
 Maintainers
 -----------
