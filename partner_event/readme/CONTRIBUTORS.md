@@ -8,6 +8,7 @@
   - Víctor Martínez
   - Stefan Ungureanu
   - Carolina Fernandez
+  - Pilar Vargas
 - [Antiun](https://antiun.com/):
   - Javier Iniesta
 - Anil Kesariya
