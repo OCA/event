@@ -5,7 +5,7 @@
     <record id="act_partner_registration" model="ir.actions.act_window">
         <field name="res_model">event.registration</field>
         <field name="name">Registrations</field>
-        <field name="view_mode">tree,form,calendar,graph</field>
+        <field name="view_mode">list,form,calendar,graph</field>
         <field name="domain">[("attendee_partner_id", "child_of", active_ids)]</field>
         <field
             name="context"
@@ -27,6 +27,20 @@
                     <field name="registration_count" widget="statinfo" />
                 </button>
             </div>
+        </field>
+    </record>
+    <record id="view_res_partner_filter" model="ir.ui.view">
+        <field name="name">res.partner.select</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter" />
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field
+                    name="event_registration_ids"
+                    string="Linked events"
+                    filter_domain="[('event_registration_ids.event_id', 'ilike', self)]"
+                />
+            </field>
         </field>
     </record>
 </odoo>

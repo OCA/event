@@ -157,3 +157,65 @@ class TestEventRegistration(common.TransactionCase):
             self.partner_with_phone_and_mobile.mobile,
             "Incorrect test. Partners phone and mobile must differ",
         )
+
+    def test_update_attendee_partner_id(self):
+        # Case: No existing partner with the email
+        vals = {
+            "email": "new@test.com",
+            "event_id": self.event_0.id,
+            "name": "New Name",
+        }
+        self.registration_01._update_attendee_partner_id(vals)
+        self.assertTrue(vals["attendee_partner_id"])  # Ensure partner was created
+        new_partner = self.env["res.partner"].browse(vals["attendee_partner_id"])
+        self.assertEqual(new_partner.email, "new@test.com")
+        self.assertEqual(new_partner.name, "New Name")
+
+        vals = {"email": "email01@test.com", "event_id": self.event_0.id}
+        self.registration_01._update_attendee_partner_id(vals)
+        self.assertEqual(vals["attendee_partner_id"], self.partner_01.id)
+
+        vals = {"email": "email02@test.com"}
+        registration_with_context = self.env["event.registration"].with_context(
+            partner_event_merging=True
+        )
+        registration_with_context._update_attendee_partner_id(vals)
+        self.assertNotIn("attendee_partner_id", vals)
+
+    def test_prepare_partner(self):
+        vals = {"name": "Test Name", "email": "test_email@test.com", "phone": "123456"}
+        expected_result = {
+            "name": "Test Name",
+            "email": "test_email@test.com",
+            "phone": "123456",
+        }
+        result = self.registration_01._prepare_partner(vals)
+        self.assertEqual(result, expected_result)
+
+        vals = {"email": "test_email@test.com"}
+        result = self.registration_01._prepare_partner(vals)
+        self.assertEqual(result["name"], "test_email@test.com")
+
+    def test_onchange_partner_id(self):
+        # Create a registration with an attendee partner
+        registration = self.env["event.registration"].create(
+            {
+                "email": "email03@test.com",
+                "event_id": self.event_0.id,
+                "attendee_partner_id": self.partner_01.id,
+            }
+        )
+        registration_with_context = registration.with_context(
+            get_attendee_partner_address=self.partner_01
+        )
+        registration_with_context._onchange_partner_id()
+        self.assertEqual(registration_with_context.partner_id, self.partner_01)
+
+    def test_action_merge(self):
+        # Apply the context for partner merging
+        wizard_with_context = self.env[
+            "base.partner.merge.automatic.wizard"
+        ].with_context(partner_event_merging=True)
+        wizard = wizard_with_context.create({})
+
+        wizard.action_merge()
