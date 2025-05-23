@@ -138,9 +138,3 @@ msgstr "Registrazioni"
 #: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
 msgid "Select event to register"
 msgstr "Selezionare evento da registrare"
-
-#~ msgid "Last Modified on"
-#~ msgstr "Ultima modifica il"
-
-#~ msgid "Errors"
-#~ msgstr "Errori"

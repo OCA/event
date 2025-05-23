@@ -145,6 +145,3 @@ msgstr "Prijave"
 #: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
 msgid "Select event to register"
 msgstr ""
-
-#~ msgid "Attended registration number"
-#~ msgstr "Pričakovano število prijav"

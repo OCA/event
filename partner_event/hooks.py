@@ -9,8 +9,9 @@ def post_init_hook(env):
         [("email", "!=", False)], ["email"], groupby="email"
     )
     for email in attendees_emails:
+        # Order was done for avoiding extra queries for sorting the results
         attendee_partner = env["res.partner"].search(
-            [("email", "=ilike", email["email"])], limit=1
+            [("email", "=ilike", email["email"])], limit=1, order="id"
         )
         if attendee_partner:
             attendees = env["event.registration"].search(email["__domain"])
