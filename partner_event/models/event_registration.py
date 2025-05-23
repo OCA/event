@@ -40,6 +40,7 @@ class EventRegistration(models.Model):
             Event = self.env["event.event"]
             # Look for a partner with that email
             email = vals.get("email").replace("%", "").replace("_", "\\_")
+            # Order was done for avoiding extra queries for sorting the results
             attendee_partner = Partner.search(
                 [("email", "=ilike", email)], limit=1, order="id"
             )
