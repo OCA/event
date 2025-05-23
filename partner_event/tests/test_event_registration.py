@@ -3,6 +3,7 @@
 # Copyright 2016 Tecnativa S.L. - Antonio Espinosa
 # Copyright 2016 Tecnativa S.L. - Vicent Cubells
 # Copyright 2017 Tecnativa - David Vidal
+# Copyright 2025 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from datetime import datetime, timedelta
@@ -10,11 +11,13 @@ from datetime import datetime, timedelta
 from psycopg2 import IntegrityError
 
 from odoo import fields
-from odoo.tests import common
+from odoo.tests import Form
 from odoo.tools import mute_logger
 
+from odoo.addons.base.tests.common import BaseCommon
 
-class TestEventRegistration(common.TransactionCase):
+
+class TestEventRegistration(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -120,13 +123,10 @@ class TestEventRegistration(common.TransactionCase):
         self.partner_01.write({"email": "new@test.com"})
         self.assertEqual(event_2.registration_ids.email, "new@test.com")
 
+    @mute_logger("odoo.sql_db", "odoo.models.unlink")
     def test_delete_registered_partner(self):
         # We can't delete a partner with registrations
-        with (
-            self.assertRaises(IntegrityError),
-            self.cr.savepoint(),
-            mute_logger("odoo.sql_db"),
-        ):
+        with self.assertRaises(IntegrityError):
             self.partner_01.unlink()
         # Create a brand new partner and delete it
         partner3 = self.env["res.partner"].create({"name": "unregistered partner"})
@@ -134,26 +134,38 @@ class TestEventRegistration(common.TransactionCase):
         self.assertFalse(partner3.exists())
 
     def test_partner_only_mobile(self):
-        reg = self.env["event.registration"].create(
-            {
-                "attendee_partner_id": self.partner_with_mobile.id,
-                "event_id": self.event_0.id,
-            }
-        )
-        reg._onchange_partner_id()
+        reg_form = Form(self.env["event.registration"])
+        reg_form.event_id = self.event_0
+        reg_form.attendee_partner_id = self.partner_with_mobile
+        reg = reg_form.save()
+        self.assertEqual(reg.partner_id, self.partner_with_mobile)
         self.assertEqual(reg.phone, self.partner_with_mobile.mobile)
 
     def test_partner_mobile_and_phone(self):
-        reg = self.env["event.registration"].create(
-            {
-                "attendee_partner_id": self.partner_with_phone_and_mobile.id,
-                "event_id": self.event_0.id,
-            }
-        )
-        reg._onchange_partner_id()
+        reg_form = Form(self.env["event.registration"])
+        reg_form.event_id = self.event_0
+        reg_form.attendee_partner_id = self.partner_with_phone_and_mobile
+        reg = reg_form.save()
         self.assertEqual(reg.phone, self.partner_with_phone_and_mobile.phone)
         self.assertNotEqual(
             reg.phone,
             self.partner_with_phone_and_mobile.mobile,
             "Incorrect test. Partners phone and mobile must differ",
         )
+
+    @mute_logger("odoo.models.unlink")
+    def test_action_merge(self):
+        partner_1 = self.partner_with_mobile
+        partner_2 = self.partner_with_phone_and_mobile
+        self.registration_01.partner_id = partner_1
+        self.registration_02.partner_id = partner_2
+        partners = partner_1 + partner_2
+        wizard = (
+            self.env["base.partner.merge.automatic.wizard"]
+            .with_context(active_ids=partners.ids, active_model=partners._name)
+            .create({})
+        )
+        self.assertEqual(wizard.dst_partner_id, partner_2)
+        wizard.action_merge()
+        self.assertEqual(self.registration_01.partner_id, partner_2)
+        self.assertEqual(self.registration_02.partner_id, partner_2)
