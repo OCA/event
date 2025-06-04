@@ -21,28 +21,28 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[crm_event](crm_event/) | 15.0.1.0.0 | [![Yajo](https://github.com/Yajo.png?size=30px)](https://github.com/Yajo) | Link opportunities to event categories
+[crm_event](crm_event/) | 15.0.1.0.0 | <a href='https://github.com/Yajo'><img src='https://github.com/Yajo.png' width='32' height='32' style='border-radius:50%;' alt='Yajo'/></a> | Link opportunities to event categories
 [event_email_reminder](event_email_reminder/) | 15.0.1.0.0 |  | Send an email before an event start
 [event_mail](event_mail/) | 15.0.1.0.0 |  | Mail settings in events
 [event_min_seat](event_min_seat/) | 15.0.1.0.0 |  | Minimum seats in events
 [event_quick_registration](event_quick_registration/) | 15.0.1.0.0 |  | Create registration quickly
 [event_registration_cancel_reason](event_registration_cancel_reason/) | 15.0.1.0.0 |  | Reasons for event registrations cancellations
-[event_registration_mail_compose](event_registration_mail_compose/) | 15.0.1.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Compose and send mails to event attendees
+[event_registration_mail_compose](event_registration_mail_compose/) | 15.0.1.0.0 | <a href='https://github.com/ivantodorovich'><img src='https://github.com/ivantodorovich.png' width='32' height='32' style='border-radius:50%;' alt='ivantodorovich'/></a> | Compose and send mails to event attendees
 [event_registration_partner_unique](event_registration_partner_unique/) | 15.0.1.0.1 |  | Enforces 1 registration per partner and event
-[event_registration_qr_code](event_registration_qr_code/) | 15.0.1.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Automatically generate unique QR Codes for each registration
-[event_sale_reservation](event_sale_reservation/) | 15.0.1.0.1 | [![Yajo](https://github.com/Yajo.png?size=30px)](https://github.com/Yajo) | Allow selling event registrations before the event exists
+[event_registration_qr_code](event_registration_qr_code/) | 15.0.1.0.0 | <a href='https://github.com/ivantodorovich'><img src='https://github.com/ivantodorovich.png' width='32' height='32' style='border-radius:50%;' alt='ivantodorovich'/></a> | Automatically generate unique QR Codes for each registration
+[event_sale_reservation](event_sale_reservation/) | 15.0.1.0.1 | <a href='https://github.com/Yajo'><img src='https://github.com/Yajo.png' width='32' height='32' style='border-radius:50%;' alt='Yajo'/></a> | Allow selling event registrations before the event exists
 [event_sale_session](event_sale_session/) | 15.0.1.0.0 |  | Sell Event Sessions
 [event_session](event_session/) | 15.0.1.1.0 |  | Sessions in events
 [event_stage_cancelled](event_stage_cancelled/) | 15.0.1.0.0 |  | Event cancellation workflows
 [event_track_location_overlap](event_track_location_overlap/) | 15.0.1.0.0 |  | Restrict event track location overlapping
 [partner_event](partner_event/) | 15.0.1.0.6 |  | Link partner to events
-[sale_crm_event_reservation](sale_crm_event_reservation/) | 15.0.1.0.1 | [![Yajo](https://github.com/Yajo.png?size=30px)](https://github.com/Yajo) | Combine event reservations, opportunities and quotations
-[website_event_crm_invitation](website_event_crm_invitation/) | 15.0.1.0.0 | [![Yajo](https://github.com/Yajo.png?size=30px)](https://github.com/Yajo) | Invite leads to event types on website
-[website_event_filter_city](website_event_filter_city/) | 15.0.1.0.0 | [![Yajo](https://github.com/Yajo.png?size=30px)](https://github.com/Yajo) | Add a customizable top area to filter events with city
+[sale_crm_event_reservation](sale_crm_event_reservation/) | 15.0.1.0.1 | <a href='https://github.com/Yajo'><img src='https://github.com/Yajo.png' width='32' height='32' style='border-radius:50%;' alt='Yajo'/></a> | Combine event reservations, opportunities and quotations
+[website_event_crm_invitation](website_event_crm_invitation/) | 15.0.1.0.0 | <a href='https://github.com/Yajo'><img src='https://github.com/Yajo.png' width='32' height='32' style='border-radius:50%;' alt='Yajo'/></a> | Invite leads to event types on website
+[website_event_filter_city](website_event_filter_city/) | 15.0.1.0.0 | <a href='https://github.com/Yajo'><img src='https://github.com/Yajo.png' width='32' height='32' style='border-radius:50%;' alt='Yajo'/></a> | Add a customizable top area to filter events with city
 [website_event_questions_by_ticket](website_event_questions_by_ticket/) | 15.0.1.0.0 |  | Events Questions conditional to the chosen ticket
 [website_event_require_login](website_event_require_login/) | 15.0.1.0.1 |  | Website Event Require Login
-[website_event_sale_b2x_alt_price](website_event_sale_b2x_alt_price/) | 15.0.1.1.0 | [![Yajo](https://github.com/Yajo.png?size=30px)](https://github.com/Yajo) | Display alt. price (B2B for B2C websites, and viceversa)
-[website_event_sale_cart_quantity_readonly](website_event_sale_cart_quantity_readonly/) | 15.0.1.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Prevent the user to change the quantity of an event in the cart
+[website_event_sale_b2x_alt_price](website_event_sale_b2x_alt_price/) | 15.0.1.1.0 | <a href='https://github.com/Yajo'><img src='https://github.com/Yajo.png' width='32' height='32' style='border-radius:50%;' alt='Yajo'/></a> | Display alt. price (B2B for B2C websites, and viceversa)
+[website_event_sale_cart_quantity_readonly](website_event_sale_cart_quantity_readonly/) | 15.0.1.0.0 | <a href='https://github.com/ivantodorovich'><img src='https://github.com/ivantodorovich.png' width='32' height='32' style='border-radius:50%;' alt='ivantodorovich'/></a> | Prevent the user to change the quantity of an event in the cart
 [website_event_snippet_calendar](website_event_snippet_calendar/) | 15.0.1.0.0 |  | Browsable calendar with events list for your website
 [website_event_ticket_published](website_event_ticket_published/) | 15.0.1.0.0 |  | Allow to unpublish event ticket from the website
 [website_event_track_stage_cancelled](website_event_track_stage_cancelled/) | 15.0.1.0.0 |  | Event session cancellation workflows
