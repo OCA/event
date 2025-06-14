@@ -25,6 +25,7 @@ addon | version | maintainers | summary
 [event_email_reminder](event_email_reminder/) | 17.0.1.0.0 |  | Send an email before an event start
 [event_mail](event_mail/) | 17.0.1.0.0 |  | Mail settings in events
 [event_min_seat](event_min_seat/) | 17.0.1.0.0 |  | Minimum seats in events
+[event_project](event_project/) | 17.0.1.0.0 | <a href='https://github.com/Shide'><img src='https://github.com/Shide.png' width='32' height='32' style='border-radius:50%;' alt='Shide'/></a> <a href='https://github.com/rafaelbn'><img src='https://github.com/rafaelbn.png' width='32' height='32' style='border-radius:50%;' alt='rafaelbn'/></a> | Event project
 [event_registration_cancel_reason](event_registration_cancel_reason/) | 17.0.1.0.0 |  | Reasons for event registrations cancellations
 [event_registration_partner_unique](event_registration_partner_unique/) | 17.0.1.0.0 |  | Enforces 1 registration per partner and event
 [event_sale_reservation](event_sale_reservation/) | 17.0.1.0.1 | <a href='https://github.com/pilarvargas-tecnativa'><img src='https://github.com/pilarvargas-tecnativa.png' width='32' height='32' style='border-radius:50%;' alt='pilarvargas-tecnativa'/></a> | Allow selling event registrations before the event exists
