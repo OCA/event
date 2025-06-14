@@ -1,0 +1,74 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_project
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: event_project
+#: model:ir.model,name:event_project.model_event_event
+#: model_terms:ir.ui.view,arch_db:event_project.view_task_search_form
+msgid "Event"
+msgstr ""
+
+#. module: event_project
+#: model_terms:ir.actions.act_window,help:event_project.act_event_task_list
+msgid ""
+"Keep track of the progress of your tasks from creation to completion.<br>\n"
+"                Collaborate efficiently by chatting in real-time or via email."
+msgstr ""
+
+#. module: event_project
+#: model_terms:ir.actions.act_window,help:event_project.act_event_task_list
+msgid "No tasks found. Let's create one!"
+msgstr ""
+
+#. module: event_project
+#: model:ir.model,name:event_project.model_project_project
+msgid "Project"
+msgstr ""
+
+#. module: event_project
+#: model:ir.model.fields,help:event_project.field_event_event__project_id
+#: model:ir.model.fields,help:event_project.field_event_session__project_id
+msgid "Project end date will be updated with event start date."
+msgstr ""
+
+#. module: event_project
+#: model:ir.model.fields,field_description:event_project.field_project_project__event_id
+#: model:ir.model.fields,field_description:event_project.field_project_task__event_id
+msgid "Related event"
+msgstr ""
+
+#. module: event_project
+#: model:ir.model.fields,field_description:event_project.field_event_event__project_id
+#: model:ir.model.fields,field_description:event_project.field_event_session__project_id
+msgid "Related project"
+msgstr ""
+
+#. module: event_project
+#: model:ir.model,name:event_project.model_project_task
+msgid "Task"
+msgstr ""
+
+#. module: event_project
+#: model:ir.model.fields,field_description:event_project.field_event_event__count_tasks
+#: model:ir.model.fields,field_description:event_project.field_event_session__count_tasks
+msgid "Task number"
+msgstr ""
+
+#. module: event_project
+#: model:ir.actions.act_window,name:event_project.act_event_task_list
+#: model:ir.model.fields,field_description:event_project.field_event_event__task_ids
+#: model:ir.model.fields,field_description:event_project.field_event_session__task_ids
+#: model_terms:ir.ui.view,arch_db:event_project.view_event_form
+msgid "Tasks"
+msgstr ""

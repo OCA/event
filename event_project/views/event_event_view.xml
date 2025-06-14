@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Add project fields and smartbutton in event form view -->
+    <record id="view_event_form" model="ir.ui.view">
+        <field name="name">Add project to event</field>
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_form" />
+        <field name="arch" type="xml">
+            <field name="date_tz" position="after">
+                <field
+                    name="project_id"
+                    groups="event.group_event_manager"
+                    context="{'default_name': name, 'default_date': date_begin}"
+                />
+            </field>
+            <div name="button_box" position="inside">
+                <button
+                    name="%(project.action_view_all_task)d"
+                    type="action"
+                    class="oe_stat_button"
+                    icon="fa-tasks"
+                    invisible="not project_id"
+                    groups="event.group_event_manager"
+                    context="{'default_project_id': project_id, 'search_default_project_id': project_id}"
+                >
+                    <field name="count_tasks" widget="statinfo" string="Tasks" />
+                </button>
+            </div>
+        </field>
+    </record>
+
+    <record id="view_event_search" model="ir.ui.view">
+        <field name="name">Filter events by project</field>
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_search" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='stage_id']" position="after">
+                <field name="project_id" groups="event.group_event_manager" />
+            </xpath>
+            <xpath expr="//separator[last()]" position="after">
+                <filter
+                    string="Linked to a project"
+                    name="linked_to_a_prokect"
+                    domain="[('project_id', '!=', False)]"
+                    groups="event.group_event_manager"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

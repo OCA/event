@@ -1,0 +1,88 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_project
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-07-08 08:59+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.6.2\n"
+
+#. module: event_project
+#: model:ir.model,name:event_project.model_event_event
+#: model_terms:ir.ui.view,arch_db:event_project.view_task_search_form
+msgid "Event"
+msgstr "Evento"
+
+#. module: event_project
+#: model_terms:ir.actions.act_window,help:event_project.act_event_task_list
+msgid ""
+"Keep track of the progress of your tasks from creation to completion.<br>\n"
+"                Collaborate efficiently by chatting in real-time or via "
+"email."
+msgstr ""
+"Tiene traccia dell'avanzamento dei propri lavori dalla creazione al "
+"completamento.<br>\n"
+"                Collabora efficentemente dialogando in tempo reale o per "
+"e-mail."
+
+#. module: event_project
+#: model_terms:ir.actions.act_window,help:event_project.act_event_task_list
+msgid "No tasks found. Let's create one!"
+msgstr "Nessun lavoro traovato! Creiamone uno!"
+
+#. module: event_project
+#: model:ir.model,name:event_project.model_project_project
+msgid "Project"
+msgstr "Progetto"
+
+#. module: event_project
+#: model:ir.model.fields,help:event_project.field_event_event__project_id
+#: model:ir.model.fields,help:event_project.field_event_session__project_id
+msgid "Project end date will be updated with event start date."
+msgstr "La data fine progetto verrà aggiornata con la data inizio evento."
+
+#. module: event_project
+#: model:ir.model.fields,field_description:event_project.field_project_project__event_id
+#: model:ir.model.fields,field_description:event_project.field_project_task__event_id
+msgid "Related event"
+msgstr "Evento correlato"
+
+#. module: event_project
+#: model:ir.model.fields,field_description:event_project.field_event_event__project_id
+#: model:ir.model.fields,field_description:event_project.field_event_session__project_id
+msgid "Related project"
+msgstr "Progetto correlato"
+
+#. module: event_project
+#: model:ir.model,name:event_project.model_project_task
+msgid "Task"
+msgstr "Lavoro"
+
+#. module: event_project
+#: model:ir.model.fields,field_description:event_project.field_event_event__count_tasks
+#: model:ir.model.fields,field_description:event_project.field_event_session__count_tasks
+msgid "Task number"
+msgstr "Numero lavoro"
+
+#. module: event_project
+#: model:ir.actions.act_window,name:event_project.act_event_task_list
+#: model:ir.model.fields,field_description:event_project.field_event_event__task_ids
+#: model:ir.model.fields,field_description:event_project.field_event_session__task_ids
+#: model_terms:ir.ui.view,arch_db:event_project.view_event_form
+msgid "Tasks"
+msgstr "Lavori"
+
+#~ msgid "Display Name"
+#~ msgstr "Nome visualizzato"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
