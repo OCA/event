@@ -51,8 +51,8 @@ Configuration
 
 To make use of this module, a user needs these minimal permissions:
 
-- Sales / User: Own Documents Only
-- Events / User
+-  Sales / User: Own Documents Only
+-  Events / User
 
 Usage
 =====
@@ -104,10 +104,10 @@ Authors
 Contributors
 ------------
 
-- `Tecnativa <https://www.tecnativa.com>`__:
+-  `Tecnativa <https://www.tecnativa.com>`__:
 
-  - Jairo Llopis
-  - Stefan Ungureanu
+   -  Jairo Llopis
+   -  Stefan Ungureanu
 
 Maintainers
 -----------
@@ -122,16 +122,13 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-.. |maintainer-chienandalu| image:: https://github.com/chienandalu.png?size=40px
-    :target: https://github.com/chienandalu
-    :alt: chienandalu
 .. |maintainer-pilarvargas-tecnativa| image:: https://github.com/pilarvargas-tecnativa.png?size=40px
     :target: https://github.com/pilarvargas-tecnativa
     :alt: pilarvargas-tecnativa
 
-Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
+Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
-|maintainer-chienandalu| |maintainer-pilarvargas-tecnativa| 
+|maintainer-pilarvargas-tecnativa| 
 
 This module is part of the `OCA/event <https://github.com/OCA/event/tree/17.0/sale_crm_event_reservation>`_ project on GitHub.
 
