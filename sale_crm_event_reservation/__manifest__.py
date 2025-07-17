@@ -8,7 +8,7 @@
     "category": "Marketing",
     "website": "https://github.com/OCA/event",
     "author": "Tecnativa, Odoo Community Association (OCA)",
-    "maintainers": ["chienandalu", "pilarvargas-tecnativa"],
+    "maintainers": ["pilarvargas-tecnativa"],
     "license": "AGPL-3",
     "application": False,
     "installable": True,
