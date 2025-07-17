@@ -100,11 +100,20 @@ class CRMLeadEventSale(models.TransientModel):
         # Creating a sale order properly involves lots of onchanges, so here it
         # is better to use `Form` to make sure we forget none
         so_form = Form(self.env["sale.order"])
+        so_form.partner_id = self.opportunity_id.partner_id
+        # If the partner has configured a warning that blocks, the partner won't be
+        # assigned here, so let's redirects to the standard action of creating a quote
+        # from the opportunity, passing the `default_partner_id` context to follow the
+        # Odoo flow, thus displaying the block message normally and avoiding errors in
+        # creation.
+        if not so_form.partner_id:
+            return self.opportunity_id.with_context(
+                default_partner_id=self.opportunity_id.partner_id.id
+            ).action_new_quotation()
         so_form.campaign_id = self.opportunity_id.campaign_id
         so_form.medium_id = self.opportunity_id.medium_id
         so_form.opportunity_id = self.opportunity_id
         so_form.origin = self.opportunity_id.name
-        so_form.partner_id = self.opportunity_id.partner_id
         so_form.source_id = self.opportunity_id.source_id
         so_form.team_id = self.opportunity_id.team_id
         with so_form.order_line.new() as so_line:
