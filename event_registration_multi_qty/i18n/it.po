@@ -57,12 +57,3 @@ msgid ""
 msgstr ""
 "Non si può disabilitare questa opzione se ci sono iscrizioni con quantità "
 "superiori a uno."
-
-#~ msgid "Display Name"
-#~ msgstr "Nome visualizzato"
-
-#~ msgid "ID"
-#~ msgstr "ID"
-
-#~ msgid "Last Modified on"
-#~ msgstr "Ultima modifica il"

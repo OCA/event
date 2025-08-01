@@ -1,11 +1,12 @@
-# Copyright 2017 Sergio Teruel<sergio.teruel@tecnativa.com>
+# Copyright 2017 Tecnativa - Sergio Teruel
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo.exceptions import ValidationError
-from odoo.tests import common
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class EventRegistrationMultiQty(common.TransactionCase):
+class EventRegistrationMultiQty(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -15,14 +16,6 @@ class EventRegistrationMultiQty(common.TransactionCase):
                 "date_begin": "2017-05-26 20:00:00",
                 "date_end": "2017-05-30 22:00:00",
                 "registration_multi_qty": True,
-            }
-        )
-        cls.attendee_draft = cls.env["event.registration"].create(
-            {
-                "name": "Test attendee draft",
-                "event_id": cls.event.id,
-                "state": "draft",
-                "qty": 5,
             }
         )
         cls.attendee_open = cls.env["event.registration"].create(
@@ -61,14 +54,22 @@ class EventRegistrationMultiQty(common.TransactionCase):
         )
 
     def test_compute_seats(self):
-        self.assertEqual(self.event.seats_unconfirmed, 5)
         self.assertEqual(self.event.seats_reserved, 20)
         self.assertEqual(self.event.seats_used, 1)
 
     def test_change_event_option(self):
-        with self.assertRaises(ValidationError):
+        error_msg = (
+            "You can not disable this option if there are "
+            "registrations with quantities greater than one."
+        )
+        with self.assertRaisesRegex(ValidationError, error_msg):
             self.event.registration_multi_qty = False
 
     def test_registration_qty(self):
-        with self.assertRaises(ValidationError):
+        error_msg = (
+            "You can not add quantities if you not active the"
+            ' option "Allow multiple attendees per registration"'
+            " in event"
+        )
+        with self.assertRaisesRegex(ValidationError, error_msg):
             self.attendee_no_qty_done.qty = 15

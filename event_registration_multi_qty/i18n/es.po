@@ -58,6 +58,3 @@ msgid ""
 msgstr ""
 "No puedes desactivar esta opción si tienes registros con más de un asistente "
 "en alguno de los registros."
-
-#~ msgid "Attendee"
-#~ msgstr "Registro"

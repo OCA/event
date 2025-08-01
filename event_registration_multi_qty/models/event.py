@@ -2,7 +2,7 @@
 # Copyright 2017 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -18,7 +18,6 @@ class EventEvent(models.Model):
         multi_qty_events = self.filtered("registration_multi_qty")
         for event in multi_qty_events:
             vals = {
-                "seats_unconfirmed": 0,
                 "seats_reserved": 0,
                 "seats_used": 0,
                 "seats_available": 0,
@@ -26,15 +25,13 @@ class EventEvent(models.Model):
             registrations = self.env["event.registration"].read_group(
                 [
                     ("event_id", "=", event.id),
-                    ("state", "in", ["draft", "open", "done"]),
+                    ("state", "in", ["open", "done"]),
                 ],
                 ["state", "qty"],
                 ["state"],
             )
             for registration in registrations:
-                if registration["state"] == "draft":
-                    vals["seats_unconfirmed"] += registration["qty"]
-                elif registration["state"] == "open":
+                if registration["state"] == "open":
                     vals["seats_reserved"] += registration["qty"]
                 elif registration["state"] == "done":
                     vals["seats_used"] += registration["qty"]
@@ -42,9 +39,7 @@ class EventEvent(models.Model):
                 vals["seats_available"] = event.seats_max - (
                     vals["seats_reserved"] + vals["seats_used"]
                 )
-            vals["seats_expected"] = (
-                vals["seats_unconfirmed"] + vals["seats_reserved"] + vals["seats_used"]
-            )
+            vals["seats_taken"] = vals["seats_reserved"] + vals["seats_used"]
             event.update(vals)
         rest = self - multi_qty_events
         return super(EventEvent, rest)._compute_seats()
@@ -57,7 +52,7 @@ class EventEvent(models.Model):
                 and max(event.registration_ids.mapped("qty"), default=0) > 1
             ):
                 raise ValidationError(
-                    _(
+                    self.env._(
                         "You can not disable this option if there are "
                         "registrations with quantities greater than one."
                     )
@@ -81,7 +76,7 @@ class EventRegistration(models.Model):
                 and registration.qty > 1
             ):
                 raise ValidationError(
-                    _(
+                    self.env._(
                         "You can not add quantities if you not active the"
                         ' option "Allow multiple attendees per registration"'
                         " in event"
