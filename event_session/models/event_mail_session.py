@@ -154,7 +154,6 @@ class EventMailSession(models.Model):
                 self.browse(scheduler.id).execute()
             except Exception as e:  # pragma: no cover
                 _logger.exception(e)
-                self.invalidate_cache()
                 self.env["event.mail"]._warn_template_error(scheduler, e)
             else:
                 if autocommit and not getattr(

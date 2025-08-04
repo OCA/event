@@ -1,4 +1,4 @@
-# Copyright 2017 David Vidal<david.vidal@tecnativa.com>
+# Copyright 2017 Tecnativa - David Vidal
 # Copyright 2021 Moka Tourisme (https://www.mokatourisme.fr).
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 

@@ -3,7 +3,7 @@
 # Copyright 2021 Moka Tourisme (https://www.mokatourisme.fr).
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl-3.0).
 
-from odoo import fields
+from odoo import Command, fields
 from odoo.exceptions import ValidationError
 
 from .common import CommonEventSessionCase
@@ -68,7 +68,7 @@ class TestEventSessionCreateWizard(CommonEventSessionCase):
                     "event_id": self.event.id,
                     "rrule_type": "weekly",
                     "mon": True,
-                    "timeslot_ids": [(6, 0, self.timeslot_16_00.ids)],
+                    "timeslot_ids": [Command.set(self.timeslot_16_00.ids)],
                     "duration": 0.0,
                     "start": "2022-01-01",
                     "until": "2022-01-31",
@@ -82,7 +82,7 @@ class TestEventSessionCreateWizard(CommonEventSessionCase):
                     "event_id": self.event.id,
                     "rrule_type": "weekly",
                     "mon": True,
-                    "timeslot_ids": [(6, 0, self.timeslot_16_00.ids)],
+                    "timeslot_ids": [Command.set(self.timeslot_16_00.ids)],
                     "duration": 1.0,
                     "interval": -1,
                     "start": "2022-01-01",
@@ -122,7 +122,7 @@ class TestEventSessionCreateWizard(CommonEventSessionCase):
                     "sun": False,
                     "sat": False,
                     "timeslot_ids": [
-                        (6, 0, (self.timeslot_16_00 | self.timeslot_20_00).ids)
+                        Command.set((self.timeslot_16_00 | self.timeslot_20_00).ids)
                     ],
                     "duration": 1.0,
                     "start": "2022-01-01",
@@ -173,7 +173,7 @@ class TestEventSessionCreateWizard(CommonEventSessionCase):
                     "fri": True,
                     "sun": False,
                     "sat": False,
-                    "timeslot_ids": [(6, 0, self.timeslot_20_00.ids)],
+                    "timeslot_ids": [Command.set(self.timeslot_20_00.ids)],
                     "duration": 2.0,
                     "start": "2022-02-01",
                     "until": "2022-02-28",
@@ -199,7 +199,7 @@ class TestEventSessionCreateWizard(CommonEventSessionCase):
                     "month_by": "day",
                     "byday": "-1",
                     "weekday": "SUN",
-                    "timeslot_ids": [(6, 0, self.timeslot_16_00.ids)],
+                    "timeslot_ids": [Command.set(self.timeslot_16_00.ids)],
                     "duration": 1.0,
                     "start": "2022-03-01",
                     "until": "2022-05-31",
@@ -221,7 +221,7 @@ class TestEventSessionCreateWizard(CommonEventSessionCase):
                     "rrule_type": "monthly",
                     "month_by": "date",
                     "day": "15",
-                    "timeslot_ids": [(6, 0, self.timeslot_16_00.ids)],
+                    "timeslot_ids": [Command.set(self.timeslot_16_00.ids)],
                     "duration": 1.0,
                     "start": "2022-03-01",
                     "until": "2022-05-31",

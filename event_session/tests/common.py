@@ -3,14 +3,14 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import fields
-from odoo.tests import TransactionCase
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class CommonEventSessionCase(TransactionCase):
+class CommonEventSessionCase(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.stage_new = cls.env.ref("event.event_stage_new")
         cls.stage_done = cls.env.ref("event.event_stage_done")
 

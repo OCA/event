@@ -5,11 +5,11 @@
         <field name="inherit_id" ref="event.view_event_registration_form" />
         <field name="arch" type="xml">
             <field name="event_id" position="after">
-                <field name="use_sessions" invisible="1" />
                 <field
                     name="session_id"
                     domain="[('event_id', '=', event_id)]"
-                    attrs="{'required': [('use_sessions', '=', True)], 'invisible': [('use_sessions', '!=', True)]}"
+                    required="use_sessions"
+                    invisible="not use_sessions"
                     options="{'no_create': True}"
                 />
             </field>
@@ -29,12 +29,11 @@
         <field name="inherit_id" ref="event.event_registration_view_kanban" />
         <field name="arch" type="xml">
             <field name="event_id" position="after">
-                <field name="use_sessions" invisible="1" />
                 <field
                     name="session_id"
                     class="o_text_overflow"
-                    invisible="context.get('default_session_id')"
-                    attrs="{'required': [('use_sessions', '=', True)], 'invisible': [('use_sessions', '!=', True)]}"
+                    required="use_sessions"
+                    invisible="not use_sessions or context.get('default_session_id')"
                 />
             </field>
         </field>

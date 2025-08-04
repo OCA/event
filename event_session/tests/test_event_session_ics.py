@@ -4,13 +4,14 @@
 
 from odoo.tests import HttpCase, tagged
 
+from odoo.addons.base.tests.common import BaseCommon
+
 
 @tagged("-at_install", "post_install")
-class TestEventSessionICS(HttpCase):
+class TestEventSessionICS(HttpCase, BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.event_session = cls.env.ref("event_session.event_session_007_1_16_00")
         cls.event = cls.event_session.event_id
 

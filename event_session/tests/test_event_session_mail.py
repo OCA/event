@@ -2,11 +2,11 @@
 # Copyright 2017 Tecnativa - Pedro M. Baeza
 # Copyright 2021 Moka Tourisme (https://www.mokatourisme.fr).
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl-3.0).
-
 from datetime import timedelta
 
 from freezegun import freeze_time
 
+from odoo import Command
 from odoo.tools import mute_logger
 
 from .common import CommonEventSessionCase
@@ -16,8 +16,8 @@ class TestEventSession(CommonEventSessionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.mail_template_reminder = cls.env.ref("event_session.event_session_reminder")
-        cls.mail_template_badge = cls.env.ref(
+        cls.template_reminder = cls.env.ref("event_session.event_session_reminder")
+        cls.template_badge = cls.env.ref(
             "event_session.event_session_registration_mail_template_badge"
         )
         cls.event = cls.env["event.event"].create(
@@ -25,19 +25,19 @@ class TestEventSession(CommonEventSessionCase):
                 "name": "Test event",
                 "use_sessions": True,
                 "event_mail_ids": [
-                    (0, 0, vals)
+                    Command.create(vals)
                     for vals in [
                         {
                             "interval_nbr": 15,
                             "interval_unit": "days",
                             "interval_type": "before_event",
-                            "template_ref": f"mail.template,{cls.mail_template_reminder.id}",
+                            "template_ref": f"mail.template,{cls.template_reminder.id}",
                         },
                         {
                             "interval_nbr": 0,
                             "interval_unit": "hours",
                             "interval_type": "after_sub",
-                            "template_ref": f"mail.template,{cls.mail_template_badge.id}",
+                            "template_ref": f"mail.template,{cls.template_badge.id}",
                         },
                     ]
                 ],
@@ -72,7 +72,7 @@ class TestEventSession(CommonEventSessionCase):
                 "interval_nbr": 5,
                 "interval_unit": "days",
                 "interval_type": "before_event",
-                "template_ref": f"mail.template,{self.mail_template_reminder.id}",
+                "template_ref": f"mail.template,{self.template_reminder.id}",
             }
         )
         session_mail = self.session.event_mail_ids.filtered(

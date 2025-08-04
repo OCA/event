@@ -1,4 +1,4 @@
-# Copyright 2017 David Vidal<david.vidal@tecnativa.com>
+# Copyright 2017 Tecnativa - David Vidal
 # Copyright 2017 Tecnativa - Pedro M. Baeza
 # Copyright 2021 Moka Tourisme (https://www.mokatourisme.fr).
 # @author Iván Todorovich <ivan.todorovich@gmail.com>
@@ -10,7 +10,7 @@ import pytz
 from dateutil import rrule
 from dateutil.relativedelta import relativedelta
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 SELECT_FREQ_TO_RRULE = {
@@ -60,7 +60,7 @@ class WizardEventSession(models.TransientModel):
 
     event_id = fields.Many2one(
         comodel_name="event.event",
-        default=lambda self: self.env.context["active_id"],
+        default=lambda self: self.env.context["id"],
         ondelete="cascade",
         required=True,
         readonly=True,
@@ -151,12 +151,12 @@ class WizardEventSession(models.TransientModel):
     @api.constrains("duration")
     def _check_duration(self):
         if any(rec.duration <= 0 for rec in self):
-            raise ValidationError(_("Duration is required."))
+            raise ValidationError(self.env._("Duration is required."))
 
     @api.constrains("interval")
     def _check_interval(self):
         if any(rec.interval <= 0 for rec in self):
-            raise ValidationError(_("The interval cannot be negative."))
+            raise ValidationError(self.env._("The interval cannot be negative."))
 
     def _get_lang_week_start(self):
         lang = self.env["res.lang"]._lang_get(self.env.user.lang)
@@ -199,7 +199,7 @@ class WizardEventSession(models.TransientModel):
             weekdays = self._get_week_days()
             if not weekdays:  # pragma: no cover
                 raise ValidationError(
-                    _("You have to choose at least one day in the week")
+                    self.env._("You have to choose at least one day in the week")
                 )
             rrule_params["byweekday"] = weekdays
             rrule_params["wkst"] = self._get_lang_week_start()

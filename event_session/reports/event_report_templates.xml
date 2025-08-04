@@ -21,13 +21,16 @@
 
     <template
         id="event_registration_report_template_foldable_badge"
-        inherit_id="event.event_registration_report_template_foldable_badge"
+        inherit_id="event.event_registration_report_template_badge"
     >
-        <xpath expr="//t[@t-foreach='docs']//t[@t-set='event']" position="after">
+        <xpath
+            expr="//t[@t-as='attendees_per_event']//t[@t-set='event']"
+            position="after"
+        >
             <t
-                t-if="attendee.session_id"
+                t-if="attendees_per_event[1].session_id"
                 t-set="event"
-                t-value="attendee.session_id._set_tz_context()"
+                t-value="attendees_per_event[0]._set_tz_context()"
             />
         </xpath>
     </template>

@@ -42,12 +42,9 @@
 </div>
         </field>
         <field
-            name="report_template"
-            ref="event.action_report_event_registration_foldable_badge"
+            name="report_template_ids"
+            eval="[(4, ref('event.action_report_event_registration_badge'))]"
         />
-        <field
-            name="report_name"
-        >Foldable Badge - {{ (object.session_id.name or 'Event').replace('/','_') }}</field>
         <field name="lang">{{ object.partner_id.lang }}</field>
         <field name="auto_delete" eval="True" />
     </record>
@@ -573,12 +570,9 @@
             </table>
         </field>
         <field
-            name="report_template"
-            ref="event.action_report_event_registration_full_page_ticket"
+            name="report_template_ids"
+            eval="[(4, ref('event.action_report_event_registration_full_page_ticket'))]"
         />
-        <field
-            name="report_name"
-        >Full Page Ticket - {{ (object.session_id.name or 'Event').replace('/','') }}</field>
         <field name="lang">{{ object.partner_id.lang }}</field>
     </record>
 

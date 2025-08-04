@@ -4,6 +4,7 @@
   - David Vidal
   - Carlos Roca
   - Stefan Ungureanu
+  - Víctor Martínez
 
 - Nikos Tsirintanis \<<ntsirintanis@therp.nl>\>
 

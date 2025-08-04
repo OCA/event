@@ -15,8 +15,9 @@
                     string="Create Sessions"
                     name="%(act_wizard_event_session)d"
                     class="oe_highlight"
-                    attrs="{'invisible': [('use_sessions', '=', False)]}"
+                    invisible="not use_sessions"
                     type="action"
+                    context="{'id': id}"
                 />
             </header>
         </field>
@@ -57,35 +58,32 @@
                             </div>
                             <widget
                                 name="week_days"
-                                attrs="{'invisible': [('rrule_type', '!=', 'weekly')]}"
+                                invisible="rrule_type != 'weekly'"
                             />
                         </div>
                         <label
                             string="Day of Month"
                             for="month_by"
-                            attrs="{'invisible': [('rrule_type', '!=', 'monthly')]}"
+                            invisible="rrule_type != 'monthly'"
                         />
-                        <div
-                            class="o_row"
-                            attrs="{'invisible': [('rrule_type', '!=', 'monthly')]}"
-                        >
+                        <div class="o_row" invisible="rrule_type != 'monthly'">
                             <field name="month_by" />
                             <field
                                 name="day"
-                                attrs="{'required': [('month_by', '=', 'date'), ('rrule_type', '=', 'monthly')],
-                                        'invisible': [('month_by', '!=', 'date')]}"
+                                required="month_by == 'date' and rrule_type == 'monthly'"
+                                invisible="month_by != 'date'"
                             />
                             <field
                                 name="byday"
                                 string="The"
-                                attrs="{'required': [('month_by', '=', 'day'), ('rrule_type', '=', 'monthly')],
-                                        'invisible': [('month_by', '!=', 'day')]}"
+                                required="month_by == 'day' and rrule_type == 'monthly'"
+                                invisible="month_by != 'day'"
                             />
                             <field
                                 name="weekday"
                                 nolabel="1"
-                                attrs="{'required': [('month_by', '=', 'day'), ('rrule_type', '=', 'monthly')],
-                                        'invisible': [('month_by', '!=', 'day')]}"
+                                required="month_by == 'day' and rrule_type == 'monthly'"
+                                invisible="month_by != 'day'"
                             />
                         </div>
                     </group>

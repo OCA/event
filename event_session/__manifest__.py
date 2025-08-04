@@ -1,10 +1,10 @@
-# Copyright 2017-19 David Vidal<david.vidal@tecnativa.com>
+# Copyright 2017-19 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 {
     "name": "Event Sessions",
     "summary": "Sessions in events",
-    "version": "16.0.1.4.1",
+    "version": "18.0.1.0.0",
     "author": "Tecnativa, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "website": "https://github.com/OCA/event",

@@ -9,7 +9,6 @@ from freezegun import freeze_time
 
 from odoo import fields
 from odoo.exceptions import ValidationError
-from odoo.tests.common import Form
 from odoo.tools import mute_logger
 
 from .common import CommonEventSessionCase
@@ -37,12 +36,14 @@ class TestEventSession(CommonEventSessionCase):
 
     def test_session_name_get(self):
         # Case 1: Same tz than user
-        name = self.session.name_get()[0][1]
-        self.assertEqual(name, "Test event, May 26, 2017, 10:00:00 PM")
+        self.assertEqual(
+            self.session.display_name, "Test event, May 26, 2017, 10:00:00 PM"
+        )
         # Case 2: Different timezone
         self.event.date_tz = "UTC"
-        name = self.session.name_get()[0][1]
-        self.assertEqual(name, "Test event, May 26, 2017, 8:00:00 PM (UTC)")
+        self.assertEqual(
+            self.session.display_name, "Test event, May 26, 2017, 8:00:00 PM (UTC)"
+        )
 
     def test_check_dates(self):
         with self.assertRaisesRegex(
@@ -105,16 +106,7 @@ class TestEventSession(CommonEventSessionCase):
         )
         self.assertEqual(event.use_sessions, True)
 
-    def test_event_session_form(self):
-        # Test workaround for this Odoo bug: https://github.com/odoo/odoo/pull/91373
-        session_form = Form(
-            self.env["event.session"].with_context(
-                default_event_id=self.event.id,
-            )
-        )
-        self.assertEqual(session_form.event_id, self.event)
-        self.assertEqual(session_form.name, self.event.name)
-
+    @mute_logger("odoo.models.unlink")
     def test_event_event_use_sessions_switch(self):
         # Case 1: We can't change an event to use_sessions after registrations
         event = self.env["event.event"].create(
@@ -163,16 +155,23 @@ class TestEventSession(CommonEventSessionCase):
 
     def test_session_seats(self):
         """Test event session seats constraints"""
-        self.assertEqual(self.event.seats_unconfirmed, self.session.seats_unconfirmed)
-        self.assertEqual(self.event.seats_used, self.session.seats_used)
+        self.assertEqual(self.event.seats_used, 0)
+        self.assertEqual(self.session.seats_used, 0)
+        self.assertEqual(self.event.seats_available, 5)
+        self.assertEqual(self.session.seats_available, 5)
         vals = {
             "name": "Test Attendee",
             "event_id": self.event.id,
             "session_id": self.session.id,
-            "state": "open",
         }
         # Fill the event session with attendees
         self.env["event.registration"].create([vals] * self.session.seats_available)
+        self.assertEqual(self.event.seats_used, 0)
+        self.assertEqual(self.session.seats_used, 0)
+        self.assertEqual(self.event.seats_reserved, 5)
+        self.assertEqual(self.session.seats_reserved, 5)
+        self.assertEqual(self.session.seats_available, 0)
+        self.assertEqual(self.event.seats_available, 0)
         # Try to create another one
         with (
             self.assertRaisesRegex(
@@ -200,7 +199,6 @@ class TestEventSession(CommonEventSessionCase):
             self.cr.savepoint(),
         ):
             registration.action_confirm()
-            registration.flush_recordset()
 
     def test_event_seats(self):
         """Test that event.event seats constraints do not apply to sessions"""
@@ -216,6 +214,12 @@ class TestEventSession(CommonEventSessionCase):
         }
         self.assertFalse(self.session.event_registrations_sold_out)
         self.env["event.registration"].create([vals] * 5)
+        self.assertEqual(self.event.seats_used, 0)
+        self.assertEqual(self.session.seats_used, 0)
+        self.assertEqual(self.event.seats_reserved, 5)
+        self.assertEqual(self.session.seats_reserved, 5)
+        self.assertEqual(self.session.seats_available, 0)
+        self.assertEqual(self.event.seats_available, 0)
         self.assertTrue(self.session.event_registrations_sold_out)
         # Create a second session and fill it too
         session2 = self.session.copy({})
@@ -232,12 +236,11 @@ class TestEventSession(CommonEventSessionCase):
         # Attempt to decrease the event seats limit below the existing registrations
         with (
             self.assertRaisesRegex(
-                ValidationError, r"There are not enough seats available for:"
+                ValidationError, "There are not enough seats available for:"
             ),
             self.cr.savepoint(),
         ):
             self.event.seats_max = 2
-            self.event.flush_recordset()
 
     def test_session_seats_count(self):
         session_1, session_2 = self.env["event.session"].create(
@@ -260,50 +263,36 @@ class TestEventSession(CommonEventSessionCase):
                     "name": "S1: First Atendee",
                     "event_id": self.event.id,
                     "session_id": session_1.id,
+                    "state": "draft",
                 },
                 {
                     "name": "S1: Second Atendee",
                     "event_id": self.event.id,
                     "session_id": session_1.id,
+                    "state": "draft",
                 },
                 {
                     "name": "S2: First Atendee",
                     "event_id": self.event.id,
                     "session_id": session_2.id,
+                    "state": "draft",
                 },
             ]
         )
-        self.assertEqual(session_1.seats_unconfirmed, 2)
         self.assertEqual(session_1.seats_reserved, 0)
-        self.assertEqual(session_1.seats_expected, 2)
-        self.assertEqual(session_1.seats_available_unexpected, 3)
-        self.assertEqual(session_2.seats_unconfirmed, 1)
         self.assertEqual(session_2.seats_reserved, 0)
-        self.assertEqual(session_2.seats_expected, 1)
-        self.assertEqual(session_2.seats_available_unexpected, 4)
-        self.assertEqual(self.event.seats_unconfirmed, 3)
         self.assertEqual(self.event.seats_reserved, 0)
-        self.assertEqual(self.event.seats_expected, 3)
         attendee_1.action_confirm()
-        self.assertEqual(session_1.seats_unconfirmed, 1)
         self.assertEqual(session_1.seats_reserved, 1)
-        self.assertEqual(session_2.seats_unconfirmed, 1)
         self.assertEqual(session_2.seats_reserved, 0)
-        self.assertEqual(self.event.seats_unconfirmed, 2)
         self.assertEqual(self.event.seats_reserved, 1)
         attendee_2.action_confirm()
-        self.assertEqual(session_1.seats_unconfirmed, 0)
         self.assertEqual(session_1.seats_reserved, 2)
-        self.assertEqual(session_2.seats_unconfirmed, 1)
         self.assertEqual(session_2.seats_reserved, 0)
-        self.assertEqual(self.event.seats_unconfirmed, 1)
         self.assertEqual(self.event.seats_reserved, 2)
         attendee_3.action_confirm()
-        self.assertEqual(session_1.seats_unconfirmed, 0)
         self.assertEqual(session_1.seats_reserved, 2)
-        self.assertEqual(session_2.seats_unconfirmed, 0)
         self.assertEqual(session_2.seats_reserved, 1)
-        self.assertEqual(self.event.seats_unconfirmed, 0)
         self.assertEqual(self.event.seats_reserved, 3)
 
     def test_event_session_is_ongoing(self):

@@ -1,7 +1,7 @@
-# Copyright 2017 David Vidal<david.vidal@tecnativa.com>
+# Copyright 2017 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -131,7 +131,10 @@ class EventEvent(models.Model):
                 for rec in self
             ):
                 raise ValidationError(
-                    _("You can't enable/disable sessions on events with registrations.")
+                    self.env._(
+                        "You can't enable/disable sessions on events with "
+                        "registrations."
+                    )
                 )
             if not vals["use_sessions"]:
                 self.with_context(active_test=False).session_ids.unlink()

@@ -1,8 +1,8 @@
-# Copyright 2017 David Vidal<david.vidal@tecnativa.com>
+# Copyright 2017 Tecnativa - David Vidal
 # Copyright 2021 Moka Tourisme (https://www.mokatourisme.fr).
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import SUPERUSER_ID, _, api, fields, models
+from odoo import SUPERUSER_ID, api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -52,7 +52,9 @@ class EventRegistration(models.Model):
                 and session.seats_max
                 and session.seats_available < (1 if rec.state == "draft" else 0)
             ):
-                raise ValidationError(_("No more seats available for this session."))
+                raise ValidationError(
+                    self.env._("No more seats available for this session.")
+                )
 
     def _update_mail_schedulers(self):
         # OVERRIDE to handle sessions' mail scheduler, not event ones.
@@ -78,3 +80,10 @@ class EventRegistration(models.Model):
         onsubscribe_schedulers.mail_done = False
         onsubscribe_schedulers.with_user(SUPERUSER_ID).execute()
         return res
+
+    def get_date_range_str(self, lang_code=False):
+        """Compatibility with existing email templates: this method existed until v17,
+        but in v18 it was removed in favor of using the event's _get_date_range_str()
+        method, which is what we use now."""
+        self.ensure_one()
+        return self.event_id._get_date_range_str(lang_code)

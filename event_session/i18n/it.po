@@ -2879,12 +2879,3 @@ msgstr ""
 #: model:mail.template,subject:event_session.event_session_reminder
 msgid "{{ object.session_id.name }}: {{ object.get_date_range_str() }}"
 msgstr "{{ object.session_id.name }}: {{ object.get_date_range_str() }}"
-
-#~ msgid "Timezone"
-#~ msgstr "Fuso orario"
-
-#~ msgid "SMS Delivery error"
-#~ msgstr "Errore consegna SMS"
-
-#~ msgid "Number of messages which requires an action"
-#~ msgstr "Numero di messaggi che richiedono un'azione"
