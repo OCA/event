@@ -4,7 +4,6 @@
     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 -->
 <odoo>
-
     <!--
         What is this?
 
@@ -45,5 +44,4 @@
             />
         </xpath>
     </template>
-
 </odoo>

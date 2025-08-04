@@ -4,7 +4,6 @@
     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 -->
 <odoo>
-
     <record id="res_partner_location_theater" model="res.partner">
         <field name="name">Grand Theater</field>
         <field name="is_company">1</field>
@@ -152,5 +151,4 @@
             eval="(DateTime.now() + timedelta(days=3)).strftime('%Y-%m-%d 22:00:00')"
         />
     </record>
-
 </odoo>

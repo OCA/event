@@ -230,7 +230,7 @@ class WizardEventSession(models.TransientModel):
         timezone = pytz.timezone(self.date_tz)
         timeslot_times = [float_time_as_time(t.time) for t in self.timeslot_ids]
         for dtstart in ocurrences:
-            for tslot, ttime in zip(self.timeslot_ids, timeslot_times):
+            for tslot, ttime in zip(self.timeslot_ids, timeslot_times, strict=False):
                 start = datetime.combine(dtstart, ttime)
                 start_utc = (
                     timezone.localize(start, is_dst=False)

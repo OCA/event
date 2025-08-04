@@ -174,22 +174,31 @@ class TestEventSession(CommonEventSessionCase):
         # Fill the event session with attendees
         self.env["event.registration"].create([vals] * self.session.seats_available)
         # Try to create another one
-        with self.assertRaisesRegex(
-            ValidationError, r"There are not enough seats available for:"
-        ), self.cr.savepoint():
+        with (
+            self.assertRaisesRegex(
+                ValidationError, r"There are not enough seats available for:"
+            ),
+            self.cr.savepoint(),
+        ):
             self.env["event.registration"].create(vals)
         # Attempt to create a draft registration on a full session
-        with self.assertRaisesRegex(
-            ValidationError, "No more seats available for this session."
-        ), self.cr.savepoint():
+        with (
+            self.assertRaisesRegex(
+                ValidationError, "No more seats available for this session."
+            ),
+            self.cr.savepoint(),
+        ):
             self.env["event.registration"].create(dict(vals, state="draft"))
         # Temporarily allow to create a draft registration and attempt to confirm it
         self.event.seats_limited = False
         registration = self.env["event.registration"].create(dict(vals, state="draft"))
         self.event.seats_limited = True
-        with self.assertRaisesRegex(
-            ValidationError, r"There are not enough seats available for:"
-        ), self.cr.savepoint():
+        with (
+            self.assertRaisesRegex(
+                ValidationError, r"There are not enough seats available for:"
+            ),
+            self.cr.savepoint(),
+        ):
             registration.action_confirm()
             registration.flush_recordset()
 
@@ -213,14 +222,20 @@ class TestEventSession(CommonEventSessionCase):
         vals["session_id"] = session2.id
         self.env["event.registration"].create([vals] * 5)
         # Now attempt to move one registration to another session
-        with self.assertRaisesRegex(
-            ValidationError, r"There are not enough seats available for:"
-        ), self.cr.savepoint():
+        with (
+            self.assertRaisesRegex(
+                ValidationError, r"There are not enough seats available for:"
+            ),
+            self.cr.savepoint(),
+        ):
             self.session.registration_ids[0].session_id = session2
         # Attempt to decrease the event seats limit below the existing registrations
-        with self.assertRaisesRegex(
-            ValidationError, r"There are not enough seats available for:"
-        ), self.cr.savepoint():
+        with (
+            self.assertRaisesRegex(
+                ValidationError, r"There are not enough seats available for:"
+            ),
+            self.cr.savepoint(),
+        ):
             self.event.seats_max = 2
             self.event.flush_recordset()
 

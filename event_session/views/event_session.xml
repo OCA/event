@@ -12,7 +12,8 @@
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 No Attendees yet!
-            </p><p>
+            </p>
+            <p>
                 Wait until Attendees register to your Event or create their registrations manually.
             </p>
         </field>
@@ -157,11 +158,9 @@
                         class="ml-auto float-right"
                     />
                     <div class="oe_title">
-                        <h1><field
-                                class="o_text_overflow"
-                                name="name"
-                                readonly="1"
-                            /></h1>
+                        <h1>
+                            <field class="o_text_overflow" name="name" readonly="1" />
+                        </h1>
                     </div>
                     <group>
                         <group name="left">
@@ -199,8 +198,7 @@
                                 readonly="1"
                             />
                         </group>
-                        <group name="right">
-                        </group>
+                        <group name="right" />
                     </group>
                     <notebook>
                         <page string="Communication" name="event_communication">
@@ -359,9 +357,11 @@
                                             t-esc="luxon.DateTime.fromISO(record.date_begin.raw_value).toFormat('MMM yyyy')"
                                         />
                                     </div>
-                                    <div><t
+                                    <div>
+                                        <t
                                             t-esc="luxon.DateTime.fromISO(record.date_begin.raw_value).toFormat('t')"
-                                        /></div>
+                                        />
+                                    </div>
                                     <div
                                         t-if="record.date_begin.raw_value !== record.date_end.raw_value"
                                     >
@@ -372,7 +372,7 @@
                                         <t
                                             t-esc="luxon.DateTime.fromISO(record.date_end.raw_value).toFormat('d MMM')"
                                         />
-                                        </div>
+                                    </div>
                                 </div>
                                 <div
                                     class="col-9 py-2 px-3 d-flex flex-column justify-content-between pt-3"
@@ -384,13 +384,16 @@
                                         >
                                             <field name="name" />
                                         </div>
-                                        <div t-if="record.address_id.value"><i
+                                        <div t-if="record.address_id.value">
+                                            <i
                                                 class="fa fa-map-marker"
                                                 title="Location"
-                                            /> <span
+                                            />
+                                            <span
                                                 class="o_text_overflow o_event_kanban_location"
                                                 t-esc="record.address_id.value"
-                                            /></div>
+                                            />
+                                        </div>
                                     </div>
                                     <h5 class="o_event_fontsize_11 p-0">
                                         <a
@@ -399,8 +402,8 @@
                                             context="{'search_default_expected': True}"
                                         >
                                             <t
-                                                t-esc="record.seats_expected.raw_value"
-                                            /> Expected attendees
+                                            t-esc="record.seats_expected.raw_value"
+                                        /> Expected attendees
                                         </a>
                                         <t
                                             t-set="total_seats"
@@ -409,7 +412,8 @@
                                         <div
                                             class="pt-2 pt-md-0"
                                             t-if="total_seats > 0 and ! record.auto_confirm.raw_value"
-                                        ><br />
+                                        >
+                                            <br />
                                             <a
                                                 class="pl-2"
                                                 name="%(act_event_registration_from_event_session)d"
@@ -419,9 +423,10 @@
                                                 <i
                                                     class="fa fa-level-up fa-rotate-90"
                                                     title="Confirmed"
-                                                /><span class="pl-2"><t
-                                                        t-esc="total_seats"
-                                                    /> Confirmed</span>
+                                                />
+                                                <span class="pl-2"><t
+                                                    t-esc="total_seats"
+                                                /> Confirmed</span>
                                             </a>
                                         </div>
                                     </h5>
@@ -503,7 +508,8 @@
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 No Sessions data yet!
-            </p><p>
+            </p>
+            <p>
                 Use this report to compare or aggregate sessions performances.
             </p>
         </field>

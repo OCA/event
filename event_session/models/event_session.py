@@ -158,7 +158,6 @@ class EventSession(models.Model):
             and "event_id" in res["value"]
             and not res["value"]["event_id"]
         ):
-
             res["value"]["event_id"] = (
                 self.env["event.event"]
                 .browse(self.env.context["default_event_id"])

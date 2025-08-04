@@ -15,7 +15,7 @@ class CommonEventSessionCase(TransactionCase):
         cls.stage_done = cls.env.ref("event.event_stage_done")
 
     def assertSessionDates(self, sessions, expected):
-        for session, date in zip(sessions, expected):
+        for session, date in zip(sessions, expected, strict=False):
             local_date = fields.Datetime.context_timestamp(
                 session._set_tz_context(), session.date_begin
             )
