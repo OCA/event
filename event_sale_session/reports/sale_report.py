@@ -35,6 +35,6 @@ class SaleReport(models.Model):
         return res
 
     def _group_by_sale(self):
-        group_by = super(SaleReport, self)._group_by_sale()
+        group_by = super()._group_by_sale()
         group_by += ", l.event_id, l.event_ticket_id, l.event_session_id"
         return group_by

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-
     <record id="event_ticket_007_free" model="event.event.ticket">
         <field name="name">Free</field>
         <field name="description">Free entrance !</field>
@@ -27,5 +26,4 @@
         <field name="product_id" ref="event_sale.product_product_event" />
         <field name="price">60.0</field>
     </record>
-
 </odoo>
