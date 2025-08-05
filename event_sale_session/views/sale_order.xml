@@ -13,35 +13,29 @@
                 expr="//field[@name='order_line']//form//field[@name='event_id']"
                 position="after"
             >
-                <field name="event_use_sessions" invisible="1" />
                 <field
                     name="event_session_id"
                     domain="[
                         ('event_id', '=', event_id),
                         ('date_end', '&gt;=', time.strftime('%Y-%m-%d 00:00:00')),
                     ]"
-                    attrs="{
-                       'invisible': [('event_use_sessions', '=', False)],
-                       'required': [('event_use_sessions', '=', True)],
-                    }"
+                    invisible="not event_use_sessions"
+                    required="event_use_sessions"
                     options="{'no_open': True, 'no_create': True}"
                 />
             </xpath>
             <xpath
-                expr="//field[@name='order_line']//tree//field[@name='event_id']"
+                expr="//field[@name='order_line']//list//field[@name='event_id']"
                 position="after"
             >
-                <field name="event_use_sessions" invisible="1" />
                 <field
                     name="event_session_id"
                     domain="[
                         ('event_id', '=', event_id),
                         ('date_end', '&gt;=', time.strftime('%Y-%m-%d 00:00:00')),
                     ]"
-                    attrs="{
-                       'invisible': [('event_use_sessions', '=', False)],
-                       'required': [('event_use_sessions', '=', True)],
-                    }"
+                    invisible="not event_use_sessions"
+                    required="event_use_sessions"
                     options="{'no_open': True, 'no_create': True}"
                     optional="hide"
                 />

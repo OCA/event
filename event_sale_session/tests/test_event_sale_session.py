@@ -2,16 +2,17 @@
 # Copyright 2022 Moka Tourisme (https://www.mokatourisme.fr).
 # @author Iván Todorovich <ivan.todorovich@gmail.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl-3.0).
+from odoo import Command
+from odoo.tests import Form
 
-from odoo.tests import Form, TransactionCase
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class EventSaleSession(TransactionCase):
+class EventSaleSession(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.partner = cls.env.ref("base.res_partner_address_28")
-        cls.product = cls.env.ref("event_sale.product_product_event")
+        cls.product = cls.env.ref("event_product.product_product_event")
         cls.session = cls.env.ref("event_session.event_session_007_1_16_00")
         cls.ticket = cls.env.ref("event_sale_session.event_ticket_007_standard")
         cls.event = cls.session.event_id
@@ -19,9 +20,7 @@ class EventSaleSession(TransactionCase):
             {
                 "partner_id": cls.partner.id,
                 "order_line": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "product_id": cls.product.id,
                             "event_id": cls.event.id,

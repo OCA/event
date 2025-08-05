@@ -10,17 +10,14 @@
         <field name="inherit_id" ref="event_sale.event_configurator_view_form" />
         <field name="arch" type="xml">
             <field name="event_id" position="after">
-                <field name="event_use_sessions" invisible="1" />
                 <field
                     name="event_session_id"
                     domain="[
                         ('event_id', '=', event_id),
                         ('date_end', '&gt;=', time.strftime('%Y-%m-%d 00:00:00')),
                     ]"
-                    attrs="{
-                       'invisible': [('event_use_sessions', '=', False)],
-                       'required': [('event_use_sessions', '=', True)],
-                    }"
+                    invisible="not event_use_sessions"
+                    required="event_use_sessions"
                     options="{'no_open': True, 'no_create': True}"
                 />
             </field>

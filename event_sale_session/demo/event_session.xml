@@ -5,7 +5,7 @@
         <field name="description">Free entrance !</field>
         <field name="event_id" ref="event_session.event_event_007" />
         <field name="seats_max">0</field>
-        <field name="product_id" ref="event_sale.product_product_event" />
+        <field name="product_id" ref="event_product.product_product_event" />
         <field name="price">0.0</field>
     </record>
 
@@ -14,7 +14,7 @@
         <field name="description">Standard</field>
         <field name="event_id" ref="event_session.event_event_007" />
         <field name="seats_max">0</field>
-        <field name="product_id" ref="event_sale.product_product_event" />
+        <field name="product_id" ref="event_product.product_product_event" />
         <field name="price">12.0</field>
     </record>
 
@@ -23,7 +23,7 @@
         <field name="description">Standard + catering event</field>
         <field name="event_id" ref="event_session.event_event_007" />
         <field name="seats_max">0</field>
-        <field name="product_id" ref="event_sale.product_product_event" />
+        <field name="product_id" ref="event_product.product_product_event" />
         <field name="price">60.0</field>
     </record>
 </odoo>

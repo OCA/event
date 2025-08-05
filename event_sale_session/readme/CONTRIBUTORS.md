@@ -3,6 +3,7 @@
   - David Vidal
   - Carlos Roca
   - Stefan Ungureanu
+  - Víctor Martínez
 - [Moka Tourisme](https://www.mokatourisme.fr)
   - Iván Todorovich \<<ivan.todorovich@gmail.com>\>
 - [GutierrezTi Team](https://gutierrezti.es)

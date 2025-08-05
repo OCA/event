@@ -72,6 +72,7 @@ Contributors
    -  David Vidal
    -  Carlos Roca
    -  Stefan Ungureanu
+   -  Víctor Martínez
 
 -  `Moka Tourisme <https://www.mokatourisme.fr>`__
 
