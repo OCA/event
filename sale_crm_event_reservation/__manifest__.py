@@ -3,7 +3,7 @@
 {
     "name": "Create event quotations from opportunities",
     "summary": "Combine event reservations, opportunities and quotations",
-    "version": "17.0.1.0.1",
+    "version": "17.0.1.0.2",
     "development_status": "Mature",
     "category": "Marketing",
     "website": "https://github.com/OCA/event",
