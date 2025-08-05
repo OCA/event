@@ -93,7 +93,7 @@ class CRMLeadEventSale(models.TransientModel):
                 tickets = record.event_id.event_ticket_ids.filtered(
                     lambda ticket, record=record: (
                         not ticket.end_sale_datetime
-                        or ticket.end_sale_datetime >= fields.Date.context_today(self)
+                        or ticket.end_sale_datetime >= fields.Datetime.now()
                     )
                     and (
                         not ticket.seats_limited
