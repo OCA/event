@@ -5,3 +5,4 @@
   - Alexandre Díaz
   - Ernesto Tejeda
 - Eduardo López \<<elp@moduon.team>\>
+- Joel Estrada \<<joel@moduon.team>\>
