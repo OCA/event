@@ -122,8 +122,10 @@ class TestEventRegistration(common.TransactionCase):
 
     def test_delete_registered_partner(self):
         # We can't delete a partner with registrations
-        with self.assertRaises(IntegrityError), self.cr.savepoint(), mute_logger(
-            "odoo.sql_db"
+        with (
+            self.assertRaises(IntegrityError),
+            self.cr.savepoint(),
+            mute_logger("odoo.sql_db"),
         ):
             self.partner_01.unlink()
         # Create a brand new partner and delete it
