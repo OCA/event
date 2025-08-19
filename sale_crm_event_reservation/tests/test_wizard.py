@@ -2,6 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from datetime import datetime, timedelta
 
+from odoo import Command
 from odoo.tests.common import Form, TransactionCase
 
 
@@ -14,9 +15,7 @@ class OpportunityCase(TransactionCase):
                 "name": "Test pricelist",
                 "currency_id": cls.env.company.currency_id.id,
                 "item_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "applied_on": "3_global",
                             "compute_price": "formula",
@@ -48,9 +47,7 @@ class OpportunityCase(TransactionCase):
                 "date_begin": datetime.now() + timedelta(days=1),
                 "date_end": datetime.now() + timedelta(days=2),
                 "event_ticket_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "name": "ticket 1",
                             "product_id": cls.product_ticket_1.id,
