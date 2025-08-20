@@ -1,0 +1,16 @@
+- [Tecnativa](https://www.tecnativa.com):
+  - Pedro M. Baeza
+  - Antonio Espinosa
+  - Jairo Llopis
+  - Vicent Cubells
+  - David Vidal
+  - Rafael Blasco
+  - Víctor Martínez
+  - Stefan Ungureanu
+  - Carolina Fernandez
+  - Pilar Vargas
+- [Antiun](https://antiun.com/):
+  - Javier Iniesta
+- Anil Kesariya
+- [Heliconia Solutions Pvt. Ltd.](https://www.heliconia.io)
+  - Bhavesh Heliconia
