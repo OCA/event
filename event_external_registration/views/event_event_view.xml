@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="event_external_link_form" model="ir.ui.view">
+        <field name="name">event.event.view.form.external.link</field>
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_form" />
+        <field name="priority" eval="4" />
+        <field name="arch" type="xml">
+            <field name="tag_ids" position="after">
+                <field name="external_link_url" />
+            </field>
+        </field>
+    </record>
+</odoo>
