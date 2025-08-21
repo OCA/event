@@ -5,7 +5,7 @@
 
 {
     "name": "Event Contacts",
-    "version": "18.0.1.0.0",
+    "version": "18.0.1.0.1",
     "summary": "Add contacts to event and event type",
     "author": "OpenSynergy Indonesia, "
     "Tecnativa, "
