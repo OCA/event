@@ -1,0 +1,1 @@
+Contact section is not shown if you enable "Sub-Menu (Specific)" customization.

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- This template is called whenever the "Show contact details" option is checked on the website (Customize > Show Contact Details) -->
+    <template
+        id="website_event_contact_details"
+        inherit_id="website_event.event_description_full"
+        active="False"
+        name="Show Contact Details"
+    >
+        <xpath expr="//div[@id='o_wevent_event_main_col']" position="inside">
+            <div t-if="event.sudo().contact_ids" id="wevent_contact_col">
+                <h2 contenteditable="false">Contact</h2>
+                <section class="s_company_team pb48">
+                    <div class="container">
+                        <div class="row s_nb_column_fixed">
+                            <t t-foreach="event.contact_ids" t-as="contact">
+                                <div class="col-lg-6 pt24 pb24">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <!-- Hidden on mobile view -->
+                                        <div
+                                            class="col-lg-4 pb-0 align-self-end o_not_editable d-lg-block d-none o_snippet_mobile_invisible"
+                                            contenteditable="false"
+                                        >
+                                            <div
+                                                t-field="contact.avatar_128"
+                                                t-options='{"widget": "image", "preview_image": "avatar_128", "class": "o_image_128_max o_width_128 img-fluid rounded-circle mx-auto", "style": "object-fit: cover"}'
+                                                t-att-alt="contact.display_name"
+                                            />
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <h4
+                                                t-out="contact.name"
+                                                class="m-0"
+                                                contenteditable="false"
+                                            />
+                                            <p
+                                                t-out="contact.function"
+                                                class="m-0"
+                                                contenteditable="false"
+                                            />
+                                            <ul
+                                                class="px-0 pt-3 m-0 align-self-end list-unstyled"
+                                            >
+                                                <li t-if="contact.phone">
+                                                    <i class="fa fa-phone" />
+                                                    <a
+                                                        t-att-href="'tel:' + contact.phone"
+                                                        t-out="contact.phone"
+                                                        contenteditable="false"
+                                                    />
+                                                </li>
+                                                <li t-if="contact.email">
+                                                    <i class="fa fa-envelope" />
+                                                    <a
+                                                        t-att-href="'mailto:%s?subject=%s' % (contact.email, 'Re: %s' % event.name)"
+                                                        contenteditable="false"
+                                                        target="_blank"
+                                                    >
+                                                        <t t-out="contact.email" />
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </xpath>
+    </template>
+</odoo>
