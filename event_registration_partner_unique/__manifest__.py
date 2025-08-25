@@ -14,6 +14,6 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["partner_event"],
-    "data": ["views/event_event_view.xml"],
+    "depends": ["event", "partner_event"],
+    "data": ["views/event_event_view.xml", "views/event_type_view.xml"],
 }
