@@ -1,0 +1,11 @@
+<!-- Copyright 2025 APSL-Nagarro Antoni Marroig
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <template id="web_layout" inherit_id="web.layout">
+        <xpath expr="//head" position="inside">
+            <t t-if="event and not event.website_published">
+                <meta name="robots" content="noindex,nofollow" />
+            </t>
+        </xpath>
+    </template>
+</odoo>
