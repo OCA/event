@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_event_session_registration,event.session.registration,event_session.model_event_session,event.group_event_registration_desk,1,0,0,0
+access_event_session_admin,event.session.admin,event_session.model_event_session,event.group_event_manager,1,1,1,1
+access_event_mail_session_registration,event.mail.session.registration,model_event_mail_session,event.group_event_registration_desk,1,0,0,0
+access_event_mail_session_user,event.mail.session.user,model_event_mail_session,event.group_event_user,1,1,1,1
+access_event_session_timeslot_registration,event.session.timeslot,model_event_session_timeslot,event.group_event_registration_desk,1,0,0,0
+access_event_session_timeslot_user,event.session.timeslot,model_event_session_timeslot,event.group_event_user,1,1,1,1
+access_wizard_event_session,wizard.event.session,model_wizard_event_session,event.group_event_user,1,1,1,1

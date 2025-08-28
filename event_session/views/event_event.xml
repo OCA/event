@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="act_event_session_event_form" model="ir.actions.act_window">
+        <field name="res_model">event.session</field>
+        <field name="name">Sessions</field>
+        <field name="view_mode">kanban,list,form,calendar,pivot</field>
+        <field name="context">
+            {
+                'search_default_event_id': active_id,
+                'default_event_id': active_id,
+            }
+        </field>
+    </record>
+    <record id="view_event_form" model="ir.ui.view">
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_form" />
+        <field name="priority">5</field>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button
+                    name="%(act_event_session_event_form)d"
+                    type="action"
+                    class="oe_stat_button"
+                    icon="fa-calendar"
+                    help="Sessions available for this event"
+                    invisible="not use_sessions"
+                >
+                    <field name="session_count" widget="statinfo" string="Sessions" />
+                </button>
+            </div>
+            <field name="date_begin" position="before">
+                <field name="use_sessions" />
+            </field>
+            <field name="date_begin" position="attributes">
+                <attribute name="invisible">use_sessions</attribute>
+            </field>
+            <!-- Hide not relevant columns in event.mail -->
+            <xpath
+                expr="//field[@name='event_mail_ids']/list/field[@name='scheduled_date']"
+                position="attributes"
+            >
+                <attribute name="column_invisible">parent.use_sessions</attribute>
+            </xpath>
+            <xpath
+                expr="//field[@name='event_mail_ids']/list/field[@name='mail_count_done']"
+                position="attributes"
+            >
+                <attribute name="column_invisible">parent.use_sessions</attribute>
+            </xpath>
+            <xpath
+                expr="//field[@name='event_mail_ids']/list/field[@name='mail_state']"
+                position="attributes"
+            >
+                <attribute name="column_invisible">parent.use_sessions</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_event_kanban" model="ir.ui.view">
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_kanban" />
+        <field name="arch" type="xml">
+            <templates position="before">
+                <field name="use_sessions" />
+                <field name="session_count" />
+            </templates>
+            <div t-if="record.seats_taken.raw_value" position="after">
+                <div
+                    t-if="record.session_count.raw_value and record.use_sessions.raw_value"
+                    class="d-flex ps-1"
+                >
+                    <i class="fa fa-group mt-1 me-2 text-center" title="Sessions" />
+                    <field name="session_count" class="me-1" /> Sessions
+                </div>
+            </div>
+        </field>
+    </record>
+    <record id="view_event_search" model="ir.ui.view">
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_search" />
+        <field name="arch" type="xml">
+            <filter name="filter_inactive" position="before">
+                <filter
+                    string="With sessions"
+                    name="sessions"
+                    domain="[('use_sessions', '=', True)]"
+                />
+                <separator />
+            </filter>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright 2021 Moka Tourisme (https://www.mokatourisme.fr)
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <record id="res_partner_location_theater" model="res.partner">
+        <field name="name">Grand Theater</field>
+        <field name="is_company">1</field>
+        <field name="street">Cinema St. 100</field>
+        <field name="city">Los Angeles</field>
+        <field name="state_id" ref="base.state_us_5" />
+        <field name="country_id" ref="base.us" />
+        <field name="zip">90015</field>
+    </record>
+
+    <record id="event_type_theater" model="event.type">
+        <field name="name">Theater</field>
+        <field name="use_sessions" eval="True" />
+        <field
+            name="event_type_mail_ids"
+            eval="
+            [Command.clear(),
+                Command.create({
+                    'notification_type': 'mail',
+                    'interval_nbr': 0,
+                    'interval_unit': 'now',
+                    'interval_type': 'after_sub',
+                    'template_ref': 'mail.template, %i' % ref('event_session_subscription'),
+                }),
+                Command.create({
+                    'notification_type': 'mail',
+                    'interval_nbr': 1,
+                    'interval_unit': 'hours',
+                    'interval_type': 'before_event',
+                    'template_ref': 'mail.template, %i' % ref('event_session_reminder'),
+                }),
+                Command.create({
+                    'notification_type': 'mail',
+                    'interval_nbr': 3,
+                    'interval_unit': 'days',
+                    'interval_type': 'before_event',
+                    'template_ref': 'mail.template, %i' % ref('event_session_reminder'),
+                })
+            ]
+        "
+        />
+    </record>
+
+    <record id="event_tag_movie" model="event.tag">
+        <field name="name">Movie</field>
+        <field name="sequence">12</field>
+        <field name="category_id" ref="event.event_tag_category_2" />
+        <field name="color">7</field>
+    </record>
+
+    <record id="event_event_007" model="event.event">
+        <field name="name">007: No Time to Die</field>
+        <field name="user_id" ref="base.user_demo" />
+        <field name="use_sessions" eval="True" />
+        <field name="seats_limited">True</field>
+        <field name="seats_max">50</field>
+        <field name="address_id" ref="res_partner_location_theater" />
+        <field name="date_tz">Europe/Brussels</field>
+        <field name="event_type_id" ref="event_type_theater" />
+        <field name="stage_id" ref="event.event_stage_booked" />
+        <field name="tag_ids" eval="[Command.link(ref('event_tag_movie'))]" />
+    </record>
+
+    <record id="event_session_007_1_16_00" model="event.session">
+        <field name="event_id" ref="event_event_007" />
+        <field
+            name="date_begin"
+            eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d 16:00:00')"
+        />
+        <field
+            name="date_end"
+            eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d 18:00:00')"
+        />
+    </record>
+
+    <record id="event_session_007_1_18_00" model="event.session">
+        <field name="event_id" ref="event_event_007" />
+        <field
+            name="date_begin"
+            eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d 19:00:00')"
+        />
+        <field
+            name="date_end"
+            eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d 21:00:00')"
+        />
+    </record>
+
+    <record id="event_session_007_1_20_00" model="event.session">
+        <field name="event_id" ref="event_event_007" />
+        <field
+            name="date_begin"
+            eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d 20:00:00')"
+        />
+        <field
+            name="date_end"
+            eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d 22:00:00')"
+        />
+    </record>
+
+    <record id="event_session_007_2_16_00" model="event.session">
+        <field name="event_id" ref="event_event_007" />
+        <field
+            name="date_begin"
+            eval="(DateTime.now() + timedelta(days=2)).strftime('%Y-%m-%d 16:00:00')"
+        />
+        <field
+            name="date_end"
+            eval="(DateTime.now() + timedelta(days=2)).strftime('%Y-%m-%d 18:00:00')"
+        />
+    </record>
+
+    <record id="event_session_007_2_18_00" model="event.session">
+        <field name="event_id" ref="event_event_007" />
+        <field
+            name="date_begin"
+            eval="(DateTime.now() + timedelta(days=2)).strftime('%Y-%m-%d 19:00:00')"
+        />
+        <field
+            name="date_end"
+            eval="(DateTime.now() + timedelta(days=2)).strftime('%Y-%m-%d 21:00:00')"
+        />
+    </record>
+
+    <record id="event_session_007_2_20_00" model="event.session">
+        <field name="event_id" ref="event_event_007" />
+        <field
+            name="date_begin"
+            eval="(DateTime.now() + timedelta(days=2)).strftime('%Y-%m-%d 20:00:00')"
+        />
+        <field
+            name="date_end"
+            eval="(DateTime.now() + timedelta(days=2)).strftime('%Y-%m-%d 22:00:00')"
+        />
+    </record>
+
+    <record id="event_session_007_3_20_00" model="event.session">
+        <field name="event_id" ref="event_event_007" />
+        <field
+            name="date_begin"
+            eval="(DateTime.now() + timedelta(days=3)).strftime('%Y-%m-%d 20:00:00')"
+        />
+        <field
+            name="date_end"
+            eval="(DateTime.now() + timedelta(days=3)).strftime('%Y-%m-%d 22:00:00')"
+        />
+    </record>
+</odoo>
