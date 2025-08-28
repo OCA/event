@@ -55,6 +55,7 @@ msgstr "Cantidad de eventos con asistencia confirmada."
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_event_event__create_partner
+#: model:ir.model.fields,field_description:partner_event.field_event_session__create_partner
 msgid "Create Partners in registration"
 msgstr "Crear empresas en el registro"
 
