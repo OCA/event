@@ -70,6 +70,7 @@ Contributors
       -  David Vidal
       -  Carlos Roca
       -  Stefan ungureanu
+      -  Víctor Martínez
 
 Maintainers
 -----------

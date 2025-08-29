@@ -12,7 +12,6 @@ class EventSession(models.Model):
             if not session.event_id.registration_multi_qty:
                 return super()._compute_seats()
             vals = {
-                "seats_unconfirmed": 0,
                 "seats_reserved": 0,
                 "seats_used": 0,
                 "seats_available": 0,
@@ -20,21 +19,17 @@ class EventSession(models.Model):
             registrations = self.env["event.registration"].read_group(
                 [
                     ("session_id", "=", session.id),
-                    ("state", "in", ["draft", "open", "done"]),
+                    ("state", "in", ["open", "done"]),
                 ],
                 ["state", "qty"],
                 ["state"],
             )
             for registration in registrations:
-                if registration["state"] == "draft":
-                    vals["seats_unconfirmed"] += registration["qty"]
-                elif registration["state"] == "open":
+                if registration["state"] == "open":
                     vals["seats_reserved"] += registration["qty"]
                 elif registration["state"] == "done":
                     vals["seats_used"] += registration["qty"]
-            vals["seats_expected"] = (
-                vals["seats_unconfirmed"] + vals["seats_reserved"] + vals["seats_used"]
-            )
+            vals["seats_taken"] = vals["seats_reserved"] + vals["seats_used"]
             if session.seats_max > 0:
                 vals["seats_available"] = session.seats_max - (
                     vals["seats_reserved"] + vals["seats_used"]

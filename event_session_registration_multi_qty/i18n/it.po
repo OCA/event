@@ -20,12 +20,3 @@ msgstr ""
 #: model:ir.model,name:event_session_registration_multi_qty.model_event_session
 msgid "Event session"
 msgstr "Sessione evento"
-
-#~ msgid "Display Name"
-#~ msgstr "Nome visualizzato"
-
-#~ msgid "ID"
-#~ msgstr "ID"
-
-#~ msgid "Last Modified on"
-#~ msgstr "Ultima modifica il"
