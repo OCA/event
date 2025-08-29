@@ -6,7 +6,7 @@ from odoo.tests import Form, common
 class TestEventSaleRegistrationMultiQty(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
-        super(TestEventSaleRegistrationMultiQty, cls).setUpClass()
+        super().setUpClass()
         cls.product_category = cls.env["product.category"].create({"name": "test_cat"})
         cls.product = cls.env["product.product"].create(
             {
