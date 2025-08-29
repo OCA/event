@@ -45,12 +45,3 @@ msgstr "Ordine di vendita"
 #: model:ir.model,name:event_sale_registration_multi_qty.model_sale_order_line
 msgid "Sales Order Line"
 msgstr "Riga ordine di vendita"
-
-#~ msgid "Display Name"
-#~ msgstr "Nome visualizzato"
-
-#~ msgid "ID"
-#~ msgstr "ID"
-
-#~ msgid "Last Modified on"
-#~ msgstr "Ultima modifica il"

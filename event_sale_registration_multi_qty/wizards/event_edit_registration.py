@@ -42,7 +42,7 @@ class RegistrationEditorLine(models.TransientModel):
 
     qty = fields.Integer(string="Quantity", default=1)
 
-    def get_registration_data(self):
-        res = super().get_registration_data()
-        res["qty"] = self.qty
-        return res
+    def _prepare_registration_data(self, include_event_values=False):
+        data = super()._prepare_registration_data(include_event_values)
+        data["qty"] = self.qty
+        return data

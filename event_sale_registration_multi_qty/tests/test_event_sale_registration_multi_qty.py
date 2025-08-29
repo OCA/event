@@ -1,9 +1,12 @@
 # Copyright 2017-19 Tecnativa - David Vidal
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl-3.0).
-from odoo.tests import Form, common
+from odoo import Command
+from odoo.tests import Form
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestEventSaleRegistrationMultiQty(common.TransactionCase):
+class TestEventSaleRegistrationMultiQty(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -12,7 +15,7 @@ class TestEventSaleRegistrationMultiQty(common.TransactionCase):
             {
                 "name": "Test product event",
                 "type": "service",
-                "detailed_type": "event",
+                "service_tracking": "event",
                 "lst_price": 10.0,
                 "categ_id": cls.product_category.id,
             }
@@ -25,7 +28,7 @@ class TestEventSaleRegistrationMultiQty(common.TransactionCase):
                 "seats_limited": True,
                 "seats_max": "100",
                 "event_ticket_ids": [
-                    (0, 0, {"product_id": cls.product.id, "name": "test1"}),
+                    Command.create({"product_id": cls.product.id, "name": "test1"}),
                 ],
                 "registration_multi_qty": True,
             }
@@ -38,7 +41,7 @@ class TestEventSaleRegistrationMultiQty(common.TransactionCase):
                 "seats_limited": True,
                 "seats_max": "100",
                 "event_ticket_ids": [
-                    (0, 0, {"product_id": cls.product.id, "name": "test1"}),
+                    Command.create({"product_id": cls.product.id, "name": "test1"}),
                 ],
                 "registration_multi_qty": False,
             }
@@ -54,6 +57,7 @@ class TestEventSaleRegistrationMultiQty(common.TransactionCase):
             line.product_uom_qty = qty
             line.event_ticket_id = event.event_ticket_ids[:1]
         sale_form.save()
+        return sale.order_line[:1]
 
     def _create_sale(self):
         sale_form = Form(self.env["sale.order"])
@@ -62,34 +66,44 @@ class TestEventSaleRegistrationMultiQty(common.TransactionCase):
 
     def test_sale_multi(self):
         sale = self._create_sale().save()
-        self._add_so_line_event(sale, self.event_multi)
+        self.assertEqual(sale.attendee_count, 0)
+        so_line = self._add_so_line_event(sale, self.event_multi)
         sale.action_confirm()
+        self.assertEqual(so_line.product_uom_qty, 5)
+        self.assertEqual(sale.attendee_count, 5)
         reg = self.env["event.registration"].search([("sale_order_id", "=", sale.id)])
         self.assertEqual(len(reg), 1)
         self.assertEqual(reg.qty, 5)
         self.assertEqual(reg.event_id, self.event_multi)
-        self.assertEqual(reg.state, "draft")
+        self.assertEqual(reg.state, "open")
 
     def test_sale_nomulti(self):
         sale = self._create_sale().save()
-        self._add_so_line_event(sale, self.event_nomulti)
+        self.assertEqual(sale.attendee_count, 0)
+        so_line = self._add_so_line_event(sale, self.event_nomulti)
         sale.action_confirm()
+        self.assertEqual(so_line.product_uom_qty, 5)
+        self.assertEqual(sale.attendee_count, 5)
         regs = self.env["event.registration"].search([("sale_order_id", "=", sale.id)])
         self.assertEqual(len(regs), 5)
         for reg in regs:
             self.assertEqual(reg.qty, 1)
             self.assertEqual(reg.event_id, self.event_nomulti)
-            self.assertEqual(reg.state, "draft")
+            self.assertEqual(reg.state, "open")
 
     def test_sale_mixed(self):
         sale = self._create_sale().save()
-        self._add_so_line_event(sale, self.event_multi)
-        self._add_so_line_event(sale, self.event_nomulti)
+        self.assertEqual(sale.attendee_count, 0)
+        so_line_multi = self._add_so_line_event(sale, self.event_multi)
+        so_line_nomulti = self._add_so_line_event(sale, self.event_nomulti)
         sale.action_confirm()
+        self.assertEqual(so_line_multi.product_uom_qty, 5)
+        self.assertEqual(so_line_nomulti.product_uom_qty, 5)
+        self.assertEqual(sale.attendee_count, 10)
         regs = self.env["event.registration"].search([("sale_order_id", "=", sale.id)])
         self.assertEqual(len(regs), 6)
         for reg in regs:
-            self.assertEqual(reg.state, "draft")
+            self.assertEqual(reg.state, "open")
             if reg.event_id == self.event_multi:
                 self.assertEqual(reg.qty, 5)
             else:
