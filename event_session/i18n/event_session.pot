@@ -649,6 +649,11 @@ msgid ""
 msgstr ""
 
 #. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__registration_multi_qty
+msgid "Allow multiple attendees per registration"
+msgstr ""
+
+#. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__website_menu
 msgid "Allows to display and manage event-specific menus on website."
 msgstr ""
