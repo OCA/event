@@ -37,6 +37,13 @@ class RegistrationEditor(models.TransientModel):
         "incompatible with each other"."""
         # Modify SO lines to be tickets instead of reservations
         for line in self.event_registration_ids:
+            # HACK: Force product_updatable = True to be able to change the product_id
+            # when converting reservations into registrations.
+            # Overwriting _compute_product_updatable() and controlling this specific
+            # case there is not feasible, given that other modules also overwrite
+            # that compute and change the value, which would result in our logic being
+            # overridden.
+            line.sale_order_line_id.product_updatable = True
             line.sale_order_line_id.write(
                 {
                     "event_id": line.event_id.id,
@@ -45,6 +52,7 @@ class RegistrationEditor(models.TransientModel):
                     "price_unit": line.sale_order_line_id.price_unit,
                 }
             )
+            line.sale_order_line_id._compute_product_updatable()
         # Close current wizard and reopen normally to configure registrations
         upstream_view = self.env.ref("event_sale.view_event_registration_editor_form")
         return {
