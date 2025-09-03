@@ -37,8 +37,8 @@
             >
                 Register
                 <t
-                    t-if="event.seats_limited and event.seats_max and event.seats_available &lt;= (event.seats_max * 0.2)"
-                >
+                t-if="event.seats_limited and event.seats_max and event.seats_available &lt;= (event.seats_max * 0.2)"
+            >
                     (only <t t-out="event.seats_available" /> available)
                 </t>
             </button>
