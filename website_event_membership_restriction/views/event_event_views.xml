@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 Tecnativa - Pilar Vargas
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="event_event_view_form">
+        <field name="model">event.event</field>
+        <field name="priority" eval="20" />
+        <field name="inherit_id" ref="website_event.event_event_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="before">
+                <field name="registration_membership_only" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
