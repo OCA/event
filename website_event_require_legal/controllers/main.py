@@ -1,8 +1,9 @@
 # Copyright 2025 Tecnativa - Pilar Vargas
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+from markupsafe import Markup
+
 from odoo import _
 from odoo.http import request, route
-from odoo.tools import Markup
 
 from odoo.addons.website_event.controllers.main import WebsiteEventController
 
