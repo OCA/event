@@ -14,9 +14,9 @@
                 class="control-label form-check-label"
             >
                 I agree to the <a
-                    target="_BLANK"
-                    href="/terms"
-                >terms &amp; conditions</a>
+                target="_BLANK"
+                href="/terms"
+            >terms &amp; conditions</a>
             </label>
             <label
                 t-else=""
