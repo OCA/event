@@ -18,10 +18,21 @@ class EventSaleCase(BaseCommon):
         cls.event_types = cls.env["event.type"].create(
             [{"name": "event type %d" % num} for num in range(3)]
         )
-        cls.products = cls.env["product.product"].create(
+        cls.reservation_products = cls.env["product.product"].create(
             [
                 {
                     "detailed_type": "event_reservation",
+                    "event_reservation_type_id": cls.event_types[num].id,
+                    "list_price": 10,
+                    "name": "reservation product for event type %d" % num,
+                }
+                for num in range(3)
+            ]
+        )
+        cls.products = cls.env["product.product"].create(
+            [
+                {
+                    "detailed_type": "event",
                     "event_reservation_type_id": cls.event_types[num].id,
                     "list_price": num,
                     "name": "product reservation for event type %d" % num,
@@ -60,24 +71,18 @@ class EventSaleCase(BaseCommon):
                 for num in range(3)
             ]
         )
-        cls.orders = cls.env["sale.order"].create(
-            [
-                {
-                    "order_line": [
-                        (
-                            0,
-                            0,
-                            {
-                                "product_id": cls.products[num].id,
-                                "product_uom_qty": qtys[num],
-                            },
-                        ),
-                    ],
-                    "partner_id": cls.customers[num].id,
-                }
-                for num in range(3)
-            ]
-        )
+        cls.orders = cls.env["sale.order"]
+        for num, qty in enumerate(qtys):
+            customer = cls.customers[num]
+            reservation_product = cls.reservation_products[num]
+
+            with Form(cls.env["sale.order"]) as order_form:
+                order_form.partner_id = customer
+                with order_form.order_line.new() as line_form:
+                    line_form.product_id = reservation_product
+                    line_form.product_uom_qty = qty
+                order = order_form.save()
+            cls.orders |= order
 
     def wizard_reservation_to_registration(self, order):
         """Generate a wizard to register reservations."""
@@ -162,3 +167,15 @@ class EventSaleCase(BaseCommon):
         self.assertEqual(
             self.event_types.mapped("seats_reservation_total"), [1, 0, 100]
         )
+
+    def test_action_convert_to_registration_changes_product(self):
+        # Test HACK
+        self.orders.action_confirm()
+        order = self.orders[0]
+        wiz1 = self.wizard_reservation_to_registration(order)
+        wiz1_line = wiz1.event_registration_ids.edit(0)
+        wiz1_line.event_id = self.events[0]
+        wiz1_line.event_ticket_id = self.events[0].event_ticket_ids
+        wiz1_line.save()
+        action = wiz1.save().action_convert_to_registration()
+        self.assertEqual(action["type"], "ir.actions.act_window")
