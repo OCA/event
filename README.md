@@ -33,6 +33,7 @@ addon | version | maintainers | summary
 [website_event_contact](website_event_contact/) | 18.0.1.0.1 | <a href='https://github.com/Shide'><img src='https://github.com/Shide.png' width='32' height='32' style='border-radius:50%;' alt='Shide'/></a> <a href='https://github.com/rafaelbn'><img src='https://github.com/rafaelbn.png' width='32' height='32' style='border-radius:50%;' alt='rafaelbn'/></a> | Display your event contacts on your event page
 [website_event_membership_restriction](website_event_membership_restriction/) | 18.0.1.0.0 |  | Restrict event registration to members only
 [website_event_questions_by_ticket](website_event_questions_by_ticket/) | 18.0.1.0.0 |  | Events Questions conditional to the chosen ticket
+[website_event_require_legal](website_event_require_legal/) | 18.0.1.0.0 |  | Website Event Require Legal
 
 [//]: # (end addons)
 
