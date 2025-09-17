@@ -6,133 +6,135 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2025-09-17 14:42+0000\n"
+"Last-Translator: Timo Talvitie <timo.j.talvitie@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner__registration_count
 #: model:ir.model.fields,field_description:partner_event.field_res_users__registration_count
 msgid "Attendances"
-msgstr ""
+msgstr "Osallistumiset"
 
 #. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.view_registration_search
 msgid "Attended"
-msgstr ""
+msgstr "Osallistunut"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_event_registration__attendee_partner_id
 msgid "Attendee Partner"
-msgstr ""
+msgstr "Osallistuva kumppani"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_event_registration__partner_id
 msgid "Booked by"
-msgstr ""
+msgstr "Varauksen tehnyt henkilö"
 
 #. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
 msgid "Cancel"
-msgstr ""
+msgstr "Peruuta"
 
 #. module: partner_event
 #: model:ir.model,name:partner_event.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Kontakti"
 
 #. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.view_partner_form_registrations
 msgid "Count of events with confirmed registrations."
-msgstr ""
+msgstr "Tapahtumien määrä, joissa vahvistamattomia osallistumisia."
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_event_event__create_partner
 msgid "Create Partners in registration"
-msgstr ""
+msgstr "Luo kumppanit rekisteröitymisen yhteydessä"
 
 #. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
 msgid "Create registrations"
-msgstr ""
+msgstr "Luo rekisteröitymiset"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Luonut"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Luotu"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Näyttönimi"
 
 #. module: partner_event
 #: model:ir.model,name:partner_event.model_event_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__event
 msgid "Event"
-msgstr ""
+msgstr "Tapahtuma"
 
 #. module: partner_event
 #: model:ir.model,name:partner_event.model_event_registration
 msgid "Event Registration"
-msgstr ""
+msgstr "Tapahtuman ilmoittautuminen"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner__event_registration_ids
 #: model:ir.model.fields,field_description:partner_event.field_res_users__event_registration_ids
 msgid "Event registrations"
-msgstr ""
+msgstr "Tapahtumailmoittautumiset"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Viimeksi päivittänyt"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Viimeksi päivitetty"
 
 #. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.view_res_partner_filter
 msgid "Linked events"
-msgstr ""
+msgstr "Linkitetyt tapahtumat"
 
 #. module: partner_event
 #: model:ir.model,name:partner_event.model_base_partner_merge_automatic_wizard
 msgid "Merge Partner Wizard"
-msgstr ""
+msgstr "Kumppanin yhdistämistyökalu"
 
 #. module: partner_event
 #: model:ir.actions.act_window,name:partner_event.action_partner_register_event
 msgid "Register in an event"
-msgstr ""
+msgstr "Rekisteröidy tapahtumaan"
 
 #. module: partner_event
 #: model:ir.model,name:partner_event.model_res_partner_register_event
 msgid "Register partner for event"
-msgstr ""
+msgstr "Rekisteröi kumppani tapahtumaan"
 
 #. module: partner_event
 #: model:ir.actions.act_window,name:partner_event.act_partner_registration
 msgid "Registrations"
-msgstr ""
+msgstr "Rekisteröitymiset"
 
 #. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
 msgid "Select event to register"
-msgstr ""
+msgstr "Valitse tapahtuma, johon rekisteröityä"
