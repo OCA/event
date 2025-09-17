@@ -2263,6 +2263,14 @@ msgstr ""
 "(numero di partecipanti), oltre il quale le registrazioni on sono accettate."
 
 #. module: event_session
+#: model:ir.model.fields,help:event_session.field_event_session__seats_min
+msgid ""
+"For each event you can define a minimum reserved seats (number of "
+"attendees). If it does not reach the mentioned registrations, the event is "
+"highlighted in the list."
+msgstr ""
+
+#. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__byday__4
 msgid "Fourth"
 msgstr "Quarto"
@@ -2528,6 +2536,11 @@ msgstr "Errore di consegna messaggio"
 #: model:ir.model.fields,field_description:event_session.field_event_session__message_ids
 msgid "Messages"
 msgstr "Messaggi"
+
+#. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__seats_min
+msgid "Minimum Seats"
+msgstr ""
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__mon
