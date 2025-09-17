@@ -23,6 +23,7 @@ addon | version | maintainers | summary
 --- | --- | --- | ---
 [event_contact](event_contact/) | 18.0.1.0.1 | <a href='https://github.com/rafaelbn'><img src='https://github.com/rafaelbn.png' width='32' height='32' style='border-radius:50%;' alt='rafaelbn'/></a> <a href='https://github.com/edlopen'><img src='https://github.com/edlopen.png' width='32' height='32' style='border-radius:50%;' alt='edlopen'/></a> | Add contacts to event and event type
 [event_mail](event_mail/) | 18.0.1.0.0 |  | Mail settings in events
+[event_min_seat](event_min_seat/) | 18.0.1.0.0 |  | Minimum seats in events
 [event_registration_mass_mailing](event_registration_mass_mailing/) | 18.0.1.0.0 | <a href='https://github.com/rafaelbn'><img src='https://github.com/rafaelbn.png' width='32' height='32' style='border-radius:50%;' alt='rafaelbn'/></a> <a href='https://github.com/edlopen'><img src='https://github.com/edlopen.png' width='32' height='32' style='border-radius:50%;' alt='edlopen'/></a> | Put event registrations emails into mailing lists
 [event_registration_multi_qty](event_registration_multi_qty/) | 18.0.1.0.0 |  | Allow registration grouped by quantities
 [event_registration_partner_unique](event_registration_partner_unique/) | 18.0.1.0.0 |  | Enforces 1 registration per partner and event
