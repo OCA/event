@@ -1308,6 +1308,7 @@ msgstr "Sesión del evento: Recordatorio"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_event__use_sessions
 #: model:ir.model.fields,field_description:event_session.field_event_mail__use_sessions
+#: model:ir.model.fields,field_description:event_session.field_event_mail_scheduler_template__use_sessions
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__use_sessions
 #: model:ir.model.fields,field_description:event_session.field_event_registration__use_sessions
 #: model:ir.model.fields,field_description:event_session.field_event_session__use_sessions
@@ -1620,8 +1621,14 @@ msgid "Mail Schedule"
 msgstr "Programación de correo"
 
 #. module: event_session
+#: model:ir.model.fields,field_description:event_session.field_event_session__event_mail_template_id
+msgid "Mail Template Scheduler"
+msgstr "Plantilla de programación de correo"
+
+#. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_event__use_sessions
 #: model:ir.model.fields,help:event_session.field_event_mail__use_sessions
+#: model:ir.model.fields,help:event_session.field_event_mail_scheduler_template__use_sessions
 #: model:ir.model.fields,help:event_session.field_event_mail_session__use_sessions
 #: model:ir.model.fields,help:event_session.field_event_registration__use_sessions
 #: model:ir.model.fields,help:event_session.field_event_session__use_sessions
@@ -1941,6 +1948,7 @@ msgstr "Correo de la sesión"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail__session_scheduler_ids
+#: model:ir.model.fields,field_description:event_session.field_event_mail_scheduler_template__session_scheduler_ids
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__session_scheduler_ids
 msgid "Session Mails"
 msgstr "Correos de la sesión"
@@ -3793,9 +3801,6 @@ msgstr "{{ object.session_id.name }}: {{ object.get_date_range_str() }}"
 
 #~ msgid "Last Modified on"
 #~ msgstr "Última modificación en"
-
-#~ msgid "Mail Template Scheduler"
-#~ msgstr "Plantilla de programación de correo"
 
 #~ msgid "Main Attachment"
 #~ msgstr "Archivo adjunto principal"
