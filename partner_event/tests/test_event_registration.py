@@ -11,7 +11,6 @@ from datetime import datetime, timedelta
 from psycopg2 import IntegrityError
 
 from odoo import fields
-from odoo.tests import Form
 from odoo.tools import mute_logger
 
 from odoo.addons.base.tests.common import BaseCommon
@@ -51,26 +50,6 @@ class TestEventRegistration(BaseCommon):
                 "event_id": cls.event_0.id,
                 "name": "Test Registration 02",
                 "phone": "254728911",
-            }
-        )
-
-        # On Odoo 19.0 "mobile" field is removed
-        # https://github.com/odoo/odoo/pull/189739
-        # so these example and related tests
-        # should not be ported to 19.0+
-        cls.partner_with_mobile = partner_model.create(
-            {
-                "name": "Test Partner with mobile",
-                "email": "email_with_mobile@test.com",
-                "mobile": "+1254728912",
-            }
-        )
-        cls.partner_with_phone_and_mobile = partner_model.create(
-            {
-                "name": "Test Partner with mobile and phone",
-                "email": "email_with_mobile_and_phone@test.com",
-                "phone": "254728913",
-                "mobile": "+1254728913",
             }
         )
 
@@ -132,40 +111,3 @@ class TestEventRegistration(BaseCommon):
         partner3 = self.env["res.partner"].create({"name": "unregistered partner"})
         partner3.unlink()
         self.assertFalse(partner3.exists())
-
-    def test_partner_only_mobile(self):
-        reg_form = Form(self.env["event.registration"])
-        reg_form.event_id = self.event_0
-        reg_form.attendee_partner_id = self.partner_with_mobile
-        reg = reg_form.save()
-        self.assertEqual(reg.partner_id, self.partner_with_mobile)
-        self.assertEqual(reg.phone, self.partner_with_mobile.mobile)
-
-    def test_partner_mobile_and_phone(self):
-        reg_form = Form(self.env["event.registration"])
-        reg_form.event_id = self.event_0
-        reg_form.attendee_partner_id = self.partner_with_phone_and_mobile
-        reg = reg_form.save()
-        self.assertEqual(reg.phone, self.partner_with_phone_and_mobile.phone)
-        self.assertNotEqual(
-            reg.phone,
-            self.partner_with_phone_and_mobile.mobile,
-            "Incorrect test. Partners phone and mobile must differ",
-        )
-
-    @mute_logger("odoo.models.unlink")
-    def test_action_merge(self):
-        partner_1 = self.partner_with_mobile
-        partner_2 = self.partner_with_phone_and_mobile
-        self.registration_01.partner_id = partner_1
-        self.registration_02.partner_id = partner_2
-        partners = partner_1 + partner_2
-        wizard = (
-            self.env["base.partner.merge.automatic.wizard"]
-            .with_context(active_ids=partners.ids, active_model=partners._name)
-            .create({})
-        )
-        self.assertEqual(wizard.dst_partner_id, partner_2)
-        wizard.action_merge()
-        self.assertEqual(self.registration_01.partner_id, partner_2)
-        self.assertEqual(self.registration_02.partner_id, partner_2)

@@ -5,8 +5,8 @@
 def post_init_hook(env):
     """Preload proper attendee partner for existing registrations using
     the same rules the module does"""
-    attendees_emails = env["event.registration"].read_group(
-        [("email", "!=", False)], ["email"], groupby="email"
+    attendees_emails = env["event.registration"].formatted_read_group(
+        domain=[("email", "!=", False)], groupby=["email"]
     )
     for email in attendees_emails:
         # Order was done for avoiding extra queries for sorting the results
@@ -14,5 +14,5 @@ def post_init_hook(env):
             [("email", "=ilike", email["email"])], limit=1, order="id"
         )
         if attendee_partner:
-            attendees = env["event.registration"].search(email["__domain"])
+            attendees = env["event.registration"].search(email["__extra_domain"])
             attendees.write({"attendee_partner_id": attendee_partner.id})
