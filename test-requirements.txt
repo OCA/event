@@ -1,0 +1,2 @@
+odoo-test-helper
+odoo-addon-partner_event @ git+https://github.com/OCA/event.git@refs/pull/482/head#subdirectory=partner_event
