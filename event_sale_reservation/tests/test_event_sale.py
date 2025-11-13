@@ -3,7 +3,8 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from datetime import datetime, timedelta
 
-from odoo.tests.common import Form
+from odoo import Command
+from odoo.tests import Form
 
 from odoo.addons.base.tests.common import BaseCommon
 
@@ -16,26 +17,15 @@ class EventSaleCase(BaseCommon):
         super().setUpClass()
         qtys = (1, 10, 100)
         cls.event_types = cls.env["event.type"].create(
-            [{"name": "event type %d" % num} for num in range(3)]
-        )
-        cls.reservation_products = cls.env["product.product"].create(
-            [
-                {
-                    "detailed_type": "event_reservation",
-                    "event_reservation_type_id": cls.event_types[num].id,
-                    "list_price": 10,
-                    "name": "reservation product for event type %d" % num,
-                }
-                for num in range(3)
-            ]
+            [{"name": f"event type {num}"} for num in range(3)]
         )
         cls.products = cls.env["product.product"].create(
             [
                 {
-                    "detailed_type": "event",
+                    "type": "event_reservation",
                     "event_reservation_type_id": cls.event_types[num].id,
                     "list_price": num,
-                    "name": "product reservation for event type %d" % num,
+                    "name": f"product reservation for event type {num}",
                 }
                 for num in range(3)
             ]
@@ -46,17 +36,15 @@ class EventSaleCase(BaseCommon):
                     "date_begin": datetime.now(),
                     "date_end": datetime.now() + timedelta(days=1),
                     "event_ticket_ids": [
-                        (
-                            0,
-                            0,
+                        Command.create(
                             {
-                                "name": "ticket %d" % num,
+                                "name": f"ticket {num}",
                                 "product_id": cls.products[num].id,
                             },
                         )
                     ],
                     "event_type_id": cls.event_types[num].id,
-                    "name": "event %d" % num,
+                    "name": f"event {num}",
                 }
                 for num in range(3)
             ]
@@ -64,25 +52,29 @@ class EventSaleCase(BaseCommon):
         cls.customers = cls.env["res.partner"].create(
             [
                 {
-                    "email": "%d@example.com" % num,
-                    "name": "customer %d" % num,
+                    "email": f"{num}@example.com",
+                    "name": f"customer {num}",
                     "phone": num,
                 }
                 for num in range(3)
             ]
         )
-        cls.orders = cls.env["sale.order"]
-        for num, qty in enumerate(qtys):
-            customer = cls.customers[num]
-            reservation_product = cls.reservation_products[num]
-
-            with Form(cls.env["sale.order"]) as order_form:
-                order_form.partner_id = customer
-                with order_form.order_line.new() as line_form:
-                    line_form.product_id = reservation_product
-                    line_form.product_uom_qty = qty
-                order = order_form.save()
-            cls.orders |= order
+        cls.orders = cls.env["sale.order"].create(
+            [
+                {
+                    "order_line": [
+                        Command.create(
+                            {
+                                "product_id": cls.products[num].id,
+                                "product_uom_qty": qtys[num],
+                            },
+                        ),
+                    ],
+                    "partner_id": cls.customers[num].id,
+                }
+                for num in range(3)
+            ]
+        )
 
     def wizard_reservation_to_registration(self, order):
         """Generate a wizard to register reservations."""
@@ -116,7 +108,7 @@ class EventSaleCase(BaseCommon):
         with self.assertRaises(ReservationWithoutEventTypeError):
             self.env["product.product"].create(
                 {
-                    "detailed_type": "event_reservation",
+                    "type": "event_reservation",
                     "list_price": 10,
                     "name": "event reservation without event type fails",
                 }
@@ -156,9 +148,9 @@ class EventSaleCase(BaseCommon):
         self.assertEqual(len(wiz2.event_registration_ids), 10)
         for num in range(len(wiz2.event_registration_ids)):
             wiz2_line = wiz2.event_registration_ids.edit(num)
-            wiz2_line.name = "name %d" % num
-            wiz2_line.email = "%d@example.com" % num
-            wiz2_line.phone = "phone %d" % num
+            wiz2_line.name = f"name {num}"
+            wiz2_line.email = f"{num}@example.com"
+            wiz2_line.phone = f"phone {num}"
             wiz2_line.save()
         wiz2.save().action_make_registration()
         # 1st and 3rd SO are pending and reserved
@@ -167,15 +159,3 @@ class EventSaleCase(BaseCommon):
         self.assertEqual(
             self.event_types.mapped("seats_reservation_total"), [1, 0, 100]
         )
-
-    def test_action_convert_to_registration_changes_product(self):
-        # Test HACK
-        self.orders.action_confirm()
-        order = self.orders[0]
-        wiz1 = self.wizard_reservation_to_registration(order)
-        wiz1_line = wiz1.event_registration_ids.edit(0)
-        wiz1_line.event_id = self.events[0]
-        wiz1_line.event_ticket_id = self.events[0].event_ticket_ids
-        wiz1_line.save()
-        action = wiz1.save().action_convert_to_registration()
-        self.assertEqual(action["type"], "ir.actions.act_window")

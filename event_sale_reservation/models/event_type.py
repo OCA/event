@@ -24,29 +24,29 @@ class EventType(models.Model):
         return [
             ("event_reservation_type_id", "in", self.ids),
             ("order_id.state", "in", ("sale", "done")),
-            ("product_id.detailed_type", "=", "event_reservation"),
+            ("product_id.type", "=", "event_reservation"),
         ]
 
     @api.depends(
         "reserved_sale_order_line_ids.event_registration_count",
         "reserved_sale_order_line_ids.event_reservation_type_id",
         "reserved_sale_order_line_ids.order_id.state",
-        "reserved_sale_order_line_ids.product_id.detailed_type",
+        "reserved_sale_order_line_ids.product_id.type",
         "reserved_sale_order_line_ids.product_uom_qty",
     )
     def _compute_reservations_total(self):
         """Get how many reserved seats exist."""
-        results = self.env["sale.order.line"].read_group(
+        results = self.env["sale.order.line"].formatted_read_group(
             domain=self._seats_reservation_domain(),
-            fields=["event_registration_count", "product_uom_qty"],
-            groupby="event_reservation_type_id",
+            aggregates=["event_registration_count:sum", "product_uom_qty:sum"],
+            groupby=["event_reservation_type_id"],
         )
         totals = {group["event_reservation_type_id"][0]: group for group in results}
         for one in self:
             totals_item = totals.get(one.id, {})
             one.seats_reservation_total = totals_item.get(
-                "product_uom_qty", 0
-            ) - totals_item.get("event_registration_count", 0)
+                "product_uom_qty:sum", 0
+            ) - totals_item.get("event_registration_count:sum", 0)
 
     def action_open_sale_orders(self):
         """Display SO that include reservations."""

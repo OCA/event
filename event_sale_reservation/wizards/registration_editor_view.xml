@@ -19,7 +19,7 @@
                     repeat this process later for those lines.
                 </p>
                 <field name="event_registration_ids">
-                    <tree editable="top" create="false">
+                    <list editable="top" create="false">
                         <field name="sale_order_line_id" column_invisible="1" />
                         <field name="event_reservation_type_id" force_save="1" />
                         <field
@@ -32,7 +32,7 @@
                             domain="[('event_id', '=', event_id)]"
                             required="1"
                         />
-                    </tree>
+                    </list>
                 </field>
                 <footer>
                     <button

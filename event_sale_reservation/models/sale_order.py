@@ -1,7 +1,7 @@
 # Copyright 2021 Tecnativa - Jairo Llopis
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 
 
 class SaleOrder(models.Model):
@@ -26,7 +26,7 @@ class SaleOrder(models.Model):
         """Know how many pending event reservations are linked to this SO."""
         for one in self:
             reservation_lines = one.order_line.filtered(
-                lambda x: x.product_id.detailed_type == "event_reservation"
+                lambda x: x.product_id.type == "event_reservation"
             )
             reserved = sum(reservation_lines.mapped("product_uom_qty"))
             registered = sum(reservation_lines.mapped("event_registration_count"))
@@ -44,8 +44,8 @@ class SaleOrder(models.Model):
         """Redirect user to event registrations related to this SO."""
         return {
             "domain": [("sale_order_id", "in", self.ids)],
-            "name": _("Attendees"),
+            "name": self.env._("Attendees"),
             "res_model": "event.registration",
             "type": "ir.actions.act_window",
-            "view_mode": "tree,form,calendar,graph",
+            "view_mode": "list,form,calendar,graph",
         }

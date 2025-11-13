@@ -17,8 +17,8 @@ msgstr ""
 "X-Generator: Weblate 5.6.2\n"
 
 #. module: event_sale_reservation
-#: model:ir.model.fields,help:event_sale_reservation.field_product_product__detailed_type
-#: model:ir.model.fields,help:event_sale_reservation.field_product_template__detailed_type
+#: model:ir.model.fields,help:event_sale_reservation.field_product_product__type
+#: model:ir.model.fields,help:event_sale_reservation.field_product_template__type
 msgid ""
 "A storable product is a product for which you manage stock. The Inventory "
 "app has to be installed.\n"
@@ -75,7 +75,7 @@ msgid "Event Registration Count"
 msgstr "Conteggio iscrizione evento"
 
 #. module: event_sale_reservation
-#: model:ir.model.fields.selection,name:event_sale_reservation.selection__product_template__detailed_type__event_reservation
+#: model:ir.model.fields.selection,name:event_sale_reservation.selection__product_template__type__event_reservation
 msgid "Event Reservation"
 msgstr "Prenotazione evento"
 
@@ -158,8 +158,8 @@ msgid "Product"
 msgstr "Prodotto"
 
 #. module: event_sale_reservation
-#: model:ir.model.fields,field_description:event_sale_reservation.field_product_product__detailed_type
-#: model:ir.model.fields,field_description:event_sale_reservation.field_product_template__detailed_type
+#: model:ir.model.fields,field_description:event_sale_reservation.field_product_product__type
+#: model:ir.model.fields,field_description:event_sale_reservation.field_product_template__type
 msgid "Product Type"
 msgstr "Tipologia prodotto"
 

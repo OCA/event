@@ -4,7 +4,7 @@
 {
     "name": "Sell event reservations",
     "summary": "Allow selling event registrations before the event exists",
-    "version": "17.0.1.0.2",
+    "version": "19.0.1.0.0",
     "development_status": "Mature",
     "category": "Marketing",
     "website": "https://github.com/OCA/event",
