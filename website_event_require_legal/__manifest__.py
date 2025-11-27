@@ -3,7 +3,7 @@
 {
     "name": "Website Event Require Legal",
     "version": "18.0.1.0.0",
-    "author": "Tecnativa, " "Odoo Community Association (OCA)",
+    "author": "Tecnativa, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/event",
     "category": "Event",
     "depends": ["website_event"],
