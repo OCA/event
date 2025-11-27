@@ -2,22 +2,16 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from markupsafe import Markup
 
-from odoo import _
-from odoo.http import request, route
+from odoo.http import request
 
 from odoo.addons.website_event.controllers.main import WebsiteEventController
 
 
 class RequireLegalToRegister(WebsiteEventController):
-    @route()
-    def event_registration_success(self, event, registration_ids):
-        res = super().event_registration_success(event, registration_ids)
+    def _create_attendees_from_registration_post(self, event, registration_data):
+        res = super()._create_attendees_from_registration_post(event, registration_data)
         if event.website_require_legal:
-            registration_ids_list = [int(reg) for reg in registration_ids.split(",")]
-            registrations = request.env["event.registration"].browse(
-                registration_ids_list
-            )
-            for registration in registrations:
+            for registration in res:
                 self._log_acceptance_metadata(registration)
         return res
 
@@ -32,7 +26,9 @@ class RequireLegalToRegister(WebsiteEventController):
                 "HTTP_ACCEPT_LANGUAGE",
             )
         )
-        message = Markup(_("Website legal terms acceptance metadata: %s") % metadata)
+        message = Markup(
+            self.env._("Website legal terms acceptance metadata: %s", metadata)
+        )
         record.sudo().message_post(
             body=message, message_type="notification", subtype_xmlid="mail.mt_comment"
         )
