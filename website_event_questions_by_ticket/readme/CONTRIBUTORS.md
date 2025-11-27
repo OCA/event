@@ -3,3 +3,5 @@
   - Stefan Ungureanu
   - Carolina Fernandez
   - Pilar Vargas
+- [Acsone](https://www.acsone.eu):
+  - Maxime Franco

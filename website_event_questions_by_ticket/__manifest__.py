@@ -5,12 +5,16 @@
 {
     "name": "Conditional Events Questions",
     "summary": "Events Questions conditional to the chosen ticket",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "category": "Website",
     "website": "https://github.com/OCA/event",
     "author": "Tecnativa, Odoo Community Association (OCA)",
     "license": "LGPL-3",
     "installable": True,
     "depends": ["website_event"],
-    "data": ["views/event_event_views.xml", "views/event_templates.xml"],
+    "data": [
+        "views/event_event_views.xml",
+        "views/event_question_views.xml",
+        "views/event_templates.xml",
+    ],
 }

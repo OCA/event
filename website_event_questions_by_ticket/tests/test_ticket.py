@@ -37,7 +37,7 @@ class TestTicket(HttpCase):
         cls.question_1 = cls.env["event.question"].create(
             {
                 "title": "Question Two",
-                "event_id": cls.event_1.id,
+                "event_ids": [(6, 0, cls.event_1.ids)],
                 "restricted_ticket_ids": [(6, 0, cls.ticket_1.ids)],
             }
         )
