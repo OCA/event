@@ -35,12 +35,3 @@ msgstr "Lasciare vuoto per renderlo disponibile per tutti i biglietti"
 #: model:ir.model.fields,field_description:website_event_questions_by_ticket.field_event_question__restricted_ticket_ids
 msgid "Limited to tickets"
 msgstr "Limitato ai biglietti"
-
-#~ msgid "Display Name"
-#~ msgstr "Nome visualizzato"
-
-#~ msgid "ID"
-#~ msgstr "ID"
-
-#~ msgid "Last Modified on"
-#~ msgstr "Ultima modifica il"
