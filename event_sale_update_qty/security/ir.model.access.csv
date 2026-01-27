@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+event_sale_update_qty.access_event_sale_update_qty_wizard,access_event_sale_update_qty_wizard,event_sale_update_qty.model_event_sale_update_qty_wizard,base.group_user,1,1,1,1

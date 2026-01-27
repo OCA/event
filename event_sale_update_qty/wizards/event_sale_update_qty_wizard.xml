@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 Tecnativa - Pilar Vargas
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_event_sale_update_qty_wizard_form" model="ir.ui.view">
+        <field name="name">event.sale.update.qty.wizard.form</field>
+        <field name="model">event.sale.update.qty.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Update Attendee Quantity">
+                <group>
+                    <field name="sale_order_line_id" invisible="1" />
+                    <field name="show_registrations" invisible="1" />
+                    <field name="event_id" />
+                    <field name="ticket_id" />
+                </group>
+                <group>
+                    <group>
+                        <field name="new_qty" widget="integer" />
+                    </group>
+                </group>
+                <group invisible="not show_registrations" string="Attendees">
+                    <span colspan="2" class="o_form_label">Check those to remove</span>
+                    <field
+                        colspan="2"
+                        name="registration_ids"
+                        widget="many2many_checkboxes"
+                        nolabel="1"
+                    />
+                </group>
+                <footer>
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                    <button
+                        string="Update"
+                        type="object"
+                        name="action_update"
+                        class="btn-primary"
+                    />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
