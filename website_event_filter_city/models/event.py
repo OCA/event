@@ -7,7 +7,7 @@ from odoo import api, fields, models
 class EventEvent(models.Model):
     _inherit = "event.event"
 
-    city = fields.Char(related="address_id.city", store=True)
+    city = fields.Char(related="address_id.city")
 
     @api.model
     def _search_get_detail(self, website, order, options):
