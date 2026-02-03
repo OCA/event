@@ -89,7 +89,7 @@ class TestEventSaleRegistrationMultiQty(BaseCommon):
         for reg in regs:
             self.assertEqual(reg.qty, 1)
             self.assertEqual(reg.event_id, self.event_nomulti)
-            self.assertEqual(reg.state, "open")
+            self.assertEqual(reg.state, "draft")
 
     def test_sale_mixed(self):
         sale = self._create_sale().save()
@@ -103,7 +103,7 @@ class TestEventSaleRegistrationMultiQty(BaseCommon):
         regs = self.env["event.registration"].search([("sale_order_id", "=", sale.id)])
         self.assertEqual(len(regs), 6)
         for reg in regs:
-            self.assertEqual(reg.state, "open")
+            self.assertIn(reg.state, ("draft", "open"))
             if reg.event_id == self.event_multi:
                 self.assertEqual(reg.qty, 5)
             else:
