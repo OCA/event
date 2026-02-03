@@ -43,7 +43,7 @@ class WebsiteEvent(WebsiteEventController):
         # Otherwise, we can make some domain surgery to reuse the domain country for
         # our own purposes.
         elif len(qcontext["countries"]) > 1:
-            domain = qcontext["countries"][1]["__domain"]
+            domain = qcontext["countries"][1]["__domain"][:]
             countries_domain = [
                 "|",
                 ("country_id", "=", False),
@@ -53,7 +53,7 @@ class WebsiteEvent(WebsiteEventController):
                 i for i, x in enumerate(domain) if len(x) > 1 and x[0] == "country_id"
             )
             domain.pop(country_tuple_index)
-            domain[country_tuple_index : len(countries_domain)] = countries_domain
+            domain[country_tuple_index:country_tuple_index] = countries_domain
         # Finally we can use the domain we obtained to filter the cities in the controls
         cities = request.env["event.event"].read_group(
             domain, ["city"], groupby="city", orderby="city"
