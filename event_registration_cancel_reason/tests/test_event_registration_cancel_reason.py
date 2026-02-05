@@ -11,10 +11,11 @@ class TestEventRegistrationCancelReason(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        event_type_1 = cls.env["event.type"].create({"name": "Training"})
         cls.event1 = cls.env["event.event"].create(
             {
                 "name": "Test event",
-                "event_type_id": cls.env.ref("event.event_type_1").id,
+                "event_type_id": event_type_1.id,
                 "date_begin": fields.Date.today(),
                 "date_end": fields.Date.today(),
             }
@@ -45,7 +46,7 @@ class TestEventRegistrationCancelReason(common.TransactionCase):
 
     def test_cancel_multi_event_type(self):
         """Registration cancel from different event types are aborted."""
-        self.event2.event_type_id = self.env.ref("event.event_type_2")
+        self.event2.event_type_id = self.env["event.type"].create({"name": "Sport"})
         with self.assertRaises(exceptions.ValidationError):
             self.wizard_model.with_context(active_ids=self.registrations.ids).create(
                 {"reason_id": self.cancel_reason.id}
