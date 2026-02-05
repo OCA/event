@@ -3,7 +3,7 @@
 # Copyright 2020 Tecnativa - Víctor Martínez
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
-from odoo import _, api, exceptions, fields, models
+from odoo import api, exceptions, fields, models
 
 
 class EventRegistrationCancelLogReason(models.TransientModel):
@@ -29,7 +29,7 @@ class EventRegistrationCancelLogReason(models.TransientModel):
         for event in registrations.mapped("event_id"):
             if event.event_type_id != first_type:
                 raise exceptions.ValidationError(
-                    _(
+                    self.env._(
                         "You cannot cancel registrations from events of "
                         "different types at once."
                     )

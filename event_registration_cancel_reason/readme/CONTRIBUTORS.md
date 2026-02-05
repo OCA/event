@@ -6,3 +6,4 @@
       - Victor M.M. Torres
       - Víctor Martínez
       - Carolina Fernandez
+      - Frederic Grall
