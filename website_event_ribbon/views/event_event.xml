@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Dixmit
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="event_event_form_view">
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="website_event.event_event_view_form" />
+        <field name="arch" type="xml">
+            <field name="website_id" position="after">
+                <field name="website_ribbon_id" options="{'no_quick_create': True}" />
+            </field>
+        </field>
+    </record>
+
+</odoo>
