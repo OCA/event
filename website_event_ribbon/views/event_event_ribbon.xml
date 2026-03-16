@@ -2,7 +2,6 @@
 <!-- Copyright 2026 Dixmit
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 <odoo>
-
     <record model="ir.ui.view" id="event_event_ribbon_form_view">
         <field name="model">event.event.ribbon</field>
         <field name="arch" type="xml">
@@ -59,5 +58,4 @@
         <field name="action" ref="event_event_ribbon_act_window" />
         <field name="sequence" eval="16" />
     </record>
-
 </odoo>
