@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="modal_attendees_registration_login_required" name="Login Required">
+        <div
+            id="modal_attendees_registration_login_required"
+            class="modal fade"
+            tabindex="-1"
+            role="dialog"
+        >
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header align-items-center">
+                        <h4 class="modal-title">Login required</h4>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-hidden="true"
+                            aria-label="Close"
+                        />
+                    </div>
+                    <div class="modal-body border-bottom">
+                        <p>
+                            You must be logged in to register for this event.
+                        </p>
+                    </div>
+                    <div class="modal-footer border-0 justify-content-between">
+                        <a
+                            t-attf-href="/web/login?redirect=#{event_url}#registration_form"
+                            class="btn btn-primary"
+                        >Login</a>
+                        <button
+                            type="button"
+                            class="btn btn-secondary js_goto_event"
+                            data-bs-dismiss="modal"
+                        >Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template
+        id="registration_form_require_login"
+        inherit_id="website_event.modal_ticket_registration"
+    >
+        <xpath expr="//form[@id='registration_form']" position="attributes">
+            <attribute
+                name="t-att-data-require-login"
+            >1 if event.website_require_login and request.env.user == request.website.user_id else 0</attribute>
+        </xpath>
+    </template>
+</odoo>
