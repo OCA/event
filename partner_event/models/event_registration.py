@@ -8,6 +8,7 @@
 # Copyright 2024 Tecnativa - Juan José Seguí
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from odoo import api, fields, models
+from odoo.exceptions import UserError
 
 
 class EventRegistration(models.Model):
@@ -22,6 +23,7 @@ class EventRegistration(models.Model):
         index=True,
     )
 
+    @api.model
     def _prepare_partner(self, vals):
         return {
             "name": vals.get("name") or vals.get("email"),
@@ -29,6 +31,27 @@ class EventRegistration(models.Model):
             "phone": vals.get("phone", False),
         }
 
+    def action_create_attendee_partner(self):
+        self.ensure_one()
+        if self.attendee_partner_id:
+            return True
+        if not self.name and not self.email:
+            raise UserError(
+                self.env._(
+                    "Set at least the attendee name or email before creating a partner."
+                )
+            )
+        keys = self._prepare_partner({}).keys()
+        attendee_partner = self.env["res.partner"].create(
+            self._prepare_partner({field_name: self[field_name] for field_name in keys})
+        )
+        vals = {"attendee_partner_id": attendee_partner.id}
+        if not self.partner_id:
+            vals["partner_id"] = attendee_partner.id
+        self.write(vals)
+        return True
+
+    @api.model
     def _update_attendee_partner_id(self, vals):
         # Don't update if doing a partner merging
         if (
