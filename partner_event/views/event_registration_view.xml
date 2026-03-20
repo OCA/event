@@ -8,7 +8,18 @@
         <field name="inherit_id" ref="event.view_event_registration_form" />
         <field name="arch" type="xml">
             <field name="name" position="after">
-                <field name="attendee_partner_id" />
+                <label for="attendee_partner_id" class="o_form_label" />
+                <div class="o_row">
+                    <field name="attendee_partner_id" />
+                    <button
+                        name="action_create_attendee_partner"
+                        icon="fa-plus-square"
+                        string="Create Partner"
+                        type="object"
+                        class="oe_edit_only btn-link"
+                        invisible="attendee_partner_id or (not name and not email)"
+                    />
+                </div>
             </field>
         </field>
     </record>
