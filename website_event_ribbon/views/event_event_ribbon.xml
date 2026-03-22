@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Dixmit
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="event_event_ribbon_form_view">
+        <field name="model">event.event.ribbon</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="New Collection" />
+                        </h1>
+                    </div>
+                    <notebook>
+                        <page string="Display">
+                            <group>
+                                <field name="text_color" widget="color" />
+                                <field name="bg_color" widget="color" />
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="event_event_ribbon_search_view">
+        <field name="model">event.event.ribbon</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="event_event_ribbon_tree_view">
+        <field name="model">event.event.ribbon</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="sequence" widget="handle" />
+                <field name="name" />
+            </list>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="event_event_ribbon_act_window">
+        <field name="name">Ribbons</field>
+        <field name="res_model">event.event.ribbon</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record model="ir.ui.menu" id="event_event_ribbon_menu">
+        <field name="name">Ribbons</field>
+        <field name="parent_id" ref="event.menu_event_configuration" />
+        <field name="action" ref="event_event_ribbon_act_window" />
+        <field name="sequence" eval="16" />
+    </record>
+</odoo>

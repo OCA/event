@@ -1,0 +1,113 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_event_ribbon
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-03-09 14:45+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
+
+#. module: website_event_ribbon
+#: model:ir.model.fields,field_description:website_event_ribbon.field_event_event_ribbon__bg_color
+msgid "Bg Color"
+msgstr "Colore sfondo"
+
+#. module: website_event_ribbon
+#: model:ir.model.fields,field_description:website_event_ribbon.field_event_event_ribbon__create_uid
+msgid "Created by"
+msgstr "Creato da"
+
+#. module: website_event_ribbon
+#: model:ir.model.fields,field_description:website_event_ribbon.field_event_event_ribbon__create_date
+msgid "Created on"
+msgstr "Creato il"
+
+#. module: website_event_ribbon
+#: model_terms:ir.ui.view,arch_db:website_event_ribbon.event_event_ribbon_form_view
+msgid "Display"
+msgstr "Visualizza"
+
+#. module: website_event_ribbon
+#: model:ir.model.fields,field_description:website_event_ribbon.field_event_event_ribbon__display_name
+msgid "Display Name"
+msgstr "Nome"
+
+#. module: website_event_ribbon
+#: model:ir.model,name:website_event_ribbon.model_event_event
+msgid "Event"
+msgstr "Evento"
+
+#. module: website_event_ribbon
+#: model:ir.model,name:website_event_ribbon.model_event_event_ribbon
+msgid "Event Event Ribbon"
+msgstr "Nastro evento dell'evento"
+
+#. module: website_event_ribbon
+#: model:ir.model.fields,field_description:website_event_ribbon.field_event_event_ribbon__id
+msgid "ID"
+msgstr "ID"
+
+#. module: website_event_ribbon
+#: model:ir.model.fields,field_description:website_event_ribbon.field_event_event_ribbon__write_uid
+msgid "Last Updated by"
+msgstr "Ultimo aggiornamento di"
+
+#. module: website_event_ribbon
+#: model:ir.model.fields,field_description:website_event_ribbon.field_event_event_ribbon__write_date
+msgid "Last Updated on"
+msgstr "Ultimo aggiornamento il"
+
+#. module: website_event_ribbon
+#: model:ir.model.fields.selection,name:website_event_ribbon.selection__event_event_ribbon__position__left
+msgid "Left"
+msgstr "Sinistra"
+
+#. module: website_event_ribbon
+#: model:ir.model.fields,field_description:website_event_ribbon.field_event_event_ribbon__name
+msgid "Name"
+msgstr "Nome"
+
+#. module: website_event_ribbon
+#: model_terms:ir.ui.view,arch_db:website_event_ribbon.event_event_ribbon_form_view
+msgid "New Collection"
+msgstr "Nuova collezione"
+
+#. module: website_event_ribbon
+#: model:ir.model.fields,field_description:website_event_ribbon.field_event_event_ribbon__position
+msgid "Position"
+msgstr "Posizione"
+
+#. module: website_event_ribbon
+#: model:ir.actions.act_window,name:website_event_ribbon.event_event_ribbon_act_window
+#: model:ir.ui.menu,name:website_event_ribbon.event_event_ribbon_menu
+msgid "Ribbons"
+msgstr "Nastri"
+
+#. module: website_event_ribbon
+#: model:ir.model.fields.selection,name:website_event_ribbon.selection__event_event_ribbon__position__right
+msgid "Right"
+msgstr "Destra"
+
+#. module: website_event_ribbon
+#: model:ir.model.fields,field_description:website_event_ribbon.field_event_event_ribbon__sequence
+msgid "Sequence"
+msgstr "Sequenza"
+
+#. module: website_event_ribbon
+#: model:ir.model.fields,field_description:website_event_ribbon.field_event_event_ribbon__text_color
+msgid "Text Color"
+msgstr "Colore testo"
+
+#. module: website_event_ribbon
+#: model:ir.model.fields,field_description:website_event_ribbon.field_event_event__website_ribbon_id
+msgid "Website Ribbon"
+msgstr "Nastro sito web"
