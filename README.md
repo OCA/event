@@ -41,6 +41,7 @@ addon | version | maintainers | summary
 [website_event_require_legal](website_event_require_legal/) | 18.0.1.0.0 |  | Website Event Require Legal
 [website_event_require_login](website_event_require_login/) | 18.0.1.0.0 |  | Website Event Require Login
 [website_event_ribbon](website_event_ribbon/) | 18.0.1.0.0 |  | Add ribbons on events
+[website_event_ticket_limit](website_event_ticket_limit/) | 18.0.1.0.0 |  | Website Event Ticket Limit
 
 [//]: # (end addons)
 
