@@ -4,8 +4,8 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 <odoo>
     <!-- Registration template -->
     <template
-        id="registration_template"
-        inherit_id="website_event.registration_template"
+        id="modal_ticket_registration"
+        inherit_id="website_event.modal_ticket_registration"
         name="Events Registration Ticket Limit"
     >
         <!-- Multi tickets option -->
@@ -46,13 +46,13 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 
         <!-- Single ticket -->
         <xpath
-            expr="//div[hasclass('o_wevent_registration_single')]/div/div/div/t/select"
+            expr="//div[hasclass('o_wevent_registration_single')]/div/div/t/div/select"
             position="attributes"
         >
             <attribute name="t-if">tickets.max_ticket_per_order == 0</attribute>
         </xpath>
         <xpath
-            expr="//div[hasclass('o_wevent_registration_single')]/div/div/div/t/select"
+            expr="//div[hasclass('o_wevent_registration_single')]/div/div/t/div/select"
             position="after"
         >
             <select
