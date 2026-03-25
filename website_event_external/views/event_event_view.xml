@@ -14,64 +14,37 @@
                 name="%(event.event_registration_action_stats_from_event)d"
                 position="attributes"
             >
-                <attribute
-                    name="attrs"
-                >{"invisible":[("is_external", "=", True)]}</attribute>
+                <attribute name="invisible">is_external</attribute>
             </button>
             <button
                 name="%(event.act_event_registration_from_event)d"
                 position="attributes"
             >
-                <attribute
-                    name="attrs"
-                >{"invisible":[("is_external", "=", True)]}</attribute>
+                <attribute name="invisible">is_external</attribute>
             </button>
             <xpath expr="//group/field[@name='active']" position="after">
                 <field name="is_external" />
                 <field
                     name="external_link"
-                    attrs="{'invisible':[('is_external','=',False)], 'required':[('is_external','=',True)]}"
+                    invisible="not is_external"
+                    required="is_external"
                 />
             </xpath>
             <xpath expr="//label[@for='seats_limited']" position="attributes">
-                <attribute
-                    name="attrs"
-                >{"invisible":[("is_external", "=", True)]}</attribute>
+                <attribute name="invisible">is_external</attribute>
             </xpath>
             <xpath expr="//div[field[@name='seats_limited']]" position="attributes">
-                <attribute
-                    name="attrs"
-                >{"invisible":[("is_external", "=", True)]}</attribute>
+                <attribute name="invisible">is_external</attribute>
             </xpath>
-            <field name='auto_confirm' position="attributes">
-                <attribute
-                    name="attrs"
-                >{"invisible":[("is_external", "=", True)]}</attribute>
+            <field name="badge_format" position="attributes">
+                <attribute name="invisible">is_external</attribute>
+            </field>
+            <field name="badge_image" position="attributes">
+                <attribute name="invisible">is_external</attribute>
             </field>
             <notebook position="attributes">
-                <attribute
-                    name="attrs"
-                >{"invisible":[("is_external", "=", True)]}</attribute>
+                <attribute name="invisible">is_external</attribute>
             </notebook>
-        </field>
-    </record>
-
-    <record id="website_event_external_form_inherit" model="ir.ui.view">
-        <field name="name">website.event.external.form.inherit</field>
-        <field name="model">event.event</field>
-        <field name="priority" eval="21" />
-        <field name="inherit_id" ref="website_event.event_event_view_form" />
-        <field name="arch" type="xml">
-            <xpath expr="//label[@for='menu_register_cta']" position="attributes">
-                <attribute
-                    name="attrs"
-                >{"invisible":[("is_external", "=", True)]}</attribute>
-            </xpath>
-            <field name='menu_register_cta' position="attributes">
-                <attribute
-                    name="attrs"
-                >{"invisible":[("is_external", "=", True)]}</attribute>
-            </field>
         </field>
     </record>
 </odoo>
