@@ -33,6 +33,7 @@ addon | version | maintainers | summary
 [event_sale_session](event_sale_session/) | 18.0.1.0.0 |  | Sell Event Sessions
 [event_session](event_session/) | 18.0.1.0.0 |  | Sessions in events
 [event_session_registration_multi_qty](event_session_registration_multi_qty/) | 18.0.1.0.0 |  | Allow registration grouped by quantities in sessions
+[event_stage_cancelled](event_stage_cancelled/) | 18.0.1.0.0 |  | Event cancellation workflows
 [partner_event](partner_event/) | 18.0.1.1.0 |  | Link partner to events
 [website_event_contact](website_event_contact/) | 18.0.1.0.1 | <a href='https://github.com/Shide'><img src='https://github.com/Shide.png' width='32' height='32' style='border-radius:50%;' alt='Shide'/></a> <a href='https://github.com/rafaelbn'><img src='https://github.com/rafaelbn.png' width='32' height='32' style='border-radius:50%;' alt='rafaelbn'/></a> | Display your event contacts on your event page
 [website_event_filter_city](website_event_filter_city/) | 18.0.1.0.0 | <a href='https://github.com/pilarvargas-tecnativa'><img src='https://github.com/pilarvargas-tecnativa.png' width='32' height='32' style='border-radius:50%;' alt='pilarvargas-tecnativa'/></a> | Add a customizable top area to filter events with city
