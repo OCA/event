@@ -6,48 +6,50 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-05-14 20:17+0000\n"
+"Last-Translator: Ben Brich <b.brich@humanilog.org>\n"
 "Language-Team: none\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: website_event_ribbon
 #: model:ir.model.fields,field_description:website_event_ribbon.field_event_event_ribbon__bg_color
 msgid "Bg Color"
-msgstr ""
+msgstr "Hintergrundfarbe"
 
 #. module: website_event_ribbon
 #: model:ir.model.fields,field_description:website_event_ribbon.field_event_event_ribbon__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Erstellt von"
 
 #. module: website_event_ribbon
 #: model:ir.model.fields,field_description:website_event_ribbon.field_event_event_ribbon__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Erstellt am"
 
 #. module: website_event_ribbon
 #: model_terms:ir.ui.view,arch_db:website_event_ribbon.event_event_ribbon_form_view
 msgid "Display"
-msgstr ""
+msgstr "Anzeige"
 
 #. module: website_event_ribbon
 #: model:ir.model.fields,field_description:website_event_ribbon.field_event_event_ribbon__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Anzeigename"
 
 #. module: website_event_ribbon
 #: model:ir.model,name:website_event_ribbon.model_event_event
 msgid "Event"
-msgstr ""
+msgstr "Veranstaltung"
 
 #. module: website_event_ribbon
 #: model:ir.model,name:website_event_ribbon.model_event_event_ribbon
 msgid "Event Event Ribbon"
-msgstr ""
+msgstr "Veranstaltung Ribbon"
 
 #. module: website_event_ribbon
 #: model:ir.model.fields,field_description:website_event_ribbon.field_event_event_ribbon__id
@@ -57,17 +59,17 @@ msgstr ""
 #. module: website_event_ribbon
 #: model:ir.model.fields,field_description:website_event_ribbon.field_event_event_ribbon__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Zuletzt aktualisiert von"
 
 #. module: website_event_ribbon
 #: model:ir.model.fields,field_description:website_event_ribbon.field_event_event_ribbon__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Zuletzt aktualisiert am"
 
 #. module: website_event_ribbon
 #: model:ir.model.fields.selection,name:website_event_ribbon.selection__event_event_ribbon__position__left
 msgid "Left"
-msgstr ""
+msgstr "Links"
 
 #. module: website_event_ribbon
 #: model:ir.model.fields,field_description:website_event_ribbon.field_event_event_ribbon__name
@@ -77,7 +79,7 @@ msgstr ""
 #. module: website_event_ribbon
 #: model_terms:ir.ui.view,arch_db:website_event_ribbon.event_event_ribbon_form_view
 msgid "New Collection"
-msgstr ""
+msgstr "Neue Kollektion"
 
 #. module: website_event_ribbon
 #: model:ir.model.fields,field_description:website_event_ribbon.field_event_event_ribbon__position
@@ -93,17 +95,17 @@ msgstr ""
 #. module: website_event_ribbon
 #: model:ir.model.fields.selection,name:website_event_ribbon.selection__event_event_ribbon__position__right
 msgid "Right"
-msgstr ""
+msgstr "Rechts"
 
 #. module: website_event_ribbon
 #: model:ir.model.fields,field_description:website_event_ribbon.field_event_event_ribbon__sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Sequenz"
 
 #. module: website_event_ribbon
 #: model:ir.model.fields,field_description:website_event_ribbon.field_event_event_ribbon__text_color
 msgid "Text Color"
-msgstr ""
+msgstr "Textfarbe"
 
 #. module: website_event_ribbon
 #: model:ir.model.fields,field_description:website_event_ribbon.field_event_event__website_ribbon_id
