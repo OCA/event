@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-05-23 18:01+0000\n"
+"Last-Translator: Pablo Castelo <pablocv@gmx.es>\n"
 "Language-Team: none\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: website_event_crm_invitation
 #: model:mail.template,body_html:website_event_crm_invitation.crm_lead_event_type_tpl
@@ -45,6 +47,42 @@ msgid ""
 "            </div>\n"
 "        "
 msgstr ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">"
+"Estimado/a <t t-out=\"object.partner_name or object.partner_id.name\"/>,</p>"
+"\n"
+"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                    Parece que está interesado/a en os eventos da categoría "
+"\n"
+"                    <strong t-out=\"object.event_type_id.name\"/>.\n"
+"                </p>\n"
+"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                    Queriamos informarlle de que\n"
+"                    <b>temos publicados agora mesmo algúns eventos desa "
+"categoría</b>\n"
+"                    no noso sitio web:\n"
+"                </p>\n"
+"                <p>\n"
+"                    <div style=\"margin: 16px 8px 16px 8px; text-align: "
+"center;\">\n"
+"                        <a t-attf-href=\"#{ctx.get('base_url', '')}#"
+"{object.event_type_website_url}\" style=\"background-color: #875a7b; "
+"padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-"
+"radius: 5px;\">\n"
+"                            Ver eventos da categoría\n"
+"                            <strong t-out=\"object.event_type_id.name\"/>\n"
+"                        </a>\n"
+"                    </div>\n"
+"                </p>\n"
+"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                    Por favor, visite esa ligazón e rexístrese en calquera "
+"evento que lle interese.\n"
+"                </p>\n"
+"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                    Saúdos.\n"
+"                </p>\n"
+"            </div>\n"
+"        "
 
 #. module: website_event_crm_invitation
 #: model_terms:ir.ui.view,arch_db:website_event_crm_invitation.crm_lead_view_form
@@ -53,62 +91,66 @@ msgid ""
 "if the company isn't set or if the company has no websites. So no invitation"
 " will be sent for this lead"
 msgstr ""
+"<i class=\"fa fa-info\"/> Non é posible propoñer eventos se a compañía non "
+"está establecida ou se a compañía non ten sitios web configurados. De modo "
+"que non se convidará invitación para esta iniciativa/oportunidade"
 
 #. module: website_event_crm_invitation
 #: model:ir.model.fields,field_description:website_event_crm_invitation.field_crm_stage__auto_advance_stage_invite_website_event_type
 msgid "Advance stage automatically when inviting to website event category"
 msgstr ""
+"Avanzar etapa automaticamente ao convidar á categoría de eventos no sitio web"
 
 #. module: website_event_crm_invitation
 #: model:ir.model.fields,field_description:website_event_crm_invitation.field_crm_lead__auto_invite_warning
 msgid "Auto Invite Warning"
-msgstr ""
+msgstr "Advertencia de autoinvitación"
 
 #. module: website_event_crm_invitation
 #: model:ir.model,name:website_event_crm_invitation.model_crm_stage
 msgid "CRM Stages"
-msgstr ""
+msgstr "Etapas CRM"
 
 #. module: website_event_crm_invitation
 #: model:ir.model,name:website_event_crm_invitation.model_mail_compose_message
 msgid "Email composition wizard"
-msgstr ""
+msgstr "Asistente para compoñer correo electrónico"
 
 #. module: website_event_crm_invitation
 #: model_terms:ir.ui.view,arch_db:website_event_crm_invitation.crm_stage_form
 msgid "Event Categories"
-msgstr ""
+msgstr "Categorías de evento"
 
 #. module: website_event_crm_invitation
 #: model:ir.model,name:website_event_crm_invitation.model_event_type
 msgid "Event Template"
-msgstr ""
+msgstr "Modelo de Evento"
 
 #. module: website_event_crm_invitation
 #: model:ir.model.fields,field_description:website_event_crm_invitation.field_crm_lead__event_type_website_url
 msgid "Event Type Website Url"
-msgstr ""
+msgstr "URL no sitio web da categoría de evento"
 
 #. module: website_event_crm_invitation
 #: model:ir.model.fields,field_description:website_event_crm_invitation.field_crm_stage__auto_invite_website_event_type
 msgid "Invite automatically to website event category"
-msgstr ""
+msgstr "Convidar automaticamente a categorías de evento no sitio web"
 
 #. module: website_event_crm_invitation
 #: model:mail.template,name:website_event_crm_invitation.crm_lead_event_type_tpl
 msgid "Invite to event category"
-msgstr ""
+msgstr "Convidar a categoría de evento"
 
 #. module: website_event_crm_invitation
 #: code:addons/website_event_crm_invitation/models/crm_lead.py:0
 #, python-format
 msgid "Invite to visit website"
-msgstr ""
+msgstr "Convidar a visitar o sitio web"
 
 #. module: website_event_crm_invitation
 #: model_terms:ir.ui.view,arch_db:website_event_crm_invitation.crm_lead_view_form
 msgid "Invite to website"
-msgstr ""
+msgstr "Convidar o sitio web"
 
 #. module: website_event_crm_invitation
 #: code:addons/website_event_crm_invitation/models/crm_lead.py:0
@@ -117,24 +159,27 @@ msgid ""
 "It's not possible to determine to propose events if the company isn't set or"
 " if the company has no websites. So no invitation will be sent for this lead"
 msgstr ""
+"Non é posible propoñer eventos se a compañía non está establecida ou se a "
+"compañía non ten sitios web configurados. De modo que non se convidará "
+"invitación para esta iniciativa/oportunidade"
 
 #. module: website_event_crm_invitation
 #: model:ir.model,name:website_event_crm_invitation.model_crm_lead
 msgid "Lead/Opportunity"
-msgstr ""
+msgstr "Iniciativa/Oportunidade"
 
 #. module: website_event_crm_invitation
 #: model:ir.actions.server,name:website_event_crm_invitation.cron_ir_actions_server
 #: model:ir.cron,cron_name:website_event_crm_invitation.cron
 #: model:ir.cron,name:website_event_crm_invitation.cron
 msgid "Notify all opportunities related to event categories"
-msgstr ""
+msgstr "Notificar a todas as oportunidades relacionadas a categorías de evento"
 
 #. module: website_event_crm_invitation
 #: code:addons/website_event_crm_invitation/models/crm_lead.py:0
 #, python-format
 msgid "Select one event type with published events."
-msgstr ""
+msgstr "Seleccione unha categoría de eventos con eventos publicados."
 
 #. module: website_event_crm_invitation
 #: model:ir.model.fields,help:website_event_crm_invitation.field_crm_stage__auto_advance_stage_invite_website_event_type
@@ -142,6 +187,8 @@ msgid ""
 "When an opportunity in this stage is invited to a website event category, it"
 " will advance automatically to the next stage."
 msgstr ""
+"Cando se convide a ver a categoría de evento no sitio web a oportunidade "
+"nesta etapa, avanzará automaticamente á seguinte etapa."
 
 #. module: website_event_crm_invitation
 #: model:ir.model.fields,help:website_event_crm_invitation.field_crm_stage__auto_invite_website_event_type
@@ -150,3 +197,6 @@ msgid ""
 "for its category with available seats, opportunities found in this stage "
 "will get invited to it and moved to the next stage automatically."
 msgstr ""
+"Cando unha oportunidade estea nesta etapa e haxa un novo evento publicado na "
+"súa categoría con prazas dispoñibles, as oportunidades nesta etapa serán "
+"convidadas a esa categoría e movidas á seguinte etapa automaticamente."
