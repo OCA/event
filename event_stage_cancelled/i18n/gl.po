@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-05-23 07:44+0000\n"
+"Last-Translator: Pablo Castelo <pablocv@gmx.es>\n"
 "Language-Team: none\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: event_stage_cancelled
 #: model:mail.template,body_html:event_stage_cancelled.event_cancelled
@@ -113,13 +115,147 @@ msgid ""
 "</table>\n"
 "        "
 msgstr ""
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"padding-top: "
+"16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; "
+"color: #454748; width: 100%; border-collapse:separate;\"><tr><td "
+"align=\"center\">\n"
+"<t t-set=\"date_begin\" t-value=\"format_datetime"
+"(object.event_id.date_begin, tz='UTC', "
+"dt_format=&quot;yyyyMMdd'T'HHmmss'Z'&quot;)\"/>\n"
+"<t t-set=\"date_end\" t-value=\"format_datetime(object.event_id.date_end, "
+"tz='UTC', dt_format=&quot;yyyyMMdd'T'HHmmss'Z'&quot;)\"/>\n"
+"<t t-set=\"is_online\" t-value=\"'is_published' in object.event_id and "
+"object.event_id.is_published\"/>\n"
+"<t t-set=\"event_organizer\" t-value=\"object.event_id.organizer_id\"/>\n"
+"<t t-set=\"event_address\" t-value=\"object.event_id.address_id\"/>\n"
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" "
+"style=\"padding: 16px; background-color: white; color: #454748; border-"
+"collapse:separate;\">\n"
+"<tbody>\n"
+"<!-- HEADER -->\n"
+"<tr>\n"
+"    <td align=\"center\" style=\"min-width: 590px;\">\n"
+"        <table width=\"590\" border=\"0\" cellpadding=\"0\" "
+"cellspacing=\"0\" style=\"min-width: 590px; background-color: white; "
+"padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"            <tr><td valign=\"middle\">\n"
+"                <span style=\"font-size: 10px;\">O seu rexistro</span><br/>\n"
+"                <span style=\"font-size: 20px; font-weight: bold;\" t-"
+"out=\"object.name or ''\">Óscar Morgan</span>\n"
+"            </td><td valign=\"middle\" align=\"right\">\n"
+"                <t t-if=\"is_online\">\n"
+"                    <a t-attf-href=\"{{ object.event_id.website_url }}\" "
+"style=\"padding: 8px 12px; font-size: 12px; color: #FFFFFF; text-decoration: "
+"none !important; font-weight: 400; background-color: #875A7B; border: 0px "
+"solid #875A7B; border-radius:3px\">\n"
+"                        Ver evento\n"
+"                    </a>\n"
+"                </t>\n"
+"                <t t-else=\"\">\n"
+"                    <img t-att-src=\"'/logo.png?company=%s' % "
+"object.company_id.id\" style=\"padding: 0px; margin: 0px; height: auto; "
+"width: 80px;\" t-att-alt=\"'%s' % object.company_id.name\"/>\n"
+"                </t>\n"
+"            </td></tr>\n"
+"            <tr><td colspan=\"2\" style=\"text-align:center;\">\n"
+"              <hr width=\"100%\" style=\"background-color:rgb(204,204,204)"
+";border:medium none;clear:both;display:block;font-size:0px;min-"
+"height:1px;line-height:0; margin:16px 0px 16px 0px;\"/>\n"
+"            </td></tr>\n"
+"        </table>\n"
+"    </td>\n"
+"</tr>\n"
+"<!-- EVENT DESCRIPTION -->\n"
+"<tr>\n"
+"    <td align=\"center\" style=\"min-width: 590px;\">\n"
+"        <table width=\"590\" border=\"0\" cellpadding=\"0\" "
+"cellspacing=\"0\" style=\"min-width: 590px; background-color: white; "
+"padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
+"            <tr><td valign=\"top\" style=\"font-size: 14px;\">\n"
+"                <div>\n"
+"                    Ola, <t t-out=\"object.name or ''\">Óscar Morgan</t>"
+".<br/>\n"
+"                    Lamentamos informarlle de que o evento \n"
+"                    <t t-if=\"is_online\">\n"
+"                        <a t-att-href=\"object.event_id.website_url\" "
+"style=\"color:#875A7B;text-decoration:none;\" t-out=\"object.event_id.name "
+"or ''\">OpenWood Collection En liña Reveal</a>\n"
+"                    </t>\n"
+"                    <t t-else=\"\">\n"
+"                        <strong t-out=\"object.event_id.name or ''\">"
+"OpenWood Collection Online Reveal</strong>\n"
+"                    </t>\n"
+"                    foi cancelado.\n"
+"                </div>\n"
+"                <t t-if=\"event_organizer\">\n"
+"                    <div>\n"
+"                        <br/>\n"
+"                        <div>Por favor, non dubide en poñerse en contacto co "
+"organizador para máis información:</div>\n"
+"                        <ul>\n"
+"                            <li t-out=\"event_organizer.name or ''\">A túa "
+"compañía</li>\n"
+"                            <t t-if=\"event_organizer.email\">\n"
+"                                <li>Correo: <a t-attf-href=\"mailto:{{ "
+"event_organizer.email }}\" style=\"text-decoration:none;color:#875A7B;\" t-"
+"out=\"event_organizer.email or ''\"/></li>\n"
+"                            </t>\n"
+"                            <t t-if=\"event_organizer.phone\">\n"
+"                                <li>Teléfono: <t t-"
+"out=\"event_organizer.phone or ''\"/></li>\n"
+"                            </t>\n"
+"                        </ul>\n"
+"                    </div>\n"
+"                </t>\n"
+"                <div>\n"
+"                    Entendemos os inconvenientes que isto poida causar e "
+"pedimos sinceras desculpas por calquera molestia ocasionada.<br/>\n"
+"                    <span style=\"color: #454748;\">\n"
+"                    -- <br/>\n"
+"                    <t t-if=\"event_organizer\">\n"
+"                        <t t-out=\"event_organizer.name or ''\">A túa "
+"compañía</t>\n"
+"                    </t>\n"
+"                    <t t-else=\"\">\n"
+"                        O equipo de <t t-out=\"object.event_id.name or ''\">"
+"OpenWood Collection En liña Reveal</t>\n"
+"                    </t>\n"
+"                    </span>\n"
+"                </div>\n"
+"            </td></tr>\n"
+"        </table>\n"
+"    </td>\n"
+"</tr>\n"
+"</tbody>\n"
+"</table>\n"
+"</td></tr>\n"
+"<!-- FOOTER BY -->\n"
+"<tr><td align=\"center\" style=\"min-width: 590px;\">\n"
+"<table t-if=\"object.company_id\" width=\"590\" border=\"0\" "
+"cellpadding=\"0\" cellspacing=\"0\" style=\"min-width: 590px; background-"
+"color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;\">\n"
+"  <tr><td style=\"text-align: center; font-size: 14px;\">\n"
+"    Enviado por <a target=\"_blank\" t-attf-href=\"{{ "
+"object.company_id.website }}\" style=\"color: #875A7B;\" t-"
+"out=\"object.company_id.name or ''\">YourCompany</a>\n"
+"    <t t-if=\"'website_url' in object.event_id and "
+"object.event_id.website_url\">\n"
+"        <br/>\n"
+"        Descubra <a href=\"/event\" style=\"color:#875A7B;\">todos os nosos "
+"eventos</a>.\n"
+"    </t>\n"
+"  </td></tr>\n"
+"</table>\n"
+"</td></tr>\n"
+"</table>\n"
+"        "
 
 #. module: event_stage_cancelled
 #: model:ir.model.fields.selection,name:event_stage_cancelled.selection__event_mail__interval_type__after_cancel
 #: model:ir.model.fields.selection,name:event_stage_cancelled.selection__event_mail_scheduler_template__interval_type__after_cancel
 #: model:ir.model.fields.selection,name:event_stage_cancelled.selection__event_type_mail__interval_type__after_cancel
 msgid "After the event cancellation"
-msgstr ""
+msgstr "Tras a cancelación do evento"
 
 #. module: event_stage_cancelled
 #: model_terms:ir.ui.view,arch_db:event_stage_cancelled.view_event_form
@@ -127,62 +263,64 @@ msgid ""
 "Are you sure you want to cancel this event? All the linked attendees will be"
 " cancelled as well."
 msgstr ""
+"Está seguro que quere cancelar este evento? Todos os asistentes vinculados "
+"serán cancelados tamén."
 
 #. module: event_stage_cancelled
 #: model_terms:ir.ui.view,arch_db:event_stage_cancelled.view_event_form
 msgid "Cancel Event"
-msgstr ""
+msgstr "Cancelar evento"
 
 #. module: event_stage_cancelled
 #: model:ir.model.fields,field_description:event_stage_cancelled.field_event_registration__cancelled_from_event
 msgid "Cancelled From Event"
-msgstr ""
+msgstr "Cancelado desde o evento"
 
 #. module: event_stage_cancelled
 #: model:ir.model,name:event_stage_cancelled.model_event_event
 msgid "Event"
-msgstr ""
+msgstr "Evento"
 
 #. module: event_stage_cancelled
 #: model:ir.model,name:event_stage_cancelled.model_event_mail
 msgid "Event Automated Mailing"
-msgstr ""
+msgstr "Envío automático de correos de eventos"
 
 #. module: event_stage_cancelled
 #: model:ir.model,name:event_stage_cancelled.model_event_registration
 msgid "Event Registration"
-msgstr ""
+msgstr "Rexistro a evento"
 
 #. module: event_stage_cancelled
 #: model:ir.model,name:event_stage_cancelled.model_event_stage
 msgid "Event Stage"
-msgstr ""
+msgstr "Etapa do evento"
 
 #. module: event_stage_cancelled
 #: model:mail.template,name:event_stage_cancelled.event_cancelled
 msgid "Event: Cancelled"
-msgstr ""
+msgstr "Evento: Cancelado"
 
 #. module: event_stage_cancelled
 #: model:ir.model.fields,field_description:event_stage_cancelled.field_event_stage__is_cancelled
 msgid "Is Cancelled"
-msgstr ""
+msgstr "Está cancelado"
 
 #. module: event_stage_cancelled
 #: model:ir.model,name:event_stage_cancelled.model_event_type_mail
 msgid "Mail Scheduling on Event Category"
-msgstr ""
+msgstr "Programación de correo na categoría de eventos"
 
 #. module: event_stage_cancelled
 #: model:ir.model,name:event_stage_cancelled.model_event_mail_registration
 msgid "Registration Mail Scheduler"
-msgstr ""
+msgstr "Programador de correos de inscricións"
 
 #. module: event_stage_cancelled
 #: model:ir.model.fields,field_description:event_stage_cancelled.field_event_event__show_cancel_button
 #: model:ir.model.fields,field_description:event_stage_cancelled.field_event_session__show_cancel_button
 msgid "Show Cancel Button"
-msgstr ""
+msgstr "Mostrar o botón de cancelación"
 
 #. module: event_stage_cancelled
 #: model:ir.model.fields,help:event_stage_cancelled.field_event_registration__cancelled_from_event
@@ -191,25 +329,29 @@ msgid ""
 "from the event so we can, for example send them scheduled mails after the "
 "cancellation but not if the were cancelled before that"
 msgstr ""
+"Campo técnico para distinguir aqueles asistentes que foron cancelados desde "
+"o evento de modo que podamos, por exemplo, enviarlles notificacións "
+"programadas tras a devandita cancelación pero non a aqueles asistentes que "
+"fosen cancelados antes."
 
 #. module: event_stage_cancelled
 #: model:ir.model.fields,help:event_stage_cancelled.field_event_stage__is_cancelled
 msgid "The event is cancelled"
-msgstr ""
+msgstr "O evento está cancelado"
 
 #. module: event_stage_cancelled
 #: model:ir.model.fields,field_description:event_stage_cancelled.field_event_type_mail__interval_type
 msgid "Trigger"
-msgstr ""
+msgstr "Activador"
 
 #. module: event_stage_cancelled
 #: model:ir.model.fields,field_description:event_stage_cancelled.field_event_mail__interval_type
 #: model:ir.model.fields,field_description:event_stage_cancelled.field_event_mail_scheduler_template__interval_type
 #: model:ir.model.fields,field_description:event_stage_cancelled.field_event_mail_session__interval_type
 msgid "Trigger "
-msgstr ""
+msgstr "Desencadear "
 
 #. module: event_stage_cancelled
 #: model:mail.template,subject:event_stage_cancelled.event_cancelled
 msgid "{{ object.event_id.name }}: event cancelled"
-msgstr ""
+msgstr "{{ object.event_id.name }}: evento cancelado"
