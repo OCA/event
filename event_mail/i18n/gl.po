@@ -6,18 +6,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-05-23 17:47+0000\n"
+"Last-Translator: Pablo Castelo <pablocv@gmx.es>\n"
 "Language-Team: none\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__mail_count_done
 msgid "# Sent"
-msgstr ""
+msgstr "# Enviado"
 
 #. module: event_mail
 #: model_terms:ir.ui.view,arch_db:event_mail.res_config_settings_view_form
@@ -25,189 +27,194 @@ msgid ""
 "<span class=\"o_form_label\">Template Mail Scheduler</span>\n"
 "                            <span class=\"fa fa-lg fa-envelope\" title=\"Values set here are company-specific.\" aria-label=\"Values set here are company-specific.\" groups=\"base.group_multi_company\" role=\"img\"/>"
 msgstr ""
+"<span class=\"o_form_label\">Planificador de modelo de correo</span>\n"
+"                                                              <span "
+"class=\"fa fa-lg fa-envelope\" title=\"Values set here are company-"
+"specific.\" aria-label=\"Values set here are company-specific.\" "
+"groups=\"base.group_multi_company\" role=\"img\"/>"
 
 #. module: event_mail
 #: model:ir.model.fields,help:event_mail.field_event_mail_scheduler_template__mail_registration_ids
 msgid "Communication related to event registrations"
-msgstr ""
+msgstr "Comunicación relacionada con rexistros de eventos"
 
 #. module: event_mail
 #: model:ir.model,name:event_mail.model_res_company
 msgid "Companies"
-msgstr ""
+msgstr "Compañías"
 
 #. module: event_mail
 #: model:ir.model,name:event_mail.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Axustes de Configuración"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__create_uid
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_template__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creado por"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__create_date
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_template__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creado o"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__display_name
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_template__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome a mostrar"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__sequence
 msgid "Display order"
-msgstr ""
+msgstr "Orde de visualización"
 
 #. module: event_mail
 #: model:ir.model,name:event_mail.model_event_event
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__event_id
 msgid "Event"
-msgstr ""
+msgstr "Evento"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__event_mail_template_id
 #: model_terms:ir.ui.view,arch_db:event_mail.view_event_mail_template_form
 msgid "Event Mail Template"
-msgstr ""
+msgstr "Modelo de emails"
 
 #. module: event_mail
 #: model:ir.model,name:event_mail.model_event_type
 msgid "Event Template"
-msgstr ""
+msgstr "Modelo de Evento"
 
 #. module: event_mail
 #: model:ir.model,name:event_mail.model_event_mail_scheduler_template
 msgid "Event mail scheduler template"
-msgstr ""
+msgstr "Modelo de programador de correo de eventos"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__mail_state
 msgid "Global communication Status"
-msgstr ""
+msgstr "Estado de comunicación global"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__id
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_template__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__interval_nbr
 msgid "Interval"
-msgstr ""
+msgstr "Intervalo"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template____last_update
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_template____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última modificación en"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__write_uid
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_template__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Última actualización por"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__write_date
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_template__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Última actualización o"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__mail_registration_ids
 msgid "Mail Registration"
-msgstr ""
+msgstr "Rexistro por correo"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_template__scheduler_template_ids
 msgid "Mail Schedule"
-msgstr ""
+msgstr "Programación de correo"
 
 #. module: event_mail
 #: model_terms:ir.ui.view,arch_db:event_mail.view_event_mail_template_form
 msgid "Mail Scheduler"
-msgstr ""
+msgstr "Programador de Correo Electrónico"
 
 #. module: event_mail
 #: model:ir.actions.act_window,name:event_mail.act_event_mail_template
 msgid "Mail Scheduler Template"
-msgstr ""
+msgstr "Modelo de programación de correo"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_res_company__event_mail_template_id
 #: model:ir.model.fields,field_description:event_mail.field_res_config_settings__event_mail_template_id
 msgid "Mail Template"
-msgstr ""
+msgstr "Modelo de mail"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_event__event_mail_template_id
 msgid "Mail Template Scheduler"
-msgstr ""
+msgstr "Modelo de programación de correo"
 
 #. module: event_mail
 #: model:ir.ui.menu,name:event_mail.menu_event_mail_template
 msgid "Mail Templates"
-msgstr ""
+msgstr "Modelos de correo"
 
 #. module: event_mail
 #: model_terms:ir.ui.view,arch_db:event_mail.res_config_settings_view_form
 msgid "Mail options"
-msgstr ""
+msgstr "Opcións de correo"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_template__name
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__scheduled_date
 msgid "Schedule Date"
-msgstr ""
+msgstr "Data programada"
 
 #. module: event_mail
 #: model:ir.model,name:event_mail.model_event_mail_template
 msgid "Scheduling templates for events"
-msgstr ""
+msgstr "Modelos de programación para eventos"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__notification_type
 msgid "Send"
-msgstr ""
+msgstr "Enviar"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__mail_done
 msgid "Sent"
-msgstr ""
+msgstr "Enviado"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__template_ref
 #: model_terms:ir.ui.view,arch_db:event_mail.res_config_settings_view_form
 msgid "Template"
-msgstr ""
+msgstr "Modelo"
 
 #. module: event_mail
 #: model_terms:ir.ui.view,arch_db:event_mail.res_config_settings_view_form
 msgid "Template Mail Scheduler"
-msgstr ""
+msgstr "Modelo de programación de correo"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__template_model_id
 msgid "Template Model"
-msgstr ""
+msgstr "Modelo de modelo"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__interval_type
 msgid "Trigger "
-msgstr ""
+msgstr "Activador "
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__interval_unit
 msgid "Unit"
-msgstr ""
+msgstr "Unidade"
