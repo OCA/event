@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-05-23 07:44+0000\n"
+"Last-Translator: Pablo Castelo <pablocv@gmx.es>\n"
 "Language-Team: none\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: event_sale_reservation
 #: model:ir.model.fields,help:event_sale_reservation.field_product_product__detailed_type
@@ -22,47 +24,52 @@ msgid ""
 "A consumable product is a product for which stock is not managed.\n"
 "A service is a non-material product you provide."
 msgstr ""
+"Un produto almacenable é un produto para o que se xestionan existencias. A "
+"aplicación Inventario debe estar instalada.\n"
+"Un produto consumible é un produto para o que non se xestionan existencias.\n"
+"Un servizo é un produto non material que vostede proporciona."
 
 #. module: event_sale_reservation
 #: code:addons/event_sale_reservation/models/sale_order.py:0
 #, python-format
 msgid "Attendees"
-msgstr ""
+msgstr "Asistentes"
 
 #. module: event_sale_reservation
 #: model_terms:ir.ui.view,arch_db:event_sale_reservation.registration_editor_reservations_view_form
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #. module: event_sale_reservation
 #: model_terms:ir.ui.view,arch_db:event_sale_reservation.registration_editor_reservations_view_form
 msgid "Configure registrations"
-msgstr ""
+msgstr "Configurar rexistros"
 
 #. module: event_sale_reservation
 #: model_terms:ir.ui.view,arch_db:event_sale_reservation.registration_editor_reservations_view_form
 msgid "Convert pending event reservations into registrations for"
-msgstr ""
+msgstr "Converter as reservas a eventos que estean pendentes de"
 
 #. module: event_sale_reservation
 #: model:ir.model.fields,help:event_sale_reservation.field_sale_order_line__event_registration_count
 msgid "Count of event registrations related to this sale order line"
 msgstr ""
+"Conta de rexistros a eventos relacionados con esta liña de pedido de venda"
 
 #. module: event_sale_reservation
 #: model:ir.model,name:event_sale_reservation.model_registration_editor
 msgid "Edit Attendee Details on Sales Confirmation"
-msgstr ""
+msgstr "Editar detalles do asistente ao confirmar a venda"
 
 #. module: event_sale_reservation
 #: model:ir.model,name:event_sale_reservation.model_registration_editor_line
 msgid "Edit Attendee Line on Sales Confirmation"
-msgstr ""
+msgstr "Editar a liña do asistente ao confirmar a venda"
 
 #. module: event_sale_reservation
 #: model:ir.model.fields,field_description:event_sale_reservation.field_sale_order_line__event_registration_count
 msgid "Event Registration Count"
-msgstr ""
+msgstr "Conta de rexistros a eventos"
 
 #. module: event_sale_reservation
 #: model:ir.model.fields.selection,name:event_sale_reservation.selection__product_template__detailed_type__event_reservation
@@ -72,28 +79,28 @@ msgstr ""
 #. module: event_sale_reservation
 #: model_terms:ir.ui.view,arch_db:event_sale_reservation.view_order_product_search
 msgid "Event Reservation Type"
-msgstr ""
+msgstr "Categoría de evento da reserva"
 
 #. module: event_sale_reservation
 #: model:ir.model,name:event_sale_reservation.model_event_type
 msgid "Event Template"
-msgstr ""
+msgstr "Modelo de produto"
 
 #. module: event_sale_reservation
 #: model:ir.model.fields,field_description:event_sale_reservation.field_sale_order__event_registration_count
 #: model:ir.model.fields,field_description:event_sale_reservation.field_sale_order_line__event_registration_ids
 msgid "Event registrations"
-msgstr ""
+msgstr "Rexistros a eventos"
 
 #. module: event_sale_reservation
 #: model:ir.model.fields,help:event_sale_reservation.field_sale_order_line__event_registration_ids
 msgid "Event registrations related to this sale order line"
-msgstr ""
+msgstr "Rexistros a eventos relacionados con esta liña de pedido de venda"
 
 #. module: event_sale_reservation
 #: model:ir.model.fields,field_description:event_sale_reservation.field_sale_report__event_reservation_type_id
 msgid "Event reservation type"
-msgstr ""
+msgstr "Categoría de evento de reserva"
 
 #. module: event_sale_reservation
 #: model:ir.model.fields,field_description:event_sale_reservation.field_product_product__event_reservation_type_id
@@ -101,7 +108,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:event_sale_reservation.field_registration_editor_line__event_reservation_type_id
 #: model:ir.model.fields,field_description:event_sale_reservation.field_sale_order_line__event_reservation_type_id
 msgid "Event type for reservations"
-msgstr ""
+msgstr "Categoría de evento para as reservas"
 
 #. module: event_sale_reservation
 #: model_terms:ir.ui.view,arch_db:event_sale_reservation.registration_editor_reservations_view_form
@@ -111,11 +118,16 @@ msgid ""
 "                        can remove it from the list below. You will be able to\n"
 "                        repeat this process later for those lines."
 msgstr ""
+"Se hai algunha liña dese pedido que aínda\n"
+"                        non desexe converter en rexistros de evento reais,\n"
+"                        pode borrala da lista abaixo. Poderá\n"
+"                        repetir este proceso máis adiante para esas liñas."
 
 #. module: event_sale_reservation
 #: model:ir.model.fields,help:event_sale_reservation.field_sale_order__event_registration_count
 msgid "Indicates how many event registrations are linked to this order."
 msgstr ""
+"Indica cantas reservas a eventos están vinculadas a este pedido de venda."
 
 #. module: event_sale_reservation
 #: model:ir.model.fields,help:event_sale_reservation.field_sale_order__event_reservations_pending
@@ -123,63 +135,65 @@ msgid ""
 "Indicates how many event reservations are still not linked to any "
 "registration."
 msgstr ""
+"Indica cantas reservas a eventos aínda non están vinculadas a ningún "
+"rexistro."
 
 #. module: event_sale_reservation
 #: model_terms:ir.ui.view,arch_db:event_sale_reservation.registration_editor_reservations_view_form
 msgid "Next"
-msgstr ""
+msgstr "Seguinte"
 
 #. module: event_sale_reservation
 #: model:ir.model.fields,field_description:event_sale_reservation.field_sale_order__event_reservations_pending
 msgid "Pending event reservations"
-msgstr ""
+msgstr "Reservas pendentes a eventos"
 
 #. module: event_sale_reservation
 #: model:ir.model,name:event_sale_reservation.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Modelo de produto"
 
 #. module: event_sale_reservation
 #: model:ir.model.fields,field_description:event_sale_reservation.field_product_product__detailed_type
 #: model:ir.model.fields,field_description:event_sale_reservation.field_product_template__detailed_type
 msgid "Product Type"
-msgstr ""
+msgstr "Tipo de produto"
 
 #. module: event_sale_reservation
 #: model:ir.actions.act_window,name:event_sale_reservation.action_registration_editor_reservations
 #: model_terms:ir.ui.view,arch_db:event_sale_reservation.view_sale_order_form_inherit_event
 msgid "Register in event"
-msgstr ""
+msgstr "Rexistrar en evento"
 
 #. module: event_sale_reservation
 #: model:ir.model.fields,field_description:event_sale_reservation.field_event_type__reserved_sale_order_line_ids
 msgid "Reserved sale order lines"
-msgstr ""
+msgstr "Liñas reservadas para pedidos de venda"
 
 #. module: event_sale_reservation
 #: model:ir.model.fields,field_description:event_sale_reservation.field_event_type__seats_reservation_total
 msgid "Reserved seats"
-msgstr ""
+msgstr "Prazas reservadas"
 
 #. module: event_sale_reservation
 #: model:ir.model,name:event_sale_reservation.model_sale_report
 msgid "Sales Analysis Report"
-msgstr ""
+msgstr "Informe de análise de vendas"
 
 #. module: event_sale_reservation
 #: model:ir.model,name:event_sale_reservation.model_sale_order
 msgid "Sales Order"
-msgstr ""
+msgstr "Pedido de venda"
 
 #. module: event_sale_reservation
 #: model:ir.model,name:event_sale_reservation.model_sale_order_line
 msgid "Sales Order Line"
-msgstr ""
+msgstr "Liña de pedido de venda"
 
 #. module: event_sale_reservation
 #: model:ir.model.fields,help:event_sale_reservation.field_event_type__seats_reservation_total
 msgid "Seats reserved for events of this type."
-msgstr ""
+msgstr "Prazas reservadas para eventos desta categoría."
 
 #. module: event_sale_reservation
 #: model:ir.model.fields,help:event_sale_reservation.field_product_product__event_reservation_type_id
@@ -187,10 +201,10 @@ msgstr ""
 #: model:ir.model.fields,help:event_sale_reservation.field_registration_editor_line__event_reservation_type_id
 #: model:ir.model.fields,help:event_sale_reservation.field_sale_order_line__event_reservation_type_id
 msgid "Type of events that can be reserved by buying this product"
-msgstr ""
+msgstr "Categoría de eventos que se poden reservar ao comprar este produto"
 
 #. module: event_sale_reservation
 #: code:addons/event_sale_reservation/models/product_template.py:0
 #, python-format
 msgid "You must indicate event type for %(name)s."
-msgstr ""
+msgstr "Debe indicar a categoría de evento para %(name)s."
