@@ -6,135 +6,137 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-05-23 18:01+0000\n"
+"Last-Translator: Pablo Castelo <pablocv@gmx.es>\n"
 "Language-Team: none\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner__registration_count
 #: model:ir.model.fields,field_description:partner_event.field_res_users__registration_count
 msgid "Attendances"
-msgstr ""
+msgstr "Asistencias"
 
 #. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.view_registration_search
 msgid "Attended"
-msgstr ""
+msgstr "Asistido"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_event_registration__attendee_partner_id
 msgid "Attendee Partner"
-msgstr ""
+msgstr "Empresa asistente"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_event_registration__partner_id
 msgid "Booked by"
-msgstr ""
+msgstr "Reservado por"
 
 #. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #. module: partner_event
 #: model:ir.model,name:partner_event.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Contacto"
 
 #. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.view_partner_form_registrations
 msgid "Count of events with confirmed registrations."
-msgstr ""
+msgstr "Cantidade de eventos con asistencia confirmada."
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_event_event__create_partner
 #: model:ir.model.fields,field_description:partner_event.field_event_session__create_partner
 msgid "Create Partners in registration"
-msgstr ""
+msgstr "Crear empresas no rexistro"
 
 #. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
 msgid "Create registrations"
-msgstr ""
+msgstr "Crear rexistros"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creado por"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creado o"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome mostrado"
 
 #. module: partner_event
 #: model:ir.model,name:partner_event.model_event_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__event
 msgid "Event"
-msgstr ""
+msgstr "Evento"
 
 #. module: partner_event
 #: model:ir.model,name:partner_event.model_event_registration
 msgid "Event Registration"
-msgstr ""
+msgstr "Rexistro a evento"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner__event_registration_ids
 #: model:ir.model.fields,field_description:partner_event.field_res_users__event_registration_ids
 msgid "Event registrations"
-msgstr ""
+msgstr "Rexistros a eventos"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última modificación o"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Última actualización por"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Última actualización o"
 
 #. module: partner_event
 #: model:ir.model,name:partner_event.model_base_partner_merge_automatic_wizard
 msgid "Merge Partner Wizard"
-msgstr ""
+msgstr "Asistente para a Fusión de Socios"
 
 #. module: partner_event
 #: model:ir.actions.act_window,name:partner_event.action_attendee_register_event
 #: model:ir.actions.act_window,name:partner_event.action_partner_register_event
 msgid "Register in an event"
-msgstr ""
+msgstr "Rexistrar nun evento"
 
 #. module: partner_event
 #: model:ir.model,name:partner_event.model_res_partner_register_event
 msgid "Register partner for event"
-msgstr ""
+msgstr "Rexistrar empresa ao evento"
 
 #. module: partner_event
 #: model:ir.actions.act_window,name:partner_event.act_partner_registration
 msgid "Registrations"
-msgstr ""
+msgstr "Rexistros"
 
 #. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
 msgid "Select event to register"
-msgstr ""
+msgstr "Selecciona o evento para rexistrar"
