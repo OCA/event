@@ -6,33 +6,35 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-05-23 17:47+0000\n"
+"Last-Translator: Pablo Castelo <pablocv@gmx.es>\n"
 "Language-Team: none\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: event_registration_multi_qty
 #: model:ir.model.fields,field_description:event_registration_multi_qty.field_event_event__registration_multi_qty
 msgid "Allow multiple attendees per registration"
-msgstr ""
+msgstr "Permitir múltiples asistentes por rexistro"
 
 #. module: event_registration_multi_qty
 #: model:ir.model,name:event_registration_multi_qty.model_event_event
 msgid "Event"
-msgstr ""
+msgstr "Evento"
 
 #. module: event_registration_multi_qty
 #: model:ir.model,name:event_registration_multi_qty.model_event_registration
 msgid "Event Registration"
-msgstr ""
+msgstr "Inscrición no evento"
 
 #. module: event_registration_multi_qty
 #: model:ir.model.fields,field_description:event_registration_multi_qty.field_event_registration__qty
 msgid "Quantity"
-msgstr ""
+msgstr "Cantidade"
 
 #. module: event_registration_multi_qty
 #. odoo-python
@@ -42,6 +44,8 @@ msgid ""
 "You can not add quantities if you not active the option \"Allow multiple "
 "attendees per registration\" in event"
 msgstr ""
+"Non podes engadir cantidades de rexistro se non tes marcada a opción "
+"\"Permitir múltiples asistentes no rexistro\" no evento"
 
 #. module: event_registration_multi_qty
 #. odoo-python
@@ -51,3 +55,5 @@ msgid ""
 "You can not disable this option if there are registrations with quantities "
 "greater than one."
 msgstr ""
+"Non podes desactivar esta opción se tes rexistros con máis dun asistente "
+"nalgún dos rexistros."
