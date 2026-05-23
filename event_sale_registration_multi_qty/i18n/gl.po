@@ -6,40 +6,42 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-05-23 17:47+0000\n"
+"Last-Translator: Pablo Castelo <pablocv@gmx.es>\n"
 "Language-Team: none\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: event_sale_registration_multi_qty
 #: model:ir.model,name:event_sale_registration_multi_qty.model_registration_editor
 msgid "Edit Attendee Details on Sales Confirmation"
-msgstr ""
+msgstr "Editar os datos do asistente na confirmación de venda"
 
 #. module: event_sale_registration_multi_qty
 #: model:ir.model,name:event_sale_registration_multi_qty.model_registration_editor_line
 msgid "Edit Attendee Line on Sales Confirmation"
-msgstr ""
+msgstr "Editar liña de participante na confirmación de venda"
 
 #. module: event_sale_registration_multi_qty
 #: model:ir.model,name:event_sale_registration_multi_qty.model_event_registration
 msgid "Event Registration"
-msgstr ""
+msgstr "Rexistro de eventos"
 
 #. module: event_sale_registration_multi_qty
 #: model:ir.model.fields,field_description:event_sale_registration_multi_qty.field_registration_editor_line__qty
 msgid "Quantity"
-msgstr ""
+msgstr "Cantidade"
 
 #. module: event_sale_registration_multi_qty
 #: model:ir.model,name:event_sale_registration_multi_qty.model_sale_order
 msgid "Sales Order"
-msgstr ""
+msgstr "Pedido de venda"
 
 #. module: event_sale_registration_multi_qty
 #: model:ir.model,name:event_sale_registration_multi_qty.model_sale_order_line
 msgid "Sales Order Line"
-msgstr ""
+msgstr "Liña de pedido de venda"
