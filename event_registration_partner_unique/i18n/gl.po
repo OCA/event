@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-05-23 07:44+0000\n"
+"Last-Translator: Pablo Castelo <pablocv@gmx.es>\n"
 "Language-Team: none\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: event_registration_partner_unique
 #: model:ir.model.fields,help:event_registration_partner_unique.field_event_event__forbid_duplicates
@@ -20,28 +22,30 @@ msgstr ""
 msgid ""
 "Check this to disallow duplicate attendees in this event's registrations"
 msgstr ""
+"Marque isto para impedir que haxa asistentes duplicados nos rexistrados a "
+"este evento"
 
 #. module: event_registration_partner_unique
 #: code:addons/event_registration_partner_unique/models/event.py:0
 #, python-format
 msgid "Duplicated partners found in event %(name)s: %(partners)s."
-msgstr ""
+msgstr "Empresas duplicadas atopadas no evento %(name)s: %(partners)s."
 
 #. module: event_registration_partner_unique
 #: model:ir.model,name:event_registration_partner_unique.model_event_event
 msgid "Event"
-msgstr ""
+msgstr "Evento"
 
 #. module: event_registration_partner_unique
 #: model:ir.model,name:event_registration_partner_unique.model_event_registration
 msgid "Event Registration"
-msgstr ""
+msgstr "Rexistro do evento"
 
 #. module: event_registration_partner_unique
 #: model:ir.model.fields,field_description:event_registration_partner_unique.field_event_event__forbid_duplicates
 #: model:ir.model.fields,field_description:event_registration_partner_unique.field_event_session__forbid_duplicates
 msgid "Forbid Duplicates"
-msgstr ""
+msgstr "Prohibir duplicados"
 
 #. module: event_registration_partner_unique
 #: model:ir.model.fields,help:event_registration_partner_unique.field_base_partner_merge_automatic_wizard__merge_duplicated_registrations
@@ -49,13 +53,15 @@ msgid ""
 "If the merged partners were linked to registrations in an event that had "
 "unique attendees flag we'll take only the oldest one"
 msgstr ""
+"Se os socios fusionados estaban vinculados a inscricións nun evento que tiña "
+"un único indicador de asistentes, só tomaremos o máis antigo"
 
 #. module: event_registration_partner_unique
 #: model:ir.model.fields,field_description:event_registration_partner_unique.field_base_partner_merge_automatic_wizard__merge_duplicated_registrations
 msgid "Merge Duplicated Registrations"
-msgstr ""
+msgstr "Fusionar Rexistros Duplicados"
 
 #. module: event_registration_partner_unique
 #: model:ir.model,name:event_registration_partner_unique.model_base_partner_merge_automatic_wizard
 msgid "Merge Partner Wizard"
-msgstr ""
+msgstr "Asistente para a Fusión de Socios"
