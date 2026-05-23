@@ -6,33 +6,35 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-05-23 07:44+0000\n"
+"Last-Translator: Pablo Castelo <pablocv@gmx.es>\n"
 "Language-Team: none\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: event_track_location_overlap
 #: model:ir.model.fields,help:event_track_location_overlap.field_event_track_location__overlappable
 msgid "Can this location have simultaneous tracks?"
-msgstr ""
+msgstr "Esta localización pode ter sesións solapadas?"
 
 #. module: event_track_location_overlap
 #: model:ir.model,name:event_track_location_overlap.model_event_track
 msgid "Event Track"
-msgstr ""
+msgstr "Sesión do evento"
 
 #. module: event_track_location_overlap
 #: model:ir.model,name:event_track_location_overlap.model_event_track_location
 msgid "Event Track Location"
-msgstr ""
+msgstr "Localización da Pista do Evento"
 
 #. module: event_track_location_overlap
 #: model:ir.model.fields,field_description:event_track_location_overlap.field_event_track_location__overlappable
 msgid "Overlappable"
-msgstr ""
+msgstr "Solapable"
 
 #. module: event_track_location_overlap
 #: code:addons/event_track_location_overlap/models/event_track_location.py:0
@@ -41,3 +43,5 @@ msgid ""
 "Track %(one)s (from event %(one_event)s) and track %(other)s (from event "
 "%(other_event)s) would overlap in the same location %(location)s"
 msgstr ""
+"A sesión %(one)s (do evento %(one_event)s) e a sesión %(other)s (do evento %"
+"(other_event)s) se solaparían na mesma localización %(location)s"
