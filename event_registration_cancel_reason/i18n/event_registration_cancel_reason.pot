@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -41,6 +41,7 @@ msgid "Created on"
 msgstr ""
 
 #. module: event_registration_cancel_reason
+#: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration__display_name
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_log_reason__display_name
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_reason__display_name
 msgid "Display Name"
@@ -72,6 +73,7 @@ msgid "Event types"
 msgstr ""
 
 #. module: event_registration_cancel_reason
+#: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration__id
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_log_reason__id
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_reason__id
 msgid "ID"
@@ -116,7 +118,6 @@ msgstr ""
 #. module: event_registration_cancel_reason
 #. odoo-python
 #: code:addons/event_registration_cancel_reason/wizard/event_registration_cancel_log_reason.py:0
-#, python-format
 msgid ""
 "You cannot cancel registrations from events of different types at once."
 msgstr ""
