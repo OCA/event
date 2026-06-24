@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template
+        id="event_description_dates"
+        inherit_id="website_event.event_description_dates"
+    >
+        <xpath expr="//a[hasclass('o_wevent_add_to_ical')]" position="before">
+            <a t-att-href="iCal_url" class="btn btn-light" title="Download ICS">
+                <i class="fa fa-calendar" />
+            </a>
+            <a
+                t-att-href="iCal_url"
+                class="btn btn-light o_wevent_add_to_other_calendar"
+                title="Add to Thunderbird"
+            >
+                <img
+                    src="/website_event_calendar/static/img/thunderbird.svg"
+                    alt="Thunderbird"
+                />
+            </a>
+        </xpath>
+    </template>
+
+    <template
+        id="registration_complete"
+        inherit_id="website_event.registration_complete"
+    >
+        <xpath
+            expr="//div[@id='add_to_calendar']/a[hasclass('o_outlook_calendar')]"
+            position="before"
+        >
+            <a role="button" class="btn btn-block bg-white" t-att-href="iCal_url">
+                <i class="fa fa-calendar" />
+                Download ICS
+            </a>
+            <a role="button" class="btn btn-block bg-white" t-att-href="iCal_url">
+                <img
+                src="/website_event_calendar/static/img/thunderbird.svg"
+                alt="Thunderbird"
+                loading="lazy"
+            />
+                Add to Thunderbird
+            </a>
+        </xpath>
+    </template>
+</odoo>
