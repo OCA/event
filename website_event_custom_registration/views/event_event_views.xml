@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Riccardo Fiore
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_event_form" model="ir.ui.view">
+        <field name="name">event.event.form.custom.registration</field>
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_form" />
+        <field name="arch" type="xml">
+            <!-- A "Registration" group sits just above the Tickets notebook,
+                 next to the date/details, so the mode is chosen before (and
+                 drives) the native ticket configuration. -->
+            <xpath expr="//notebook" position="before">
+                <group name="custom_registration" string="Registration">
+                    <field
+                        name="registration_mode"
+                        widget="radio"
+                        options="{'horizontal': True}"
+                    />
+                    <field
+                        name="free_event_text"
+                        invisible="registration_mode != 'free'"
+                        placeholder="e.g. Free entry, just show up on the night."
+                    />
+                    <field
+                        name="external_ticket_url"
+                        widget="url"
+                        invisible="registration_mode != 'external'"
+                        required="registration_mode == 'external'"
+                        placeholder="https://tickets.example.com/my-event"
+                    />
+                    <field
+                        name="external_button_text"
+                        invisible="registration_mode != 'external'"
+                        required="registration_mode == 'external'"
+                    />
+                </group>
+            </xpath>
+
+            <!-- The native seat limit only governs Odoo's own ticketing, so
+                 lock it read-only when a non-native mode is in charge: a free
+                 or external event has no native registrations to cap. -->
+            <xpath expr="//field[@name='seats_limited']" position="attributes">
+                <attribute name="readonly">registration_mode != 'native'</attribute>
+            </xpath>
+            <xpath expr="//field[@name='seats_max']" position="attributes">
+                <attribute name="readonly">registration_mode != 'native'</attribute>
+            </xpath>
+
+            <!-- Likewise hide the native registration smart buttons for
+                 non-native modes: there are no native registrations to chart
+                 or list, so the statistics button would only open an empty
+                 report and the attendees button would always read zero. -->
+            <xpath
+                expr="//button[@name='%(event.event_registration_action_stats_from_event)d']"
+                position="attributes"
+            >
+                <attribute name="invisible">registration_mode != 'native'</attribute>
+            </xpath>
+            <xpath
+                expr="//button[@name='%(event.act_event_registration_from_event)d']"
+                position="attributes"
+            >
+                <attribute name="invisible">registration_mode != 'native'</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

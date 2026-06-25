@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Riccardo Fiore
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <!-- ============================================================
+         Registration block routing.
+
+         website_event.registration_template is the single CTA used by
+         every caller: the event page's mobile CTA, the desktop sidebar,
+         the desktop navbar, and any downstream theme that t-calls it.
+         Routing here therefore covers them all, with no XPath collision
+         with themes that t-call (rather than inherit) the template.
+
+         QWeb has no t-choose/t-when; the equivalent routing is expressed
+         with t-if/t-elif and by gating the native branches on
+         registration_mode == 'native'.
+         ============================================================ -->
+    <template
+        id="registration_template_custom"
+        inherit_id="website_event.registration_template"
+        name="Event Registration: custom modes (free / external)"
+    >
+        <!-- free / external branches, rendered before the native CTA -->
+        <xpath expr="//a[@type='button']" position="before">
+            <!-- Free event: a styled message instead of any ticketing. -->
+            <div
+                t-if="event.registration_mode == 'free'"
+                t-attf-class="o_wevent_free_registration alert alert-info {{cta_additional_classes}}"
+                role="status"
+            >
+                <span t-out="event.free_event_text" />
+            </div>
+            <!-- External event: link out to the foreign ticket portal. -->
+            <a
+                t-elif="event.registration_mode == 'external' and event.external_ticket_url"
+                t-att-href="event.external_ticket_url"
+                target="_blank"
+                rel="noopener"
+                t-attf-class="btn btn-primary {{cta_additional_classes}}"
+            >
+                <t t-out="event.external_button_text" />
+            </a>
+        </xpath>
+
+        <!-- Native "Register" link: only in native mode. -->
+        <xpath expr="//a[@type='button']" position="attributes">
+            <attribute
+                name="t-if"
+            >event_page and event.event_registrations_open and event.registration_mode == 'native'</attribute>
+        </xpath>
+
+        <!-- Native "Register" modal button: only in native mode. -->
+        <xpath expr="//button[@type='button']" position="attributes">
+            <attribute
+                name="t-elif"
+            >event.event_registrations_open and event.registration_mode == 'native'</attribute>
+        </xpath>
+
+        <!-- Sold Out / Registrations Closed / Cancelled status block:
+             only in native mode, so free and external events never show a
+             "Sold Out" or "Closed" label just because no native ticket is
+             configured. -->
+        <xpath
+            expr="//t[@t-if='not event.event_registrations_open']"
+            position="attributes"
+        >
+            <attribute
+                name="t-if"
+            >not event.event_registrations_open and event.registration_mode == 'native'</attribute>
+        </xpath>
+    </template>
+
+    <!-- ============================================================
+         Navbar CTA.
+
+         The event sub-menu shows a native "Register" CTA (a hard-coded
+         link on mobile, a registration_template call on desktop), both
+         gated by is_rendering_cta. Restrict it to native mode so a free
+         or external event never surfaces a native register link outside
+         the main block. The external "Get Tickets" / free message still
+         render in the main registration block above.
+         ============================================================ -->
+    <template
+        id="navbar_custom_registration"
+        inherit_id="website_event.navbar"
+        name="Event Navbar: native CTA only for native registration mode"
+    >
+        <xpath expr="//t[@t-set='is_rendering_cta']" position="attributes">
+            <attribute
+                name="t-value"
+            >event.event_registrations_open and not hide_register_cta and event.registration_mode == 'native'</attribute>
+        </xpath>
+    </template>
+</odoo>

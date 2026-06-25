@@ -1,0 +1,109 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_event_custom_registration
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0-20260609\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-21 15:14+0000\n"
+"PO-Revision-Date: 2026-06-21 15:14+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_event_custom_registration
+#: model:ir.model.fields,help:website_event_custom_registration.field_event_event__external_ticket_url
+msgid ""
+"Address of the external ticketing portal attendees are sent to when the "
+"registration mode is 'External registration'."
+msgstr ""
+
+#. module: website_event_custom_registration
+#: model:ir.model.fields,field_description:website_event_custom_registration.field_event_event__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: website_event_custom_registration
+#: model:ir.model,name:website_event_custom_registration.model_event_event
+msgid "Event"
+msgstr ""
+
+#. module: website_event_custom_registration
+#: model:ir.model.fields,field_description:website_event_custom_registration.field_event_event__external_button_text
+msgid "External Button Text"
+msgstr ""
+
+#. module: website_event_custom_registration
+#: model:ir.model.fields,field_description:website_event_custom_registration.field_event_event__external_ticket_url
+msgid "External Ticket URL"
+msgstr ""
+
+#. module: website_event_custom_registration
+#: model:ir.model.fields.selection,name:website_event_custom_registration.selection__event_event__registration_mode__external
+msgid "External registration"
+msgstr ""
+
+#. module: website_event_custom_registration
+#: model:ir.model.fields.selection,name:website_event_custom_registration.selection__event_event__registration_mode__free
+msgid "Free / No registration"
+msgstr ""
+
+#. module: website_event_custom_registration
+#: model:ir.model.fields,field_description:website_event_custom_registration.field_event_event__free_event_text
+msgid "Free Event Message"
+msgstr ""
+
+#. module: website_event_custom_registration
+#: model:ir.model.fields,help:website_event_custom_registration.field_event_event__registration_mode
+msgid ""
+"How attendees register for this event on the website:\n"
+"- Native ticketing: use Odoo's built-in tickets and registration.\n"
+"- Free / No registration: show a custom message instead of tickets.\n"
+"- External registration: redirect attendees to a foreign ticket portal."
+msgstr ""
+
+#. module: website_event_custom_registration
+#: model:ir.model.fields,field_description:website_event_custom_registration.field_event_event__id
+msgid "ID"
+msgstr ""
+
+#. module: website_event_custom_registration
+#: model:ir.model.fields,help:website_event_custom_registration.field_event_event__external_button_text
+msgid "Label of the button that links to the external ticketing portal."
+msgstr ""
+
+#. module: website_event_custom_registration
+#: model:ir.model.fields,help:website_event_custom_registration.field_event_event__free_event_text
+msgid ""
+"Message displayed on the event page when the registration mode is 'Free / No"
+" registration'."
+msgstr ""
+
+#. module: website_event_custom_registration
+#: model:ir.model.fields.selection,name:website_event_custom_registration.selection__event_event__registration_mode__native
+msgid "Native ticketing"
+msgstr ""
+
+#. module: website_event_custom_registration
+#: model_terms:ir.ui.view,arch_db:website_event_custom_registration.view_event_form
+msgid "Registration"
+msgstr ""
+
+#. module: website_event_custom_registration
+#: model:ir.model.fields,field_description:website_event_custom_registration.field_event_event__registration_mode
+msgid "Registration Mode"
+msgstr ""
+
+#. module: website_event_custom_registration
+#: model_terms:ir.ui.view,arch_db:website_event_custom_registration.view_event_form
+msgid "e.g. Free entry — just show up on the night."
+msgstr ""
+
+#. module: website_event_custom_registration
+#: model_terms:ir.ui.view,arch_db:website_event_custom_registration.view_event_form
+msgid "https://tickets.example.com/my-event"
+msgstr ""
