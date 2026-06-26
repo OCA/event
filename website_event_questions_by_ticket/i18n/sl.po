@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-06-26 15:51+0000\n"
+"PO-Revision-Date: 2026-06-26 15:54+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -25,14 +25,14 @@ msgstr "Dogodek"
 #. module: website_event_questions_by_ticket
 #: model:ir.model,name:website_event_questions_by_ticket.model_event_question
 msgid "Event Question"
-msgstr ""
+msgstr "Vprašanje dogodka"
 
 #. module: website_event_questions_by_ticket
 #: model_terms:ir.ui.view,arch_db:website_event_questions_by_ticket.view_event_question_form
 msgid "Leave it empty for being available for all tickets"
-msgstr ""
+msgstr "Pustite prazno, da bo na voljo za vse vstopnice"
 
 #. module: website_event_questions_by_ticket
 #: model:ir.model.fields,field_description:website_event_questions_by_ticket.field_event_question__restricted_ticket_ids
 msgid "Limited to tickets"
-msgstr ""
+msgstr "Omejeno na vstopnice"
