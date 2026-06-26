@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-06-26 16:00+0000\n"
+"PO-Revision-Date: 2026-06-26 18:46+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -80,7 +80,7 @@ msgstr "Predloga dogodka"
 #. module: event_mail
 #: model:ir.model,name:event_mail.model_event_mail_scheduler_template
 msgid "Event mail scheduler template"
-msgstr ""
+msgstr "Predloga razporejevalnika e-pošte dogodka"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__mail_state
@@ -164,12 +164,12 @@ msgstr "Naziv"
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__scheduled_date
 msgid "Schedule Date"
-msgstr ""
+msgstr "Načrtovani datum"
 
 #. module: event_mail
 #: model:ir.model,name:event_mail.model_event_mail_template
 msgid "Scheduling templates for events"
-msgstr ""
+msgstr "Predloge razporejanja za dogodke"
 
 #. module: event_mail
 #: model:ir.model.fields,field_description:event_mail.field_event_mail_scheduler_template__notification_type
