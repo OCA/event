@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 INVITU (<https://www.invitu.com>)
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <template
+        id="registration_event_question"
+        inherit_id="website_event.registration_event_question"
+    >
+        <xpath
+            expr="//t[@t-elif=&quot;question.question_type == 'simple_choice'&quot;]"
+            position="before"
+        >
+            <t t-elif="question.question_type == 'gender'">
+                <select
+                    t-attf-name="#{registration_index}-gender-#{question.id}"
+                    class="form-select"
+                    t-att-required="question.is_mandatory_answer"
+                >
+                    <option value="" />
+                    <t
+                        t-foreach="request.env['res.partner'].fields_get(['gender'])['gender']['selection']"
+                        t-as="option"
+                    >
+                        <option t-att-value="option[0]" t-out="option[1]" />
+                    </t>
+                </select>
+            </t>
+        </xpath>
+    </template>
+</odoo>
