@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 INVITU (<https://www.invitu.com>)
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <template
+        id="registration_attendee_details"
+        inherit_id="website_event.registration_attendee_details"
+    >
+        <xpath expr="//t[@t-set='input_type_by_question_type']" position="attributes">
+            <attribute
+                name="t-value"
+            >{'name': 'text', 'email': 'email', 'phone': 'tel', 'company_name': 'text', 'firstname': 'text', 'lastname': 'text'}</attribute>
+        </xpath>
+    </template>
+
+    <template
+        id="registration_event_question"
+        inherit_id="website_event.registration_event_question"
+    >
+        <xpath
+            expr="//t[contains(@t-if, 'question.question_type in')]"
+            position="attributes"
+        >
+            <attribute
+                name="t-if"
+            >question.question_type in ['name', 'email', 'phone', 'company_name', 'firstname', 'lastname']</attribute>
+        </xpath>
+    </template>
+</odoo>
