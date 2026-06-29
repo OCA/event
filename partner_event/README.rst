@@ -111,6 +111,10 @@ Contributors
 
   - Bhavesh Heliconia
 
+- `INVITU <https://www.invitu.com>`__
+
+  - Cyril Vinh-Tung
+
 Maintainers
 -----------
 
