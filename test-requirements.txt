@@ -1,0 +1,1 @@
+odoo-addon-partner_event_gender @ git+https://github.com/OCA/event.git@refs/pull/513/head#subdirectory=partner_event_gender
