@@ -54,29 +54,45 @@ class EventRegistration(models.Model):
     @api.model
     def _update_attendee_partner_id(self, vals):
         # Don't update if doing a partner merging
-        if (
-            not vals.get("attendee_partner_id")
-            and vals.get("email")
-            and not self.env.context.get("partner_event_merging")
+        if not vals.get("attendee_partner_id") and not self.env.context.get(
+            "partner_event_merging"
         ):
             Partner = self.env["res.partner"]
             Event = self.env["event.event"]
-            # Look for a partner with that email
-            email = vals.get("email").replace("%", "").replace("_", "\\_")
-            # Order was done for avoiding extra queries for sorting the results
-            attendee_partner = Partner.search(
-                [("email", "=ilike", email)], limit=1, order="id"
-            )
-            event = Event.browse()
-            if vals.get("event_id"):
-                event = Event.browse(vals["event_id"])
+            attendee_partner = Partner.browse()
+            attendee_email = vals.get("email")
+            if attendee_email:
+                # Don't search by email if it belongs to partner_id:
+                # the attendee may be a different person (e.g. a child
+                # registered with partner_id's email as fallback).
+                partner_email = False
+                if vals.get("partner_id"):
+                    partner_email = Partner.browse(vals["partner_id"]).email
+                if attendee_email != partner_email:
+                    # Look for a partner with that email
+                    clean_email = attendee_email.replace("%", "").replace("_", "\\_")
+                    # Order was done for avoiding extra queries for sorting
+                    attendee_partner = Partner.search(
+                        [("email", "=ilike", clean_email)], limit=1, order="id"
+                    )
+                    if attendee_partner:
+                        for field in {"name", "phone"}:
+                            vals[field] = vals.get(field) or attendee_partner[field]
+            if not attendee_partner:
+                event = Event.browse()
+                if vals.get("event_id"):
+                    event = Event.browse(vals["event_id"])
+                if (
+                    event
+                    and event.create_partner
+                    and (vals.get("name") or vals.get("email"))
+                ):
+                    # Create partner
+                    attendee_partner = Partner.sudo().create(
+                        self._prepare_partner(vals)
+                    )
             if attendee_partner:
-                for field in {"name", "phone"}:
-                    vals[field] = vals.get(field) or attendee_partner[field]
-            elif event and event.create_partner:
-                # Create partner
-                attendee_partner = Partner.sudo().create(self._prepare_partner(vals))
-            vals["attendee_partner_id"] = attendee_partner.id
+                vals["attendee_partner_id"] = attendee_partner.id
         return vals
 
     @api.model_create_multi
