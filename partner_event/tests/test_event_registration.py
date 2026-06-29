@@ -111,3 +111,80 @@ class TestEventRegistration(BaseCommon):
         partner3 = self.env["res.partner"].create({"name": "unregistered partner"})
         partner3.unlink()
         self.assertFalse(partner3.exists())
+
+    @mute_logger("odoo.models.unlink")
+    def test_action_merge(self):
+        partner_1 = self.env["res.partner"].create(
+            {"name": "Merge Partner 1", "email": "merge1@test.com"}
+        )
+        partner_2 = self.env["res.partner"].create(
+            {"name": "Merge Partner 2", "email": "merge2@test.com"}
+        )
+        self.registration_01.partner_id = partner_1
+        self.registration_02.partner_id = partner_2
+        partners = partner_1 + partner_2
+        wizard = (
+            self.env["base.partner.merge.automatic.wizard"]
+            .with_context(active_ids=partners.ids, active_model=partners._name)
+            .create({})
+        )
+        self.assertEqual(wizard.dst_partner_id, partner_2)
+        wizard.action_merge()
+        self.assertEqual(self.registration_01.partner_id, partner_2)
+        self.assertEqual(self.registration_02.partner_id, partner_2)
+
+    def test_attendee_with_partner_id_email_gets_own_partner(self):
+        """When attendee uses partner_id email as fallback, a new partner is created
+        instead of matching partner_id."""
+        reg = self.env["event.registration"].create(
+            {
+                "event_id": self.event_0.id,
+                "partner_id": self.partner_01.id,
+                "name": "Child Attendee with partner email",
+                "email": self.partner_01.email,
+            }
+        )
+        self.assertNotEqual(reg.attendee_partner_id, self.partner_01)
+        self.assertEqual(
+            reg.attendee_partner_id.name, "Child Attendee with partner email"
+        )
+
+    def test_attendee_without_email_gets_own_partner(self):
+        """When attendee has no email, a partner is still created if create_partner
+        is checked."""
+        reg = self.env["event.registration"].create(
+            {
+                "event_id": self.event_0.id,
+                "partner_id": self.partner_01.id,
+                "name": "Child No Email",
+            }
+        )
+        self.assertEqual(reg.attendee_partner_id.name, "Child No Email")
+
+    def test_attendee_with_own_email_still_gets_matched(self):
+        """When attendee has their own email, normal matching still occurs."""
+        reg = self.env["event.registration"].create(
+            {
+                "event_id": self.event_0.id,
+                "partner_id": self.partner_01.id,
+                "name": "Child Attendee with email",
+                "email": self.registration_02.attendee_partner_id.email,
+            }
+        )
+        self.assertEqual(
+            reg.attendee_partner_id, self.registration_02.attendee_partner_id
+        )
+
+    def test_write_without_email_preserves_attendee_partner(self):
+        """Writing to a registration without email must not clear
+        attendee_partner_id."""
+        reg = self.env["event.registration"].create(
+            {
+                "event_id": self.event_0.id,
+                "email": self.registration_02.attendee_partner_id.email,
+            }
+        )
+        existing_attendee = reg.attendee_partner_id
+        self.assertTrue(existing_attendee)
+        reg.write({"name": "Updated Name"})
+        self.assertEqual(reg.attendee_partner_id, existing_attendee)
