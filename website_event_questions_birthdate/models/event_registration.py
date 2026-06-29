@@ -1,0 +1,10 @@
+# Copyright 2026 INVITU (<https://www.invitu.com>)
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+from odoo import models
+
+
+class EventRegistration(models.Model):
+    _inherit = "event.registration"
+
+    def _get_website_registration_allowed_fields(self):
+        return super()._get_website_registration_allowed_fields() | {"birthdate_date"}
