@@ -1,8 +1,9 @@
 [project]
 name = "odoo-addons-oca-event"
-version = "19.0.20260622.0"
+version = "19.0.20260701.0"
 dependencies = [
     "odoo-addon-event_registration_cancel_reason==19.0.*",
+    "odoo-addon-event_sale_free_no_invoiceable==19.0.*",
     "odoo-addon-partner_event==19.0.*",
 ]
 classifiers=[
