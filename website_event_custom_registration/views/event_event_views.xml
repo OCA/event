@@ -34,6 +34,13 @@
                         invisible="registration_mode != 'external'"
                         required="registration_mode == 'external'"
                     />
+                    <!-- Only meaningful for the custom modes: native events
+                         always follow core's closed/sold-out messaging. -->
+                    <field
+                        name="keep_custom_text_when_closed"
+                        widget="boolean_toggle"
+                        invisible="registration_mode == 'native'"
+                    />
                 </group>
             </xpath>
 

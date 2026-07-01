@@ -390,8 +390,12 @@ ticket portal in a new tab.</li>
 UI state clashes and XPath conflicts that separate modules would create.</p>
 <p>When an event is <em>free</em> or <em>external</em>, the native “Sold Out” /
 “Registrations Closed” labels and the navbar register link are
-suppressed, so the page never looks broken just because no native ticket
-is configured.</p>
+suppressed while registrations are open, so the page never looks broken
+just because no native ticket is configured. Once registrations close
+(the event has ended, is sold out or was cancelled), Odoo’s standard
+“Registrations Closed” notice takes over by default; a per-event <strong>Keep
+Custom Text When Closed</strong> toggle keeps the custom message or button
+visible instead.</p>
 <p>When a non-native mode is selected, the backend event form also locks
 the native seat limit read-only and hides the registration statistics
 and attendees smart buttons, since no native registrations are
@@ -425,6 +429,10 @@ optionally, the <strong>External Button Text</strong> (defaults to
 <tt class="docutils literal">Get Tickets</tt>).</li>
 </ul>
 </li>
+<li>For <em>free</em> and <em>external</em> events, optionally enable <strong>Keep Custom
+Text When Closed</strong> to keep the custom message or button visible after
+registrations close (past, sold-out or cancelled event), instead of
+Odoo’s standard “Registrations Closed” notice.</li>
 <li>Save and publish the event.</li>
 </ol>
 </div>
@@ -439,6 +447,11 @@ controls and no “Sold Out” / “Closed” labels.</li>
 <li><strong>External registration</strong>: a <em>Get Tickets</em> button linking to the
 external portal, opening in a new tab.</li>
 </ul>
+<p>Once registrations close (the event has ended, is sold out or was
+cancelled), free and external events show Odoo’s standard “Registrations
+Closed” notice like native ones, unless <strong>Keep Custom Text When Closed</strong>
+is enabled on the event — then the custom message or button stays
+visible.</p>
 <p>The routing applies everywhere the core registration block is rendered:
 the event page’s main call to action, the (desktop and mobile) sidebar,
 and the event sub-menu, so the experience stays consistent across the

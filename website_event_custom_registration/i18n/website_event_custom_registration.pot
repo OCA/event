@@ -72,6 +72,11 @@ msgid "ID"
 msgstr ""
 
 #. module: website_event_custom_registration
+#: model:ir.model.fields,field_description:website_event_custom_registration.field_event_event__keep_custom_text_when_closed
+msgid "Keep Custom Text When Closed"
+msgstr ""
+
+#. module: website_event_custom_registration
 #: model:ir.model.fields,help:website_event_custom_registration.field_event_event__external_button_text
 msgid "Label of the button that links to the external ticketing portal."
 msgstr ""
@@ -86,6 +91,15 @@ msgstr ""
 #. module: website_event_custom_registration
 #: model:ir.model.fields.selection,name:website_event_custom_registration.selection__event_event__registration_mode__native
 msgid "Native ticketing"
+msgstr ""
+
+#. module: website_event_custom_registration
+#: model:ir.model.fields,help:website_event_custom_registration.field_event_event__keep_custom_text_when_closed
+msgid ""
+"Once registrations close (the event has ended, is sold out or was "
+"cancelled), Odoo normally shows its standard 'Registrations Closed' notice."
+" Enable this to keep showing this event's custom content instead: the free "
+"event message or the external ticket button."
 msgstr ""
 
 #. module: website_event_custom_registration

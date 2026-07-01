@@ -39,3 +39,11 @@ class EventEvent(models.Model):
         default="Get Tickets",
         help="Label of the button that links to the external ticketing portal.",
     )
+    keep_custom_text_when_closed = fields.Boolean(
+        default=False,
+        help="Once registrations close (the event has ended, is sold out or "
+        "was cancelled), Odoo normally shows its standard 'Registrations "
+        "Closed' notice. Enable this to keep showing this event's custom "
+        "content instead: the free event message or the external ticket "
+        "button.",
+    )

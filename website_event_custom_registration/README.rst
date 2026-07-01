@@ -48,8 +48,12 @@ UI state clashes and XPath conflicts that separate modules would create.
 
 When an event is *free* or *external*, the native "Sold Out" /
 "Registrations Closed" labels and the navbar register link are
-suppressed, so the page never looks broken just because no native ticket
-is configured.
+suppressed while registrations are open, so the page never looks broken
+just because no native ticket is configured. Once registrations close
+(the event has ended, is sold out or was cancelled), Odoo's standard
+"Registrations Closed" notice takes over by default; a per-event **Keep
+Custom Text When Closed** toggle keeps the custom message or button
+visible instead.
 
 When a non-native mode is selected, the backend event form also locks
 the native seat limit read-only and hides the registration statistics
@@ -77,7 +81,11 @@ To configure an event:
      optionally, the **External Button Text** (defaults to
      ``Get Tickets``).
 
-3. Save and publish the event.
+3. For *free* and *external* events, optionally enable **Keep Custom
+   Text When Closed** to keep the custom message or button visible after
+   registrations close (past, sold-out or cancelled event), instead of
+   Odoo's standard "Registrations Closed" notice.
+4. Save and publish the event.
 
 Usage
 =====
@@ -90,6 +98,12 @@ mode:
   controls and no "Sold Out" / "Closed" labels.
 - **External registration**: a *Get Tickets* button linking to the
   external portal, opening in a new tab.
+
+Once registrations close (the event has ended, is sold out or was
+cancelled), free and external events show Odoo's standard "Registrations
+Closed" notice like native ones, unless **Keep Custom Text When Closed**
+is enabled on the event — then the custom message or button stays
+visible.
 
 The routing applies everywhere the core registration block is rendered:
 the event page's main call to action, the (desktop and mobile) sidebar,

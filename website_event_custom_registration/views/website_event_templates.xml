@@ -20,11 +20,18 @@
         inherit_id="website_event.registration_template"
         name="Event Registration: custom modes (free / external)"
     >
-        <!-- free / external branches, rendered before the native CTA -->
+        <!-- free / external branches, rendered before the native CTA.
+             Once registrations close (past / sold out / cancelled event)
+             they yield to core's status block below, unless the event opts
+             to keep its custom content via keep_custom_text_when_closed. -->
         <xpath expr="//a[@type='button']" position="before">
+            <t
+                t-set="show_custom_content"
+                t-value="event.event_registrations_open or event.keep_custom_text_when_closed"
+            />
             <!-- Free event: a styled message instead of any ticketing. -->
             <div
-                t-if="event.registration_mode == 'free'"
+                t-if="event.registration_mode == 'free' and show_custom_content"
                 t-attf-class="o_wevent_free_registration alert alert-info {{cta_additional_classes}}"
                 role="status"
             >
@@ -32,7 +39,7 @@
             </div>
             <!-- External event: link out to the foreign ticket portal. -->
             <a
-                t-elif="event.registration_mode == 'external' and event.external_ticket_url"
+                t-elif="event.registration_mode == 'external' and event.external_ticket_url and show_custom_content"
                 t-att-href="event.external_ticket_url"
                 target="_blank"
                 rel="noopener"
@@ -57,16 +64,18 @@
         </xpath>
 
         <!-- Sold Out / Registrations Closed / Cancelled status block:
-             only in native mode, so free and external events never show a
-             "Sold Out" or "Closed" label just because no native ticket is
-             configured. -->
+             always in native mode; for free and external events it is
+             suppressed while registrations are open (it would wrongly flag
+             a missing native ticket) and takes over once registrations
+             close — unless the event keeps its custom text via
+             keep_custom_text_when_closed. -->
         <xpath
             expr="//t[@t-if='not event.event_registrations_open']"
             position="attributes"
         >
             <attribute
                 name="t-if"
-            >not event.event_registrations_open and event.registration_mode == 'native'</attribute>
+            >not event.event_registrations_open and (event.registration_mode == 'native' or not event.keep_custom_text_when_closed)</attribute>
         </xpath>
     </template>
 

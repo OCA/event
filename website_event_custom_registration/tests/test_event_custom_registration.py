@@ -64,3 +64,50 @@ class TestEventCustomRegistration(TransactionCase):
         self.event.registration_mode = "native"
         html = self._render_registration()
         self.assertNotIn("o_wevent_free_registration", html)
+
+    def test_closed_event_defaults_to_core_closed_notice(self):
+        # Once the event is over, core's "Registrations Closed" notice
+        # takes over from the custom content by default.
+        self.event.write(
+            {
+                "date_begin": "2020-01-01 20:00:00",
+                "date_end": "2020-01-02 02:00:00",
+                "registration_mode": "free",
+                "free_event_text": "<p>Free entry, just turn up</p>",
+            }
+        )
+        self.assertFalse(self.event.event_registrations_open)
+        html = self._render_registration()
+        self.assertNotIn("Free entry, just turn up", html)
+        self.assertIn("Closed", html)
+
+    def test_closed_event_keeps_custom_text_when_toggled(self):
+        self.event.write(
+            {
+                "date_begin": "2020-01-01 20:00:00",
+                "date_end": "2020-01-02 02:00:00",
+                "registration_mode": "free",
+                "free_event_text": "<p>Free entry, just turn up</p>",
+                "keep_custom_text_when_closed": True,
+            }
+        )
+        html = self._render_registration()
+        self.assertIn("Free entry, just turn up", html)
+        self.assertNotIn("Closed", html)
+
+    def test_closed_external_event_follows_toggle(self):
+        self.event.write(
+            {
+                "date_begin": "2020-01-01 20:00:00",
+                "date_end": "2020-01-02 02:00:00",
+                "registration_mode": "external",
+                "external_ticket_url": "https://tickets.example.com/dj-night",
+            }
+        )
+        html = self._render_registration()
+        self.assertNotIn("https://tickets.example.com/dj-night", html)
+        self.assertIn("Closed", html)
+        self.event.keep_custom_text_when_closed = True
+        html = self._render_registration()
+        self.assertIn("https://tickets.example.com/dj-night", html)
+        self.assertNotIn("Closed", html)

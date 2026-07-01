@@ -8,4 +8,8 @@ To configure an event:
       to visitors.
     - **External registration**: fill in the **External Ticket URL** and,
       optionally, the **External Button Text** (defaults to `Get Tickets`).
-3.  Save and publish the event.
+3.  For *free* and *external* events, optionally enable **Keep Custom Text
+    When Closed** to keep the custom message or button visible after
+    registrations close (past, sold-out or cancelled event), instead of
+    Odoo's standard "Registrations Closed" notice.
+4.  Save and publish the event.
