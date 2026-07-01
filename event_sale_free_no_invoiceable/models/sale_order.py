@@ -9,6 +9,9 @@ class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"
 
     def _compute_qty_to_invoice(self):
+        # Override the standard invoice quantity computation to exclude event ticket
+        # lines with a zero price. These lines do not generate any invoiceable amount,
+        # so their quantity to invoice must remain zero.
         precision = self.env["decimal.precision"].precision_get(
             "Product Unit of Measure"
         )
