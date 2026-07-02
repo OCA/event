@@ -49,8 +49,17 @@ msgstr "Contatto"
 
 #. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.view_partner_form_registrations
-msgid "Count of events with confirmed registrations."
-msgstr "Numero di eventi con registrazioni confermate."
+msgid ""
+"Count events with registrations booked by this contact or one of its child "
+"contacts."
+msgstr ""
+
+#. module: partner_event
+#: model_terms:ir.ui.view,arch_db:partner_event.view_partner_form_registrations
+msgid ""
+"Count the contact's non-cancelled event registrations as attendee, "
+"regardless of who made the reservation."
+msgstr ""
 
 #. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.view_event_registration_form
@@ -151,3 +160,6 @@ msgstr "Selezionare evento da registrare"
 msgid "Set at least the attendee name or email before creating a partner."
 msgstr ""
 "Impostare almeno il nome partecipante o l'e-mail prima di creare un partner."
+
+#~ msgid "Count of events with confirmed registrations."
+#~ msgstr "Numero di eventi con registrazioni confermate."
