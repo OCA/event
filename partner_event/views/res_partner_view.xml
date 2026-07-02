@@ -14,20 +14,25 @@
     <record model="ir.ui.view" id="view_partner_form_registrations">
         <field name="name">Partner Form with registrations</field>
         <field name="model">res.partner</field>
-        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="inherit_id" ref="event.res_partner_view_tree" />
         <field name="arch" type="xml">
-            <div name="button_box" position="inside">
+            <xpath expr="//button[@name='action_event_view']" position="attributes">
+                <attribute
+                    name="help"
+                >Count events with registrations booked by this contact or one of its child contacts.</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_event_view']" position="before">
                 <button
                     name="%(partner_event.act_partner_registration)d"
                     type="action"
                     class="oe_stat_button oe_inline"
                     groups="event.group_event_user"
-                    help="Count of events with confirmed registrations."
+                    help="Count the contact's non-cancelled event registrations as attendee, regardless of who made the reservation."
                     icon="fa-id-card"
                 >
                     <field name="registration_count" widget="statinfo" />
                 </button>
-            </div>
+            </xpath>
         </field>
     </record>
     <record id="view_res_partner_filter" model="ir.ui.view">
