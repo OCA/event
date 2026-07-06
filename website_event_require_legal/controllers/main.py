@@ -27,7 +27,10 @@ class RequireLegalToRegister(WebsiteEventController):
             )
         )
         message = Markup(
-            self.env._("Website legal terms acceptance metadata: %s", metadata)
+            request.env._(
+                "Website legal terms acceptance metadata: <br/>%s",
+                metadata,
+            )
         )
         record.sudo().message_post(
             body=message, message_type="notification", subtype_xmlid="mail.mt_comment"

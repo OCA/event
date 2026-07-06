@@ -42,7 +42,6 @@ class TestWebsiteEventRequireLegal(HttpCase):
             "/event",
             "website_event_require_legal",
             login="super_mario",
-            step_delay=100,
         )
         registration = self.env["event.registration"].search(
             [("name", "=", "Super Mario")]
