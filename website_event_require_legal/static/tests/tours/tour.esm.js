@@ -7,12 +7,14 @@ registry.category("web_tour.tours").add("website_event_require_legal", {
     test: true,
     steps: () => [
         {
-            trigger:
-                'a[href^="/event/test-event-for-require-legal-"][href$="/register"]',
+            content: "Click on the Design Fair event",
+            trigger: 'article:contains("Test event for require legal")',
             run: "click",
+            expectUnloadPage: true,
         },
         {
-            trigger: 'button[data-bs-target="#modal_ticket_registration"]',
+            content: "Click on Register modal tickets button",
+            trigger: 'button:contains("Register")',
             run: "click",
         },
         {
@@ -32,8 +34,9 @@ registry.category("web_tour.tours").add("website_event_require_legal", {
         },
         {
             trigger:
-                "button[type='submit'].btn.btn-primary:not(.o_wait_lazy_js):contains('Confirm Registration')",
+                ".modal#modal_attendees_registration:not(.o_inactive_modal) button[type=submit].btn-primary",
             run: "click",
+            expectUnloadPage: true,
         },
         {
             content: "Check container of confirmed registrations",
