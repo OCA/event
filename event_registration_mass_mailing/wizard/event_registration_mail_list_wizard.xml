@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record model="ir.ui.view" id="event_registration_mail_list_wizard_form">
+        <field name="model">event.registration.mail.list.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Create contact mailing list">
+                <group>
+                    <field name="mail_list" />
+                </group>
+                <footer>
+                    <button
+                        string="Create contacts"
+                        name="add_to_mail_list"
+                        type="object"
+                        class="oe_highlight"
+                    />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>
