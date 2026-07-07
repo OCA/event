@@ -11,8 +11,7 @@ class EventEvent(models.Model):
     _inherit = "event.event"
 
     forbid_duplicates = fields.Boolean(
-        help="Check this to disallow duplicate attendees in this event's "
-        "registrations",
+        help="Check this to disallow duplicate attendees in this event's registrations",
     )
 
     @api.constrains("forbid_duplicates", "registration_ids")
