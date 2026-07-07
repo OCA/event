@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-03-31 11:45+0000\n"
+"PO-Revision-Date: 2026-07-07 09:46+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -53,6 +53,8 @@ msgid ""
 "Count events with registrations booked by this contact or one of its child "
 "contacts."
 msgstr ""
+"Conta eventi con registrazione prenotata da questo contatto o uno dei suoi "
+"contatti figli."
 
 #. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.view_partner_form_registrations
@@ -60,6 +62,8 @@ msgid ""
 "Count the contact's non-cancelled event registrations as attendee, "
 "regardless of who made the reservation."
 msgstr ""
+"Conta le registrazioni evento come partecipante non annullate, "
+"indipendentemente da chi ha fatto la prenotazione."
 
 #. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.view_event_registration_form
