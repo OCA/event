@@ -31,13 +31,13 @@ class EventRegistration(models.Model):
         for event_reg in self.filtered("event_id.forbid_duplicates"):
             dupes = self.search(event_reg._duplicate_search_domain())
             if dupes:
-                # pylint: disable=W8120
                 raise ValidationError(
-                    self.env._("Duplicated partners found in event {0}: {1}.").format(
-                        event_reg.event_id.display_name,
-                        ", ".join(
-                            partner_id.display_name
-                            for partner_id in dupes.mapped("attendee_partner_id")
+                    self.env._(
+                        "Duplicated partners found in event %(event)s: %(partners)s.",
+                        event=event_reg.event_id.display_name,
+                        partners=", ".join(
+                            partner.display_name
+                            for partner in dupes.mapped("attendee_partner_id")
                         ),
                     )
                 )
