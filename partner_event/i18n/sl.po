@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-27 09:20+0000\n"
-"PO-Revision-Date: 2026-06-26 15:17+0000\n"
+"PO-Revision-Date: 2026-07-09 06:14+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -55,6 +55,8 @@ msgid ""
 "Count events with registrations booked by this contact or one of its child "
 "contacts."
 msgstr ""
+"Preštejte dogodke z registracijami, ki jih je rezerviral ta stik ali eden od "
+"njegovih podrejenih stikov."
 
 #. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.view_partner_form_registrations
@@ -62,6 +64,8 @@ msgid ""
 "Count the contact's non-cancelled event registrations as attendee, "
 "regardless of who made the reservation."
 msgstr ""
+"Ne-odpovedane registracije stika na dogodek se štejejo kot udeleženci, ne "
+"glede na to, kdo je opravil rezervacijo."
 
 #. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.view_event_registration_form
