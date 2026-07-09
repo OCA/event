@@ -25,7 +25,7 @@ addon | version | maintainers | summary
 [event_registration_cancel_reason](event_registration_cancel_reason/) | 19.0.1.0.0 |  | Reasons for event registrations cancellations
 [event_registration_partner_unique](event_registration_partner_unique/) | 19.0.1.0.0 |  | Enforces 1 registration per partner and event
 [event_sale_free_no_invoiceable](event_sale_free_no_invoiceable/) | 19.0.1.0.0 |  | Free tickets no invoiceable
-[partner_event](partner_event/) | 19.0.1.0.0 |  | Link partner to events
+[partner_event](partner_event/) | 19.0.1.0.1 |  | Link partner to events
 [website_event_questions_by_ticket](website_event_questions_by_ticket/) | 19.0.1.0.0 |  | Events Questions conditional to the chosen ticket
 [website_event_require_legal](website_event_require_legal/) | 19.0.1.0.0 |  | Website Event Require Legal
 
