@@ -5,7 +5,6 @@
 import {registry} from "@web/core/registry";
 
 registry.category("web_tour.tours").add("website_event_filter_city", {
-    test: true,
     url: "/event",
     steps: () => [
         {
