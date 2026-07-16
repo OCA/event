@@ -94,6 +94,7 @@ msgstr ""
 #. module: event_registration_cancel_reason
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_log_reason__reason_id
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_reason__name
+#: model_terms:ir.ui.view,arch_db:event_registration_cancel_reason.event_registration_cancel_log_reason_view
 msgid "Reason"
 msgstr ""
 
@@ -108,11 +109,6 @@ msgstr ""
 msgid ""
 "Select the event types where you want to use this cancellation reason. Leave"
 " it empty for using in all."
-msgstr ""
-
-#. module: event_registration_cancel_reason
-#: model_terms:ir.ui.view,arch_db:event_registration_cancel_reason.event_registration_cancel_log_reason_view
-msgid "Select the reason for cancelling the registration:"
 msgstr ""
 
 #. module: event_registration_cancel_reason
