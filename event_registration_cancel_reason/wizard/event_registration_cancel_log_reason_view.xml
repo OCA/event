@@ -4,13 +4,13 @@
         <field name="name">Logging registration cancellation wizard</field>
         <field name="model">event.registration.cancel.log.reason</field>
         <field name="arch" type="xml">
-            <form name="">
-                <field name="event_type_id" invisible="1" />
-                <label
-                    for="reason_id"
-                    string="Select the reason for cancelling the registration:"
-                />
-                <field name="reason_id" />
+            <form>
+                <group name="registration_cancel">
+                    <group name="cancel_reason">
+                        <field name="event_type_id" invisible="1" />
+                        <field name="reason_id" string="Reason" />
+                    </group>
+                </group>
                 <footer>
                     <button
                         name="button_log"
