@@ -45,6 +45,7 @@ msgid "Created on"
 msgstr "Creado en"
 
 #. module: event_registration_cancel_reason
+#: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration__display_name
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_log_reason__display_name
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_reason__display_name
 msgid "Display Name"
@@ -76,6 +77,7 @@ msgid "Event types"
 msgstr "Tipos de evento"
 
 #. module: event_registration_cancel_reason
+#: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration__id
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_log_reason__id
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_reason__id
 msgid "ID"
@@ -96,6 +98,7 @@ msgstr "Última actualización en"
 #. module: event_registration_cancel_reason
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_log_reason__reason_id
 #: model:ir.model.fields,field_description:event_registration_cancel_reason.field_event_registration_cancel_reason__name
+#: model_terms:ir.ui.view,arch_db:event_registration_cancel_reason.event_registration_cancel_log_reason_view
 msgid "Reason"
 msgstr "Razón"
 
@@ -115,16 +118,13 @@ msgstr ""
 "cancelación. Déjelo en blanco para usarla en todos."
 
 #. module: event_registration_cancel_reason
-#: model_terms:ir.ui.view,arch_db:event_registration_cancel_reason.event_registration_cancel_log_reason_view
-msgid "Select the reason for cancelling the registration:"
-msgstr "Seleccione la razón para cancelar el registro:"
-
-#. module: event_registration_cancel_reason
 #. odoo-python
 #: code:addons/event_registration_cancel_reason/wizard/event_registration_cancel_log_reason.py:0
-#, python-format
 msgid "You cannot cancel registrations from events of different types at once."
 msgstr "No puede cancelar registros de eventos de distintos tipos a la vez."
+
+#~ msgid "Select the reason for cancelling the registration:"
+#~ msgstr "Seleccione la razón para cancelar el registro:"
 
 #~ msgid "Last Modified on"
 #~ msgstr "Última modificación el"
