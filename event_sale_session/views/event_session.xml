@@ -27,7 +27,33 @@
                         widget="statinfo"
                     />
                 </button>
+                <button
+                    name="button_open_unconfirmed_event_order"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-eye-slash"
+                    help="Unconfirmed orders seats"
+                >
+                    <field
+                        name="unconfirmed_qty"
+                        widget="statinfo"
+                        string="Unconfirmed order seats"
+                    />
+                </button>
             </div>
+        </field>
+    </record>
+    <record id="view_event_session_tree" model="ir.ui.view">
+        <field name="model">event.session</field>
+        <field name="inherit_id" ref="event_session.view_event_session_tree" />
+        <field name="arch" type="xml">
+            <field name="seats_expected" position="after">
+                <field
+                    name="unconfirmed_qty"
+                    attrs="{'invisible': [('unconfirmed_qty','&lt;', 1)]}"
+                    sum="Total unconfirmed seats in orders"
+                />
+            </field>
         </field>
     </record>
 </odoo>
