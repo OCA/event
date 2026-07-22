@@ -65,7 +65,7 @@ class EventSaleSession(BaseCommon):
         line.event_id = self.event
         self.assertFalse(line.event_session_id)
         # Case 2: The event is a session event with only 1 session
-        (self.event.session_ids - self.session).active = False
+        (self.event.session_ids - self.session).unlink()
         line.event_id = self.event
         self.assertEqual(line.event_session_id, self.session)
         # Case 3: The event is not a session event, session should be unset

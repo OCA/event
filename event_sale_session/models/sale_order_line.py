@@ -25,9 +25,9 @@ class SaleOrderLine(models.Model):
         event_lines = self.filtered("event_id")
         (self - event_lines).event_session_id = False
         for line in event_lines:
-            if (
-                not line.event_id.use_sessions
-                or line.event_id != line.event_session_id.event_id
+            if not line.event_id.use_sessions or (
+                line.event_session_id
+                and line.event_id != line.event_session_id.event_id
             ):
                 line.event_session_id = False
             if line.event_id.session_count == 1:
