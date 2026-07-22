@@ -17,6 +17,11 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: event_sale_session
+#: model_terms:ir.ui.view,arch_db:event_sale_session.view_event_session_form
+msgid "<span class=\"o_stat_text\">Sales</span>"
+msgstr ""
+
+#. module: event_sale_session
 #: model:ir.model.fields,field_description:event_sale_session.field_event_session__sale_order_lines_ids
 msgid "All sale order lines pointing to this session"
 msgstr "Toutes les lignes de vente pointant sur cette séance"
@@ -134,6 +139,26 @@ msgstr "Normal + Catering"
 #: model_terms:ir.ui.view,arch_db:event_sale_session.view_event_session_form
 msgid "Total sales for this session"
 msgstr "Total des ventes pour cette séance"
+
+#. module: event_sale_session
+#: model_terms:ir.ui.view,arch_db:event_sale_session.view_event_session_tree
+msgid "Total unconfirmed seats in orders"
+msgstr ""
+
+#. module: event_sale_session
+#: model:ir.model.fields,field_description:event_sale_session.field_event_session__unconfirmed_qty
+msgid "Unconfirmed Qty"
+msgstr ""
+
+#. module: event_sale_session
+#: model_terms:ir.ui.view,arch_db:event_sale_session.view_event_session_form
+msgid "Unconfirmed order seats"
+msgstr ""
+
+#. module: event_sale_session
+#: model_terms:ir.ui.view,arch_db:event_sale_session.view_event_session_form
+msgid "Unconfirmed orders seats"
+msgstr ""
 
 #. module: event_sale_session
 #: model:event.event.ticket,name:event_sale_session.event_ticket_007_vip
