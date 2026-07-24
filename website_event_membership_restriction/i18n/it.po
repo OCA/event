@@ -1,0 +1,79 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_event_membership_restriction
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-06-05 12:39+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: website_event_membership_restriction
+#: model_terms:ir.ui.view,arch_db:website_event_membership_restriction.registration_template
+msgid "(only"
+msgstr "(solo"
+
+#. module: website_event_membership_restriction
+#: model_terms:ir.ui.view,arch_db:website_event_membership_restriction.website_event_membership_info
+msgid ""
+"<font style=\"font-size: 62px;\" class=\"o_default_snippet_text\">\n"
+"                                <span style=\"font-size: 48px;\">Membership "
+"Information</span>\n"
+"                            </font>"
+msgstr ""
+"<font style=\"font-size: 62px;\" class=\"o_default_snippet_text\">\n"
+"                                <span style=\"font-size: 48px;"
+"\">Informazioni iscrizione</span>\n"
+"                            </font>"
+
+#. module: website_event_membership_restriction
+#: model:ir.model.fields,help:website_event_membership_restriction.field_event_event__registration_membership_only
+msgid "Allow registration only to members"
+msgstr "Consente registrazione solo ai membri"
+
+#. module: website_event_membership_restriction
+#: model_terms:ir.ui.view,arch_db:website_event_membership_restriction.website_event_membership_info
+msgid ""
+"Contact the Association staff in case of further questions or troubles.\n"
+"                            <br/>"
+msgstr ""
+"Contattare lo staff dell'associazione nel caso di altre domande o problemi.\n"
+"                            <br/>"
+
+#. module: website_event_membership_restriction
+#: model:ir.model,name:website_event_membership_restriction.model_event_event
+msgid "Event"
+msgstr "Evento"
+
+#. module: website_event_membership_restriction
+#: model_terms:ir.ui.view,arch_db:website_event_membership_restriction.registration_template
+msgid "Members only"
+msgstr "Solo membri"
+
+#. module: website_event_membership_restriction
+#: model_terms:ir.ui.view,arch_db:website_event_membership_restriction.registration_template
+msgid "Register"
+msgstr "Registro"
+
+#. module: website_event_membership_restriction
+#: model:ir.model.fields,field_description:website_event_membership_restriction.field_event_event__registration_membership_only
+msgid "Registration Membership Only"
+msgstr "Solo registrazione iscrizione"
+
+#. module: website_event_membership_restriction
+#: model_terms:ir.ui.view,arch_db:website_event_membership_restriction.website_event_membership_info
+msgid "The event is exclusive for members of the association."
+msgstr "L'evento è esclusivo per i membri dell'associazione."
+
+#. module: website_event_membership_restriction
+#: model_terms:ir.ui.view,arch_db:website_event_membership_restriction.registration_template
+msgid "available)"
+msgstr "disponibile)"

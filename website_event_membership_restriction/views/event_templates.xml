@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 Tecnativa - Pilar Vargas
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <template
+        id="registration_template"
+        inherit_id="website_event.registration_template"
+    >
+        <!-- Put this evaluation at the very beginning -->
+        <a t-if="event_page and event.event_registrations_open" position="before">
+            <t t-set="user" t-value="request.env.user" />
+            <t t-set="partner" t-value="user.partner_id" />
+            <t
+                t-set="is_disabled_for_non_members"
+                t-value="event.registration_membership_only and (not user or (partner.commercial_partner_id.membership_state not in ['paid', 'free'] and partner.membership_state not in ['paid', 'free']))"
+            />
+        </a>
+        <a t-if="event_page and event.event_registrations_open" position="attributes">
+            <attribute name="t-att-disabled">is_disabled_for_non_members</attribute>
+        </a>
+        <a t-if="event_page and event.event_registrations_open" position="inside">
+            <t
+                t-if="event.seats_limited and event.seats_max and event.seats_available &lt;= (event.seats_max * 0.2)"
+            >
+                (only <t t-out="event.seats_available" /> available)
+            </t>
+        </a>
+        <xpath expr="//button[@data-bs-toggle='modal']" position="attributes">
+            <attribute name="t-att-disabled">is_disabled_for_non_members</attribute>
+        </xpath>
+        <xpath expr="//button[@data-bs-toggle='modal']" position="inside">
+            <t
+                t-if="event.seats_limited and event.seats_max and event.seats_available &lt;= (event.seats_max * 0.2)"
+            >
+                (only <t t-out="event.seats_available" /> available)
+            </t>
+        </xpath>
+        <xpath expr="//button[@data-bs-toggle='modal']" position="after">
+            <t t-if="is_disabled_for_non_members">
+                <a class="text-center small" href="/membership-info">Members only</a>
+            </t>
+        </xpath>
+    </template>
+</odoo>
