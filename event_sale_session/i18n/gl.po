@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-23 17:47+0000\n"
-"Last-Translator: Pablo Castelo <pablocv@gmx.es>\n"
+"PO-Revision-Date: 2026-07-31 17:31+0000\n"
+"Last-Translator: Cándido Martínez <candido@supermercadoscooperativos.com>\n"
 "Language-Team: none\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
@@ -138,22 +138,22 @@ msgstr "Total de vendas para esta sesión"
 #. module: event_sale_session
 #: model_terms:ir.ui.view,arch_db:event_sale_session.view_event_session_tree
 msgid "Total unconfirmed seats in orders"
-msgstr ""
+msgstr "Nº total de asentos non confirmados nos pedidos"
 
 #. module: event_sale_session
 #: model:ir.model.fields,field_description:event_sale_session.field_event_session__unconfirmed_qty
 msgid "Unconfirmed Qty"
-msgstr ""
+msgstr "Cantidade sen asignar"
 
 #. module: event_sale_session
 #: model_terms:ir.ui.view,arch_db:event_sale_session.view_event_session_form
 msgid "Unconfirmed order seats"
-msgstr ""
+msgstr "Pedidos con asentos sen confirmar"
 
 #. module: event_sale_session
 #: model_terms:ir.ui.view,arch_db:event_sale_session.view_event_session_form
 msgid "Unconfirmed orders seats"
-msgstr ""
+msgstr "Pedidos con asentos sen confirmar"
 
 #. module: event_sale_session
 #: model:event.event.ticket,name:event_sale_session.event_ticket_007_vip
