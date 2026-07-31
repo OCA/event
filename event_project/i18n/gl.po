@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-23 17:47+0000\n"
-"Last-Translator: Pablo Castelo <pablocv@gmx.es>\n"
+"PO-Revision-Date: 2026-07-31 17:31+0000\n"
+"Last-Translator: Cándido Martínez <candido@supermercadoscooperativos.com>\n"
 "Language-Team: none\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
@@ -28,11 +28,15 @@ msgid ""
 "Keep track of the progress of your tasks from creation to completion.<br>\n"
 "                Collaborate efficiently by chatting in real-time or via email."
 msgstr ""
+"Facer seguimento do progreso das túas tarefas dende a creación ata o "
+"remate.<br>\n"
+"                Colabore de forma eficiente chateando en tempo real ou vía "
+"correo electrónico."
 
 #. module: event_project
 #: model_terms:ir.actions.act_window,help:event_project.act_event_task_list
 msgid "No tasks found. Let's create one!"
-msgstr ""
+msgstr "Non se atopan tarefas. Crea unha!"
 
 #. module: event_project
 #: model:ir.model,name:event_project.model_project_project
