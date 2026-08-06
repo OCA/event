@@ -32,7 +32,7 @@ class ResPartner(models.Model):
 
     def write(self, data):
         res = super().write(data)
-        self.mapped("event_registration_ids").partner_data_update(data)
+        self.sudo().event_registration_ids.partner_data_update(data)
         return res
 
     def address_get(self, adr_pref=None):
