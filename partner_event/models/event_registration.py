@@ -16,11 +16,7 @@ class EventRegistration(models.Model):
 
     partner_id = fields.Many2one(ondelete="restrict")
     attendee_partner_id = fields.Many2one(
-        comodel_name="res.partner",
-        string="Attendee Partner",
-        ondelete="restrict",
-        copy=False,
-        index=True,
+        comodel_name="res.partner", ondelete="restrict", copy=False, index=True
     )
 
     @api.model
