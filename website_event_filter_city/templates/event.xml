@@ -30,7 +30,7 @@
                         />
                         <t t-if="city['city']">
                             <a
-                                t-att-href="keep('/event', city=city['city'])"
+                                t-att-href="keep_event_url('/event', city=city['city'])"
                                 t-attf-class="dropdown-item d-flex align-items-center justify-content-between #{searches.get('city') == city['city'] and 'active'}"
                             >
                                 <t t-out="city['city']" />
@@ -44,7 +44,7 @@
                 </div>
             </div>
         </xpath>
-        <xpath expr="//*[hasclass('o_wevent_offcanvas_country')]/.." position="after">
+        <xpath expr="//div[hasclass('accordion-item')][last()]" position="after">
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button
@@ -75,7 +75,7 @@
                                         t-value="searches.get('city') == city.get('city')"
                                     />
                                     <a
-                                        t-att-href="keep('/event', city=city['city'])"
+                                        t-att-href="keep_event_url('/event', city=city['city'])"
                                         class="d-flex align-items-center justify-content-between text-reset text-decoration-none"
                                         t-att-title="date[1]"
                                     >

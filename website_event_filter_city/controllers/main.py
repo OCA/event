@@ -1,8 +1,9 @@
 # Copyright 2016-2017 Tecnativa - Jairo Llopis
 # Copyright 2023 Tecnativa - David Vidal
+# Copyright 2026 Tecnativa - Adasat Torres
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-from odoo import _
+from odoo.fields import Domain
 from odoo.http import request, route
 
 from odoo.addons.website_event.controllers.main import WebsiteEventController
@@ -11,10 +12,10 @@ from odoo.addons.website_event.controllers.main import WebsiteEventController
 class WebsiteEvent(WebsiteEventController):
     @route()
     def events(self, page=1, **searches):
-        searches.setdefault("city", _("All Cities"))
+        searches.setdefault("city", self.env._("All Cities"))
         # Inject our city in `_search_with_fuzzy` which ends up in `event.event`
         # `_search_get_detail` override.
-        if searches["city"] != _("All Cities"):
+        if searches["city"] != self.env._("All Cities"):
             request.website = request.website.with_context(
                 event_filter_city=searches["city"]
             )
@@ -34,37 +35,28 @@ class WebsiteEvent(WebsiteEventController):
         )
         # This domain includes all the other filters
         if qcontext["current_country"]:
-            domain = next(
-                country_domain["__domain"]
-                for country_domain in qcontext["countries"][1:]
-                if country_domain["country_id"]
-                and country_domain["country_id"][0] == qcontext["current_country"].id
+            domain = Domain(domain) & Domain(
+                [("country_id", "=", qcontext["current_country"].id)]
             )
-        # Otherwise, we can make some domain surgery to reuse the domain country for
-        # our own purposes.
-        elif len(qcontext["countries"]) > 1:
-            domain = qcontext["countries"][1]["__domain"]
-            countries_domain = [
-                "|",
-                ("country_id", "=", False),
-                ("country_id", "!=", False),
-            ]
-            country_tuple_index = next(
-                i for i, x in enumerate(domain) if len(x) > 1 and x[0] == "country_id"
-            )
-            domain.pop(country_tuple_index)
-            domain[country_tuple_index : len(countries_domain)] = countries_domain
-        # Finally we can use the domain we obtained to filter the cities in the controls
-        cities = request.env["event.event"].read_group(
-            domain, ["city"], groupby="city", orderby="city"
+        if qcontext["event_ids"]:
+            domain = Domain(domain) & Domain([("id", "in", qcontext["event_ids"].ids)])
+        cities = request.env["event.event"]._read_group(
+            domain,
+            aggregates=["__count"],
+            groupby=["city"],
         )
+        cities = [{"city": city[0], "city_count": city[1]} for city in cities]
         cities.insert(
             0,
             {
                 "city_count": sum(x["city_count"] for x in cities),
-                "city": _("All Cities"),
+                "city": self.env._("All Cities"),
             },
         )
-        qcontext["cities"] = cities
-        qcontext["current_city"] = searches["city"]
+        qcontext.update(
+            {
+                "cities": cities,
+                "current_city": searches["city"],
+            }
+        )
         return response

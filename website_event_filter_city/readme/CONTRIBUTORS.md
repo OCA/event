@@ -10,3 +10,4 @@
   > - Víctor Martínez
   > - David Vidal
   > - Pilar Vargas
+  > - Adasat Torres

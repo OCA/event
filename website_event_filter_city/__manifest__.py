@@ -4,7 +4,7 @@
 {
     "name": "Website Event Filter City",
     "summary": "Add a customizable top area to filter events with city",
-    "version": "18.0.1.0.1",
+    "version": "19.0.1.0.0",
     "category": "Website",
     "website": "https://github.com/OCA/event",
     "author": "Antiun Ingeniería S.L., "
@@ -19,7 +19,7 @@
     "demo": ["demo/tour_data.xml"],
     "assets": {
         "web.assets_tests": [
-            "/website_event_filter_city/static/src/js/*.js",
+            "/website_event_filter_city/static/src/tests/*.js",
         ]
     },
 }
