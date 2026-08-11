@@ -3,7 +3,7 @@
 
 from datetime import timedelta
 
-from odoo import _, api, exceptions, fields, models
+from odoo import api, exceptions, fields, models
 
 
 class EventTrackLocation(models.Model):
@@ -40,7 +40,7 @@ class EventTrackLocation(models.Model):
                 b_end = b_start + timedelta(hours=b_track.duration)
                 # Fail if there's an overlap
                 if b_start <= a_end and b_end >= a_start:
-                    msg = _(
+                    msg = self.env._(
                         "Track %(one)s (from event %(one_event)s) and "
                         "track %(other)s (from event %(other_event)s) would "
                         "overlap in the same location %(location)s"
