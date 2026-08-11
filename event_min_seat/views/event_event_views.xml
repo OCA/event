@@ -3,10 +3,15 @@
         <field name="model">event.event</field>
         <field name="inherit_id" ref="event.view_event_form" />
         <field name="arch" type="xml">
+            <field name="seats_limited" position="attributes">
+                <attribute name="help">
+                    Define the minimum expected and maximum allowed number of attendees. Events below the minimum are highlighted in red in the event list.
+                </attribute>
+            </field>
             <field name="seats_limited" position="after">
                 <span invisible="not seats_limited" required="seats_limited">from <field
                 name="seats_min"
-                class="oe_inline"
+                class="oe_inline o_input_9ch"
             /></span>
                 &amp;nbsp;
             </field>

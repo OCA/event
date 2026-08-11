@@ -1,10 +1,11 @@
 # Copyright 2023 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 from odoo import exceptions
-from odoo.tests.common import TransactionCase
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestEventMinSeat(TransactionCase):
+class TestEventMinSeat(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
