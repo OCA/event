@@ -31,21 +31,26 @@
                     </tr>
                 </thead>
                 <tr t-foreach="ctx['events']" t-as="event">
-                    <td><span
+                    <td>
+                        <span
                             t-out="event.date_begin"
                             t-options="{'widget': 'datetime', 'tz_name': event.date_tz, 'format': 'short'}"
-                        /></td>
-                    <td><span t-out="event.name" /></td>
-                    <td><span
+                        />
+                    </td>
+                    <td>
+                        <span t-out="event.name" />
+                    </td>
+                    <td>
+                        <span
                             t-out="event.date_end"
                             t-options="{'widget': 'datetime', 'tz_name': event.date_tz, 'format': 'short'}"
-                        /></td>
-                    <td><span
-                            t-out="event.stage_id.name"
-                            style="font-weight:bold;"
-                        /></td>
+                        />
+                    </td>
+                    <td>
+                        <span t-out="event.stage_id.name" style="font-weight:bold;" />
+                    </td>
                 </tr>
-        </table>
-    </field>
+            </table>
+        </field>
     </record>
 </odoo>
