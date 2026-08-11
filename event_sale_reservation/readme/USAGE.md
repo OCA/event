@@ -11,7 +11,7 @@ how to increase it.
 To create an event reservation product:
 
 1.  Go to *Sales \> Products \> Products*.
-2.  Create one and set *Product Type* to *Event Reservation*.
+2.  Create one, set *Product Type* to *Service* and *Create on Order* to *Event Reservation*.
 3.  Select one *Event type for reservations*.
 4.  Save.
 

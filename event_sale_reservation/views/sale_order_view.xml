@@ -17,17 +17,6 @@
                     invisible="event_reservations_pending == 0 or state not in ['sale', 'done']"
                 />
             </button>
-            <div class="oe_button_box" name="button_box" position="inside">
-                <button
-                    name="action_open_event_registrations"
-                    type="object"
-                    class="oe_stat_button"
-                    icon="fa-users"
-                    invisible="event_registration_count == 0"
-                >
-                    <field name="event_registration_count" widget="statinfo" />
-                </button>
-            </div>
             <xpath
                 expr="//field[@name='order_line']//form//field[@name='event_id']"
                 position="before"
