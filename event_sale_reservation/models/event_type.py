@@ -24,14 +24,14 @@ class EventType(models.Model):
         return [
             ("event_reservation_type_id", "in", self.ids),
             ("order_id.state", "in", ("sale", "done")),
-            ("product_id.detailed_type", "=", "event_reservation"),
+            ("product_id.service_tracking", "=", "event_reservation"),
         ]
 
     @api.depends(
         "reserved_sale_order_line_ids.event_registration_count",
         "reserved_sale_order_line_ids.event_reservation_type_id",
         "reserved_sale_order_line_ids.order_id.state",
-        "reserved_sale_order_line_ids.product_id.detailed_type",
+        "reserved_sale_order_line_ids.product_id.service_tracking",
         "reserved_sale_order_line_ids.product_uom_qty",
     )
     def _compute_reservations_total(self):

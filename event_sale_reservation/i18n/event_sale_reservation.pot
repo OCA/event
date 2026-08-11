@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -12,22 +12,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-
-#. module: event_sale_reservation
-#: model:ir.model.fields,help:event_sale_reservation.field_product_product__detailed_type
-#: model:ir.model.fields,help:event_sale_reservation.field_product_template__detailed_type
-msgid ""
-"A storable product is a product for which you manage stock. The Inventory app has to be installed.\n"
-"A consumable product is a product for which stock is not managed.\n"
-"A service is a non-material product you provide."
-msgstr ""
-
-#. module: event_sale_reservation
-#. odoo-python
-#: code:addons/event_sale_reservation/models/sale_order.py:0
-#, python-format
-msgid "Attendees"
-msgstr ""
 
 #. module: event_sale_reservation
 #: model_terms:ir.ui.view,arch_db:event_sale_reservation.registration_editor_reservations_view_form
@@ -50,6 +34,12 @@ msgid "Count of event registrations related to this sale order line"
 msgstr ""
 
 #. module: event_sale_reservation
+#: model:ir.model.fields,field_description:event_sale_reservation.field_product_product__service_tracking
+#: model:ir.model.fields,field_description:event_sale_reservation.field_product_template__service_tracking
+msgid "Create on Order"
+msgstr ""
+
+#. module: event_sale_reservation
 #: model:ir.model,name:event_sale_reservation.model_registration_editor
 msgid "Edit Attendee Details on Sales Confirmation"
 msgstr ""
@@ -65,7 +55,7 @@ msgid "Event Registration Count"
 msgstr ""
 
 #. module: event_sale_reservation
-#: model:ir.model.fields.selection,name:event_sale_reservation.selection__product_template__detailed_type__event_reservation
+#: model:ir.model.fields.selection,name:event_sale_reservation.selection__product_template__service_tracking__event_reservation
 msgid "Event Reservation"
 msgstr ""
 
@@ -80,7 +70,6 @@ msgid "Event Template"
 msgstr ""
 
 #. module: event_sale_reservation
-#: model:ir.model.fields,field_description:event_sale_reservation.field_sale_order__event_registration_count
 #: model:ir.model.fields,field_description:event_sale_reservation.field_sale_order_line__event_registration_ids
 msgid "Event registrations"
 msgstr ""
@@ -113,11 +102,6 @@ msgid ""
 msgstr ""
 
 #. module: event_sale_reservation
-#: model:ir.model.fields,help:event_sale_reservation.field_sale_order__event_registration_count
-msgid "Indicates how many event registrations are linked to this order."
-msgstr ""
-
-#. module: event_sale_reservation
 #: model:ir.model.fields,help:event_sale_reservation.field_sale_order__event_reservations_pending
 msgid ""
 "Indicates how many event reservations are still not linked to any "
@@ -137,12 +121,6 @@ msgstr ""
 #. module: event_sale_reservation
 #: model:ir.model,name:event_sale_reservation.model_product_template
 msgid "Product"
-msgstr ""
-
-#. module: event_sale_reservation
-#: model:ir.model.fields,field_description:event_sale_reservation.field_product_product__detailed_type
-#: model:ir.model.fields,field_description:event_sale_reservation.field_product_template__detailed_type
-msgid "Product Type"
 msgstr ""
 
 #. module: event_sale_reservation
@@ -192,6 +170,5 @@ msgstr ""
 #. module: event_sale_reservation
 #. odoo-python
 #: code:addons/event_sale_reservation/models/product_template.py:0
-#, python-format
 msgid "You must indicate event type for %(name)s."
 msgstr ""

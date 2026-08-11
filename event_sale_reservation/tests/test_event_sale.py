@@ -3,7 +3,8 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from datetime import datetime, timedelta
 
-from odoo.tests.common import Form
+from odoo import Command
+from odoo.tests import Form
 
 from odoo.addons.base.tests.common import BaseCommon
 
@@ -21,7 +22,8 @@ class EventSaleCase(BaseCommon):
         cls.products = cls.env["product.product"].create(
             [
                 {
-                    "detailed_type": "event_reservation",
+                    "type": "service",
+                    "service_tracking": "event_reservation",
                     "event_reservation_type_id": cls.event_types[num].id,
                     "list_price": num,
                     "name": "product reservation for event type %d" % num,
@@ -35,9 +37,7 @@ class EventSaleCase(BaseCommon):
                     "date_begin": datetime.now(),
                     "date_end": datetime.now() + timedelta(days=1),
                     "event_ticket_ids": [
-                        (
-                            0,
-                            0,
+                        Command.create(
                             {
                                 "name": "ticket %d" % num,
                                 "product_id": cls.products[num].id,
@@ -64,9 +64,7 @@ class EventSaleCase(BaseCommon):
             [
                 {
                     "order_line": [
-                        (
-                            0,
-                            0,
+                        Command.create(
                             {
                                 "product_id": cls.products[num].id,
                                 "product_uom_qty": qtys[num],
@@ -111,7 +109,8 @@ class EventSaleCase(BaseCommon):
         with self.assertRaises(ReservationWithoutEventTypeError):
             self.env["product.product"].create(
                 {
-                    "detailed_type": "event_reservation",
+                    "type": "service",
+                    "service_tracking": "event_reservation",
                     "list_price": 10,
                     "name": "event reservation without event type fails",
                 }
