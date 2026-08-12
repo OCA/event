@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -19,6 +19,12 @@ msgid "Can this location have simultaneous tracks?"
 msgstr ""
 
 #. module: event_track_location_overlap
+#: model:ir.model.fields,field_description:event_track_location_overlap.field_event_track__display_name
+#: model:ir.model.fields,field_description:event_track_location_overlap.field_event_track_location__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: event_track_location_overlap
 #: model:ir.model,name:event_track_location_overlap.model_event_track
 msgid "Event Track"
 msgstr ""
@@ -29,6 +35,12 @@ msgid "Event Track Location"
 msgstr ""
 
 #. module: event_track_location_overlap
+#: model:ir.model.fields,field_description:event_track_location_overlap.field_event_track__id
+#: model:ir.model.fields,field_description:event_track_location_overlap.field_event_track_location__id
+msgid "ID"
+msgstr ""
+
+#. module: event_track_location_overlap
 #: model:ir.model.fields,field_description:event_track_location_overlap.field_event_track_location__overlappable
 msgid "Overlappable"
 msgstr ""
@@ -36,7 +48,6 @@ msgstr ""
 #. module: event_track_location_overlap
 #. odoo-python
 #: code:addons/event_track_location_overlap/models/event_track_location.py:0
-#, python-format
 msgid ""
 "Track %(one)s (from event %(one_event)s) and track %(other)s (from event "
 "%(other_event)s) would overlap in the same location %(location)s"
