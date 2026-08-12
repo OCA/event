@@ -21,7 +21,7 @@ EventRegistrationForm.include({
                 return element.id === "attendee_registration";
             }),
             $target = jQuery(ev.target),
-            ticket_id = $target.data("ticket-id"),
+            ticket_id = String($target.data("ticket-id")),
             show_others = $target.filter(":checked").length === 0;
         var $attendee_containers = $form
             .find("input[name$=-event_ticket_id]")
