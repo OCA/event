@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Tecnativa - Jairo Llopis
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<data>
+    <record id="view_sale_order_form_inherit_event" model="ir.ui.view">
+        <field name="name">Event reservation management</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="event_sale.sale_order_view_form" />
+        <field name="arch" type="xml">
+            <button id="action_confirm" position="after">
+                <button
+                    name="%(action_registration_editor_reservations)d"
+                    type="action"
+                    string="Register in event"
+                    class="btn-primary"
+                    invisible="event_reservations_pending == 0 or state not in ['sale', 'done']"
+                />
+            </button>
+        </field>
+    </record>
+</data>
