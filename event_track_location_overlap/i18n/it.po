@@ -1,0 +1,48 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_track_location_overlap
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2023-07-18 14:11+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: event_track_location_overlap
+#: model:ir.model.fields,help:event_track_location_overlap.field_event_track_location__overlappable
+msgid "Can this location have simultaneous tracks?"
+msgstr "Questa ubicazione può avere percorsi simultanei?"
+
+#. module: event_track_location_overlap
+#: model:ir.model,name:event_track_location_overlap.model_event_track
+msgid "Event Track"
+msgstr "Percorso evento"
+
+#. module: event_track_location_overlap
+#: model:ir.model,name:event_track_location_overlap.model_event_track_location
+msgid "Event Track Location"
+msgstr "Ubicazione percorso evento"
+
+#. module: event_track_location_overlap
+#: model:ir.model.fields,field_description:event_track_location_overlap.field_event_track_location__overlappable
+msgid "Overlappable"
+msgstr "Sovrapponibile"
+
+#. module: event_track_location_overlap
+#: code:addons/event_track_location_overlap/models/event_track_location.py:0
+#, python-format
+msgid ""
+"Track %(one)s (from event %(one_event)s) and track %(other)s (from event "
+"%(other_event)s) would overlap in the same location %(location)s"
+msgstr ""
+"Il percorso %(one)s (dell'evento %(one_event)s) e il percorso %(other)s "
+"(dell'evento %(other_event)s) si sovrappongono nella stessa ubicazione "
+"%(location)s"
