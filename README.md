@@ -31,6 +31,7 @@ addon | version | maintainers | summary
 [event_registration_partner_unique](event_registration_partner_unique/) | 18.0.1.0.0 |  | Enforces 1 registration per partner and event
 [event_sale_free_no_invoiceable](event_sale_free_no_invoiceable/) | 18.0.1.0.0 |  | Free tickets no invoiceable
 [event_sale_registration_multi_qty](event_sale_registration_multi_qty/) | 18.0.1.0.1 |  | Allows sell registrations with more than one attendee
+[event_sale_reservation](event_sale_reservation/) | 18.0.1.0.0 | <a href='https://github.com/pilarvargas-tecnativa'><img src='https://github.com/pilarvargas-tecnativa.png' width='32' height='32' style='border-radius:50%;' alt='pilarvargas-tecnativa'/></a> | Allow selling event registrations before the event exists
 [event_sale_session](event_sale_session/) | 18.0.1.1.0 |  | Sell Event Sessions
 [event_session](event_session/) | 18.0.1.0.0 |  | Sessions in events
 [event_session_registration_multi_qty](event_session_registration_multi_qty/) | 18.0.1.0.0 |  | Allow registration grouped by quantities in sessions
