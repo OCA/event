@@ -23,13 +23,17 @@ class EventEvent(models.Model):
                 "seats_used": 0,
                 "seats_available": 0,
             }
-            registrations = self.env["event.registration"].read_group(
-                [
-                    ("event_id", "=", event.id),
-                    ("state", "in", ["draft", "open", "done"]),
-                ],
-                ["state", "qty"],
-                ["state"],
+            registrations = (
+                self.env["event.registration"]
+                .sudo()
+                .read_group(
+                    [
+                        ("event_id", "=", event.id),
+                        ("state", "in", ["draft", "open", "done"]),
+                    ],
+                    ["state", "qty"],
+                    ["state"],
+                )
             )
             for registration in registrations:
                 if registration["state"] == "draft":
