@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 18.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -37,6 +37,17 @@ msgstr ""
 #: model:ir.model.fields,field_description:event_sale_reservation.field_product_product__service_tracking
 #: model:ir.model.fields,field_description:event_sale_reservation.field_product_template__service_tracking
 msgid "Create on Order"
+msgstr ""
+
+#. module: event_sale_reservation
+#: model:ir.model.fields,field_description:event_sale_reservation.field_event_type__display_name
+#: model:ir.model.fields,field_description:event_sale_reservation.field_product_template__display_name
+#: model:ir.model.fields,field_description:event_sale_reservation.field_registration_editor__display_name
+#: model:ir.model.fields,field_description:event_sale_reservation.field_registration_editor_line__display_name
+#: model:ir.model.fields,field_description:event_sale_reservation.field_sale_order__display_name
+#: model:ir.model.fields,field_description:event_sale_reservation.field_sale_order_line__display_name
+#: model:ir.model.fields,field_description:event_sale_reservation.field_sale_report__display_name
+msgid "Display Name"
 msgstr ""
 
 #. module: event_sale_reservation
@@ -90,6 +101,17 @@ msgstr ""
 #: model:ir.model.fields,field_description:event_sale_reservation.field_registration_editor_line__event_reservation_type_id
 #: model:ir.model.fields,field_description:event_sale_reservation.field_sale_order_line__event_reservation_type_id
 msgid "Event type for reservations"
+msgstr ""
+
+#. module: event_sale_reservation
+#: model:ir.model.fields,field_description:event_sale_reservation.field_event_type__id
+#: model:ir.model.fields,field_description:event_sale_reservation.field_product_template__id
+#: model:ir.model.fields,field_description:event_sale_reservation.field_registration_editor__id
+#: model:ir.model.fields,field_description:event_sale_reservation.field_registration_editor_line__id
+#: model:ir.model.fields,field_description:event_sale_reservation.field_sale_order__id
+#: model:ir.model.fields,field_description:event_sale_reservation.field_sale_order_line__id
+#: model:ir.model.fields,field_description:event_sale_reservation.field_sale_report__id
+msgid "ID"
 msgstr ""
 
 #. module: event_sale_reservation
