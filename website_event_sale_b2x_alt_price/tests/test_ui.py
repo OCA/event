@@ -2,61 +2,77 @@
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 from datetime import datetime, timedelta
 
+from odoo.orm.commands import Command
 from odoo.tests import Form, HttpCase, tagged
 
 
 @tagged("post_install", "-at_install")
 class UICase(HttpCase):
-    def setUp(self):
-        super().setUp()
-        self.website = self.env["website"].get_current_website()
-        self.admin = self.env.ref("base.user_admin")
-        self.tax_group_22 = self.env["account.tax.group"].create(
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.website = cls.env["website"].get_current_website()
+        cls.admin = cls.env.ref("base.user_admin")
+        cls.admin.write(
+            {
+                "street": "215 Vine St",
+                "city": "Scranton",
+                "zip": "18503",
+                "country_id": cls.env.ref("base.us").id,
+                "state_id": cls.env.ref("base.state_us_39").id,
+                "phone": "+1 570-555-1234",
+                "email": "admin@yourcompany.example.com",
+            }
+        )
+        cls.tax_group_22 = cls.env["account.tax.group"].create(
             {"name": "Tax group 22%"}
         )
-        tax_22_form = Form(self.env["account.tax"])
-        tax_22_form.amount_type = "percent"
-        tax_22_form.amount = 22
-        tax_22_form.description = "22%"
-        tax_22_form.name = "Tax sale 22%"
-        tax_22_form.tax_group_id = self.tax_group_22
-        tax_22_form.type_tax_use = "sale"
-        self.tax_22_sale = tax_22_form.save()
-        product_form = Form(self.env["product.product"])
-        product_form.name = "Test Product Event Without Taxes"
-        product_form.lst_price = 100
-        product_form.detailed_type = "event"
-        self.product_without_taxes = product_form.save()
-        self.product_without_taxes.taxes_id = False
-        product_form = Form(self.env["product.product"])
-        product_form.name = "Test Product Event With Taxes"
-        product_form.lst_price = 100
-        product_form.detailed_type = "event"
-        self.product_with_taxes = product_form.save()
-        self.product_with_taxes.taxes_id = self.tax_22_sale
-        self.pricelist = self.env["product.pricelist"].create(
+        cls.tax_22_sale = cls.env["account.tax"].create(
+            {
+                "amount_type": "percent",
+                "amount": 22,
+                "description": "22%",
+                "name": "Tax sale 22%",
+                "tax_group_id": cls.tax_group_22.id,
+                "type_tax_use": "sale",
+            }
+        )
+        cls.product_without_taxes = cls.env["product.product"].create(
+            {
+                "name": "Test Product Event Without Taxes",
+                "list_price": 100,
+                "type": "service",
+                "taxes_id": False,
+            }
+        )
+        cls.product_with_taxes = cls.env["product.product"].create(
+            {
+                "name": "Test Product Event With Taxes",
+                "list_price": 100,
+                "type": "service",
+                "taxes_id": [Command.set(cls.tax_22_sale.ids)],
+            }
+        )
+        cls.pricelist = cls.env["product.pricelist"].create(
             {
                 "name": "website_sale_event_b2x_alt_price public",
-                "currency_id": self.website.user_id.company_id.currency_id.id,
+                "currency_id": cls.website.company_id.currency_id.id,
                 "selectable": True,
             }
         )
-        self.pricelist_with_discount = self.env["product.pricelist"].create(
+        cls.pricelist_with_discount = cls.env["product.pricelist"].create(
             {
                 "name": "website_sale_event_b2x_alt_price with discount",
-                "currency_id": self.website.user_id.company_id.currency_id.id,
+                "currency_id": cls.website.company_id.currency_id.id,
                 "selectable": True,
-                "discount_policy": "with_discount",
                 "item_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "applied_on": "1_product",
                             "compute_price": "percentage",
                             "percent_price": 10.0,
                             "product_tmpl_id": (
-                                self.product_with_taxes.product_tmpl_id.id
+                                cls.product_with_taxes.product_tmpl_id.id
                             ),
                         },
                     )
@@ -94,12 +110,13 @@ class UICase(HttpCase):
 
     def _switch_tax_mode(self, mode):
         assert mode in {"tax_excluded", "tax_included"}
-        config = Form(self.env["res.config.settings"])
-        config.show_line_subtotals_tax_selection = mode
-        config.group_product_pricelist = True
-        config.product_pricelist_setting = "advanced"
-        config.group_discount_per_so_line = True
-        config = config.save()
+        config = self.env["res.config.settings"].create(
+            {
+                "show_line_subtotals_tax_selection": mode,
+                "group_product_pricelist": True,
+                "group_discount_per_so_line": True,
+            }
+        )
         config.execute()
 
     def _set_pricelist(self, pricelist):
