@@ -49,7 +49,7 @@ class TestEventEmailReminder(BaseCommon):
         cls.template_default = cls.env.ref(
             "event_email_reminder.event_email_reminder_template"
         )
-        cls.template_default.lang = "en_EN"
+        cls.template_default.lang = "en_US"
         cls.template = cls.template_default.copy()
         cls.template.subject = "Hello test - copy"
         cls.mail = cls.env["mail.mail"]
@@ -61,11 +61,11 @@ class TestEventEmailReminder(BaseCommon):
         mails_to_send = self.mail.search(
             [
                 ("subject", "=", "The events will be started soon"),
-                ("email_to", "like", "test%@test.com"),
+                ("recipient_ids.email", "like", "test%@test.com"),
             ]
         )
         self.assertEqual(len(mails_to_send), 1)
-        address = mails_to_send.mapped("email_to")
+        address = mails_to_send.mapped("recipient_ids.email")
         self.assertEqual(self.user_1.email, address[0])
 
     def test_cron_run_custom_values(self):
@@ -73,11 +73,11 @@ class TestEventEmailReminder(BaseCommon):
         mails_to_send = self.mail.search(
             [
                 ("subject", "=", "The events will be started soon"),
-                ("email_to", "like", "test%@test.com"),
+                ("recipient_ids.email", "like", "test%@test.com"),
             ]
         )
         self.assertEqual(len(mails_to_send), 2)
-        address = mails_to_send.mapped("email_to")
+        address = mails_to_send.mapped("recipient_ids.email")
         self.assertEqual({self.user_1.email, self.user_2.email}, set(address))
 
     def test_cron_run_template(self):
@@ -85,11 +85,11 @@ class TestEventEmailReminder(BaseCommon):
         mails_to_send = self.mail.search(
             [
                 ("subject", "=", "Hello test - copy"),
-                ("email_to", "like", "test%@test.com"),
+                ("recipient_ids.email", "like", "test%@test.com"),
             ]
         )
         self.assertEqual(len(mails_to_send), 1)
-        address = mails_to_send.mapped("email_to")
+        address = mails_to_send.mapped("recipient_ids.email")
         self.assertEqual(self.user_2.email, address[0])
 
     def test_cron_run_draft_events(self):
@@ -99,11 +99,11 @@ class TestEventEmailReminder(BaseCommon):
         mails_to_send = self.mail.search(
             [
                 ("subject", "=", "The events will be started soon"),
-                ("email_to", "like", "test%@test.com"),
+                ("recipient_ids.email", "like", "test%@test.com"),
             ]
         )
         self.assertEqual(len(mails_to_send), 1)
-        address = mails_to_send.mapped("email_to")
+        address = mails_to_send.mapped("recipient_ids.email")
         self.assertEqual(self.user_2.email, address[0])
 
     def test_cron_run_partners(self):
@@ -121,9 +121,9 @@ class TestEventEmailReminder(BaseCommon):
         mails_to_send = self.mail.search(
             [
                 ("subject", "=", "The events will be started soon"),
-                ("email_to", "like", "test%@test.com"),
+                ("recipient_ids.email", "like", "test%@test.com"),
             ]
         )
         self.assertEqual(len(mails_to_send), 1)
-        address = mails_to_send.mapped("email_to")
+        address = mails_to_send.mapped("recipient_ids.email")
         self.assertEqual(user.email, address[0])

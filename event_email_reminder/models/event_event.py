@@ -42,10 +42,9 @@ class EventEvent(models.Model):
         """
         today = fields.Date.context_today(self)
         limit_date = today + timedelta(days=days)
-        if draft_events:
-            domain = [("stage_id.exclude_from_email_reminder", "=", True)]
-        else:
-            domain = []
+        domain = []
+        if not draft_events:
+            domain.append(("stage_id.exclude_from_email_reminder", "=", False))
         if not near_events:
             domain.extend(
                 [("date_begin", ">=", limit_date), ("date_begin", "<=", limit_date)]
