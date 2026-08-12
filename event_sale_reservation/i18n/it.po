@@ -1,0 +1,234 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_sale_reservation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-12-20 18:06+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.6.2\n"
+
+#. module: event_sale_reservation
+#: model:ir.model.fields,help:event_sale_reservation.field_product_product__detailed_type
+#: model:ir.model.fields,help:event_sale_reservation.field_product_template__detailed_type
+msgid ""
+"A storable product is a product for which you manage stock. The Inventory "
+"app has to be installed.\n"
+"A consumable product is a product for which stock is not managed.\n"
+"A service is a non-material product you provide."
+msgstr ""
+"Un prodotto stoccabile è un prodotto per il quale si gestiscono le giacenze. "
+"Deve essere installata l'app Magazzino.\n"
+"Un prodotto consumabile è un prodotto per il quale non sono gestite le "
+"giacenze.\n"
+"Un servizio è un prodotto non materiale che viene fornito."
+
+#. module: event_sale_reservation
+#. odoo-python
+#: code:addons/event_sale_reservation/models/sale_order.py:0
+#, python-format
+msgid "Attendees"
+msgstr "Partecipanti"
+
+#. module: event_sale_reservation
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.registration_editor_reservations_view_form
+msgid "Cancel"
+msgstr "Annulla"
+
+#. module: event_sale_reservation
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.registration_editor_reservations_view_form
+msgid "Configure registrations"
+msgstr "Configura registrazioni"
+
+#. module: event_sale_reservation
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.registration_editor_reservations_view_form
+msgid "Convert pending event reservations into registrations for"
+msgstr "Convertire registrazioni evento in attesa in una registrazione per"
+
+#. module: event_sale_reservation
+#: model:ir.model.fields,help:event_sale_reservation.field_sale_order_line__event_registration_count
+msgid "Count of event registrations related to this sale order line"
+msgstr ""
+"Conteggio delle registrazioni evento relative a questa riga ordine vendita"
+
+#. module: event_sale_reservation
+#: model:ir.model,name:event_sale_reservation.model_registration_editor
+msgid "Edit Attendee Details on Sales Confirmation"
+msgstr "Modifica dettagli partecipante alla conferma di vendita"
+
+#. module: event_sale_reservation
+#: model:ir.model,name:event_sale_reservation.model_registration_editor_line
+msgid "Edit Attendee Line on Sales Confirmation"
+msgstr "Modifica riga partecipante alla conferma di vendita"
+
+#. module: event_sale_reservation
+#: model:ir.model.fields,field_description:event_sale_reservation.field_sale_order_line__event_registration_count
+msgid "Event Registration Count"
+msgstr "Conteggio iscrizione evento"
+
+#. module: event_sale_reservation
+#: model:ir.model.fields.selection,name:event_sale_reservation.selection__product_template__detailed_type__event_reservation
+msgid "Event Reservation"
+msgstr "Prenotazione evento"
+
+#. module: event_sale_reservation
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.view_order_product_search
+msgid "Event Reservation Type"
+msgstr "Tipo prenotazione evento"
+
+#. module: event_sale_reservation
+#: model:ir.model,name:event_sale_reservation.model_event_type
+msgid "Event Template"
+msgstr "Modello evento"
+
+#. module: event_sale_reservation
+#: model:ir.model.fields,field_description:event_sale_reservation.field_sale_order__event_registration_count
+#: model:ir.model.fields,field_description:event_sale_reservation.field_sale_order_line__event_registration_ids
+msgid "Event registrations"
+msgstr "Registrazioni evento"
+
+#. module: event_sale_reservation
+#: model:ir.model.fields,help:event_sale_reservation.field_sale_order_line__event_registration_ids
+msgid "Event registrations related to this sale order line"
+msgstr "Registrazioni evento relative a questa riga ordine vendita"
+
+#. module: event_sale_reservation
+#: model:ir.model.fields,field_description:event_sale_reservation.field_sale_report__event_reservation_type_id
+msgid "Event reservation type"
+msgstr "Tipo prenotazione evento"
+
+#. module: event_sale_reservation
+#: model:ir.model.fields,field_description:event_sale_reservation.field_product_product__event_reservation_type_id
+#: model:ir.model.fields,field_description:event_sale_reservation.field_product_template__event_reservation_type_id
+#: model:ir.model.fields,field_description:event_sale_reservation.field_registration_editor_line__event_reservation_type_id
+#: model:ir.model.fields,field_description:event_sale_reservation.field_sale_order_line__event_reservation_type_id
+msgid "Event type for reservations"
+msgstr "Tipo evento per prenotazioni"
+
+#. module: event_sale_reservation
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.registration_editor_reservations_view_form
+msgid ""
+"If there is any line from that order that you still do\n"
+"                    not want to convert into real event registrations, you\n"
+"                    can remove it from the list below. You will be able to\n"
+"                    repeat this process later for those lines."
+msgstr ""
+"Se esiste una riga di quell'ordine di vendita che non si\n"
+"                    vuole ancora convertire in una reale registrazione "
+"evento,\n"
+"                    la si può rimuovere dall'elenco seguente. Si potrà "
+"ripetere\n"
+"                    successivamente questo processo per quelle righe."
+
+#. module: event_sale_reservation
+#: model:ir.model.fields,help:event_sale_reservation.field_sale_order__event_registration_count
+msgid "Indicates how many event registrations are linked to this order."
+msgstr "Indica quante registrazioni evento sono collegate a questo ordine."
+
+#. module: event_sale_reservation
+#: model:ir.model.fields,help:event_sale_reservation.field_sale_order__event_reservations_pending
+msgid ""
+"Indicates how many event reservations are still not linked to any "
+"registration."
+msgstr ""
+"Indica quante prenotazioni evento non sono ancora collegate ad una "
+"registrazione."
+
+#. module: event_sale_reservation
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.registration_editor_reservations_view_form
+msgid "Next"
+msgstr "Successiva"
+
+#. module: event_sale_reservation
+#: model:ir.model.fields,field_description:event_sale_reservation.field_sale_order__event_reservations_pending
+msgid "Pending event reservations"
+msgstr "Prenotazioni evento in attesa"
+
+#. module: event_sale_reservation
+#: model:ir.model,name:event_sale_reservation.model_product_template
+msgid "Product"
+msgstr "Prodotto"
+
+#. module: event_sale_reservation
+#: model:ir.model.fields,field_description:event_sale_reservation.field_product_product__detailed_type
+#: model:ir.model.fields,field_description:event_sale_reservation.field_product_template__detailed_type
+msgid "Product Type"
+msgstr "Tipologia prodotto"
+
+#. module: event_sale_reservation
+#: model:ir.actions.act_window,name:event_sale_reservation.action_registration_editor_reservations
+#: model_terms:ir.ui.view,arch_db:event_sale_reservation.view_sale_order_form_inherit_event
+msgid "Register in event"
+msgstr "Registrare in un evento"
+
+#. module: event_sale_reservation
+#: model:ir.model.fields,field_description:event_sale_reservation.field_event_type__reserved_sale_order_line_ids
+msgid "Reserved sale order lines"
+msgstr "Righe ordine vendita prenotate"
+
+#. module: event_sale_reservation
+#: model:ir.model.fields,field_description:event_sale_reservation.field_event_type__seats_reservation_total
+msgid "Reserved seats"
+msgstr "Posti prenotati"
+
+#. module: event_sale_reservation
+#: model:ir.model,name:event_sale_reservation.model_sale_report
+msgid "Sales Analysis Report"
+msgstr "Resoconto analisi vendite"
+
+#. module: event_sale_reservation
+#: model:ir.model,name:event_sale_reservation.model_sale_order
+msgid "Sales Order"
+msgstr "Ordine di vendita"
+
+#. module: event_sale_reservation
+#: model:ir.model,name:event_sale_reservation.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Riga ordine di vendita"
+
+#. module: event_sale_reservation
+#: model:ir.model.fields,help:event_sale_reservation.field_event_type__seats_reservation_total
+msgid "Seats reserved for events of this type."
+msgstr "Posti prenotati per eventi di questo tipo."
+
+#. module: event_sale_reservation
+#: model:ir.model.fields,help:event_sale_reservation.field_product_product__event_reservation_type_id
+#: model:ir.model.fields,help:event_sale_reservation.field_product_template__event_reservation_type_id
+#: model:ir.model.fields,help:event_sale_reservation.field_registration_editor_line__event_reservation_type_id
+#: model:ir.model.fields,help:event_sale_reservation.field_sale_order_line__event_reservation_type_id
+msgid "Type of events that can be reserved by buying this product"
+msgstr ""
+"Tipi di eventi che possono essere prenotati acquistando questo prodotto"
+
+#. module: event_sale_reservation
+#. odoo-python
+#: code:addons/event_sale_reservation/models/product_template.py:0
+#, python-format
+msgid "You must indicate event type for %(name)s."
+msgstr "Bisogna indicare il tipo evento per %(name)s."
+
+#~ msgid ""
+#~ "If there is any line from that order that you still do\n"
+#~ "                        not want to convert into real event "
+#~ "registrations, you\n"
+#~ "                        can remove it from the list below. You will be "
+#~ "able to\n"
+#~ "                        repeat this process later for those lines."
+#~ msgstr ""
+#~ "Se esiste una riga di quell'ordine di vendita che non si\n"
+#~ "                        vuole ancora convertire in una reale "
+#~ "registrazione evento,\n"
+#~ "                        la si può rimuovere dall'elenco seguente. Si "
+#~ "potrà ripetere\n"
+#~ "                        successivamente questo processo per quelle righe."
+
+#~ msgid "Product Template"
+#~ msgstr "Modello prodotto"
