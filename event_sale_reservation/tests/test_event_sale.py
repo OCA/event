@@ -17,16 +17,27 @@ class EventSaleCase(BaseCommon):
         super().setUpClass()
         qtys = (1, 10, 100)
         cls.event_types = cls.env["event.type"].create(
-            [{"name": "event type %d" % num} for num in range(3)]
+            [{"name": f"event type {num}"} for num in range(3)]
         )
-        cls.products = cls.env["product.product"].create(
+        cls.reservation_products = cls.env["product.product"].create(
             [
                 {
                     "type": "service",
                     "service_tracking": "event_reservation",
                     "event_reservation_type_id": cls.event_types[num].id,
+                    "list_price": 10,
+                    "name": f"reservation product for event type {num}",
+                }
+                for num in range(3)
+            ]
+        )
+        cls.products = cls.env["product.product"].create(
+            [
+                {
+                    "type": "service",
+                    "service_tracking": "event",
                     "list_price": num,
-                    "name": "product reservation for event type %d" % num,
+                    "name": f"event product {num}",
                 }
                 for num in range(3)
             ]
@@ -39,13 +50,13 @@ class EventSaleCase(BaseCommon):
                     "event_ticket_ids": [
                         Command.create(
                             {
-                                "name": "ticket %d" % num,
+                                "name": f"ticket {num}",
                                 "product_id": cls.products[num].id,
                             },
                         )
                     ],
                     "event_type_id": cls.event_types[num].id,
-                    "name": "event %d" % num,
+                    "name": f"event {num}",
                 }
                 for num in range(3)
             ]
@@ -53,8 +64,8 @@ class EventSaleCase(BaseCommon):
         cls.customers = cls.env["res.partner"].create(
             [
                 {
-                    "email": "%d@example.com" % num,
-                    "name": "customer %d" % num,
+                    "email": f"{num}@example.com",
+                    "name": f"customer {num}",
                     "phone": num,
                 }
                 for num in range(3)
@@ -66,7 +77,7 @@ class EventSaleCase(BaseCommon):
                     "order_line": [
                         Command.create(
                             {
-                                "product_id": cls.products[num].id,
+                                "product_id": cls.reservation_products[num].id,
                                 "product_uom_qty": qtys[num],
                             },
                         ),
@@ -150,9 +161,9 @@ class EventSaleCase(BaseCommon):
         self.assertEqual(len(wiz2.event_registration_ids), 10)
         for num in range(len(wiz2.event_registration_ids)):
             wiz2_line = wiz2.event_registration_ids.edit(num)
-            wiz2_line.name = "name %d" % num
-            wiz2_line.email = "%d@example.com" % num
-            wiz2_line.phone = "phone %d" % num
+            wiz2_line.name = f"name {num}"
+            wiz2_line.email = f"{num}@example.com"
+            wiz2_line.phone = f"phone {num}"
             wiz2_line.save()
         wiz2.save().action_make_registration()
         # 1st and 3rd SO are pending and reserved

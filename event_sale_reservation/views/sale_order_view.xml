@@ -8,7 +8,6 @@
         <field name="inherit_id" ref="event_sale.sale_order_view_form" />
         <field name="arch" type="xml">
             <button id="action_confirm" position="after">
-                <field name="event_reservations_pending" invisible="1" />
                 <button
                     name="%(action_registration_editor_reservations)d"
                     type="action"
@@ -17,12 +16,6 @@
                     invisible="event_reservations_pending == 0 or state not in ['sale', 'done']"
                 />
             </button>
-            <xpath
-                expr="//field[@name='order_line']//form//field[@name='event_id']"
-                position="before"
-            >
-                <field name="event_registration_ids" invisible="1" />
-            </xpath>
         </field>
     </record>
 </data>

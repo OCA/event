@@ -36,17 +36,17 @@ class EventType(models.Model):
     )
     def _compute_reservations_total(self):
         """Get how many reserved seats exist."""
-        results = self.env["sale.order.line"].read_group(
+        results = self.env["sale.order.line"]._read_group(
             domain=self._seats_reservation_domain(),
-            fields=["event_registration_count", "product_uom_qty"],
-            groupby="event_reservation_type_id",
+            groupby=["event_reservation_type_id"],
+            aggregates=["product_uom_qty:sum", "event_registration_count:sum"],
         )
-        totals = {group["event_reservation_type_id"][0]: group for group in results}
+        totals = {
+            event_type.id: product_uom_qty - event_registration_count
+            for event_type, product_uom_qty, event_registration_count in results
+        }
         for one in self:
-            totals_item = totals.get(one.id, {})
-            one.seats_reservation_total = totals_item.get(
-                "product_uom_qty", 0
-            ) - totals_item.get("event_registration_count", 0)
+            one.seats_reservation_total = totals.get(one.id, 0)
 
     def action_open_sale_orders(self):
         """Display SO that include reservations."""
