@@ -1,7 +1,7 @@
 # Copyright 2025 Tecnativa - Pilar Vargas
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import UserError
 
 
@@ -9,7 +9,7 @@ class EventSaleUpdateQtyWizard(models.TransientModel):
     _name = "event.sale.update.qty.wizard"
     _description = "Wizard to update event attendees quantity from sale order line"
 
-    sale_order_line_id = fields.Many2one("sale.order.line", string="Sale Order Line")
+    sale_order_line_id = fields.Many2one("sale.order.line")
     event_id = fields.Many2one(
         related="sale_order_line_id.event_id",
         string="Event",
@@ -29,7 +29,6 @@ class EventSaleUpdateQtyWizard(models.TransientModel):
     )
     show_registrations = fields.Boolean(
         compute="_compute_show_registrations",
-        store=False,
     )
 
     @api.depends("new_qty")
@@ -43,15 +42,17 @@ class EventSaleUpdateQtyWizard(models.TransientModel):
         self.ensure_one()
         line = self.sale_order_line_id
         if self.new_qty == line.product_uom_qty:
-            raise UserError(_("The quantity has not changed."))
+            raise UserError(self.env._("The quantity has not changed."))
         if self.new_qty < line.product_uom_qty:
             to_remove = self.registration_ids
             if to_remove:
                 qty_to_remove = line.product_uom_qty - self.new_qty
                 if qty_to_remove != len(to_remove):
                     raise UserError(
-                        _("You must select exactly %s attendee(s) to cancel.")
-                        % int(qty_to_remove)
+                        self.env._(
+                            "You must select exactly %s attendee(s) to cancel.",
+                            int(qty_to_remove),
+                        )
                     )
                 to_remove.unlink()
                 line.product_uom_qty = self.new_qty

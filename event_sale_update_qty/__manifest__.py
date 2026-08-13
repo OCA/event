@@ -4,7 +4,7 @@
 {
     "name": "Event Sale Update Qty",
     "summary": "Update event registrations from confirmed sale order lines.",
-    "version": "17.0.1.0.0",
+    "version": "19.0.1.0.0",
     "development_status": "Beta",
     "category": "Marketing",
     "website": "https://github.com/OCA/event",

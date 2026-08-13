@@ -7,7 +7,7 @@
         <field name="inherit_id" ref="sale.view_order_form" />
         <field name="arch" type="xml">
             <xpath
-                expr="//field[@name='order_line']//tree/field[@name='product_uom_qty']"
+                expr="//field[@name='order_line']//list/field[@name='product_uom_qty']"
                 position="after"
             >
                 <button
@@ -15,7 +15,7 @@
                     name="action_update_event_qty"
                     icon="fa-edit"
                     class="oe_inline"
-                    invisible="product_type != 'event' or state != 'sale'"
+                    invisible="service_tracking != 'event' or state != 'sale'"
                     title="Modify attendees"
                 />
             </xpath>
