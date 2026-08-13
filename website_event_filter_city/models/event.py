@@ -20,5 +20,4 @@ class EventEvent(models.Model):
             res["base_domain"].append(city_domain)
             res["no_country_domain"].append(city_domain)
             res["no_date_domain"].append(city_domain)
-            self = self.with_context(helloo="Hi there!")
         return res

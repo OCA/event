@@ -33,13 +33,29 @@ class WebsiteEvent(WebsiteEventController):
             ),
             qcontext["dates"][0][2],
         )
-        # This domain includes all the other filters
-        if qcontext["current_country"]:
-            domain = Domain(domain) & Domain(
-                [("country_id", "=", qcontext["current_country"].id)]
+        if request.website.is_view_active("website_event.event_location"):
+            country_groups = request.env["event.event"]._read_group(
+                domain, ["country_id"], ["__count"], order="country_id"
             )
-        if qcontext["event_ids"]:
-            domain = Domain(domain) & Domain([("id", "in", qcontext["event_ids"].ids)])
+            countries = [
+                {
+                    "country_id_count": sum(count for __, count in country_groups),
+                    "country_id": (0, self.env._("All Countries")),
+                }
+            ]
+            for g_country, count in country_groups:
+                countries.append(
+                    {
+                        "country_id_count": count,
+                        "country_id": g_country
+                        and (g_country.id, g_country.sudo().display_name),
+                    }
+                )
+            qcontext.update({"countries": countries})
+            if qcontext["current_country"]:
+                domain = Domain(domain) & Domain(
+                    [("country_id", "=", qcontext["current_country"].id)]
+                )
         cities = request.env["event.event"]._read_group(
             domain,
             aggregates=["__count"],

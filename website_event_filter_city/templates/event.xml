@@ -6,9 +6,8 @@
     <template
         id="event_city"
         inherit_id="website_event.index_topbar"
-        active="True"
-        customize_show="True"
         name="Filter by City"
+        priority="17"
     >
         <xpath expr="//div[hasclass('o_wevent_search')]" position="before">
             <div class="dropdown d-none d-lg-block">
@@ -77,7 +76,7 @@
                                     <a
                                         t-att-href="keep_event_url('/event', city=city['city'])"
                                         class="d-flex align-items-center justify-content-between text-reset text-decoration-none"
-                                        t-att-title="date[1]"
+                                        t-att-title="date[1] if date else ''"
                                     >
                                         <div class="form-check flex-basis-100">
                                             <input

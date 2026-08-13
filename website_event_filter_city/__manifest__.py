@@ -20,6 +20,9 @@
     "assets": {
         "web.assets_tests": [
             "/website_event_filter_city/static/src/tests/*.js",
-        ]
+        ],
+        "website.website_builder_assets": [
+            "website_event_filter_city/static/src/website_builder/**/*",
+        ],
     },
 }
