@@ -60,6 +60,11 @@ msgid "Create Partners in registration"
 msgstr ""
 
 #. module: partner_event
+#: model:ir.model,website_form_label:partner_event.model_res_partner
+msgid "Create a Customer"
+msgstr ""
+
+#. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
 msgid "Create registrations"
 msgstr ""
