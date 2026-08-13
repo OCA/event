@@ -68,6 +68,7 @@ class TestEventCancelCase(BaseCommon):
         # Inject bypass_reason for test compatibility
         # with event_registration_cancel_reason
         self.event.button_cancel()
+        self.assertEqual(self.event.kanban_state, "cancel")
         self.assertTrue(
             all([a.state == "cancel" for a in self.attendees]),
             f"Not all the attendees are cancelled: "

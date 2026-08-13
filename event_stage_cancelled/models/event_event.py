@@ -28,6 +28,7 @@ class EventEvent(models.Model):
         )
         if stage_id:
             self.stage_id = stage_id
+            self.kanban_state = "cancel"
             self.registration_ids.filtered(lambda x: x.state != "cancel").with_context(
                 cancelled_from_event=True,
                 # Compatibility with event_registration_cancel_reason
