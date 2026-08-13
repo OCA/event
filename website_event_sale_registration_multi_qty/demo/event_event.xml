@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Hunki Enterprises BV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl-3.0) -->
+<data>
+    <record id="multi_qty_event" model="event.event">
+        <field name="name">Multi Qty event</field>
+        <field name="website_published" eval="True" />
+        <field name="registration_multi_qty" eval="True" />
+    </record>
+</data>

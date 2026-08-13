@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Hunki Enterprises BV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl-3.0) -->
+<odoo>
+    <template
+        id="registration_attendee_details"
+        inherit_id="website_event.registration_attendee_details"
+    >
+        <h5 position="after">
+            <div
+                class="row"
+                t-if="event.registration_multi_qty and ticket['quantity'] &gt; 1 and att_counter == 1"
+            >
+                <div class="form-group use-multi-qty">
+                    <input
+                        type="checkbox"
+                        class="form-check-input"
+                        t-attf-name="use_multi_qty-#{ticket['id']}"
+                        t-attf-data-ticket-id="#{ticket['id']}"
+                        t-att-value="ticket['quantity']"
+                    />
+                    <label
+                        class="form-check-label"
+                    >Register all with the same contact details</label>
+                </div>
+            </div>
+        </h5>
+        <xpath expr="//div[hasclass('modal-body')]" position="attributes">
+            <attribute
+                name="t-att-data-hide-multi-qty"
+            >'true' if att_counter > 1 else None</attribute>
+        </xpath>
+    </template>
+</odoo>
