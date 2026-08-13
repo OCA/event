@@ -1,7 +1,7 @@
 # Copyright 2021 Tecnativa - Jairo Llopis
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 
 
 class EventType(models.Model):
@@ -10,7 +10,7 @@ class EventType(models.Model):
     seats_available_total = fields.Char(
         string="Events available (and seats)",
         compute="_compute_event_totals",
-        help="Upcoming/running events of this category (and available seats).",
+        help="Upcoming/running events of this type (and available seats).",
     )
     crm_lead_ids = fields.One2many(
         string="Leads/Opportunities",
@@ -20,19 +20,19 @@ class EventType(models.Model):
     open_opportunities_count = fields.Integer(
         compute="_compute_opportunities_totals",
         store=True,
-        help="Open opportunities for events of this category.",
+        help="Open opportunities for events of this type.",
     )
     seats_wanted_sum = fields.Integer(
         string="Wanted seats",
         compute="_compute_opportunities_totals",
         store=True,
-        help="Sum of wanted seats in opportunities for events of this category.",
+        help="Sum of wanted seats in opportunities for events of this type.",
     )
     seats_wanted_total = fields.Char(
         string="Opportunities (seats)",
         compute="_compute_opportunities_totals",
         store=True,
-        help="Open opportunities for events of this category (and wanted seats).",
+        help="Open opportunities for events of this type (and wanted seats).",
     )
 
     def _events_domain(self):
@@ -81,11 +81,11 @@ class EventType(models.Model):
             totals_item = totals.get(one.id, {})
             event_count = totals_item.get("event_type_id_count", 0)
             seats_sum = (
-                _("Unlimited")
+                self.env._("Unlimited")
                 if one in types_with_unlimited_seats
                 else totals_item.get("seats_available", "0")
             )
-            one.seats_available_total = "%d (%s)" % (event_count, seats_sum)
+            one.seats_available_total = f"{event_count} ({seats_sum})"
 
     @api.depends(
         "crm_lead_ids.active",
@@ -95,25 +95,23 @@ class EventType(models.Model):
     )
     def _compute_opportunities_totals(self):
         """Get how many open opportunities and wanted seats exist."""
-        results = self.env["crm.lead"].read_group(
+        results = self.env["crm.lead"]._read_group(
             domain=[
                 ("event_type_id", "in", self.ids),
                 ("type", "=", "opportunity"),
                 # Ignore lost and won opportunities
                 ("active", "=", True),
-                ("probability", "<", "100"),
+                ("probability", "<", 100),
             ],
-            fields=["seats_wanted"],
-            groupby="event_type_id",
+            groupby=["event_type_id"],
+            aggregates=["seats_wanted:sum", "__count"],
         )
-        totals = {group["event_type_id"][0]: group for group in results}
+        totals = {event.id: (seats, count) for event, count, seats in results}
         for one in self:
-            totals_item = totals.get(one.id, {})
-            oppt_count = totals_item.get("event_type_id_count", 0)
-            seats_sum = totals_item.get("seats_wanted", 0)
+            oppt_count, seats_sum = totals.get(one.id, (0, 0))
             one.open_opportunities_count = oppt_count
             one.seats_wanted_sum = seats_sum
-            one.seats_wanted_total = "%d (%d)" % (oppt_count, seats_sum)
+            one.seats_wanted_total = f"{oppt_count} ({seats_sum})"
 
     def action_open_events(self):
         return {
@@ -122,10 +120,10 @@ class EventType(models.Model):
                 "search_default_upcoming": True,
             },
             "domain": [("event_type_id", "=", self.id)],
-            "name": _("Events"),
+            "name": self.env._("Events"),
             "res_model": "event.event",
             "type": "ir.actions.act_window",
-            "view_mode": "kanban,calendar,tree,form,pivot",
+            "view_mode": "kanban,calendar,list,form,pivot",
             "view_type": "form",
         }
 
@@ -137,9 +135,9 @@ class EventType(models.Model):
                 "search_default_open_opportunities": True,
             },
             "domain": [("event_type_id", "=", self.id)],
-            "name": _("Opportunities"),
+            "name": self.env._("Opportunities"),
             "res_model": "crm.lead",
             "type": "ir.actions.act_window",
-            "view_mode": "kanban,tree,graph,pivot,form,calendar,activity",
+            "view_mode": "kanban,list,graph,pivot,form,calendar,activity",
             "view_type": "form",
         }

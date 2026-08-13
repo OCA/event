@@ -8,7 +8,7 @@ from odoo import fields, models, tools
 
 class EventTypeReport(models.Model):
     _name = "event.type.report"
-    _description = "Event categories analysis report"
+    _description = "Event type analysis report"
     _auto = False
     _order = "name"
 

@@ -237,6 +237,3 @@ msgstr "Eventi prossimi/in corso di questa categoria (e posti disponibili)."
 #: model:ir.model.fields,field_description:crm_event.field_event_type_report__seats_wanted
 msgid "Wanted seats"
 msgstr "Posti richiesti"
-
-#~ msgid "Last Modified on"
-#~ msgstr "Ultima modifica il"

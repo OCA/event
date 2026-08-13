@@ -11,16 +11,15 @@ class CRMLead(models.Model):
         comodel_name="event.type",
         index=True,
         ondelete="restrict",
-        string="Event category",
         help=(
-            "If this lead/opportunity is related to a specific event category, "
+            "If this lead/opportunity is related to a specific event type, "
             "indicate it here."
         ),
     )
     seats_wanted = fields.Integer(
         groups="event.group_event_user",
         help=(
-            "If this lead/opportunity is related to a specific event category, "
+            "If this lead/opportunity is related to a specific event type, "
             "indicate how many seats would you sell if won."
         ),
     )

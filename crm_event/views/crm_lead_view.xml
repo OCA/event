@@ -4,7 +4,7 @@
 <data>
     <!-- Leads -->
     <record id="view_crm_case_leads_filter" model="ir.ui.view">
-        <field name="name">Search by event category in CRM leads</field>
+        <field name="name">Search by event type in CRM leads</field>
         <field name="model">crm.lead</field>
         <field name="inherit_id" ref="crm.view_crm_case_leads_filter" />
         <field name="arch" type="xml">
@@ -23,18 +23,18 @@
     </record>
     <!-- Opportunities -->
     <record id="crm_case_kanban_view_leads" model="ir.ui.view">
-        <field name="name">Event category in CRM opportunities kanban</field>
+        <field name="name">Event type in CRM opportunities kanban</field>
         <field name="model">crm.lead</field>
         <field name="inherit_id" ref="crm.crm_case_kanban_view_leads" />
         <field name="arch" type="xml">
-            <xpath expr="//div[hasclass('o_kanban_record_bottom')]" position="before">
+            <xpath expr="//footer/div[hasclass('mt-auto')]" position="before">
                 <t
                     t-if="record.event_type_id.raw_value"
                     groups="event.group_event_user"
                 >
                     <div class="o_kanban_record_body text-info">
                         <field name="seats_wanted" class="oe_inline" nolabel="1" />
-                        <i class="fa fa-ticket" title="Ticket" />
+                        <i class="fa fa-ticket mx-1" title="Ticket" />
                         <field name="event_type_id" class="oe_inline" nolabel="1" />
                     </div>
                 </t>
@@ -42,7 +42,7 @@
         </field>
     </record>
     <record id="quick_create_opportunity_form" model="ir.ui.view">
-        <field name="name">Event category in CRM opportunities quick form</field>
+        <field name="name">Event type in CRM opportunities quick form</field>
         <field name="model">crm.lead</field>
         <field name="inherit_id" ref="crm.quick_create_opportunity_form" />
         <field name="arch" type="xml">
@@ -57,7 +57,7 @@
         </field>
     </record>
     <record id="crm_case_tree_view_oppor" model="ir.ui.view">
-        <field name="name">Event category in CRM opportunities tree</field>
+        <field name="name">Event type in CRM opportunities tree</field>
         <field name="model">crm.lead</field>
         <field name="inherit_id" ref="crm.crm_case_tree_view_oppor" />
         <field name="arch" type="xml">
@@ -72,7 +72,7 @@
         </field>
     </record>
     <record id="view_crm_case_opportunities_filter" model="ir.ui.view">
-        <field name="name">Search by event category in CRM opportunities</field>
+        <field name="name">Search by event type in CRM opportunities</field>
         <field name="model">crm.lead</field>
         <field name="inherit_id" ref="crm.view_crm_case_opportunities_filter" />
         <field name="arch" type="xml">
@@ -91,7 +91,7 @@
     </record>
     <!-- Shared between opportunities and leads -->
     <record id="crm_lead_view_form" model="ir.ui.view">
-        <field name="name">Event category in CRM opportunities form</field>
+        <field name="name">Event type in CRM opportunities form</field>
         <field name="model">crm.lead</field>
         <field name="inherit_id" ref="crm.crm_lead_view_form" />
         <field name="arch" type="xml">
@@ -104,7 +104,7 @@
         </field>
     </record>
     <record id="crm_opportunity_report_view_search" model="ir.ui.view">
-        <field name="name">Search by event category in CRM opportunities report</field>
+        <field name="name">Search by event type in CRM opportunities report</field>
         <field name="model">crm.lead</field>
         <field name="inherit_id" ref="crm.crm_opportunity_report_view_search" />
         <field name="arch" type="xml">
