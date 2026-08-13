@@ -55,10 +55,19 @@ msgid "Count of events with confirmed registrations."
 msgstr "Število dogodkov s potrjenimi prijavami."
 
 #. module: partner_event
+#: model_terms:ir.ui.view,arch_db:partner_event.view_event_registration_form
+msgid "Create Partner"
+msgstr ""
+
+#. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_event_event__create_partner
-#: model:ir.model.fields,field_description:partner_event.field_event_session__create_partner
 msgid "Create Partners in registration"
 msgstr "Ustvari partnerje pri prijavi"
+
+#. module: partner_event
+#: model:ir.model,website_form_label:partner_event.model_res_partner
+msgid "Create a Customer"
+msgstr ""
 
 #. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
@@ -76,6 +85,10 @@ msgid "Created on"
 msgstr "Ustvarjeno"
 
 #. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_base_partner_merge_automatic_wizard__display_name
+#: model:ir.model.fields,field_description:partner_event.field_event_event__display_name
+#: model:ir.model.fields,field_description:partner_event.field_event_registration__display_name
+#: model:ir.model.fields,field_description:partner_event.field_res_partner__display_name
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__display_name
 msgid "Display Name"
 msgstr "Prikazani naziv"
@@ -98,6 +111,10 @@ msgid "Event registrations"
 msgstr "Prijave na dogodek"
 
 #. module: partner_event
+#: model:ir.model.fields,field_description:partner_event.field_base_partner_merge_automatic_wizard__id
+#: model:ir.model.fields,field_description:partner_event.field_event_event__id
+#: model:ir.model.fields,field_description:partner_event.field_event_registration__id
+#: model:ir.model.fields,field_description:partner_event.field_res_partner__id
 #: model:ir.model.fields,field_description:partner_event.field_res_partner_register_event__id
 msgid "ID"
 msgstr "ID"
@@ -141,3 +158,9 @@ msgstr "Prijave"
 #: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
 msgid "Select event to register"
 msgstr "Izberite dogodek za prijavo"
+
+#. module: partner_event
+#. odoo-python
+#: code:addons/partner_event/models/event_registration.py:0
+msgid "Set at least the attendee name or email before creating a partner."
+msgstr ""
