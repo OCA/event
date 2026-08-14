@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -16,7 +16,7 @@ msgstr ""
 #. module: event_email_reminder
 #: model:mail.template,body_html:event_email_reminder.event_email_reminder_template
 msgid ""
-"<p>Hello <t t-out=\"object.name\"></t>,</p>\n"
+"<p>Hello <t t-out=\"object.name\"/>,</p>\n"
 "            <p>This is a event's summary: </p>\n"
 "            <table>\n"
 "                <thead>\n"
@@ -27,14 +27,28 @@ msgid ""
 "                        <td>State</td>\n"
 "                    </tr>\n"
 "                </thead>\n"
-"                <tr t-foreach=\"ctx['events']\" t-as=\"event\">\n"
-"                    <td><span t-out=\"event.date_begin\" t-options=\"{'widget': 'datetime', 'tz_name': event.date_tz, 'format': 'short'}\"></span></td>\n"
-"                    <td><span t-out=\"event.name\"></span></td>\n"
-"                    <td><span t-out=\"event.date_end\" t-options=\"{'widget': 'datetime', 'tz_name': event.date_tz, 'format': 'short'}\"></span></td>\n"
-"                    <td><span t-out=\"event.stage_id.name\" style=\"font-weight:bold;\"></span></td>\n"
+"                <tr t-foreach=\"ctx.get('events', [])\" t-as=\"event\">\n"
+"                    <td>\n"
+"                        <span t-out=\"event.date_begin\" t-options=\"{'widget': 'datetime', 'tz_name': event.date_tz, 'format': 'short'}\"/>\n"
+"                    </td>\n"
+"                    <td>\n"
+"                        <span t-out=\"event.name\"/>\n"
+"                    </td>\n"
+"                    <td>\n"
+"                        <span t-out=\"event.date_end\" t-options=\"{'widget': 'datetime', 'tz_name': event.date_tz, 'format': 'short'}\"/>\n"
+"                    </td>\n"
+"                    <td>\n"
+"                        <span t-out=\"event.stage_id.name\" style=\"font-weight:bold;\"/>\n"
+"                    </td>\n"
 "                </tr>\n"
-"        </table>\n"
-"    "
+"            </table>\n"
+"        "
+msgstr ""
+
+#. module: event_email_reminder
+#: model:ir.model.fields,field_description:event_email_reminder.field_event_event__display_name
+#: model:ir.model.fields,field_description:event_email_reminder.field_event_stage__display_name
+msgid "Display Name"
 msgstr ""
 
 #. module: event_email_reminder
@@ -56,6 +70,12 @@ msgstr ""
 #. module: event_email_reminder
 #: model:ir.model.fields,field_description:event_email_reminder.field_event_stage__exclude_from_email_reminder
 msgid "Exclude from email reminder"
+msgstr ""
+
+#. module: event_email_reminder
+#: model:ir.model.fields,field_description:event_email_reminder.field_event_event__id
+#: model:ir.model.fields,field_description:event_email_reminder.field_event_stage__id
+msgid "ID"
 msgstr ""
 
 #. module: event_email_reminder
