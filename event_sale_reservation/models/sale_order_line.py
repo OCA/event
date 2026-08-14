@@ -25,6 +25,19 @@ class SaleOrderLine(models.Model):
         store=True,
     )
 
+    @api.depends("event_reservation_type_id")
+    def _compute_product_updatable(self):
+        event_registration_lines = self.filtered("event_reservation_type_id")
+        # Exclude event registration lines from the computation of product_updatable.
+        # If sale_project is installed, this module sets product_updatable to True for
+        # service products on confirmed sale orders, preventing the product from being
+        # changed when the reservation is converted to an event registration.
+        # This workaround allows the product to be changed in that case.
+        self -= event_registration_lines
+        res = super()._compute_product_updatable()
+        event_registration_lines.product_updatable = True
+        return res
+
     @api.depends("event_registration_ids")
     def _compute_event_registration_count(self):
         """Get count of related event registrations."""
