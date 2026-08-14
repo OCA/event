@@ -35,6 +35,7 @@ addon | version | maintainers | summary
 [website_event_questions_by_ticket](website_event_questions_by_ticket/) | 19.0.1.0.0 |  | Events Questions conditional to the chosen ticket
 [website_event_require_legal](website_event_require_legal/) | 19.0.1.0.0 |  | Website Event Require Legal
 [website_event_sale_b2x_alt_price](website_event_sale_b2x_alt_price/) | 19.0.1.0.0 | <a href='https://github.com/Yajo'><img src='https://github.com/Yajo.png' width='32' height='32' style='border-radius:50%;' alt='Yajo'/></a> | Display alt. price (B2B for B2C websites, and viceversa)
+[website_event_track_stage_cancelled](website_event_track_stage_cancelled/) | 19.0.1.0.0 |  | Event session cancellation workflows
 
 [//]: # (end addons)
 
