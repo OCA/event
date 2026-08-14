@@ -17,8 +17,8 @@
         <field name="body_html" type="html">
             <div style="margin: 0px; padding: 0px;">
                 <p style="margin: 0px; padding: 0px; font-size: 13px;">Dear <t
-                        t-out="object.partner_name or object.partner_id.name"
-                    />,</p>
+                    t-out="object.partner_name or object.partner_id.name"
+                />,</p>
                 <p style="margin: 0px; padding: 0px; font-size: 13px;">
                     You seem to be interested in registering into an event of category
                     <strong t-out="object.event_type_id.name" />.

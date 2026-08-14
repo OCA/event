@@ -24,8 +24,8 @@
                     invisible="not auto_invite_warning"
                 >
                     <i
-                        class="fa fa-info"
-                    /> It's not possible to determine to propose events if the company isn't set or if the company has no websites. So no invitation will be sent for this lead
+                    class="fa fa-info"
+                /> It's not possible to determine to propose events if the company isn't set or if the company has no websites. So no invitation will be sent for this lead
                 </div>
             </xpath>
         </field>
