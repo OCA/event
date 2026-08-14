@@ -1,0 +1,103 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_event_filter_selector
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-05-05 19:00+0000\n"
+"PO-Revision-Date: 2026-05-14 18:42+0000\n"
+"Last-Translator: Ben Brich <b.brich@humanilog.org>\n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
+
+#. module: website_event_filter_city
+#. odoo-python
+#: code:addons/website_event_filter_city/controllers/main.py:0
+#: model_terms:ir.ui.view,arch_db:website_event_filter_city.event_city
+#, python-format
+msgid "All Cities"
+msgstr "Alle Städte"
+
+#. module: website_event_filter_city
+#: model:event.event,name:website_event_filter_city.event_barcelona
+msgid "Barcelona Days 2017"
+msgstr ""
+
+#. module: website_event_filter_city
+#: model:event.tag,name:website_event_filter_city.event_type_breakfast
+msgid "Breakfast"
+msgstr "Frühstück"
+
+#. module: website_event_filter_city
+#: model:ir.model.fields,field_description:website_event_filter_city.field_event_event__city
+#: model_terms:ir.ui.view,arch_db:website_event_filter_city.event_city
+msgid "City"
+msgstr "Stadt"
+
+#. module: website_event_filter_city
+#: model:event.tag,name:website_event_filter_city.event_type_code_sprint
+msgid "Code Sprint"
+msgstr ""
+
+#. module: website_event_filter_city
+#: model:ir.model,name:website_event_filter_city.model_event_event
+msgid "Event"
+msgstr "Veranstaltung"
+
+#. module: website_event_filter_city
+#: model_terms:event.event,description:website_event_filter_city.event_barcelona
+#: model_terms:event.event,description:website_event_filter_city.event_online
+#: model_terms:event.event,description:website_event_filter_city.event_sevilla_bf
+#: model_terms:event.event,description:website_event_filter_city.event_sevilla_cs
+msgid ""
+"Every year we invite our community, partners and end-users to come and meet "
+"us! It's the ideal event to get together and present new features, roadmap "
+"of future versions, achievements of the software, workshops, training "
+"sessions, etc...\n"
+"            This event is also an opportunity to showcase our partners' case "
+"studies, methodology or developments. Be there and see directly from the "
+"source the features of the new version!"
+msgstr ""
+"Jedes Jahr laden wir unsere Community, unsere Partner und unsere Endnutzer "
+"ein, uns zu besuchen! Es ist die ideale Veranstaltung, um zusammenzukommen "
+"und neue Funktionen, die Roadmap für zukünftige Versionen, die Erfolge der "
+"Software, Workshops, Schulungen usw. vorzustellen.\n"
+"            Diese Veranstaltung bietet zudem die Gelegenheit, Fallstudien, "
+"Methoden oder Entwicklungen unserer Partner zu präsentieren. Seien Sie dabei "
+"und erfahren Sie direkt aus erster Hand, welche Funktionen die neue Version "
+"bietet!"
+
+#. module: website_event_filter_city
+#: model_terms:ir.ui.view,arch_db:website_event_filter_city.event_city
+msgid "Filter by City"
+msgstr "Filtern nach Stadt"
+
+#. module: website_event_filter_city
+#: model_terms:event.event,description:website_event_filter_city.event_barcelona
+#: model_terms:event.event,description:website_event_filter_city.event_online
+#: model_terms:event.event,description:website_event_filter_city.event_sevilla_bf
+#: model_terms:event.event,description:website_event_filter_city.event_sevilla_cs
+msgid "Join us for this 24 hours Event"
+msgstr "Seien Sie bei diesem 24-Stunden-Event dabei"
+
+#. module: website_event_filter_city
+#: model:event.event,name:website_event_filter_city.event_online
+msgid "Online Code Sprint 2018"
+msgstr ""
+
+#. module: website_event_filter_city
+#: model:event.event,name:website_event_filter_city.event_sevilla_bf
+msgid "Sevilla Awesome Breakfast 2018"
+msgstr "Sevilla – Ein fantastisches Frühstück 2018"
+
+#. module: website_event_filter_city
+#: model:event.event,name:website_event_filter_city.event_sevilla_cs
+msgid "Sevilla Code Sprint 2018"
+msgstr ""
