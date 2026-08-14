@@ -1,0 +1,143 @@
+# Copyright 2021 Tecnativa - Jairo Llopis
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+
+from odoo import api, fields, models
+
+
+class EventType(models.Model):
+    _inherit = "event.type"
+
+    seats_available_total = fields.Char(
+        string="Events available (and seats)",
+        compute="_compute_event_totals",
+        help="Upcoming/running events of this type (and available seats).",
+    )
+    crm_lead_ids = fields.One2many(
+        string="Leads/Opportunities",
+        comodel_name="crm.lead",
+        inverse_name="event_type_id",
+    )
+    open_opportunities_count = fields.Integer(
+        compute="_compute_opportunities_totals",
+        store=True,
+        help="Open opportunities for events of this type.",
+    )
+    seats_wanted_sum = fields.Integer(
+        string="Wanted seats",
+        compute="_compute_opportunities_totals",
+        store=True,
+        help="Sum of wanted seats in opportunities for events of this type.",
+    )
+    seats_wanted_total = fields.Char(
+        string="Opportunities (seats)",
+        compute="_compute_opportunities_totals",
+        store=True,
+        help="Open opportunities for events of this type (and wanted seats).",
+    )
+
+    def _events_domain(self):
+        """Basic domain to get related events."""
+        return [
+            ("event_type_id", "in", self.ids),
+            # The following domain is the same as upstream's "Upcoming/Running"
+            # filter, which is the default when opening events view. It'd be
+            # more correct to filter for `date_end >= fields.Datetime.now()`,
+            # to exclude events that finished earlier today. However, that
+            # would make the smart button display a different count than the
+            # events when clicking on it, so it seems more user-friendly to
+            # include these events, even if they finished earlier today.
+            ("date_end", ">=", fields.Date.today()),
+        ]
+
+    def _compute_event_totals(self):
+        """Get how many open events and available seats exist."""
+        domain = self._events_domain()
+        types_with_unlimited_seats = (
+            self.env["event.event"]
+            .search(domain + [("seats_limited", "=", False)])
+            .mapped("event_type_id")
+        )
+        event_seats = {}
+        event_counts = {}
+        events = self.env["event.event"].search(domain, order="event_type_id asc")
+        for event in events:
+            event_type_id = event.event_type_id.id
+            event_seats[event_type_id] = event_seats.get(event_type_id, 0) + (
+                event.seats_available or 0
+            )
+            event_counts[event_type_id] = event_counts.get(event_type_id, 0) + 1
+        results = []
+        for event_type_id in event_seats.keys():
+            event_type = self.env["event.type"].browse(event_type_id)
+            results.append(
+                {
+                    "event_type_id": (event_type_id, event_type.name),
+                    "seats_available": event_seats[event_type_id],
+                    "event_type_id_count": event_counts.get(event_type_id, 0),
+                }
+            )
+        totals = {group["event_type_id"][0]: group for group in results}
+        for one in self:
+            totals_item = totals.get(one.id, {})
+            event_count = totals_item.get("event_type_id_count", 0)
+            seats_sum = (
+                self.env._("Unlimited")
+                if one in types_with_unlimited_seats
+                else totals_item.get("seats_available", "0")
+            )
+            one.seats_available_total = f"{event_count} ({seats_sum})"
+
+    @api.depends(
+        "crm_lead_ids.active",
+        "crm_lead_ids.probability",
+        "crm_lead_ids.seats_wanted",
+        "crm_lead_ids.type",
+    )
+    def _compute_opportunities_totals(self):
+        """Get how many open opportunities and wanted seats exist."""
+        results = self.env["crm.lead"]._read_group(
+            domain=[
+                ("event_type_id", "in", self.ids),
+                ("type", "=", "opportunity"),
+                # Ignore lost and won opportunities
+                ("active", "=", True),
+                ("probability", "<", 100),
+            ],
+            groupby=["event_type_id"],
+            aggregates=["seats_wanted:sum", "__count"],
+        )
+        totals = {event.id: (seats, count) for event, count, seats in results}
+        for one in self:
+            oppt_count, seats_sum = totals.get(one.id, (0, 0))
+            one.open_opportunities_count = oppt_count
+            one.seats_wanted_sum = seats_sum
+            one.seats_wanted_total = f"{oppt_count} ({seats_sum})"
+
+    def action_open_events(self):
+        return {
+            "context": {
+                "default_event_type_id": self.id,
+                "search_default_upcoming": True,
+            },
+            "domain": [("event_type_id", "=", self.id)],
+            "name": self.env._("Events"),
+            "res_model": "event.event",
+            "type": "ir.actions.act_window",
+            "view_mode": "kanban,calendar,list,form,pivot",
+            "view_type": "form",
+        }
+
+    def action_open_opportunities(self):
+        return {
+            "context": {
+                "default_event_type_id": self.id,
+                "default_seats_wanted": True,
+                "search_default_open_opportunities": True,
+            },
+            "domain": [("event_type_id", "=", self.id)],
+            "name": self.env._("Opportunities"),
+            "res_model": "crm.lead",
+            "type": "ir.actions.act_window",
+            "view_mode": "kanban,list,graph,pivot,form,calendar,activity",
+            "view_type": "form",
+        }
