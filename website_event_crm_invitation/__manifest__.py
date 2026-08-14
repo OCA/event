@@ -3,7 +3,7 @@
 {
     "name": "Website, event and CRM integration",
     "summary": "Invite leads to event types on website",
-    "version": "17.0.1.0.0",
+    "version": "19.0.1.0.0",
     "development_status": "Production/Stable",
     "category": "Marketing",
     "website": "https://github.com/OCA/event",

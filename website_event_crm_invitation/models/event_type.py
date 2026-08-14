@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import fields, models
-from odoo.osv import expression
+from odoo.fields import Domain
 
 
 class EventType(models.Model):
@@ -30,7 +30,7 @@ class EventType(models.Model):
             lambda e: e.seats_available > 0
         ).ids
         if valid_event_ids:
-            domain = expression.OR(
+            domain = Domain.OR(
                 [
                     domain,
                     [("id", "in", valid_event_ids)],

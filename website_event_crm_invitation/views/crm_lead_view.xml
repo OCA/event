@@ -8,8 +8,6 @@
         <field name="inherit_id" ref="crm.crm_lead_view_form" />
         <field name="arch" type="xml">
             <header>
-                <field name="event_type_website_url" invisible="1" />
-                <field name="auto_invite_warning" invisible="1" />
                 <button
                     string="Invite to website"
                     name="action_invite_to_website_event_type"

@@ -1,7 +1,5 @@
 # Copyright 2022 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo.fields import first
-
 from odoo.addons.crm_event.tests.test_event_type import CrmEventCase
 
 
@@ -22,11 +20,11 @@ class WebsiteEventCrmTests(CrmEventCase):
             {"name": "Test Pending", "auto_invite_website_event_type": True}
         )
         # An opportunity which we'll should be invited to the event
-        cls.opportunity_1 = first(cls.opportunities).copy(
+        cls.opportunity_1 = cls.opportunities[:1].copy(
             {"email_from": "test@test.com", "stage_id": cls.invite_stage.id}
         )
         # An opportunity from another company wich won't get any invitation
-        cls.opportunity_2 = first(cls.opportunities).copy(
+        cls.opportunity_2 = cls.opportunities[:1].copy(
             {
                 "email_from": "test@test.com",
                 "stage_id": cls.invite_stage.id,
@@ -34,7 +32,7 @@ class WebsiteEventCrmTests(CrmEventCase):
             }
         )
         # An opportunity from antother type
-        cls.opportunity_3 = first(cls.opportunities).copy(
+        cls.opportunity_3 = cls.opportunities[:1].copy(
             {
                 "email_from": "test@test.com",
                 "stage_id": cls.invite_stage.id,
@@ -42,9 +40,7 @@ class WebsiteEventCrmTests(CrmEventCase):
             }
         )
         # An opportunity on a stage without auto invite
-        cls.opportunity_4 = first(cls.opportunities).copy(
-            {"email_from": "test@test.com"}
-        )
+        cls.opportunity_4 = cls.opportunities[:1].copy({"email_from": "test@test.com"})
 
     def _lead_msg(self, lead):
         return "\n".join(lead.message_ids.mapped("body"))

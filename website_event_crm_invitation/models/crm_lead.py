@@ -3,9 +3,8 @@
 
 import logging
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import UserError
-from odoo.tests.common import Form
 
 _logger = logging.getLogger(__name__)
 
@@ -26,7 +25,7 @@ class CRMLead(models.Model):
             domain = lead.event_type_id._published_events_domain()
             events = self.env["event.event"].search(domain, limit=1)
             if events:
-                lead.event_type_website_url = "/event?type=%d" % lead.event_type_id.id
+                lead.event_type_website_url = f"/event?type={lead.event_type_id.id}"
 
     @api.depends("event_type_id", "company_id")
     def _compute_auto_invite_warning(self):
@@ -112,17 +111,18 @@ class CRMLead(models.Model):
                     skip_website_event_crm_warning=True
                 ).action_invite_to_website_event_type()
                 assert action["res_model"] == "mail.compose.message"
-                composer = Form(
-                    self.env["mail.compose.message"].with_context(
+                composer = (
+                    self.env["mail.compose.message"]
+                    .with_context(
                         active_id=lead.id,
                         active_ids=lead.ids,
                         active_model=lead._name,
                         mail_notify_force_send=False,
                         **action["context"],
-                    ),
-                    action["view_id"],
+                    )
+                    .create({})
                 )
-                composer.save()._action_send_mail()
+                composer._action_send_mail()
             except Exception:
                 _logger.exception("Failure trying to invite to website event type.")
 
@@ -133,14 +133,14 @@ class CRMLead(models.Model):
             and self.auto_invite_warning
         ):
             raise UserError(
-                _(
+                self.env._(
                     "It's not possible to determine to propose events if the company "
                     "isn't set or if the company has no websites. So no invitation "
                     "will be sent for this lead"
                 )
             )
         if not self.event_type_id or not self.event_type_website_url:
-            raise UserError(_("Select one event type with published events."))
+            raise UserError(self.env._("Select one event type with published events."))
         compose_form_id = self.env.ref("mail.email_compose_message_wizard_form").id
         template_id = self.env.ref(
             "website_event_crm_invitation.crm_lead_event_type_tpl"
@@ -148,8 +148,9 @@ class CRMLead(models.Model):
         # When manually sending the invitation we won't have the proper context and
         # get_base_url isn't very smart in this Odoo version
         base_url_object = (
-            fields.first(
-                self.env["website"].search([("company_id", "=", self.company_id.id)])
+            self.env["website"].search(
+                [("company_id", "=", self.company_id.id)],
+                limit=1,
             )
             or self
         )
@@ -164,13 +165,12 @@ class CRMLead(models.Model):
             base_url=self.env.context.get("base_url", base_url_object.get_base_url()),
         )
         return {
-            "name": _("Invite to visit website"),
+            "name": self.env._("Invite to visit website"),
             "res_model": "mail.compose.message",
             "target": "new",
             "type": "ir.actions.act_window",
             "view_id": compose_form_id,
             "view_mode": "form",
-            "view_type": "form",
             "views": [(compose_form_id, "form")],
             "context": ctx,
         }
