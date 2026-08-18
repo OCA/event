@@ -17,8 +17,6 @@
                         <field name="mode" widget="radio" />
                     </group>
                     <group name="register" invisible="mode != 'register'">
-                        <field name="allowed_event_ids" invisible="1" />
-                        <field name="allowed_event_ticket_ids" invisible="1" />
                         <field
                             name="event_id"
                             required="mode == 'register'"
@@ -35,7 +33,8 @@
                             name="product_id"
                             required="mode == 'reserve'"
                             context="{
-                                'default_event_reservation_ok': True,
+                                'default_type': 'service',
+                                'default_service_tracking': 'event_reservation',
                                 'default_event_reservation_type_id': event_type_id,
                             }"
                         />

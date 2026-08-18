@@ -2,7 +2,8 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from datetime import datetime, timedelta
 
-from odoo.tests.common import Form, TransactionCase
+from odoo import Command
+from odoo.tests import Form, TransactionCase
 
 
 class OpportunityCase(TransactionCase):
@@ -14,9 +15,7 @@ class OpportunityCase(TransactionCase):
                 "name": "Test pricelist",
                 "currency_id": cls.env.company.currency_id.id,
                 "item_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "applied_on": "3_global",
                             "compute_price": "formula",
@@ -33,14 +32,20 @@ class OpportunityCase(TransactionCase):
         cls.product_reservation_1 = cls.env["product.product"].create(
             {
                 "sale_ok": True,
-                "detailed_type": "event_reservation",
+                "type": "service",
+                "service_tracking": "event_reservation",
                 "event_reservation_type_id": cls.event_type_1.id,
                 "lst_price": 11,
                 "name": "reservation for ev. type 1",
             }
         )
         cls.product_ticket_1 = cls.env["product.product"].create(
-            {"name": "events ticket", "detailed_type": "event", "lst_price": 10}
+            {
+                "name": "events ticket",
+                "type": "service",
+                "service_tracking": "event",
+                "lst_price": 10,
+            }
         )
         cls.event_1 = cls.env["event.event"].create(
             {
@@ -48,9 +53,7 @@ class OpportunityCase(TransactionCase):
                 "date_begin": datetime.now() + timedelta(days=1),
                 "date_end": datetime.now() + timedelta(days=2),
                 "event_ticket_ids": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "name": "ticket 1",
                             "product_id": cls.product_ticket_1.id,
@@ -87,7 +90,7 @@ class OpportunityCase(TransactionCase):
         self.assertEqual(
             so.order_line.event_ticket_id, self.event_1.event_ticket_ids[0]
         )
-        self.assertTrue(so.order_line.product_id.detailed_type == "event")
+        self.assertTrue(so.order_line.product_id.service_tracking == "event")
         self.assertEqual(
             so.order_line.product_uom_qty,
             3,
@@ -115,7 +118,7 @@ class OpportunityCase(TransactionCase):
         self.assertEqual(so.order_line.product_id, self.product_reservation_1)
         self.assertFalse(so.order_line.event_id)
         self.assertFalse(so.order_line.event_ticket_id)
-        self.assertFalse(so.order_line.product_id.detailed_type == "event")
+        self.assertFalse(so.order_line.product_id.service_tracking == "event")
         self.assertEqual(
             so.order_line.product_uom_qty,
             3,

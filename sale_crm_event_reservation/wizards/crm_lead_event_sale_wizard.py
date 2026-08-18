@@ -1,8 +1,7 @@
 # Copyright 2021 Tecnativa - Jairo Llopis
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
-from odoo.tests.common import Form
+from odoo import Command, api, fields, models
 
 
 class CRMLeadEventSale(models.TransientModel):
@@ -15,7 +14,6 @@ class CRMLeadEventSale(models.TransientModel):
         ondelete="cascade",
         readonly=True,
         required=True,
-        string="Opportunity",
     )
     event_type_id = fields.Many2one(
         readonly=True,
@@ -43,7 +41,6 @@ class CRMLeadEventSale(models.TransientModel):
         """,
         index=True,
         ondelete="cascade",
-        string="Product",
     )
     allowed_event_ids = fields.Many2many(
         comodel_name="event.event",
@@ -55,7 +52,6 @@ class CRMLeadEventSale(models.TransientModel):
         domain="[('id', 'in', allowed_event_ids)]",
         index=True,
         ondelete="cascade",
-        string="Event",
     )
     allowed_event_ticket_ids = fields.Many2many(
         comodel_name="event.event.ticket",
@@ -104,38 +100,32 @@ class CRMLeadEventSale(models.TransientModel):
 
     def action_generate(self):
         """Create an event reservation sales order."""
-        # Creating a sale order properly involves lots of onchanges, so here it
-        # is better to use `Form` to make sure we forget none
-        so_form = Form(self.env["sale.order"])
-        so_form.partner_id = self.opportunity_id.partner_id
-        # If the partner has configured a warning that blocks, the partner won't be
-        # assigned here, so let's redirects to the standard action of creating a quote
-        # from the opportunity, passing the `default_partner_id` context to follow the
-        # Odoo flow, thus displaying the block message normally and avoiding errors in
-        # creation.
-        if not so_form.partner_id:
-            return self.opportunity_id.with_context(
-                default_partner_id=self.opportunity_id.partner_id.id
-            ).action_new_quotation()
-        so_form.campaign_id = self.opportunity_id.campaign_id
-        so_form.medium_id = self.opportunity_id.medium_id
-        so_form.opportunity_id = self.opportunity_id
-        so_form.origin = self.opportunity_id.name
-        so_form.source_id = self.opportunity_id.source_id
-        so_form.team_id = self.opportunity_id.team_id
-        with so_form.order_line.new() as so_line:
-            if self.mode == "reserve":
-                assert self.product_id
-                so_line.product_id = self.product_id
-                so_line.product_uom_qty = self.opportunity_id.seats_wanted
-            elif self.mode == "register":
-                assert self.event_id
-                assert self.event_ticket_id
-                so_line.product_id = self.event_ticket_id.product_id
-                so_line.product_uom_qty = self.opportunity_id.seats_wanted
-                so_line.event_id = self.event_id
-                so_line.event_ticket_id = self.event_ticket_id
-        so = so_form.save()
+        so_vals = {
+            "partner_id": self.opportunity_id.partner_id.id,
+            "campaign_id": self.opportunity_id.campaign_id.id,
+            "medium_id": self.opportunity_id.medium_id.id,
+            "opportunity_id": self.opportunity_id.id,
+            "origin": self.opportunity_id.name,
+            "source_id": self.opportunity_id.source_id.id,
+            "team_id": self.opportunity_id.team_id.id,
+        }
+        if self.mode == "reserve":
+            assert self.product_id
+            so_line_vals = {
+                "product_id": self.product_id.id,
+                "product_uom_qty": self.opportunity_id.seats_wanted,
+            }
+        elif self.mode == "register":
+            assert self.event_id
+            assert self.event_ticket_id
+            so_line_vals = {
+                "product_id": self.event_ticket_id.product_id.id,
+                "product_uom_qty": self.opportunity_id.seats_wanted,
+                "event_id": self.event_id.id,
+                "event_ticket_id": self.event_ticket_id.id,
+            }
+        so_vals["order_line"] = [Command.create(so_line_vals)]
+        so = self.env["sale.order"].create(so_vals)
         return {
             "res_id": so.id,
             "res_model": "sale.order",
