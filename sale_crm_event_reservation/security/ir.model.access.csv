@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+sale_crm_event_reservation.access_crm_lead_event_sale_wizard,access_crm_lead_event_sale_wizard,sale_crm_event_reservation.model_crm_lead_event_sale_wizard,event.group_event_user,1,1,1,1
