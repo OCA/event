@@ -15,8 +15,9 @@ class EventEvent(models.Model):
         city = self.env.context.get("event_filter_city")
         res = super()._search_get_detail(website, order, options)
         if city:
+            base_domain = res["base_domain"].copy()
             city_domain = [("city", "=", city)]
-            res.update(no_city_domain=res["base_domain"])
+            res.update(no_city_domain=base_domain)
             res["base_domain"].append(city_domain)
             res["no_country_domain"].append(city_domain)
             res["no_date_domain"].append(city_domain)
