@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -40,6 +40,7 @@ msgstr ""
 
 #. module: sale_crm_event_reservation
 #: model:ir.model.fields,field_description:sale_crm_event_reservation.field_crm_lead_event_sale_wizard__display_name
+#: model:ir.model.fields,field_description:sale_crm_event_reservation.field_event_type_report__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -49,13 +50,13 @@ msgid "Event"
 msgstr ""
 
 #. module: sale_crm_event_reservation
-#: model:ir.model,name:sale_crm_event_reservation.model_event_type_report
-msgid "Event categories analysis report"
+#: model:ir.model.fields,field_description:sale_crm_event_reservation.field_crm_lead_event_sale_wizard__event_type_id
+msgid "Event Type"
 msgstr ""
 
 #. module: sale_crm_event_reservation
-#: model:ir.model.fields,field_description:sale_crm_event_reservation.field_crm_lead_event_sale_wizard__event_type_id
-msgid "Event category"
+#: model:ir.model,name:sale_crm_event_reservation.model_event_type_report
+msgid "Event type analysis report"
 msgstr ""
 
 #. module: sale_crm_event_reservation
@@ -75,21 +76,22 @@ msgstr ""
 
 #. module: sale_crm_event_reservation
 #: model:ir.model.fields,field_description:sale_crm_event_reservation.field_crm_lead_event_sale_wizard__id
+#: model:ir.model.fields,field_description:sale_crm_event_reservation.field_event_type_report__id
 msgid "ID"
 msgstr ""
 
 #. module: sale_crm_event_reservation
 #: model:ir.model.fields,help:sale_crm_event_reservation.field_crm_lead_event_sale_wizard__seats_wanted
 msgid ""
-"If this lead/opportunity is related to a specific event category, indicate "
-"how many seats would you sell if won."
+"If this lead/opportunity is related to a specific event type, indicate how "
+"many seats would you sell if won."
 msgstr ""
 
 #. module: sale_crm_event_reservation
 #: model:ir.model.fields,help:sale_crm_event_reservation.field_crm_lead_event_sale_wizard__event_type_id
 msgid ""
-"If this lead/opportunity is related to a specific event category, indicate "
-"it here."
+"If this lead/opportunity is related to a specific event type, indicate it "
+"here."
 msgstr ""
 
 #. module: sale_crm_event_reservation
