@@ -13,7 +13,7 @@ class EventEvent(models.Model):
     event_mail_template_id = fields.Many2one(
         comodel_name="event.mail.template",
         string="Mail Template Scheduler",
-        default=_default_event_mail_template_id,
+        default=lambda self: self._default_event_mail_template_id(),
     )
 
     @api.depends("event_mail_template_id")

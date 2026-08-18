@@ -11,7 +11,6 @@ class EventMailSchedulerTemplate(models.Model):
     event_id = fields.Many2one(required=False)
     event_mail_template_id = fields.Many2one(
         comodel_name="event.mail.template",
-        string="Event Mail Template",
         required=True,
         ondelete="cascade",
     )
@@ -56,5 +55,5 @@ class EventMailTemplate(models.Model):
         comodel_name="event.mail.scheduler.template",
         inverse_name="event_mail_template_id",
         string="Mail Schedule",
-        default=_default_scheduler_template_ids,
+        default=lambda self: self._default_scheduler_template_ids(),
     )
