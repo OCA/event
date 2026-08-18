@@ -6,3 +6,4 @@
   > - Stefan Ungureanu
 - [Heliconia Solutions Pvt. Ltd.](https://www.heliconia.io)
   - Bhavesh Heliconia
+- Andrii Chychkan <mywork1728@gmail.com>
