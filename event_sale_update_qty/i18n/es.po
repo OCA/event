@@ -1,0 +1,140 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_sale_update_qty
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-10-21 15:53+0000\n"
+"PO-Revision-Date: 2025-10-21 17:56+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#. module: event_sale_update_qty
+#: model_terms:ir.ui.view,arch_db:event_sale_update_qty.view_event_sale_update_qty_wizard_form
+msgid "<span colspan=\"2\" class=\"o_form_label\">Check those to remove</span>"
+msgstr "<span colspan=\"2\" class=\"o_form_label\">Marque los que desea eliminar</span>"
+
+#. module: event_sale_update_qty
+#: model:ir.model.fields,field_description:event_sale_update_qty.field_event_sale_update_qty_wizard__registration_ids
+#: model_terms:ir.ui.view,arch_db:event_sale_update_qty.view_event_sale_update_qty_wizard_form
+msgid "Attendees"
+msgstr "Asistentes"
+
+#. module: event_sale_update_qty
+#: model_terms:ir.ui.view,arch_db:event_sale_update_qty.view_event_sale_update_qty_wizard_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: event_sale_update_qty
+#: model:ir.model.fields,help:event_sale_update_qty.field_event_sale_update_qty_wizard__event_id
+msgid ""
+"Choose an event and it will automatically create a registration for this "
+"event."
+msgstr ""
+
+#. module: event_sale_update_qty
+#: model:ir.model.fields,help:event_sale_update_qty.field_event_sale_update_qty_wizard__ticket_id
+msgid ""
+"Choose an event ticket and it will automatically create a registration for "
+"this event ticket."
+msgstr ""
+
+#. module: event_sale_update_qty
+#: model:ir.model.fields,field_description:event_sale_update_qty.field_event_sale_update_qty_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: event_sale_update_qty
+#: model:ir.model.fields,field_description:event_sale_update_qty.field_event_sale_update_qty_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: event_sale_update_qty
+#: model:ir.model.fields,field_description:event_sale_update_qty.field_event_sale_update_qty_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: event_sale_update_qty
+#: model:ir.model,name:event_sale_update_qty.model_registration_editor
+msgid "Edit Attendee Details on Sales Confirmation"
+msgstr ""
+
+#. module: event_sale_update_qty
+#: model:ir.model.fields,field_description:event_sale_update_qty.field_event_sale_update_qty_wizard__event_id
+msgid "Event"
+msgstr "Evento"
+
+#. module: event_sale_update_qty
+#: model:ir.model.fields,field_description:event_sale_update_qty.field_event_sale_update_qty_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: event_sale_update_qty
+#: model:ir.model.fields,field_description:event_sale_update_qty.field_event_sale_update_qty_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: event_sale_update_qty
+#: model:ir.model.fields,field_description:event_sale_update_qty.field_event_sale_update_qty_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: event_sale_update_qty
+#: model_terms:ir.ui.view,arch_db:event_sale_update_qty.view_order_form
+msgid "Modify attendees"
+msgstr "Modificar asistentes"
+
+#. module: event_sale_update_qty
+#: model:ir.model.fields,field_description:event_sale_update_qty.field_event_sale_update_qty_wizard__new_qty
+msgid "New Quantity"
+msgstr "Nueva cantidad"
+
+#. module: event_sale_update_qty
+#: model:ir.model.fields,field_description:event_sale_update_qty.field_event_sale_update_qty_wizard__sale_order_line_id
+msgid "Sale Order Line"
+msgstr ""
+
+#. module: event_sale_update_qty
+#: model:ir.model,name:event_sale_update_qty.model_sale_order_line
+msgid "Sales Order Line"
+msgstr ""
+
+#. module: event_sale_update_qty
+#: model:ir.model.fields,field_description:event_sale_update_qty.field_event_sale_update_qty_wizard__show_registrations
+msgid "Show Registrations"
+msgstr ""
+
+#. module: event_sale_update_qty
+#: model:ir.model.fields,field_description:event_sale_update_qty.field_event_sale_update_qty_wizard__ticket_id
+msgid "Ticket"
+msgstr ""
+
+#. module: event_sale_update_qty
+#: model_terms:ir.ui.view,arch_db:event_sale_update_qty.view_event_sale_update_qty_wizard_form
+msgid "Update"
+msgstr "Actualizar"
+
+#. module: event_sale_update_qty
+#: model_terms:ir.ui.view,arch_db:event_sale_update_qty.view_event_sale_update_qty_wizard_form
+msgid "Update Attendee Quantity"
+msgstr "Actualizar cantidad de asistentes"
+
+#. module: event_sale_update_qty
+#: model:ir.model,name:event_sale_update_qty.model_event_sale_update_qty_wizard
+msgid "Wizard to update event attendees quantity from sale order line"
+msgstr ""
+
+#. module: event_sale_update_qty
+#. odoo-python
+#: code:addons/event_sale_update_qty/wizards/event_sale_update_qty_wizard.py:0
+#, python-format
+msgid "You must select exactly %s attendee(s) to cancel."
+msgstr "Debe seleccionar exactamente %s asistente(s) para cancelar."

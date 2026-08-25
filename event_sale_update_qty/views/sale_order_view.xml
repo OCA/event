@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 Tecnativa - Pilar Vargas
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_order_form" model="ir.ui.view">
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='order_line']//list/field[@name='product_uom_qty']"
+                position="after"
+            >
+                <button
+                    type="object"
+                    name="action_update_event_qty"
+                    icon="fa-edit"
+                    class="oe_inline"
+                    invisible="service_tracking != 'event' or state != 'sale'"
+                    title="Modify attendees"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
