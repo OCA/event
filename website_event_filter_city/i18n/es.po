@@ -21,30 +21,21 @@ msgstr ""
 #. odoo-python
 #: code:addons/website_event_filter_city/controllers/main.py:0
 #: model_terms:ir.ui.view,arch_db:website_event_filter_city.event_city
-#, python-format
 msgid "All Cities"
 msgstr "Todas las poblaciones"
 
 #. module: website_event_filter_city
-#: model:event.event,name:website_event_filter_city.event_barcelona
-msgid "Barcelona Days 2017"
-msgstr "Días de Barcelona 2017"
-
-#. module: website_event_filter_city
-#: model:event.tag,name:website_event_filter_city.event_type_breakfast
-msgid "Breakfast"
-msgstr "Desayuno"
-
-#. module: website_event_filter_city
+#. odoo-javascript
+#: code:addons/website_event_filter_city/static/src/website_builder/events_list_page_option.xml:0
 #: model:ir.model.fields,field_description:website_event_filter_city.field_event_event__city
 #: model_terms:ir.ui.view,arch_db:website_event_filter_city.event_city
 msgid "City"
 msgstr "Población"
 
 #. module: website_event_filter_city
-#: model:event.tag,name:website_event_filter_city.event_type_code_sprint
-msgid "Code Sprint"
-msgstr "Carrera de Código"
+#: model:ir.model.fields,field_description:website_event_filter_city.field_event_event__display_name
+msgid "Display Name"
+msgstr ""
 
 #. module: website_event_filter_city
 #: model:ir.model,name:website_event_filter_city.model_event_event
@@ -52,47 +43,35 @@ msgid "Event"
 msgstr "Evento"
 
 #. module: website_event_filter_city
-#: model_terms:event.event,description:website_event_filter_city.event_barcelona
-#: model_terms:event.event,description:website_event_filter_city.event_online
-#: model_terms:event.event,description:website_event_filter_city.event_sevilla_bf
-#: model_terms:event.event,description:website_event_filter_city.event_sevilla_cs
-msgid ""
-"Every year we invite our community, partners and end-users to come and meet "
-"us! It's the ideal event to get together and present new features, roadmap "
-"of future versions, achievements of the software, workshops, training "
-"sessions, etc...\n"
-"            This event is also an opportunity to showcase our partners' case "
-"studies, methodology or developments. Be there and see directly from the "
-"source the features of the new version!"
-msgstr ""
-
-#. module: website_event_filter_city
 #: model_terms:ir.ui.view,arch_db:website_event_filter_city.event_city
 msgid "Filter by City"
 msgstr ""
 
 #. module: website_event_filter_city
-#: model_terms:event.event,description:website_event_filter_city.event_barcelona
-#: model_terms:event.event,description:website_event_filter_city.event_online
-#: model_terms:event.event,description:website_event_filter_city.event_sevilla_bf
-#: model_terms:event.event,description:website_event_filter_city.event_sevilla_cs
-msgid "Join us for this 24 hours Event"
-msgstr "Únase a nosotros en este Evento de 24 horas"
+#: model:ir.model.fields,field_description:website_event_filter_city.field_event_event__id
+msgid "ID"
+msgstr ""
 
-#. module: website_event_filter_city
-#: model:event.event,name:website_event_filter_city.event_online
-msgid "Online Code Sprint 2018"
-msgstr "Sprint de código en línea 2018"
+#~ msgid "Barcelona Days 2017"
+#~ msgstr "Días de Barcelona 2017"
 
-#. module: website_event_filter_city
-#: model:event.event,name:website_event_filter_city.event_sevilla_bf
-msgid "Sevilla Awesome Breakfast 2018"
-msgstr "Desayuno Impresionante de Sevilla 2018"
+#~ msgid "Breakfast"
+#~ msgstr "Desayuno"
 
-#. module: website_event_filter_city
-#: model:event.event,name:website_event_filter_city.event_sevilla_cs
-msgid "Sevilla Code Sprint 2018"
-msgstr "Código Sevilla Sprint 2018"
+#~ msgid "Code Sprint"
+#~ msgstr "Carrera de Código"
+
+#~ msgid "Join us for this 24 hours Event"
+#~ msgstr "Únase a nosotros en este Evento de 24 horas"
+
+#~ msgid "Online Code Sprint 2018"
+#~ msgstr "Sprint de código en línea 2018"
+
+#~ msgid "Sevilla Awesome Breakfast 2018"
+#~ msgstr "Desayuno Impresionante de Sevilla 2018"
+
+#~ msgid "Sevilla Code Sprint 2018"
+#~ msgstr "Código Sevilla Sprint 2018"
 
 #~ msgid "Blocked"
 #~ msgstr "Bloqueado"
