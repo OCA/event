@@ -21,12 +21,6 @@ msgid "All Cities"
 msgstr ""
 
 #. module: website_event_filter_city
-#. odoo-python
-#: code:addons/website_event_filter_city/controllers/main.py:0
-msgid "All Countries"
-msgstr ""
-
-#. module: website_event_filter_city
 #. odoo-javascript
 #: code:addons/website_event_filter_city/static/src/website_builder/events_list_page_option.xml:0
 #: model:ir.model.fields,field_description:website_event_filter_city.field_event_event__city
