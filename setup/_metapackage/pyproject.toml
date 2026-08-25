@@ -1,6 +1,6 @@
 [project]
 name = "odoo-addons-oca-event"
-version = "19.0.20260824.0"
+version = "19.0.20260825.0"
 dependencies = [
     "odoo-addon-crm_event==19.0.*",
     "odoo-addon-event_email_reminder==19.0.*",
@@ -9,6 +9,7 @@ dependencies = [
     "odoo-addon-event_registration_partner_unique==19.0.*",
     "odoo-addon-event_sale_free_no_invoiceable==19.0.*",
     "odoo-addon-event_sale_reservation==19.0.*",
+    "odoo-addon-event_sale_update_qty==19.0.*",
     "odoo-addon-event_stage_cancelled==19.0.*",
     "odoo-addon-event_track_location_overlap==19.0.*",
     "odoo-addon-partner_event==19.0.*",
