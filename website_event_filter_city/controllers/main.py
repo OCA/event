@@ -11,7 +11,7 @@ from odoo.addons.website_event.controllers.main import WebsiteEventController
 
 class WebsiteEvent(WebsiteEventController):
     @route()
-    def events(self, page=1, **searches):
+    def events(self, page=1, slug_tags=None, **searches):
         searches.setdefault("city", self.env._("All Cities"))
         # Inject our city in `_search_with_fuzzy` which ends up in `event.event`
         # `_search_get_detail` override.
@@ -19,45 +19,23 @@ class WebsiteEvent(WebsiteEventController):
             request.website = request.website.with_context(
                 event_filter_city=searches["city"]
             )
-        response = super().events(page, **searches)
+        response = super().events(page=page, slug_tags=slug_tags, **searches)
         # We can avoid ugly mokeypatching using the domains that we get in return from
         # the qcontext values, that are already injected with our city filters. This
         # way we can easily make city filter compatible with the other filters.
         qcontext = response.qcontext
-        # We can rely in this domain by default
-        domain = next(
-            (
-                domain
-                for _, name, domain, _ in qcontext["dates"]
-                if name == qcontext["current_date"]
-            ),
-            qcontext["dates"][0][2],
+        options = self._get_events_search_options(slug_tags, **qcontext["searches"])
+        event_details = request.website._search_get_details("events", None, options)[0]
+        domain_search = (
+            Domain("name", "ilike", qcontext["searches"].get("search"))
+            if qcontext["searches"].get("search")
+            else Domain.TRUE
         )
-        if request.website.is_view_active("website_event.event_location"):
-            country_groups = request.env["event.event"]._read_group(
-                domain, ["country_id"], ["__count"], order="country_id"
-            )
-            countries = [
-                {
-                    "country_id_count": sum(count for __, count in country_groups),
-                    "country_id": (0, self.env._("All Countries")),
-                }
-            ]
-            for g_country, count in country_groups:
-                countries.append(
-                    {
-                        "country_id_count": count,
-                        "country_id": g_country
-                        and (g_country.id, g_country.sudo().display_name),
-                    }
-                )
-            qcontext.update({"countries": countries})
-            if qcontext["current_country"]:
-                domain = Domain(domain) & Domain(
-                    [("country_id", "=", qcontext["current_country"].id)]
-                )
+        no_city_domain = Domain.AND(
+            event_details.get("no_city_domain", event_details["base_domain"])
+        )
         cities = request.env["event.event"]._read_group(
-            domain,
+            no_city_domain & domain_search,
             aggregates=["__count"],
             groupby=["city"],
         )
