@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 INVITU (<https://www.invitu.com>)
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="res_config_settings_view_form_attachment" model="ir.ui.view">
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="event.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <block name="registration_setting_container" position="inside">
+                <setting
+                    string="Max Attachment Size (MB)"
+                    help="Maximum file size in MB for registration attachments. 0 = no limit."
+                >
+                    <field name="max_attachment_size" />
+                </setting>
+            </block>
+        </field>
+    </record>
+</odoo>
