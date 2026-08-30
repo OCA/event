@@ -7,6 +7,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from datetime import datetime, timedelta
+from unittest.mock import patch
 
 from psycopg2 import IntegrityError
 
@@ -188,3 +189,90 @@ class TestEventRegistration(BaseCommon):
         self.assertTrue(existing_attendee)
         reg.write({"name": "Updated Name"})
         self.assertEqual(reg.attendee_partner_id, existing_attendee)
+
+    def test_message_get_default_recipients(self):
+        recipients = self.registration_02._message_get_default_recipients()
+        self.assertEqual(
+            recipients[self.registration_02.id]["partner_ids"],
+            self.registration_02.attendee_partner_id.ids,
+        )
+        self.assertFalse(recipients[self.registration_02.id]["email_to"])
+        # Without an attendee partner the generic heuristics still apply
+        event = self.env["event.event"].create(
+            {
+                "name": "Test event no partner",
+                "date_begin": fields.Datetime.now(),
+                "date_end": fields.Datetime.now(),
+            }
+        )
+        registration = (
+            self.env["event.registration"]
+            .with_context(registration_force_draft=True)
+            .create(
+                {
+                    "email": "no.partner@test.com",
+                    "name": "No Partner",
+                    "event_id": event.id,
+                }
+            )
+        )
+        self.assertFalse(registration.attendee_partner_id)
+        recipient = registration._message_get_default_recipients()[registration.id]
+        self.assertFalse(recipient["partner_ids"])
+        # mail may format the address ('"No Partner" <no.partner@test.com>');
+        # the mailbox is what matters
+        self.assertIn("no.partner@test.com", recipient["email_to"])
+
+    def test_message_get_default_recipients_keeps_extra_partners(self):
+        """Only the booking partner is swapped for the attendee one.
+
+        Another module may contribute extra default recipients through
+        ``_message_add_default_recipients``, and they have to survive the
+        swap. ``email`` is forced to empty because ``event.registration`` sets
+        ``_mail_defaults_to_email``: with an address on the registration the
+        generic heuristics return it instead of any partner, and there would
+        be no extra recipient to preserve.
+        """
+        partner_model = self.env["res.partner"]
+        booking_partner = partner_model.create(
+            {"name": "Booking Partner", "email": "booking@test.com"}
+        )
+        attendee_partner = partner_model.create(
+            {"name": "Attendee Partner", "email": "attendee@test.com"}
+        )
+        extra_partner = partner_model.create(
+            {"name": "Extra Partner", "email": "extra@test.com"}
+        )
+        registration = (
+            self.env["event.registration"]
+            .with_context(registration_force_draft=True)
+            .create(
+                {
+                    "event_id": self.event_0.id,
+                    "name": "Test Registration 03",
+                    "email": False,
+                    "partner_id": booking_partner.id,
+                    "attendee_partner_id": attendee_partner.id,
+                }
+            )
+        )
+        registration_cls = type(registration)
+        add_default_recipients = registration_cls._message_add_default_recipients
+
+        def _message_add_default_recipients(self):
+            found = add_default_recipients(self)
+            for values in found.values():
+                values["partners"] |= extra_partner
+            return found
+
+        with patch.object(
+            registration_cls,
+            "_message_add_default_recipients",
+            _message_add_default_recipients,
+        ):
+            recipients = registration._message_get_default_recipients()
+        partner_ids = recipients[registration.id]["partner_ids"]
+        self.assertNotIn(booking_partner.id, partner_ids)
+        self.assertEqual(
+            sorted(partner_ids), sorted(attendee_partner.ids + extra_partner.ids)
+        )

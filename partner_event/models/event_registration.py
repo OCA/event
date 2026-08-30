@@ -101,6 +101,31 @@ class EventRegistration(models.Model):
         self._update_attendee_partner_id(vals)
         return super().write(vals)
 
+    def _message_get_default_recipients(self, with_cc=False, all_tos=False):
+        """Prefer the attendee partner over the generic heuristics.
+
+        The generic heuristics pick ``partner_id``, which is the person that
+        made the booking, or fall back to the registration email; mails
+        composed from a registration are meant for the attendee. Only that
+        recipient is swapped, so any other partner contributed by another
+        module stays in the list. ``email_to`` is dropped because it can only
+        hold the registration email when no partner was picked, which is the
+        same recipient the attendee partner now stands for. ``email_cc`` stays
+        as ``super()`` computed it (it already honors ``with_cc``), and
+        ``all_tos`` is deprecated in 19.0 and only forwarded.
+        """
+        res = super()._message_get_default_recipients(with_cc=with_cc, all_tos=all_tos)
+        for record in self.filtered("attendee_partner_id"):
+            values = res[record.id]
+            attendee_id = record.attendee_partner_id.id
+            others = [
+                partner_id
+                for partner_id in values["partner_ids"]
+                if partner_id not in (record.partner_id.id, attendee_id)
+            ]
+            values.update(partner_ids=[attendee_id] + others, email_to="")
+        return res
+
     def partner_data_update(self, data):
         reg_data = {k: v for k, v in data.items() if k in ["name", "email", "phone"]}
         if reg_data:
