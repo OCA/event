@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  Copyright (c) 2024- Le Filament (https://le-filament.com)
+  License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+  -->
+<odoo>
+    <template
+        inherit_id="website_event.registration_template"
+        id="website_event_external_link_inherit"
+        name="External Registration"
+    >
+        <button t-if="event.event_registrations_open" position="attributes">
+            <attribute name="t-if" separator="and" add="not event.is_external" />
+        </button>
+        <t t-if="not event.event_registrations_open" position="attributes">
+            <attribute name="t-if" separator="and" add="not event.is_external" />
+        </t>
+        <button position="after">
+            <div
+                t-if="event.is_external"
+                class="alert alert-info mb-0 row g-0 justify-content-between align-items-center"
+                id="external_link"
+            >
+                <div>
+                    <em>Registrations are performed on <b>external website</b>:</em>
+                </div>
+                <a
+                    t-if="event.external_link"
+                    t-att-href="event.external_link"
+                    target="_blank"
+                >
+                    <span>More information / Register</span>
+                </a>
+            </div>
+        </button>
+    </template>
+    <template
+        inherit_id="website_event.events_list"
+        id="website_event_list_external_link_inherit"
+        name="External Events List"
+    >
+        <xpath expr="//small[hasclass('o_wevent_participating')]" position="after">
+            <small t-if="event.is_external" class="text-bg-info px-3 py-2">
+                External Event
+            </small>
+        </xpath>
+    </template>
+</odoo>
