@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_event_registration_mail_list_wizard_mass_mailing_user,event.registration.mail.list.wizard.mass_mailing_user,model_event_registration_mail_list_wizard,mass_mailing.group_mass_mailing_user,1,1,1,1

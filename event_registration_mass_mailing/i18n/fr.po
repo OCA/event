@@ -1,0 +1,111 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_registration_mass_mailing
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-07-14 13:24+0000\n"
+"PO-Revision-Date: 2020-07-14 15:26+0200\n"
+"Last-Translator: William Olhasque <william.olhasque@scopea.fr>\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Poedit 2.2.4\n"
+
+#. module: event_registration_mass_mailing
+#: model:ir.actions.act_window,name:event_registration_mass_mailing.action_event_registration_mail_list
+msgid "Add to mailing list"
+msgstr "Ajouter la liste de distribution"
+
+#. module: event_registration_mass_mailing
+#: model:ir.model,name:event_registration_mass_mailing.model_event_registration_mail_list_wizard
+#: model_terms:ir.ui.view,arch_db:event_registration_mass_mailing.event_registration_mail_list_wizard_form
+msgid "Create contact mailing list"
+msgstr "Créer une liste de distribution"
+
+#. module: event_registration_mass_mailing
+#: model_terms:ir.ui.view,arch_db:event_registration_mass_mailing.event_registration_mail_list_wizard_form
+msgid "Create contacts"
+msgstr "Créer des contacts"
+
+#. module: event_registration_mass_mailing
+#: model:ir.model.fields,field_description:event_registration_mass_mailing.field_event_registration_mail_list_wizard__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: event_registration_mass_mailing
+#: model:ir.model.fields,field_description:event_registration_mass_mailing.field_event_registration_mail_list_wizard__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: event_registration_mass_mailing
+#: model:ir.model.fields,field_description:event_registration_mass_mailing.field_event_registration_mail_list_wizard__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: event_registration_mass_mailing
+#: model:ir.model.fields,field_description:event_registration_mass_mailing.field_event_registration_mail_list_wizard__event_registrations
+msgid "Event Registrations"
+msgstr "Inscription à l'événement"
+
+#. module: event_registration_mass_mailing
+#: model:ir.model.fields,field_description:event_registration_mass_mailing.field_event_registration_mail_list_wizard__id
+msgid "ID"
+msgstr "ID"
+
+#. module: event_registration_mass_mailing
+#: model:ir.model.fields,field_description:event_registration_mass_mailing.field_event_registration_mail_list_wizard____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: event_registration_mass_mailing
+#: model:ir.model.fields,field_description:event_registration_mass_mailing.field_event_registration_mail_list_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Dernière modification par"
+
+#. module: event_registration_mass_mailing
+#: model:ir.model.fields,field_description:event_registration_mass_mailing.field_event_registration_mail_list_wizard__write_date
+msgid "Last Updated on"
+msgstr "Dernière modification le"
+
+#. module: event_registration_mass_mailing
+#: model:ir.model.fields,field_description:event_registration_mass_mailing.field_event_registration_mail_list_wizard__mail_list
+msgid "Mailing list"
+msgstr "Liste de distribution"
+
+#~ msgid "Mass mailing to partners"
+#~ msgstr "E-mailing de masse aux partenaires"
+
+#~ msgid "Attendee"
+#~ msgstr "Participant"
+
+#~ msgid "Available for mass mailing"
+#~ msgstr "Disponible pour distribution de masse"
+
+#~ msgid "Event registrations"
+#~ msgstr "Inscriptions à l'événement"
+
+#~ msgid ""
+#~ "If opt-out is checked, this contact has refused to receive emails for "
+#~ "mass mailing and marketing campaign."
+#~ msgstr ""
+#~ "Si l'option retrait (opt-out) est cochée, le contact a refusé de recevoir "
+#~ "des e-mails pour les campagnes marketing et mailing."
+
+#~ msgid "Mass Mailing"
+#~ msgstr "E-mailing de masse"
+
+#~ msgid "Opt-Out"
+#~ msgstr "Option de retrait (opt-out)"
+
+#~ msgid ""
+#~ "Registrations that did not ask not to be included in mass mailing "
+#~ "campaigns and has an e-mail set."
+#~ msgstr ""
+#~ "Inscriptions qui n'ont pas refusé de faire partie des campagnes d'e-"
+#~ "mailing de masse et un e-mail est défini."
