@@ -22,19 +22,20 @@ class EventEvent(models.Model):
                 "seats_used": 0,
                 "seats_available": 0,
             }
-            registrations = self.env["event.registration"].read_group(
-                [
+            registrations = self.env["event.registration"]._read_group(
+                domain=[
                     ("event_id", "=", event.id),
                     ("state", "in", ["open", "done"]),
                 ],
-                ["state", "qty"],
-                ["state"],
+                groupby=["state"],
+                aggregates=["qty:sum"],
             )
-            for registration in registrations:
-                if registration["state"] == "open":
-                    vals["seats_reserved"] += registration["qty"]
-                elif registration["state"] == "done":
-                    vals["seats_used"] += registration["qty"]
+
+            for state, qty in registrations:
+                if state == "open":
+                    vals["seats_reserved"] += qty
+                elif state == "done":
+                    vals["seats_used"] += qty
             if event.seats_max > 0:
                 vals["seats_available"] = event.seats_max - (
                     vals["seats_reserved"] + vals["seats_used"]
@@ -71,6 +72,7 @@ class EventRegistration(models.Model):
     @api.constrains("qty")
     def _check_attendees_qty(self):
         for registration in self:
+            self._check_seats_availability()
             if (
                 not registration.event_id.registration_multi_qty
                 and registration.qty > 1
