@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2017 Tecnativa - Sergio Teruel
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="event.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//block[@name='events_setting_container']" position="after">
+                <block title="Mail options" name="event_mail_container">
+                    <setting help="Template Mail Scheduler">
+                        <field name="event_mail_template_id" />
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>
