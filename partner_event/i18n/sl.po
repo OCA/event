@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-27 09:20+0000\n"
-"PO-Revision-Date: 2026-07-14 06:46+0000\n"
+"PO-Revision-Date: 2026-09-12 05:15+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -57,7 +57,7 @@ msgstr "Število dogodkov s potrjenimi prijavami."
 #. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.view_event_registration_form
 msgid "Create Partner"
-msgstr ""
+msgstr "Ustvari partnerja"
 
 #. module: partner_event
 #: model:ir.model.fields,field_description:partner_event.field_event_event__create_partner
@@ -67,7 +67,7 @@ msgstr "Ustvari partnerje pri prijavi"
 #. module: partner_event
 #: model:ir.model,website_form_label:partner_event.model_res_partner
 msgid "Create a Customer"
-msgstr ""
+msgstr "Ustvari kupca"
 
 #. module: partner_event
 #: model_terms:ir.ui.view,arch_db:partner_event.res_partner_register_event_view
@@ -163,4 +163,4 @@ msgstr "Izberite dogodek za prijavo"
 #. odoo-python
 #: code:addons/partner_event/models/event_registration.py:0
 msgid "Set at least the attendee name or email before creating a partner."
-msgstr ""
+msgstr "Pred ustvarjanjem partnerja nastavite vsaj ime ali e-pošto udeleženca."
