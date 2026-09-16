@@ -1,7 +1,10 @@
 # Copyright 2016 Tecnativa - Jairo Llopis
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-from odoo.tests.common import HttpCase, freeze_time, new_test_user, tagged
+from datetime import timedelta
+
+from odoo import fields
+from odoo.tests.common import HttpCase, new_test_user, tagged
 
 
 @tagged("post_install", "-at_install")
@@ -27,8 +30,8 @@ class UICase(HttpCase):
         event = cls.env["event.event"].create(
             {
                 "name": "My Event Test",
-                "date_begin": "2026-09-15 10:00:00",
-                "date_end": "2026-09-15 18:00:00",
+                "date_begin": fields.Datetime.now() + timedelta(days=1),
+                "date_end": fields.Datetime.now() + timedelta(days=1, hours=8),
                 "date_tz": "Atlantic/Canary",
                 "user_id": cls.env.user.id,
                 "address_id": location.id,
@@ -44,7 +47,6 @@ class UICase(HttpCase):
             password="testuser",
         )
 
-    @freeze_time("2026-09-14 12:00:00")
     def test_ui_website(self):
         """Test frontend tour."""
         self.start_tour("/event", "website_event_filter_city", login="test-user")
