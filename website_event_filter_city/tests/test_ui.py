@@ -1,9 +1,7 @@
 # Copyright 2016 Tecnativa - Jairo Llopis
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-from freezegun import freeze_time
-
-from odoo.tests.common import HttpCase, new_test_user, tagged
+from odoo.tests.common import HttpCase, freeze_time, new_test_user, tagged
 
 
 @tagged("post_install", "-at_install")
