@@ -1,6 +1,8 @@
 # Copyright 2016 Tecnativa - Jairo Llopis
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
+from freezegun import freeze_time
+
 from odoo.tests.common import HttpCase, new_test_user, tagged
 
 
@@ -44,6 +46,7 @@ class UICase(HttpCase):
             password="testuser",
         )
 
+    @freeze_time("2026-09-14 12:00:00")
     def test_ui_website(self):
         """Test frontend tour."""
         self.start_tour("/event", "website_event_filter_city", login="test-user")
