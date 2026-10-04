@@ -95,17 +95,25 @@ Configuration
 To make an event private:
 
 1. Go to *Events* and open (or create) an event.
+
 2. In the **Private Access** group, switch on **Private**. A random
    password is proposed automatically.
+
 3. Keep the proposed **Access Password**, type your own, or click
    **Generate** for a new random one.
+
 4. Optionally set a **Codename**, a public, non-secret hint (e.g.
    *Aurora*) shown under "Private" on the redacted card, so the people
    you invite can tell which event to open.
+
+   |Private access settings|
+
 5. Save and publish the event.
 
 Share the password (and codename, if any) with the people who should be
 able to open the event.
+
+.. |Private access settings| image:: https://raw.githubusercontent.com/OCA/event/19.0/website_event_hidden_by_password/static/description/configure_private_access.png
 
 Usage
 =====
@@ -113,13 +121,27 @@ Usage
 On the website:
 
 - The events listing shows private events redacted: no name, date,
-  location or image, only a lock and "Private".
+  location or image, only a lock, "Private" and the codename, if one is
+  set.
+
+  |Private event on the events listing|
+
 - Opening a private event displays an info-free password wall instead of
   the event page.
+
+  |Password wall of a private event|
+
 - Once a visitor enters the correct password, the event page and its
   sub-pages are shown for the rest of the browsing session.
+
+  |Private event page after unlocking|
+
 - Event managers (group *Event / User*) skip the wall, so they can
   preview and edit private events as usual.
+
+.. |Private event on the events listing| image:: https://raw.githubusercontent.com/OCA/event/19.0/website_event_hidden_by_password/static/description/usage_listing.png
+.. |Password wall of a private event| image:: https://raw.githubusercontent.com/OCA/event/19.0/website_event_hidden_by_password/static/description/usage_wall.png
+.. |Private event page after unlocking| image:: https://raw.githubusercontent.com/OCA/event/19.0/website_event_hidden_by_password/static/description/usage_unlocked.png
 
 Bug Tracker
 ===========
