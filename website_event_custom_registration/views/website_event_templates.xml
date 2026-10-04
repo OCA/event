@@ -49,18 +49,22 @@
             </a>
         </xpath>
 
-        <!-- Native "Register" link: only in native mode. -->
-        <xpath expr="//a[@type='button']" position="attributes">
-            <attribute
-                name="t-if"
-            >event_page and event.event_registrations_open and event.registration_mode == 'native'</attribute>
+        <!-- Native "Register" link and modal button: only in native mode.
+             They are moved into a wrapper rather than having their own
+             t-if / t-elif rewritten, so core's attributes stay untouched
+             and other modules can still locate them by those attributes
+             (e.g. website_event_membership_restriction targets the link by
+             its exact t-if). Inside the wrapper the t-if / t-elif pair
+             stays intact. -->
+        <xpath expr="//a[@type='button']" position="before">
+            <t
+                t-if="event.registration_mode == 'native'"
+                name="custom_registration_native_cta"
+            />
         </xpath>
-
-        <!-- Native "Register" modal button: only in native mode. -->
-        <xpath expr="//button[@type='button']" position="attributes">
-            <attribute
-                name="t-elif"
-            >event.event_registrations_open and event.registration_mode == 'native'</attribute>
+        <xpath expr="//t[@name='custom_registration_native_cta']" position="inside">
+            <xpath expr="//a[@type='button']" position="move" />
+            <xpath expr="//button[@type='button']" position="move" />
         </xpath>
 
         <!-- Sold Out / Registrations Closed / Cancelled status block:
@@ -68,14 +72,18 @@
              suppressed while registrations are open (it would wrongly flag
              a missing native ticket) and takes over once registrations
              close — unless the event keeps its custom text via
-             keep_custom_text_when_closed. -->
-        <xpath
-            expr="//t[@t-if='not event.event_registrations_open']"
-            position="attributes"
-        >
-            <attribute
-                name="t-if"
-            >not event.event_registrations_open and (event.registration_mode == 'native' or not event.keep_custom_text_when_closed)</attribute>
+             keep_custom_text_when_closed. Wrapped, for the same reason. -->
+        <xpath expr="//t[@t-if='not event.event_registrations_open']" position="before">
+            <t
+                t-if="event.registration_mode == 'native' or not event.keep_custom_text_when_closed"
+                name="custom_registration_status"
+            />
+        </xpath>
+        <xpath expr="//t[@name='custom_registration_status']" position="inside">
+            <xpath
+                expr="//t[@t-if='not event.event_registrations_open']"
+                position="move"
+            />
         </xpath>
     </template>
 

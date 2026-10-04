@@ -2,6 +2,8 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo.tests.common import TransactionCase
 
+from odoo.addons.http_routing.tests.common import MockRequest
+
 
 class TestEventCustomRegistration(TransactionCase):
     @classmethod
@@ -16,17 +18,21 @@ class TestEventCustomRegistration(TransactionCase):
         )
 
     def _render_registration(self):
-        return str(
-            self.env["ir.qweb"]._render(
-                "website_event.registration_template",
-                {
-                    "event": self.event,
-                    "event_page": True,
-                    "cta_additional_classes": "",
-                    "registration_error_code": False,
-                },
+        # Render inside a (mock) request, as on a real page: other modules
+        # extending this template may read ``request`` (e.g. the current user).
+        website = self.env["website"].get_current_website()
+        with MockRequest(self.env, website=website):
+            return str(
+                self.env["ir.qweb"]._render(
+                    "website_event.registration_template",
+                    {
+                        "event": self.event,
+                        "event_page": True,
+                        "cta_additional_classes": "",
+                        "registration_error_code": False,
+                    },
+                )
             )
-        )
 
     def test_defaults(self):
         self.assertEqual(self.event.registration_mode, "native")
