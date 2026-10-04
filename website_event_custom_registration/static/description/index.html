@@ -417,9 +417,11 @@ collected.</p>
 <div class="section" id="configuration">
 <h2><a class="toc-backref" href="#toc-entry-1">Configuration</a></h2>
 <p>To configure an event:</p>
-<ol class="arabic simple">
-<li>Go to <em>Events</em> and open (or create) an event.</li>
-<li>In the <strong>Registration</strong> group, choose a <strong>Registration Mode</strong>:<ul>
+<ol class="arabic">
+<li><p class="first">Go to <em>Events</em> and open (or create) an event.</p>
+</li>
+<li><p class="first">In the <strong>Registration</strong> group, choose a <strong>Registration Mode</strong>:</p>
+<ul class="simple">
 <li><strong>Native ticketing</strong>: configure tickets as usual in the <em>Tickets</em>
 tab.</li>
 <li><strong>Free / No registration</strong>: fill in the <strong>Free Event Message</strong>
@@ -428,24 +430,33 @@ shown to visitors.</li>
 optionally, the <strong>External Button Text</strong> (defaults to
 <tt class="docutils literal">Get Tickets</tt>).</li>
 </ul>
+<p><img alt="External registration settings" src="https://raw.githubusercontent.com/OCA/event/19.0/website_event_custom_registration/static/description/configure_external.png" /></p>
+<p><img alt="Free registration settings" src="https://raw.githubusercontent.com/OCA/event/19.0/website_event_custom_registration/static/description/configure_free.png" /></p>
 </li>
-<li>For <em>free</em> and <em>external</em> events, optionally enable <strong>Keep Custom
+<li><p class="first">For <em>free</em> and <em>external</em> events, optionally enable <strong>Keep Custom
 Text When Closed</strong> to keep the custom message or button visible after
 registrations close (past, sold-out or cancelled event), instead of
-Odoo’s standard “Registrations Closed” notice.</li>
-<li>Save and publish the event.</li>
+Odoo’s standard “Registrations Closed” notice.</p>
+</li>
+<li><p class="first">Save and publish the event.</p>
+</li>
 </ol>
 </div>
 <div class="section" id="usage">
 <h2><a class="toc-backref" href="#toc-entry-2">Usage</a></h2>
 <p>On the public event page, the registration block adapts to the selected
 mode:</p>
-<ul class="simple">
-<li><strong>Native ticketing</strong>: the standard <em>Register</em> button and ticket modal.</li>
-<li><strong>Free / No registration</strong>: the configured message, with no ticket
-controls and no “Sold Out” / “Closed” labels.</li>
-<li><strong>External registration</strong>: a <em>Get Tickets</em> button linking to the
-external portal, opening in a new tab.</li>
+<ul>
+<li><p class="first"><strong>Native ticketing</strong>: the standard <em>Register</em> button and ticket modal.</p>
+</li>
+<li><p class="first"><strong>Free / No registration</strong>: the configured message, with no ticket
+controls and no “Sold Out” / “Closed” labels.</p>
+<p><img alt="Free event message on the event page" src="https://raw.githubusercontent.com/OCA/event/19.0/website_event_custom_registration/static/description/usage_free.png" /></p>
+</li>
+<li><p class="first"><strong>External registration</strong>: a <em>Get Tickets</em> button linking to the
+external portal, opening in a new tab.</p>
+<p><img alt="Get Tickets button on the event page" src="https://raw.githubusercontent.com/OCA/event/19.0/website_event_custom_registration/static/description/usage_external.png" /></p>
+</li>
 </ul>
 <p>Once registrations close (the event has ended, is sold out or was
 cancelled), free and external events show Odoo’s standard “Registrations

@@ -71,6 +71,7 @@ Configuration
 To configure an event:
 
 1. Go to *Events* and open (or create) an event.
+
 2. In the **Registration** group, choose a **Registration Mode**:
 
    - **Native ticketing**: configure tickets as usual in the *Tickets*
@@ -81,11 +82,19 @@ To configure an event:
      optionally, the **External Button Text** (defaults to
      ``Get Tickets``).
 
+   |External registration settings|
+
+   |Free registration settings|
+
 3. For *free* and *external* events, optionally enable **Keep Custom
    Text When Closed** to keep the custom message or button visible after
    registrations close (past, sold-out or cancelled event), instead of
    Odoo's standard "Registrations Closed" notice.
+
 4. Save and publish the event.
+
+.. |External registration settings| image:: https://raw.githubusercontent.com/OCA/event/19.0/website_event_custom_registration/static/description/configure_external.png
+.. |Free registration settings| image:: https://raw.githubusercontent.com/OCA/event/19.0/website_event_custom_registration/static/description/configure_free.png
 
 Usage
 =====
@@ -94,10 +103,16 @@ On the public event page, the registration block adapts to the selected
 mode:
 
 - **Native ticketing**: the standard *Register* button and ticket modal.
+
 - **Free / No registration**: the configured message, with no ticket
   controls and no "Sold Out" / "Closed" labels.
+
+  |Free event message on the event page|
+
 - **External registration**: a *Get Tickets* button linking to the
   external portal, opening in a new tab.
+
+  |Get Tickets button on the event page|
 
 Once registrations close (the event has ended, is sold out or was
 cancelled), free and external events show Odoo's standard "Registrations
@@ -109,6 +124,9 @@ The routing applies everywhere the core registration block is rendered:
 the event page's main call to action, the (desktop and mobile) sidebar,
 and the event sub-menu, so the experience stays consistent across the
 site.
+
+.. |Free event message on the event page| image:: https://raw.githubusercontent.com/OCA/event/19.0/website_event_custom_registration/static/description/usage_free.png
+.. |Get Tickets button on the event page| image:: https://raw.githubusercontent.com/OCA/event/19.0/website_event_custom_registration/static/description/usage_external.png
 
 Bug Tracker
 ===========

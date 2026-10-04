@@ -2,10 +2,16 @@ On the public event page, the registration block adapts to the selected
 mode:
 
 - **Native ticketing**: the standard *Register* button and ticket modal.
+
 - **Free / No registration**: the configured message, with no ticket
   controls and no "Sold Out" / "Closed" labels.
+
+  ![Free event message on the event page](../static/description/usage_free.png)
+
 - **External registration**: a *Get Tickets* button linking to the external
   portal, opening in a new tab.
+
+  ![Get Tickets button on the event page](../static/description/usage_external.png)
 
 Once registrations close (the event has ended, is sold out or was
 cancelled), free and external events show Odoo's standard "Registrations
