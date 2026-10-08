@@ -23,7 +23,11 @@ class EventTrackLocation(models.Model):
             return
         # Get tracks that could produce an overlap
         remaining_tracks = self.env["event.track"].search(
-            [("location_id", "=", self.id), ("stage_id.is_cancel", "=", False)]
+            [
+                ("location_id", "=", self.id),
+                ("stage_id.is_cancel", "=", False),
+                ("date", "!=", False),
+            ]
         )
         # Compare tracks overlapping among themselves
         while remaining_tracks:
