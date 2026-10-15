@@ -79,6 +79,21 @@ class TestEventRegistration(BaseCommon):
         self.registration_02.state = "done"
         self.assertEqual(self.partner_01.registration_count, 1)
 
+    def test_count_registrations_of_a_new_partner(self):
+        """A partner that is not saved yet has no registrations and no domain error."""
+        new_partner = self.env["res.partner"].new({"name": "Unsaved partner"})
+        with self.assertNoLogs("odoo.domains", level="WARNING"):
+            self.assertEqual(new_partner.registration_count, 0)
+
+    def test_count_registrations_of_an_edited_partner(self):
+        """A partner edited in a form counts the registrations of the saved one."""
+        self.registration_01.state = "open"
+        edited_partner = self.env["res.partner"].new(
+            {"name": "Edited name"}, origin=self.partner_01
+        )
+        with self.assertNoLogs("odoo.domains", level="WARNING"):
+            self.assertEqual(edited_partner.registration_count, 1)
+
     def test_button_register(self):
         event_1 = self.event_0.copy()
         wizard = self.env["res.partner.register.event"].create({"event": event_1.id})
