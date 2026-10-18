@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field
+            name="name"
+        >res.config.settings.view.form.inherit.website_event_company_parent_visibility</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="event.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//block[@name='events_setting_container']" position="inside">
+                <setting
+                    id="share_events_with_parents_setting"
+                    string="Share events with parent companies"
+                    help="Display this company's events on parent companies' websites and to parent companies' users."
+                    company_dependent="1"
+                    groups="base.group_multi_company"
+                >
+                    <field name="share_events_with_parents" />
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

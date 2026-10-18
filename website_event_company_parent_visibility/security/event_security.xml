@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="0">
+    <!-- Overrides the three multi-company rules from `event` to add the
+    hierarchy + opt-in clause. Uninstall: run `-u event` to revert. -->
+    <record model="ir.rule" id="event.event_event_company_rule">
+        <field name="name">Event: multi-company (parent-visibility)</field>
+        <field name="model_id" ref="event.model_event_event" />
+        <field name="domain_force">[
+            '|', ('company_id', '=', False),
+            '|', ('company_id', 'in', company_ids),
+            '&amp;', ('company_id', 'child_of', company_ids),
+            ('company_id.share_events_with_parents', '=', True)
+            ]</field>
+    </record>
+
+    <record model="ir.rule" id="event.event_registration_company_rule">
+        <field name="name">Event/Registration: multi-company (parent-visibility)</field>
+        <field name="model_id" ref="event.model_event_registration" />
+        <field name="domain_force">[
+            '|', ('company_id', '=', False),
+            '|', ('company_id', 'in', company_ids),
+            '&amp;', ('company_id', 'child_of', company_ids),
+            ('company_id.share_events_with_parents', '=', True)
+            ]</field>
+    </record>
+
+    <record model="ir.rule" id="event.ir_rule_event_event_ticket_company">
+        <field name="name">Event/Ticket: multi-company (parent-visibility)</field>
+        <field name="model_id" ref="event.model_event_event_ticket" />
+        <field name="domain_force">[
+            '|', ('event_id.company_id', '=', False),
+            '|', ('event_id.company_id', 'in', company_ids),
+            '&amp;', ('event_id.company_id', 'child_of', company_ids),
+            ('event_id.company_id.share_events_with_parents', '=', True)
+            ]</field>
+    </record>
+</odoo>
