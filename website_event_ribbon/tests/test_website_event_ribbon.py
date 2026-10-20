@@ -1,5 +1,7 @@
 # Copyright 2026 Dixmit
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+from datetime import timedelta
+
 import odoo
 from odoo import fields
 from odoo.tests import HOST
@@ -18,11 +20,12 @@ class TestWebsiteEventRibbon(HttpCase):
                 "position": "right",
             }
         )
+        now = fields.Datetime.now()
         self.event = self.env["event.event"].create(
             {
                 "name": "Test Event",
-                "date_begin": fields.Datetime.now(),
-                "date_end": fields.Datetime.now(),
+                "date_begin": now + timedelta(days=1),
+                "date_end": now + timedelta(days=2),
                 "website_ribbon_id": self.ribbon.id,
                 "website_published": True,
             }
