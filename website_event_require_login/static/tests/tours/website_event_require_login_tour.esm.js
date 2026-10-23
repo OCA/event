@@ -13,10 +13,11 @@ registry.category("web_tour.tours").add("website_event_require_login_public", {
             trigger:
                 'a[href*="/event/test-event-require-login-tour-"][href$="/register"]',
             run: "click",
+            expectUnloadPage: true,
         },
         {
             content: "Open ticket registration modal",
-            trigger: 'button[data-bs-target="#modal_ticket_registration"]',
+            trigger: 'button:contains("Register")',
             run: "click",
         },
         {
@@ -26,16 +27,18 @@ registry.category("web_tour.tours").add("website_event_require_login_public", {
         },
         {
             content: "Login-required modal body is visible",
-            trigger: "#modal_attendees_registration_login_required .modal-body",
+            trigger:
+                "#modal_attendees_registration.o_wevent_require_login_modal .modal-body",
         },
         {
             content: "Login link points to /web/login",
             trigger:
-                '#modal_attendees_registration_login_required a.btn-primary[href*="/web/login"]',
+                '#modal_attendees_registration.o_wevent_require_login_modal a.btn-primary[href*="/web/login"]',
         },
         {
             content: "Close the login-required modal",
-            trigger: "#modal_attendees_registration_login_required .js_goto_event",
+            trigger:
+                "#modal_attendees_registration.o_wevent_require_login_modal .js_goto_event",
             run: "click",
         },
     ],
@@ -52,10 +55,11 @@ registry.category("web_tour.tours").add("website_event_require_login_auth", {
             trigger:
                 'a[href*="/event/test-event-require-login-tour-"][href$="/register"]',
             run: "click",
+            expectUnloadPage: true,
         },
         {
             content: "Open ticket registration modal",
-            trigger: 'button[data-bs-target="#modal_ticket_registration"]',
+            trigger: 'button:contains("Register")',
             run: "click",
         },
         {
@@ -66,6 +70,11 @@ registry.category("web_tour.tours").add("website_event_require_login_auth", {
         {
             content: "Attendee registration form appears (normal flow, no login modal)",
             trigger: "form#attendee_registration",
+        },
+        {
+            content: "Close the attendee registration modal",
+            trigger: "#modal_attendees_registration .btn-close",
+            run: "click",
         },
     ],
 });

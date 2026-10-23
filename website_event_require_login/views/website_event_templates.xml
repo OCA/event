@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <template id="modal_attendees_registration_login_required" name="Login Required">
+        <!-- Odoo 19: website_event inserts the HTML returned by
+             /registration/new into the body and starts its public
+             interaction "website_event.modal_registration" on
+             #modal_attendees_registration, which shows the modal and
+             handles .btn-close / .js_goto_event. We reuse that id so no
+             JS is needed. -->
         <div
-            id="modal_attendees_registration_login_required"
-            class="modal fade"
+            id="modal_attendees_registration"
+            class="modal fade o_wevent_require_login_modal"
             tabindex="-1"
             role="dialog"
         >
@@ -38,16 +44,5 @@
                 </div>
             </div>
         </div>
-    </template>
-
-    <template
-        id="registration_form_require_login"
-        inherit_id="website_event.modal_ticket_registration"
-    >
-        <xpath expr="//form[@id='registration_form']" position="attributes">
-            <attribute
-                name="t-att-data-require-login"
-            >1 if event.website_require_login and request.env.user == request.website.user_id else 0</attribute>
-        </xpath>
     </template>
 </odoo>

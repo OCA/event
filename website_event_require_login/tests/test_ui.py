@@ -44,7 +44,6 @@ class TestWebsiteEventRequireLoginUI(HttpCase):
         self.start_tour(
             "/event",
             "website_event_require_login_public",
-            step_delay=100,
         )
 
     def test_authenticated_user_normal_flow(self):
@@ -54,5 +53,4 @@ class TestWebsiteEventRequireLoginUI(HttpCase):
             "/event",
             "website_event_require_login_auth",
             login="portal_event_login",
-            step_delay=100,
         )
