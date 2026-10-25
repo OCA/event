@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  Copyright (c) 2024- Le Filament (https://le-filament.com)
+  License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+    <record id="event_external_form_inherit" model="ir.ui.view">
+        <field name="name">event.external.form.inherit</field>
+        <field name="model">event.event</field>
+        <field name="priority" eval="21" />
+        <field name="inherit_id" ref="event.view_event_form" />
+        <field name="arch" type="xml">
+            <button
+                name="%(event.event_registration_action_stats_from_event)d"
+                position="attributes"
+            >
+                <attribute name="invisible">is_external</attribute>
+            </button>
+            <button
+                name="%(event.act_event_registration_from_event)d"
+                position="attributes"
+            >
+                <attribute name="invisible">is_external</attribute>
+            </button>
+            <xpath expr="//group/field[@name='active']" position="after">
+                <field name="is_external" />
+                <field
+                    name="external_link"
+                    invisible="not is_external"
+                    required="is_external"
+                />
+            </xpath>
+            <xpath expr="//label[@for='seats_limited']" position="attributes">
+                <attribute name="invisible">is_external</attribute>
+            </xpath>
+            <xpath expr="//div[field[@name='seats_limited']]" position="attributes">
+                <attribute name="invisible">is_external</attribute>
+            </xpath>
+            <field name="badge_format" position="attributes">
+                <attribute name="invisible">is_external</attribute>
+            </field>
+            <field name="badge_image" position="attributes">
+                <attribute name="invisible">is_external</attribute>
+            </field>
+            <notebook position="attributes">
+                <attribute name="invisible">is_external</attribute>
+            </notebook>
+        </field>
+    </record>
+</odoo>
