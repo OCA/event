@@ -214,6 +214,13 @@
                 <field name="date_end" />
                 <field name="date_tz" optional="hide" />
                 <field name="seats_limited" optional="hide" />
+                <field
+                    name="seats_expected"
+                    string="Expected Attendees"
+                    sum="Total"
+                    readonly="1"
+                    optional="hide"
+                />
                 <field name="seats_used" sum="Total" readonly="1" />
                 <field
                     name="seats_max"
@@ -222,7 +229,21 @@
                     readonly="1"
                     optional="hide"
                 />
+                <field
+                    name="seats_available_unexpected"
+                    string="Not allocated seats"
+                    sum="Available seats not expected"
+                    invisible="not seats_limited"
+                    optional="hide"
+                />
                 <field name="seats_reserved" sum="Total" readonly="1" optional="hide" />
+                <field
+                    name="seats_unconfirmed"
+                    string="Unconfirmed Registrations"
+                    sum="Total"
+                    readonly="1"
+                    optional="hide"
+                />
                 <field name="message_needaction" column_invisible="1" />
                 <field
                     name="activity_exception_decoration"

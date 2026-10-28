@@ -88,6 +88,21 @@ class EventSession(models.Model):
         compute="_compute_seats",
         store=True,
     )
+    seats_unconfirmed = fields.Integer(
+        string="Unconfirmed Seat Reservations",
+        compute="_compute_seats_unconfirmed",
+        store=True,
+    )
+    seats_expected = fields.Integer(
+        string="Number of Expected Attendees",
+        compute="_compute_seats_expected",
+        compute_sudo=True,
+    )
+    seats_available_unexpected = fields.Integer(
+        string="Number of seats non allocated by an attendee of any kind",
+        compute="_compute_seats_available_unexpected",
+        compute_sudo=True,
+    )
     event_registrations_open = fields.Boolean(
         string="Registration open",
         compute="_compute_event_registrations_open",
@@ -200,6 +215,30 @@ class EventSession(models.Model):
                 )
 
             session.seats_taken = session.seats_reserved + session.seats_used
+
+    @api.depends(
+        "registration_ids",
+        "registration_ids.state",
+        "registration_ids.active",
+    )
+    def _compute_seats_unconfirmed(self):
+        for session in self:
+            session.seats_unconfirmed = len(
+                session.registration_ids.filtered(
+                    lambda r: r.state == "draft" and r.active
+                )
+            )
+
+    @api.depends("seats_unconfirmed", "seats_taken")
+    def _compute_seats_expected(self):
+        for rec in self:
+            rec.seats_expected = rec.seats_unconfirmed + rec.seats_taken
+
+    @api.depends("seats_max", "seats_expected")
+    def _compute_seats_available_unexpected(self):
+        """How many non allocated free seats we've got?"""
+        for rec in self:
+            rec.seats_available_unexpected = rec.seats_max - rec.seats_expected
 
     @api.depends("date_tz", "date_begin")
     def _compute_date_begin_located(self):
