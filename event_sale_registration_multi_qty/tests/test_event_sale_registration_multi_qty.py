@@ -75,7 +75,7 @@ class TestEventSaleRegistrationMultiQty(BaseCommon):
         self.assertEqual(len(reg), 1)
         self.assertEqual(reg.qty, 5)
         self.assertEqual(reg.event_id, self.event_multi)
-        self.assertEqual(reg.state, "open")
+        self.assertEqual(reg.state, "draft")
 
     def test_sale_nomulti(self):
         sale = self._create_sale().save()
