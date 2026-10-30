@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-07 10:31+0000\n"
-"PO-Revision-Date: 2024-05-28 10:34+0000\n"
-"Last-Translator: David Vidal <david.vidal@tecnativa.com>\n"
+"PO-Revision-Date: 2026-10-30 08:46+0000\n"
+"Last-Translator: Pilar Vargas <pilar.vargas@tecnativa.com>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__mail_count_done
@@ -53,16 +53,33 @@ msgid ""
 "</div>\n"
 "        "
 msgstr ""
+"<div>\n"
+"    Estimado/a <t t-out=\"object.name or ''\">Oscar Morgan</t>,<br/>\n"
+"    Gracias por su interés.<br/>\n"
+"    Le enviamos su acreditación para el evento <t t-"
+"out=\"object.session_id.name or ''\">OpenWood Collection Online Reveal</t>"
+".<br/>\n"
+"    Si tiene alguna pregunta, no dude en ponerse en contacto con nosotros.\n"
+"    <br/><br/>\n"
+"    Muchas gracias,\n"
+"    <t t-if=\"object.session_id.user_id.signature\" data-o-mail-quote-"
+"container=\"1\">\n"
+"        <br/>\n"
+"        <t t-out=\"object.session_id.user_id.signature or ''\" data-o-mail-"
+"quote=\"1\">--<br data-o-mail-quote=\"1\"/>Mitchell Admin</t>\n"
+"    </t>\n"
+"</div>\n"
+"        "
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_kanban
 msgid "<i class=\"fa fa-group mt-1 me-2 text-center\" title=\"Confirmed\"/>"
-msgstr ""
+msgstr "<i class=\"fa fa-group mt-1 me-2 text-center\" title=\"Confirmados\"/>"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_kanban
 msgid "<i class=\"fa fa-group mt-1 me-2 text-center\" title=\"Sessions\"/>"
-msgstr ""
+msgstr "<i class=\"fa fa-group mt-1 me-2 text-center\" title=\"Sesiones\"/>"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_form_quick_create
@@ -79,11 +96,13 @@ msgstr ""
 msgid ""
 "<i class=\"fa fa-map-marker mt-1 me-2 text-center ps-1\" title=\"Location\"/>"
 msgstr ""
+"<i class=\"fa fa-map-marker mt-1 me-2 text-center ps-1\" "
+"title=\"Ubicación\"/>"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_kanban
 msgid "<i class=\"oi oi-arrow-right me-2\" title=\"End date\"/>"
-msgstr ""
+msgstr "<i class=\"oi oi-arrow-right me-2\" title=\"Fecha de finalización\"/>"
 
 #. module: event_session
 #: model:mail.template,body_html:event_session.event_session_reminder
@@ -1003,6 +1022,8 @@ msgid ""
 "All the communication emails sent to attendees will be translated in this "
 "language."
 msgstr ""
+"Todos los correos electrónicos enviados a los asistentes se traducirán a "
+"este idioma."
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__registration_multi_qty
@@ -1055,12 +1076,12 @@ msgstr "Plazas disponibles no previstas"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__badge_image
 msgid "Badge Background"
-msgstr ""
+msgstr "Fondo de la acreditación"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__badge_format
 msgid "Badge Dimension"
-msgstr ""
+msgstr "Dimensiones de la acreditación"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_wizard_event_session__byday
@@ -1083,6 +1104,8 @@ msgid ""
 "Choose a template to auto-fill tickets, communications, descriptions and "
 "other fields."
 msgstr ""
+"Seleccione una plantilla para rellenar automáticamente las entradas, las "
+"comunicaciones, las descripciones y otros campos."
 
 #. module: event_session
 #: model:ir.model.fields,help:event_session.field_event_session__session_update
@@ -1289,7 +1312,7 @@ msgstr "Registro de eventos"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__event_register_url
 msgid "Event Registration Link"
-msgstr ""
+msgstr "Enlace de inscripción al evento"
 
 #. module: event_session
 #: model:ir.model,name:event_session.model_event_mail_session
@@ -1412,6 +1435,9 @@ msgid ""
 "attendees). If it does not reach the mentioned registrations, the event is "
 "highlighted in the list."
 msgstr ""
+"Para cada evento, puede definir un número mínimo de plazas reservadas "
+"(asistentes). Si no se alcanza ese número de inscripciones, el evento "
+"aparecerá destacado en la lista."
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__byday__4
@@ -1501,6 +1527,8 @@ msgid ""
 "Indicates the timezone in which the event dates/times will be displayed on "
 "the website."
 msgstr ""
+"Indica la zona horaria en la que se mostrarán las fechas y horas del evento "
+"en el sitio web."
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__interval_nbr
@@ -1586,7 +1614,7 @@ msgstr "Explicación válida Kanban"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__lang
 msgid "Language"
-msgstr ""
+msgstr "Idioma"
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__byday__-1
