@@ -22,13 +22,18 @@ class EventEvent(models.Model):
                 "seats_used": 0,
                 "seats_available": 0,
             }
-            registrations = self.env["event.registration"].read_group(
-                [
-                    ("event_id", "=", event.id),
-                    ("state", "in", ["open", "done"]),
-                ],
-                ["state", "qty"],
-                ["state"],
+            # sudo: core computes the seats with SQL, without access rights
+            registrations = (
+                self.env["event.registration"]
+                .sudo()
+                .read_group(
+                    [
+                        ("event_id", "=", event.id),
+                        ("state", "in", ["open", "done"]),
+                    ],
+                    ["state", "qty"],
+                    ["state"],
+                )
             )
             for registration in registrations:
                 if registration["state"] == "open":
