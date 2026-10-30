@@ -43,13 +43,25 @@ class SaleOrderLine(models.Model):
                 super(SaleOrderLine, so_line)._init_registrations()
                 continue
             product_uom_qty = so_line.product_uom_qty
+            # Preserve registration states for the whole order, as it may contain
+            # both multi-qty and regular event lines.
+            registrations = Registration.search(
+                [("sale_order_id", "=", so_line.order_id.id)]
+            )
+            registration_states = {reg.id: reg.state for reg in registrations}
             # Set temporarily the order line to one avoiding to create more
             # than one registration
             so_line.product_uom_qty = 1
             super(SaleOrderLine, so_line)._init_registrations()
+            # Include newly created registrations and their standard states.
+            new_registrations = so_line.registration_ids - registrations
+            registrations |= new_registrations
+            registration_states.update({reg.id: reg.state for reg in new_registrations})
+            registration = so_line.registration_ids
             # Set the so line qty back and set the registration qty
             so_line.product_uom_qty = product_uom_qty
-            registration = Registration.search(
-                [("sale_order_line_id", "=", so_line.id)]
-            )
             registration.qty = int(product_uom_qty)
+            # Keep Odoo's standard registration states.
+            for reg in registrations:
+                if reg.state != registration_states[reg.id]:
+                    reg.state = registration_states[reg.id]
