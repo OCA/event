@@ -1,0 +1,1 @@
+odoo-addon-event_registration_firstname @ git+https://github.com/OCA/event.git@refs/pull/507/head#subdirectory=event_registration_firstname
