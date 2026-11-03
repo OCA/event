@@ -23,7 +23,7 @@
                     class="oe_stat_button oe_inline"
                     groups="event.group_event_user"
                     help="Count of events with confirmed registrations."
-                    icon="fa-id-card"
+                    icon="badge"
                 >
                     <field name="registration_count" widget="statinfo" />
                 </button>

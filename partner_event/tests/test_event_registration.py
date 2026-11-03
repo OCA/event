@@ -6,7 +6,7 @@
 # Copyright 2025 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from datetime import datetime, timedelta
+from datetime import timedelta
 from unittest.mock import patch
 
 from psycopg2 import IntegrityError
@@ -18,6 +18,8 @@ from odoo.addons.base.tests.common import BaseCommon
 
 
 class TestEventRegistration(BaseCommon):
+    _test_user_groups = ("base.group_system", "event.group_event_manager")
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -102,9 +104,9 @@ class TestEventRegistration(BaseCommon):
 
     def test_data_update(self):
         event_2 = self.event_0.copy()
-        self.yesterday = datetime.now() - timedelta(days=1)
-        self.tomorrow = datetime.now() + timedelta(days=1)
-        self.last_month = datetime.now() - timedelta(days=30)
+        self.yesterday = fields.Datetime.now() - timedelta(days=1)
+        self.tomorrow = fields.Datetime.now() + timedelta(days=1)
+        self.last_month = fields.Datetime.now() - timedelta(days=30)
         # Set an old event
         event_2.write({"date_begin": self.last_month})
         event_2.write({"date_end": self.yesterday})

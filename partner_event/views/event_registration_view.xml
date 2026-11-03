@@ -13,7 +13,7 @@
                     <field name="attendee_partner_id" />
                     <button
                         name="action_create_attendee_partner"
-                        icon="fa-plus-square"
+                        icon="person_add"
                         string="Create Partner"
                         type="object"
                         class="oe_edit_only btn-link"

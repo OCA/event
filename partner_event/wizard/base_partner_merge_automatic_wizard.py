@@ -10,5 +10,5 @@ class BasePartnerMergeAutomaticWizard(models.TransientModel):
         """Inject context for later intercept it when the merge process does a flush,
         and an update is launched on the partner that recomputes attendee_partner_id.
         """
-        self = self.with_context(partner_event_merging=True)
-        return super().action_merge()
+        wizard = self.with_context(partner_event_merging=True)
+        return super(BasePartnerMergeAutomaticWizard, wizard).action_merge()

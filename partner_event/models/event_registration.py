@@ -143,8 +143,8 @@ class EventRegistration(models.Model):
             get_attendee_partner_address = {
                 "get_attendee_partner_address": self.attendee_partner_id,
             }
-            self = self.with_context(**get_attendee_partner_address)
-            for registration in self:
+            registrations = self.with_context(**get_attendee_partner_address)
+            for registration in registrations:
                 if registration.partner_id:
                     vals = registration._synchronize_partner_values(
                         registration.partner_id

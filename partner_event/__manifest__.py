@@ -11,7 +11,7 @@
 
 {
     "name": "Link partner to events",
-    "version": "19.0.1.0.4",
+    "version": "20.0.1.0.0",
     "category": "Marketing",
     "author": "Tecnativa,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/event",
@@ -19,7 +19,7 @@
     "license": "AGPL-3",
     "depends": ["event"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "views/res_partner_view.xml",
         "views/event_event_view.xml",
         "views/event_registration_view.xml",
