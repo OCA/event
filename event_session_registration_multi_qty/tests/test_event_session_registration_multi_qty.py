@@ -27,6 +27,15 @@ class EventSessionRegistrationMultiQty(BaseCommon):
                 "seats_max": cls.event.seats_max,
             }
         )
+        cls.attendee_draft = cls.env["event.registration"].create(
+            {
+                "name": "Test attendee draft",
+                "event_id": cls.event.id,
+                "session_id": cls.session.id,
+                "qty": 5,
+                "state": "draft",
+            }
+        )
         cls.attendee_open = cls.env["event.registration"].create(
             {
                 "name": "Test attendee open",
@@ -80,8 +89,19 @@ class EventSessionRegistrationMultiQty(BaseCommon):
         )
 
     def test_compute_seats(self):
+        self.assertEqual(self.session.seats_unconfirmed, 5)
         self.assertEqual(self.session.seats_reserved, 20)
         self.assertEqual(self.session.seats_used, 1)
+        self.assertEqual(self.session.seats_expected, 26)
         self.assertEqual(self.session.seats_available, 229)
+        self.assertEqual(self.session.seats_available_unexpected, 224)
+        self.attendee_cancel.state = "draft"
+        self.assertEqual(self.session.seats_unconfirmed, 15)
+        self.assertEqual(self.session.seats_expected, 36)
+        self.assertEqual(self.session.seats_available, 229)
+        self.assertEqual(self.session.seats_available_unexpected, 214)
         self.attendee_cancel.state = "open"
+        self.assertEqual(self.session.seats_unconfirmed, 5)
+        self.assertEqual(self.session.seats_expected, 36)
         self.assertEqual(self.session.seats_available, 219)
+        self.assertEqual(self.session.seats_available_unexpected, 214)
