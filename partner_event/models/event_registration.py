@@ -72,7 +72,7 @@ class EventRegistration(models.Model):
                         [("email", "=ilike", clean_email)], limit=1, order="id"
                     )
                     if attendee_partner:
-                        for field in {"name", "phone"}:
+                        for field in ("name", "phone"):
                             vals[field] = vals.get(field) or attendee_partner[field]
             if not attendee_partner:
                 event = Event.browse()

@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!-- Copyright 2016 Tecnativa S.L. - Vicent Cubells
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
 <odoo>
-    <record model="ir.ui.view" id="view_event_form_partner">
+    <record id="view_event_form_partner" model="ir.ui.view">
         <field name="name">Events (with partner)</field>
         <field name="model">event.event</field>
         <field eval="20" name="priority" />
