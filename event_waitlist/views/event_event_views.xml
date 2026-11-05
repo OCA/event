@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 SportJoe GmbH
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
+<odoo>
+    <record id="view_event_form_inherit_waitlist" model="ir.ui.view">
+        <field name="name">event.event.form.waitlist</field>
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//div[@name='button_box']/button[@name='%(event.act_event_registration_from_event)d']"
+                position="after"
+            >
+                <button
+                    name="action_view_waitlist"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-hourglass-half"
+                    invisible="not waitlist_enabled and not waitlist_count"
+                    groups="event.group_event_user"
+                >
+                    <field
+                        name="waitlist_count"
+                        widget="statinfo"
+                        string="Waiting List"
+                    />
+                </button>
+            </xpath>
+            <xpath expr="//header/field[@name='stage_id']" position="before">
+                <field name="waitlist_enabled" invisible="1" />
+                <field name="waitlist_count" invisible="1" />
+                <button
+                    name="action_waitlist_process"
+                    type="object"
+                    string="Move up waiting list"
+                    invisible="not waitlist_enabled or not waitlist_count"
+                    groups="event.group_event_user"
+                    help="Give free seats to the waiting list now (this also happens automatically)."
+                />
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page
+                    string="Waiting List"
+                    name="waitlist"
+                    groups="event.group_event_user"
+                >
+                    <group>
+                        <group>
+                            <field name="waitlist_enabled" />
+                            <field
+                                name="waitlist_mode"
+                                widget="radio"
+                                invisible="not waitlist_enabled"
+                            />
+                            <field
+                                name="waitlist_offer_hours"
+                                invisible="not waitlist_enabled or waitlist_mode != 'offer'"
+                            />
+                        </group>
+                        <group invisible="not waitlist_enabled">
+                            <field name="waitlist_max_size" />
+                            <field name="waitlist_retention_days" />
+                            <field name="waitlist_seats_held" />
+                        </group>
+                    </group>
+                    <div class="text-muted" invisible="waitlist_enabled">
+                        Turn on the waiting list so visitors can sign up when this event is sold out.
+                    </div>
+                    <div
+                        class="text-muted"
+                        invisible="not waitlist_enabled or waitlist_mode != 'auto'"
+                    >
+                        Paid tickets are always offered with a deadline, so the person can pay first.
+                    </div>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

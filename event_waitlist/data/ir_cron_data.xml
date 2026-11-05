@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 SportJoe GmbH
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
+<odoo noupdate="1">
+    <record id="ir_cron_event_waitlist_process" model="ir.cron">
+        <field name="name">Event Waiting List: expire offers and move up</field>
+        <field name="model_id" ref="model_event_waitlist" />
+        <field name="state">code</field>
+        <field name="code">model._cron_process_waitlists()</field>
+        <field name="interval_number">10</field>
+        <field name="interval_type">minutes</field>
+        <field name="numbercall">-1</field>
+        <field name="active" eval="True" />
+    </record>
+    <record id="ir_cron_event_waitlist_cleanup" model="ir.cron">
+        <field name="name">Event Waiting List: delete entries of past events</field>
+        <field name="model_id" ref="model_event_waitlist" />
+        <field name="state">code</field>
+        <field name="code">model._cron_cleanup_waitlists()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="active" eval="True" />
+    </record>
+</odoo>

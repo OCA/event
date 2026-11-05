@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 SportJoe GmbH
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
+<odoo>
+    <template id="waitlist_entry_page" name="Waiting List Entry">
+        <t t-call="web.frontend_layout">
+            <t t-set="no_header" t-value="False" />
+            <div class="container py-5 o_event_waitlist_page" style="max-width: 680px;">
+                <h1 class="h3 mb-1">Waiting list</h1>
+                <h2 class="h5 text-muted mb-4">
+                    <span t-out="event.name" />
+                    <t t-if="event.date_begin">
+                        &#8212;
+                        <span
+                            t-out="event.date_begin"
+                            t-options="{'widget': 'datetime', 'tz_name': event.date_tz, 'format': 'short'}"
+                        />
+                    </t>
+                </h2>
+
+                <div t-if="error" class="alert alert-danger" role="alert">
+                    <span t-out="error" />
+                </div>
+                <div
+                    t-if="message == 'accept' and entry.state in ('confirmed', 'payment')"
+                    class="alert alert-success"
+                    role="status"
+                >
+                    Great, your seat is confirmed!
+                </div>
+                <div
+                    t-if="message == 'expired'"
+                    class="alert alert-warning"
+                    role="status"
+                >
+                    Sorry, this offer has expired and the seat went to the next person.
+                </div>
+                <div t-if="message == 'decline'" class="alert alert-info" role="status">
+                    You declined the seat. Thank you for letting us know.
+                </div>
+                <div t-if="message == 'leave'" class="alert alert-info" role="status">
+                    You have left the waiting list.
+                </div>
+
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <p class="mb-2">
+                            <strong t-out="entry.name" />
+                            <span class="text-muted">
+                                (<t t-out="entry.seats" /> <t
+                                    t-if="entry.seats == 1"
+                                >seat</t><t t-else="">seats</t><t
+                                    t-if="entry.event_ticket_id"
+                                >, <span t-out="entry.event_ticket_id.name" /></t>)
+                            </span>
+                        </p>
+
+                        <t t-if="entry.state == 'waiting'">
+                            <p class="fs-5 mb-3">
+                                You are number <strong
+                                    t-out="entry.position"
+                                /> on the waiting list.
+                            </p>
+                            <p class="text-muted">
+                                As soon as a seat becomes free, we will email you.
+                            </p>
+                        </t>
+
+                        <t t-elif="entry.state == 'offered'">
+                            <p class="fs-5 mb-1">A seat is free for you!</p>
+                            <p>
+                                It is reserved for you until
+                                <strong
+                                    t-out="entry.offer_deadline"
+                                    t-options="{'widget': 'datetime', 'tz_name': event.date_tz, 'format': 'short'}"
+                                />.
+                            </p>
+                            <div class="d-flex flex-wrap gap-2 mt-3">
+                                <form
+                                    t-attf-action="/event/waitlist/#{token}/accept"
+                                    method="post"
+                                >
+                                    <input
+                                        type="hidden"
+                                        name="csrf_token"
+                                        t-att-value="request.csrf_token()"
+                                    />
+                                    <button
+                                        type="submit"
+                                        t-attf-class="btn btn-primary btn-lg #{'' if action in (False, 'accept') else 'btn-outline-primary'}"
+                                    >Yes, I take the seat</button>
+                                </form>
+                                <form
+                                    t-attf-action="/event/waitlist/#{token}/decline"
+                                    method="post"
+                                >
+                                    <input
+                                        type="hidden"
+                                        name="csrf_token"
+                                        t-att-value="request.csrf_token()"
+                                    />
+                                    <button
+                                        type="submit"
+                                        t-attf-class="btn btn-lg #{'btn-secondary' if action == 'decline' else 'btn-outline-secondary'}"
+                                    >No, give it to the next person</button>
+                                </form>
+                            </div>
+                        </t>
+
+                        <t t-elif="entry.state == 'payment'">
+                            <p
+                                class="fs-5"
+                            >Your seat is reserved until you complete the payment.</p>
+                        </t>
+
+                        <t t-elif="entry.state == 'confirmed'">
+                            <p class="fs-5 mb-0">You are registered. See you there!</p>
+                        </t>
+
+                        <t t-elif="entry.state == 'expired'">
+                            <p
+                                class="mb-0"
+                            >The offered seat was not confirmed in time.</p>
+                        </t>
+
+                        <t t-elif="entry.state == 'declined'">
+                            <p class="mb-0">You declined the offered seat.</p>
+                        </t>
+
+                        <t t-elif="entry.state == 'cancelled'">
+                            <p class="mb-0">You are no longer on the waiting list.</p>
+                        </t>
+
+                        <t t-if="entry.state in ('waiting', 'offered')">
+                            <hr />
+                            <form
+                                t-attf-action="/event/waitlist/#{token}/leave"
+                                method="post"
+                            >
+                                <input
+                                    type="hidden"
+                                    name="csrf_token"
+                                    t-att-value="request.csrf_token()"
+                                />
+                                <p t-if="action == 'leave'" class="mb-2">
+                                    Do you really want to leave the waiting list?
+                                </p>
+                                <button
+                                    type="submit"
+                                    t-attf-class="btn #{'btn-danger' if action == 'leave' else 'btn-link text-danger p-0'}"
+                                >Leave the waiting list</button>
+                            </form>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
