@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 SportJoe GmbH
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
+<odoo>
+    <!-- Event page: "Join the waiting list" instead of the disabled "Sold Out" button -->
+    <template
+        id="registration_template_waitlist"
+        inherit_id="website_event.registration_template"
+        name="Registration: waiting list button"
+    >
+        <xpath
+            expr="//button[hasclass('btn-danger') and hasclass('py-2')]"
+            position="attributes"
+        >
+            <attribute
+                name="t-if"
+            >not (event.event_registrations_sold_out and event.sudo()._waitlist_can_join())</attribute>
+        </xpath>
+        <xpath
+            expr="//button[hasclass('btn-danger') and hasclass('py-2')]"
+            position="after"
+        >
+            <a
+                t-if="event.event_registrations_sold_out and event.sudo()._waitlist_can_join()"
+                t-attf-href="/event/#{slug(event)}/waitlist"
+                class="btn btn-primary py-2 w-100 o_wevent_waitlist_join"
+            >Join the waiting list</a>
+        </xpath>
+    </template>
+
+    <!-- Ticket modal (several tickets): one ticket sold out, others still available -->
+    <template
+        id="modal_ticket_registration_waitlist"
+        inherit_id="website_event.modal_ticket_registration"
+        name="Tickets: waiting list link"
+    >
+        <xpath
+            expr="//span[@t-if='not ticket.sale_available and not ticket.is_expired and ticket.is_launched']"
+            position="after"
+        >
+            <a
+                t-if="not ticket.sale_available and not ticket.is_expired and ticket.is_launched and event.sudo()._waitlist_can_join(ticket.sudo())"
+                t-attf-href="/event/#{slug(event)}/waitlist?ticket_id=#{ticket.id}"
+                class="d-block small o_wevent_waitlist_join"
+            >Join the waiting list</a>
+        </xpath>
+    </template>
+
+    <!-- Event list: tell visitors that a sold-out event has a waiting list -->
+    <template
+        id="events_list_waitlist"
+        inherit_id="website_event.events_list"
+        name="Events list: waiting list"
+    >
+        <xpath
+            expr="(//t[@t-elif='event.event_registrations_sold_out'])[1]"
+            position="inside"
+        >
+            <t t-if="event.sudo()._waitlist_can_join()"> &#183; Waiting list open</t>
+        </xpath>
+        <xpath
+            expr="(//t[@t-elif='event.event_registrations_sold_out'])[2]"
+            position="inside"
+        >
+            <t t-if="event.sudo()._waitlist_can_join()"> &#183; Waiting list open</t>
+        </xpath>
+    </template>
+
+    <!-- Sign-up form -->
+    <template id="waitlist_form" name="Waiting List Form">
+        <t t-call="website_event.layout">
+            <div class="container my-5 o_wevent_waitlist" style="max-width: 720px;">
+                <h1 class="h3 mb-1">Join the waiting list</h1>
+                <h2 class="h5 mb-4">
+                    <a t-att-href="event.website_url" t-out="event.name" />
+                    <small class="text-muted d-block mt-1">
+                        <span
+                            t-out="event.date_begin"
+                            t-options="{'widget': 'datetime', 'tz_name': event.date_tz, 'format': 'medium'}"
+                        />
+                    </small>
+                </h2>
+
+                <t t-if="not can_join and not error">
+                    <div class="alert alert-info" role="status">
+                        The waiting list is not open for this event at the moment.
+                        <a t-att-href="event.website_url">Back to the event</a>
+                    </div>
+                </t>
+                <t t-else="">
+                    <div class="oe_structure" id="oe_structure_waitlist_intro">
+                        <p>
+                            This event is fully booked. Leave your details and we will email
+                            you as soon as a seat becomes free.
+                        </p>
+                    </div>
+                    <div t-if="error" class="alert alert-danger" role="alert">
+                        <span t-out="error" />
+                    </div>
+                    <form
+                        t-attf-action="/event/#{slug(event)}/waitlist"
+                        method="post"
+                        class="o_wevent_waitlist_form"
+                    >
+                        <input
+                            type="hidden"
+                            name="csrf_token"
+                            t-att-value="request.csrf_token()"
+                        />
+                        <div class="d-none" aria-hidden="true">
+                            <label for="website_url_hp">Leave this field empty</label>
+                            <input
+                                type="text"
+                                id="website_url_hp"
+                                name="website_url_hp"
+                                tabindex="-1"
+                                autocomplete="off"
+                            />
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label
+                                    for="waitlist_name"
+                                    class="form-label"
+                                >Name *</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="waitlist_name"
+                                    name="name"
+                                    required="required"
+                                    autocomplete="name"
+                                    t-att-value="form.get('name')"
+                                />
+                            </div>
+                            <div class="col-md-6">
+                                <label
+                                    for="waitlist_email"
+                                    class="form-label"
+                                >Email *</label>
+                                <input
+                                    type="email"
+                                    class="form-control"
+                                    id="waitlist_email"
+                                    name="email"
+                                    required="required"
+                                    autocomplete="email"
+                                    t-att-value="form.get('email')"
+                                />
+                            </div>
+                            <div class="col-md-6">
+                                <label
+                                    for="waitlist_phone"
+                                    class="form-label"
+                                >Phone (optional)</label>
+                                <input
+                                    type="tel"
+                                    class="form-control"
+                                    id="waitlist_phone"
+                                    name="phone"
+                                    autocomplete="tel"
+                                    t-att-value="form.get('phone')"
+                                />
+                            </div>
+                            <div class="col-md-3">
+                                <label
+                                    for="waitlist_seats"
+                                    class="form-label"
+                                >Seats</label>
+                                <select
+                                    class="form-select"
+                                    id="waitlist_seats"
+                                    name="seats"
+                                >
+                                    <t t-foreach="range(1, max_seats + 1)" t-as="nb">
+                                        <option
+                                            t-att-value="nb"
+                                            t-out="nb"
+                                            t-att-selected="str(nb) == str(form.get('seats', 1))"
+                                        />
+                                    </t>
+                                </select>
+                            </div>
+                            <div t-if="tickets" class="col-md-12">
+                                <label
+                                    for="waitlist_ticket"
+                                    class="form-label"
+                                >Ticket</label>
+                                <select
+                                    class="form-select"
+                                    id="waitlist_ticket"
+                                    name="ticket_id"
+                                    required="required"
+                                >
+                                    <option
+                                        t-if="len(tickets) &gt; 1"
+                                        value=""
+                                    >Choose a ticket…</option>
+                                    <t t-foreach="tickets" t-as="ticket">
+                                        <option
+                                            t-att-value="ticket.id"
+                                            t-out="ticket.name"
+                                            t-att-selected="str(ticket.id) == str(form.get('ticket_id'))"
+                                        />
+                                    </t>
+                                </select>
+                            </div>
+                        </div>
+                        <div
+                            class="oe_structure small text-muted mt-4"
+                            id="oe_structure_waitlist_privacy"
+                        >
+                            <p>
+                                Privacy: we only use your details to manage the waiting list and to
+                                contact you about this event. Your entry is deleted automatically
+                                after the event. See our <a
+                                    href="/privacy"
+                                >privacy policy</a>.
+                            </p>
+                        </div>
+                        <button
+                            type="submit"
+                            class="btn btn-primary btn-lg mt-2"
+                        >Join the waiting list</button>
+                    </form>
+                </t>
+            </div>
+        </t>
+    </template>
+
+    <!-- Confirmation page -->
+    <template id="waitlist_success" name="Waiting List Confirmation">
+        <t t-call="website_event.layout">
+            <div
+                class="container my-5 o_wevent_waitlist_done"
+                style="max-width: 720px;"
+            >
+                <t t-if="entry.state == 'waiting'">
+                    <h1 class="h3">You are on the waiting list</h1>
+                    <p class="fs-5 mt-3">
+                        You are number <strong
+                            t-out="entry.position"
+                        /> on the waiting list for
+                        <a t-att-href="event.website_url" t-out="event.name" />.
+                    </p>
+                    <p>
+                        We have sent a confirmation to <strong t-out="entry.email" />.
+                        As soon as a seat becomes free, we will email you.
+                    </p>
+                </t>
+                <t t-elif="entry.state == 'offered'">
+                    <h1 class="h3">A seat is free for you!</h1>
+                    <p class="mt-3">
+                        Please check your inbox (<strong
+                            t-out="entry.email"
+                        />) and confirm the seat.
+                    </p>
+                </t>
+                <t t-else="">
+                    <h1 class="h3">You are registered!</h1>
+                    <p class="mt-3">
+                        A seat was free, so you are registered for
+                        <a t-att-href="event.website_url" t-out="event.name" />.
+                    </p>
+                </t>
+                <div class="oe_structure" id="oe_structure_waitlist_done" />
+                <a
+                    t-att-href="event.website_url"
+                    class="btn btn-secondary mt-3"
+                >Back to the event</a>
+            </div>
+        </t>
+    </template>
+</odoo>
