@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 SportJoe GmbH
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
+<odoo>
+    <record id="event_waitlist_view_tree" model="ir.ui.view">
+        <field name="name">event.waitlist.tree</field>
+        <field name="model">event.waitlist</field>
+        <field name="arch" type="xml">
+            <tree
+                sample="1"
+                decoration-muted="state in ('expired', 'declined', 'cancelled')"
+                decoration-success="state == 'confirmed'"
+                decoration-warning="state == 'offered'"
+            >
+                <field name="sequence" widget="handle" />
+                <field name="position" string="#" invisible="state != 'waiting'" />
+                <field name="event_id" optional="hide" />
+                <field name="name" />
+                <field name="email" optional="show" />
+                <field name="phone" optional="show" />
+                <field name="event_ticket_id" optional="hide" />
+                <field name="seats" />
+                <field name="create_date" string="Joined on" widget="datetime" />
+                <field
+                    name="state"
+                    widget="badge"
+                    decoration-info="state == 'waiting'"
+                    decoration-warning="state in ('offered', 'payment')"
+                    decoration-success="state == 'confirmed'"
+                    decoration-muted="state in ('expired', 'declined', 'cancelled')"
+                />
+                <field name="offer_deadline" optional="show" />
+                <field name="company_id" column_invisible="True" />
+                <button
+                    name="action_offer_now"
+                    type="object"
+                    string="Move up"
+                    icon="fa-level-up"
+                    invisible="state != 'waiting'"
+                    groups="event.group_event_user"
+                />
+                <button
+                    name="action_leave"
+                    type="object"
+                    string="Remove"
+                    icon="fa-times"
+                    invisible="state not in ('waiting', 'offered')"
+                    groups="event.group_event_user"
+                    confirm="Remove this person from the waiting list?"
+                />
+            </tree>
+        </field>
+    </record>
+
+    <record id="event_waitlist_view_form" model="ir.ui.view">
+        <field name="name">event.waitlist.form</field>
+        <field name="model">event.waitlist</field>
+        <field name="arch" type="xml">
+            <form string="Waiting List Entry">
+                <header>
+                    <button
+                        name="action_offer_now"
+                        type="object"
+                        string="Move up now"
+                        class="btn-primary"
+                        invisible="state != 'waiting'"
+                    />
+                    <button
+                        name="action_accept_offer"
+                        type="object"
+                        string="Confirm seat"
+                        class="btn-primary"
+                        invisible="state != 'offered'"
+                    />
+                    <button
+                        name="action_decline_offer"
+                        type="object"
+                        string="Decline seat"
+                        invisible="state != 'offered'"
+                    />
+                    <button
+                        name="action_leave"
+                        type="object"
+                        string="Remove from list"
+                        invisible="state not in ('waiting', 'offered')"
+                    />
+                    <button
+                        name="action_reset_to_waiting"
+                        type="object"
+                        string="Back to waiting list"
+                        invisible="state not in ('expired', 'declined', 'cancelled')"
+                    />
+                    <field
+                        name="state"
+                        widget="statusbar"
+                        statusbar_visible="waiting,offered,confirmed"
+                    />
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button
+                            name="action_view_registrations"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-users"
+                            invisible="not registration_count"
+                        >
+                            <field
+                                name="registration_count"
+                                widget="statinfo"
+                                string="Registrations"
+                            />
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" />
+                        <h1><field name="name" placeholder="e.g. Alex Miller" /></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="email" widget="email" />
+                            <field name="phone" widget="phone" />
+                            <field name="partner_id" />
+                            <field name="lang" />
+                        </group>
+                        <group>
+                            <field name="event_id" />
+                            <field
+                                name="event_ticket_id"
+                                options="{'no_create': True}"
+                            />
+                            <field name="seats" />
+                            <field name="position" invisible="state != 'waiting'" />
+                            <field name="create_date" string="Joined on" />
+                            <field name="offer_date" invisible="not offer_date" />
+                            <field
+                                name="offer_deadline"
+                                invisible="state not in ('offered', 'payment')"
+                            />
+                            <field
+                                name="company_id"
+                                groups="base.group_multi_company"
+                            />
+                        </group>
+                    </group>
+                    <field name="note" placeholder="Internal note" />
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="event_waitlist_view_search" model="ir.ui.view">
+        <field name="name">event.waitlist.search</field>
+        <field name="model">event.waitlist</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <field name="email" />
+                <field name="event_id" />
+                <filter
+                    name="filter_active"
+                    string="On the list"
+                    domain="[('state', 'in', ('waiting', 'offered', 'payment'))]"
+                />
+                <filter
+                    name="filter_offered"
+                    string="Seat offered"
+                    domain="[('state', 'in', ('offered', 'payment'))]"
+                />
+                <filter
+                    name="filter_confirmed"
+                    string="Registered"
+                    domain="[('state', '=', 'confirmed')]"
+                />
+                <filter
+                    name="filter_closed"
+                    string="Expired / declined / left"
+                    domain="[('state', 'in', ('expired', 'declined', 'cancelled'))]"
+                />
+                <separator />
+                <filter
+                    name="filter_upcoming"
+                    string="Upcoming events"
+                    domain="[('event_id.date_end', '>=', context_today().strftime('%Y-%m-%d 00:00:00'))]"
+                />
+                <group expand="0" string="Group By">
+                    <filter
+                        name="group_event"
+                        string="Event"
+                        context="{'group_by': 'event_id'}"
+                    />
+                    <filter
+                        name="group_state"
+                        string="Status"
+                        context="{'group_by': 'state'}"
+                    />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="event_waitlist_action" model="ir.actions.act_window">
+        <field name="name">Waiting Lists</field>
+        <field name="res_model">event.waitlist</field>
+        <field name="view_mode">tree,form</field>
+        <field
+            name="context"
+        >{'search_default_filter_active': 1, 'search_default_filter_upcoming': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No one is on a waiting list yet</p>
+            <p>
+                Enable the waiting list on an event. When it is sold out, visitors can
+                join the list and move up automatically when a seat becomes free.
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+        id="event_waitlist_menu"
+        name="Waiting Lists"
+        parent="event.menu_reporting_events"
+        action="event_waitlist_action"
+        sequence="5"
+        groups="event.group_event_user"
+    />
+</odoo>

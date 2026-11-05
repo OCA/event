@@ -1,0 +1,806 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_waitlist
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-02 06:12+0000\n"
+"PO-Revision-Date: 2026-11-02 06:12+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: event_waitlist
+#. odoo-python
+#: code:addons/event_waitlist/models/event_waitlist.py:0
+#, python-format
+msgid "%(email)s is already on the waiting list of %(event)s."
+msgstr ""
+
+#. module: event_waitlist
+#. odoo-python
+#: code:addons/event_waitlist/models/event_waitlist.py:0
+#, python-format
+msgid "%(name)s declined the offered seat."
+msgstr ""
+
+#. module: event_waitlist
+#. odoo-python
+#: code:addons/event_waitlist/models/event_waitlist.py:0
+#, python-format
+msgid "%(name)s joined the waiting list (%(seats)s seat(s))."
+msgstr ""
+
+#. module: event_waitlist
+#. odoo-python
+#: code:addons/event_waitlist/models/event_waitlist.py:0
+#, python-format
+msgid "%(name)s left the waiting list."
+msgstr ""
+
+#. module: event_waitlist
+#. odoo-python
+#: code:addons/event_waitlist/models/event_waitlist.py:0
+#, python-format
+msgid ""
+"%(name)s moved up from the waiting list and is now registered (%(seats)s "
+"seat(s))."
+msgstr ""
+
+#. module: event_waitlist
+#: model:mail.template,body_html:event_waitlist.mail_template_waitlist_joined
+msgid ""
+"<div style=\"margin: 0; padding: 0; font-size: 14px;\">\n"
+"    <p>Hello <t t-out=\"object.name or ''\">Alex</t>,</p>\n"
+"    <p>\n"
+"        <t t-out=\"object.event_id.name or ''\">Yoga Basics</t> is fully booked at the moment.\n"
+"        You are number <strong t-out=\"object.position or ''\">3</strong> on the waiting list\n"
+"        (<t t-out=\"object.seats or ''\">1</t> seat(s)).\n"
+"    </p>\n"
+"    <p>\n"
+"        As soon as a seat becomes free, we will email you.\n"
+"    </p>\n"
+"    <p style=\"margin-top: 24px;\">\n"
+"        <a t-att-href=\"object._get_portal_url()\" style=\"background-color: #875A7B; padding: 8px 16px; color: #fff; text-decoration: none; border-radius: 5px;\">View my waiting list entry</a>\n"
+"    </p>\n"
+"    <p style=\"color: #888; font-size: 12px; margin-top: 24px;\">\n"
+"        No longer interested? <a t-att-href=\"object._get_portal_url('leave')\">Leave the waiting list</a>.\n"
+"    </p>\n"
+"</div>\n"
+"            "
+msgstr ""
+
+#. module: event_waitlist
+#: model:mail.template,body_html:event_waitlist.mail_template_waitlist_offer
+msgid ""
+"<div style=\"margin: 0; padding: 0; font-size: 14px;\">\n"
+"    <p>Hello <t t-out=\"object.name or ''\">Alex</t>,</p>\n"
+"    <p>\n"
+"        good news: a seat for <strong t-out=\"object.event_id.name or ''\">Yoga Basics</strong> is free for you\n"
+"        (<t t-out=\"object.seats or ''\">1</t> seat(s)).\n"
+"    </p>\n"
+"    <p>\n"
+"        The seat is reserved for you until\n"
+"        <strong t-out=\"object.offer_deadline\" t-options=\"{'widget': 'datetime', 'tz_name': object.event_id.date_tz}\">01/01/2026 18:00</strong>.\n"
+"        Please confirm it before then, otherwise it will go to the next person.\n"
+"    </p>\n"
+"    <p style=\"margin-top: 24px;\">\n"
+"        <a t-att-href=\"object._get_portal_url('accept')\" style=\"background-color: #875A7B; padding: 8px 16px; color: #fff; text-decoration: none; border-radius: 5px;\">Yes, I take the seat</a>\n"
+"        <a t-att-href=\"object._get_portal_url('decline')\" style=\"margin-left: 12px; color: #875A7B;\">No, give it to the next person</a>\n"
+"    </p>\n"
+"    <p style=\"color: #888; font-size: 12px; margin-top: 24px;\">\n"
+"        No longer interested? <a t-att-href=\"object._get_portal_url('leave')\">Leave the waiting list</a>.\n"
+"    </p>\n"
+"</div>\n"
+"            "
+msgstr ""
+
+#. module: event_waitlist
+#: model:mail.template,body_html:event_waitlist.mail_template_waitlist_expired
+msgid ""
+"<div style=\"margin: 0; padding: 0; font-size: 14px;\">\n"
+"    <p>Hello <t t-out=\"object.name or ''\">Alex</t>,</p>\n"
+"    <p>\n"
+"        unfortunately you did not confirm the offered seat for\n"
+"        <strong t-out=\"object.event_id.name or ''\">Yoga Basics</strong> in time,\n"
+"        so it went to the next person on the waiting list.\n"
+"    </p>\n"
+"    <p>We hope to see you at another event soon.</p>\n"
+"    <p style=\"color: #888; font-size: 12px; margin-top: 24px;\">\n"
+"        <a t-att-href=\"object._get_portal_url()\">View my entry</a>\n"
+"    </p>\n"
+"</div>\n"
+"            "
+msgstr ""
+
+#. module: event_waitlist
+#: model:mail.template,body_html:event_waitlist.mail_template_waitlist_confirmed
+msgid ""
+"<div style=\"margin: 0; padding: 0; font-size: 14px;\">\n"
+"    <p>Hello <t t-out=\"object.name or ''\">Alex</t>,</p>\n"
+"    <p>\n"
+"        you moved up from the waiting list and are now registered for\n"
+"        <strong t-out=\"object.event_id.name or ''\">Yoga Basics</strong>\n"
+"        (<t t-out=\"object.seats or ''\">1</t> seat(s)).\n"
+"    </p>\n"
+"    <p t-if=\"object.event_id.date_begin\">\n"
+"        Start:\n"
+"        <t t-out=\"object.event_id.date_begin\" t-options=\"{'widget': 'datetime', 'tz_name': object.event_id.date_tz}\">01/01/2026 18:00</t>\n"
+"        <t t-if=\"object.event_id.address_id\">,\n"
+"            <t t-out=\"object.event_id.address_id.display_name or ''\">Studio</t>\n"
+"        </t>\n"
+"    </p>\n"
+"    <p>See you there!</p>\n"
+"    <p style=\"color: #888; font-size: 12px; margin-top: 24px;\">\n"
+"        <a t-att-href=\"object._get_portal_url()\">View my entry</a>\n"
+"    </p>\n"
+"</div>\n"
+"            "
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:event.event,description:event_waitlist.event_waitlist_demo_event
+msgid "A relaxed yoga class for beginners."
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.waitlist_entry_page
+msgid "A seat is free for you!"
+msgstr ""
+
+#. module: event_waitlist
+#: model:mail.template,subject:event_waitlist.mail_template_waitlist_offer
+msgid "A seat is free for you: {{ object.event_id.name }}"
+msgstr ""
+
+#. module: event_waitlist
+#. odoo-python
+#: code:addons/event_waitlist/models/event_waitlist.py:0
+#, python-format
+msgid "A seat was offered to %(name)s until %(deadline)s (UTC)."
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_waitlist__access_token
+msgid "Access Token"
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.waitlist_entry_page
+msgid "As soon as a seat becomes free, we will email you."
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.event_waitlist_view_form
+msgid "Back to waiting list"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_waitlist__company_id
+msgid "Company"
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.event_waitlist_view_form
+msgid "Confirm seat"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_waitlist__partner_id
+msgid "Contact"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_waitlist__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_waitlist__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.event_waitlist_view_form
+msgid "Decline seat"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields.selection,name:event_waitlist.selection__event_waitlist__state__declined
+msgid "Declined"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_event__waitlist_retention_days
+msgid "Delete Entries After (days)"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_waitlist__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.waitlist_entry_page
+msgid "Do you really want to leave the waiting list?"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_waitlist__email
+msgid "Email"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_waitlist__email_normalized
+msgid "Email Normalized"
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.actions.act_window,help:event_waitlist.event_waitlist_action
+msgid ""
+"Enable the waiting list on an event. When it is sold out, visitors can\n"
+"                join the list and move up automatically when a seat becomes free."
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model,name:event_waitlist.model_event_event
+#: model:ir.model.fields,field_description:event_waitlist.field_event_waitlist__event_id
+#: model_terms:ir.ui.view,arch_db:event_waitlist.event_waitlist_view_search
+msgid "Event"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model,name:event_waitlist.model_event_registration
+msgid "Event Registration"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model,name:event_waitlist.model_event_event_ticket
+msgid "Event Ticket"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model,name:event_waitlist.model_event_waitlist
+msgid "Event Waiting List Entry"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.actions.server,name:event_waitlist.ir_cron_event_waitlist_cleanup_ir_actions_server
+msgid "Event Waiting List: delete entries of past events"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.actions.server,name:event_waitlist.ir_cron_event_waitlist_process_ir_actions_server
+msgid "Event Waiting List: expire offers and move up"
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.event_waitlist_view_search
+msgid "Expired / declined / left"
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.view_event_form_inherit_waitlist
+msgid ""
+"Give free seats to the waiting list now (this also happens automatically)."
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.waitlist_entry_page
+msgid "Great, your seat is confirmed!"
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.event_waitlist_view_search
+msgid "Group By"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,help:event_waitlist.field_event_event__waitlist_offer_hours
+msgid ""
+"How long a person has to accept an offered seat. The deadline never goes "
+"beyond the start of the event."
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_waitlist__id
+msgid "ID"
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.event_waitlist_view_form
+msgid "Internal note"
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.waitlist_entry_page
+msgid "It is reserved for you until"
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.event_waitlist_view_form
+#: model_terms:ir.ui.view,arch_db:event_waitlist.event_waitlist_view_tree
+msgid "Joined on"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_waitlist__lang
+msgid "Language"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_waitlist__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_waitlist__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.waitlist_entry_page
+msgid "Leave the waiting list"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields.selection,name:event_waitlist.selection__event_waitlist__state__cancelled
+msgid "Left the list"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_event__waitlist_max_size
+msgid "Maximum Waiting List Length"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,help:event_waitlist.field_event_event__waitlist_max_size
+msgid "Maximum number of people on the waiting list. 0 = unlimited."
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.event_waitlist_view_tree
+msgid "Move up"
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.event_waitlist_view_form
+msgid "Move up now"
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.view_event_form_inherit_waitlist
+msgid "Move up waiting list"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_waitlist__name
+msgid "Name"
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.actions.act_window,help:event_waitlist.event_waitlist_action
+msgid "No one is on a waiting list yet"
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.waitlist_entry_page
+msgid "No, give it to the next person"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_waitlist__note
+msgid "Note"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_event__waitlist_offer_hours
+msgid "Offer Deadline (hours)"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields.selection,name:event_waitlist.selection__event_waitlist__state__expired
+msgid "Offer expired"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields.selection,name:event_waitlist.selection__event_event__waitlist_mode__offer
+msgid "Offer the seat (with deadline)"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,help:event_waitlist.field_event_event__waitlist_mode
+msgid ""
+"Offer the seat: the first person receives an email and must confirm within the deadline; the seat is reserved meanwhile.\n"
+"Register automatically: the first person is registered right away and receives the normal confirmation (paid tickets are always offered)."
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_waitlist__offer_deadline
+msgid "Offer valid until"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_waitlist__offer_date
+msgid "Offered on"
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.event_waitlist_view_search
+msgid "On the list"
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.view_event_form_inherit_waitlist
+msgid ""
+"Paid tickets are always offered with a deadline, so the person can pay "
+"first."
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_waitlist__phone
+msgid "Phone"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_waitlist__position
+msgid "Position"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,help:event_waitlist.field_event_waitlist__position
+msgid "Position in the queue among the entries that are still waiting."
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields.selection,name:event_waitlist.selection__event_event__waitlist_mode__auto
+msgid "Register automatically"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields.selection,name:event_waitlist.selection__event_waitlist__state__confirmed
+#: model_terms:ir.ui.view,arch_db:event_waitlist.event_waitlist_view_search
+msgid "Registered"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_waitlist__registration_count
+msgid "Registration Count"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_waitlist__registration_ids
+#: model_terms:ir.ui.view,arch_db:event_waitlist.event_waitlist_view_form
+msgid "Registrations"
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.event_waitlist_view_tree
+msgid "Remove"
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.event_waitlist_view_form
+msgid "Remove from list"
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.event_waitlist_view_tree
+msgid "Remove this person from the waiting list?"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields.selection,name:event_waitlist.selection__event_waitlist__state__offered
+#: model_terms:ir.ui.view,arch_db:event_waitlist.event_waitlist_view_search
+msgid "Seat offered"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_waitlist__seats
+msgid "Seats"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_event__waitlist_seats_held
+#: model:ir.model.fields,field_description:event_waitlist.field_event_event_ticket__waitlist_seats_held
+msgid "Seats Held for Waiting List"
+msgstr ""
+
+#. module: event_waitlist
+#. odoo-python
+#: code:addons/event_waitlist/models/event_waitlist.py:0
+#, python-format
+msgid ""
+"Seats can no longer be offered for this event (it has started or is not open"
+" for registration)."
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,help:event_waitlist.field_event_event__waitlist_seats_held
+msgid "Seats currently offered to people from the waiting list."
+msgstr ""
+
+#. module: event_waitlist
+#: model:mail.template,description:event_waitlist.mail_template_waitlist_confirmed
+msgid ""
+"Sent when a person from the waiting list is registered (only if the event "
+"has no confirmation email of its own)"
+msgstr ""
+
+#. module: event_waitlist
+#: model:mail.template,description:event_waitlist.mail_template_waitlist_offer
+msgid "Sent when a seat is offered to the first person of the waiting list"
+msgstr ""
+
+#. module: event_waitlist
+#: model:mail.template,description:event_waitlist.mail_template_waitlist_expired
+msgid "Sent when an offered seat was not confirmed in time"
+msgstr ""
+
+#. module: event_waitlist
+#: model:mail.template,description:event_waitlist.mail_template_waitlist_joined
+msgid "Sent when someone joins a waiting list"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_waitlist__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.waitlist_entry_page
+msgid "Sorry, this offer has expired and the seat went to the next person."
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_waitlist__state
+msgid "State"
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.event_waitlist_view_search
+msgid "Status"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.constraint,message:event_waitlist.constraint_event_waitlist_seats_positive
+msgid "The number of seats must be positive."
+msgstr ""
+
+#. module: event_waitlist
+#. odoo-python
+#: code:addons/event_waitlist/models/event_event.py:0
+#, python-format
+msgid "The offer deadline must be at least 1 hour."
+msgstr ""
+
+#. module: event_waitlist
+#. odoo-python
+#: code:addons/event_waitlist/models/event_waitlist.py:0
+#, python-format
+msgid "The offer for %(name)s expired."
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.waitlist_entry_page
+msgid "The offered seat was not confirmed in time."
+msgstr ""
+
+#. module: event_waitlist
+#. odoo-python
+#: code:addons/event_waitlist/models/event_waitlist.py:0
+#, python-format
+msgid "The ticket does not belong to this event."
+msgstr ""
+
+#. module: event_waitlist
+#. odoo-python
+#: code:addons/event_waitlist/models/event_event.py:0
+#, python-format
+msgid "The waiting list of %(event)s is full."
+msgstr ""
+
+#. module: event_waitlist
+#. odoo-python
+#: code:addons/event_waitlist/models/event_waitlist.py:0
+#, python-format
+msgid "There are not enough free seats for %(name)s."
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_waitlist__event_ticket_id
+msgid "Ticket"
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.view_event_form_inherit_waitlist
+msgid ""
+"Turn on the waiting list so visitors can sign up when this event is sold "
+"out."
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.event_waitlist_view_search
+msgid "Upcoming events"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields.selection,name:event_waitlist.selection__event_waitlist__state__waiting
+msgid "Waiting"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_event__waitlist_enabled
+#: model_terms:ir.ui.view,arch_db:event_waitlist.view_event_form_inherit_waitlist
+msgid "Waiting List"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_event__waitlist_count
+msgid "Waiting List Count"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_event__waitlist_ids
+msgid "Waiting List Entries"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_registration__waitlist_entry_id
+#: model_terms:ir.ui.view,arch_db:event_waitlist.event_waitlist_view_form
+msgid "Waiting List Entry"
+msgstr ""
+
+#. module: event_waitlist
+#. odoo-python
+#: code:addons/event_waitlist/models/event_event.py:0
+#, python-format
+msgid "Waiting List: %s"
+msgstr ""
+
+#. module: event_waitlist
+#: model:mail.template,name:event_waitlist.mail_template_waitlist_joined
+msgid "Waiting List: Entry Confirmed"
+msgstr ""
+
+#. module: event_waitlist
+#: model:mail.template,name:event_waitlist.mail_template_waitlist_expired
+msgid "Waiting List: Offer Expired"
+msgstr ""
+
+#. module: event_waitlist
+#: model:mail.template,name:event_waitlist.mail_template_waitlist_confirmed
+msgid "Waiting List: Seat Confirmed"
+msgstr ""
+
+#. module: event_waitlist
+#: model:mail.template,name:event_waitlist.mail_template_waitlist_offer
+msgid "Waiting List: Seat Offered"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.actions.act_window,name:event_waitlist.event_waitlist_action
+#: model:ir.ui.menu,name:event_waitlist.event_waitlist_menu
+msgid "Waiting Lists"
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.waitlist_entry_page
+msgid "Waiting list"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,help:event_waitlist.field_event_event__waitlist_retention_days
+msgid ""
+"Waiting list entries are deleted automatically this many days after the end "
+"of the event (data protection)."
+msgstr ""
+
+#. module: event_waitlist
+#. odoo-python
+#: code:addons/event_waitlist/models/event_event.py:0
+#, python-format
+msgid "Waiting list values cannot be negative."
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_event__waitlist_is_full
+msgid "Waitlist Is Full"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,field_description:event_waitlist.field_event_event__waitlist_mode
+msgid "When a Seat Becomes Free"
+msgstr ""
+
+#. module: event_waitlist
+#: model:ir.model.fields,help:event_waitlist.field_event_event__waitlist_enabled
+msgid ""
+"When the event or a ticket is sold out, visitors can join a waiting list and"
+" move up automatically when a seat becomes free."
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.waitlist_entry_page
+msgid "Yes, I take the seat"
+msgstr ""
+
+#. module: event_waitlist
+#: model:event.event,name:event_waitlist.event_waitlist_demo_event
+msgid "Yoga Basics (Thursday evening)"
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.waitlist_entry_page
+msgid "You are no longer on the waiting list."
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.waitlist_entry_page
+msgid "You are number"
+msgstr ""
+
+#. module: event_waitlist
+#: model:mail.template,subject:event_waitlist.mail_template_waitlist_joined
+msgid "You are on the waiting list: {{ object.event_id.name }}"
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.waitlist_entry_page
+msgid "You are registered. See you there!"
+msgstr ""
+
+#. module: event_waitlist
+#: model:mail.template,subject:event_waitlist.mail_template_waitlist_confirmed
+msgid "You are registered: {{ object.event_id.name }}"
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.waitlist_entry_page
+msgid "You declined the offered seat."
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.waitlist_entry_page
+msgid "You declined the seat. Thank you for letting us know."
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.waitlist_entry_page
+msgid "You have left the waiting list."
+msgstr ""
+
+#. module: event_waitlist
+#: model:mail.template,subject:event_waitlist.mail_template_waitlist_expired
+msgid "Your offer has expired: {{ object.event_id.name }}"
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.waitlist_entry_page
+msgid "Your seat is reserved until you complete the payment."
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.event_waitlist_view_form
+msgid "e.g. Alex Miller"
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.waitlist_entry_page
+msgid "on the waiting list."
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.waitlist_entry_page
+msgid "seat"
+msgstr ""
+
+#. module: event_waitlist
+#: model_terms:ir.ui.view,arch_db:event_waitlist.waitlist_entry_page
+msgid "seats"
+msgstr ""

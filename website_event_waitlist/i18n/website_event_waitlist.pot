@@ -1,0 +1,205 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_event_waitlist
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-02 06:12+0000\n"
+"PO-Revision-Date: 2026-11-02 06:12+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_event_waitlist
+#: model_terms:ir.ui.view,arch_db:website_event_waitlist.waitlist_success
+msgid ") and confirm the seat."
+msgstr ""
+
+#. module: website_event_waitlist
+#: model_terms:ir.ui.view,arch_db:website_event_waitlist.waitlist_success
+msgid ""
+".\n"
+"                        As soon as a seat becomes free, we will email you."
+msgstr ""
+
+#. module: website_event_waitlist
+#: model_terms:ir.ui.view,arch_db:website_event_waitlist.waitlist_success
+msgid "A seat is free for you!"
+msgstr ""
+
+#. module: website_event_waitlist
+#: model_terms:ir.ui.view,arch_db:website_event_waitlist.waitlist_success
+msgid "A seat was free, so you are registered for"
+msgstr ""
+
+#. module: website_event_waitlist
+#: model_terms:ir.ui.view,arch_db:website_event_waitlist.waitlist_form
+#: model_terms:ir.ui.view,arch_db:website_event_waitlist.waitlist_success
+msgid "Back to the event"
+msgstr ""
+
+#. module: website_event_waitlist
+#: model_terms:ir.ui.view,arch_db:website_event_waitlist.waitlist_form
+msgid "Choose a ticket…"
+msgstr ""
+
+#. module: website_event_waitlist
+#: model_terms:ir.ui.view,arch_db:website_event_waitlist.waitlist_form
+msgid "Email *"
+msgstr ""
+
+#. module: website_event_waitlist
+#: model_terms:ir.ui.view,arch_db:website_event_waitlist.modal_ticket_registration_waitlist
+#: model_terms:ir.ui.view,arch_db:website_event_waitlist.registration_template_waitlist
+#: model_terms:ir.ui.view,arch_db:website_event_waitlist.waitlist_form
+msgid "Join the waiting list"
+msgstr ""
+
+#. module: website_event_waitlist
+#: model_terms:ir.ui.view,arch_db:website_event_waitlist.waitlist_form
+msgid "Leave this field empty"
+msgstr ""
+
+#. module: website_event_waitlist
+#: model_terms:ir.ui.view,arch_db:website_event_waitlist.waitlist_form
+msgid "Name *"
+msgstr ""
+
+#. module: website_event_waitlist
+#: model_terms:ir.ui.view,arch_db:website_event_waitlist.waitlist_form
+msgid "Phone (optional)"
+msgstr ""
+
+#. module: website_event_waitlist
+#: model_terms:ir.ui.view,arch_db:website_event_waitlist.waitlist_success
+msgid "Please check your inbox ("
+msgstr ""
+
+#. module: website_event_waitlist
+#. odoo-python
+#: code:addons/website_event_waitlist/controllers/main.py:0
+#, python-format
+msgid "Please choose a ticket."
+msgstr ""
+
+#. module: website_event_waitlist
+#. odoo-python
+#: code:addons/website_event_waitlist/controllers/main.py:0
+#, python-format
+msgid "Please choose between 1 and %s seats."
+msgstr ""
+
+#. module: website_event_waitlist
+#. odoo-python
+#: code:addons/website_event_waitlist/controllers/main.py:0
+#, python-format
+msgid "Please enter a valid email address."
+msgstr ""
+
+#. module: website_event_waitlist
+#. odoo-python
+#: code:addons/website_event_waitlist/controllers/main.py:0
+#, python-format
+msgid "Please enter your name and email address."
+msgstr ""
+
+#. module: website_event_waitlist
+#: model_terms:ir.ui.view,arch_db:website_event_waitlist.waitlist_form
+msgid ""
+"Privacy: we only use your details to manage the waiting list and to\n"
+"                                contact you about this event. Your entry is deleted automatically\n"
+"                                after the event. See our"
+msgstr ""
+
+#. module: website_event_waitlist
+#: model_terms:ir.ui.view,arch_db:website_event_waitlist.waitlist_form
+msgid "Seats"
+msgstr ""
+
+#. module: website_event_waitlist
+#. odoo-python
+#: code:addons/website_event_waitlist/controllers/main.py:0
+#: code:addons/website_event_waitlist/controllers/main.py:0
+#, python-format
+msgid "Sorry, the waiting list is full."
+msgstr ""
+
+#. module: website_event_waitlist
+#. odoo-python
+#: code:addons/website_event_waitlist/controllers/main.py:0
+#, python-format
+msgid "Sorry, we could not add you to the waiting list."
+msgstr ""
+
+#. module: website_event_waitlist
+#. odoo-python
+#: code:addons/website_event_waitlist/controllers/main.py:0
+#, python-format
+msgid "The waiting list is not open for this event (anymore)."
+msgstr ""
+
+#. module: website_event_waitlist
+#: model_terms:ir.ui.view,arch_db:website_event_waitlist.waitlist_form
+msgid "The waiting list is not open for this event at the moment."
+msgstr ""
+
+#. module: website_event_waitlist
+#. odoo-python
+#: code:addons/website_event_waitlist/controllers/main.py:0
+#, python-format
+msgid ""
+"This email address is already on the waiting list. Please check your inbox "
+"for our confirmation email."
+msgstr ""
+
+#. module: website_event_waitlist
+#: model_terms:ir.ui.view,arch_db:website_event_waitlist.waitlist_form
+msgid ""
+"This event is fully booked. Leave your details and we will email\n"
+"                            you as soon as a seat becomes free."
+msgstr ""
+
+#. module: website_event_waitlist
+#: model_terms:ir.ui.view,arch_db:website_event_waitlist.waitlist_form
+msgid "Ticket"
+msgstr ""
+
+#. module: website_event_waitlist
+#: model_terms:ir.ui.view,arch_db:website_event_waitlist.waitlist_success
+msgid "We have sent a confirmation to"
+msgstr ""
+
+#. module: website_event_waitlist
+#: model_terms:ir.ui.view,arch_db:website_event_waitlist.waitlist_success
+msgid "You are number"
+msgstr ""
+
+#. module: website_event_waitlist
+#: model_terms:ir.ui.view,arch_db:website_event_waitlist.waitlist_success
+msgid "You are on the waiting list"
+msgstr ""
+
+#. module: website_event_waitlist
+#: model_terms:ir.ui.view,arch_db:website_event_waitlist.waitlist_success
+msgid "You are registered!"
+msgstr ""
+
+#. module: website_event_waitlist
+#: model_terms:ir.ui.view,arch_db:website_event_waitlist.waitlist_success
+msgid "on the waiting list for"
+msgstr ""
+
+#. module: website_event_waitlist
+#: model_terms:ir.ui.view,arch_db:website_event_waitlist.waitlist_form
+msgid "privacy policy"
+msgstr ""
+
+#. module: website_event_waitlist
+#: model_terms:ir.ui.view,arch_db:website_event_waitlist.events_list_waitlist
+msgid "· Waiting list open"
+msgstr ""

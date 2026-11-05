@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 SportJoe GmbH
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
+<odoo>
+    <record id="event_waitlist_demo_event" model="event.event">
+        <field name="name">Yoga Basics (Thursday evening)</field>
+        <field
+            name="date_begin"
+            eval="(DateTime.today() + relativedelta(days=10)).strftime('%Y-%m-%d 17:00:00')"
+        />
+        <field
+            name="date_end"
+            eval="(DateTime.today() + relativedelta(days=10)).strftime('%Y-%m-%d 18:30:00')"
+        />
+        <field name="seats_limited" eval="True" />
+        <field name="seats_max">3</field>
+        <field name="waitlist_enabled" eval="True" />
+        <field name="waitlist_mode">offer</field>
+        <field name="waitlist_offer_hours">12</field>
+        <field name="waitlist_max_size">20</field>
+        <field name="description" type="html"><p
+            >A relaxed yoga class for beginners.</p></field>
+    </record>
+
+    <record id="event_waitlist_demo_reg_1" model="event.registration">
+        <field name="event_id" ref="event_waitlist_demo_event" />
+        <field name="name">Lena Hoffmann</field>
+        <field name="email">lena.hoffmann@example.com</field>
+    </record>
+    <record id="event_waitlist_demo_reg_2" model="event.registration">
+        <field name="event_id" ref="event_waitlist_demo_event" />
+        <field name="name">Jonas Becker</field>
+        <field name="email">jonas.becker@example.com</field>
+    </record>
+
+    <record
+        id="event_waitlist_demo_entry_1"
+        model="event.waitlist"
+        context="{'event_waitlist_no_mail': True}"
+    >
+        <field name="event_id" ref="event_waitlist_demo_event" />
+        <field name="name">Sophie Wagner</field>
+        <field name="email">sophie.wagner@example.com</field>
+        <field name="phone">+49 221 555 0101</field>
+        <field name="sequence">1</field>
+    </record>
+    <record
+        id="event_waitlist_demo_entry_2"
+        model="event.waitlist"
+        context="{'event_waitlist_no_mail': True}"
+    >
+        <field name="event_id" ref="event_waitlist_demo_event" />
+        <field name="name">Max Schneider</field>
+        <field name="email">max.schneider@example.com</field>
+        <field name="seats">2</field>
+        <field name="sequence">2</field>
+    </record>
+    <record
+        id="event_waitlist_demo_entry_3"
+        model="event.waitlist"
+        context="{'event_waitlist_no_mail': True}"
+    >
+        <field name="event_id" ref="event_waitlist_demo_event" />
+        <field name="name">Mia Fischer</field>
+        <field name="email">mia.fischer@example.com</field>
+        <field name="phone">+49 221 555 0103</field>
+        <field name="sequence">3</field>
+    </record>
+    <record
+        id="event_waitlist_demo_entry_4"
+        model="event.waitlist"
+        context="{'event_waitlist_no_mail': True}"
+    >
+        <field name="event_id" ref="event_waitlist_demo_event" />
+        <field name="name">Paul Weber</field>
+        <field name="email">paul.weber@example.com</field>
+        <field name="sequence">4</field>
+    </record>
+    <record
+        id="event_waitlist_demo_entry_5"
+        model="event.waitlist"
+        context="{'event_waitlist_no_mail': True}"
+    >
+        <field name="event_id" ref="event_waitlist_demo_event" />
+        <field name="name">Emma Schulz</field>
+        <field name="email">emma.schulz@example.com</field>
+        <field name="phone">+49 221 555 0105</field>
+        <field name="sequence">5</field>
+    </record>
+</odoo>

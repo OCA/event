@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 SportJoe GmbH
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
+<odoo noupdate="1">
+        <record id="mail_template_waitlist_joined" model="mail.template">
+            <field name="name">Waiting List: Entry Confirmed</field>
+            <field name="model_id" ref="event_waitlist.model_event_waitlist" />
+            <field
+            name="subject"
+        >You are on the waiting list: {{ object.event_id.name }}</field>
+            <field
+            name="email_from"
+        >{{ (object.event_id.organizer_id.email_formatted or object.event_id.company_id.email_formatted or user.email_formatted or '') }}</field>
+            <field name="email_to">{{ object.email }}</field>
+            <field name="lang">{{ object.lang }}</field>
+            <field name="auto_delete" eval="True" />
+            <field name="description">Sent when someone joins a waiting list</field>
+            <field name="body_html" type="html">
+<div style="margin: 0; padding: 0; font-size: 14px;">
+    <p>Hello <t t-out="object.name or ''">Alex</t>,</p>
+    <p>
+        <t
+                        t-out="object.event_id.name or ''"
+                    >Yoga Basics</t> is fully booked at the moment.
+        You are number <strong
+                        t-out="object.position or ''"
+                    >3</strong> on the waiting list
+        (<t t-out="object.seats or ''">1</t> seat(s)).
+    </p>
+    <p>
+        As soon as a seat becomes free, we will email you.
+    </p>
+    <p style="margin-top: 24px;">
+        <a
+                        t-att-href="object._get_portal_url()"
+                        style="background-color: #875A7B; padding: 8px 16px; color: #fff; text-decoration: none; border-radius: 5px;"
+                    >View my waiting list entry</a>
+    </p>
+    <p style="color: #888; font-size: 12px; margin-top: 24px;">
+        No longer interested? <a
+                        t-att-href="object._get_portal_url('leave')"
+                    >Leave the waiting list</a>.
+    </p>
+</div>
+            </field>
+        </record>
+
+        <record id="mail_template_waitlist_offer" model="mail.template">
+            <field name="name">Waiting List: Seat Offered</field>
+            <field name="model_id" ref="event_waitlist.model_event_waitlist" />
+            <field
+            name="subject"
+        >A seat is free for you: {{ object.event_id.name }}</field>
+            <field
+            name="email_from"
+        >{{ (object.event_id.organizer_id.email_formatted or object.event_id.company_id.email_formatted or user.email_formatted or '') }}</field>
+            <field name="email_to">{{ object.email }}</field>
+            <field name="lang">{{ object.lang }}</field>
+            <field name="auto_delete" eval="True" />
+            <field
+            name="description"
+        >Sent when a seat is offered to the first person of the waiting list</field>
+            <field name="body_html" type="html">
+<div style="margin: 0; padding: 0; font-size: 14px;">
+    <p>Hello <t t-out="object.name or ''">Alex</t>,</p>
+    <p>
+        good news: a seat for <strong
+                        t-out="object.event_id.name or ''"
+                    >Yoga Basics</strong> is free for you
+        (<t t-out="object.seats or ''">1</t> seat(s)).
+    </p>
+    <p>
+        The seat is reserved for you until
+        <strong
+                        t-out="object.offer_deadline"
+                        t-options="{'widget': 'datetime', 'tz_name': object.event_id.date_tz}"
+                    >01/01/2026 18:00</strong>.
+        Please confirm it before then, otherwise it will go to the next person.
+    </p>
+    <p style="margin-top: 24px;">
+        <a
+                        t-att-href="object._get_portal_url('accept')"
+                        style="background-color: #875A7B; padding: 8px 16px; color: #fff; text-decoration: none; border-radius: 5px;"
+                    >Yes, I take the seat</a>
+        <a
+                        t-att-href="object._get_portal_url('decline')"
+                        style="margin-left: 12px; color: #875A7B;"
+                    >No, give it to the next person</a>
+    </p>
+    <p style="color: #888; font-size: 12px; margin-top: 24px;">
+        No longer interested? <a
+                        t-att-href="object._get_portal_url('leave')"
+                    >Leave the waiting list</a>.
+    </p>
+</div>
+            </field>
+        </record>
+
+        <record id="mail_template_waitlist_confirmed" model="mail.template">
+            <field name="name">Waiting List: Seat Confirmed</field>
+            <field name="model_id" ref="event_waitlist.model_event_waitlist" />
+            <field name="subject">You are registered: {{ object.event_id.name }}</field>
+            <field
+            name="email_from"
+        >{{ (object.event_id.organizer_id.email_formatted or object.event_id.company_id.email_formatted or user.email_formatted or '') }}</field>
+            <field name="email_to">{{ object.email }}</field>
+            <field name="lang">{{ object.lang }}</field>
+            <field name="auto_delete" eval="True" />
+            <field
+            name="description"
+        >Sent when a person from the waiting list is registered (only if the event has no confirmation email of its own)</field>
+            <field name="body_html" type="html">
+<div style="margin: 0; padding: 0; font-size: 14px;">
+    <p>Hello <t t-out="object.name or ''">Alex</t>,</p>
+    <p>
+        you moved up from the waiting list and are now registered for
+        <strong t-out="object.event_id.name or ''">Yoga Basics</strong>
+        (<t t-out="object.seats or ''">1</t> seat(s)).
+    </p>
+    <p t-if="object.event_id.date_begin">
+        Start:
+        <t
+                        t-out="object.event_id.date_begin"
+                        t-options="{'widget': 'datetime', 'tz_name': object.event_id.date_tz}"
+                    >01/01/2026 18:00</t>
+        <t t-if="object.event_id.address_id">,
+            <t t-out="object.event_id.address_id.display_name or ''">Studio</t>
+        </t>
+    </p>
+    <p>See you there!</p>
+    <p style="color: #888; font-size: 12px; margin-top: 24px;">
+        <a t-att-href="object._get_portal_url()">View my entry</a>
+    </p>
+</div>
+            </field>
+        </record>
+
+        <record id="mail_template_waitlist_expired" model="mail.template">
+            <field name="name">Waiting List: Offer Expired</field>
+            <field name="model_id" ref="event_waitlist.model_event_waitlist" />
+            <field
+            name="subject"
+        >Your offer has expired: {{ object.event_id.name }}</field>
+            <field
+            name="email_from"
+        >{{ (object.event_id.organizer_id.email_formatted or object.event_id.company_id.email_formatted or user.email_formatted or '') }}</field>
+            <field name="email_to">{{ object.email }}</field>
+            <field name="lang">{{ object.lang }}</field>
+            <field name="auto_delete" eval="True" />
+            <field
+            name="description"
+        >Sent when an offered seat was not confirmed in time</field>
+            <field name="body_html" type="html">
+<div style="margin: 0; padding: 0; font-size: 14px;">
+    <p>Hello <t t-out="object.name or ''">Alex</t>,</p>
+    <p>
+        unfortunately you did not confirm the offered seat for
+        <strong t-out="object.event_id.name or ''">Yoga Basics</strong> in time,
+        so it went to the next person on the waiting list.
+    </p>
+    <p>We hope to see you at another event soon.</p>
+    <p style="color: #888; font-size: 12px; margin-top: 24px;">
+        <a t-att-href="object._get_portal_url()">View my entry</a>
+    </p>
+</div>
+            </field>
+        </record>
+</odoo>

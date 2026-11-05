@@ -1,0 +1,2 @@
+- [SportJoe GmbH](https://www.sportjoe.net):
+  - Sebastian Dietze
