@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <template id="accept_legal_input">
-        <div>
+        <div class="form-check mb-2">
             <input
                 id="accepted_event_legal_terms"
-                class="form-check-input position-relative me-1"
+                class="form-check-input"
                 type="checkbox"
                 t-att-required="event.website_require_legal"
             />
             <label
                 t-if="not event.website_description_legal"
-                class="control-label form-check-label"
+                class="form-check-label"
                 for="accepted_event_legal_terms"
             >
                 I agree to the <a
@@ -18,11 +18,7 @@
                 href="/terms"
             >terms &amp; conditions</a>
             </label>
-            <label
-                t-else=""
-                class="control-label form-check-label"
-                for="accepted_event_legal_terms"
-            >
+            <label t-else="" class="form-check-label" for="accepted_event_legal_terms">
                 <t t-out="event.website_description_legal" />
             </label>
         </div>

@@ -1,8 +1,6 @@
 # Copyright 2025 Tecnativa - Pilar Vargas
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from datetime import date, timedelta
-
 from odoo import fields
 from odoo.tests import new_test_user, tagged
 from odoo.tests.common import HttpCase
@@ -15,8 +13,8 @@ class TestWebsiteEventRequireLegal(HttpCase):
         super().setUpClass()
         cls.organizer = cls.env["res.partner"].create({"name": "Organizer"})
         cls.date = {
-            "begin": fields.Date.to_string(date.today()),
-            "end": fields.Date.to_string(date.today() + timedelta(days=7)),
+            "begin": fields.Date.today(),
+            "end": fields.Date.add(fields.Date.today(), days=7),
         }
         cls.event = cls.env["event.event"].create(
             {
