@@ -37,6 +37,8 @@ class TestTicket(BaseCommon):
         )
 
     def test_specific_questions(self):
+        # Backend access to event questions requires event manager permissions.
+        self.env.user.group_ids |= self.env.ref("event.group_event_manager")
         specific_questions_1 = self.event_1._get_specific_questions(self.ticket_1.id)
         self.assertIn(self.question_1, specific_questions_1)
         specific_questions_2 = self.event_1._get_specific_questions(self.ticket_2.id)
