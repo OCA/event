@@ -22,5 +22,4 @@ class SaleOrderLine(models.Model):
             )
         )
         event_zero_lines.qty_to_invoice = 0
-        self = self - event_zero_lines
-        return super()._compute_qty_to_invoice()
+        return super(SaleOrderLine, self - event_zero_lines)._compute_qty_to_invoice()
