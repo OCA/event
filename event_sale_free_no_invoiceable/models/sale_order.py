@@ -16,8 +16,10 @@ class SaleOrderLine(models.Model):
             "Product Unit of Measure"
         )
         event_zero_lines = self.filtered(
-            lambda x: x.event_ticket_id
-            and float_is_zero(x.price_unit, precision_digits=precision)
+            lambda x: (
+                x.event_ticket_id
+                and float_is_zero(x.price_unit, precision_digits=precision)
+            )
         )
         event_zero_lines.qty_to_invoice = 0
         self = self - event_zero_lines
