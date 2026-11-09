@@ -57,6 +57,13 @@ registry.category("web_tour.tours").add("website_event_filter_city", {
             trigger: "a.dropdown-toggle:contains('Sevilla')",
         },
         {
+            trigger:
+                "#o_wevent_index_main_col:not(:contains('Barcelona Days 2017'))" +
+                ":not(:contains('Online Code Sprint 2018'))" +
+                ":contains('Sevilla Code Sprint 2018')" +
+                ":contains('Sevilla Awesome Breakfast 2018')",
+        },
+        {
             trigger: "a.dropdown-toggle:contains('Type')",
             run: "click",
         },
@@ -69,18 +76,11 @@ registry.category("web_tour.tours").add("website_event_filter_city", {
                 "#o_wevent_index_main_col:not(:contains('Barcelona Days 2017'))" +
                 ":not(:contains('Online Code Sprint 2018'))" +
                 ":contains('Sevilla Code Sprint 2018')" +
-                ":contains('Sevilla Awesome Breakfast 2018')",
+                ":not(:contains('Sevilla Awesome Breakfast 2018'))",
         },
         {
             trigger: "a:contains('Sevilla Code Sprint 2018')",
             run: "click",
-        },
-        {
-            trigger:
-                "#o_wevent_index_main_col:not(:contains('Barcelona Days 2017'))" +
-                ":not(:contains('Online Code Sprint 2018'))" +
-                ":contains('Sevilla Code Sprint 2018')" +
-                ":not(:contains('Sevilla Awesome Breakfast 2018'))",
         },
     ],
 });
