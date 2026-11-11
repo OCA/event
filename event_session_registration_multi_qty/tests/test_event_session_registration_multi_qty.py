@@ -105,3 +105,33 @@ class EventSessionRegistrationMultiQty(BaseCommon):
         self.assertEqual(self.session.seats_expected, 36)
         self.assertEqual(self.session.seats_available, 219)
         self.assertEqual(self.session.seats_available_unexpected, 214)
+
+    def test_compute_seats_with_sessions_of_other_events(self):
+        """Sessions with and without multi qty recomputed together"""
+        event_single = self.env["event.event"].create(
+            {
+                "name": "Test event without multi qty",
+                "date_begin": "2017-05-26 20:00:00",
+                "date_end": "2017-05-30 22:00:00",
+            }
+        )
+        session_single = self.env["event.session"].create(
+            {
+                "date_begin": "2017-05-26 20:00:00",
+                "date_end": "2017-05-26 22:00:00",
+                "event_id": event_single.id,
+            }
+        )
+        attendee_single = self.env["event.registration"].create(
+            {
+                "name": "Test attendee single",
+                "event_id": event_single.id,
+                "session_id": session_single.id,
+                "state": "open",
+            }
+        )
+        (self.attendee_cancel + attendee_single).write({"state": "done"})
+        self.assertEqual(self.session.seats_reserved, 20)
+        self.assertEqual(self.session.seats_used, 11)
+        self.assertEqual(self.session.seats_available, 219)
+        self.assertEqual(session_single.seats_used, 1)
