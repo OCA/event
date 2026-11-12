@@ -9,9 +9,12 @@ from odoo.addons.base.tests.common import BaseCommon
 
 
 class DuplicatedPartnerCase(BaseCommon):
+    _test_user_groups = ("base.group_system", "event.group_event_manager")
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.env.user.group_ids |= cls.env.ref("event.group_event_manager")
         cls.event = cls.env["event.event"].create(
             {
                 "name": "Test event",
