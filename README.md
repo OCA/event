@@ -18,7 +18,11 @@ event
 
 [//]: # (addons)
 
-This part will be replaced when running the oca-gen-addons-table script from OCA/maintainer-tools.
+Available addons
+----------------
+addon | version | maintainers | summary
+--- | --- | --- | ---
+[partner_event](partner_event/) | 20.0.1.0.0 |  | Link partner to events
 
 [//]: # (end addons)
 
