@@ -1,0 +1,2 @@
+id,name,model_id,group_id/id,operation,domain
+access_res_partner_register_event,access_res_partner_register_event,res.partner.register.event,base.group_user,cru,

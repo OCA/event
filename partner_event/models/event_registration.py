@@ -1,0 +1,153 @@
+# Copyright 2015 Tecnativa - Javier Iniesta
+# Copyright 2016 Tecnativa - Antonio Espinosa
+# Copyright 2016 Tecnativa - Vicent Cubells
+# Copyright 2018 Jupical Technologies Pvt. Ltd. - Anil Kesariya
+# Copyright 2020 Tecnativa - Víctor Martínez
+# Copyright 2014-2023 Tecnativa - Pedro M. Baeza
+# Copyright 2023 Tecnativa - Carolina Fernandez
+# Copyright 2024 Tecnativa - Juan José Seguí
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+from odoo import api, fields, models
+from odoo.exceptions import UserError
+
+
+class EventRegistration(models.Model):
+    _inherit = "event.registration"
+
+    partner_id = fields.Many2one(ondelete="restrict")
+    attendee_partner_id = fields.Many2one(
+        comodel_name="res.partner", ondelete="restrict", copy=False, index=True
+    )
+
+    @api.model
+    def _prepare_partner(self, vals):
+        return {
+            "name": vals.get("name") or vals.get("email"),
+            "email": vals.get("email", False),
+            "phone": vals.get("phone", False),
+        }
+
+    def action_create_attendee_partner(self):
+        self.ensure_one()
+        if self.attendee_partner_id:
+            return True
+        if not self.name and not self.email:
+            raise UserError(
+                self.env._(
+                    "Set at least the attendee name or email before creating a partner."
+                )
+            )
+        keys = self._prepare_partner({}).keys()
+        attendee_partner = self.env["res.partner"].create(
+            self._prepare_partner({field_name: self[field_name] for field_name in keys})
+        )
+        vals = {"attendee_partner_id": attendee_partner.id}
+        if not self.partner_id:
+            vals["partner_id"] = attendee_partner.id
+        self.write(vals)
+        return True
+
+    @api.model
+    def _update_attendee_partner_id(self, vals):
+        # Don't update if doing a partner merging
+        if not vals.get("attendee_partner_id") and not self.env.context.get(
+            "partner_event_merging"
+        ):
+            Partner = self.env["res.partner"]
+            Event = self.env["event.event"]
+            attendee_partner = Partner.browse()
+            attendee_email = vals.get("email")
+            if attendee_email:
+                # Don't search by email if it belongs to partner_id:
+                # the attendee may be a different person (e.g. a child
+                # registered with partner_id's email as fallback).
+                partner_email = False
+                if vals.get("partner_id"):
+                    partner_email = Partner.browse(vals["partner_id"]).email
+                if attendee_email != partner_email:
+                    # Look for a partner with that email
+                    clean_email = attendee_email.replace("%", "").replace("_", "\\_")
+                    # Order was done for avoiding extra queries for sorting
+                    attendee_partner = Partner.search(
+                        [("email", "=ilike", clean_email)], limit=1, order="id"
+                    )
+                    if attendee_partner:
+                        for field in ("name", "phone"):
+                            vals[field] = vals.get(field) or attendee_partner[field]
+            if not attendee_partner:
+                event = Event.browse()
+                if vals.get("event_id"):
+                    event = Event.browse(vals["event_id"])
+                if (
+                    event
+                    and event.create_partner
+                    and (vals.get("name") or vals.get("email"))
+                ):
+                    # Create partner
+                    attendee_partner = Partner.sudo().create(
+                        self._prepare_partner(vals)
+                    )
+            if attendee_partner:
+                vals["attendee_partner_id"] = attendee_partner.id
+        return vals
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            self._update_attendee_partner_id(vals)
+        return super().create(vals_list)
+
+    def write(self, vals):
+        self._update_attendee_partner_id(vals)
+        return super().write(vals)
+
+    def _message_get_default_recipients(self, with_cc=False, all_tos=False):
+        """Prefer the attendee partner over the generic heuristics.
+
+        The generic heuristics pick ``partner_id``, which is the person that
+        made the booking, or fall back to the registration email; mails
+        composed from a registration are meant for the attendee. Only that
+        recipient is swapped, so any other partner contributed by another
+        module stays in the list. ``email_to`` is dropped because it can only
+        hold the registration email when no partner was picked, which is the
+        same recipient the attendee partner now stands for. ``email_cc`` stays
+        as ``super()`` computed it (it already honors ``with_cc``), and
+        ``all_tos`` is deprecated in 19.0 and only forwarded.
+        """
+        res = super()._message_get_default_recipients(with_cc=with_cc, all_tos=all_tos)
+        for record in self.filtered("attendee_partner_id"):
+            values = res[record.id]
+            attendee_id = record.attendee_partner_id.id
+            others = [
+                partner_id
+                for partner_id in values["partner_ids"]
+                if partner_id not in (record.partner_id.id, attendee_id)
+            ]
+            values.update(partner_ids=[attendee_id] + others, email_to="")
+        return res
+
+    def partner_data_update(self, data):
+        reg_data = {k: v for k, v in data.items() if k in ["name", "email", "phone"]}
+        if reg_data:
+            # Only update registration data if this event is not old
+            registrations = self.filtered(
+                lambda x: x.event_id.date_end >= fields.Datetime.now()
+            )
+            registrations.write(reg_data)
+
+    @api.onchange("attendee_partner_id", "partner_id")
+    def _onchange_partner_id(self):
+        if self.attendee_partner_id:
+            if not self.partner_id:
+                self.partner_id = self.attendee_partner_id
+            get_attendee_partner_address = {
+                "get_attendee_partner_address": self.attendee_partner_id,
+            }
+            registrations = self.with_context(**get_attendee_partner_address)
+            for registration in registrations:
+                if registration.partner_id:
+                    vals = registration._synchronize_partner_values(
+                        registration.partner_id
+                    )
+                    registration.update(vals)
+        return {}

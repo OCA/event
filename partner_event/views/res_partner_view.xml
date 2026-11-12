@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2016 Tecnativa S.L. - Vicent Cubells
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+    <record id="act_partner_registration" model="ir.actions.act_window">
+        <field name="res_model">event.registration</field>
+        <field name="name">Registrations</field>
+        <field name="view_mode">list,form,calendar,graph</field>
+        <field name="domain">[("attendee_partner_id", "child_of", active_ids)]</field>
+        <field
+            name="context"
+        >{'search_default_attendee_partner_id': active_id, 'default_attendee_partner_id': active_id, 'search_default_expected': True}</field>
+    </record>
+    <record id="view_partner_form_registrations" model="ir.ui.view">
+        <field name="name">Partner Form with registrations</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="event.res_partner_view_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_event_view']" position="attributes">
+                <attribute
+                    name="help"
+                >Count events with registrations booked by this contact or one of its child contacts.</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_event_view']" position="before">
+                <button
+                    name="%(partner_event.act_partner_registration)d"
+                    type="action"
+                    class="oe_stat_button oe_inline"
+                    groups="event.group_event_user"
+                    help="Count the contact's non-cancelled event registrations as attendee, regardless of who made the reservation."
+                    icon="badge"
+                >
+                    <field name="registration_count" widget="statinfo" />
+                </button>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_res_partner_filter" model="ir.ui.view">
+        <field name="name">res.partner.select</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter" />
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field
+                    name="event_registration_ids"
+                    string="Linked events"
+                    filter_domain="[('event_registration_ids.event_id', 'ilike', self)]"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>

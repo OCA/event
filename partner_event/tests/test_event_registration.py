@@ -1,0 +1,295 @@
+# Copyright 2014 Tecnativa S.L. - Pedro M. Baeza
+# Copyright 2015 Tecnativa S.L. - Javier Iniesta
+# Copyright 2016 Tecnativa S.L. - Antonio Espinosa
+# Copyright 2016 Tecnativa S.L. - Vicent Cubells
+# Copyright 2017 Tecnativa - David Vidal
+# Copyright 2025 Tecnativa - Víctor Martínez
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+
+from datetime import timedelta
+from unittest.mock import patch
+
+from psycopg2 import IntegrityError
+
+from odoo import fields
+from odoo.tools import mute_logger
+
+from odoo.addons.base.tests.common import BaseCommon
+
+
+class TestEventRegistration(BaseCommon):
+    _test_user_groups = ("base.group_system", "event.group_event_manager")
+
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.event_0 = cls.env["event.event"].create(
+            {
+                "name": "Test event",
+                "date_begin": fields.Datetime.now(),
+                "date_end": fields.Datetime.now(),
+                "seats_limited": True,
+                "seats_max": "5",
+            }
+        )
+        cls.event_0.create_partner = True
+        registration_model = cls.env["event.registration"].with_context(
+            registration_force_draft=True
+        )
+        partner_model = cls.env["res.partner"]
+        cls.partner_01 = partner_model.create(
+            {
+                "name": "Test Partner 01",
+                "email": "email01@test.com",
+                "phone": "254728911",
+            }
+        )
+        cls.registration_01 = registration_model.create(
+            {"email": "email01@test.com", "event_id": cls.event_0.id}
+        )
+        cls.registration_02 = registration_model.create(
+            {
+                "email": "email02@test.com",
+                "event_id": cls.event_0.id,
+                "name": "Test Registration 02",
+                "phone": "254728911",
+            }
+        )
+
+    def test_create(self):
+        self.assertEqual(self.partner_01.name, self.registration_01.name)
+        self.assertEqual(self.partner_01.email, self.registration_01.email)
+        self.assertEqual(self.partner_01.phone, self.registration_01.phone)
+        partner_02 = self.registration_02.attendee_partner_id
+        self.assertEqual(partner_02.name, self.registration_02.name)
+        self.assertEqual(partner_02.email, self.registration_02.email)
+        self.assertEqual(partner_02.phone, self.registration_02.phone)
+
+    def test_count_registrations(self):
+        event_1 = self.event_0.copy()
+        self.registration_01.state = "draft"
+        self.registration_02.state = "draft"
+        self.assertEqual(self.partner_01.registration_count, 0)
+        self.registration_01.state = "open"
+        self.assertEqual(self.partner_01.registration_count, 1)
+        self.registration_02.state = "open"
+        self.registration_02.attendee_partner_id = self.partner_01
+        self.registration_02.event_id = event_1
+        self.assertEqual(self.partner_01.registration_count, 2)
+        self.registration_01.state = "cancel"
+        self.assertEqual(self.partner_01.registration_count, 1)
+        self.registration_02.state = "done"
+        self.assertEqual(self.partner_01.registration_count, 1)
+
+    def test_count_registrations_of_a_new_partner(self):
+        """A partner that is not saved yet has no registrations and no domain error."""
+        new_partner = self.env["res.partner"].new({"name": "Unsaved partner"})
+        with self.assertNoLogs("odoo.domains", level="WARNING"):
+            self.assertEqual(new_partner.registration_count, 0)
+
+    def test_count_registrations_of_an_edited_partner(self):
+        """A partner edited in a form counts the registrations of the saved one."""
+        self.registration_01.state = "open"
+        edited_partner = self.env["res.partner"].new(
+            {"name": "Edited name"}, origin=self.partner_01
+        )
+        with self.assertNoLogs("odoo.domains", level="WARNING"):
+            self.assertEqual(edited_partner.registration_count, 1)
+
+    def test_button_register(self):
+        event_1 = self.event_0.copy()
+        wizard = self.env["res.partner.register.event"].create({"event": event_1.id})
+        active_ids = [self.partner_01.id, self.registration_02.attendee_partner_id.id]
+        wizard.with_context(active_ids=active_ids).button_register()
+
+    def test_data_update(self):
+        event_2 = self.event_0.copy()
+        self.yesterday = fields.Datetime.now() - timedelta(days=1)
+        self.tomorrow = fields.Datetime.now() + timedelta(days=1)
+        self.last_month = fields.Datetime.now() - timedelta(days=30)
+        # Set an old event
+        event_2.write({"date_begin": self.last_month})
+        event_2.write({"date_end": self.yesterday})
+        self.registration_02.event_id = event_2
+        self.registration_02.attendee_partner_id = self.partner_01
+        # Update partner for an old event
+        self.partner_01.write({"email": "new@test.com"})
+        self.assertNotEqual(event_2.registration_ids.email, "new@test.com")
+        # Update partner for a current event
+        event_2.write({"date_end": self.tomorrow})
+        self.partner_01.write({"email": "new@test.com"})
+        self.assertEqual(event_2.registration_ids.email, "new@test.com")
+
+    @mute_logger("odoo.sql_db", "odoo.models.unlink")
+    def test_delete_registered_partner(self):
+        # We can't delete a partner with registrations
+        with self.assertRaises(IntegrityError):
+            self.partner_01.unlink()
+        # Create a brand new partner and delete it
+        partner3 = self.env["res.partner"].create({"name": "unregistered partner"})
+        partner3.unlink()
+        self.assertFalse(partner3.exists())
+
+    @mute_logger("odoo.models.unlink")
+    def test_action_merge(self):
+        partner_1 = self.env["res.partner"].create(
+            {"name": "Merge Partner 1", "email": "merge1@test.com"}
+        )
+        partner_2 = self.env["res.partner"].create(
+            {"name": "Merge Partner 2", "email": "merge2@test.com"}
+        )
+        self.registration_01.partner_id = partner_1
+        self.registration_02.partner_id = partner_2
+        partners = partner_1 + partner_2
+        wizard = (
+            self.env["base.partner.merge.automatic.wizard"]
+            .with_context(active_ids=partners.ids, active_model=partners._name)
+            .create({})
+        )
+        self.assertEqual(wizard.dst_partner_id, partner_2)
+        wizard.action_merge()
+        self.assertEqual(self.registration_01.partner_id, partner_2)
+        self.assertEqual(self.registration_02.partner_id, partner_2)
+
+    def test_attendee_with_partner_id_email_gets_own_partner(self):
+        """When attendee uses partner_id email as fallback, a new partner is created
+        instead of matching partner_id."""
+        reg = self.env["event.registration"].create(
+            {
+                "event_id": self.event_0.id,
+                "partner_id": self.partner_01.id,
+                "name": "Child Attendee with partner email",
+                "email": self.partner_01.email,
+            }
+        )
+        self.assertNotEqual(reg.attendee_partner_id, self.partner_01)
+        self.assertEqual(
+            reg.attendee_partner_id.name, "Child Attendee with partner email"
+        )
+
+    def test_attendee_without_email_gets_own_partner(self):
+        """When attendee has no email, a partner is still created if create_partner
+        is checked."""
+        reg = self.env["event.registration"].create(
+            {
+                "event_id": self.event_0.id,
+                "partner_id": self.partner_01.id,
+                "name": "Child No Email",
+            }
+        )
+        self.assertEqual(reg.attendee_partner_id.name, "Child No Email")
+
+    def test_attendee_with_own_email_still_gets_matched(self):
+        """When attendee has their own email, normal matching still occurs."""
+        reg = self.env["event.registration"].create(
+            {
+                "event_id": self.event_0.id,
+                "partner_id": self.partner_01.id,
+                "name": "Child Attendee with email",
+                "email": self.registration_02.attendee_partner_id.email,
+            }
+        )
+        self.assertEqual(
+            reg.attendee_partner_id, self.registration_02.attendee_partner_id
+        )
+
+    def test_write_without_email_preserves_attendee_partner(self):
+        """Writing to a registration without email must not clear
+        attendee_partner_id."""
+        reg = self.env["event.registration"].create(
+            {
+                "event_id": self.event_0.id,
+                "email": self.registration_02.attendee_partner_id.email,
+            }
+        )
+        existing_attendee = reg.attendee_partner_id
+        self.assertTrue(existing_attendee)
+        reg.write({"name": "Updated Name"})
+        self.assertEqual(reg.attendee_partner_id, existing_attendee)
+
+    def test_message_get_default_recipients(self):
+        recipients = self.registration_02._message_get_default_recipients()
+        self.assertEqual(
+            recipients[self.registration_02.id]["partner_ids"],
+            self.registration_02.attendee_partner_id.ids,
+        )
+        self.assertFalse(recipients[self.registration_02.id]["email_to"])
+        # Without an attendee partner the generic heuristics still apply
+        event = self.env["event.event"].create(
+            {
+                "name": "Test event no partner",
+                "date_begin": fields.Datetime.now(),
+                "date_end": fields.Datetime.now(),
+            }
+        )
+        registration = (
+            self.env["event.registration"]
+            .with_context(registration_force_draft=True)
+            .create(
+                {
+                    "email": "no.partner@test.com",
+                    "name": "No Partner",
+                    "event_id": event.id,
+                }
+            )
+        )
+        self.assertFalse(registration.attendee_partner_id)
+        recipient = registration._message_get_default_recipients()[registration.id]
+        self.assertFalse(recipient["partner_ids"])
+        # mail may format the address ('"No Partner" <no.partner@test.com>');
+        # the mailbox is what matters
+        self.assertIn("no.partner@test.com", recipient["email_to"])
+
+    def test_message_get_default_recipients_keeps_extra_partners(self):
+        """Only the booking partner is swapped for the attendee one.
+
+        Another module may contribute extra default recipients through
+        ``_message_add_default_recipients``, and they have to survive the
+        swap. ``email`` is forced to empty because ``event.registration`` sets
+        ``_mail_defaults_to_email``: with an address on the registration the
+        generic heuristics return it instead of any partner, and there would
+        be no extra recipient to preserve.
+        """
+        partner_model = self.env["res.partner"]
+        booking_partner = partner_model.create(
+            {"name": "Booking Partner", "email": "booking@test.com"}
+        )
+        attendee_partner = partner_model.create(
+            {"name": "Attendee Partner", "email": "attendee@test.com"}
+        )
+        extra_partner = partner_model.create(
+            {"name": "Extra Partner", "email": "extra@test.com"}
+        )
+        registration = (
+            self.env["event.registration"]
+            .with_context(registration_force_draft=True)
+            .create(
+                {
+                    "event_id": self.event_0.id,
+                    "name": "Test Registration 03",
+                    "email": False,
+                    "partner_id": booking_partner.id,
+                    "attendee_partner_id": attendee_partner.id,
+                }
+            )
+        )
+        registration_cls = type(registration)
+        add_default_recipients = registration_cls._message_add_default_recipients
+
+        def _message_add_default_recipients(self):
+            found = add_default_recipients(self)
+            for values in found.values():
+                values["partners"] |= extra_partner
+            return found
+
+        with patch.object(
+            registration_cls,
+            "_message_add_default_recipients",
+            _message_add_default_recipients,
+        ):
+            recipients = registration._message_get_default_recipients()
+        partner_ids = recipients[registration.id]["partner_ids"]
+        self.assertNotIn(booking_partner.id, partner_ids)
+        self.assertEqual(
+            sorted(partner_ids), sorted(attendee_partner.ids + extra_partner.ids)
+        )
