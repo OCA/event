@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="accept_legal_input">
+        <div class="form-check mb-2">
+            <input
+                id="accepted_event_legal_terms"
+                class="form-check-input"
+                type="checkbox"
+                t-att-required="event.website_require_legal"
+            />
+            <label
+                t-if="not event.website_description_legal"
+                class="form-check-label"
+                for="accepted_event_legal_terms"
+            >
+                I agree to the <a
+                target="_BLANK"
+                href="/terms"
+            >terms &amp; conditions</a>
+            </label>
+            <label t-else="" class="form-check-label" for="accepted_event_legal_terms">
+                <t t-out="event.website_description_legal" />
+            </label>
+        </div>
+    </template>
+    <template
+        id="registration_attendee_details"
+        inherit_id="website_event.registration_attendee_details"
+    >
+        <xpath expr="//div[hasclass('modal-footer')]" position="before">
+            <div t-if="event.website_require_legal" class="modal-body pb-0">
+                <t t-call="website_event_require_legal.accept_legal_input" />
+            </div>
+        </xpath>
+    </template>
+</odoo>
