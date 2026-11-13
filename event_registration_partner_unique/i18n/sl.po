@@ -1,0 +1,49 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_registration_partner_unique
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-06-26 15:56+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
+"Language-Team: none\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
+
+#. module: event_registration_partner_unique
+#: model:ir.model.fields,help:event_registration_partner_unique.field_event_event__forbid_duplicates
+#: model:ir.model.fields,help:event_registration_partner_unique.field_event_session__forbid_duplicates
+msgid ""
+"Check this to disallow duplicate attendees in this event's registrations"
+msgstr ""
+"Označite to polje, če želite onemogočiti podvojene udeležence pri prijavah "
+"na ta dogodek"
+
+#. module: event_registration_partner_unique
+#. odoo-python
+#: code:addons/event_registration_partner_unique/models/event.py:0
+msgid "Duplicated partners found in event {0}: {1}."
+msgstr "V dogodku {0} so bili najdeni podvojeni partnerji: {1}."
+
+#. module: event_registration_partner_unique
+#: model:ir.model,name:event_registration_partner_unique.model_event_event
+msgid "Event"
+msgstr "Dogodek"
+
+#. module: event_registration_partner_unique
+#: model:ir.model,name:event_registration_partner_unique.model_event_registration
+msgid "Event Registration"
+msgstr "Prijava na dogodek"
+
+#. module: event_registration_partner_unique
+#: model:ir.model.fields,field_description:event_registration_partner_unique.field_event_event__forbid_duplicates
+#: model:ir.model.fields,field_description:event_registration_partner_unique.field_event_session__forbid_duplicates
+msgid "Forbid Duplicates"
+msgstr "Prepoved podvajanja"
