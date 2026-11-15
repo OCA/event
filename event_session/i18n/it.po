@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-09-03 09:42+0000\n"
+"PO-Revision-Date: 2026-11-15 13:46+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,22 +14,22 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.4\n"
+"X-Generator: Weblate 2026.11.2\n"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_event__cancel_state
 msgid " # No of Cancelled Registrations"
-msgstr " N. di registrazioni annullate"
+msgstr " N° di registrazioni annullate"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_event__confirm_state
 msgid " # No of Confirmed Registrations"
-msgstr " N. di registrazioni confermate"
+msgstr " N° di registrazioni confermate"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_event__draft_state
 msgid " # No of Draft Registrations"
-msgstr " N. di registrazioni in bozza"
+msgstr " N° di registrazioni in bozza"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__active
