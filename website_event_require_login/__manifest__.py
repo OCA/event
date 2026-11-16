@@ -4,7 +4,7 @@
 {
     "name": "Website Event Require Login",
     "version": "18.0.1.0.0",
-    "author": "Tecnativa, " "Odoo Community Association (OCA), " "TechnoLibre",
+    "author": "Tecnativa, Odoo Community Association (OCA), TechnoLibre",
     "website": "https://github.com/OCA/event",
     "category": "Event",
     "depends": ["website_event"],
