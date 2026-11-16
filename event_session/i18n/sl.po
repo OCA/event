@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-06-26 15:49+0000\n"
+"PO-Revision-Date: 2026-11-16 13:46+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 5.15.2\n"
+"X-Generator: Weblate 2026.11.2\n"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__mail_count_done
@@ -1924,7 +1924,7 @@ msgstr "Mest na voljo"
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_tree
 msgid "Available seats not expected"
-msgstr ""
+msgstr "Nepričakovano število prostih mest"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__badge_image
@@ -2254,7 +2254,7 @@ msgstr ""
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_tree
 msgid "Expected Attendees"
-msgstr ""
+msgstr "Pričakovani udeleženci"
 
 #. module: event_session
 #: model:ir.model.fields.selection,name:event_session.selection__wizard_event_session__byday__1
@@ -2645,7 +2645,7 @@ msgstr "Za ta termin ni več razpoložljivih mest."
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_tree
 msgid "Not allocated seats"
-msgstr ""
+msgstr "Nedodeljena mesta"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__note
@@ -2660,7 +2660,7 @@ msgstr "Število ukrepov"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__seats_expected
 msgid "Number of Expected Attendees"
-msgstr ""
+msgstr "Število pričakovanih udeležencev"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__seats_used
@@ -2690,7 +2690,7 @@ msgstr "Število sporočil, ki niso bila pravilno dostavljena"
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__seats_available_unexpected
 msgid "Number of seats non allocated by an attendee of any kind"
-msgstr ""
+msgstr "Število mest, ki niso dodeljena nobenemu udeležencu ne glede na vrsto"
 
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_kanban
@@ -3143,12 +3143,12 @@ msgstr "Tip izjeme pri aktivnosti na zapisu."
 #. module: event_session
 #: model_terms:ir.ui.view,arch_db:event_session.view_event_session_tree
 msgid "Unconfirmed Registrations"
-msgstr ""
+msgstr "Nepotrjene prijave"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_session__seats_unconfirmed
 msgid "Unconfirmed Seat Reservations"
-msgstr ""
+msgstr "Nepotrjene rezervacije mest"
 
 #. module: event_session
 #: model:ir.model.fields,field_description:event_session.field_event_mail_session__interval_unit
