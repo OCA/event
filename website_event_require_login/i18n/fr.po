@@ -1,0 +1,59 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_event_require_login
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-07-03 16:47+0000\n"
+"Last-Translator: Rémi <remi@le-filament.com>\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: website_event_require_login
+#: model_terms:ir.ui.view,arch_db:website_event_require_login.modal_attendees_registration_login_required
+msgid "Close"
+msgstr "Fermer"
+
+#. module: website_event_require_login
+#: model:ir.model,name:website_event_require_login.model_event_event
+msgid "Event"
+msgstr "Évènement"
+
+#. module: website_event_require_login
+#: model:ir.model.fields,help:website_event_require_login.field_event_event__website_require_login
+msgid ""
+"If set, a user must be logged in to be able to register attendees from the "
+"website."
+msgstr ""
+"Si coché, l'utilisateur doit être connecté pour inscrire des participant "
+"depuis le site web."
+
+#. module: website_event_require_login
+#: model_terms:ir.ui.view,arch_db:website_event_require_login.modal_attendees_registration_login_required
+msgid "Login"
+msgstr "Se connecter"
+
+#. module: website_event_require_login
+#: model_terms:ir.ui.view,arch_db:website_event_require_login.modal_attendees_registration_login_required
+msgid "Login required"
+msgstr "Connexion requise"
+
+#. module: website_event_require_login
+#: model:ir.model.fields,field_description:website_event_require_login.field_event_event__website_require_login
+msgid "Require login for website registrations"
+msgstr "Connexion requise pour les inscriptions sur le site web"
+
+#. module: website_event_require_login
+#: model_terms:ir.ui.view,arch_db:website_event_require_login.modal_attendees_registration_login_required
+msgid "You must be logged in to register for this event."
+msgstr "Vous devez être connecté pour vous inscrire à cet évènement."
+
+#~ msgid "&amp;times;"
+#~ msgstr "&amp ; fois ;"
