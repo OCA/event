@@ -1,0 +1,1 @@
+from . import test_event_registration_mail_list_wizard
