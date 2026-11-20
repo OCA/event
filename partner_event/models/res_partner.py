@@ -23,9 +23,11 @@ class ResPartner(models.Model):
     @api.depends("event_registration_ids", "event_registration_ids.state")
     def _compute_registration_count(self):
         for partner in self:
+            # `ids` has the id of the saved partner, and none for a partner that
+            # is still being created in a form, whose NewId a domain does not support.
             partner.registration_count = self.env["event.registration"].search_count(
                 [
-                    ("attendee_partner_id", "child_of", partner.id),
+                    ("attendee_partner_id", "child_of", partner.ids),
                     ("state", "not in", ("cancel", "draft")),
                 ]
             )
