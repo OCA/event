@@ -72,6 +72,19 @@ class TestEventRegistration(common.TransactionCase):
         self.partner_01.invalidate_recordset()
         self.assertEqual(self.partner_01.registration_count, 2)
 
+    def test_count_registrations_of_a_new_partner(self):
+        """A partner that is not saved yet has no registrations and no error."""
+        new_partner = self.env["res.partner"].new({"name": "Unsaved partner"})
+        self.assertEqual(new_partner.registration_count, 0)
+
+    def test_count_registrations_of_an_edited_partner(self):
+        """A partner edited in a form counts the registrations of the saved one."""
+        self.registration_01.state = "open"
+        edited_partner = self.env["res.partner"].new(
+            {"name": "Edited name"}, origin=self.partner_01
+        )
+        self.assertEqual(edited_partner.registration_count, 1)
+
     def test_button_register(self):
         event_1 = self.event_0.copy()
         wizard = self.env["res.partner.register.event"].create({"event": event_1.id})
