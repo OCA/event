@@ -1,8 +1,9 @@
 [project]
 name = "odoo-addons-oca-event"
-version = "19.0.20260825.0"
+version = "19.0.20261123.0"
 dependencies = [
     "odoo-addon-crm_event==19.0.*",
+    "odoo-addon-event_contact==19.0.*",
     "odoo-addon-event_email_reminder==19.0.*",
     "odoo-addon-event_min_seat==19.0.*",
     "odoo-addon-event_registration_cancel_reason==19.0.*",
