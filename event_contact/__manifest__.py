@@ -5,7 +5,7 @@
 
 {
     "name": "Event Contacts",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "summary": "Add contacts to event and event type",
     "author": "OpenSynergy Indonesia, Tecnativa, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/event",
