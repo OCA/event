@@ -1,0 +1,11 @@
+# Copyright 2024- Le Filament (https://le-filament.com)
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
+
+from odoo import fields, models
+
+
+class Event(models.Model):
+    _inherit = "event.event"
+
+    is_external = fields.Boolean("External Event")
+    external_link = fields.Char(help="External link for registering on this event")
