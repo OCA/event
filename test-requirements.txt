@@ -1,0 +1,1 @@
+odoo-addon-partner_event_birthdate @ git+https://github.com/OCA/event.git@refs/pull/511/head#subdirectory=partner_event_birthdate
