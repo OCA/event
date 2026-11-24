@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Dixmit
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <template
+        id="event_description_full"
+        inherit_id="website_event.event_description_full"
+    >
+        <xpath
+            expr="//div[@id='o_wevent_event_main_col']//div[@id='o_wevent_event_main_cover_content']"
+            position="before"
+        >
+            <t t-if="event.website_ribbon_id">
+                <div
+                    t-att-class="event.website_ribbon_id._get_css_classes()"
+                    t-att-style="event.website_ribbon_id._get_style()"
+                >
+                    <t t-esc="event.website_ribbon_id.name" />
+                </div>
+            </t>
+        </xpath>
+    </template>
+    <template id="events_list" inherit_id="website_event.events_list">
+        <xpath expr="//t[@t-call='website.record_cover']/t" position="before">
+            <t t-if="event.website_ribbon_id">
+                <div
+                    t-att-class="event.website_ribbon_id._get_css_classes()"
+                    t-att-style="event.website_ribbon_id._get_style()"
+                >
+                    <t t-esc="event.website_ribbon_id.name" />
+                </div>
+            </t>
+        </xpath>
+    </template>
+</odoo>
