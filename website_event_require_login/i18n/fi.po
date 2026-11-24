@@ -1,0 +1,57 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_event_require_login
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2025-09-02 11:42+0000\n"
+"Last-Translator: Timo Talvitie <timo.j.talvitie@gmail.com>\n"
+"Language-Team: none\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.4\n"
+
+#. module: website_event_require_login
+#: model_terms:ir.ui.view,arch_db:website_event_require_login.modal_attendees_registration_login_required
+msgid "Close"
+msgstr "Sulje"
+
+#. module: website_event_require_login
+#: model:ir.model,name:website_event_require_login.model_event_event
+msgid "Event"
+msgstr "Tapahtuma"
+
+#. module: website_event_require_login
+#: model:ir.model.fields,help:website_event_require_login.field_event_event__website_require_login
+msgid ""
+"If set, a user must be logged in to be able to register attendees from the "
+"website."
+msgstr ""
+"Jos asetettu, käyttäjän pitää olla kirjautunut sisään voidakseen ilmoittaa "
+"tapahtumaan osallistujia verkkosivulla."
+
+#. module: website_event_require_login
+#: model_terms:ir.ui.view,arch_db:website_event_require_login.modal_attendees_registration_login_required
+msgid "Login"
+msgstr "Kirjaudu sisään"
+
+#. module: website_event_require_login
+#: model_terms:ir.ui.view,arch_db:website_event_require_login.modal_attendees_registration_login_required
+msgid "Login required"
+msgstr "Kirjautuminen vaaditaan"
+
+#. module: website_event_require_login
+#: model:ir.model.fields,field_description:website_event_require_login.field_event_event__website_require_login
+msgid "Require login for website registrations"
+msgstr "Vaadi kirjautuminen verkkosivuilmoittautumisille"
+
+#. module: website_event_require_login
+#: model_terms:ir.ui.view,arch_db:website_event_require_login.modal_attendees_registration_login_required
+msgid "You must be logged in to register for this event."
+msgstr ""
+"Sinun pitää olla kirjautunut sisään rekisteröityäksesi tähän tapahtumaan."

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="modal_attendees_registration_login_required" name="Login Required">
+        <!-- Odoo 19: website_event inserts the HTML returned by
+             /registration/new into the body and starts its public
+             interaction "website_event.modal_registration" on
+             #modal_attendees_registration, which shows the modal and
+             handles .btn-close / .js_goto_event. We reuse that id so no
+             JS is needed. -->
+        <div
+            id="modal_attendees_registration"
+            class="modal fade o_wevent_require_login_modal"
+            tabindex="-1"
+            role="dialog"
+        >
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header align-items-center">
+                        <h4 class="modal-title">Login required</h4>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-hidden="true"
+                            aria-label="Close"
+                        />
+                    </div>
+                    <div class="modal-body border-bottom">
+                        <p>
+                            You must be logged in to register for this event.
+                        </p>
+                    </div>
+                    <div class="modal-footer border-0 justify-content-between">
+                        <a
+                            t-attf-href="/web/login?redirect=#{event_url}#registration_form"
+                            class="btn btn-primary"
+                        >Login</a>
+                        <button
+                            type="button"
+                            class="btn btn-secondary js_goto_event"
+                            data-bs-dismiss="modal"
+                        >Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</odoo>
