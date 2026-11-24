@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Riccardo Fiore
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_event_form" model="ir.ui.view">
+        <field name="name">event.event.form.private</field>
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event.view_event_form" />
+        <field name="arch" type="xml">
+            <!-- "Private Access" group above the Tickets notebook: the toggle,
+                 the password and a Generate button all sit together so the
+                 password is set right where it is switched on. -->
+            <xpath expr="//notebook" position="before">
+                <group name="event_private" string="Private Access">
+                    <field name="is_private" widget="boolean_toggle" />
+                    <label for="access_password" invisible="not is_private" />
+                    <!-- No view-level ``required``: it would flag the field red
+                         in the instant between toggling Private on and the
+                         onchange seeding the password (or on a premature save).
+                         The "private ⇒ has password" invariant is enforced in
+                         the model instead, so the field is always populated. -->
+                    <div class="o_row" invisible="not is_private">
+                        <field
+                            name="access_password"
+                            nolabel="1"
+                            placeholder="e.g. NIGHT-ONLY password"
+                        />
+                        <button
+                            name="action_generate_access_password"
+                            type="object"
+                            string="Generate"
+                            icon="fa-refresh"
+                            class="btn-link"
+                        />
+                    </div>
+                    <field
+                        name="codename"
+                        invisible="not is_private"
+                        placeholder="e.g. Aurora (public hint, not the real name)"
+                    />
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

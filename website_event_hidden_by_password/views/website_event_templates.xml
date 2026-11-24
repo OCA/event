@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Riccardo Fiore
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <!-- ============================================================
+         Events list: REDACT private events.
+
+         A private event must not leak any of its details to visitors,
+         so for non-managers (event.is_access_locked) the whole card is
+         replaced by a redacted stand-in: no name, date, location or
+         image — just a lock and "Private". The card still links to the
+         event, through the slug-free /event/<id>/private gate so the
+         name never appears in the URL either. Managers keep the normal
+         card so they can navigate and manage.
+         ============================================================ -->
+    <template
+        id="events_list_private"
+        inherit_id="website_event.events_list"
+        name="Event List: redact private events"
+    >
+        <!-- hide the normal card from non-managers -->
+        <xpath expr="//a[hasclass('text-reset')]" position="attributes">
+            <attribute name="t-if">not event.is_access_locked</attribute>
+        </xpath>
+        <!-- redacted stand-in -->
+        <xpath expr="//a[hasclass('text-reset')]" position="after">
+            <a
+                t-if="event.is_access_locked"
+                t-attf-href="/event/#{event.id}/private"
+                class="text-decoration-none text-reset o_wevent_event_private_link"
+            >
+                <article
+                    class="h-100 o_wevent_event_redacted"
+                    aria-label="Private event"
+                >
+                    <i
+                        class="fa fa-lock o_wevent_event_redacted_icon"
+                        role="img"
+                        aria-label="Locked"
+                    />
+                    <span class="o_wevent_event_redacted_label">Private</span>
+                    <span
+                        t-if="event.codename"
+                        class="o_wevent_event_redacted_codename"
+                    >{<t t-out="event.codename" />}</span>
+                </article>
+            </a>
+        </xpath>
+    </template>
+
+    <!-- ============================================================
+         The password wall. Deliberately info-free: no event name, no
+         description, just a lock, a password field and an unlock
+         button. The form posts to the slug-free unlock route so the
+         name is never exposed. A downstream theme can reskin this.
+         ============================================================ -->
+    <template id="event_private_gate" name="Private Event: password wall">
+        <t t-call="website.layout">
+            <div id="wrap" class="o_wevent_event_private_gate">
+                <div class="container py-5">
+                    <div class="o_wevent_private_panel">
+                        <div class="o_wevent_private_panel__inner text-center">
+                            <i
+                                class="fa fa-lock fa-3x mb-3 o_wevent_private_lock"
+                                role="img"
+                                aria-label="Locked"
+                            />
+                            <p class="o_wevent_private_msg">This event is private.</p>
+                            <div
+                                t-if="password_error"
+                                class="alert alert-danger o_wevent_private_error"
+                                role="alert"
+                            >
+                                Incorrect password. Please try again.
+                            </div>
+                            <form
+                                t-attf-action="/event/#{event.id}/unlock"
+                                method="post"
+                                class="o_wevent_private_form"
+                            >
+                                <input
+                                    type="hidden"
+                                    name="csrf_token"
+                                    t-att-value="request.csrf_token()"
+                                />
+                                <input
+                                    type="hidden"
+                                    name="redirect"
+                                    t-att-value="redirect"
+                                />
+                                <input
+                                    type="password"
+                                    name="password"
+                                    class="form-control o_wevent_private_input"
+                                    autocomplete="off"
+                                    autofocus="autofocus"
+                                    required="required"
+                                    aria-label="Access password"
+                                    placeholder="Password"
+                                />
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary o_wevent_private_btn"
+                                >
+                                    <i class="fa fa-unlock-alt me-2" />Unlock
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
