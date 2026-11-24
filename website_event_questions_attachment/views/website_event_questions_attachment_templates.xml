@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 INVITU (<https://www.invitu.com>)
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <!-- Add enctype to the registration form to support file uploads -->
+    <template
+        id="registration_attendee_details_enctype"
+        inherit_id="website_event.registration_attendee_details"
+    >
+        <xpath expr="//form" position="attributes">
+            <attribute name="enctype">multipart/form-data</attribute>
+        </xpath>
+    </template>
+
+    <!-- File input with size info for attachment question type -->
+    <template
+        id="registration_event_question_attachment"
+        inherit_id="website_event.registration_event_question"
+    >
+        <xpath expr="//t[@t-else='']" position="before">
+            <t t-elif="question.question_type == 'attachment'">
+                <input
+                    type="file"
+                    class="form-control o_wevent_attachment_input"
+                    t-attf-name="#{registration_index}-attachment-#{question.id}"
+                    t-att-required="question.is_mandatory_answer"
+                    t-att-data-max-size="max_attachment_size or 0"
+                />
+                <small t-if="max_attachment_size" class="text-muted">
+                    Max. <t t-out="max_attachment_size" /> MB
+                </small>
+            </t>
+        </xpath>
+    </template>
+</odoo>
