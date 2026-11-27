@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <!-- This template is called whenever the "Show contact details" option is checked on the website (Customize > Show Contact Details) -->
     <template
