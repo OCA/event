@@ -1,4 +1,4 @@
-<?xml version="1.0" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <record id="action_event_registration_mail_list" model="ir.actions.act_window">
         <field name="name">Add to mailing list</field>

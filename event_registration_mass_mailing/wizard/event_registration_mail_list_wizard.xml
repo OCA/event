@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <record model="ir.ui.view" id="event_registration_mail_list_wizard_form">
+    <record id="event_registration_mail_list_wizard_form" model="ir.ui.view">
         <field name="model">event.registration.mail.list.wizard</field>
         <field name="arch" type="xml">
             <form string="Create contact mailing list">

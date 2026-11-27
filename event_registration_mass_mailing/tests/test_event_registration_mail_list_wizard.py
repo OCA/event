@@ -46,6 +46,6 @@ class TestEventRegistrationMailListWizard(TransactionCase):
             {"mail_list": self.mail_list.id}
         )
         wizard.with_context(
-            **{"active_ids": [self.registration_01.id, self.registration_02.id]}
+            active_ids=[self.registration_01.id, self.registration_02.id]
         ).add_to_mail_list()
         self.assertEqual(len(self.mail_list.contact_ids), 2)
