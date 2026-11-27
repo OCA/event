@@ -13,7 +13,7 @@
                 <section class="s_company_team pb48">
                     <div class="container">
                         <div class="row s_nb_column_fixed">
-                            <t t-foreach="event.contact_ids" t-as="contact">
+                            <t t-foreach="event.sudo().contact_ids" t-as="contact">
                                 <div class="col-lg-6 pt24 pb24">
                                     <div class="row s_col_no_resize s_col_no_bgcolor">
                                         <!-- Hidden on mobile view -->
