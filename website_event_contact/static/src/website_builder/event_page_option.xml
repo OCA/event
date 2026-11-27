@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+<t t-inherit="website_event.EventMainPageOption" t-inherit-mode="extension">
+        <xpath expr="//BuilderContext" position="after">
+            <BuilderRow label.translate="Show Contact">
+                <BuilderCheckbox
+                    action="'websiteConfig'"
+                    actionParam="{views: ['website_event_contact.website_event_contact_details']}"
+                />
+            </BuilderRow>
+        </xpath>
+    </t>
+
+</templates>
