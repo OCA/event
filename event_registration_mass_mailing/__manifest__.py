@@ -5,10 +5,10 @@
 {
     "name": "Put event registrations emails into mailing lists",
     "category": "Marketing",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "depends": ["event", "mass_mailing"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "views/event_registration.xml",
         "wizard/event_registration_mail_list_wizard.xml",
     ],

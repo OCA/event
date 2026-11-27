@@ -2,10 +2,15 @@
 # Copyright 2020 Tecnativa - David Vidal
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 from odoo import fields
-from odoo.tests.common import TransactionCase
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestEventRegistrationMailListWizard(TransactionCase):
+class TestEventRegistrationMailListWizard(BaseCommon):
+    # Keep running as the superuser, as TransactionCase did: the test checks the
+    # wizard logic, not access rights.
+    _test_user_groups = None
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()

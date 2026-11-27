@@ -1,7 +1,7 @@
 # Copyright 2016 Antiun Ingenieria S.L. - Javier Iniesta
 # Copyright 2020 Tecnativa - David Vidal
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-from odoo import fields, models
+from odoo import Command, fields, models
 
 
 class EventRegistrationMailListWizard(models.TransientModel):
@@ -22,5 +22,5 @@ class EventRegistrationMailListWizard(models.TransientModel):
             ]
         )
         self.mail_list.contact_ids = [
-            (0, 0, {"email": r.email, "name": r.name}) for r in registrations
+            Command.create({"email": r.email, "name": r.name}) for r in registrations
         ]

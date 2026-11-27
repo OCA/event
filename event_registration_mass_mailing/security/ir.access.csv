@@ -1,0 +1,2 @@
+id,name,model_id,group_id/id,operation,domain
+access_event_registration_mail_list_wizard_mass_mailing_user,event.registration.mail.list.wizard.mass_mailing_user,event.registration.mail.list.wizard,mass_mailing.group_mass_mailing_user,crud,
